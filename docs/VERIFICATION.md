@@ -1,5 +1,11 @@
 # Verification report
 
+## Doc Combine production rollout — 2026-09-27
+
+Root PR [#40](https://github.com/Takazudo/zudo-diagram-gen/pull/40) merged as `b0327f343d08ef22af19eee94a72bbdb17722a4c`, and its [main push CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36279684938) passed. The first [production workflow](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36279749754) built and deployed that commit as Worker version `ac2489e2-809a-419d-bda7-d04aeabdf661`, but its immediate smoke failed with `ENOTFOUND` while the new custom-domain DNS record was appearing; the legacy-host smoke step was skipped. The new host resolved and served the site shortly afterward, and the old host returned the requested 301 mappings.
+
+Follow-up PR [#41](https://github.com/Takazudo/zudo-diagram-gen/pull/41) made the smoke command retry temporary DNS lookup failures and check asset paths referenced by live HTML. It merged as `0307d53f300366fad7458f69f4d0f916357cd08d`. [Push CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36280601527) and the [production deploy workflow](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36280671054) both passed on that SHA. The deployment produced version `42aa102c-a41b-4782-97cd-cd910fb6b156`; the new-host and legacy-host smoke steps passed. A separate manual smoke returned HTTP 200 for the requested new pages, JSON, CSS, SVG, and JavaScript; HTTP 404 for an unknown page; and HTTP 301 for all four tested legacy paths. The live site is [zudo-diagram-gen-doc.zudolab.dev](https://zudo-diagram-gen-doc.zudolab.dev/). The embedded-workbench browser proof below ran against the built preview before merge; no separate post-deploy browser pass is claimed.
+
 ## Doc Combine release candidate — 2026-09-27
 
 The site restructure is on `base/doc-combine` at `37d5dd9a466b73759a4159f0dd68dd9d09c89543`, in [root PR #40](https://github.com/Takazudo/zudo-diagram-gen/pull/40) against `main`. The root is one zudo-doc site, with the workbench embedded through chrome bindings. The route map puts tones at `/docs/tones/`, examples at `/docs/examples/` and `/docs/examples/<slug>/`, the workbench at `/docs/workbench/`, and the changelog at `/docs/changelog/`; other `/docs/**` paths remain. The older top-level route observations below are historical. This section records pre-merge evidence, not a production deployment.
@@ -10,7 +16,7 @@ On that commit, a locally heavy-guarded `pnpm build` reported `verdict=PASS` and
 
 Local `pack:local` produced both archives. A fresh consumer outside this workspace installed them, resolved the engine from its own `node_modules`, checked empty and populated sessions, exported standalone HTML, and exported light and dark SVGs byte-for-byte equal to their source files. The packed consumer build and Chromium check also passed in PR CI.
 
-Before production attachment, Cloudflare's Worker custom-domain list had no entry for `zudo-diagram-gen-doc.zudolab.dev`, the zone had no Worker routes, and its authoritative nameserver returned NXDOMAIN for that hostname's A, AAAA, and CNAME records. The DNS-records API returned HTTP 403, so direct record inventory was unavailable. The deployed pre-change Worker version was `c662ee48-849b-4ea2-bf2d-66de66974cd5` for rollback reference. Recheck the hostname immediately before merging; the enabled main-branch deploy workflow will attach the new domain and run both new-host and legacy-host smoke checks after a green main push.
+Before production attachment, Cloudflare's Worker custom-domain list had no entry for `zudo-diagram-gen-doc.zudolab.dev`, the zone had no Worker routes, and its authoritative nameserver returned NXDOMAIN for that hostname's A, AAAA, and CNAME records. The DNS-records API returned HTTP 403, so direct record inventory was unavailable. The deployed pre-change Worker version was `c662ee48-849b-4ea2-bf2d-66de66974cd5` for rollback reference. The hostname was rechecked immediately before merge; the completed rollout is recorded above.
 
 ## Automated deployment — 2026-09-27
 
