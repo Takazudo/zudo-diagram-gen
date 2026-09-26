@@ -105,6 +105,31 @@ test('review JSON round trips and foreign-session imports preserve existing feed
  }finally{await restored.close();}
 });
 
+test('import replaces earlier browser selections and notes with the transferred review',async()=>{
+ const sourceUi=mount();let record;
+ try{
+  sourceUi.click('[data-action="inspect"][data-id="r01-c02"]');
+  sourceUi.value('[data-note="keep"]','Keep candidate two');
+  sourceUi.click('[data-action="shortlist-toggle"][data-id="r01-c02"]');
+  sourceUi.click('[data-action="download-review"]');
+  record=JSON.parse(await sourceUi.downloads.at(-1).blob.text());
+ }finally{await sourceUi.close();}
+ const ui=mount();try{
+  ui.click('[data-action="inspect"][data-id="r01-c01"]');
+  ui.value('[data-note="keep"]','Old browser note');
+  ui.click('[data-action="shortlist-toggle"][data-id="r01-c01"]');
+  ui.click('[data-action="direction"]');
+  await ui.importRecord(record);
+  assert.equal(ui.query('[data-note="keep"]').value,'Keep candidate two');
+  assert.equal(ui.window.document.querySelector('.dg-direction-summary'),null);
+  ui.click('[data-action="download-review"]');
+  const restored=JSON.parse(await ui.downloads.at(-1).blob.text());
+  assert.deepEqual(restored.shortlist.map(item=>item.id),['r01-c02']);
+  assert.deepEqual(restored.records.map(item=>item.id),['r01-c02']);
+  assert.equal(restored.chosenDirection,null);
+ }finally{await ui.close();}
+});
+
 test('a changed candidate invalidates the earlier feedback fingerprint',async()=>{
  const ui=mount();let saved;
  try{ui.click('[data-action="inspect"][data-id="r01-c01"]');ui.value('[data-note="keep"]','Keep this');ui.click('[data-action="direction"]');saved=ui.save();}finally{await ui.close();}

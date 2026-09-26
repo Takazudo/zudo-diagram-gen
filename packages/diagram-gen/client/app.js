@@ -582,9 +582,11 @@
           if (typeof feedback.keep !== "string" || typeof feedback.change !== "string" || !validActions.has(feedback.action)) throw new Error("The selected candidate’s feedback is invalid.");
           importedNotes[review.reviewedCandidate.id] = { fingerprint: review.reviewedCandidate.fingerprint, keep: feedback.keep.slice(0, 20000), change: feedback.change.slice(0, 20000), action: feedback.action, updatedAt: review.exportedAt || null };
         }
-        Object.assign(state.notes, importedNotes);
-        for (const record of review.shortlist) state.shortlist[record.id] = { id: record.id, fingerprint: record.fingerprint };
-        if (review.chosenDirection) state.direction = { id: review.chosenDirection.id, fingerprint: review.chosenDirection.fingerprint };
+        const importedShortlist = Object.create(null);
+        for (const record of review.shortlist) importedShortlist[record.id] = { id: record.id, fingerprint: record.fingerprint };
+        state.notes = importedNotes;
+        state.shortlist = importedShortlist;
+        state.direction = review.chosenDirection ? { id: review.chosenDirection.id, fingerprint: review.chosenDirection.fingerprint } : null;
         if (review.reviewedCandidate) { state.activeId = review.reviewedCandidate.id; state.roundId = byId.get(state.activeId).roundId; state.view = "inspect"; }
         justImported = true;
         render();
@@ -671,7 +673,12 @@
 
     root.addEventListener("change", (event) => {
       const element = event.target;
-      if (element.matches("[data-import-review]")) { void importReview(element.files[0]); return; }
+      if (element.matches("[data-import-review]")) {
+        const file = element.files[0];
+        element.value = "";
+        void importReview(file);
+        return;
+      }
       const field = element.dataset.field;
       if (["family", "toneId", "backdrop"].includes(field)) { state[field] = element.value; render(); }
       if (field === "compare-candidate" && byId.has(element.value)) {
