@@ -6,6 +6,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { promisify } from 'node:util';
 import { exportCandidate, loadSession, SessionValidationError, validateSession } from '../src/model.mjs';
+import { contentSignature, prepareProject } from '../src/runner.mjs';
 
 const exec = promisify(execFile);
 const COMMANDS_URL = new URL('../src/commands.mjs', import.meta.url).href;
@@ -71,6 +72,34 @@ async function command(args, cwd) {
     return { stdout: error.stdout, stderr: error.stderr, code: error.code };
   }
 }
+
+test('content scan detects same-size edits with unchanged timestamps and delete/re-add transitions', async (t) => {
+  const root = await fixture(t);
+  const artwork = path.join(root, 'rounds/r01/c01/light.svg');
+  const before = await contentSignature(root);
+  const original = await fs.readFile(artwork, 'utf8');
+  const timestamp = (await fs.stat(artwork)).mtime;
+  await fs.writeFile(artwork, original.replace('blue', 'cyan'));
+  await fs.utimes(artwork, timestamp, timestamp);
+  const edited = await contentSignature(root);
+  assert.notEqual(edited, before);
+  await fs.rm(artwork);
+  const deleted = await contentSignature(root);
+  assert.notEqual(deleted, edited);
+  await fs.writeFile(artwork, original);
+  await fs.utimes(artwork, timestamp, timestamp);
+  assert.equal(await contentSignature(root), before);
+});
+
+test('content scan does not follow a symlinked rounds tree', async (t) => {
+  const root = await fixture(t, { empty: true });
+  const outside = await fixture(t);
+  await fs.symlink(path.join(outside, 'rounds'), path.join(root, 'rounds'));
+  const signature = await contentSignature(root);
+  assert.match(signature, /rounds:symlink/);
+  assert.doesNotMatch(signature, /candidate\.json/);
+  await assert.rejects(prepareProject(root), /outside the session|symlink/);
+});
 
 test('normalization is portable, deterministic, and fingerprints changed artwork', async (t) => {
   const root = await fixture(t);
