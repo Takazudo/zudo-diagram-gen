@@ -58,7 +58,7 @@ jobs:
           (cd "$RUNNER_TEMP/zudo-diagram-consumer" && pnpm preview --host 127.0.0.1 --port 4334) > "$RUNNER_TEMP/consumer-preview.log" 2>&1 &
           consumer_pid=$!
           trap 'kill "$root_pid" "$consumer_pid" 2>/dev/null || true' EXIT
-          for attempt in {1..30}; do
+          for _ in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4333/ > /dev/null && curl --fail --silent http://127.0.0.1:4334/ > /dev/null; then break; fi
             sleep 1
           done
