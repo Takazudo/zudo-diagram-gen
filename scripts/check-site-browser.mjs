@@ -143,7 +143,7 @@ try {
   );
   console.log('PASS embedded review and persistence');
   const appearanceToggle = page
-    .locator('[data-zd-theme-menu] button[aria-haspopup="menu"]')
+    .locator('[data-zd-theme-menu] button[aria-haspopup="menu"]:visible')
     .first();
   await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'Dark' }).click();
