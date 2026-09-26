@@ -12,7 +12,7 @@ The working loop is simple: establish a shared brief, generate candidates, revie
 - SVG source files and explicit light/dark reference assets for all 24 tones.
 - A local Codex handoff and a documented core/wrapper skill interface.
 
-The packages are versioned `0.1.0` for this source handoff. Registry publication and installation of personal Claude Code skills are separate follow-up work. The commands below use the downloaded source and local package archives.
+The packages are versioned `0.1.0` for this source handoff. No registry publication or website deployment is part of this handoff. Installation instructions below use this checkout and local package archives; a package name alone is not yet a verified installation command. The proposed personal Claude Code skills are separate future work.
 
 ## Build local previews
 
@@ -20,10 +20,10 @@ This repository ships the authored source, tone SVGs, and example sessions. It d
 
 ## Run the project website
 
-Use Node.js 22–24 and pnpm 10.30.3. The workspace records the exact pnpm version in `package.json`; `corepack pnpm` selects it without changing the global pnpm installation.
+Use Node.js 22–24 and pnpm 10.30.3. The workspace records the exact pnpm version in `package.json`; `corepack pnpm` selects it without changing the global pnpm installation. CI pins Node.js 24.13.0 and pnpm 10.30.3 and runs a frozen install, check, test, example validation, and build on pull requests and main.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
