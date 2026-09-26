@@ -1,0 +1,19 @@
+---
+title: 0.1.0
+description: Initial release of the local SVG diagram review workbench.
+sidebar_position: 1
+---
+
+Released: 2026-09-27
+
+### Added
+
+- A local SVG review workbench for comparing candidates, recording feedback, and refining a selected drawing while preserving earlier versions.
+- Twenty-four tone references and six complete worked example sessions.
+- A destination-based initializer and commands for checking sessions, exporting SVGs, and creating an offline review page.
+
+### Changed
+
+- The project site now lives at [zudo-diagram-gen-doc.zudolab.dev](https://zudo-diagram-gen-doc.zudolab.dev/) and uses the zudo-doc documentation home.
+- The tone collection moved from `/tones/` to `/docs/tones/`; examples moved from `/examples/` and `/examples/<slug>/` to `/docs/examples/` and `/docs/examples/<slug>/`; the workbench moved from `/workbench/` to `/docs/workbench/`. Existing `/docs/` pages keep their URLs.
+- Browser-stored reviews from the old site do not carry over to the new hostname. Before switching, download your review JSON from the old site; then open the matching session on the new site and import that file.
