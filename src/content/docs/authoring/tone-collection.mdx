@@ -4,7 +4,9 @@ description: Use 24 illustration references as starting points for real diagram 
 sidebar_position: 3
 ---
 
-The [live tone catalog](/tones/) presents 24 original SVG treatments of a shared explanation. Their purpose is to make visual directions concrete. An agent can select useful references, adapt their drawing conventions to a project's subject, and show the resulting candidates in a session.
+Choose a visual reference after you know what the diagram needs to explain. The [live tone catalog](/tones/) contains **24 authored SVG references** of a shared composition explanation. Each has a recipe and complete light/dark assets. They are bundled reference artwork, not results generated for your session or user-approved product art.
+
+Use a few references to explore meaningful alternatives for the same brief. The [tone-exploration session](/examples/tone-exploration/) demonstrates ten such directions and one illustrative refinement; it does not represent all 24 references or record a user's selection.
 
 The [worked examples](/examples/) demonstrate adaptation to application help and documentation. Reference colors are exploratory palettes. Preserve the destination project's relevant design tokens and semantic color meanings when applying a tone there.
 
@@ -39,11 +41,11 @@ The [worked examples](/examples/) demonstrate adaptation to application help and
 
 Some treatments have an intrinsically dark canvas, including blueprint, chalkboard, terminal, and luminous glass. Their supplied light/dark reference files are complete theme assets; a light viewer surface does not require turning those drawings into pale compositions.
 
-## What a tone contains
+## Read the recipe and actual artwork
 
 The package stores its catalog at `tones/catalog.json`. Each tone directory contains a human-readable `recipe.md`, an editable `source.svg`, and explicit `light.svg` and `dark.svg` assets.
 
-Each catalog entry records its name, family, summary, drawing recipe, useful applications, small-size considerations, reference paths, and source links. Read the compact catalog to choose likely references, then load the selected recipes and SVGs in detail.
+Each catalog entry records its name, family, summary, drawing recipe, useful applications, small-size considerations, reference paths, and source links. Read the compact catalog to choose likely references, then load the selected recipes and SVGs in detail. Run these commands in an [installed session](/docs/getting-started/first-session/):
 
 ```bash
 pnpm exec zudo-diagram-gen tones list
@@ -51,17 +53,21 @@ pnpm exec zudo-diagram-gen tones show fine-outline
 pnpm exec zudo-diagram-gen tones show fine-outline --json
 ```
 
+`tones show` prints the recipe, small-size guidance, source links, and reference paths relative to the installed package's `tones` directory. Its `--json` output also includes both complete SVG examples. See the [CLI reference](/docs/reference/cli/) for command details.
+
 ## Choose references for the current explanation
 
-Select tones that create useful differences in how the idea is presented. Ten candidates should give the reviewer meaningful visual choices; they need not be ten minor color changes.
+Select tones that create useful differences in how the idea is presented. A UI miniature may help readers recognize a frame split; a circuit route may help distinguish audio and control paths. Keep facts and labels consistent across alternatives so the reviewer can judge the treatment. There is no required number of candidates.
 
 For a restrained application, a first set might explore fine outlines, a UI miniature, a strict grid, and a paper-layer metaphor. A more expressive document might also benefit from marker, print, or geometric treatments. The shared brief determines which experiments are useful.
 
 Honor an explicit requested count. A later refinement round often needs fewer drawings because the user has already chosen the visual direction.
 
-## Adapt rather than trace
+## Adapt the reference to the project
 
 Keep the new drawing's entities, labels, and actions accurate. A reference's perspective, texture, or framing should help explain the subject. Remove details that are unclear at the target size, and avoid transferring a reference's metaphor when it suggests incorrect application behavior.
+
+The five project studies in [Examples](/examples/) each have their own brief and teaching topic. The two UI miniature studies explain different behavior: composing pattern and text layers, and splitting a frame before choosing its component. Their common `toneId` does not make them interchangeable drawings.
 
 The reference SVGs are original project artwork. External sources informed broad illustration principles and are listed with the recipes and on [Sources](/docs/development/sources/). Their inclusion does not import another product's branded illustrations into this package.
 
@@ -69,4 +75,4 @@ The reference SVGs are original project artwork. External sources informed broad
 
 Add a stable ID, metadata, a concise recipe, and complete example assets. Validate the catalog and render both theme files. Give the new reference a clear purpose and include small-size guidance based on inspecting the actual drawing.
 
-An agent may also create a session-specific tone without adding it to the shared catalog. Record its own stable `toneId` and explain the treatment in the candidate description. Add it to the collection later if it proves useful across projects.
+An agent may also create a session-specific tone without adding it to the shared catalog. Record its own stable `toneId` in [candidate metadata](/docs/authoring/session-files/) and explain the treatment in the candidate description. Add it to the collection later if it proves useful across projects.

@@ -5,6 +5,7 @@ dist/
 .cache/
 .generated/
 .zudo-doc/
+.wrangler/
 src/generated/
 public/previews/
 pages/tones.tsx

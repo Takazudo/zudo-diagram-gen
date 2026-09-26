@@ -1,0 +1,10 @@
+node_modules/
+dist/
+worktrees/
+.zfb/
+.generated/
+src/generated/
+public/previews/
+artifacts/
+test-output/
+pnpm-lock.yaml

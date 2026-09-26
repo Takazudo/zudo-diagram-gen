@@ -1,14 +1,14 @@
 ---
-title: Quality and local handoff
-description: Verify the contracts, inspect the gallery, and continue development with Codex.
+title: Quality and release checks
+description: Run the repository checks, verify a packed consumer and browser behavior, and review publication boundaries.
 sidebar_position: 1
 ---
 
-The downloadable source is intended to continue locally with Codex. The repository's `AGENTS.md` describes shared conventions, and `docs/CODEX-HANDOFF.md` gives the implementation map and remaining work.
+Use these checks when contributing to the app, docs, examples, or packages. [AGENTS.md](https://github.com/Takazudo/zudo-diagram-gen/blob/main/AGENTS.md) states repository conventions. The [architecture reference](/docs/reference/architecture/) describes the package and session boundary. The dated `docs/CODEX-HANDOFF.md` in the repository records the original source transfer; it is historical context rather than the current setup guide.
 
-## Automated contract checks
+## Automated repository checks
 
-From the project root:
+Use Node.js 22–24 and pnpm 10.30.3. From the repository root:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -18,43 +18,24 @@ pnpm check:examples
 pnpm build
 ```
 
-The important risks are invalid metadata, missing assets, duplicate IDs, incorrect lineage, paths escaping a candidate directory, incomplete package contents, and a generated host that accidentally relies on the monorepo. Test these contracts when changing their implementation.
+`check` regenerates showcase data and type-checks the site. `test` exercises the engine, initializer, and project contracts. `check:examples` validates the example sessions. `build` prepares showcase data and builds the zfb site. CI runs these commands on pull requests and main with Node.js 24.13.0 and the pinned pnpm version.
 
-Repository CI uses Node.js 24.13.0 and pnpm 10.30.3 for these commands on pull requests and main. A passing workflow covers the automated gates; it does not replace a real-browser review or the fresh installed-consumer check.
+When changing session loading, metadata, lineage, exports, or packaging, cover the relevant behavior and error path. Important boundaries include unique stable IDs, relative asset paths contained within a candidate directory, explicit theme assets, and a generated host resolving its installed engine.
 
-SVG validation establishes that a file meets the supported format. Visual review must still check labels, clipping, line weights, contrast, and the explanation itself.
+## Verify a packed consumer
 
-## Verify the packed consumer
+For initializer, dependency, or package-content changes, run `pnpm pack:local`. Use the printed absolute engine archive path to initialize a new destination **outside this repository**, then install there, add a valid candidate, and run `pnpm check` and `pnpm build`. Also open the valid empty first round.
 
-Run `pnpm pack:local`, initialize a fresh host outside the repository with the engine archive, install dependencies, add a valid candidate, and run its check and build commands.
+This check catches imports that work through workspace source links but fail in a real generated host. Keep the archive available at the path recorded in the consumer's dependency until installation is complete.
 
-Also exercise the empty initial gallery. An agent needs to be able to start the viewer before it has finished writing the first SVG.
+## Inspect in a browser
 
-## Browser acceptance checks
+For viewer changes, open a session at desktop and narrow widths in a real browser. Exercise overview, inspection, comparison, filters, keyboard focus, zoom and pan, placement size, theme availability, backdrop controls, shortlist, chosen direction, and feedback retention. Transfer a review by copy, download, and same-session import. Change an SVG to check stale feedback, and add, edit, and remove a candidate while the server runs. Open exported SVG and offline HTML independently of the source directory.
 
-Use a real browser at a desktop width and a narrow width. Check:
+A passing build establishes that pages were generated; it does not establish that these interactions work. SVG validation also cannot judge whether labels, contrast, clipping, or the explanation are good. Record which browser checks were actually completed and give reproduction steps for any remaining area.
 
-- Overview, inspect, and compare navigation; candidate and round filters; stable IDs.
-- Theme availability and independent backdrop controls.
-- Fit, 100%, zoom, pan, and placement preview dimensions.
-- Keyboard operation and focus without stealing keys from text fields.
-- Shortlist and chosen-direction state, feedback text retention, and next-action selection.
-- Copy feedback, review download, same-session import, and stale-content feedback.
-- Candidate additions, edits, and removals while the session server is running.
-- SVG and offline HTML exports opened independently.
+## Release boundary
 
-A successful build does not prove these interactions. Record any unavailable browser verification as a remaining check, with reproduction steps.
+The packages are currently versioned `0.1.0` and unpublished. Local archives support development and consumer verification; their existence is not a registry release. Before publication, confirm registry ownership, repository/homepage/bugs metadata, license and copyright provenance, the exact release version, and a fresh packed-consumer build. Deploying the project site is a separate task. Do not replace local archive instructions with a package-name install or a live site URL until those releases have been verified.
 
-## Demonstration lineage
-
-The ten-candidate example includes a second-round outline refinement to demonstrate parent references and navigation. It is an authored example, not a record of a user's actual selection or approval.
-
-## Publication and skills
-
-The package versions and local archives support testing this handoff before publication. The repository and packages have MIT license files, but repository/homepage/bugs package metadata and the differing copyright holder text still need release review. Confirm registry ownership, complete that metadata, and pass a fresh packed-consumer build before publishing. Neither package nor the site is published by this handoff.
-
-The `/diagram-gen` and `/my-diagram-gen` pages are an integration design. Implement the actual Claude Code skills in the user's chosen skill repository after exercising the app in a real project. The core receives an explicit destination; the wrapper resolves personal output conventions.
-
-## Report verification accurately
-
-The handoff verification report records commands actually run and their results. Keep it current when continuing locally. Distinguish static SVG inspection, automated contract tests, zfb builds, packed-consumer checks, and browser interaction checks instead of combining them into an unqualified “tested.”
+The `/diagram-gen` and `/my-diagram-gen` pages describe future skills. They do not indicate that skills were created or installed. Browser feedback is local state until the user copies or downloads a review; it does not write source files or resume a conversation automatically.

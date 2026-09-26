@@ -1,10 +1,10 @@
 ---
 title: Session files
-description: The version-one metadata contract for sessions, rounds, assets, and refinements.
+description: Add candidate files, preserve identity, and connect a new round to its saved baseline.
 sidebar_position: 1
 ---
 
-A session is ordinary content on disk. The viewer is supplied by `@takazudo/zudo-diagram-gen`; authors normally edit the metadata, brief, and SVGs.
+Use these files to add drawings to an initialized workspace and keep revisions connected. [Your first session](/docs/getting-started/first-session/) supplies the installation steps and a complete SVG. The installed `@takazudo/zudo-diagram-gen` package owns the viewer; your workspace owns the content below.
 
 | File | Owner | Responsibility |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ A session is ordinary content on disk. The viewer is supplied by `@takazudo/zudo
 
 Give each parallel worker its own candidate directory. Candidate discovery removes the need for every worker to edit one shared gallery index.
 
-## Session metadata
+## Set the session identity and placement
 
 ```json
 {
@@ -45,9 +45,9 @@ Give each parallel worker its own candidate directory. Candidate discovery remov
 
 Target width and height describe the intended placement in CSS pixels. Both must be positive finite numbers no greater than 20,000. They do not force the SVG's coordinate system to use the same dimensions.
 
-Use a stable URL-safe slug for the session ID. IDs may contain 1–128 letters, numbers, dots, hyphens, or underscores and must begin and end with a letter or number. Reusing an ID for unrelated work also reuses the browser-storage namespace, so create a new ID for a new session.
+Keep the unique session ID created by the initializer when continuing that workspace. If authoring metadata manually, use a stable URL-safe slug for the session ID. IDs may contain 1–128 letters, numbers, dots, hyphens, or underscores and must begin and end with a letter or number. Reusing an ID for unrelated work also reuses the browser-storage namespace, so create a new ID for a new session.
 
-## Round metadata
+## Start a comparison round
 
 Store one `round.json` immediately inside each round directory:
 
@@ -66,37 +66,73 @@ The required fields are `schemaVersion`, `id`, `title`, and `order`. Order is a 
 
 An empty round is valid. This allows a freshly initialized gallery to open before the first candidate is written.
 
-## Candidate metadata
+## Give each candidate its own files
 
 ```json
 {
   "schemaVersion": 1,
   "id": "r02-c01",
-  "title": "Outline with simpler arrows",
+  "title": "Outline with clearer connectors",
   "toneId": "fine-outline",
-  "description": "Preserves the first round's selected composition.",
+  "description": "Preserves the baseline layout and labels while improving connector readability.",
   "order": 1,
   "assets": {
     "light": "diagram.light.svg",
     "dark": "diagram.dark.svg"
   },
-  "parentCandidateId": "r01-c07"
+  "parentCandidateId": "r01-c01"
 }
 ```
+
+This example describes a refinement in `rounds/r02/c01/`; the next section supplies its round metadata. Create both declared SVG files beside `candidate.json`.
 
 The required fields are `schemaVersion`, `id`, `title`, `toneId`, `order`, and `assets.light`. Order is a nonnegative integer. The description, dark asset, and parent are optional. Use globally unique candidate IDs throughout the session.
 
 Asset paths resolve relative to the directory containing `candidate.json`. Keep every referenced SVG inside that directory; use forward-slash relative paths without empty, `.` or `..` segments. The rounds tree does not support symbolic-link entries. This makes a candidate portable and keeps exports complete.
 
-`toneId` records the illustration reference used to develop the candidate. A locally invented treatment can have its own stable tone ID; a built-in tone is a reference, not a restriction on what the agent may draw.
+`toneId` records the illustration reference used to develop the candidate. Use the [tone catalog](/tones/) and [tone authoring guide](/docs/authoring/tone-collection/) to choose a reference. A locally invented treatment can have its own stable tone ID; describe its conventions in the brief and candidate description.
 
-## Lineage rules
+## Create a refinement round
 
-When a drawing has been reviewed, preserve its version. Create a new candidate ID in a later round, copy the baseline SVG, and apply the requested changes to the new file.
+Start from the SVG the reviewer selected. For example, the [tone-exploration fixture](/examples/tone-exploration/) keeps `r01-c01` and creates `r02-c01` with stronger connectors. Its second round is an illustrative continuation, not user approval.
 
-`parentCandidateId` must refer to a candidate in an earlier round. A candidate cannot be its own parent, and lineage cannot form a cycle. A round's baseline is also an earlier candidate.
+For your own `r01-c01`, agree on the edit first. The metadata below assumes a request for clearer connectors while retaining the rest of the drawing; replace that description with the feedback you received. Create `rounds/r02/round.json`:
 
-These references describe how the drawing developed. They do not mean that the parent was approved for every project or future diagram.
+```json
+{
+  "schemaVersion": 1,
+  "id": "r02",
+  "title": "Improve connector readability",
+  "description": "Keep positions, words, surfaces, and palette from the baseline.",
+  "order": 2,
+  "baselineCandidateId": "r01-c01"
+}
+```
+
+Create `rounds/r02/c01/candidate.json` using the refinement metadata above. Copy the baseline's actual SVGs into this new candidate directory and apply the requested edit to the copies. If the baseline has only a light asset, omit `assets.dark` until you author a complete dark version. For the light-only tutorial candidate, the copy starts with:
+
+```bash
+mkdir -p rounds/r02/c01
+cp rounds/r01/c01/diagram.light.svg rounds/r02/c01/diagram.light.svg
+```
+
+The resulting relationship is:
+
+| Record | ID | Earlier drawing it references |
+| --- | --- | --- |
+| Original candidate | `r01-c01` | No parent. |
+| New round | `r02` | `baselineCandidateId: "r01-c01"` |
+| Refined candidate | `r02-c01` | `parentCandidateId: "r01-c01"` |
+
+Both references must point to a candidate in an earlier round by `order`. A candidate cannot be its own parent, and lineage cannot cycle. Candidate IDs must be unique across the whole session, including previous rounds. Keep the original assets available so the reviewer can compare what changed.
+
+These fields preserve ancestry. Choosing a direction in the browser does not fill them in or create a round on disk; the author does that after receiving the review. A parent reference also does not establish a style rule for every future diagram.
+
+## Keep review state separate from session content
+
+The gallery stores feedback in browser storage and transfers it through copied text or downloaded review JSON. Import restores that browser state; it does not modify `session.json`, `candidate.json`, or any SVG. Downloads go to the browser's chosen location.
+
+Content fingerprints let the viewer flag feedback whose candidate metadata or SVG has changed. Use new IDs for reviewed revisions so the original remains meaningful. See [Reviewing candidates](/docs/gallery/reviewing/) for importing, replacing, and acknowledging review records.
 
 ## Validation and discovery
 
@@ -108,4 +144,6 @@ pnpm exec zudo-diagram-gen check .
 
 The engine checks metadata, asset paths, SVG structure, IDs, and lineage. Error messages identify the relevant source file. Validation cannot establish that an arrow represents a real application action or that the composition is useful; those checks belong to the author and reviewer.
 
-Generated page files are implementation output. Edit the session source, then let the engine regenerate the zfb page and its data. Do not customize the generated page to add a candidate.
+During `pnpm dev`, the engine discovers additions, edits, and removals in session content. If a partially written file is invalid, repair it and check again; the running viewer can keep showing the last valid state until preparation succeeds.
+
+`pages/index.tsx` and `.generated/` are generated output. Add candidates through their directories and let the engine regenerate the page. See [Architecture](/docs/reference/architecture/) for the boundary and [CLI reference](/docs/reference/cli/) for validation and export commands.

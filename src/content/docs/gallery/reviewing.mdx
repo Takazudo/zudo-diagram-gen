@@ -1,66 +1,85 @@
 ---
 title: Reviewing candidates
-description: Compare actual SVGs, inspect their placement, and transfer precise feedback.
+description: Compare at the intended size, choose a baseline, and transfer feedback for a new round.
 sidebar_position: 1
 ---
 
-Start with the overview to scan a round. Each candidate has a stable ID, a title, and a tone reference. A filter changes what you see; it does not rename the candidates.
+Open your session with `pnpm dev`, or practice in [One explanation, ten directions](/examples/tone-exploration/). Keep the brief's teaching goal in view: you are choosing the drawing that makes that explanation clear at its real display size.
 
-Use **Inspect** for a close look and **Compare** when two drawings make a decision easier. **Gallery** returns to the overview. A fresh session opens on its first round. Keep the brief nearby: the most useful candidate is one that explains the intended idea clearly in its real placement.
+## Find drawings worth comparing
 
-## Keep comparison conditions consistent
+Start in **Gallery**. A new session opens on its first round; round links let you revisit earlier work. Search and tone filters narrow the drawings shown. Every candidate retains its stable ID, such as `r01-c01`, through filtering and navigation. Use that ID when discussing a drawing with the agent.
 
-The viewer offers independent controls for the SVG's declared theme and the preview backdrop. **Light** and **Dark** choose the artwork asset; **Surface** offers Match theme, Paper, Ink, and Transparency. The surface helps you inspect edges and contrast without changing the artwork itself.
+Open a thumbnail to **Inspect** it. Add two candidates to comparison with the comparison buttons, then use **Compare** to see them together. For a concrete exercise, compare `r01-c01` (Fine outline) and `r01-c04` (UI miniature) in the tone-exploration session: both explain pattern and text inputs becoming a composition, with different drawing conventions.
 
-A candidate's dark theme is available only when it declares a dark SVG asset. The viewer reports a missing theme rather than substituting a light asset and calling it dark.
+The five project studies on [Examples](/examples/) have separate subjects and sessions. Use them to study adaptation; use alternatives within one shared brief when deciding which drawing explains your feature best. The [tone catalog](/tones/) is a collection of authored references to consult when asking for more candidates.
 
-The reference catalog's tones are separate drawings. Switching between a paper-layer candidate and an outline candidate selects their different SVGs; it is not a global CSS recoloring operation.
+## Match the conditions of the final placement
 
-## Zoom and placement are different questions
+**Light** and **Dark** select the candidate's declared artwork files. **Surface** chooses Match theme, Paper, Ink, or Transparency behind the image. The app's own appearance is separate from both. Keep the same artwork theme and surface when comparing candidates.
 
-Use **Fit** to see the whole drawing, **100%** to inspect its SVG coordinate size, the zoom control for intermediate scales, and dragging to pan. Ctrl/Command plus scrolling also adjusts the zoom.
+If a candidate has no dark SVG, the viewer shows **Dark asset unavailable**. Changing the surface cannot synthesize that file. Some references intentionally use a dark canvas in both theme variants; inspect their contrast in the actual destination.
 
-The separate **Placement preview** uses the dimensions recorded in the session's target. It shows the drawing with the supplied context title and body. This is the place to assess whether text, arrowheads, line weight, and grouping remain clear in the help dialog or documentation column.
+Use the stage controls to investigate details:
 
-The viewer's 100% setting and the intended placement width can differ. An SVG may use a 720-unit-wide viewBox and appear at 360 CSS pixels in the final interface. Inspect both when small details matter.
+| Control | Use it for |
+| --- | --- |
+| **Fit** | Seeing the whole SVG in the inspection or comparison stage. |
+| **100%** | Displaying one SVG viewBox unit per CSS pixel. |
+| Zoom slider or Ctrl/Command + scroll | Inspecting small labels, connectors, and intersections. |
+| Drag and reset | Moving around the enlarged drawing and returning to a known view. |
 
-## Record a useful decision
+Then inspect **Placement preview**. Its artwork uses the session's `target.width` and `target.height` in CSS pixels, with the supplied context heading and body. A 720 × 400 viewBox shown in a 360 × 200 target is reduced by half. Judge text, arrowheads, line weight, and grouping here before choosing a direction. On a narrow screen, scroll the placement sideways; the target dimensions are preserved.
 
-The review controls distinguish a shortlist from a chosen direction. Shortlisting preserves possibilities; choosing a direction identifies the drawing a refinement should start from.
+For example, the [zudo-text study](/examples/project-text/) uses 280 × 156 px, while the [zzmod study](/examples/project-zzmod/) uses 480 × 267 px. These are review fixtures; the integrating application still needs its own placement check.
 
-Use **Keep** for characteristics that should survive the next round and **Change** for the requested edits. Select the intended next action: refine the drawing, explore alternatives, or integrate the selected result.
+## Shortlist possibilities, then choose a baseline
 
-A useful review is concrete:
+**Shortlist** keeps several promising candidates available through the sidebar's shortlist filter. **Choose direction** records the single drawing that should be the starting point for the next step. A shortlist alone does not request integration.
+
+Open the candidate you want to discuss and fill in **Keep**, **Change**, and **Next action**. The available actions are **Refine this direction**, **Explore more alternatives**, and **Integrate this candidate**. They record your request for transfer to the agent; selecting one does not run that work.
+
+Here is feedback modeled on the illustrative refinement in the tone-exploration fixture:
 
 ```text
-Chosen direction: r01-c07
+Session: composer-tone-exploration
+Chosen direction: r01-c01
 
-Keep:
-- Composition and reading order
-- Existing labels
-- Palette
-
-Change:
-- Simplify the arrows using r01-c03 as a reference
-- Reduce the background decoration
-
-Next action: Refine
+Keep: Positions, labels, surfaces, and palette.
+Change: Strengthen the four essential connectors for the 360 × 200 placement.
+Next action: Refine this direction.
 ```
 
-Natural-language conversation is equally valid. The form provides exact candidate references when that is convenient; it does not replace ordinary collaboration.
+The supplied `r02-c01` demonstrates that bounded edit. It is sample lineage, not a recorded user preference. For your own session, describe the changes you actually want and identify any other drawing you reference by its full ID.
 
-## Transfer feedback to the agent
+## Transfer the review to the agent
 
-Review state is stored in this browser when browser storage is available. It is not written into the source workspace.
+Review notes, shortlist, and chosen direction are stored in this browser when storage is available. They are associated with the session ID. Browser storage also belongs to the site's origin: opening a different host or port does not guarantee the same saved state. Download a review record before moving between environments.
 
-Use **Copy feedback** to paste a review into the agent conversation. Use **Review JSON** to download a structured record or give it to an agent that can read the downloaded file. The download location is controlled by your browser. The import control in the top bar reads a previously downloaded review record.
+| Action | Result |
+| --- | --- |
+| **Copy feedback** | Copies text you can paste into the agent conversation. If clipboard access fails, the viewer can download it as a text file. |
+| **Review JSON** | Downloads a structured record with candidate notes, shortlist, chosen direction, session identity, and content fingerprints. |
+| **Import review JSON** in the top bar | Loads a downloaded record into the browser review state for the same session. |
 
-The review record includes the session identity, candidate references, and content fingerprints. If the underlying candidate changes, the viewer can mark the previous review as stale. Imported records must belong to the same session and refer to known candidates.
+An import **replaces the current notes, shortlist, and chosen direction** with the imported record. Download the current record first if you need to keep it. Records from another session or with unknown candidate IDs are rejected. Importing a review does not add missing candidate files; the matching session content must already exist.
 
-A stale review is a prompt to recheck the drawing. Its feedback remains available; choose **I've reviewed this version** after inspecting the changed asset. Do not silently treat feedback about an earlier SVG as approval of its changed contents.
+Copy, download, and import do not write feedback to the source workspace. The browser chooses the download location. Give the agent the copied text or downloaded file explicitly; none of these actions automatically resumes an agent conversation. If the viewer reports that browser storage is unavailable, download the review before closing it.
 
-## Keep iterations available
+## Recheck feedback when the content changes
 
-A new round should preserve the original selected SVG and give each refinement a new ID. The round's baseline and candidate parent references let the gallery describe how the work developed.
+Review records capture a candidate's fingerprint. If its metadata or SVG content changes under the same ID, earlier notes or choices can be marked **Changed since review**. The feedback remains available, but you need to inspect the current version before carrying it forward. Use **I've reviewed this version** after doing so.
 
-Choose an earlier round to compare the revision with its baseline. When you ask to integrate a particular candidate, use its full stable ID. The agent can then export exactly that drawing and verify it in the destination application.
+For intentional revisions, preserve the reviewed files and create a new candidate in a later round. This keeps the earlier drawing and its feedback available instead of relying on stale-state detection to stand in for version history.
+
+## Compare the revision and export the result
+
+A refinement's `parentCandidateId` points back to the saved baseline, and its round can record that baseline in `baselineCandidateId`. In the tone-exploration fixture, `r02-c01` points to `r01-c01`. The **Refined from** link opens the parent; you can also return to the earlier round and add both drawings to comparison.
+
+Ask the agent to follow [Create a refinement round](/docs/authoring/session-files/#create-a-refinement-round). Once you have reviewed the result, **Download light SVG** or **Download dark SVG** saves that candidate's selected asset. The [CLI export command](/docs/reference/cli/) can copy the same declared file into an explicit output path. Review JSON carries decisions; SVG export carries artwork.
+
+Before integrating, check the exported SVG in the destination's actual dimensions, theme, and surrounding text. Follow [SVG authoring](/docs/authoring/svg-authoring/) for self-contained assets and accessibility at integration.
+
+## Review with the keyboard
+
+Tab through the controls and use their native keyboard actions. Outside text fields and selects, Left/Right moves between candidates, Escape returns to Gallery, and `S` toggles the active candidate's shortlist status. In inspection or comparison, `+` and `-` adjust zoom. Text input retains its normal editing behavior.

@@ -4,7 +4,7 @@ description: Implemented initializer and engine commands for local review sessio
 sidebar_position: 1
 ---
 
-These are application commands. The proposed Claude Code skill options are documented separately under [Core skill and personal wrapper](/docs/agent-workflow/core-and-wrapper/).
+These are the implemented `0.1.0` application commands. Run the engine binary from a generated session with `pnpm exec zudo-diagram-gen`, or use that session's package scripts. The proposed Claude Code skill options are documented separately under [Core skill and personal wrapper](/docs/agent-workflow/core-and-wrapper/).
 
 ## Initializer
 
@@ -26,10 +26,11 @@ node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
 | `--install` | Run dependency installation after scaffolding. Installation is otherwise left to the caller. |
 | `--yes` | Accepted for noninteractive automation. |
 | `--help` | Print the supported command interface. |
+| `--version` | Print the initializer version. |
 
 Use an empty destination. The initializer refuses to overwrite unrelated existing content. It creates a private host with an empty `r01` round and does not initialize Git or install skills.
 
-Local archive paths must be absolute because the generated project runs from a different directory. A `file:` specification also needs to point at an absolute existing archive. For a published package, a version/tag or supported npm specification may be supplied instead.
+Local archive paths must be absolute because the generated project runs from a different directory. A `file:` specification also needs to point at an absolute existing archive. The initializer also accepts a registry version or npm specification, but these packages are not published yet. Use a local engine archive for this checkout.
 
 ## Development, build, and preview
 
@@ -39,7 +40,7 @@ zudo-diagram-gen build [directory]
 zudo-diagram-gen preview [directory] [--host <host>] [--port <port>]
 ```
 
-These commands prepare the session workbench and delegate to zfb. Development watches session content so candidate additions, edits, and removals can regenerate the page data. Build produces a static review site. Preview serves that build.
+These commands prepare the session workbench and delegate to zfb. Development watches session content so candidate additions, edits, and removals can regenerate the page data. Build produces a static review site. Preview serves that build. `--host` and `--port` apply to `dev` and `preview`; `--port` must be between 1 and 65535. The optional directory defaults to the current working directory. `zudo-diagram-gen --help` and `--version` print the installed engine interface and version.
 
 In an initialized project, the package scripts provide the usual entrypoints:
 
@@ -71,7 +72,7 @@ zudo-diagram-gen tones list [--json]
 zudo-diagram-gen tones show <id> [--json]
 ```
 
-The list supports selecting useful references. Show returns the selected tone's guidance and reference information. The catalog is packaged with the engine, so inspecting a tone does not require an external service.
+The list supports selecting useful references. Show returns the selected tone's guidance and reference paths; `--json` includes both complete SVG examples. The catalog is packaged with the engine, so inspecting a tone does not require an external service.
 
 ## Export an SVG
 
