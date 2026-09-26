@@ -2,7 +2,7 @@
 
 ## Current source-handoff evidence — 2026-09-27
 
-The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check used Node.js 24.13.0 and Corepack pnpm 10.30.3. CI uses those exact versions on Ubuntu, installs with `pnpm install --frozen-lockfile`, then runs `pnpm check`, `pnpm test`, `pnpm check:examples`, `pnpm build`, and a packed-consumer build. A workflow file is not evidence of a successful remote run; check GitHub Actions after the branch is merged.
+The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check used Node.js 24.13.0 and Corepack pnpm 10.30.3. CI uses those exact versions on Ubuntu, installs with `pnpm install --frozen-lockfile`, then runs `pnpm check`, `pnpm test`, `pnpm check:examples`, a root and packed-consumer build, built-link and preview checks, and a Chromium workbench check.
 
 | Scope | Recorded result | Evidence limit |
 | --- | --- | --- |
@@ -19,7 +19,9 @@ On merged base `14fe2ab`, Node.js 24.13.0 and Corepack pnpm 10.30.3 passed `pnpm
 
 The root development server returned HTTP 200 for `/`, `/tones/`, `/examples/`, `/workbench/`, `/examples/tone-exploration/`, and `/docs/getting-started/introduction/`. The packed consumer's development server passed the eight live transitions over HTTP: empty session, candidate addition, SVG edit with fingerprint change, malformed metadata retaining the previous gallery, metadata repair, brief edit, candidate deletion, and re-addition. A rapid edit/delete/re-add also ended with one candidate and no phantom entry. Malformed metadata was held through a watcher poll; the server logged the validation error and recovered after repair.
 
-The draft root pull request's initial `verify` GitHub Actions job passed on the integrated branch, including its build step. The packed-consumer CI step was added afterward and remains pending a new run. Main branch CI remains to be checked after merge.
+The root pull request's `verify` job passed on the integrated branch at `c8d8242` ([run 36266871054](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36266871054)): root and packed-consumer builds passed; 658 local links across 30 HTML pages resolved; root and consumer built preview routes returned HTTP 200. Chromium passed nine browser check groups against exported project and packed-consumer HTML. The desktop and 390 px screenshots were inspected: controls, SVG drawing, target-size placement, and horizontal access on the narrow viewport were visible. The browser run covered filtering, stable IDs, keyboard focus, navigation, compare, fit/100%/slider/modifier-scroll/drag/reset, theme/backdrop, notes, shortlist/direction, persistence, clipboard, JSON download and repeat import, invalid import, stale feedback, missing dark artwork, storage denial, and a downloaded SVG opened independently. Main branch CI remains to be checked after merge.
+
+The local merged-base `pnpm build` was queued through the required heavy guard and timed out with exit 75 before executing. CI passed that exact build and the packed-consumer build, settling [deferred-verification issue 11](https://github.com/Takazudo/zudo-diagram-gen/issues/11). The local build is recorded as deferred, not passed. Browser automation ran on GitHub's Ubuntu Chromium runner because the same machine-wide guard slot remained occupied locally. Playwright supplied a review file to the browser input twice; the operating-system file picker dialog itself was not opened.
 
 ## Earlier supplied handoff — historical evidence
 
@@ -29,15 +31,9 @@ The earlier packed-consumer run reported a fresh generated host outside the mono
 
 An earlier combined run once observed a deleted candidate directory reappear with incomplete metadata. Two subsequent isolated consumer runs did not reproduce it. No cause was established. Include rapid edit/delete/re-add in the next live-server check.
 
-## Manager-pending integration gates
+## Remaining verification
 
-| Gate | Exact follow-up |
-| --- | --- |
-| Merged-base build and built routes | Run `pnpm build` through the machine-wide heavy guard. Inspect home, `/tones/`, `/examples/`, a workbench route, and a docs route; check built local links. |
-| Installed consumer build | The fresh archive host, installed resolution, and checks passed as recorded above. Run its guarded build. |
-| Live development and preview | Root and consumer dev HTTP checks passed as recorded above. Verify built preview routes and stop both servers. |
-| Real browser | Run the [browser acceptance matrix](./CODEX-HANDOFF.md#browser-acceptance-matrix) on the project and packed consumer: keyboard/focus, filters and stable identity, theme/backdrop, placement size, zoom/pan, narrow layout, persistence, copy/download/import, stale review, invalid import, and independent exports. Also reimport the same JSON file through the native picker after changing feedback. |
-| Remote CI | Initial pull-request CI passed. Check the updated packed-consumer CI step, then check the main branch run after merge. |
+After merge, verify the main branch CI run at its merge SHA. The operating-system file picker dialog has not been exercised; repeat import through the browser file input passed. No diagram's factual suitability for a specific product help placement has been approved by a user.
 
 Heavy local runs use `bash "$HOME/.codex/scripts/heavy-guard.sh" -- <command>`. An exit 75 means the suite never ran. Follow `AGENTS.md` for `ENV_SUSPECT`, `FAIL`, and environment-only deferral handling.
 
