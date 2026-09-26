@@ -18,6 +18,7 @@ export default defineConfig(
     docHistory: false,
     designTokenPanel: false,
     assetViewer: false,
+    chromeBindingsModule: './src/chrome-bindings.tsx',
     strictContentBridge: true,
     dynamicPageTransition: false,
     colorScheme: 'Default Light',
