@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
 
 const origin = 'http://127.0.0.1:4335';
@@ -13,7 +14,9 @@ const routes = [
   '/docs/changelog/',
 ];
 await mkdir('test-output', { recursive: true });
-const server = spawn('pnpm', ['preview', '--host', '127.0.0.1', '--port', '4335'], {
+const require = createRequire(import.meta.url);
+const zfb = require.resolve('@takazudo/zfb/package.json').replace(/package\.json$/, 'bin/zfb.mjs');
+const server = spawn(process.execPath, [zfb, 'preview', '--host', '127.0.0.1', '--port', '4335'], {
   stdio: ['ignore', 'pipe', 'pipe'],
 });
 let serverOutput = '';
@@ -198,7 +201,20 @@ try {
   console.log('PASS missing dark asset state');
   assert.deepEqual(errors, []);
   await context.close();
+  console.log('PASS embedded documentation browser checks');
 } finally {
   await browser?.close();
-  server.kill('SIGTERM');
+  if (server.exitCode === null && server.signalCode === null) {
+    server.kill('SIGTERM');
+    await new Promise((resolve) => {
+      const timer = setTimeout(() => {
+        server.kill('SIGKILL');
+        resolve();
+      }, 5_000);
+      server.once('exit', () => {
+        clearTimeout(timer);
+        resolve();
+      });
+    });
+  }
 }
