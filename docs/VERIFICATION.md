@@ -1,6 +1,28 @@
 # Verification report
 
-## Current source-handoff evidence — 2026-09-27
+## Release candidate status — 2026-09-27
+
+The integrated pre-merge release candidate is commit `6b3cf3387c73806fa85d835ffd2ecb044914294c` (`base/docs-cloudflare`). The repository and both packages report version `0.1.0`. The runtime versions configured for CI are Node.js 24.13.0 and pnpm 10.30.3.
+
+The manager reports that the integrated source checks passed at this SHA: formatting, lint, type checking, all 45 Vitest cases, and example validation (six sessions and 24 tone profiles). The guarded build is queued behind another repository's heavy run. The following results are still pending and must not be inferred from earlier source-handoff or CI runs:
+
+- Integrated site build, generated Cloudflare assets, and built local-link validation.
+- Wrangler deployment dry-run and local Workers Static Assets route smoke check.
+- Non-production remote preview upload, route smoke check, and desktop/narrow browser inspection of navigation, search, table of contents, workbench review, and assets.
+- Fresh-checkout reproduction of the documented source/archive commands, packed-consumer build/preview, and the pull request's complete CI gates for this release candidate.
+- Production deployment, DNS/HTTPS, live-route, and post-merge CI verification.
+
+Cloudflare account and hostname review reported by the manager: zone `zudolab.dev` is active under account `367c7f51801e1f537030f93d5a5e6008` (zone `ddb163ab74e7cd438bb2d77d462bd724`); the Workers routes and custom domains APIs show no entry for `zudo-diagram-gen.zudolab.dev`; public DNS currently returns NXDOMAIN. The DNS-records API request was denied with error 10000, so the absence of an existing A, AAAA, or CNAME record has not been established. A zone administrator must check the exact hostname before attaching the production custom domain. The public hostname is not live. The repository has no configured Cloudflare Actions secrets or variables, so automatic production deployment is not active.
+
+The source audit found the README's site URL notice accurately says a public URL will be added after deployment is verified. Public README and MDX instructions continue to describe package version `0.1.0` as unpublished and use source/local archives; no registry install command or host-specific machine path was found. Those statements remain accurate for this release candidate.
+
+### Post-merge live checklist
+
+After the reviewed commit is merged, check CI on the resulting `main` SHA and confirm whether the deploy workflow ran or was skipped. Its deploy job requires successful push CI on `main`, the production repository, and `CF_PRODUCTION_ENABLED=true`; if the job starts but skips deploy steps, check whether the API token and account ID secrets are absent. Report a manual deploy as manual, and do not describe CI as active unless it deployed.
+
+Before deployment, have a zone administrator verify that `zudo-diagram-gen.zudolab.dev` has no A, AAAA, or CNAME record and recheck Worker routes and custom domains. From the clean merged `main` checkout, record the commit, run the build and Wrangler dry-run, capture the existing version ID, deploy, and save the resulting version ID and URL. Run `pnpm smoke:cloudflare https://zudo-diagram-gen.zudolab.dev/` and verify HTTPS, DNS, and HTTP 200 for `/`, `/docs/getting-started/introduction/`, `/docs/getting-started/first-session/`, `/docs/reference/cli/`, `/tones/`, `/examples/`, and `/workbench/`; confirm an unknown path returns HTTP 404. Inspect desktop and narrow viewports for navigation, search, table of contents, interactive workbench review, and CSS, JavaScript, and SVG assets. Record the deploy mode, source SHA, version IDs, route results, browser evidence, and any gaps here. If live smoke checks fail, roll back to the recorded previous version using [the Cloudflare rollback procedure](./cloudflare-setup.md#rollback).
+
+## Earlier source-handoff evidence — 2026-09-27
 
 The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check used Node.js 24.13.0 and Corepack pnpm 10.30.3. CI uses those exact versions on Ubuntu, installs with `pnpm install --frozen-lockfile`, then runs `pnpm check`, `pnpm test`, `pnpm check:examples`, a root and packed-consumer build, built-link and preview checks, and a Chromium workbench check.
 
