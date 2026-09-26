@@ -5,24 +5,30 @@ import os from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
-import test from 'node:test';
+import { test, onTestFinished } from 'vitest';
 import { createProject, parseArguments } from '../src/index.mjs';
 
 const execute = promisify(execFile);
 const cli = fileURLToPath(new URL('../bin/create-zudo-diagram-gen.mjs', import.meta.url));
 const packagePath = fileURLToPath(new URL('../package.json', import.meta.url));
-async function temporary(t) {
+async function temporary(_t) {
   const directory = await mkdtemp(path.join(os.tmpdir(), 'diagram-initializer-'));
-  t.after(() => rm(directory, { recursive: true, force: true }));
+  onTestFinished(() => rm(directory, { recursive: true, force: true }));
   return directory;
 }
 
-test('creates an empty session with predictable defaults and package-owned page configuration', async t => {
+test('creates an empty session with predictable defaults and package-owned page configuration', async (t) => {
   const cwd = await temporary(t);
-  const result = await createProject({ cwd, destination: 'nested/diagram review', name: 'Note History Help' });
+  const result = await createProject({
+    cwd,
+    destination: 'nested/diagram review',
+    name: 'Note History Help',
+  });
   const pkg = JSON.parse(await readFile(path.join(result.directory, 'package.json'), 'utf8'));
   const session = JSON.parse(await readFile(path.join(result.directory, 'session.json'), 'utf8'));
-  const round = JSON.parse(await readFile(path.join(result.directory, 'rounds/r01/round.json'), 'utf8'));
+  const round = JSON.parse(
+    await readFile(path.join(result.directory, 'rounds/r01/round.json'), 'utf8'),
+  );
   assert.equal(result.installed, false);
   assert.equal(result.directory, path.join(cwd, 'nested/diagram review'));
   assert.equal(pkg.name, 'note-history-help');
@@ -34,8 +40,11 @@ test('creates an empty session with predictable defaults and package-owned page 
   assert.equal(pkg.dependencies.preact, '10.29.2');
   assert.equal(pkg.dependencies['preact-render-to-string'], '6.6.6');
   assert.deepEqual(pkg.scripts, {
-    dev: 'zudo-diagram-gen dev .', build: 'zudo-diagram-gen build .', preview: 'zudo-diagram-gen preview .',
-    check: 'zudo-diagram-gen check .', 'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html'
+    dev: 'zudo-diagram-gen dev .',
+    build: 'zudo-diagram-gen build .',
+    preview: 'zudo-diagram-gen preview .',
+    check: 'zudo-diagram-gen check .',
+    'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html',
   });
   assert.equal(session.schemaVersion, 1);
   assert.equal(session.title, 'Note History Help');
@@ -45,15 +54,27 @@ test('creates an empty session with predictable defaults and package-owned page 
   assert.equal(round.id, 'r01');
   assert.equal(round.baselineCandidateId, null);
   assert.deepEqual(await readdir(path.join(result.directory, 'rounds/r01')), ['round.json']);
-  assert.match(await readFile(path.join(result.directory, 'zfb.config.ts'), 'utf8'), /defineConfig\(\{\}\)/);
-  assert.match(await readFile(path.join(result.directory, 'AGENTS.md'), 'utf8'), /pages\/index\.tsx and \.generated\/ are engine-generated/);
-  assert.match(await readFile(path.join(result.directory, 'AGENTS.md'), 'utf8'), /or a clear custom tone ID/);
+  assert.match(
+    await readFile(path.join(result.directory, 'zfb.config.ts'), 'utf8'),
+    /defineConfig\(\{\}\)/,
+  );
+  assert.match(
+    await readFile(path.join(result.directory, 'AGENTS.md'), 'utf8'),
+    /pages\/index\.tsx and \.generated\/ are engine-generated/,
+  );
+  assert.match(
+    await readFile(path.join(result.directory, 'AGENTS.md'), 'utf8'),
+    /or a clear custom tone ID/,
+  );
   assert.ok(!(await readdir(result.directory)).includes('pages'));
   assert.ok(!(await readdir(result.directory)).includes('.git'));
-  assert.match(await readFile(path.join(result.directory, '.gitignore'), 'utf8'), /^\.generated\/$/m);
+  assert.match(
+    await readFile(path.join(result.directory, '.gitignore'), 'utf8'),
+    /^\.generated\/$/m,
+  );
 });
 
-test('never alters a nonempty target, including one containing only a hidden file', async t => {
+test('never alters a nonempty target, including one containing only a hidden file', async (t) => {
   const cwd = await temporary(t);
   const destination = path.join(cwd, 'occupied');
   await mkdir(destination);
@@ -63,7 +84,7 @@ test('never alters a nonempty target, including one containing only a hidden fil
   assert.equal(await readFile(path.join(destination, '.keep'), 'utf8'), 'existing content');
 });
 
-test('supports an existing empty directory and the explicit current-directory destination', async t => {
+test('supports an existing empty directory and the explicit current-directory destination', async (t) => {
   const cwd = await temporary(t);
   const result = await createProject({ cwd, destination: '.', name: 'Current directory' });
   assert.equal(result.directory, cwd);
@@ -71,7 +92,7 @@ test('supports an existing empty directory and the explicit current-directory de
   assert.ok((await readdir(cwd)).includes('session.json'));
 });
 
-test('rejects files and symbolic-link destinations without following them', async t => {
+test('rejects files and symbolic-link destinations without following them', async (t) => {
   const cwd = await temporary(t);
   const file = path.join(cwd, 'file');
   await writeFile(file, 'preserved');
@@ -85,7 +106,7 @@ test('rejects files and symbolic-link destinations without following them', asyn
   assert.deepEqual(await readdir(target), []);
 });
 
-test('absolute tarball paths preserve spaces and generate a file dependency', async t => {
+test('absolute tarball paths preserve spaces and generate a file dependency', async (t) => {
   const cwd = await temporary(t);
   const tarball = path.join(cwd, "engine's local package.tgz");
   await writeFile(tarball, 'tarball fixture; initializer checks the path, pnpm checks the archive');
@@ -94,12 +115,12 @@ test('absolute tarball paths preserve spaces and generate a file dependency', as
   assert.equal(pkg.dependencies['@takazudo/zudo-diagram-gen'], `file:${tarball}`);
 });
 
-test('accepts version, full engine package spec, and npm alias without a network request', async t => {
+test('accepts version, full engine package spec, and npm alias without a network request', async (t) => {
   const cwd = await temporary(t);
   const cases = [
     ['^0.2.0', '^0.2.0'],
     ['@takazudo/zudo-diagram-gen@0.2.1', '0.2.1'],
-    ['npm:@example/diagram-engine@0.1.0', 'npm:@example/diagram-engine@0.1.0']
+    ['npm:@example/diagram-engine@0.1.0', 'npm:@example/diagram-engine@0.1.0'],
   ];
   for (let i = 0; i < cases.length; i++) {
     const [input, expected] = cases[i];
@@ -109,22 +130,27 @@ test('accepts version, full engine package spec, and npm alias without a network
   }
 });
 
-test('invalid or missing local tarballs are rejected before the destination is created', async t => {
+test('invalid or missing local tarballs are rejected before the destination is created', async (t) => {
   const cwd = await temporary(t);
   const invalid = ['./engine.tgz', 'file:engine.tgz', 'workspace:*', path.join(cwd, 'missing.tgz')];
   for (let i = 0; i < invalid.length; i++) {
-    await assert.rejects(createProject({ cwd, destination: `review-${i}`, enginePackage: invalid[i] }), /absolute path|does not exist/);
+    await assert.rejects(
+      createProject({ cwd, destination: `review-${i}`, enginePackage: invalid[i] }),
+      /absolute path|does not exist/,
+    );
   }
   assert.deepEqual(await readdir(cwd), []);
 });
 
-test('same-named Unicode sessions have stable package slugs and distinct persisted identities', async t => {
+test('same-named Unicode sessions have stable package slugs and distinct persisted identities', async (t) => {
   const cwd = await temporary(t);
   const title = '図の候補';
   const first = await createProject({ cwd, destination: 'first', name: title });
   const second = await createProject({ cwd, destination: 'second', name: title });
   const data = JSON.parse(await readFile(path.join(first.directory, 'session.json'), 'utf8'));
-  const secondData = JSON.parse(await readFile(path.join(second.directory, 'session.json'), 'utf8'));
+  const secondData = JSON.parse(
+    await readFile(path.join(second.directory, 'session.json'), 'utf8'),
+  );
   assert.equal(data.title, title);
   assert.match(first.name, /^diagram-[a-f0-9]{10}$/);
   assert.equal(first.name, second.name);
@@ -132,23 +158,33 @@ test('same-named Unicode sessions have stable package slugs and distinct persist
   assert.notEqual(data.id, secondData.id);
   assert.equal(first.sessionId, data.id);
   assert.equal(second.sessionId, secondData.id);
-  assert.equal(await readFile(path.join(first.directory, 'package.json'), 'utf8'), await readFile(path.join(second.directory, 'package.json'), 'utf8'));
+  assert.equal(
+    await readFile(path.join(first.directory, 'package.json'), 'utf8'),
+    await readFile(path.join(second.directory, 'package.json'), 'utf8'),
+  );
 });
 
-test('rejects empty names and paths before writing files', async t => {
+test('rejects empty names and paths before writing files', async (t) => {
   const cwd = await temporary(t);
   await assert.rejects(createProject({ cwd, destination: '' }), /nonempty directory path/);
-  await assert.rejects(createProject({ cwd, destination: 'review', name: ' ' }), /single-line title/);
-  await assert.rejects(createProject({ cwd, destination: 'review', name: 'Two\nlines' }), /single-line title/);
+  await assert.rejects(
+    createProject({ cwd, destination: 'review', name: ' ' }),
+    /single-line title/,
+  );
+  await assert.rejects(
+    createProject({ cwd, destination: 'review', name: 'Two\nlines' }),
+    /single-line title/,
+  );
   assert.deepEqual(await readdir(cwd), []);
 });
 
-test('CLI accepts paths and titles literally and never installs by default', async t => {
+test('CLI accepts paths and titles literally and never installs by default', async (t) => {
   const cwd = await temporary(t);
   const destination = "folder with spaces and 'quotes'";
   const title = 'Literal $(text) `name`';
   const result = await execute(process.execPath, [cli, destination, '--name', title, '--yes'], {
-    cwd, env: { ...process.env, PATH: '' }
+    cwd,
+    env: { ...process.env, PATH: '' },
   });
   assert.match(result.stdout, /Created diagram workspace/);
   assert.match(result.stdout, /pnpm install/);
@@ -159,16 +195,20 @@ test('CLI accepts paths and titles literally and never installs by default', asy
   assert.ok(!(await readdir(path.join(cwd, destination))).includes('node_modules'));
 });
 
-test('explicit install failures leave a usable generated workspace and explain retry', async t => {
+test('explicit install failures leave a usable generated workspace and explain retry', async (t) => {
   const cwd = await temporary(t);
   const destination = path.join(cwd, 'review');
-  await assert.rejects(execute(process.execPath, [cli, destination, '--install'], {
-    cwd, env: { ...process.env, PATH: '' }
-  }), error => {
-    assert.match(error.stderr, /Workspace created, but pnpm install/);
-    assert.match(error.stderr, /pnpm install/);
-    return true;
-  });
+  await assert.rejects(
+    execute(process.execPath, [cli, destination, '--install'], {
+      cwd,
+      env: { ...process.env, PATH: '' },
+    }),
+    (error) => {
+      assert.match(error.stderr, /Workspace created, but pnpm install/);
+      assert.match(error.stderr, /pnpm install/);
+      return true;
+    },
+  );
   assert.ok((await readdir(destination)).includes('session.json'));
 });
 
@@ -183,7 +223,7 @@ test('flags have explicit parsing errors and support a literal destination after
   assert.equal(parseArguments(['--install']).install, true);
 });
 
-test('help and version work without creating a destination', async t => {
+test('help and version work without creating a destination', async (t) => {
   const cwd = await temporary(t);
   const help = await execute(process.execPath, [cli, '--help'], { cwd });
   assert.match(help.stdout, /--engine-package/);

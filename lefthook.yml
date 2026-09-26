@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    format-code:
+      glob: '*.{js,mjs,ts,tsx,json,yml,yaml,css}'
+      run: pnpm exec prettier --write {staged_files} && git add {staged_files}
+    format-docs:
+      glob: '*.{md,mdx}'
+      run: pnpm exec mdx-formatter --write {staged_files} && git add {staged_files}

@@ -3,9 +3,14 @@ import { execFile } from 'node:child_process';
 import * as fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import test from 'node:test';
+import { test, onTestFinished } from 'vitest';
 import { promisify } from 'node:util';
-import { exportCandidate, loadSession, SessionValidationError, validateSession } from '../src/model.mjs';
+import {
+  exportCandidate,
+  loadSession,
+  SessionValidationError,
+  validateSession,
+} from '../src/model.mjs';
 import { contentSignature, prepareProject } from '../src/runner.mjs';
 
 const exec = promisify(execFile);
@@ -21,16 +26,21 @@ async function json(file, value) {
   await fs.writeFile(file, JSON.stringify(value, null, 2));
 }
 
-async function fixture(t, { empty = false } = {}) {
+async function fixture(_t, { empty = false } = {}) {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'diagram-model-'));
-  t.after(() => fs.rm(root, { recursive: true, force: true }));
+  onTestFinished(() => fs.rm(root, { recursive: true, force: true }));
   await json(path.join(root, 'session.json'), {
-    schemaVersion: 1, id: 'session-one', title: 'A diagram session',
+    schemaVersion: 1,
+    id: 'session-one',
+    title: 'A diagram session',
     target: { width: 360, height: 200, label: 'Help dialog' },
     project: { name: 'Example project', reference: 'https://example.com/project' },
     context: { title: 'Help text', body: 'Read this alongside the diagram.' },
   });
-  await fs.writeFile(path.join(root, 'brief.md'), '# Brief\nPreserve the actual operation and labels.\n');
+  await fs.writeFile(
+    path.join(root, 'brief.md'),
+    '# Brief\nPreserve the actual operation and labels.\n',
+  );
   if (!empty) {
     await round(root, 'r01', 1);
     await candidate(root, 'r01', 'c01', { dark: true });
@@ -39,18 +49,32 @@ async function fixture(t, { empty = false } = {}) {
 }
 
 async function round(root, id, order, extra = {}) {
-  await json(path.join(root, 'rounds', id, 'round.json'), { schemaVersion: 1, id, title: id, order, ...extra });
+  await json(path.join(root, 'rounds', id, 'round.json'), {
+    schemaVersion: 1,
+    id,
+    title: id,
+    order,
+    ...extra,
+  });
 }
 
 async function candidate(root, roundId, id, { dark = false, svg = SVG, ...extra } = {}) {
   const directory = path.join(root, 'rounds', roundId, id);
   await json(path.join(directory, 'candidate.json'), {
-    schemaVersion: 1, id, title: id, toneId: 'fine-outline', order: 1,
+    schemaVersion: 1,
+    id,
+    title: id,
+    toneId: 'fine-outline',
+    order: 1,
     assets: { light: 'light.svg', ...(dark ? { dark: 'dark.svg' } : {}) },
     ...extra,
   });
   await fs.writeFile(path.join(directory, 'light.svg'), svg);
-  if (dark) await fs.writeFile(path.join(directory, 'dark.svg'), svg.replace('fill="blue"', 'fill="white"'));
+  if (dark)
+    await fs.writeFile(
+      path.join(directory, 'dark.svg'),
+      svg.replace('fill="blue"', 'fill="white"'),
+    );
   return directory;
 }
 
@@ -61,13 +85,21 @@ async function patchJson(file, patch) {
 
 function finding(result, pattern) {
   assert.equal(result.ok, false, JSON.stringify(result));
-  assert.ok(result.errors.some((error) => pattern.test(error)), `Expected ${pattern} among ${JSON.stringify(result.errors)}`);
+  assert.ok(
+    result.errors.some((error) => pattern.test(error)),
+    `Expected ${pattern} among ${JSON.stringify(result.errors)}`,
+  );
 }
 
 async function command(args, cwd) {
   const code = `import {runDataCommand} from ${JSON.stringify(COMMANDS_URL)}; const handled = await runDataCommand(process.argv.slice(1)); if (!handled) process.stdout.write('unhandled');`;
   try {
-    return { ...(await exec(process.execPath, ['--input-type=module', '-e', code, '--', ...args], { cwd })), code: 0 };
+    return {
+      ...(await exec(process.execPath, ['--input-type=module', '-e', code, '--', ...args], {
+        cwd,
+      })),
+      code: 0,
+    };
   } catch (error) {
     return { stdout: error.stdout, stderr: error.stderr, code: error.code };
   }
@@ -113,7 +145,10 @@ test('normalization is portable, deterministic, and fingerprints changed artwork
   const result = await validateSession(root);
   assert.deepEqual(result.summary, { rounds: 1, candidates: 1, lightAssets: 1, darkAssets: 1 });
   assert.deepEqual(result.errors, []);
-  await fs.writeFile(path.join(root, 'rounds/r01/c01/light.svg'), SVG.replace('fill="blue"', 'fill="green"'));
+  await fs.writeFile(
+    path.join(root, 'rounds/r01/c01/light.svg'),
+    SVG.replace('fill="blue"', 'fill="green"'),
+  );
   const edited = await loadSession(root);
   assert.notEqual(edited.contentHash, first.contentHash);
   assert.notEqual(edited.candidates[0].fingerprint, first.candidates[0].fingerprint);
@@ -179,7 +214,13 @@ test('internal pattern, use, CSS and accessibility references validate; duplicat
   let result = await validateSession(root);
   finding(result, /duplicate SVG id/);
   finding(result, /reference #shape/);
-  await fs.writeFile(file, SVG.replace("url('#pattern')", "url('#missing')").replace('aria-labelledby="title description"', 'aria-labelledby="missing-title description"'));
+  await fs.writeFile(
+    file,
+    SVG.replace("url('#pattern')", "url('#missing')").replace(
+      'aria-labelledby="title description"',
+      'aria-labelledby="missing-title description"',
+    ),
+  );
   result = await validateSession(root);
   finding(result, /reference #missing /);
   finding(result, /reference #missing-title /);
@@ -191,8 +232,14 @@ test('scripts, event handlers, external resources and doctypes are rejected', as
   for (const [svg, pattern] of [
     [SVG.replace('</svg>', '<script>alert(1)</script></svg>'), /element script/],
     [SVG.replace('<rect class=', '<rect onclick="alert(1)" class='), /event handler onclick/],
-    [SVG.replace('href="#shape"', 'href="https://example.com/image.svg#shape"'), /external or unsupported resource/],
-    [SVG.replace("url('#pattern')", "url('https://example.com/paint.svg#p')"), /external or unsupported resource/],
+    [
+      SVG.replace('href="#shape"', 'href="https://example.com/image.svg#shape"'),
+      /external or unsupported resource/,
+    ],
+    [
+      SVG.replace("url('#pattern')", "url('https://example.com/paint.svg#p')"),
+      /external or unsupported resource/,
+    ],
     [SVG.replace('<style>', '<style>@import "https://example.com/style.css";'), /CSS @import/],
     [`<!DOCTYPE svg [<!ENTITY word "x">]>${SVG}`, /DOCTYPE/],
     [SVG.replace('</svg>', '<foreignObject width="10" height="10"/></svg>'), /foreignObject/],
@@ -206,7 +253,13 @@ test('SVG assets cannot traverse candidate boundaries or use platform-specific a
   const root = await fixture(t);
   const file = path.join(root, 'rounds/r01/c01/candidate.json');
   await fs.writeFile(path.join(root, 'rounds/r01/shared.svg'), SVG);
-  for (const asset of ['../shared.svg', '/etc/passwd.svg', 'C:\\outside.svg', 'nested/../../outside.svg', './light.svg']) {
+  for (const asset of [
+    '../shared.svg',
+    '/etc/passwd.svg',
+    'C:\\outside.svg',
+    'nested/../../outside.svg',
+    './light.svg',
+  ]) {
     await patchJson(file, { assets: { light: asset } });
     finding(await validateSession(root), /relative file path|path segments/);
   }
@@ -235,7 +288,7 @@ test('round and metadata symlinks cannot expose external files', async (t) => {
 test('a caller may intentionally supply a symlink to the session root', async (t) => {
   const root = await fixture(t);
   const holder = await fs.mkdtemp(path.join(os.tmpdir(), 'diagram-link-'));
-  t.after(() => fs.rm(holder, { recursive: true, force: true }));
+  onTestFinished(() => fs.rm(holder, { recursive: true, force: true }));
   const link = path.join(holder, 'session');
   await fs.symlink(root, link);
   assert.equal((await validateSession(link)).ok, true);
@@ -255,7 +308,9 @@ test('parent and baseline lineage must resolve to an earlier round', async (t) =
   await round(root, 'r02', 2, { baselineCandidateId: 'c01' });
   await candidate(root, 'r02', 'c02', { parentCandidateId: 'c01' });
   assert.equal((await validateSession(root)).ok, true);
-  await patchJson(path.join(root, 'rounds/r02/c02/candidate.json'), { parentCandidateId: 'missing' });
+  await patchJson(path.join(root, 'rounds/r02/c02/candidate.json'), {
+    parentCandidateId: 'missing',
+  });
   finding(await validateSession(root), /parent candidate "missing" does not exist/);
   await patchJson(path.join(root, 'rounds/r02/c02/candidate.json'), { parentCandidateId: 'c02' });
   let result = await validateSession(root);
@@ -276,26 +331,47 @@ test('export preserves source bytes, BOM, line endings, and the explicitly chose
   assert.deepEqual(await fs.readFile(output), Buffer.from(source));
   assert.equal(exported.bytes, Buffer.byteLength(source));
   await exportCandidate(root, 'c01', { theme: 'dark', output });
-  assert.deepEqual(await fs.readFile(output), await fs.readFile(path.join(root, 'rounds/r01/c01/dark.svg')));
+  assert.deepEqual(
+    await fs.readFile(output),
+    await fs.readFile(path.join(root, 'rounds/r01/c01/dark.svg')),
+  );
 });
 
 test('missing dark artwork, unknown candidates, and invalid themes never silently fall back', async (t) => {
   const root = await fixture(t);
-  await patchJson(path.join(root, 'rounds/r01/c01/candidate.json'), { assets: { light: 'light.svg' } });
+  await patchJson(path.join(root, 'rounds/r01/c01/candidate.json'), {
+    assets: { light: 'light.svg' },
+  });
   const output = path.join(root, 'exports/chosen.svg');
   await assert.rejects(exportCandidate(root, 'c01', { theme: 'dark', output }), /has no dark SVG/);
-  await assert.rejects(exportCandidate(root, 'missing', { theme: 'light', output }), /was not found/);
-  await assert.rejects(exportCandidate(root, 'c01', { theme: 'system', output }), /Unsupported theme/);
+  await assert.rejects(
+    exportCandidate(root, 'missing', { theme: 'light', output }),
+    /was not found/,
+  );
+  await assert.rejects(
+    exportCandidate(root, 'c01', { theme: 'system', output }),
+    /Unsupported theme/,
+  );
   await assert.rejects(fs.stat(output), { code: 'ENOENT' });
 });
 
 test('export refuses to overwrite session source files, including through output symlinks', async (t) => {
   const root = await fixture(t);
-  for (const output of [path.join(root, 'session.json'), path.join(root, 'brief.md'), path.join(root, 'rounds/r01/c01/light.svg')]) {
-    await assert.rejects(exportCandidate(root, 'c01', { theme: 'light', output }), /overlaps session source files/);
+  for (const output of [
+    path.join(root, 'session.json'),
+    path.join(root, 'brief.md'),
+    path.join(root, 'rounds/r01/c01/light.svg'),
+  ]) {
+    await assert.rejects(
+      exportCandidate(root, 'c01', { theme: 'light', output }),
+      /overlaps session source files/,
+    );
   }
   await fs.symlink(path.join(root, 'rounds'), path.join(root, 'shortcut'));
-  await assert.rejects(exportCandidate(root, 'c01', { theme: 'light', output: path.join(root, 'shortcut/new.svg') }), /overlaps session source files/);
+  await assert.rejects(
+    exportCandidate(root, 'c01', { theme: 'light', output: path.join(root, 'shortcut/new.svg') }),
+    /overlaps session source files/,
+  );
   assert.equal((await validateSession(root)).ok, true);
 });
 
@@ -317,7 +393,10 @@ test('CLI rejects misspelled options and leaves server commands for the parent d
   assert.match(result.stderr, /Unknown option/);
   result = await command(['export', 'c01', '--theme=dark', '--out=exports/cli.svg'], root);
   assert.equal(result.code, 0, result.stderr);
-  assert.equal(await fs.readFile(path.join(root, 'exports/cli.svg'), 'utf8'), SVG.replace('fill="blue"', 'fill="white"'));
+  assert.equal(
+    await fs.readFile(path.join(root, 'exports/cli.svg'), 'utf8'),
+    SVG.replace('fill="blue"', 'fill="white"'),
+  );
   result = await command(['dev'], root);
   assert.equal(result.stdout, 'unhandled');
 });

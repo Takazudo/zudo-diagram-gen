@@ -3,7 +3,11 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, 'base/**']
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -11,17 +15,19 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: pnpm/action-setup@7088e561eb65bb68695d245aa206f005ef30921d # v4.1.0
         with:
           version: 10.30.3
           run_install: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24.13.0
-          cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
       - run: pnpm check
       - run: pnpm test
       - run: pnpm check:examples
@@ -65,7 +71,7 @@ jobs:
           pnpm exec playwright install --with-deps chromium
           pnpm exec zudo-diagram-gen export-html examples/tone-exploration --out test-output/browser-project.html
           pnpm check:browser
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: browser-screenshots
