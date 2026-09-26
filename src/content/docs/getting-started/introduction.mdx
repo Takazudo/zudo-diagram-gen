@@ -1,36 +1,43 @@
 ---
 title: Introduction
-description: A predictable local workspace for choosing and refining SVG diagrams.
+description: Turn a grounded explanation into SVG candidates you can compare and refine.
 sidebar_position: 1
 ---
 
-zudo-diagram-gen gives a person and an AI agent a shared place to compare SVG diagram candidates. The agent prepares the explanation and draws alternatives. You inspect the results, select a direction, and ask for specific refinements.
+zudo-diagram-gen is a local review workspace for SVG diagrams. You and an agent establish what a drawing should explain; the agent writes SVG alternatives; you compare them at the intended size and choose what to refine. The saved SVG remains the starting point for each revision.
 
-The project combines a package-owned review app, a destination-based initializer, and a collection of 24 illustration tones. Its documentation site uses zfb and zudo-doc. Generated review sessions use zfb for development, build, and preview.
+## Take one diagram through the loop
 
-## The working loop
+1. **Create a session.** Give the work its own directory, brief, and target dimensions.
+2. **Ground the explanation.** Read the actual feature, preserve its labels and relationships, and record what the drawing leaves out.
+3. **Add candidates.** Write complete SVG files and metadata with stable IDs. Use the [24 tone references](/tones/) to explore useful differences in drawing style.
+4. **Review at the target size.** Compare candidates, shortlist possibilities, and choose one direction. Record what to keep and what to change.
+5. **Transfer the decision.** Copy feedback or download review JSON for the agent. Review controls save state in the browser; they do not edit the workspace or resume the agent.
+6. **Refine and export.** Copy the chosen SVG into a later round under a new ID, make the requested changes, then export the exact candidate and theme you want to use.
 
-1. Establish what the diagram needs to explain and where it will appear.
-2. Create a review session and generate candidates into its content directories.
-3. Compare actual drawings at their intended display size.
-4. Choose a direction and describe what to keep or change.
-5. Create a new round from the saved baseline SVG.
-6. Export the chosen drawing and integrate it when requested.
+[Create your first session](/docs/getting-started/first-session/) walks through these steps with a complete starter SVG. You can author files yourself or ask an agent to follow the same instructions.
 
-The review interface stays familiar across projects. The diagrams themselves can vary widely: UI miniatures, outlines, paper layers, technical diagrams, editorial compositions, and other approaches all use ordinary SVG files.
+## Explore a session before creating one
 
-## Explore the examples
+The [worked examples](/examples/) contain six sessions. **One explanation, ten directions** compares ten treatments of the same Composer explanation, followed by one illustrative refinement. Its second round demonstrates lineage; it does not record a user's approved choice.
 
-Visit the [tone collection](/tones/) to compare the 24 reference treatments. These examples illustrate possible drawing approaches; they are material an agent can consult when generating a diagram for a real feature.
+The other five sessions each explain a different subject. They show how a shared drawing family adapts to a specific feature and placement:
 
-Visit the [worked examples](/examples/) to see diagrams adapted to project-specific explanations. The same tone may need a different arrangement, level of detail, or balance of labels when its subject changes.
+| Session | Explanation to inspect | Preview size |
+| --- | --- | --- |
+| [Composer tone exploration](/examples/tone-exploration/) | Pattern and text inputs become a composition that can be exported as an image. | 360 × 200 px |
+| [zudo-pattern-gen](/examples/project-pattern-gen/) | A pattern background and text layer combine in a square UI study. | 360 × 200 px |
+| [zudo-text](/examples/project-text/) | Split preserves the existing Note Tray and creates an Empty frame; choosing its component is a separate step. | 280 × 156 px |
+| [zudo-doc-cloud](/examples/project-doc-cloud/) | Move selected changes A and B into Draft: Guide while C remains on Workbench. | 360 × 200 px |
+| [zudo-ez-host](/examples/project-ez-host/) | Save to a cloud checkpoint and Publish to the live site are separate actions. | 360 × 200 px |
+| [zzmod](/examples/project-zzmod/) | Audio travels through VCO, VCF, and VCA; the envelope supplies control voltage to VCA. | 480 × 267 px |
 
-## What this version provides
+These are authored studies grounded in the source references recorded in their briefs. Their preview dimensions are proposed review sizes. Recheck current feature behavior, labels, and the destination component before integrating a study into a product.
 
-The `0.1.0` source handoff includes session loading and validation, candidate inspection and comparison, zoom and pan, placement context, artwork themes and backdrops, shortlisting and review feedback, SVG export, an offline HTML export, a local initializer, the reference collection, and this documentation website.
+## Know what the app supplies
 
-The intended Claude Code `/diagram-gen` skill and personal `/my-diagram-gen` wrapper are documented under [Agent workflow](/docs/agent-workflow/core-and-wrapper/). Creating and installing those skills is a later integration step. The app already exposes the files and commands needed to implement that workflow.
+The installed engine supplies the gallery, comparison and placement views, browser review state, validation, and exports. A session supplies its brief, JSON metadata, and SVGs. The initializer creates the small zfb host that joins them together. See [Architecture](/docs/reference/architecture/) for that boundary.
 
-## Start locally
+The proposed Claude Code `/diagram-gen` skill and personal `/my-diagram-gen` wrapper are described in [Agent workflow](/docs/agent-workflow/core-and-wrapper/). They are future integrations; there are no installable Claude Code skills included with the app. The local workflow in these guides uses the implemented files and CLI.
 
-Read [Local development](/docs/getting-started/local-development/) to run the downloaded project, then [Your first session](/docs/getting-started/first-session/) to initialize a separate review workspace. The [session file reference](/docs/authoring/session-files/) gives the exact content format for agents and manual authors.
+Continue with [Your first session](/docs/getting-started/first-session/), or open [Reviewing candidates](/docs/gallery/reviewing/) alongside an example gallery.

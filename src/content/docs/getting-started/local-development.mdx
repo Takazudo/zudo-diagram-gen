@@ -1,25 +1,27 @@
 ---
-title: Local development
-description: Run the downloaded source, build the documentation, and package a local consumer.
-sidebar_position: 2
+title: Run the project site
+description: Develop the documentation and examples, validate content, and pack local archives.
+sidebar_position: 3
 ---
 
-Use Node.js 22–24 and pnpm 10. The root `package.json` records the exact pnpm version and the project dependencies.
+Use this guide to run the project website or work on its source. To create a diagram workspace, start with [Your first session](/docs/getting-started/first-session/). Both use zfb, but the website presents documentation and fixtures while your session contains the diagrams you are reviewing.
 
-## Run the project site
+## Open the documentation and examples locally
 
-From the project root:
+Use Node.js 22–24 and pnpm 10. From the repository root:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Open the address printed by zfb. The project website contains these documentation pages, the live [tone catalog](/tones/), and the [example galleries](/examples/).
+Open the address printed by zfb. Visit the [tone catalog](/tones/), the six [example sessions](/examples/), and these guides. The root development command prepares showcase data before starting zfb and watches examples, tone resources, and viewer assets for changes.
 
-The development command prepares the showcase data before starting zfb and watches the examples, tone collection, and viewer assets for updates. A generated session has its own content watcher for candidate additions, edits, and removals.
+The [Architecture reference](/docs/reference/architecture/) describes the package and website boundaries. Session content belongs in metadata and candidate directories; the installed engine supplies the review interface.
 
-## Build and preview
+## Check changes and preview the build
+
+Run these from the repository root:
 
 ```bash
 pnpm check
@@ -29,28 +31,32 @@ pnpm build
 pnpm preview
 ```
 
-`check` runs TypeScript checking for the project sources. `test` exercises engine and initializer behavior. `check:examples` validates the shipped sessions. `build` generates the documentation site using zfb; `preview` serves the build output.
+| Command | What it checks or produces |
+| --- | --- |
+| `pnpm check` | Prepared showcase data and TypeScript checking for the project sources. |
+| `pnpm test` | Engine, renderer, browser-state logic, and initializer tests. |
+| `pnpm check:examples` | Validation of the six example sessions and tone catalog. |
+| `pnpm build` | The documentation and showcase site, built with zfb. |
+| `pnpm preview` | A local server for the built site. |
 
-These commands are verification entrypoints, not a statement that they have already passed on your machine. Consult the handoff's verification report for the checks completed when the source bundle was produced.
+In a generated session, `pnpm check` instead validates that session's metadata, SVG assets, and lineage. Validation and builds do not establish that a diagram explains the feature correctly or that every browser interaction works. Inspect the relevant pages and review actions when changing them.
 
-## Make local package archives
+## Pack an engine for a separate session
 
 ```bash
 pnpm pack:local
 ```
 
-The script prints the paths of the resulting package archives. Use the engine archive with the source initializer as described in [Your first session](/docs/getting-started/first-session/).
+This writes engine and initializer archives under `artifacts/` and prints their absolute paths. Follow [Your first session](/docs/getting-started/first-session/) to initialize and install a consumer outside this repository.
 
-This exercises the package boundary: the generated host consumes packaged files through its dependency. Keep this check when changing the engine's `files` list, relative asset paths, tone resources, initializer templates, or package exports.
+Use that separate consumer when changing package exports, packaged resources, initializer templates, or runtime paths. Confirm that its engine resolves from its own installed dependency, validate an empty session and a populated one, and check the relevant dev, export, or build behavior. A source import within this workspace does not exercise the installed package boundary.
 
-## Choose addresses at the caller
+## Set a session's host and port
 
-The app accepts a destination and the session CLI accepts host and port options. A personal wrapper can select a logs directory or a network address that fits a particular machine. The reusable engine does not contain those personal choices.
-
-When passing flags directly to the installed engine, use its explicit command interface:
+In a generated session, the installed engine accepts explicit network settings:
 
 ```bash
 pnpm exec zudo-diagram-gen dev . --host 0.0.0.0 --port 4799
 ```
 
-Choose a free port and stop the server you started when the review is finished. See the [CLI reference](/docs/reference/cli/) for the supported commands.
+Use a free port. Binding to `0.0.0.0` allows access through the machine's network interfaces; the default local address is sufficient for review on the same machine. Stop the server when finished. See the [CLI reference](/docs/reference/cli/) for the complete command interface.
