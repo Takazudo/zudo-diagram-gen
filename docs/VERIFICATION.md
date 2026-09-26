@@ -1,5 +1,11 @@
 # Verification report
 
+## Automated deployment — 2026-09-27
+
+The repository now has `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secrets and `CF_PRODUCTION_ENABLED=true`. Secret values were not inspected. The [first credentialed run](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36271943334) built and deployed successfully, but its immediate smoke saw a newly generated JavaScript asset return a transient 404. The asset was available shortly afterward. The smoke command now waits up to 60 seconds for deployed assets and still fails if one remains unavailable.
+
+For `main` commit `4779861727f550aab437a6b89dfb9beba0c8b485`, [push CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36273772254) and the [credentialed deploy workflow](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36273841196) both passed. That workflow built the passing commit, deployed Worker version `801db106-1459-4a50-81e9-5527f3910586`, and passed the production smoke after the new JavaScript asset became available. The live home and first-session docs returned HTTP 200, and a missing route returned HTTP 404. The deploy workflow is active for future successful `main` push CI runs.
+
 ## First live deployment — 2026-09-27
 
 The reviewed root PR [#23](https://github.com/Takazudo/zudo-diagram-gen/pull/23) merged as `2006d8a3642c54a9417dccb574c03db4d4dae16a`. Its [main push CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36271396203), actionlint, and security audit passed. The configured deploy workflow [skipped](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36271471046) because `CF_PRODUCTION_ENABLED` and scoped Cloudflare secrets were not provisioned. The first rollout used the local authenticated Wrangler session and the `site-dist` artifact from that exact passing main CI run; the local heavy-guarded build remained unrun.
@@ -8,7 +14,7 @@ Immediately before deployment, Cloudflare's authoritative nameserver returned NX
 
 The [live site](https://zudo-diagram-gen.zudolab.dev/) resolved to Cloudflare addresses over IPv4 and IPv6 and passed HTTPS. HTTP 200 was observed on home, introduction, first session, CLI reference, tones, examples, and workbench; a missing route returned HTTP 404 with the configured page. The live smoke also passed the canonical 307 redirect and CSS, SVG, and JavaScript assets. In a real browser, docs search, mobile sidebar and table of contents, workbench filtering, shortlist persistence, and inspection passed with no page errors. Desktop and narrow screenshots were inspected. These are live checks, separate from the nine Chromium groups in CI.
 
-The packages remain unpublished, and the proposed `/diagram-gen` and `/my-diagram-gen` skills remain uninstalled. The deployment workflow is configured but inactive until scoped credentials and the enablement variable are provisioned.
+The packages remain unpublished, and the proposed `/diagram-gen` and `/my-diagram-gen` skills remain uninstalled. At the first live deployment, the CI deployment workflow was inactive; its later successful activation is recorded above.
 
 ## Pre-merge release candidate — 2026-09-27
 
