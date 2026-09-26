@@ -1,6 +1,16 @@
 # Verification report
 
-## Release candidate status — 2026-09-27
+## First live deployment — 2026-09-27
+
+The reviewed root PR [#23](https://github.com/Takazudo/zudo-diagram-gen/pull/23) merged as `2006d8a3642c54a9417dccb574c03db4d4dae16a`. Its [main push CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36271396203), actionlint, and security audit passed. The configured deploy workflow [skipped](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36271471046) because `CF_PRODUCTION_ENABLED` and scoped Cloudflare secrets were not provisioned. The first rollout used the local authenticated Wrangler session and the `site-dist` artifact from that exact passing main CI run; the local heavy-guarded build remained unrun.
+
+Immediately before deployment, Cloudflare's authoritative nameserver returned NXDOMAIN for the requested hostname's A, AAAA, and CNAME queries. Wrangler dry-run passed, and `versions list` showed no previous version. Manual `pnpm deploy:cloudflare` attached `zudo-diagram-gen.zudolab.dev` and returned version `50272b74-9658-4dda-b2b1-1f9294b828dd`. There was no prior version to use as a rollback target for this first deployment.
+
+The [live site](https://zudo-diagram-gen.zudolab.dev/) resolved to Cloudflare addresses over IPv4 and IPv6 and passed HTTPS. HTTP 200 was observed on home, introduction, first session, CLI reference, tones, examples, and workbench; a missing route returned HTTP 404 with the configured page. The live smoke also passed the canonical 307 redirect and CSS, SVG, and JavaScript assets. In a real browser, docs search, mobile sidebar and table of contents, workbench filtering, shortlist persistence, and inspection passed with no page errors. Desktop and narrow screenshots were inspected. These are live checks, separate from the nine Chromium groups in CI.
+
+The packages remain unpublished, and the proposed `/diagram-gen` and `/my-diagram-gen` skills remain uninstalled. The deployment workflow is configured but inactive until scoped credentials and the enablement variable are provisioned.
+
+## Pre-merge release candidate — 2026-09-27
 
 The pre-merge release candidate is `base/docs-cloudflare`; the CI-built site artifact came from commit `3713cd9ff1fb169ab843f5532721b50a9f2768e8`. Later commits corrected the Wrangler compatibility date and added a dedicated preview Worker configuration without changing site content. The repository and both packages report version `0.1.0`. CI uses Node.js 24.13.0 and pnpm 10.30.3.
 
@@ -10,16 +20,16 @@ The downloaded CI site artifact contained 397 assets, including `404.html`. Loca
 
 A Cloudflare Preview created before the production Worker existed served content and assets, but its beta missing-route response used a generic 404 body. An isolated `workers.dev` Worker deployed from `wrangler.preview.jsonc` then passed the **full remote smoke**, including the generated 404 body. Desktop and 390 px browser screenshots were inspected for home, first-session docs, and workbench; no horizontal overflow appeared. Remote browser interaction checks passed docs search, mobile sidebar and table of contents, workbench candidate filtering, shortlist persistence after reload, and inspection navigation. The existing CI Chromium suite passed its nine workbench groups. The isolated preview is temporary and should be removed after the production rollout.
 
-The following results remain pending:
+At this pre-merge checkpoint, the following results remained pending. The first live deployment above resolves the production items for the initial `main` merge:
 
 - CI for the final documentation/configuration commit and the resulting merged `main` SHA.
 - Production deployment, live DNS/HTTPS/routes/assets/browser checks, and deployed version capture.
 
-Cloudflare account and hostname review: zone `zudolab.dev` is active under account `367c7f51801e1f537030f93d5a5e6008` (zone `ddb163ab74e7cd438bb2d77d462bd724`); the Workers routes and custom domains APIs show no entry for `zudo-diagram-gen.zudolab.dev`. Its authoritative Cloudflare nameserver returned NXDOMAIN for the exact A, AAAA, and CNAME queries. The DNS-records API request was denied with error 10000, so a dashboard inventory was unavailable. Recheck before attachment and stop if the hostname becomes occupied. The public hostname is not live. The repository has no configured Cloudflare Actions secrets or variables, so automatic production deployment is not active.
+Cloudflare account and hostname review before attachment: zone `zudolab.dev` was active under account `367c7f51801e1f537030f93d5a5e6008` (zone `ddb163ab74e7cd438bb2d77d462bd724`); the Workers routes and custom domains APIs showed no entry for `zudo-diagram-gen.zudolab.dev`. Its authoritative Cloudflare nameserver returned NXDOMAIN for the exact A, AAAA, and CNAME queries. The DNS-records API request was denied with error 10000, so a dashboard inventory was unavailable. The public hostname was not live at that checkpoint. The repository had no configured Cloudflare Actions secrets or variables, so automatic production deployment was not active.
 
-The source audit found the README's site URL notice accurately says a public URL will be added after deployment is verified. Public README and MDX instructions continue to describe package version `0.1.0` as unpublished and use source/local archives; no registry install command or host-specific machine path was found. Those statements remain accurate for this release candidate.
+The pre-merge source audit found the README's then-current site URL notice accurately deferred the public URL until deployment. Public README and MDX instructions described package version `0.1.0` as unpublished and used source/local archives; no registry install command or host-specific machine path was found. The README now links to the verified live site.
 
-### Post-merge live checklist
+### Checklist used for the first rollout
 
 After the reviewed commit is merged, check CI on the resulting `main` SHA and confirm whether the deploy workflow ran or was skipped. Its deploy job requires successful push CI on `main`, the production repository, and `CF_PRODUCTION_ENABLED=true`; if the job starts but skips deploy steps, check whether the API token and account ID secrets are absent. Report a manual deploy as manual, and do not describe CI as active unless it deployed.
 
@@ -66,6 +76,6 @@ Heavy local runs use `bash "$HOME/.codex/scripts/heavy-guard.sh" -- <command>`. 
 
 Both package manifests are `0.1.0` with `MIT` license declarations and include their own LICENSE files; the repository root also has an MIT LICENSE file. The engine is named `@takazudo/zudo-diagram-gen`; the initializer is `create-zudo-diagram-gen`. The Git remote points to `Takazudo/zudo-diagram-gen`, but package manifests currently have no `repository`, `homepage`, or `bugs` fields. The initializer LICENSE uses `Takazudo`, while the root and engine notices use `Takeshi Takatsudo`; confirm intended holder text before a release. These facts establish source provenance only; they do not establish registry ownership or publication readiness.
 
-Neither package has been published to npm through this handoff, and the website has not been deployed. Install from downloaded source and local archives as described in the [README](../README.md). The proposed `/diagram-gen` core skill, `/my-diagram-gen` wrapper, project-selection workflow, and a real-project diagram integration remain future work. Browser review state stays local until copied or downloaded; no source feedback-write or automatic agent-resume path exists.
+Neither package has been published to npm through this handoff. At the time of the earlier source handoff, the website had not been deployed; the first live deployment is recorded above. Install from downloaded source and local archives as described in the [README](../README.md). The proposed `/diagram-gen` core skill, `/my-diagram-gen` wrapper, project-selection workflow, and a real-project diagram integration remain future work. Browser review state stays local until copied or downloaded; no source feedback-write or automatic agent-resume path exists.
 
 SVG validation checks supported structure and references. It does not judge whether a diagram is factually correct, legible, or suitable for a target placement.
