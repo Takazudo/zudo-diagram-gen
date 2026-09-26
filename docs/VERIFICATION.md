@@ -2,7 +2,7 @@
 
 ## Current source-handoff evidence — 2026-09-27
 
-The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check used Node.js 24.13.0 and Corepack pnpm 10.30.3. CI uses those exact versions on Ubuntu, installs with `pnpm install --frozen-lockfile`, then runs `pnpm check`, `pnpm test`, `pnpm check:examples`, and `pnpm build`. A workflow file is not evidence of a successful remote run; check GitHub Actions after the branch is merged.
+The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check used Node.js 24.13.0 and Corepack pnpm 10.30.3. CI uses those exact versions on Ubuntu, installs with `pnpm install --frozen-lockfile`, then runs `pnpm check`, `pnpm test`, `pnpm check:examples`, `pnpm build`, and a packed-consumer build. A workflow file is not evidence of a successful remote run; check GitHub Actions after the branch is merged.
 
 | Scope | Recorded result | Evidence limit |
 | --- | --- | --- |
@@ -12,6 +12,14 @@ The repository declares Node.js `>=22 <25` and pnpm `10.30.3`. The import check 
 | This integration worktree | Node.js 24.13.0, Corepack pnpm 10.30.3: frozen install, check, all 45 tests, and example/catalog validation passed on `topic/integration-ci`. | The worktree started at merged prerequisite `9aa28e4`; CI status, guarded build, live servers, and real-browser checks require separate evidence. |
 
 The import, installed-consumer, and browser-worker results above come from their 2026-09-27 foreground review records. They are separate checkouts in the same source-handoff sequence; the increasing test counts reflect added regression tests. Do not combine them into a claim that a full end-to-end suite passed on the merged base.
+
+## Merged-base and packed-consumer checks
+
+On merged base `14fe2ab`, Node.js 24.13.0 and Corepack pnpm 10.30.3 passed `pnpm check`, all 45 tests, and `pnpm check:examples` (six sessions, 16 candidates, and 24 tone profiles). `pnpm pack:local` produced a 115-file engine archive and a five-file initializer archive. A new host in `/tmp` was created with `npm exec --package <initializer archive>`, installed the engine archive with pnpm, and resolved the engine from that host's `node_modules/.pnpm` directory. Its empty and one-candidate session checks passed. Both light and dark exported SVGs matched the source files byte for byte, and exported HTML contained no absolute source or host path. The temporary host path is evidence location only, not a project setting.
+
+The root development server returned HTTP 200 for `/`, `/tones/`, `/examples/`, `/workbench/`, `/examples/tone-exploration/`, and `/docs/getting-started/introduction/`. The packed consumer's development server passed the eight live transitions over HTTP: empty session, candidate addition, SVG edit with fingerprint change, malformed metadata retaining the previous gallery, metadata repair, brief edit, candidate deletion, and re-addition. A rapid edit/delete/re-add also ended with one candidate and no phantom entry. Malformed metadata was held through a watcher poll; the server logged the validation error and recovered after repair.
+
+The draft root pull request's initial `verify` GitHub Actions job passed on the integrated branch, including its build step. The packed-consumer CI step was added afterward and remains pending a new run. Main branch CI remains to be checked after merge.
 
 ## Earlier supplied handoff — historical evidence
 
@@ -26,10 +34,10 @@ An earlier combined run once observed a deleted candidate directory reappear wit
 | Gate | Exact follow-up |
 | --- | --- |
 | Merged-base build and built routes | Run `pnpm build` through the machine-wide heavy guard. Inspect home, `/tones/`, `/examples/`, a workbench route, and a docs route; check built local links. |
-| Installed consumer build | Repack local archives and install in a fresh directory outside this checkout. Confirm `import.meta.resolve` points into that host's `node_modules`, then run its check and guarded build. |
-| Live development and preview | Start disposable root and consumer servers. Repeat the eight live-file transitions above, including rapid edit/delete/re-add, and verify the built preview routes. Stop both servers. |
+| Installed consumer build | The fresh archive host, installed resolution, and checks passed as recorded above. Run its guarded build. |
+| Live development and preview | Root and consumer dev HTTP checks passed as recorded above. Verify built preview routes and stop both servers. |
 | Real browser | Run the [browser acceptance matrix](./CODEX-HANDOFF.md#browser-acceptance-matrix) on the project and packed consumer: keyboard/focus, filters and stable identity, theme/backdrop, placement size, zoom/pan, narrow layout, persistence, copy/download/import, stale review, invalid import, and independent exports. Also reimport the same JSON file through the native picker after changing feedback. |
-| Remote CI | After the workflow reaches GitHub, verify the pull-request run and main run rather than inferring success from local checks. |
+| Remote CI | Initial pull-request CI passed. Check the updated packed-consumer CI step, then check the main branch run after merge. |
 
 Heavy local runs use `bash "$HOME/.codex/scripts/heavy-guard.sh" -- <command>`. An exit 75 means the suite never ran. Follow `AGENTS.md` for `ENV_SUSPECT`, `FAIL`, and environment-only deferral handling.
 
