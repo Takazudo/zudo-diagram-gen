@@ -50,6 +50,8 @@ Do not add tests that simply duplicate a constant or a reversible copy edit. Tes
 
 Distinguish implemented app functionality from the documented future `/diagram-gen` and `/my-diagram-gen` skill contract. There are no installable Claude Code skills in this first app handoff.
 
+Record every user-visible change as a changelog entry under `src/content/docs/changelog/`.
+
 Do not publish packages, deploy the site, modify a remote repository, or install a personal skill as an incidental part of local validation. Carry out such actions when the user requests them. The current GitHub source-handoff workflow is authorized to push branches, open and merge pull requests, and update its project issues; this exception does not authorize package publication, deployment, or skill installation.
 
 When handing off work, describe what changed, how it was checked, and the material remaining limitations. Preserve the user's selected drawing and feedback when refining diagrams.
