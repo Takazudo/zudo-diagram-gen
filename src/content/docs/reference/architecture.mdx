@@ -25,11 +25,11 @@ The engine reads the session directory, validates source files, and normalizes t
 
 The renderer serializes this data safely and supplies the package-owned stylesheet and browser application. SVGs are displayed as images so their internal IDs and styles do not collide with the host document or another candidate.
 
-The browser is a dependency-free JavaScript application. The zfb page entrypoint uses Preact to host the prepared workbench. The package source is shipped directly, with Node runtime modules in ESM `.mjs` files.
+The browser is a dependency-free JavaScript application. The zfb page entrypoint uses Preact to host the prepared workbench. The package source is shipped directly, with Node runtime modules in ESM `.mjs` files. A fresh generated host must resolve the installed engine from its own `node_modules`; resolving files from this repository would hide a package boundary error.
 
 ## zfb lifecycle
 
-Session `dev`, `build`, and `preview` commands prepare the page and delegate to zfb. The development wrapper watches source metadata and SVGs, regenerating the workbench when files are added, edited, or removed.
+Session `dev`, `build`, and `preview` commands prepare the page and delegate to zfb. The development wrapper watches source metadata, briefs, and SVGs, regenerating the workbench when files are added, edited, or removed. It hashes content so a same-size edit with a preserved timestamp is still seen, and it does not traverse a symlinked rounds tree.
 
 This keeps zfb as the normal host/build path. `export-html` uses the same viewer and data to create an additional standalone snapshot.
 
@@ -37,7 +37,7 @@ The project website prepares its catalog and examples before a zfb run and refre
 
 ## Review state
 
-Browser-local review state is keyed by session identity and associated with content fingerprints. Copy/download actions explicitly transfer it to the user or agent. Imported review records are checked against the session and candidate references.
+Browser-local review state is keyed by session identity and associated with content fingerprints. Copy/download actions explicitly transfer it to the user or agent. Imported review records are checked against the session and candidate references, then replace the prior notes, shortlist, and chosen direction as one review.
 
 The first version has no feedback-writing development endpoint and no automatic agent-resume channel. If a later version adds a server write path, it should validate a bounded review schema and write within the active session. It should not reinterpret a browser selection as an instruction to alter another application.
 

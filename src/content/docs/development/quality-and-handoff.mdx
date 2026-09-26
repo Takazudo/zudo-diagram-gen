@@ -11,6 +11,7 @@ The downloadable source is intended to continue locally with Codex. The reposito
 From the project root:
 
 ```bash
+pnpm install --frozen-lockfile
 pnpm check
 pnpm test
 pnpm check:examples
@@ -18,6 +19,8 @@ pnpm build
 ```
 
 The important risks are invalid metadata, missing assets, duplicate IDs, incorrect lineage, paths escaping a candidate directory, incomplete package contents, and a generated host that accidentally relies on the monorepo. Test these contracts when changing their implementation.
+
+Repository CI uses Node.js 24.13.0 and pnpm 10.30.3 for these commands on pull requests and main. A passing workflow covers the automated gates; it does not replace a real-browser review or the fresh installed-consumer check.
 
 SVG validation establishes that a file meets the supported format. Visual review must still check labels, clipping, line weights, contrast, and the explanation itself.
 
@@ -48,7 +51,7 @@ The ten-candidate example includes a second-round outline refinement to demonstr
 
 ## Publication and skills
 
-The package versions and local archives support testing this handoff before publication. Confirm package names, ownership, release metadata, and a packed-consumer build before publishing.
+The package versions and local archives support testing this handoff before publication. The repository and packages have MIT license files, but repository/homepage/bugs package metadata and the differing copyright holder text still need release review. Confirm registry ownership, complete that metadata, and pass a fresh packed-consumer build before publishing. Neither package nor the site is published by this handoff.
 
 The `/diagram-gen` and `/my-diagram-gen` pages are an integration design. Implement the actual Claude Code skills in the user's chosen skill repository after exercising the app in a real project. The core receives an explicit destination; the wrapper resolves personal output conventions.
 
