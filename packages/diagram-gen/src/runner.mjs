@@ -1,5 +1,6 @@
-import { readFile, writeFile, mkdir, readdir, stat, lstat } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, lstat } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
+import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
 import { loadSession } from './model.mjs';
@@ -33,14 +34,24 @@ export async function contentSignature(directory) {
   async function visit(relative) {
     const full = join(directory, relative);
     let info;
-    try { info = await stat(full); } catch (error) { if (error.code === 'ENOENT') return; throw error; }
+    try { info = await lstat(full); } catch (error) { if (error.code === 'ENOENT') return; throw error; }
+    if (info.isSymbolicLink()) { rows.push(`${relative}:symlink`); return; }
     if (info.isDirectory()) {
       const entries = await readdir(full, { withFileTypes: true });
       for (const entry of entries.sort((a,b) => a.name.localeCompare(b.name))) {
         if (entry.isSymbolicLink()) { rows.push(`${relative}/${entry.name}:symlink`); continue; }
         await visit(join(relative, entry.name));
       }
-    } else if (/\.(json|svg|md)$/i.test(relative)) rows.push(`${relative}:${info.size}:${info.mtimeMs}`);
+    } else if (/\.(json|svg|md)$/i.test(relative)) {
+      // Session validation rejects larger files. Track their metadata until they
+      // become valid again rather than loading an unbounded file on each poll.
+      const limit = /\.svg$/i.test(relative) ? 16 * 1024 * 1024 : 1024 * 1024;
+      if (info.size > limit) rows.push(`${relative}:oversize:${info.size}:${info.mtimeMs}`);
+      else {
+        const contents = await readFile(full);
+        rows.push(`${relative}:${createHash('sha256').update(contents).digest('hex')}`);
+      }
+    }
   }
   for (const path of ['session.json', 'brief.md', 'rounds']) await visit(path);
   return rows.join('\n');
