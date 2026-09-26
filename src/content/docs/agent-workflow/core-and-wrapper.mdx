@@ -4,7 +4,7 @@ description: A proposed Claude Code interface that accepts caller paths and keep
 sidebar_position: 1
 ---
 
-This page specifies the intended integration between Claude Code and the implemented app. The first source handoff does not include or install an executable `/diagram-gen` skill or a `/my-diagram-gen` wrapper. The option names below are a proposed skill contract, distinct from the implemented [application CLI](/docs/reference/cli/).
+This page specifies a **future Claude Code integration** with the implemented app. Neither `/diagram-gen` nor `/my-diagram-gen` is installed by this repository or its initializer. The options below are a proposed skill contract, distinct from the implemented [application CLI](/docs/reference/cli/). Running these examples as shell commands will not work.
 
 ## Core responsibilities
 
@@ -72,4 +72,4 @@ The future skill can already operate against these implemented boundaries:
 - Review transfer: read copied feedback or a review JSON file supplied by the user.
 - Export: retrieve the exact chosen SVG for integration.
 
-Write the installable skill after exercising these interfaces in a real project. Keep its core instructions short and move detailed schema, authoring, and review guidance into references that can be read when needed.
+An installable skill remains future work. Its core instructions should stay short, with detailed schema, authoring, and review guidance in references that can be read when needed.
