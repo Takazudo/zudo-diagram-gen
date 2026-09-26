@@ -8,7 +8,18 @@ await mkdir(output, { recursive: true });
 const project = await readFile(new URL('browser-project.html', output));
 const consumerEmpty = await readFile(new URL('browser-consumer-empty.html', output));
 const consumer = await readFile(new URL('browser-consumer.html', output));
-const files = new Map([['/project', project], ['/consumer-empty', consumerEmpty], ['/consumer', consumer]]);
+function projectVariant(change) {
+  return project.toString().replace(/(<script id="diagram-data" type="application\/json">)(.*?)(<\/script>)/s, (_, before, source, after) => {
+    const data = JSON.parse(source);
+    change(data);
+    return `${before}${JSON.stringify(data)}${after}`;
+  });
+}
+const files = new Map([
+  ['/project', project], ['/consumer-empty', consumerEmpty], ['/consumer', consumer],
+  ['/project-changed', projectVariant((data) => { data.candidates[0].fingerprint = 'changed-browser-fingerprint'; })],
+  ['/missing-dark', projectVariant((data) => { delete data.candidates[0].assets.dark; })],
+]);
 const server = createServer((request, response) => {
   const content = files.get(request.url);
   response.writeHead(content ? 200 : 404, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -79,6 +90,12 @@ try {
     assert.match(await page.locator('.dg-pan-layer').evaluate((element) => element.style.transform), /translate/);
     await page.locator('[data-action="zoom-reset"]').click();
     assert.match(await page.locator('[data-zoom-label]').textContent(), /^Fit/);
+    const beforeWheel = Number(await page.locator('.dg-stage').getAttribute('data-scale'));
+    await page.keyboard.down('Control');
+    await page.mouse.wheel(0, -100);
+    await page.keyboard.up('Control');
+    assert.notEqual(Number(await page.locator('.dg-stage').getAttribute('data-scale')), beforeWheel);
+    await page.locator('[data-action="zoom-reset"]').click();
     const data = JSON.parse(await page.locator('#diagram-data').textContent());
     const size = await page.locator('.dg-context-art').evaluate((element) => ({ width: element.getBoundingClientRect().width, height: element.getBoundingClientRect().height }));
     assert.deepEqual(size, { width: data.session.target.width, height: data.session.target.height });
@@ -104,6 +121,7 @@ try {
     const download = await transfer;
     const transferPath = await download.path();
     assert.ok(transferPath);
+    const review = JSON.parse(await readFile(transferPath, 'utf8'));
     await page.reload();
     assert.equal(await page.locator('[data-note="keep"]').inputValue(), 'Browser transfer note');
     assert.equal(await page.locator('.dg-direction-summary').count(), 1);
@@ -113,6 +131,33 @@ try {
     await page.locator('[data-import-review]').setInputFiles(transferPath);
     await page.getByText('Review imported').waitFor();
     assert.equal(await page.locator('[data-note="keep"]').inputValue(), 'Browser transfer note');
+    await page.locator('[data-import-review]').setInputFiles({ name: 'foreign.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ ...review, sessionId: 'foreign-session' })) });
+    await page.locator('.dg-toast').filter({ hasText: 'foreign-session' }).waitFor();
+    assert.equal(await page.locator('[data-note="keep"]').inputValue(), 'Browser transfer note');
+    await page.locator('[data-import-review]').setInputFiles({ name: 'unknown.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ ...review, shortlist: [{ id: 'unknown-id', fingerprint: 'x' }] })) });
+    await page.locator('.dg-toast').filter({ hasText: 'unknown-id' }).waitFor();
+    assert.equal(await page.locator('[data-note="keep"]').inputValue(), 'Browser transfer note');
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: url });
+    await page.locator('[data-action="copy-feedback"]').click();
+    assert.match(await page.evaluate(() => navigator.clipboard.readText()), /Browser transfer note/);
+  });
+  await verify('stale review, missing dark asset, and storage denial', async () => {
+    await page.goto(`${url}/project-changed#candidate=r01-c01&view=inspect`);
+    await page.locator('.dg-stale-notice').waitFor();
+    await page.goto(`${url}/missing-dark#candidate=r01-c01&view=inspect`);
+    await page.locator('[data-action="theme"][data-value="dark"]').click();
+    await page.locator('.dg-unavailable').first().waitFor();
+    assert.equal(await page.locator('[data-action="download-svg"]').isDisabled(), true);
+    const denied = await context.newPage();
+    try {
+      await denied.addInitScript(() => Object.defineProperty(window, 'localStorage', { configurable: true, get() { throw new DOMException('Denied', 'SecurityError'); } }));
+      await denied.goto(`${url}/project`);
+      await denied.locator('[data-action="inspect"][data-id="r01-c01"]').first().click();
+      assert.match(await denied.locator('[data-storage-status]').textContent(), /storage is unavailable/i);
+      await denied.locator('[data-note="keep"]').fill('Unsaved but usable');
+      assert.equal(await denied.locator('[data-note="keep"]').inputValue(), 'Unsaved but usable');
+    } finally { await denied.close(); }
+    await page.goto(`${url}/project#candidate=r01-c01&view=inspect`);
   });
   await verify('mobile layout and independent SVG', async () => {
     await page.setViewportSize({ width: 390, height: 844 });
