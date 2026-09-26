@@ -91,6 +91,7 @@ try {
     await page.locator('[data-action="zoom-reset"]').click();
     assert.match(await page.locator('[data-zoom-label]').textContent(), /^Fit/);
     const beforeWheel = Number(await page.locator('.dg-stage').getAttribute('data-scale'));
+    await page.locator('.dg-stage').hover();
     await page.keyboard.down('Control');
     await page.mouse.wheel(0, -100);
     await page.keyboard.up('Control');
