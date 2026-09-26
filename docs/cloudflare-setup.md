@@ -21,7 +21,7 @@ The reviewed rollout should be performed from the merged `main` commit, after gr
 
 Create a Cloudflare API token scoped to the account and `zudolab.dev` zone. It needs Account → Workers Scripts → Edit, Account → Account Settings → Read, and Zone → Workers Routes → Edit. Follow current Cloudflare permission guidance if the token is rejected. Store it as the GitHub Actions secret `CLOUDFLARE_API_TOKEN`; store the account ID above as `CLOUDFLARE_ACCOUNT_ID`. Use `gh secret set NAME` interactively. Never commit or print the token. No D1, KV, or R2 provisioning is needed.
 
-The deploy workflow runs only after successful **push** CI on `main`, checks out the exact passing commit, and is gated by the repository Actions variable `CF_PRODUCTION_ENABLED=true`. Until that variable and both secrets exist, it does not deploy. The repository had zero Actions secrets and variables at preparation time. After the manager's first manual rollout and smoke check, set the variable to enable subsequent green-main automatic deployments. A skipped workflow is a bootstrap gap, not a deployment.
+The deploy workflow runs only after successful **push** CI on `main`, checks out the exact passing commit, and is gated by the repository Actions variable `CF_PRODUCTION_ENABLED=true`. Until that variable and both secrets exist, it does not deploy. The repository had zero Actions secrets and variables at preparation time. They were later provisioned, and [the credentialed deployment passed](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36273841196). Keep the variable enabled for subsequent green-main automatic deployments. A skipped workflow is a bootstrap gap, not a deployment.
 
 For the first production rollout from the reviewed, clean `main` checkout:
 
