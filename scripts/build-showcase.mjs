@@ -6,7 +6,7 @@ import { loadSession, loadToneCatalog } from '../packages/diagram-gen/src/model.
 import { createPageSource } from '../packages/diagram-gen/src/render.mjs';
 
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const links = { homeUrl:'/', docsUrl:'/docs/getting-started/introduction/', catalogUrl:'/tones/' };
+const links = { homeUrl:'/', docsUrl:'/docs/getting-started/introduction/', catalogUrl:'/docs/tones/' };
 let generated = {};
 const digest = content => createHash('sha256').update(content).digest('hex');
 async function writeIfChanged(file, content) {
@@ -27,7 +27,7 @@ export async function buildShowcase() {
   for (const entry of entries) {
     const data = await loadSession(join(projectRoot,'examples',entry.name));
     await writeIfChanged(join(projectRoot,'pages/examples',`${entry.name}.tsx`), await createPageSource(data, links));
-    if (entry.name === 'tone-exploration') await writeIfChanged(join(projectRoot,'pages/workbench.tsx'),await createPageSource(data,links));
+    if (entry.name === 'tone-exploration') await writeIfChanged(join(projectRoot,'public/workbench-data/tone-exploration.json'),JSON.stringify({...data,links},null,2)+'\n');
     const first = data.candidates[0];
     const preview = `/previews/${entry.name}.svg`;
     if (first) await writeIfChanged(join(projectRoot,'public',preview), first.assets.light);
@@ -47,7 +47,7 @@ export async function buildShowcase() {
   for(const [file,hash] of Object.entries(previous)) {
     if(file in generated) continue;
     // Only the builder's own recognized output locations may be removed.
-    if(!/^(pages\/(?:examples\/[^/]+|tones|workbench)\.tsx|public\/previews\/[^/]+\.svg|src\/generated\/site-data\.ts)$/.test(file)) continue;
+    if(!/^(pages\/(?:examples\/[^/]+|tones|workbench)\.tsx|public\/previews\/[^/]+\.svg|public\/workbench-data\/tone-exploration\.json|src\/generated\/site-data\.ts)$/.test(file)) continue;
     try {
       const absolute=join(projectRoot,file);
       if(digest(await readFile(absolute))===hash) await unlink(absolute);
