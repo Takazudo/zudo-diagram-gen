@@ -58,7 +58,21 @@ try {
       const dimensions = await page.evaluate(() => ({
         viewport: innerWidth,
         scroll: document.documentElement.scrollWidth,
+        protruding: [...document.querySelectorAll('body *')]
+          .filter((element) => element.getBoundingClientRect().right > innerWidth + 1)
+          .slice(0, 12)
+          .map((element) => ({
+            tag: element.tagName.toLowerCase(),
+            className: String(element.className).slice(0, 100),
+            right: Math.round(element.getBoundingClientRect().right),
+            width: Math.round(element.getBoundingClientRect().width),
+          })),
       }));
+      if (dimensions.scroll > dimensions.viewport + 1)
+        await page.screenshot({
+          path: `test-output/doc-combine-overflow-${width}.png`,
+          fullPage: true,
+        });
       assert.ok(
         dimensions.scroll <= dimensions.viewport + 1,
         `${route} at ${width}: ${JSON.stringify(dimensions)}`,
