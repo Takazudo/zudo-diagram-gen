@@ -1,0 +1,863 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "tones": [
+    {
+      "id": "fine-outline",
+      "number": 1,
+      "name": "Fine outline",
+      "family": "Quiet",
+      "summary": "Fine continuous outlines, open surfaces, a single filled teaching point.",
+      "recipe": [
+        "Build open shapes with a consistent fine contour; the reference uses 1.6-unit strokes on a 720 by 400 canvas.",
+        "Use one restrained accent for the teaching point and keep the remaining surfaces quiet.",
+        "Use generous negative space, short upright labels, and clearly joined input paths.",
+        "Keep arrows and silhouettes readable at the target width; thicken essential connectors when reducing the drawing.",
+        "Map ink, surface, border, and accent to the project's semantic palette before introducing a new color."
+      ],
+      "goodFor": [
+        "Small help dialogs",
+        "quiet documentation"
+      ],
+      "smallSizeNotes": "Thin strokes need checking at the final display size.",
+      "referenceFiles": {
+        "light": "fine-outline/light.svg",
+        "dark": "fine-outline/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — line illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/line-style/design/"
+        },
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "soft-fill",
+      "number": 2,
+      "name": "Soft fill",
+      "family": "Quiet",
+      "summary": "Large gentle shapes, generous rounding, almost no perimeter strokes.",
+      "recipe": [
+        "Use large soft surfaces with rounded corners and little or no perimeter stroke.",
+        "Separate overlapping forms with tonal contrast and spacing rather than many internal outlines.",
+        "Use rounded broad connectors that remain visibly subordinate to the main objects.",
+        "Give the destination a single accent treatment; retain high-contrast upright labels.",
+        "Adapt corner radii to the host project; choose another tone if a strict square interface would lose its identity."
+      ],
+      "goodFor": [
+        "Approachable onboarding and consumer apps"
+      ],
+      "smallSizeNotes": "Large soft forms can feel out of place in square technical UIs.",
+      "referenceFiles": {
+        "light": "soft-fill/light.svg",
+        "dark": "soft-fill/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Atlassian Design — illustration purposes and formats",
+          "url": "https://atlassian.design/foundations/illustrations"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "ink-silhouette",
+      "number": 3,
+      "name": "Ink silhouette",
+      "family": "Quiet",
+      "summary": "Solid one-ink forms with reversed content and clear negative space.",
+      "recipe": [
+        "Construct the main objects as one-ink silhouettes with large clear negative spaces.",
+        "Reverse labels or details out of the solid forms only where contrast remains strong.",
+        "Use the same contour logic for all inputs and outputs; keep the composition visually balanced.",
+        "Reduce internal decoration before reducing label size.",
+        "Judge the solid drawing beside its actual help text because the black mass carries substantial visual weight."
+      ],
+      "goodFor": [
+        "Compact spots and monochrome documentation"
+      ],
+      "smallSizeNotes": "High visual weight competes with dense explanatory copy.",
+      "referenceFiles": {
+        "light": "ink-silhouette/light.svg",
+        "dark": "ink-silhouette/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "offset-blocks",
+      "number": 4,
+      "name": "Offset blocks",
+      "family": "Quiet",
+      "summary": "Hard square geometry, thick keylines, flat offset shadows.",
+      "recipe": [
+        "Use square blocks, thick keylines, and a small consistent hard offset for any shadows.",
+        "Keep shadows flat and geometrically related to the objects; avoid soft ambient blur.",
+        "Reserve the strongest accent for the result or active teaching point.",
+        "Use direct chunky connectors and keep them clear of the displaced shadow edges.",
+        "Omit the shadow treatment when the project's design contract disallows it."
+      ],
+      "goodFor": [
+        "Expressive utilities",
+        "creative tool onboarding"
+      ],
+      "smallSizeNotes": "Avoid shadows in projects whose design rules disallow them.",
+      "referenceFiles": {
+        "light": "offset-blocks/light.svg",
+        "dark": "offset-blocks/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "editorial-serif",
+      "number": 5,
+      "name": "Editorial serif",
+      "family": "Editorial & UI",
+      "summary": "Oversized serif letters, restrained rules, typographic composition.",
+      "recipe": [
+        "Make typography part of the composition using a deliberate serif family and a few large sample letters.",
+        "Separate sections with restrained rules and generous margins rather than full boxes around every object.",
+        "Keep instructional labels short and distinguish them from decorative specimen text.",
+        "Use a small palette with one warm accent and avoid ornament that weakens the reading order.",
+        "Check fallback font metrics and text fit in both the exported SVG and the intended application."
+      ],
+      "goodFor": [
+        "Writing products and editorial feature introductions"
+      ],
+      "smallSizeNotes": "Treat the serif typography as a deliberate family choice.",
+      "referenceFiles": {
+        "light": "editorial-serif/light.svg",
+        "dark": "editorial-serif/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "Indeed Design — a scalable illustration system",
+          "url": "https://indeed.design/article/building-a-scalable-illustration-system/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "swiss-grid",
+      "number": 6,
+      "name": "Swiss grid",
+      "family": "Editorial & UI",
+      "summary": "Strict alignment, numerical rhythm, strong accent fields and plain type.",
+      "recipe": [
+        "Align labels, shapes, and connectors to a strict shared grid.",
+        "Use plain typography, a clear hierarchy, and a small number of bold accent fields.",
+        "Use numerical labels only when the content actually has an order.",
+        "Keep whitespace deliberate and repeat spacing rules across every panel.",
+        "Reduce the size or intensity of accent areas when the drawing competes with surrounding controls."
+      ],
+      "goodFor": [
+        "Instruction sequences and structured manuals"
+      ],
+      "smallSizeNotes": "Expressive accent fields need discipline beside neutral UI.",
+      "referenceFiles": {
+        "light": "swiss-grid/light.svg",
+        "dark": "swiss-grid/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "GitLab Pajamas — illustration construction and sizes",
+          "url": "https://design.gitlab.com/product-foundations/illustration/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "ui-miniature",
+      "number": 7,
+      "name": "UI miniature",
+      "family": "Editorial & UI",
+      "summary": "Reduced application chrome, readable layer rows, one emphasized result.",
+      "recipe": [
+        "Retain the application's recognizable panel structure while removing incidental controls.",
+        "Represent controls and layers with a few legible rows or shapes; emphasize one meaningful state or action.",
+        "Use project colors and corner rules for surfaces, dividers, and the active item.",
+        "Keep labels outside tiny chrome where possible; use real product terminology.",
+        "Describe the output as a conceptual miniature unless it is an exact screenshot or control map."
+      ],
+      "goodFor": [
+        "In-app help closely tied to recognizable interface structure"
+      ],
+      "smallSizeNotes": "A conceptual reconstruction; it is not a screenshot or exact control map.",
+      "referenceFiles": {
+        "light": "ui-miniature/light.svg",
+        "dark": "ui-miniature/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — hybrid UI illustration",
+          "url": "https://www.ibm.com/design/language/illustration/hybrid-ui-style/design/"
+        },
+        {
+          "title": "GitLab Pajamas — illustration construction and sizes",
+          "url": "https://design.gitlab.com/product-foundations/illustration/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "contour-wash",
+      "number": 8,
+      "name": "Contour + wash",
+      "family": "Editorial & UI",
+      "summary": "Precise contour lines with soft translucent color fields.",
+      "recipe": [
+        "Keep the structural contour precise and consistent before adding color washes.",
+        "Place a few broad translucent fields behind or within the important shapes.",
+        "Use overlap to add personality without creating unintended data or process relationships.",
+        "Keep labels and connectors opaque enough to remain readable on every wash.",
+        "Inspect the flattened light and dark outputs because a wash's apparent contrast depends on its background."
+      ],
+      "goodFor": [
+        "Friendly help art with more personality than pure wireframes"
+      ],
+      "smallSizeNotes": "Keep washes subordinate to the relationship being explained.",
+      "referenceFiles": {
+        "light": "contour-wash/light.svg",
+        "dark": "contour-wash/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — line illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/line-style/design/"
+        },
+        {
+          "title": "Atlassian Design — illustration purposes and formats",
+          "url": "https://atlassian.design/foundations/illustrations"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "technical-blueprint",
+      "number": 9,
+      "name": "Technical blueprint",
+      "family": "Spatial",
+      "summary": "A precise drafting grid, fine orthogonal connectors, registration crosses, and measurement leaders make the composition read as an engineered construction.",
+      "recipe": [
+        "Use a consistent drafting grid, fine orthogonal paths, and a restrained registration vocabulary.",
+        "Use measurement leaders only for real dimensions; decorative drafting marks must not invent product specifications.",
+        "Separate strong explanatory lines from low-contrast construction lines.",
+        "Keep labels upright and sparse, reserving the bright accent for the main connection or result.",
+        "Retain the intentionally dark blueprint surface when using this reference; both appearance variants are dark."
+      ],
+      "goodFor": [
+        "Layer relationships",
+        "export settings",
+        "technical workflows",
+        "and documentation with an engineering character"
+      ],
+      "smallSizeNotes": "Fine lines and grid detail need generous display size; the intrinsic dark surface is a strong visual commitment. Both supplied appearance variants intentionally retain an intrinsic dark surface.",
+      "referenceFiles": {
+        "light": "technical-blueprint/light.svg",
+        "dark": "technical-blueprint/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "isometric-wire",
+      "number": 10,
+      "name": "Isometric wire",
+      "family": "Spatial",
+      "summary": "Thin open contours describe projected planes. Dashed construction lines, repeated wire grids, and an orange registration edge reveal the layer geometry without solid volumes.",
+      "recipe": [
+        "Choose one projection and use it consistently for all planes and connecting edges.",
+        "Draw the planes as open contours with dashed construction lines where they clarify stacking.",
+        "Use a contrasting registration edge to identify how independent inputs align.",
+        "Place short labels outside the projected planes whenever text would become difficult to read.",
+        "Reduce wire grids and fine detail before shrinking the diagram for a help dialog."
+      ],
+      "goodFor": [
+        "Explaining layers",
+        "composition",
+        "coordinate systems",
+        "or how independent inputs combine"
+      ],
+      "smallSizeNotes": "Perspective makes long text less legible; use brief labels and reserve it for structural explanations.",
+      "referenceFiles": {
+        "light": "isometric-wire/light.svg",
+        "dark": "isometric-wire/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — isometric illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/isometric-style/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "isometric-solid",
+      "number": 11,
+      "name": "Isometric solid",
+      "family": "Spatial",
+      "summary": "Opaque extruded tiles, clearly separated facet colors, hard cast shadows, and bold circular pattern pieces turn inputs and outputs into tangible objects.",
+      "recipe": [
+        "Use a consistent projection, extrusion depth, and lighting direction for every volume.",
+        "Assign distinct flat colors to top and side facets so depth reads without gradients.",
+        "Separate the inputs and combined result with enough space to preserve their identities.",
+        "Keep shadows hard and small enough that they do not resemble additional objects.",
+        "Use this visual weight deliberately; simplify volume and labels for compact placements."
+      ],
+      "goodFor": [
+        "Product onboarding",
+        "approachable feature explanations",
+        "and illustrations that need visual weight"
+      ],
+      "smallSizeNotes": "Solid volume can dominate compact dialogs; detailed text or dense processes become bulky.",
+      "referenceFiles": {
+        "light": "isometric-solid/light.svg",
+        "dark": "isometric-solid/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — isometric illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/isometric-style/design/"
+        },
+        {
+          "title": "Stripe — Connect front-end design",
+          "url": "https://stripe.com/blog/connect-front-end-experience"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "paper-layers",
+      "number": 12,
+      "name": "Paper layers",
+      "family": "Spatial",
+      "summary": "Overlapping off-white sheets, slight rotations, cut-paper motifs, and small offset shadows make the layer composition feel physical and easy to grasp.",
+      "recipe": [
+        "Represent independent inputs as overlapping sheets with small, deliberate rotations.",
+        "Use restrained offset shadows to show stacking and keep a consistent direction for light.",
+        "Place cut-paper motifs within the sheets without obscuring their edges.",
+        "Keep the relationship between the source sheets and the assembled result visible.",
+        "Adapt the warm paper palette to the project while preserving sufficient separation between sheets."
+      ],
+      "goodFor": [
+        "Composition tools",
+        "content assembly",
+        "creative onboarding",
+        "and calm editorial documentation"
+      ],
+      "smallSizeNotes": "The paper metaphor carries a warm editorial personality and may conflict with highly technical interfaces.",
+      "referenceFiles": {
+        "light": "paper-layers/light.svg",
+        "dark": "paper-layers/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Atlassian Design — illustration purposes and formats",
+          "url": "https://atlassian.design/foundations/illustrations"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "pencil-notebook",
+      "number": 13,
+      "name": "Pencil notebook",
+      "family": "Handmade",
+      "summary": "A ruled notebook ground, light doubled contours, imperfect hatch strokes, and quiet pencil arrows make a process feel like a clearly explained working sketch.",
+      "recipe": [
+        "Use lightly doubled contours and sparse imperfect hatching to suggest a working sketch.",
+        "Keep the ruled notebook background lighter than every essential connector and label.",
+        "Use quiet hand-drawn arrows whose direction remains unambiguous.",
+        "Reserve a small muted accent for the point being taught.",
+        "Increase contrast or remove pencil texture at small sizes rather than accepting indistinct paths."
+      ],
+      "goodFor": [
+        "Friendly how-to notes",
+        "early concepts",
+        "tutorials",
+        "and informal explanations that benefit from a human hand"
+      ],
+      "smallSizeNotes": "The low-contrast pencil character loses definition at small sizes and is unsuitable for dense technical diagrams.",
+      "referenceFiles": {
+        "light": "pencil-notebook/light.svg",
+        "dark": "pencil-notebook/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "Rough.js — sketch contours and vector hatching",
+          "url": "https://roughjs.com/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "marker-workshop",
+      "number": 14,
+      "name": "Marker workshop",
+      "family": "Handmade",
+      "summary": "Broad rounded marker lines, loose loop motifs, imperfect corners, and flat highlighter swipes give the diagram a lively workshop character.",
+      "recipe": [
+        "Use broad rounded marker strokes, imperfect corners, and a few loose repeated motifs.",
+        "Place flat highlighter swipes behind key content, with enough contrast for the labels.",
+        "Make each connector look deliberate even when its contour is informal.",
+        "Use one or two emphatic colors and keep the surrounding canvas open.",
+        "Reduce stroke weight or decoration when this energetic tone overwhelms nearby help text."
+      ],
+      "goodFor": [
+        "Short onboarding moments",
+        "creative tools",
+        "workshop guides",
+        "and playful help illustrations"
+      ],
+      "smallSizeNotes": "Bold marks are intentionally loud; they can overwhelm formal documentation or closely spaced diagrams.",
+      "referenceFiles": {
+        "light": "marker-workshop/light.svg",
+        "dark": "marker-workshop/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "Rough.js — sketch contours and vector hatching",
+          "url": "https://roughjs.com/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "chalkboard",
+      "number": 15,
+      "name": "Chalkboard",
+      "family": "Handmade",
+      "summary": "Dry broken strokes, chalk dust, soft secondary contours, and warm chalk accents present the relationship as a compact blackboard lesson.",
+      "recipe": [
+        "Use a dark green-black ground with broken dry contours and warm chalk accents.",
+        "Keep chalk dust sparse and away from labels and important junctions.",
+        "Use secondary contours to suggest hand drawing without creating double meanings.",
+        "Retain one clear path through the explanation and large plain labels.",
+        "Both supplied themes intentionally use a dark board; simplify grain at small sizes."
+      ],
+      "goodFor": [
+        "Learning-oriented explanations",
+        "conceptual walkthroughs",
+        "and a teacher-like voice in help content"
+      ],
+      "smallSizeNotes": "The intrinsic dark board is prominent and chalk detail can become noisy in small dialog illustrations. Both supplied appearance variants intentionally retain an intrinsic dark surface.",
+      "referenceFiles": {
+        "light": "chalkboard/light.svg",
+        "dark": "chalkboard/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "Rough.js — sketch contours and vector hatching",
+          "url": "https://roughjs.com/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "risograph-duo",
+      "number": 16,
+      "name": "Risograph duo",
+      "family": "Handmade",
+      "summary": "Two offset spot colors, visible overprint, broad circular motifs, and sparse print grain give the diagram a small-edition risograph character.",
+      "recipe": [
+        "Restrict the drawing to two spot-color roles plus the paper background.",
+        "Use a small consistent registration offset and visible overprint where shapes overlap.",
+        "Apply sparse print grain to large image areas rather than instructional labels.",
+        "Keep broad silhouettes and short text so the intentional imprecision remains readable.",
+        "Do not use registration error or blended color where the diagram depends on exact color discrimination."
+      ],
+      "goodFor": [
+        "Creative applications",
+        "brand-rich guides",
+        "editorial help pages",
+        "and memorable explanatory spot illustrations"
+      ],
+      "smallSizeNotes": "Registration offsets and print grain reduce precision; avoid fine UI reproduction or charts requiring exact color discrimination.",
+      "referenceFiles": {
+        "light": "risograph-duo/light.svg",
+        "dark": "risograph-duo/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Indeed Design — a scalable illustration system",
+          "url": "https://indeed.design/article/building-a-scalable-illustration-system/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "cut-paper",
+      "number": 17,
+      "name": "Cut paper",
+      "family": "Print & playful",
+      "summary": "Irregular cut silhouettes, offset paper edges, flat organic color fields, and a pasted text layer. Connectors feel cut by hand while keeping their direction explicit.",
+      "recipe": [
+        "Build a small vocabulary of irregular cut silhouettes and offset paper edges.",
+        "Use flat organic color fields, reserving sufficient negative space between pieces.",
+        "Treat text as a pasted layer with a clean readable surface.",
+        "Let connectors feel hand-cut while preserving explicit direction and attachment points.",
+        "Reduce the number of overlapping pieces for short, small help illustrations."
+      ],
+      "goodFor": [
+        "Friendly onboarding",
+        "creative-tool tutorials",
+        "warm editorial help pages"
+      ],
+      "smallSizeNotes": "Organic edges suit short conceptual explanations; large dense technical graphs need a simpler companion tone.",
+      "referenceFiles": {
+        "light": "cut-paper/light.svg",
+        "dark": "cut-paper/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Atlassian Design — illustration purposes and formats",
+          "url": "https://atlassian.design/foundations/illustrations"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "halftone-manual",
+      "number": 18,
+      "name": "Halftone manual",
+      "family": "Print & playful",
+      "summary": "Monochrome technical-print language: firm dark keylines, visible dot screens, diagonal hatching, and knockout lettering. Texture is confined to meaningful picture areas.",
+      "recipe": [
+        "Use firm keylines, a restricted monochrome palette, and clear knockout lettering.",
+        "Confine dots and diagonal hatching to meaningful picture areas.",
+        "Keep labels and thin connectors clear of texture.",
+        "Choose one consistent screen size and test it at the intended rendering scale.",
+        "Remove or enlarge the halftone texture when downscaling produces interference or visual noise."
+      ],
+      "goodFor": [
+        "Manuals",
+        "compact how-to illustrations",
+        "black-and-white export",
+        "print-oriented projects"
+      ],
+      "smallSizeNotes": "Dot screens can produce moire when rasterized very small; keep the vector or export at the intended display size.",
+      "referenceFiles": {
+        "light": "halftone-manual/light.svg",
+        "dark": "halftone-manual/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Rough.js — sketch contours and vector hatching",
+          "url": "https://roughjs.com/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "pixel-schematic",
+      "number": 19,
+      "name": "Pixel schematic",
+      "family": "Print & playful",
+      "summary": "Stepped silhouettes, discrete grid blocks, hard raster-like edges, and chunky directional glyphs. Large real text remains readable instead of imitating microscopic pixels.",
+      "recipe": [
+        "Construct silhouettes and connectors on a discrete shared grid.",
+        "Use stepped corners, hard edges, and chunky directional glyphs.",
+        "Keep instructional text large and real rather than simulating unreadably tiny pixel lettering.",
+        "Use a few strongly separated colors and preserve gaps between adjacent forms.",
+        "Prefer integer scaling when possible, and inspect browser interpolation at the target width."
+      ],
+      "goodFor": [
+        "Playful utilities",
+        "game-adjacent tools",
+        "pixel-art editors",
+        "illustrated empty states"
+      ],
+      "smallSizeNotes": "Use integer scaling when possible; the rigid grid intentionally sacrifices curved or delicate shapes.",
+      "referenceFiles": {
+        "light": "pixel-schematic/light.svg",
+        "dark": "pixel-schematic/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "terminal",
+      "number": 20,
+      "name": "Terminal",
+      "family": "Print & playful",
+      "summary": "Monospace lettering, corner-bracket frames, spare orthogonal geometry, and phosphor colors on an inherently dark canvas. This is a vector diagram with terminal character, not a block of ASCII art.",
+      "recipe": [
+        "Use monospace labels, corner-bracket frames, and spare orthogonal geometry.",
+        "Limit bright phosphor colors to important entities and paths.",
+        "Use actual SVG shapes for the diagram while retaining terminal character in typography and framing.",
+        "Keep the dark canvas open and avoid dense simulated terminal output around the explanation.",
+        "Both supplied appearance variants retain the intrinsic dark terminal identity."
+      ],
+      "goodFor": [
+        "Developer utilities",
+        "technical onboarding",
+        "command-line-adjacent products",
+        "optional expert help"
+      ],
+      "smallSizeNotes": "The dark terminal identity is deliberately strong and should be selected by the project rather than used as a universal default. Both supplied appearance variants intentionally retain an intrinsic dark surface.",
+      "referenceFiles": {
+        "light": "terminal/light.svg",
+        "dark": "terminal/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "circuit-route",
+      "number": 21,
+      "name": "Circuit route",
+      "family": "Systems & atmosphere",
+      "summary": "Consistent right-angle paths, circular ports, solder-pad-like junctions, and a restrained substrate palette. The routed paths describe the two input layers and the single exported result.",
+      "recipe": [
+        "Route paths with consistent right-angle bends and repeat a small port and junction vocabulary.",
+        "Distinguish actual explanatory connections from decorative substrate details.",
+        "Keep route colors meaningful and stable across the documentation set.",
+        "Use a restrained substrate palette and high-contrast short labels.",
+        "For real signal diagrams preserve the application's audio, CV, gate, or other semantic color assignments."
+      ],
+      "goodFor": [
+        "Hardware-related tools",
+        "modular-system documentation",
+        "engineering-oriented software help"
+      ],
+      "smallSizeNotes": "Decorative traces must remain visibly inside the artwork so they cannot be confused with the actual explanation paths.",
+      "referenceFiles": {
+        "light": "circuit-route/light.svg",
+        "dark": "circuit-route/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "transit-wayfinding",
+      "number": 22,
+      "name": "Transit wayfinding",
+      "family": "Systems & atmosphere",
+      "summary": "Thick routed lines, round station rings, clean transfer geometry, and bold wayfinding labels. Two named source branches join before the combined poster and one PNG destination.",
+      "recipe": [
+        "Use thick routed lines, round station rings, and clear transfer geometry.",
+        "Assign route colors to meaningful input or process categories and retain those meanings.",
+        "Place bold labels beside stations and keep them clear of branches.",
+        "Show only the branches and destinations that the product actually supports.",
+        "Reduce station detail and route complexity for small diagrams without changing the explanation."
+      ],
+      "goodFor": [
+        "Multi-step product help",
+        "navigation explanations",
+        "connected tools",
+        "process diagrams"
+      ],
+      "smallSizeNotes": "Route colors need consistent meaning across a documentation set; do not add decorative branches that imply extra actions.",
+      "referenceFiles": {
+        "light": "transit-wayfinding/light.svg",
+        "dark": "transit-wayfinding/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — technical diagrams",
+          "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "modular-geometric",
+      "number": 23,
+      "name": "Modular geometric",
+      "family": "Systems & atmosphere",
+      "summary": "A studio-style tile vocabulary of circles, quarter circles, blocks, and deliberately open space. Simple convergence paths preserve the explanation while the artwork carries the expressive geometry.",
+      "recipe": [
+        "Build motifs from circles, quarter circles, rectangles, and a small repeated tile vocabulary.",
+        "Use deliberate open space and a limited balanced palette.",
+        "Keep explanatory connectors simple enough to read separately from decorative geometry.",
+        "Repeat motifs only when their relationship to the source and assembled result stays understandable.",
+        "Use a separate control reference when the reader needs to locate an exact interface element."
+      ],
+      "goodFor": [
+        "Creative tools",
+        "design systems",
+        "visual editors",
+        "minimal brand-led help centers"
+      ],
+      "smallSizeNotes": "Abstract modules communicate concepts better than exact interface locations; pair with a screenshot when users must find a control.",
+      "referenceFiles": {
+        "light": "modular-geometric/light.svg",
+        "dark": "modular-geometric/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — flat illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    },
+    {
+      "id": "luminous-glass",
+      "number": 24,
+      "name": "Luminous glass",
+      "family": "Systems & atmosphere",
+      "summary": "Translucent overlapping planes, restrained cyan-violet glow, luminous edges, and generous dark space. The layers remain distinct before becoming a single visible composition.",
+      "recipe": [
+        "Use a few overlapping translucent planes with consistent luminous edges.",
+        "Restrict the glow to selected contours and keep labels crisp and opaque.",
+        "Use restrained cyan-violet highlights against generous dark space.",
+        "Preserve the identity of each input layer before showing their combined result.",
+        "Both supplied variants are intrinsically dark; simplify filters or choose a quieter tone for small help slots."
+      ],
+      "goodFor": [
+        "Large documentation openers",
+        "product concept explanations",
+        "hero-scale illustrations"
+      ],
+      "smallSizeNotes": "Filters and translucency need larger rendering sizes; choose a simpler tone for tiny help dialogs or dense procedural diagrams. Both supplied appearance variants intentionally retain an intrinsic dark surface.",
+      "referenceFiles": {
+        "light": "luminous-glass/light.svg",
+        "dark": "luminous-glass/dark.svg"
+      },
+      "sourceReferences": [
+        {
+          "title": "IBM Design Language — isometric illustration principles",
+          "url": "https://www.ibm.com/design/language/illustration/isometric-style/design/"
+        },
+        {
+          "title": "Stripe — Connect front-end design",
+          "url": "https://stripe.com/blog/connect-front-end-experience"
+        },
+        {
+          "title": "Example content — zudo-pattern-gen Composer manual",
+          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+        }
+      ]
+    }
+  ]
+}

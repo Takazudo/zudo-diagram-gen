@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagram exploration round",
+  "description": "rounds/<round-directory>/round.json. IDs and order values must be unique across rounds. The CLI checks that a baseline exists in an earlier round.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "title", "order"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "$ref": "common.schema.json#/$defs/slug" },
+    "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+    "description": { "type": "string" },
+    "order": { "$ref": "common.schema.json#/$defs/order" },
+    "baselineCandidateId": { "$ref": "common.schema.json#/$defs/optionalParent" }
+  }
+}

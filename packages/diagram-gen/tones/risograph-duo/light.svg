@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t16-title t16-desc" data-tone="16" data-theme="light">
+<title id="t16-title">16 — Risograph duo</title>
+<desc id="t16-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. Two offset spot colors, visible overprint, broad circular motifs, and sparse print grain give the diagram a small-edition risograph character.</desc>
+<style>
+svg[data-tone='16'] {--bg:#F8F0DF;--ink:#3256A2;--accent:#DB624C;--paper:#F8F0DF;--secondary:#89517F;--grid:#D6C4AD}
+svg[data-tone='16'][data-theme='dark'] {--bg:#242B38;--ink:#8EADF2;--accent:#F19179;--paper:#242B38;--secondary:#B892B6;--grid:#556078}
+.t16-text {font-family:'Arial Black', Arial, sans-serif;fill:#3256A2;font-size:28px}
+.t16-label {font-weight:600;text-anchor:middle}
+.t16-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t16-grain" width="61" height="59" patternUnits="userSpaceOnUse"><g fill="#89517F" opacity=".35"><circle cx="5" cy="8" r=".75"/><circle cx="22" cy="43" r=".6"/><circle cx="47" cy="17" r=".9"/><circle cx="56" cy="51" r=".65"/><circle cx="34" cy="29" r=".55"/></g></pattern>
+<pattern id="t16-pattern" width="68" height="60" patternUnits="userSpaceOnUse"><rect width="68" height="60" fill="#F8F0DF"/><circle cx="27" cy="30" r="24" fill="#DB624C" opacity=".88"/><circle cx="43" cy="30" r="24" fill="#3256A2" opacity=".76"/><path d="M35 7.37A24 24 0 0 1 35 52.63A24 24 0 0 1 35 7.37" fill="#89517F"/><rect width="68" height="60" fill="url(#t16-grain)"/></pattern></defs>
+<rect width="720" height="400" fill="#F8F0DF"/>
+<rect width="720" height="400" fill="url(#t16-grain)"/>
+<text class="t16-text t16-label" x="137" y="49" style="fill:#DB624C">Pattern</text><text class="t16-text t16-label" x="134" y="47">Pattern</text>
+<rect x="51" y="85" width="166" height="96" fill="#DB624C"/><rect x="48" y="82" width="166" height="96" fill="url(#t16-pattern)" stroke="#3256A2" stroke-width="2"/>
+<text class="t16-text t16-label" x="137" y="233" style="fill:#DB624C">Text</text><text class="t16-text t16-label" x="134" y="231">Text</text>
+<rect x="53" y="264" width="164" height="88" fill="#DB624C"/><rect x="50" y="261" width="164" height="88" fill="#F8F0DF" stroke="#3256A2" stroke-width="2"/>
+<text class="t16-text t16-make" x="136" y="322" style="font-size:40px;fill:#DB624C">MAKE</text><text class="t16-text t16-make" x="133" y="320" style="font-size:40px">MAKE</text>
+<g fill="none" stroke="#DB624C" stroke-width="2.6"><path d="M230 130H263L292 210H330M230 307H263L292 210M319 201L331 210L319 219"/></g>
+<g fill="none" stroke="#3256A2" stroke-width="2.6"><path d="M228 128H261L290 208H328M228 305H261L290 208M317 199L329 208L317 217"/></g>
+<rect x="347" y="94" width="200" height="234" fill="#DB624C"/><rect x="343" y="90" width="200" height="234" fill="url(#t16-pattern)" stroke="#3256A2" stroke-width="2.2"/>
+<rect x="350" y="173" width="186" height="73" fill="#F8F0DF"/><rect x="350" y="173" width="186" height="73" fill="url(#t16-grain)"/>
+<text class="t16-text t16-make" x="446" y="230" style="font-size:49px;fill:#DB624C">MAKE</text><text class="t16-text t16-make" x="443" y="228" style="font-size:49px">MAKE</text>
+<path d="M557 210H607M596 201L609 210L596 219" stroke="#DB624C" stroke-width="2.6" fill="none"/>
+<path d="M555 208H605M594 199L607 208L594 217" stroke="#3256A2" stroke-width="2.6" fill="none"/>
+<path d="M621 164H663L687 187V270H621Z M663 164V187H687" fill="#F8F0DF" stroke="#DB624C" stroke-width="2.4"/>
+<path d="M618 161H660L684 184V267H618Z M660 161V184H684" fill="#F8F0DF" stroke="#3256A2" stroke-width="2.4"/>
+<text class="t16-text t16-label" x="654" y="235" style="font-size:26px;fill:#DB624C">PNG</text><text class="t16-text t16-label" x="651" y="233" style="font-size:26px">PNG</text>
+</svg>

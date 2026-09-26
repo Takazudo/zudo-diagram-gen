@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "project-text",
+  "title": "zudo-text frame help",
+  "description": "A single project-grounded illustration study. This is a different teaching topic from the other project examples, not another tone candidate for the same explanation.",
+  "target": {
+    "width": 280,
+    "height": 156,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zudo-text",
+    "reference": "https://github.com/zudolab/zudo-text/blob/02e127725ed3c384750d16e9e0428fa95c4d2ae8/manual/src/content/docs/basics/layout.mdx"
+  },
+  "context": {
+    "title": "Split, then choose a component",
+    "body": "A quiet native UI miniature shows the existing Note Tray preserved on the left, an Empty new frame on the right, and a component chooser. Splitting and selecting a new component are presented as distinct steps."
+  }
+}

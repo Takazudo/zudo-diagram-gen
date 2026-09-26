@@ -1,0 +1,66 @@
+---
+title: Reviewing candidates
+description: Compare actual SVGs, inspect their placement, and transfer precise feedback.
+sidebar_position: 1
+---
+
+Start with the overview to scan a round. Each candidate has a stable ID, a title, and a tone reference. A filter changes what you see; it does not rename the candidates.
+
+Use **Inspect** for a close look and **Compare** when two drawings make a decision easier. **Gallery** returns to the overview. A fresh session opens on its first round. Keep the brief nearby: the most useful candidate is one that explains the intended idea clearly in its real placement.
+
+## Keep comparison conditions consistent
+
+The viewer offers independent controls for the SVG's declared theme and the preview backdrop. **Light** and **Dark** choose the artwork asset; **Surface** offers Match theme, Paper, Ink, and Transparency. The surface helps you inspect edges and contrast without changing the artwork itself.
+
+A candidate's dark theme is available only when it declares a dark SVG asset. The viewer reports a missing theme rather than substituting a light asset and calling it dark.
+
+The reference catalog's tones are separate drawings. Switching between a paper-layer candidate and an outline candidate selects their different SVGs; it is not a global CSS recoloring operation.
+
+## Zoom and placement are different questions
+
+Use **Fit** to see the whole drawing, **100%** to inspect its SVG coordinate size, the zoom control for intermediate scales, and dragging to pan. Ctrl/Command plus scrolling also adjusts the zoom.
+
+The separate **Placement preview** uses the dimensions recorded in the session's target. It shows the drawing with the supplied context title and body. This is the place to assess whether text, arrowheads, line weight, and grouping remain clear in the help dialog or documentation column.
+
+The viewer's 100% setting and the intended placement width can differ. An SVG may use a 720-unit-wide viewBox and appear at 360 CSS pixels in the final interface. Inspect both when small details matter.
+
+## Record a useful decision
+
+The review controls distinguish a shortlist from a chosen direction. Shortlisting preserves possibilities; choosing a direction identifies the drawing a refinement should start from.
+
+Use **Keep** for characteristics that should survive the next round and **Change** for the requested edits. Select the intended next action: refine the drawing, explore alternatives, or integrate the selected result.
+
+A useful review is concrete:
+
+```text
+Chosen direction: r01-c07
+
+Keep:
+- Composition and reading order
+- Existing labels
+- Palette
+
+Change:
+- Simplify the arrows using r01-c03 as a reference
+- Reduce the background decoration
+
+Next action: Refine
+```
+
+Natural-language conversation is equally valid. The form provides exact candidate references when that is convenient; it does not replace ordinary collaboration.
+
+## Transfer feedback to the agent
+
+Review state is stored in this browser when browser storage is available. It is not written into the source workspace.
+
+Use **Copy feedback** to paste a review into the agent conversation. Use **Review JSON** to download a structured record or give it to an agent that can read the downloaded file. The download location is controlled by your browser. The import control in the top bar reads a previously downloaded review record.
+
+The review record includes the session identity, candidate references, and content fingerprints. If the underlying candidate changes, the viewer can mark the previous review as stale. Imported records must belong to the same session and refer to known candidates.
+
+A stale review is a prompt to recheck the drawing. Its feedback remains available; choose **I've reviewed this version** after inspecting the changed asset. Do not silently treat feedback about an earlier SVG as approval of its changed contents.
+
+## Keep iterations available
+
+A new round should preserve the original selected SVG and give each refinement a new ID. The round's baseline and candidate parent references let the gallery describe how the work developed.
+
+Choose an earlier round to compare the revision with its baseline. When you ask to integrate a particular candidate, use its full stable ID. The agent can then export exactly that drawing and verify it in the destination application.

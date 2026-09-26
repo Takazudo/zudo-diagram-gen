@@ -1,0 +1,72 @@
+---
+title: Tone collection
+description: Use 24 illustration references as starting points for real diagram candidates.
+sidebar_position: 3
+---
+
+The [live tone catalog](/tones/) presents 24 original SVG treatments of a shared explanation. Their purpose is to make visual directions concrete. An agent can select useful references, adapt their drawing conventions to a project's subject, and show the resulting candidates in a session.
+
+The [worked examples](/examples/) demonstrate adaptation to application help and documentation. Reference colors are exploratory palettes. Preserve the destination project's relevant design tokens and semantic color meanings when applying a tone there.
+
+## Available references
+
+| No. | Tone ID | Drawing approach |
+| --- | --- | --- |
+| 01 | `fine-outline` | Fine continuous outlines, open surfaces, and a small filled emphasis. |
+| 02 | `soft-fill` | Gentle filled shapes, rounded corners, and limited outlines. |
+| 03 | `ink-silhouette` | Solid forms and carefully shaped negative space. |
+| 04 | `offset-blocks` | Square geometry, strong keylines, and flat offset shadows. |
+| 05 | `editorial-serif` | Large serif typography and a composed reading order. |
+| 06 | `swiss-grid` | Strict alignment, numerical rhythm, and strong accent fields. |
+| 07 | `ui-miniature` | Reduced interface chrome and recognizable application structure. |
+| 08 | `contour-wash` | Precise contours with translucent color fields. |
+| 09 | `technical-blueprint` | Drafting grids, measurement marks, and fine orthogonal connectors. |
+| 10 | `isometric-wire` | Open projected planes and visible construction geometry. |
+| 11 | `isometric-solid` | Extruded forms, distinct facets, and tangible volumes. |
+| 12 | `paper-layers` | Overlapping sheets, slight rotations, and restrained shadows. |
+| 13 | `pencil-notebook` | Ruled paper, imperfect pencil contours, and quiet hatching. |
+| 14 | `marker-workshop` | Broad marker lines, loose forms, and highlighter accents. |
+| 15 | `chalkboard` | Dry strokes, warm chalk accents, and a dark board. |
+| 16 | `risograph-duo` | Two spot colors, offset registration, and sparse print grain. |
+| 17 | `cut-paper` | Cut silhouettes, irregular edges, and flat organic color. |
+| 18 | `halftone-manual` | Technical print keylines, dot screens, and hatching. |
+| 19 | `pixel-schematic` | Stepped shapes and discrete blocks with readable text. |
+| 20 | `terminal` | Monospace labels, bracket frames, and phosphor colors. |
+| 21 | `circuit-route` | Right-angle paths, circular ports, and explicit junctions. |
+| 22 | `transit-wayfinding` | Routed lines, station rings, and clear transfer points. |
+| 23 | `modular-geometric` | Circles, quarter circles, blocks, and deliberate open space. |
+| 24 | `luminous-glass` | Translucent planes and restrained glow on dark space. |
+
+Some treatments have an intrinsically dark canvas, including blueprint, chalkboard, terminal, and luminous glass. Their supplied light/dark reference files are complete theme assets; a light viewer surface does not require turning those drawings into pale compositions.
+
+## What a tone contains
+
+The package stores its catalog at `tones/catalog.json`. Each tone directory contains a human-readable `recipe.md`, an editable `source.svg`, and explicit `light.svg` and `dark.svg` assets.
+
+Each catalog entry records its name, family, summary, drawing recipe, useful applications, small-size considerations, reference paths, and source links. Read the compact catalog to choose likely references, then load the selected recipes and SVGs in detail.
+
+```bash
+pnpm exec zudo-diagram-gen tones list
+pnpm exec zudo-diagram-gen tones show fine-outline
+pnpm exec zudo-diagram-gen tones show fine-outline --json
+```
+
+## Choose references for the current explanation
+
+Select tones that create useful differences in how the idea is presented. Ten candidates should give the reviewer meaningful visual choices; they need not be ten minor color changes.
+
+For a restrained application, a first set might explore fine outlines, a UI miniature, a strict grid, and a paper-layer metaphor. A more expressive document might also benefit from marker, print, or geometric treatments. The shared brief determines which experiments are useful.
+
+Honor an explicit requested count. A later refinement round often needs fewer drawings because the user has already chosen the visual direction.
+
+## Adapt rather than trace
+
+Keep the new drawing's entities, labels, and actions accurate. A reference's perspective, texture, or framing should help explain the subject. Remove details that are unclear at the target size, and avoid transferring a reference's metaphor when it suggests incorrect application behavior.
+
+The reference SVGs are original project artwork. External sources informed broad illustration principles and are listed with the recipes and on [Sources](/docs/development/sources/). Their inclusion does not import another product's branded illustrations into this package.
+
+## Extend the collection
+
+Add a stable ID, metadata, a concise recipe, and complete example assets. Validate the catalog and render both theme files. Give the new reference a clear purpose and include small-size guidance based on inspecting the actual drawing.
+
+An agent may also create a session-specific tone without adding it to the shared catalog. Record its own stable `toneId` and explain the treatment in the candidate description. Add it to the collection later if it proves useful across projects.

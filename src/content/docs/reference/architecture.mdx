@@ -1,0 +1,52 @@
+---
+title: Architecture
+description: Package-owned viewer behavior, content-owned sessions, and a zfb documentation host.
+sidebar_position: 2
+---
+
+The project uses a small-host/shared-package arrangement similar to [zudo-doc](https://github.com/zudolab/zudo-doc) and [zudo-sg](https://github.com/Takazudo/zudo-sg). Its main boundary is between reusable viewer behavior and each session's diagram content.
+
+## Components
+
+| Component | Owns |
+| --- | --- |
+| Root project site | zfb + zudo-doc documentation, tone catalog page, and example pages. |
+| `@takazudo/zudo-diagram-gen` | Model validation, catalog loading, rendering, browser UI, exports, and the session CLI. |
+| `create-zudo-diagram-gen` | A small private zfb host and initial session content. |
+| A generated session | The brief, metadata, SVG files, rounds, and user-supplied review records. |
+| Future core skill | Project understanding, candidate generation, interpretation of feedback, and requested integration. |
+| Future personal wrapper | Output-location policy and other caller-specific conventions. |
+
+The root documentation website uses zudo-doc. A generated review session uses the diagram engine and zfb. It does not need a copy of the project documentation site to compare its candidates.
+
+## Data preparation
+
+The engine reads the session directory, validates source files, and normalizes them into gallery data. Candidate asset paths become embedded SVG strings in that model. Source references remain relative to the session root; exported HTML should not disclose absolute local filesystem paths.
+
+The renderer serializes this data safely and supplies the package-owned stylesheet and browser application. SVGs are displayed as images so their internal IDs and styles do not collide with the host document or another candidate.
+
+The browser is a dependency-free JavaScript application. The zfb page entrypoint uses Preact to host the prepared workbench. The package source is shipped directly, with Node runtime modules in ESM `.mjs` files.
+
+## zfb lifecycle
+
+Session `dev`, `build`, and `preview` commands prepare the page and delegate to zfb. The development wrapper watches source metadata and SVGs, regenerating the workbench when files are added, edited, or removed.
+
+This keeps zfb as the normal host/build path. `export-html` uses the same viewer and data to create an additional standalone snapshot.
+
+The project website prepares its catalog and examples before a zfb run and refreshes that preparation when the watched examples, tone resources, or viewer assets change during development. Those pages exercise the same rendering machinery that a generated session consumes.
+
+## Review state
+
+Browser-local review state is keyed by session identity and associated with content fingerprints. Copy/download actions explicitly transfer it to the user or agent. Imported review records are checked against the session and candidate references.
+
+The first version has no feedback-writing development endpoint and no automatic agent-resume channel. If a later version adds a server write path, it should validate a bounded review schema and write within the active session. It should not reinterpret a browser selection as an instruction to alter another application.
+
+## Extensibility
+
+Keep the versioned metadata contract small. Ordinary SVG can express different illustration styles without requiring a universal graph or layout language.
+
+Potential additions include project context presets, file-backed feedback submission, a contact-sheet export, and installed Claude Code skills. Introduce them when a real session demonstrates their value, and preserve the existing source/export boundary.
+
+## Why the precedent matters
+
+`zudo-doc` exposes package-owned configuration and styles to a small generated host. `zudo-sg` similarly separates its engine and preview machinery from host stories and content. Those established boundaries informed this project's initializer and viewer ownership; this implementation has its own lightweight SVG session model. See the upstream [zudo-doc initializer](https://github.com/zudolab/zudo-doc/tree/main/packages/create-zudo-doc) and [zudo-sg engine architecture](https://github.com/Takazudo/zudo-sg/blob/main/src/content/docs/architecture/engine-package.mdx).

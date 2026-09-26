@@ -1,0 +1,57 @@
+---
+title: Quality and local handoff
+description: Verify the contracts, inspect the gallery, and continue development with Codex.
+sidebar_position: 1
+---
+
+The downloadable source is intended to continue locally with Codex. The repository's `AGENTS.md` describes shared conventions, and `docs/CODEX-HANDOFF.md` gives the implementation map and remaining work.
+
+## Automated contract checks
+
+From the project root:
+
+```bash
+pnpm check
+pnpm test
+pnpm check:examples
+pnpm build
+```
+
+The important risks are invalid metadata, missing assets, duplicate IDs, incorrect lineage, paths escaping a candidate directory, incomplete package contents, and a generated host that accidentally relies on the monorepo. Test these contracts when changing their implementation.
+
+SVG validation establishes that a file meets the supported format. Visual review must still check labels, clipping, line weights, contrast, and the explanation itself.
+
+## Verify the packed consumer
+
+Run `pnpm pack:local`, initialize a fresh host outside the repository with the engine archive, install dependencies, add a valid candidate, and run its check and build commands.
+
+Also exercise the empty initial gallery. An agent needs to be able to start the viewer before it has finished writing the first SVG.
+
+## Browser acceptance checks
+
+Use a real browser at a desktop width and a narrow width. Check:
+
+- Overview, inspect, and compare navigation; candidate and round filters; stable IDs.
+- Theme availability and independent backdrop controls.
+- Fit, 100%, zoom, pan, and placement preview dimensions.
+- Keyboard operation and focus without stealing keys from text fields.
+- Shortlist and chosen-direction state, feedback text retention, and next-action selection.
+- Copy feedback, review download, same-session import, and stale-content feedback.
+- Candidate additions, edits, and removals while the session server is running.
+- SVG and offline HTML exports opened independently.
+
+A successful build does not prove these interactions. Record any unavailable browser verification as a remaining check, with reproduction steps.
+
+## Demonstration lineage
+
+The ten-candidate example includes a second-round outline refinement to demonstrate parent references and navigation. It is an authored example, not a record of a user's actual selection or approval.
+
+## Publication and skills
+
+The package versions and local archives support testing this handoff before publication. Confirm package names, ownership, release metadata, and a packed-consumer build before publishing.
+
+The `/diagram-gen` and `/my-diagram-gen` pages are an integration design. Implement the actual Claude Code skills in the user's chosen skill repository after exercising the app in a real project. The core receives an explicit destination; the wrapper resolves personal output conventions.
+
+## Report verification accurately
+
+The handoff verification report records commands actually run and their results. Keep it current when continuing locally. Distinguish static SVG inspection, automated contract tests, zfb builds, packed-consumer checks, and browser interaction checks instead of combining them into an unqualified “tested.”

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t12-title t12-desc" data-tone="12" data-theme="light">
+<title id="t12-title">12 — Paper layers</title>
+<desc id="t12-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. Overlapping off-white sheets, slight rotations, cut-paper motifs, and small offset shadows make the layer composition feel physical and easy to grasp.</desc>
+<style>
+svg[data-tone='12'] {--bg:#EFEAE0;--ink:#35494C;--accent:#CC754E;--paper:#FFFCF4;--secondary:#769D9A;--grid:#D8D0C2}
+svg[data-tone='12'][data-theme='dark'] {--bg:#252D2D;--ink:#E8ECE5;--accent:#C78360;--paper:#394545;--secondary:#739D99;--grid:#182121}
+.t12-text {font-family:Georgia, 'Times New Roman', serif;fill:var(--ink);font-size:28px}
+.t12-label {font-weight:600;text-anchor:middle}
+.t12-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t12-pattern" width="58" height="44" patternUnits="userSpaceOnUse"><rect width="58" height="44" fill="var(--paper)"/><path d="M0 43V29C0 13 13 0 29 0S58 13 58 29V43H43V29C43 21 37 15 29 15S15 21 15 29V43Z" fill="var(--secondary)"/><path d="M22 44V29C22 25 25 22 29 22S36 25 36 29V44Z" fill="var(--accent)"/></pattern>
+<marker id="t12-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="var(--ink)" stroke-width="1.5"/></marker></defs>
+<rect width="720" height="400" fill="var(--bg)"/>
+<text class="t12-text t12-label" x="135" y="45">Pattern</text>
+<g transform="rotate(-5 132 131)"><rect x="58" y="83" width="164" height="103" fill="var(--grid)"/><rect x="51" y="76" width="164" height="103" fill="var(--paper)"/><rect x="59" y="84" width="148" height="87" fill="url(#t12-pattern)"/></g>
+<text class="t12-text t12-label" x="134" y="231">Text</text>
+<g transform="rotate(4 135 307)"><rect x="62" y="264" width="164" height="98" fill="var(--grid)"/><rect x="55" y="257" width="164" height="98" fill="var(--paper)"/><text class="t12-text t12-make" x="137" y="320" style="font-size:42px">MAKE</text></g>
+<g fill="none" stroke="var(--ink)" stroke-width="2.1"><path d="M231 127C276 127 256 194 307 210H327" marker-end="url(#t12-arrow)"/><path d="M233 306C282 306 274 225 307 210"/></g>
+<g transform="rotate(3 445 206)"><rect x="352" y="94" width="204" height="239" fill="var(--grid)"/><rect x="344" y="85" width="204" height="239" fill="var(--paper)"/></g>
+<g transform="rotate(-2 443 207)"><rect x="341" y="87" width="200" height="237" fill="var(--paper)"/><rect x="351" y="97" width="180" height="217" fill="url(#t12-pattern)"/><path d="M347 177L536 171L537 247L348 252Z" fill="var(--grid)" opacity=".65"/><path d="M344 172L533 166L534 242L345 247Z" fill="var(--paper)"/><text class="t12-text t12-make" x="440" y="222" style="font-size:48px">MAKE</text></g>
+<path d="M557 208C576 212 587 209 606 209" fill="none" stroke="var(--ink)" stroke-width="2.1" marker-end="url(#t12-arrow)"/>
+<path d="M623 167H666L690 191V275H623Z" fill="var(--grid)"/>
+<path d="M616 160H659L683 184V268H616Z" fill="var(--paper)"/>
+<path d="M659 160V184H683Z" fill="var(--secondary)"/>
+<text class="t12-text t12-label" x="650" y="232" style="font-size:26px">PNG</text>
+</svg>

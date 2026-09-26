@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagram candidate",
+  "description": "rounds/<round-directory>/<candidate-directory>/candidate.json. Candidate IDs must be globally unique in the session. The CLI checks asset containment, SVG validity, references, and earlier-round parent lineage.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "title", "toneId", "order", "assets"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "$ref": "common.schema.json#/$defs/slug" },
+    "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+    "toneId": {
+      "$ref": "common.schema.json#/$defs/slug",
+      "description": "A tone identifier. Project-specific tones are allowed; this is not restricted to the bundled catalog."
+    },
+    "description": { "type": "string" },
+    "order": { "$ref": "common.schema.json#/$defs/order" },
+    "assets": {
+      "type": "object",
+      "required": ["light"],
+      "properties": {
+        "light": { "$ref": "common.schema.json#/$defs/svgPath" },
+        "dark": { "$ref": "common.schema.json#/$defs/svgPath" }
+      },
+      "description": "Paths relative to this candidate directory. A missing dark asset is explicitly unavailable; the exporter never substitutes light artwork."
+    },
+    "parentCandidateId": { "$ref": "common.schema.json#/$defs/optionalParent" }
+  }
+}

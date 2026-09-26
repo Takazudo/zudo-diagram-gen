@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="pzzmod" data-project="p-zzmod" data-theme="light" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="pzzmod-title pzzmod-desc">
+  <title id="pzzmod-title">Audio and control voltage in a basic synthesizer voice</title>
+  <desc id="pzzmod-desc">The cyan audio path runs from VCO oscillator through VCF filter and VCA amplifier to output. A purple control-voltage path runs from an envelope to the VCA to control volume. Colors follow the existing zzmod synth SVG palette. This conceptual study uses simplified symbols and is not a physical patch layout.</desc>
+  <style>
+    #pzzmod{--paper:#0d1117;--panel:#161b22;--ink:#e7e8ea;--muted:#adb0b3;--audio:#00d4ff;--cv:#a78bfa;--line:#39424e;font-family:Arial,Helvetica,sans-serif}
+    #pzzmod[data-theme="light"]{--paper:#0d1117;--panel:#161b22;--ink:#e7e8ea;--muted:#adb0b3;--audio:#00d4ff;--cv:#a78bfa;--line:#39424e}
+    #pzzmod .label{fill:#e7e8ea;font-size:28px;font-family:ui-monospace,monospace;text-anchor:middle}
+    #pzzmod .node{fill:#161b22;stroke:#e7e8ea;stroke-width:2}
+    #pzzmod .audio{fill:none;stroke:#00d4ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <defs>
+    <marker id="pzzmod-audio-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1 1L7 4L1 7" fill="none" stroke="#00d4ff" stroke-width="1.2"/></marker>
+    <marker id="pzzmod-cv-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1 1L7 4L1 7" fill="none" stroke="#a78bfa" stroke-width="1.2"/></marker>
+  </defs>
+  <rect width="720" height="400" fill="#0d1117"/>
+  <text x="32" y="47" fill="#e7e8ea" font-size="33" font-weight="600">Audio and control voltage</text>
+  <path d="M32 68H688" stroke="#39424e"/>
+  <text x="93" y="109" class="label">VCO</text>
+  <text x="265" y="109" class="label">VCF</text>
+  <text x="430" y="109" class="label">VCA</text>
+  <text x="637" y="109" class="label">OUT</text>
+  <circle cx="93" cy="180" r="48" class="node"/>
+  <path d="M59 180C69 146 83 146 93 180S117 214 127 180" class="audio"/>
+  <path d="M220 132L316 180L220 228Z" class="node"/>
+  <path d="M237 166H263L280 201" class="audio"/>
+  <path d="M386 132L482 180L386 228Z" class="node"/>
+  <path d="M406 166L430 192M430 166L406 192" fill="none" stroke="#e7e8ea" stroke-width="2.5"/>
+  <path d="M142 180H210M317 180H376M483 180H610" class="audio" marker-end="url(#pzzmod-audio-arrow)"/>
+  <circle cx="637" cy="180" r="18" fill="#161b22" stroke="#00d4ff" stroke-width="3"/>
+  <circle cx="637" cy="180" r="6" fill="#00d4ff"/>
+  <path d="M416 296V221" fill="none" stroke="#a78bfa" stroke-width="3" marker-end="url(#pzzmod-cv-arrow)"/>
+  <circle cx="416" cy="213" r="5" fill="#a78bfa"/>
+  <text x="442" y="271" fill="#a78bfa" font-size="26">CV</text>
+  <rect x="323" y="296" width="188" height="65" fill="#161b22" stroke="#a78bfa" stroke-width="2"/>
+  <text x="417" y="337" fill="#e7e8ea" font-size="28" text-anchor="middle">Envelope</text>
+  <path d="M40 344H77" class="audio"/>
+  <text x="91" y="353" fill="#00d4ff" font-size="27">Audio</text>
+  <path d="M40 381H77" fill="none" stroke="#a78bfa" stroke-width="3"/>
+  <text x="91" y="390" fill="#a78bfa" font-size="27">Control</text>
+</svg>

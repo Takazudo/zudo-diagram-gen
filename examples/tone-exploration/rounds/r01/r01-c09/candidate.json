@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c09",
+  "title": "Circuit route",
+  "toneId": "circuit-route",
+  "description": "Consistent right-angle paths, circular ports, solder-pad-like junctions, and a restrained substrate palette. The routed paths describe the two input layers and the single exported result.",
+  "order": 9,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

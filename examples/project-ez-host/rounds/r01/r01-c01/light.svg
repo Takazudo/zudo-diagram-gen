@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="phost" data-project="p-host" data-theme="light" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="phost-title phost-desc">
+  <title id="phost-title">Save and publish are separate actions in zudo-ez-host</title>
+  <desc id="phost-desc">Save creates a cloud checkpoint from the local folder. Publish makes the selected saved checkpoint the live site. Saving alone does not publish or change the existing live site. This is a conceptual guide, not a screenshot.</desc>
+  <style>
+    #phost{--paper:#f5f5f5;--ink:#161616;--muted:#686868;--line:#8c8c8c;--surface:#ececec;--inset:#e2e2e2;--inverse:#ffffff;font-family:Arial,Helvetica,sans-serif}
+    #phost[data-theme="dark"]{--paper:#0b0b0c;--ink:#dedede;--muted:#a7a8a8;--line:#8a8a8a;--surface:#141415;--inset:#1b1b1d;--inverse:#0b0b0c}
+    #phost .label{fill:#161616;font-size:27px;text-anchor:middle}
+    #phost .outline{fill:#ececec;stroke:#161616;stroke-width:2}
+    #phost .connector{fill:none;stroke:#161616;stroke-width:2.5;stroke-linejoin:round}
+  </style>
+  <defs><marker id="phost-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1 1L7 4L1 7" fill="none" stroke="#161616" stroke-width="1.2"/></marker></defs>
+  <rect width="720" height="400" fill="#f5f5f5"/>
+  <text x="32" y="48" fill="#161616" font-size="34" font-weight="600">Saving and publishing</text>
+  <path d="M32 70H688" stroke="#8c8c8c"/>
+  <text x="238" y="127" class="label">Save</text>
+  <text x="478" y="127" class="label">Publish</text>
+  <path d="M201 205H267" class="connector" marker-end="url(#phost-arrow)"/>
+  <path d="M445 205H508" class="connector" marker-end="url(#phost-arrow)"/>
+  <path d="M34 171V147H92L110 164H199V254H34Z" class="outline"/>
+  <path d="M35 176H198" stroke="#8c8c8c" stroke-width="1.5"/>
+  <path d="M58 197H103M58 214H172M58 231H147" stroke="#686868" stroke-width="3"/>
+  <rect x="280" y="153" width="156" height="101" class="outline"/>
+  <rect x="290" y="144" width="136" height="10" fill="#e2e2e2" stroke="#161616" stroke-width="2"/>
+  <path d="M313 179H341V211H313ZM351 182H403M351 196H403M314 232H403" fill="none" stroke="#686868" stroke-width="2"/>
+  <rect x="522" y="148" width="164" height="106" class="outline"/>
+  <path d="M523 173H685" stroke="#8c8c8c" stroke-width="1.5"/>
+  <rect x="533" y="158" width="6" height="6" fill="#686868"/>
+  <rect x="545" y="158" width="6" height="6" fill="#686868"/>
+  <rect x="557" y="158" width="6" height="6" fill="#686868"/>
+  <rect x="538" y="190" width="59" height="46" fill="#e2e2e2"/>
+  <path d="M609 194H669M609 207H661M609 222H652" stroke="#686868" stroke-width="3"/>
+  <text x="116" y="293" class="label">Local folder</text>
+  <text x="358" y="293" class="label">Checkpoint</text>
+  <text x="604" y="293" class="label">Live site</text>
+  <text x="358" y="325" fill="#686868" font-size="26" text-anchor="middle">in the cloud</text>
+  <path d="M32 345H688" stroke="#8c8c8c"/>
+  <text x="360" y="383" fill="#161616" text-anchor="middle" font-size="28" font-weight="600">Saving does not publish.</text>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c05",
+  "title": "Technical blueprint",
+  "toneId": "technical-blueprint",
+  "description": "A precise drafting grid, fine orthogonal connectors, registration crosses, and measurement leaders make the composition read as an engineered construction.",
+  "order": 5,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

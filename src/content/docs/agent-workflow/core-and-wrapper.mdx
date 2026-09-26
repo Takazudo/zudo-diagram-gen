@@ -1,0 +1,75 @@
+---
+title: Core skill and personal wrapper
+description: A proposed Claude Code interface that accepts caller paths and keeps personal policy outside the core.
+sidebar_position: 1
+---
+
+This page specifies the intended integration between Claude Code and the implemented app. The first source handoff does not include or install an executable `/diagram-gen` skill or a `/my-diagram-gen` wrapper. The option names below are a proposed skill contract, distinct from the implemented [application CLI](/docs/reference/cli/).
+
+## Core responsibilities
+
+The core skill should read project context, establish the diagram brief, initialize or resume a session, choose useful tone references, generate and validate candidates, present the review, and carry feedback into later rounds.
+
+The core accepts the caller's paths. It does not choose a user's personal logs directory, require a particular home-directory layout, or install itself as an incidental part of initializing a session.
+
+## Proposed skill options
+
+| Option | Meaning |
+| --- | --- |
+| `--out <directory>` | Destination for a new session. Required when creating a session unless the caller provides it through another explicit interface. |
+| `--project <path-or-reference>` | Project context to inspect for behavior, terminology, and design rules. |
+| `--session <directory>` | Resume an existing session and its recorded rounds. |
+| `--count <number>` | Requested number of candidates for the next exploration. |
+| `--tones <id,id,...>` | Optional references the user explicitly wants considered. |
+
+Use `--out` for creation and `--session` for continuation; they should be mutually exclusive in a single invocation. The skill can infer project context from the caller's working project when it is unambiguous, but the output destination remains an explicit input to the core contract.
+
+Example future invocations:
+
+```text
+/diagram-gen --project . --out ../feature-diagrams --count 10
+Explain this feature for its help dialog and show useful visual directions.
+```
+
+```text
+/diagram-gen --session ../feature-diagrams
+Continue from r01-c07. Keep its composition and labels; simplify the arrows.
+```
+
+`--tones` selects references for generation. It does not guarantee that copying a reference unchanged explains the feature, and it does not turn the CLI into an SVG rendering template language.
+
+## Personal wrapper responsibilities
+
+A wrapper such as `/my-diagram-gen` can apply personal conventions before calling the core:
+
+1. Resolve a preferred output directory using the user's existing helper or settings.
+2. Create a unique session destination within that directory.
+3. Supply `--out` and the current project reference to the core.
+4. Apply preferred host/port discovery and presentation conventions when starting the viewer.
+5. Supply a preferred exploration count only when the current request has not specified one.
+
+The wrapper passes resolved values; it does not add its filesystem policy to the engine, initializer, or shared core skill.
+
+Conceptually:
+
+```text
+/my-diagram-gen
+  resolve this user's output convention
+  call /diagram-gen with an explicit destination and project context
+```
+
+The core remains reusable by other people and agents that choose a different working directory.
+
+## Existing app interface
+
+The future skill can already operate against these implemented boundaries:
+
+- Initializer: create a small session project at an explicit destination.
+- Files: write the brief, round metadata, candidate metadata, and SVG assets.
+- Catalog commands: inspect available tone references.
+- Validation: check session structure and exportability.
+- zfb commands: run the local viewer and produce a static site.
+- Review transfer: read copied feedback or a review JSON file supplied by the user.
+- Export: retrieve the exact chosen SVG for integration.
+
+Write the installable skill after exercising these interfaces in a real project. Keep its core instructions short and move detailed schema, authoring, and review guidance into references that can be read when needed.

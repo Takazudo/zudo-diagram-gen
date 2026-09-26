@@ -1,0 +1,71 @@
+---
+title: SVG authoring
+description: Make complete, readable drawings that survive comparison and export.
+sidebar_position: 2
+---
+
+An SVG candidate is the actual artwork. Keep it complete enough to inspect in the gallery, export, and place into the intended application.
+
+## Begin with the explanation
+
+Before drawing, identify the entities, states, and actions the reader needs to understand. Read the relevant implementation or documentation. Preserve exact product labels where the reader must recognize them in the interface.
+
+Keep a shared brief for all candidates in a comparison round. If you vary explanatory structure as well as tone, describe that choice so the reviewer can tell what they are comparing.
+
+## Author at a useful coordinate size
+
+Use an explicit `viewBox`. A reference drawing might use 720 by 400 units and appear at 360 by 200 CSS pixels. That leaves convenient drawing coordinates while keeping the intended display scale clear.
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 720 400"
+     role="img"
+     aria-labelledby="diagram-title diagram-description">
+  <title id="diagram-title">Example diagram title</title>
+  <desc id="diagram-description">The relationship this drawing explains.</desc>
+  <!-- Drawing elements and readable labels. -->
+</svg>
+```
+
+The sample establishes structure only; it is not a completed candidate. Use the tone collection's actual SVGs when a complete visual reference is helpful.
+
+## Make labels work at the target size
+
+Judge line weight, arrowheads, type size, and spacing in the placement preview. A label that reads well at the drawing's coordinate size may become too small in a help dialog.
+
+Prefer short labels that carry meaning. Let surrounding prose hold details that do not need to appear inside the drawing. Check long translated labels if the target product will use another language.
+
+## Provide explicit artwork themes
+
+The viewer loads SVGs as images. Author each asset with the colors it needs to display correctly. Do not assume a host document's CSS custom properties or selectors will style elements inside that image.
+
+Declare the light and dark files separately when both are available:
+
+```json
+{
+  "assets": {
+    "light": "diagram.light.svg",
+    "dark": "diagram.dark.svg"
+  }
+}
+```
+
+Keep meaning consistent between themes. A semantic color used to distinguish a signal, state, or action should remain recognizable when the surrounding palette changes. Background selection in the viewer does not synthesize a missing theme asset.
+
+## Keep assets complete
+
+Use internal shapes, text, and definitions. Keep IDs and references consistent, and avoid depending on remote images, fonts, stylesheets, or a script to make the SVG intelligible.
+
+Treat exports as complete drawing files. Referenced assets outside the candidate directory cannot be assumed to accompany the exported SVG. The engine validates the asset format and reports unsupported constructs; do not bypass validation by embedding active content.
+
+## Accessibility follows the destination
+
+Give the standalone SVG a useful title and description. At integration time, choose the alternative text or decorative treatment based on how the drawing relates to adjacent content.
+
+If the nearby text already states the whole explanation and the diagram is decorative reinforcement, the host may deliberately hide that repetition from assistive technology. If the drawing conveys additional meaning, provide a text alternative that describes it. A file's internal title does not remove the need to check the actual HTML/component integration.
+
+## Refine the saved file
+
+Once a candidate is selected, copy its SVG into a new candidate directory and make the requested change there. Preserve the original for comparison. Keep composition, labels, or palette unchanged when the user explicitly asks to retain them.
+
+Before integration, inspect the exported asset in the destination's real dimensions and theme. The gallery helps establish a direction; the final application determines the actual surrounding layout and accessibility behavior.

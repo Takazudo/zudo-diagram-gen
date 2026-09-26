@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Split, then choose a component",
+  "toneId": "ui-miniature",
+  "description": "A quiet native UI miniature shows the existing Note Tray preserved on the left, an Empty new frame on the right, and a component chooser. Splitting and selecting a new component are presented as distinct steps. This is a conceptual help diagram, not a screenshot or an exact menu reproduction. The component picker is shortened to two valid examples. The depicted Empty state is the newly split frame; no note cloning occurs. No claim is made about which pointer or menu command invoked Split.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

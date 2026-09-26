@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagram review session",
+  "description": "Root session.json. Additional fields are allowed but omitted from normalized gallery data. Use the CLI check command for file, SVG, and lineage validation.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "title", "target"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "$ref": "common.schema.json#/$defs/slug" },
+    "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+    "description": { "type": "string" },
+    "project": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+        "reference": { "$ref": "common.schema.json#/$defs/nonemptyString" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 20000 },
+        "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 20000 },
+        "label": { "$ref": "common.schema.json#/$defs/nonemptyString" }
+      },
+      "description": "The intended placement size in CSS pixels."
+    },
+    "context": {
+      "type": "object",
+      "required": ["title", "body"],
+      "properties": {
+        "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+        "body": { "type": "string" }
+      }
+    },
+    "toneCollectionVersion": { "$ref": "common.schema.json#/$defs/nonemptyString" }
+  }
+}

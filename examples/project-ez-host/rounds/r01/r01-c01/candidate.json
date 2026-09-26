@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Saving and publishing",
+  "toneId": "fine-outline",
+  "description": "Three distinct domains: local folder, saved cloud checkpoint, and live site. Separate Save and Publish arrows retain the explicit publication boundary. Conceptual actions are labeled Save and Publish for legibility. Actual product labels include Push/Save and Publish saved. The combined Push & publish shortcut and failure states are omitted from this focused study.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

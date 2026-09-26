@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagram tone collection",
+  "description": "Package-owned tones/catalog.json. Tone IDs and numbers must be unique. Reference SVG paths are relative to the tones directory. The CLI checks these cross-record and filesystem requirements.",
+  "type": "object",
+  "required": ["schemaVersion", "version", "tones"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "version": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+    "tones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "number", "name", "family", "summary", "recipe", "goodFor", "smallSizeNotes", "referenceFiles"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/slug" },
+          "number": { "$ref": "common.schema.json#/$defs/order" },
+          "name": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+          "family": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+          "summary": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+          "recipe": { "$ref": "common.schema.json#/$defs/stringList" },
+          "goodFor": { "$ref": "common.schema.json#/$defs/stringList" },
+          "smallSizeNotes": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+          "referenceFiles": {
+            "type": "object",
+            "required": ["light", "dark"],
+            "properties": {
+              "light": { "$ref": "common.schema.json#/$defs/svgPath" },
+              "dark": { "$ref": "common.schema.json#/$defs/svgPath" }
+            }
+          },
+          "sourceReferences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title", "url"],
+              "properties": {
+                "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+                "url": { "type": "string", "format": "uri", "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

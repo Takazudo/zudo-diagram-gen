@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t14-title t14-desc" data-tone="14" data-theme="dark">
+<title id="t14-title">14 — Marker workshop</title>
+<desc id="t14-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. Broad rounded marker lines, loose loop motifs, imperfect corners, and flat highlighter swipes give the diagram a lively workshop character.</desc>
+<style>
+svg[data-tone='14'] {--bg:#FFF4E9;--ink:#282826;--accent:#F28A63;--paper:#FFF9F1;--secondary:#C9D96F;--grid:#EADACE}
+svg[data-tone='14'][data-theme='dark'] {--bg:#252724;--ink:#F0ECE1;--accent:#80503B;--paper:#30352D;--secondary:#657843;--grid:#44483B}
+.t14-text {font-family:'Trebuchet MS', Arial, sans-serif;fill:#F0ECE1;font-size:28px}
+.t14-label {font-weight:600;text-anchor:middle}
+.t14-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t14-pattern" width="63" height="49" patternUnits="userSpaceOnUse"><rect width="63" height="49" fill="#657843"/><path d="M-7 34C-4 3 33 -5 39 15C46 43 17 46 15 24C13 8 48 0 63 17C80 35 52 53 48 32" fill="none" stroke="#F0ECE1" stroke-width="5.5" stroke-linecap="round"/></pattern></defs>
+<rect width="720" height="400" fill="#252724"/>
+<path d="M66 46Q126 35 204 45" fill="none" stroke="#80503B" stroke-width="18" stroke-linecap="square" opacity=".75"/>
+<text class="t14-text t14-label" x="133" y="48" style="font-size:30px" transform="rotate(-3 133 48)">Pattern</text>
+<path d="M50 87Q125 78 217 84L216 175Q134 180 52 174Z" fill="url(#t14-pattern)" stroke="#F0ECE1" stroke-width="5.5" stroke-linejoin="round"/>
+<path d="M96 230L175 225" stroke="#657843" stroke-width="19" opacity=".85"/>
+<text class="t14-text t14-label" x="135" y="233" style="font-size:30px" transform="rotate(2 135 233)">Text</text>
+<path d="M59 263Q131 258 218 264L215 351L55 348Z" fill="#30352D" stroke="#F0ECE1" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text class="t14-text t14-make" x="136" y="321" style="font-size:42px;letter-spacing:0" transform="rotate(-2 136 321)">MAKE</text>
+<path d="M231 132C264 120 248 174 283 192Q301 207 327 205 M232 307C269 316 265 274 252 266C228 251 257 221 287 209 M314 194L330 206L315 220" fill="none" stroke="#F0ECE1" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M344 94L542 89L539 327L343 323Z" fill="url(#t14-pattern)" stroke="#F0ECE1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M354 184L527 176L529 239L352 248Z" fill="#80503B"/>
+<text class="t14-text t14-make" x="441" y="230" style="font-size:49px;letter-spacing:0" transform="rotate(-3 441 230)">MAKE</text>
+<path d="M555 209Q580 204 604 210M591 199L606 210L591 221" fill="none" stroke="#F0ECE1" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M619 161L660 163L684 187L681 267L616 264Z M660 163L660 186L683 187" fill="#30352D" stroke="#F0ECE1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M624 230L673 227" stroke="#657843" stroke-width="27"/>
+<text class="t14-text t14-label" x="650" y="236" style="font-size:26px">PNG</text>
+</svg>
