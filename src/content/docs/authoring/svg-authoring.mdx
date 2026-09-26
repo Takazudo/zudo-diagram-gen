@@ -12,9 +12,9 @@ Before drawing, identify the entities, states, and actions the reader needs to u
 
 Keep a shared `brief.md` for all candidates in a comparison round. State the teaching goal, fixed labels, source references, intended placement, and exclusions. If you vary explanatory structure as well as tone, describe that choice so the reviewer can tell what they are comparing.
 
-The [zudo-doc-cloud example](/examples/project-doc-cloud/) provides a useful model. Its brief says that selected changes A and B move into **Draft: Guide**, while unselected C remains on **Workbench**. It explicitly omits dependency expansion, blockers, stale previews, and the optional copy mode. That scope gives the author a clear before/after relationship to draw without implying that every collection operation behaves like this successful Move example.
+The [zudo-doc-cloud example](/docs/examples/project-doc-cloud/) provides a useful model. Its brief says that selected changes A and B move into **Draft: Guide**, while unselected C remains on **Workbench**. It explicitly omits dependency expansion, blockers, stale previews, and the optional copy mode. That scope gives the author a clear before/after relationship to draw without implying that every collection operation behaves like this successful Move example.
 
-The [zudo-ez-host example](/examples/project-ez-host/) makes a different distinction: Save and Publish connect three separate places. Collapsing them into one arrow would lose the point of the drawing. Read each example's own brief before adapting its geometry.
+The [zudo-ez-host example](/docs/examples/project-ez-host/) makes a different distinction: Save and Publish connect three separate places. Collapsing them into one arrow would lose the point of the drawing. Read each example's own brief before adapting its geometry.
 
 ## Author at a useful coordinate size
 
@@ -31,13 +31,13 @@ Use an explicit `viewBox`. A reference drawing might use 720 by 400 units and ap
 </svg>
 ```
 
-This snippet shows the SVG wrapper; add drawing elements before using it as a candidate. The [first-session SVG](/docs/getting-started/first-session/) is complete, and the [tone catalog](/tones/) provides 24 authored visual references.
+This snippet shows the SVG wrapper; add drawing elements before using it as a candidate. The [first-session SVG](/docs/getting-started/first-session/) is complete, and the [tone catalog](/docs/tones/) provides 24 authored visual references.
 
 ## Make labels work at the target size
 
 Judge line weight, arrowheads, type size, and spacing in the placement preview. A label that reads well at the drawing's coordinate size may become too small in a help dialog.
 
-Prefer short labels that carry meaning. Let surrounding prose hold details that do not need to appear inside the drawing. Check long translated labels if the target product will use another language. Set the intended CSS-pixel dimensions in `session.json`; enlarging the inspection stage does not change the target. The [zudo-text fixture](/examples/project-text/) uses a 280 × 156 preview for its 720 × 400 viewBox, so every essential label has to survive substantial reduction.
+Prefer short labels that carry meaning. Let surrounding prose hold details that do not need to appear inside the drawing. Check long translated labels if the target product will use another language. Set the intended CSS-pixel dimensions in `session.json`; enlarging the inspection stage does not change the target. The [zudo-text fixture](/docs/examples/project-text/) uses a 280 × 156 preview for its 720 × 400 viewBox, so every essential label has to survive substantial reduction.
 
 ## Provide explicit artwork themes
 
@@ -56,7 +56,7 @@ Declare the light and dark files separately when both are available:
 
 This JSON is an `assets` fragment for `candidate.json`; both named files must exist in that candidate directory.
 
-Keep meaning consistent between themes. A semantic color used to distinguish a signal, state, or action should remain recognizable when the surrounding palette changes. Background selection in the viewer does not synthesize a missing theme asset. The [zzmod study](/examples/project-zzmod/) intentionally stays dark in both theme variants so its cyan audio and purple control-voltage paths retain their meaning. A theme filename does not require a pale or dark canvas at the expense of the explanation.
+Keep meaning consistent between themes. A semantic color used to distinguish a signal, state, or action should remain recognizable when the surrounding palette changes. Background selection in the viewer does not synthesize a missing theme asset. The [zzmod study](/docs/examples/project-zzmod/) intentionally stays dark in both theme variants so its cyan audio and purple control-voltage paths retain their meaning. A theme filename does not require a pale or dark canvas at the expense of the explanation.
 
 ## Keep assets complete
 
@@ -74,7 +74,7 @@ If the nearby text already states the whole explanation and the diagram is decor
 
 Receive the chosen ID and feedback through the conversation or a [review export](/docs/gallery/reviewing/). Browser choices do not write into the workspace. Copy the selected SVG into a later round, give its candidate a new stable ID, and set `parentCandidateId` to the baseline. Follow the [session file example](/docs/authoring/session-files/#create-a-refinement-round) for the round metadata.
 
-Work on that saved geometry. Keep composition, labels, or palette when the user asks to retain them. In the [tone-exploration fixture](/examples/tone-exploration/), the illustrative `r02-c01` strengthens four connectors from `r01-c01` while preserving positions, words, surfaces, and palette. This is an example of a bounded revision, not a user-approved selection.
+Work on that saved geometry. Keep composition, labels, or palette when the user asks to retain them. In the [tone-exploration fixture](/docs/examples/tone-exploration/), the illustrative `r02-c01` strengthens four connectors from `r01-c01` while preserving positions, words, surfaces, and palette. This is an example of a bounded revision, not a user-approved selection.
 
 Run `pnpm check` in the session after editing. Inspect every declared theme at the target dimensions and compare the new drawing with its parent. Editing a reviewed candidate in place can mark its prior feedback stale; new IDs preserve the actual versions for comparison.
 

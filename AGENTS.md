@@ -2,13 +2,13 @@
 
 ## Product intent
 
-`zudo-diagram-gen` is a local SVG candidate review system. Keep generation, review, refinement, and export practical for a human working with an agent. The root website documents the project and presents the tone catalog and worked examples. The package owns the review application; generated sessions supply content.
+`zudo-diagram-gen` is a local SVG candidate review system. Keep generation, review, refinement, and export practical for a human working with an agent. The root site is a single zudo-doc documentation site with the tone catalog, worked examples, and an embedded review workbench. The package owns the review application; generated sessions supply content.
 
 Read `docs/CODEX-HANDOFF.md` before continuing this source handoff. Read `IMPLEMENTATION-CONTRACT.md` when changing package boundaries or schemas. Current executable behavior and tests take precedence over a proposed interface in the planning documentation; update the documentation when that behavior changes.
 
 ## Repository boundaries
 
-- Root: zfb + zudo-doc project documentation and public example/catalog pages.
+- Root: one zudo-doc site hosted by zfb; the workbench is embedded in documentation pages through chrome bindings.
 - `packages/diagram-gen`: engine, browser workbench, tone collection, session CLI.
 - `packages/create-zudo-diagram-gen`: destination-based initializer.
 - `examples`: complete session fixtures used to exercise and demonstrate the engine.
@@ -20,7 +20,7 @@ Do not copy the workbench implementation into generated sessions. Do not add a p
 ## Implementation conventions
 
 - Use pnpm. Keep exact project dependency versions and the lockfile in sync.
-- Keep zfb as the development/build/preview path. The offline HTML export is an additional output.
+- Keep zfb as the development/build/preview path. The root documentation site uses zudo-doc chrome bindings to embed the workbench. The offline HTML export is an additional output.
 - Runtime Node modules use ESM `.mjs`; browser code uses ordinary JavaScript/CSS; zfb page entrypoints use Preact TSX.
 - Prefer direct SVG authoring and an ordinary JSON metadata contract. Keep explanatory content independent of viewer code.
 - Preserve stable session, round, tone, and candidate IDs. Asset paths remain relative to their candidate directory.
