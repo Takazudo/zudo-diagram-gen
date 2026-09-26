@@ -6,6 +6,7 @@
 @import '@takazudo/zudo-doc/content.css';
 @import '@takazudo/zudo-doc/page-loading.css';
 @import '@takazudo/zudo-doc/features.css';
+@import '@takazudo/zudo-diagram-gen/client/app.css';
 @source '../content/**/*.{mdx,md}';
 @source '../../pages/**/*.tsx';
 
