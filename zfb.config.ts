@@ -16,10 +16,18 @@ export default defineConfig(zudoDoc({
   dynamicPageTransition: false,
   colorScheme: 'Default Light',
   colorMode: {defaultMode: 'light',lightScheme:'Default Light',darkScheme:'Default Dark',respectPrefersColorScheme:false},
+  headerRightItems: [{type:'component',component:'search'}],
   headerNav: [
-    {label:'Workbench',path:'/workbench',versioned:false},
+    {label:'Docs',path:'/docs/getting-started',versioned:false,children:[
+      {label:'Getting started',path:'/docs/getting-started',categoryMatch:'getting-started',versioned:false},
+      {label:'Review',path:'/docs/gallery',categoryMatch:'gallery',versioned:false},
+      {label:'Authoring',path:'/docs/authoring',categoryMatch:'authoring',versioned:false},
+      {label:'Agent workflow',path:'/docs/agent-workflow',categoryMatch:'agent-workflow',versioned:false},
+      {label:'Reference',path:'/docs/reference',categoryMatch:'reference',versioned:false},
+      {label:'Development',path:'/docs/development',categoryMatch:'development',versioned:false},
+    ]},
     {label:'Tones',path:'/tones',versioned:false},
     {label:'Examples',path:'/examples',versioned:false},
-    {label:'Docs',path:'/docs/getting-started/introduction',versioned:false},
+    {label:'Workbench',path:'/workbench',versioned:false},
   ],
 }));

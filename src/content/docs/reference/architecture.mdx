@@ -4,7 +4,7 @@ description: Package-owned viewer behavior, content-owned sessions, and a zfb do
 sidebar_position: 2
 ---
 
-The project uses a small-host/shared-package arrangement similar to [zudo-doc](https://github.com/zudolab/zudo-doc) and [zudo-sg](https://github.com/Takazudo/zudo-sg). Its main boundary is between reusable viewer behavior and each session's diagram content.
+The project uses a small host with a shared package similar to [zudo-doc](https://github.com/zudolab/zudo-doc) and [zudo-sg](https://github.com/Takazudo/zudo-sg). Its main boundary is between reusable viewer behavior and each session's diagram content.
 
 ## Components
 
@@ -14,10 +14,10 @@ The project uses a small-host/shared-package arrangement similar to [zudo-doc](h
 | `@takazudo/zudo-diagram-gen` | Model validation, catalog loading, rendering, browser UI, exports, and the session CLI. |
 | `create-zudo-diagram-gen` | A small private zfb host and initial session content. |
 | A generated session | The brief, metadata, SVG files, rounds, and user-supplied review records. |
-| Future core skill | Project understanding, candidate generation, interpretation of feedback, and requested integration. |
-| Future personal wrapper | Output-location policy and other caller-specific conventions. |
+| Proposed core skill | Project understanding, candidate generation, interpretation of feedback, and requested integration. This is a documented interface, not an installed command. |
+| Proposed personal wrapper | Output-location policy and other caller-specific conventions. This is also future integration work. |
 
-The root documentation website uses zudo-doc. A generated review session uses the diagram engine and zfb. It does not need a copy of the project documentation site to compare its candidates.
+The root documentation website uses zudo-doc for generated sidebar, search, and page table of contents. A generated review session uses the diagram engine and zfb. It does not need a copy of the project documentation site to compare its candidates.
 
 ## Data preparation
 

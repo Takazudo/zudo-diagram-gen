@@ -1,96 +1,74 @@
 # zudo-diagram-gen
 
-A local workspace for comparing, choosing, and refining SVG diagram candidates. The project includes a **zfb + zudo-doc documentation site**, a package-owned review app, an initializer, and a collection of 24 illustration tones with example SVGs.
+A local workspace for comparing, choosing, and refining SVG diagrams with an agent. The agent writes candidate SVG files; a person reviews them at the intended placement size, selects a direction, and gives feedback for the next round. Earlier drawings remain available.
 
-The working loop is simple: establish a shared brief, generate candidates, review them at their intended size, choose a direction, and refine the saved drawing. A future Claude Code `/diagram-gen` skill can drive that loop using the file and command interfaces documented here.
+This repository contains the reusable review package, a destination-based initializer, 24 illustrated tone references, worked example sessions, and a zfb + zudo-doc project site. The site serves documentation under `/docs/`, the tone catalog at `/tones/`, examples at `/examples/`, and a workbench demonstration at `/workbench/`. Run it locally with `pnpm dev`; a public site URL will be added after deployment is verified.
 
-## What is included
+## Status and requirements
 
-- `@takazudo/zudo-diagram-gen`: session loading and validation, the SVG workbench, tone references, exports, and commands that run sessions through zfb.
-- `create-zudo-diagram-gen`: a destination-based initializer that creates a small private session project.
-- A project documentation website with a live tone catalog at `/tones/` and worked examples at `/examples/`.
-- SVG source files and explicit light/dark reference assets for all 24 tones.
-- A local Codex handoff and a documented core/wrapper skill interface.
+Both packages are at `0.1.0` and are **not published to a registry**. The instructions below use source and local archives. The proposed `/diagram-gen` and `/my-diagram-gen` Claude Code skills are documented interfaces, not installed commands. Review state lives in the browser until copied or downloaded; it does not write session files or resume an agent automatically.
 
-The packages are versioned `0.1.0` for this source handoff. No registry publication or website deployment is part of this handoff. Installation instructions below use this checkout and local package archives; a package name alone is not yet a verified installation command. The proposed personal Claude Code skills are separate future work.
+Use Node.js 22–24 and pnpm 10.30.3. The repository records the pnpm version in `package.json`.
 
-## Build local previews
-
-This repository ships the authored source, tone SVGs, and example sessions. It does not ship the generated `dist/` site, `artifacts/` archives or standalone HTML, showcase pages, preview SVGs, or zudo-doc routes. `pnpm build` regenerates the showcase pages and previews and builds the site. `pnpm export:preview` creates standalone HTML snapshots in `artifacts/`; `pnpm pack:local` creates local package archives there. These outputs can be rebuilt from this checkout. Review state uses browser storage when available; copy/download provides the transfer back to an agent.
-
-## Run the project website
-
-Use Node.js 22–24 and pnpm 10.30.3. The workspace records the exact pnpm version in `package.json`; `corepack pnpm` selects it without changing the global pnpm installation. CI pins Node.js 24.13.0 and pnpm 10.30.3 and runs a frozen install, check, test, example validation, and build on pull requests and main.
+## Explore the project site
 
 ```bash
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open the address printed by zfb. The site provides documentation, the 24-tone collection, and diagram example galleries.
+Open the local address printed by zfb. The home page links to the documentation, tone catalog, examples, and workbench. For the documented path through a first session, start at [the getting started content](./src/content/docs/getting-started/first-session.mdx).
 
-```bash
-pnpm check
-pnpm test
-pnpm check:examples
-pnpm build
-pnpm preview
-```
+The site and its generated showcase data are rebuilt from source. `dist/`, `artifacts/`, and prepared pages are not committed outputs.
 
-`pnpm build` builds the project documentation website with zfb. Standalone session HTML is also available through the engine CLI; see the command reference on the site.
+## Create a separate review session
 
-## Create a session from the downloaded source
-
-First build local package archives:
+From the repository root, pack the local packages:
 
 ```bash
 pnpm pack:local
 ```
 
-Use the engine archive path printed by that command with the source initializer:
+Use the **absolute engine archive path printed by that command** when calling the source initializer:
 
 ```bash
 node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
   ../diagram-session \
-  --yes \
-  --engine-package /absolute/path/to/the/engine-package.tgz
+  --name "Feature help diagram" \
+  --engine-package /absolute/path/to/engine-package.tgz \
+  --yes
 
 cd ../diagram-session
 pnpm install
 pnpm dev
 ```
 
-The initializer creates an empty candidate gallery and accepts an ordinary destination. It does not choose a personal logs directory, initialize Git, or install skills. See `node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs --help` for the supported options.
+The initializer creates a private zfb host with an empty first round. The installed `@takazudo/zudo-diagram-gen` package owns its viewer and CLI; the session owns `session.json`, `brief.md`, round metadata, candidate metadata, and SVG files. It does not initialize Git, select a personal output location, or install agent skills. Keep a local archive at its recorded path when reinstalling the generated host.
 
-In a session, agents normally edit `session.json`, `brief.md`, and the files below `rounds/`. The dependency owns the viewer.
+## Review and export
 
-## Session content
+Add a candidate under `rounds/r01/<candidate>/` and run `pnpm check` in the generated session. The [session file guide](./src/content/docs/authoring/session-files.mdx) gives the metadata and asset contract. Each candidate has a stable ID; a refinement gets a new ID and a parent pointer to the selected earlier drawing.
 
-| Path | Purpose |
-| --- | --- |
-| `session.json` | Stable session identity, target size, project reference, and placement context. |
-| `brief.md` | Shared facts, exact labels, source references, and what the current exploration should resolve. |
-| `rounds/r01/round.json` | Round identity, ordering, purpose, and optional selected baseline. |
-| `rounds/r01/c01/candidate.json` | Stable candidate identity, tone, relative asset paths, and lineage. |
-| `rounds/r01/c01/diagram.light.svg` | The actual drawing for the light theme. |
-| `rounds/r01/c01/diagram.dark.svg` | An optional explicit dark-theme drawing. |
+The workbench supports overview, inspection, comparison, zoom and pan, theme and backdrop controls, shortlisting, and structured feedback. Transfer feedback with **Copy feedback** or a downloaded review JSON file. Export the exact selected SVG with the engine CLI:
 
-Candidates are discovered from metadata. IDs remain stable even when the gallery is filtered or sorted. Refinements get a new ID and refer to the earlier candidate that they build on.
+```bash
+pnpm exec zudo-diagram-gen export r01-c01 \
+  --session . --theme light --out selected-diagram.svg
+```
 
-## Review and feedback
+`pnpm build` creates the normal zfb site for the session. `pnpm export:html` creates a separate single-file offline review snapshot. See the [CLI reference](./src/content/docs/reference/cli.mdx) for all implemented commands.
 
-The workbench provides an overview, inspection and comparison, zoom and pan, actual placement previews, independent artwork-theme and backdrop controls, a shortlist, and structured feedback.
+## Develop and verify
 
-Review state is stored in the browser when storage is available. **Copy feedback** and **download review JSON** are the supported transfer mechanisms. Those actions do not write into the session source directory or resume a Claude Code conversation automatically.
+From the repository root:
 
-## Core skill and personal wrapper
+```bash
+pnpm check
+pnpm test
+pnpm check:examples
+pnpm build
+```
 
-The proposed core interface accepts a destination through `--out`, plus project/session context and exploration options. A personal wrapper such as `/my-diagram-gen` can resolve a logs directory and call the core with that destination. The package and core contract do not contain a personal filesystem policy.
+These checks cover types, contract behavior, example sessions, and the site build. Packaging changes also need a fresh consumer installed from local archives outside this checkout. Viewer changes need real-browser interaction checks; a build alone cannot establish review behavior. See [quality and release checks](./src/content/docs/development/quality-and-handoff.mdx) and [AGENTS.md](./AGENTS.md) for contributor guidance. The historical [source handoff](./docs/CODEX-HANDOFF.md) records implementation context; it is not the current installation guide.
 
-These interfaces are documented in the website under **Agent workflow**. This handoff does not create or install a Claude Code `SKILL.md`.
-
-## Continue development locally
-
-Read [AGENTS.md](./AGENTS.md) for repository conventions and [docs/CODEX-HANDOFF.md](./docs/CODEX-HANDOFF.md) for the implementation map, acceptance criteria, and next development work. [docs/VERIFICATION.md](./docs/VERIFICATION.md) records completed checks and remaining validation limits.
-
-This architecture follows the small-host/shared-package approach used by [zudo-doc](https://github.com/zudolab/zudo-doc) and [zudo-sg](https://github.com/Takazudo/zudo-sg). The session app uses zfb for development, build, and preview; the project documentation site also uses zudo-doc.
+The root documentation host uses [zudo-doc](https://github.com/zudolab/zudo-doc) on zfb. Generated sessions use zfb and the diagram package without copying the documentation site.
