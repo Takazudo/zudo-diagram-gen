@@ -1,12 +1,1 @@
-/** @jsxRuntime automatic */
-/** @jsxImportSource preact */
-import { SiteShell } from '../src/components/site-shell';
-import { featuredTones } from '../src/generated/site-data';
-export default function Home() {
-  return <SiteShell title="A place to find the right diagram">
-    <section class="site-hero"><p class="eyebrow">A LOCAL WORKBENCH FOR VISUAL EXPLANATIONS</p><h1>Find the diagram<br/>that fits.</h1><div class="hero-bottom"><p>Give an agent a brief. Compare its SVG drawings at the intended size. Choose a direction and refine the selected drawing together.</p><div class="site-actions"><a class="site-button primary" href="/docs/getting-started/">Get started <span>↗</span></a><a class="site-button" href="/workbench/">Open the workbench</a></div></div></section>
-    <section class="site-section"><div class="section-heading"><h2>One explanation. Different voices.</h2><a href="/tones/">View the collection →</a></div><div class="tone-strip">{featuredTones.map(t=><a class="tone-tile" href={`/tones/#candidate=${t.id}`}><img src={t.preview} alt={`${t.name} reference diagram`} width="720" height="400"/><div><span class="tile-number">{String(t.number).padStart(2,'0')}</span><h3>{t.name}</h3></div></a>)}</div></section>
-    <section class="site-section workflow-section"><div><p class="eyebrow">A SHARED WORKING ENVIRONMENT</p><h2>Keep the choice<br/>in the conversation.</h2><p>The gallery makes the alternatives concrete. Every candidate has an identity, every refinement has a parent, and every SVG stays editable.</p><a href="/docs/agent-workflow/core-and-wrapper/">How the agent workflow fits →</a></div><ol class="workflow-list"><li><span>01</span><div><h3>Describe the explanation</h3><p>Ground the brief in the project, its language, and the real space available.</p></div></li><li><span>02</span><div><h3>Compare the candidates</h3><p>Inspect different treatments at the same size and in the same help context.</p></div></li><li><span>03</span><div><h3>Refine a chosen drawing</h3><p>Keep what works, describe the change, and preserve the earlier round.</p></div></li></ol></section>
-    <section class="site-cta"><div><p class="eyebrow">START LOCALLY</p><h2>Your workspace.<br/>Your destination.</h2><p>Run the project site from source, then create a separate review session with a local package archive. Packages are not yet published to a registry.</p></div><div class="command-block"><span>From this source repository</span><code>pnpm install --frozen-lockfile</code><code>pnpm dev</code><a href="/docs/getting-started/first-session/">Create your first session →</a><a href="/examples/">Browse worked examples →</a></div></section>
-  </SiteShell>;
-}
+export { default } from '@takazudo/zudo-doc/routes/index';

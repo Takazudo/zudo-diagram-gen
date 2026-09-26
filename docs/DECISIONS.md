@@ -8,7 +8,7 @@ The initializer creates a small private host. The engine owns viewer behavior; e
 
 ## 2. zfb is the normal lifecycle
 
-Use zfb for development, build, and preview. The root documentation site also uses zudo-doc. An offline one-file HTML export is a supplementary review artifact and shares the same viewer/data renderer.
+Use zfb for development, build, and preview. The root is one zudo-doc documentation site. It embeds the workbench in documentation pages through zudo-doc chrome bindings, with the catalog at `/docs/tones/`, examples at `/docs/examples/`, and the workbench at `/docs/workbench/`. An offline one-file HTML export is a supplementary review artifact and shares the same viewer/data renderer.
 
 ## 3. Ordinary SVG remains the drawing model
 

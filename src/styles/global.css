@@ -6,5 +6,51 @@
 @import '@takazudo/zudo-doc/content.css';
 @import '@takazudo/zudo-doc/page-loading.css';
 @import '@takazudo/zudo-doc/features.css';
+@import '@takazudo/zudo-diagram-gen/client/app.css';
 @source '../content/**/*.{mdx,md}';
 @source '../../pages/**/*.tsx';
+
+.diagram-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: 1.25rem;
+  margin-block: 1.5rem;
+}
+
+.diagram-example-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--zd-color-border, #d6dce3);
+  border-radius: 0.75rem;
+}
+
+.diagram-example-preview {
+  display: block;
+  padding: 1rem;
+  background: var(--zd-color-bg-subtle, #f5f7fa);
+}
+
+.diagram-example-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 5;
+  object-fit: contain;
+}
+
+.diagram-example-card-body {
+  padding: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.diagram-example-card-body h2 {
+  margin-block: 0 0.5rem;
+}
+
+.diagram-example-card-body p {
+  margin-block: 0.5rem 0;
+}
+
+.diagram-example-counts {
+  font-size: 0.875rem;
+}

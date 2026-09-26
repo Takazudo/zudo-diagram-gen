@@ -24,6 +24,7 @@
     "prepare": "lefthook install",
     "check:examples": "node scripts/check-examples.mjs",
     "check:browser": "node scripts/check-browser.mjs",
+    "check:site-browser": "node scripts/check-site-browser.mjs",
     "export:preview": "node scripts/export-preview.mjs",
     "pack:local": "node scripts/pack-local.mjs"
   },

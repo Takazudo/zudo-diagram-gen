@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "zudo-diagram-gen",
+  "main": "worker/index.mjs",
   "account_id": "367c7f51801e1f537030f93d5a5e6008",
   "compatibility_date": "2026-09-26",
   "workers_dev": true,
@@ -8,10 +9,16 @@
   "previews": {},
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
   },
   "routes": [
+    {
+      "pattern": "zudo-diagram-gen-doc.zudolab.dev",
+      "custom_domain": true,
+    },
     {
       "pattern": "zudo-diagram-gen.zudolab.dev",
       "custom_domain": true,

@@ -11,7 +11,9 @@ public/previews/
 pages/tones.tsx
 pages/workbench.tsx
 pages/examples/*.tsx
-!pages/examples/index.tsx
+src/content/docs/tones/index.mdx
+src/content/docs/examples/*.mdx
+public/workbench-data/*.json
 artifacts/
 test-output/
 *.tgz
