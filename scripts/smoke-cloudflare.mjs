@@ -1,5 +1,6 @@
 import { readdir } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
+import { setTimeout as delay } from 'node:timers/promises';
 
 const base = new URL(process.argv[2] ?? 'https://zudo-diagram-gen.zudolab.dev/');
 if (!['http:', 'https:'].includes(base.protocol) || base.pathname !== '/') {
@@ -38,6 +39,21 @@ async function request(path, expectedStatus, expectedType, redirect = 'follow') 
   return response;
 }
 
+async function requestAsset(path, expectedType) {
+  const deadline = Date.now() + 60_000;
+  let waiting = false;
+  while (true) {
+    try {
+      return await request(path, 200, expectedType);
+    } catch (error) {
+      if (Date.now() >= deadline) throw error;
+      if (!waiting) console.log(`Waiting for deployed asset ${path} to become available...`);
+      waiting = true;
+      await delay(2_000);
+    }
+  }
+}
+
 for (const path of ['/', '/docs/getting-started/', '/tones/', '/examples/', '/workbench/']) {
   await request(path, 200, 'text/html');
 }
@@ -51,5 +67,5 @@ for (const [extension, type] of [
   ['.svg', 'image/svg+xml'],
   ['.js', 'javascript'],
 ]) {
-  await request(await findAsset(extension), 200, type);
+  await requestAsset(await findAsset(extension), type);
 }
