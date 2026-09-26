@@ -26,6 +26,7 @@ jobs:
       - run: pnpm test
       - run: pnpm check:examples
       - run: pnpm build
+      - run: node scripts/check-built-links.mjs
       - name: Build an installed consumer from packed archives
         shell: bash
         run: |
@@ -42,6 +43,23 @@ jobs:
           pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer-empty.html"
           cp -R "$GITHUB_WORKSPACE/examples/project-text/rounds/r01/r01-c01" rounds/r01/
           pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer.html"
+      - name: Check built preview routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm preview --host 127.0.0.1 --port 4333 > "$RUNNER_TEMP/root-preview.log" 2>&1 &
+          root_pid=$!
+          (cd "$RUNNER_TEMP/zudo-diagram-consumer" && pnpm preview --host 127.0.0.1 --port 4334) > "$RUNNER_TEMP/consumer-preview.log" 2>&1 &
+          consumer_pid=$!
+          trap 'kill "$root_pid" "$consumer_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4333/ > /dev/null && curl --fail --silent http://127.0.0.1:4334/ > /dev/null; then break; fi
+            sleep 1
+          done
+          for route in / /tones/ /examples/ /workbench/ /docs/getting-started/introduction/; do
+            curl --fail --silent "http://127.0.0.1:4333$route" > /dev/null || { cat "$RUNNER_TEMP/root-preview.log"; exit 1; }
+          done
+          curl --fail --silent http://127.0.0.1:4334/ > /dev/null || { cat "$RUNNER_TEMP/consumer-preview.log"; exit 1; }
       - name: Check workbench in Chromium
         run: |
           pnpm exec playwright install --with-deps chromium
