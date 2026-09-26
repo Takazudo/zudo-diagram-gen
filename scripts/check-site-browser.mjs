@@ -42,6 +42,28 @@ try {
   });
   const page = await context.newPage();
   const errors = [];
+  async function expectHostTheme(expected) {
+    try {
+      await page.waitForFunction(
+        (mode) =>
+          document.documentElement.dataset.theme === mode &&
+          document.querySelector('.dg-app')?.dataset.uiTheme === mode,
+        expected,
+        { timeout: 10_000 },
+      );
+    } catch (error) {
+      const state = await page.evaluate(() => ({
+        document: document.documentElement.dataset.theme,
+        workbench: document.querySelector('.dg-app')?.dataset.uiTheme,
+        appearance: [
+          ...document.querySelectorAll('[data-zd-theme-menu] button[aria-haspopup="menu"]'),
+        ].map((element) => element.getAttribute('aria-label')),
+      }));
+      throw new Error(`Expected ${expected} host theme: ${JSON.stringify(state)}`, {
+        cause: error,
+      });
+    }
+  }
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
@@ -147,32 +169,16 @@ try {
     .first();
   await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'Dark' }).click();
-  await page.waitForFunction(
-    () =>
-      document.documentElement.dataset.theme === 'dark' &&
-      document.querySelector('.dg-app')?.dataset.uiTheme === 'dark',
-  );
+  await expectHostTheme('dark');
   await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'Light' }).click();
-  await page.waitForFunction(
-    () =>
-      document.documentElement.dataset.theme === 'light' &&
-      document.querySelector('.dg-app')?.dataset.uiTheme === 'light',
-  );
+  await expectHostTheme('light');
   await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'System' }).click();
   await page.emulateMedia({ colorScheme: 'dark' });
-  await page.waitForFunction(
-    () =>
-      document.documentElement.dataset.theme === 'dark' &&
-      document.querySelector('.dg-app')?.dataset.uiTheme === 'dark',
-  );
+  await expectHostTheme('dark');
   await page.emulateMedia({ colorScheme: 'light' });
-  await page.waitForFunction(
-    () =>
-      document.documentElement.dataset.theme === 'light' &&
-      document.querySelector('.dg-app')?.dataset.uiTheme === 'light',
-  );
+  await expectHostTheme('light');
   console.log('PASS light, dark, system and host app theme sync');
   const variantContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   await variantContext.route('**/workbench-data/tone-exploration.json', async (route) => {
