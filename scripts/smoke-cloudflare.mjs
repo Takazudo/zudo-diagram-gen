@@ -1,5 +1,3 @@
-import { readdir } from 'node:fs/promises';
-import { join, relative, sep } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const args = process.argv.slice(2);
@@ -21,23 +19,38 @@ if (!['http:', 'https:'].includes(base.protocol) || base.pathname !== '/') {
   process.exit(2);
 }
 
-async function findAsset(extension) {
-  const pending = ['dist'];
-  while (pending.length) {
-    const directory = pending.shift();
-    for (const entry of await readdir(directory, { withFileTypes: true })) {
-      const path = join(directory, entry.name);
-      if (entry.isDirectory()) pending.push(path);
-      else if (entry.isFile() && entry.name.endsWith(extension)) {
-        return `/${relative('dist', path).split(sep).join('/')}`;
-      }
+function referencedAsset(html, extension, prefix) {
+  for (const match of html.matchAll(/\b(?:href|src)=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)) {
+    const value = (match[1] || match[2] || match[3]).replace(/&amp;/g, '&');
+    const url = new URL(value, base);
+    if (
+      url.origin === base.origin &&
+      url.pathname.startsWith(prefix) &&
+      url.pathname.endsWith(extension)
+    )
+      return `${url.pathname}${url.search}`;
+  }
+  throw new Error(`No referenced ${extension} asset under ${prefix} on the deployed page.`);
+}
+
+async function fetchWithDnsRetry(url, options) {
+  const deadline = Date.now() + 120_000;
+  let waiting = false;
+  while (true) {
+    try {
+      return await fetch(url, options);
+    } catch (error) {
+      if (!['ENOTFOUND', 'EAI_AGAIN'].includes(error.cause?.code) || Date.now() >= deadline)
+        throw error;
+      if (!waiting) console.log(`Waiting for ${url.hostname} DNS to become available...`);
+      waiting = true;
+      await delay(2_000);
     }
   }
-  throw new Error(`No ${extension} asset in dist; run pnpm build first.`);
 }
 
 async function request(path, expectedStatus, expectedType, redirect = 'follow') {
-  const response = await fetch(new URL(path, base), { redirect });
+  const response = await fetchWithDnsRetry(new URL(path, base), { redirect });
   const type = response.headers.get('content-type') ?? '';
   if (response.status !== expectedStatus || (expectedType && !type.includes(expectedType))) {
     throw new Error(
@@ -56,7 +69,7 @@ async function request(path, expectedStatus, expectedType, redirect = 'follow') 
     }
   }
   console.log(`${response.status} ${path} ${type}`);
-  return response;
+  return body;
 }
 
 async function requestAsset(path, expectedType) {
@@ -84,7 +97,7 @@ if (legacyMode) {
   ];
 
   for (const [path, expectedLocation] of redirects) {
-    const response = await fetch(new URL(path, base), { redirect: 'manual' });
+    const response = await fetchWithDnsRetry(new URL(path, base), { redirect: 'manual' });
     const actualLocation = response.headers.get('location');
     if (
       response.status !== 301 ||
@@ -98,6 +111,9 @@ if (legacyMode) {
     console.log(`${response.status} ${path} → ${actualLocation}`);
   }
 } else {
+  let homeHtml = '';
+  let examplesHtml = '';
+  let workbenchHtml = '';
   for (const path of [
     '/',
     '/docs/getting-started/',
@@ -107,16 +123,19 @@ if (legacyMode) {
     '/docs/workbench/',
     '/docs/changelog/',
   ]) {
-    await request(path, 200, 'text/html');
+    const html = await request(path, 200, 'text/html');
+    if (path === '/') homeHtml = html;
+    if (path === '/docs/examples/') examplesHtml = html;
+    if (path === '/docs/workbench/') workbenchHtml = html;
   }
   await request('/workbench-data/tone-exploration.json', 200, 'application/json');
 
   await request('/does-not-exist-cloudflare-smoke', 404, 'text/html');
-  for (const [extension, type] of [
-    ['.css', 'text/css'],
-    ['.svg', 'image/svg+xml'],
-    ['.js', 'javascript'],
+  for (const [html, extension, prefix, type] of [
+    [homeHtml, '.css', '/assets/', 'text/css'],
+    [examplesHtml, '.svg', '/previews/', 'image/svg+xml'],
+    [workbenchHtml, '.js', '/assets/', 'javascript'],
   ]) {
-    await requestAsset(await findAsset(extension), type);
+    await requestAsset(referencedAsset(html, extension, prefix), type);
   }
 }
