@@ -9,7 +9,10 @@
   },
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "build": "node scripts/build-showcase.mjs && zfb build",
+    "build": "node scripts/build-showcase.mjs && zfb build && node scripts/prepare-cloudflare-assets.mjs",
+    "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs",
+    "rollback:cloudflare": "node scripts/rollback-cloudflare.mjs",
+    "smoke:cloudflare": "node scripts/smoke-cloudflare.mjs",
     "preview": "zfb preview",
     "check": "node scripts/build-showcase.mjs && tsc --noEmit",
     "test": "vitest run",
@@ -50,6 +53,7 @@
     "prettier": "3.9.9",
     "typescript": "5.9.3",
     "typescript-eslint": "8.70.1",
-    "vitest": "5.0.2"
+    "vitest": "5.0.2",
+    "wrangler": "4.141.0"
   }
 }
