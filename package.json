@@ -14,6 +14,7 @@
     "check": "node scripts/build-showcase.mjs && tsc --noEmit",
     "test": "node --test test/*.test.mjs packages/diagram-gen/test/*.test.mjs packages/create-zudo-diagram-gen/test/*.test.mjs",
     "check:examples": "node scripts/check-examples.mjs",
+    "check:browser": "node scripts/check-browser.mjs",
     "export:preview": "node scripts/export-preview.mjs",
     "pack:local": "node scripts/pack-local.mjs"
   },
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@types/node": "22.19.7",
     "happy-dom": "20.10.6",
+    "playwright": "1.59.1",
     "typescript": "5.9.3"
   }
 }

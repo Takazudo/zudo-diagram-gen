@@ -38,3 +38,18 @@ jobs:
           pnpm install
           pnpm check
           pnpm build
+          mkdir -p "$GITHUB_WORKSPACE/test-output"
+          pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer-empty.html"
+          cp -R "$GITHUB_WORKSPACE/examples/project-text/rounds/r01/r01-c01" rounds/r01/
+          pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer.html"
+      - name: Check workbench in Chromium
+        run: |
+          pnpm exec playwright install --with-deps chromium
+          pnpm exec zudo-diagram-gen export-html examples/tone-exploration --out test-output/browser-project.html
+          pnpm check:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-screenshots
+          path: test-output/browser-*.png
+          if-no-files-found: ignore
