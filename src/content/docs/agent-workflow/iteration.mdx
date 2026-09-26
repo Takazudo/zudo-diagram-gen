@@ -1,0 +1,61 @@
+---
+title: Generation and refinement workflow
+description: Preserve a shared explanation, human choices, and the actual SVG through each round.
+sidebar_position: 2
+---
+
+This is the workflow the future core skill should implement. It can also be followed manually by any coding agent using the current app's files and commands.
+
+## Establish a small, factual brief
+
+Read the feature's implementation, existing help, and relevant project design rules. Identify the intended audience, placement size, exact labels, and relationships the drawing must preserve.
+
+Write the shared brief before delegating candidates. When enough context is available, proceed to a concrete first round rather than asking the user to choose abstract illustration terminology.
+
+## Define what the round explores
+
+If the explanation is settled, keep its facts and relationships fixed while exploring visual treatments. If the explanatory structure is also uncertain, make that explicit in the round description and candidate notes.
+
+A useful structure exploration might compare a before/after explanation with a short sequence. A tone exploration might compare outlines, UI miniatures, and layered paper while teaching the same relationship.
+
+Honor the user's requested count. Choose a smaller set for a narrow refinement unless the user requests a broader comparison.
+
+## Generate independently against shared constraints
+
+The coordinator owns `session.json`, `brief.md`, and `round.json`. Each candidate author owns its own directory and reads the same brief.
+
+Choose relevant tone recipes, then draw complete SVG assets. Candidate IDs and descriptions should make the resulting choices easy to refer to. The shared viewer discovers those files; drawing agents do not need to redesign the gallery.
+
+Run the session checker and inspect every candidate in the themes and display sizes that matter. Correct clipped text, invalid assets, unreadable labels, and incorrect relationships before presenting the round.
+
+## Let the user's selection establish a baseline
+
+A request such as “C07 is closest; use simpler arrows like C03” establishes a baseline and a bounded change. Record the stable IDs in the feedback and next round.
+
+Copy the selected SVG into a new candidate directory before editing. Preserve explicitly accepted composition, labels, or palette. The earlier file remains available for comparison.
+
+An instruction such as “go ahead” applies to the last concrete proposal in its existing context. It should not silently broaden a request to replace the whole explanation, apply a tone to every project, or discard the selected baseline.
+
+## Separate choices by their actual scope
+
+| User action | Meaning for the workflow |
+| --- | --- |
+| Shortlist a candidate | Keep it available for comparison. |
+| Choose a direction | Use that SVG as the baseline for the current work. |
+| Request a refinement | Make the stated changes in a new candidate. |
+| Ask to use the result in a help dialog | Integrate that chosen asset into the specified destination. |
+| Ask to reuse the style across the project | Record a project-level preference for later diagrams. |
+
+A choice for one diagram does not automatically create a global style rule. Record reusable preferences when the user expresses that broader intention.
+
+## Integrate the selected artifact
+
+Export the exact candidate and theme that the user selected. Put it into the application's established asset or component structure, with appropriate text alternatives and theme handling.
+
+Verify the result in its real placement. The surrounding layout may reveal a spacing or size adjustment that the generic context preview could not show. Keep any such adjustment faithful to the selected direction and describe material changes.
+
+## Preserve useful records
+
+Keep the brief, rounds, chosen IDs, review files supplied by the user, and the final exported asset reference. These are enough to resume the explanation and visual decisions later.
+
+Browser-local selections are convenient during review. Use copied feedback or exported review JSON for the agent-facing record. The current app does not automatically write browser feedback into the source directory or restart an agent when a selection changes.

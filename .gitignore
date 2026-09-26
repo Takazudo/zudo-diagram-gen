@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.zfb/
+.zfb-*
+.cache/
+.generated/
+.zudo-doc/
+src/generated/
+public/previews/
+pages/tones.tsx
+pages/workbench.tsx
+pages/examples/*.tsx
+!pages/examples/index.tsx
+artifacts/
+test-output/
+*.tgz
+.DS_Store

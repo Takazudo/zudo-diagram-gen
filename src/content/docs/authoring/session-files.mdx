@@ -1,0 +1,111 @@
+---
+title: Session files
+description: The version-one metadata contract for sessions, rounds, assets, and refinements.
+sidebar_position: 1
+---
+
+A session is ordinary content on disk. The viewer is supplied by `@takazudo/zudo-diagram-gen`; authors normally edit the metadata, brief, and SVGs.
+
+| File | Owner | Responsibility |
+| --- | --- | --- |
+| `session.json` | Coordinator | Shared identity, target dimensions, and project/context information. |
+| `brief.md` | Coordinator | Meaning, fixed labels, source references, and exploration constraints. |
+| `rounds/r01/round.json` | Coordinator | Round purpose, order, and selected baseline. |
+| `rounds/r01/c01/candidate.json` | Candidate author | Candidate identity, tone reference, assets, and parent. |
+| `rounds/r01/c01/*.svg` | Candidate author | Complete editable artwork. |
+
+Give each parallel worker its own candidate directory. Candidate discovery removes the need for every worker to edit one shared gallery index.
+
+## Session metadata
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "feature-help",
+  "title": "Feature help diagram",
+  "description": "Explore how to explain the feature in a compact help panel.",
+  "project": {
+    "name": "Example project",
+    "reference": "https://example.com/project"
+  },
+  "target": {
+    "width": 360,
+    "height": 200,
+    "label": "Help panel illustration"
+  },
+  "context": {
+    "title": "How this feature works",
+    "body": "The nearby help text that accompanies this diagram."
+  },
+  "toneCollectionVersion": "0.1.0"
+}
+```
+
+`schemaVersion`, `id`, `title`, and `target` are required. `description`, `project`, `context`, and `toneCollectionVersion` are optional. The project reference provides provenance; the viewer does not need to read another repository to show the session.
+
+Target width and height describe the intended placement in CSS pixels. Both must be positive finite numbers no greater than 20,000. They do not force the SVG's coordinate system to use the same dimensions.
+
+Use a stable URL-safe slug for the session ID. IDs may contain 1–128 letters, numbers, dots, hyphens, or underscores and must begin and end with a letter or number. Reusing an ID for unrelated work also reuses the browser-storage namespace, so create a new ID for a new session.
+
+## Round metadata
+
+Store one `round.json` immediately inside each round directory:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "r01",
+  "title": "First exploration",
+  "description": "Compare several tones while preserving the same explanation.",
+  "order": 1,
+  "baselineCandidateId": null
+}
+```
+
+The required fields are `schemaVersion`, `id`, `title`, and `order`. Order is a nonnegative integer and must be distinct between rounds. A later round may set `baselineCandidateId` to a chosen candidate in an earlier round. Keep ordering explicit so directories can have readable names without defining the sequence implicitly.
+
+An empty round is valid. This allows a freshly initialized gallery to open before the first candidate is written.
+
+## Candidate metadata
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "r02-c01",
+  "title": "Outline with simpler arrows",
+  "toneId": "fine-outline",
+  "description": "Preserves the first round's selected composition.",
+  "order": 1,
+  "assets": {
+    "light": "diagram.light.svg",
+    "dark": "diagram.dark.svg"
+  },
+  "parentCandidateId": "r01-c07"
+}
+```
+
+The required fields are `schemaVersion`, `id`, `title`, `toneId`, `order`, and `assets.light`. Order is a nonnegative integer. The description, dark asset, and parent are optional. Use globally unique candidate IDs throughout the session.
+
+Asset paths resolve relative to the directory containing `candidate.json`. Keep every referenced SVG inside that directory; use forward-slash relative paths without empty, `.` or `..` segments. The rounds tree does not support symbolic-link entries. This makes a candidate portable and keeps exports complete.
+
+`toneId` records the illustration reference used to develop the candidate. A locally invented treatment can have its own stable tone ID; a built-in tone is a reference, not a restriction on what the agent may draw.
+
+## Lineage rules
+
+When a drawing has been reviewed, preserve its version. Create a new candidate ID in a later round, copy the baseline SVG, and apply the requested changes to the new file.
+
+`parentCandidateId` must refer to a candidate in an earlier round. A candidate cannot be its own parent, and lineage cannot form a cycle. A round's baseline is also an earlier candidate.
+
+These references describe how the drawing developed. They do not mean that the parent was approved for every project or future diagram.
+
+## Validation and discovery
+
+Run:
+
+```bash
+pnpm exec zudo-diagram-gen check .
+```
+
+The engine checks metadata, asset paths, SVG structure, IDs, and lineage. Error messages identify the relevant source file. Validation cannot establish that an arrow represents a real application action or that the composition is useful; those checks belong to the author and reviewer.
+
+Generated page files are implementation output. Edit the session source, then let the engine regenerate the zfb page and its data. Do not customize the generated page to add a candidate.

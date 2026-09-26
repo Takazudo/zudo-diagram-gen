@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "paths": { "zfb": ["./node_modules/@takazudo/zfb"], "zfb/*": ["./node_modules/@takazudo/zfb/dist/*"] }
+  },
+  "include": ["pages/**/*.tsx", "src/**/*.tsx", "src/generated/**/*.ts", "zfb.config.ts"]
+}

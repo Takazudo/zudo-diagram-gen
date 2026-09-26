@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="21" data-theme="light" role="img" aria-labelledby="t21-title t21-desc">
+<title id="t21-title">Circuit route: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t21-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Consistent right-angle paths, circular ports, solder-pad-like junctions, and a restrained substrate palette. The routed paths describe the two input layers and the single exported result.</desc>
+<style>
+svg[data-tone='21'] {--bg:#EEF5EF;--paper:#FCFFFA;--ink:#263D40;--primary:#248777;--secondary:#C69B43;--tertiary:#B8D4C6;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='21'][data-theme='dark'] {--bg:#11262A;--paper:#18383C;--ink:#E4F3DF;--primary:#77C8AC;--secondary:#DCC078;--tertiary:#365B56;}
+.t21-bg {fill:var(--bg);}
+.t21-paper {fill:var(--paper);}
+.t21-ink {fill:var(--ink);}
+.t21-primary {fill:var(--primary);}
+.t21-secondary {fill:var(--secondary);}
+.t21-tertiary {fill:var(--tertiary);}
+.t21-label {fill:var(--ink);font-size:27px;font-weight:600;text-anchor:middle;}
+.t21-make {fill:var(--ink);font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t21-something {fill:var(--ink);font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t21-line {fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t21-route{fill:none;stroke:var(--primary);stroke-width:3;stroke-linejoin:round;}.t21-knockout{paint-order:stroke;stroke:var(--paper);stroke-width:8;stroke-linejoin:round;}.t21-label{font-weight:600;}
+</style>
+<defs>
+<pattern id="t21-traces" width="96" height="96" patternUnits="userSpaceOnUse">
+ <path d="M0 12h36v36h60M12 96V72h48V0M96 72H80V24H60" fill="none" stroke="var(--primary)" stroke-width="3"/>
+ <g class="t21-paper" stroke="var(--primary)" stroke-width="3"><circle cx="36" cy="12" r="5"/><circle cx="12" cy="72" r="5"/><circle cx="80" cy="24" r="5"/></g>
+</pattern>
+<marker id="t21-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="m1 1 5 3-5 3" fill="none" stroke="var(--primary)" stroke-width="1.6"/></marker>
+</defs>
+<rect width="720" height="400" class="t21-bg"/>
+
+<rect x="54" y="52" width="148" height="112" rx="6" class="t21-paper" stroke="var(--primary)" stroke-width="2"/>
+<rect x="62" y="60" width="132" height="96" fill="url(#t21-traces)"/>
+<circle cx="202" cy="108" r="6" class="t21-paper" stroke="var(--primary)" stroke-width="3"/>
+<text x="128" y="202" class="t21-label">Pattern</text>
+<rect x="54" y="248" width="148" height="72" rx="6" class="t21-paper" stroke="var(--primary)" stroke-width="2"/>
+<path d="M67 257v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6M67 317v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6m20 6v-6" stroke="var(--secondary)" stroke-width="3"/>
+<text x="128" y="296" class="t21-make" style="font-size:34px">MAKE</text>
+<circle cx="202" cy="284" r="6" class="t21-paper" stroke="var(--primary)" stroke-width="3"/>
+<text x="128" y="363" class="t21-label">Text</text>
+<path d="M210 108h64v64h67" class="t21-route" marker-end="url(#t21-arrow)"/>
+<path d="M210 284h88v-52h43" class="t21-route" marker-end="url(#t21-arrow)"/>
+<circle cx="274" cy="108" r="4" class="t21-primary"/><circle cx="298" cy="284" r="4" class="t21-primary"/>
+<rect x="354" y="70" width="200" height="260" rx="8" class="t21-paper" stroke="var(--primary)" stroke-width="2.5"/>
+<rect x="364" y="80" width="180" height="240" fill="url(#t21-traces)" opacity=".36"/>
+<g class="t21-paper" stroke="var(--secondary)" stroke-width="3"><circle cx="367" cy="84" r="4"/><circle cx="541" cy="84" r="4"/><circle cx="367" cy="316" r="4"/><circle cx="541" cy="316" r="4"/></g>
+<g class="t21-paper" stroke="var(--primary)" stroke-width="3"><circle cx="354" cy="172" r="6"/><circle cx="354" cy="232" r="6"/><circle cx="554" cy="202" r="6"/></g>
+<text x="454" y="192" class="t21-make t21-knockout">MAKE</text>
+<text x="454" y="230" class="t21-something t21-knockout">SOMETHING</text>
+<path d="M562 202h57" class="t21-route" marker-end="url(#t21-arrow)"/>
+<rect x="632" y="174" width="48" height="58" rx="5" class="t21-paper" stroke="var(--primary)" stroke-width="2.5"/>
+<path d="M645 184h22v12h-22ZM640 219h32M656 202v14m-7-6 7 7 7-7" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+<text x="656" y="274" class="t21-label">PNG</text>
+
+</svg>

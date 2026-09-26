@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "project-ez-host",
+  "title": "zudo-ez-host save and publish help",
+  "description": "A single project-grounded illustration study. This is a different teaching topic from the other project examples, not another tone candidate for the same explanation.",
+  "target": {
+    "width": 360,
+    "height": 200,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zudo-ez-host",
+    "reference": "https://github.com/zudolab/zudo-ez-host/blob/main/manual/src/content/docs/sync/status-save-publish.mdx"
+  },
+  "context": {
+    "title": "Saving and publishing",
+    "body": "Three distinct domains: local folder, saved cloud checkpoint, and live site. Separate Save and Publish arrows retain the explicit publication boundary."
+  }
+}

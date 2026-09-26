@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="19" data-theme="dark" role="img" aria-labelledby="t19-title t19-desc">
+<title id="t19-title">Pixel schematic: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t19-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Stepped silhouettes, discrete grid blocks, hard raster-like edges, and chunky directional glyphs. Large real text remains readable instead of imitating microscopic pixels.</desc>
+<style>
+svg[data-tone='19'] {--bg:#F4F0E5;--paper:#FFFCEF;--ink:#292E36;--primary:#6978DF;--secondary:#F4A571;--tertiary:#B5D4A9;font-family:'Courier New', Courier, monospace;}
+svg[data-tone='19'][data-theme='dark'] {--bg:#20252F;--paper:#343F4B;--ink:#FBF1D9;--primary:#929EF9;--secondary:#ECAE83;--tertiary:#93C0AB;}
+.t19-bg {fill:#20252F;}
+.t19-paper {fill:#343F4B;}
+.t19-ink {fill:#FBF1D9;}
+.t19-primary {fill:#929EF9;}
+.t19-secondary {fill:#ECAE83;}
+.t19-tertiary {fill:#93C0AB;}
+.t19-label {fill:#FBF1D9;font-size:27px;font-weight:600;text-anchor:middle;}
+.t19-make {fill:#FBF1D9;font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t19-something {fill:#FBF1D9;font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t19-line {fill:none;stroke:#FBF1D9;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t19-label{font-weight:700;letter-spacing:-1px;}
+</style>
+<defs>
+<pattern id="t19-blocks" width="64" height="64" patternUnits="userSpaceOnUse">
+ <rect width="64" height="64" class="t19-paper"/>
+ <path d="M0 0h32v16H16v16H0Zm32 32h32v32H48V48H32Z" class="t19-primary"/>
+ <path d="M40 0h24v24H40ZM0 40h24v24H0Z" class="t19-secondary"/>
+ <rect x="24" y="24" width="16" height="16" class="t19-tertiary"/>
+</pattern>
+<clipPath id="t19-swatch"><path d="M64 56h128v8h8v88h-8v8H64v-8h-8V64h8Z"/></clipPath>
+<clipPath id="t19-poster"><path d="M368 80h160v8h8v224h-8v8H368v-8h-8V88h8Z"/></clipPath>
+</defs>
+<rect width="720" height="400" class="t19-bg"/>
+
+<g shape-rendering="crispEdges">
+ <path d="M64 48h136v8h8v8h8v96h-8v8h-8v8H56v-8h-8v-8h-8V64h8v-8h16Z" class="t19-ink"/>
+ <rect x="48" y="48" width="160" height="120" fill="url(#t19-blocks)" clip-path="url(#t19-swatch)"/>
+ <path d="M56 248h144v8h8v56h-8v8H56v-8h-8v-56h8Z" class="t19-ink"/>
+ <path d="M64 256h128v48H64Z" class="t19-paper"/>
+ <path d="M224 104h56v64h40v-8h8v8h8v8h8v8h-8v8h-8v8h-8v-16h-56v-64h-40Z" class="t19-ink"/>
+ <path d="M224 272h40v-56h56v-16h8v8h8v8h8v8h-8v8h-8v8h-8v-8h-40v56h-56Z" class="t19-ink"/>
+ <path d="M368 72h168v8h8v8h8v232h-8v8h-8v8H360v-8h-8v-8h-8V88h8v-8h16Z" class="t19-ink"/>
+ <rect x="352" y="72" width="192" height="256" fill="url(#t19-blocks)" clip-path="url(#t19-poster)"/>
+ <path d="M376 160h144v8h8v72h-8v8H376v-8h-8v-72h8Z" class="t19-paper"/>
+ <path d="M568 200h32v-16h8v8h8v8h8v8h-8v8h-8v8h-8v-16h-32Z" class="t19-ink"/>
+ <path d="M640 168h24v8h8v8h8v48h-8v8h-40v-8h-8v-56h8v-8Z" class="t19-ink"/>
+ <path d="M640 176h16v16h16v40h-32Z" class="t19-paper"/>
+ <path d="M652 196h8v16h8v8h-8v8h-8v-8h-8v-8h8Z" class="t19-ink"/>
+</g>
+<text x="128" y="208" class="t19-label">Pattern</text>
+<text x="128" y="291" class="t19-make" style="font-size:33px;letter-spacing:-1.5px">MAKE</text>
+<text x="128" y="364" class="t19-label">Text</text>
+<text x="448" y="196" class="t19-make" style="font-size:36px">MAKE</text>
+<text x="448" y="232" class="t19-something" style="font-size:26px;letter-spacing:-1.8px">SOMETHING</text>
+<text x="652" y="279" class="t19-label">PNG</text>
+
+</svg>

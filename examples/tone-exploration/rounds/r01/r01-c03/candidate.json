@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c03",
+  "title": "Editorial serif",
+  "toneId": "editorial-serif",
+  "description": "Oversized serif letters, restrained rules, typographic composition.",
+  "order": 3,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

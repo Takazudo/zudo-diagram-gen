@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "project-zzmod",
+  "title": "zzmod signal-path documentation",
+  "description": "A single project-grounded illustration study. This is a different teaching topic from the other project examples, not another tone candidate for the same explanation.",
+  "target": {
+    "width": 480,
+    "height": 267,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zzmod / Takazudo Modular",
+    "reference": "https://github.com/zudolab/zzmod/blob/develop/sub-packages/synth-svg/src/core/theme.ts"
+  },
+  "context": {
+    "title": "Audio and control voltage",
+    "body": "VCO to VCF to VCA to output follows the cyan audio path. The envelope sends purple control voltage to VCA. This uses the existing synth SVG subsystem's background, audio and CV colors."
+  }
+}

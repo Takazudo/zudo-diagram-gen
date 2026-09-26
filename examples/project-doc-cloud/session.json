@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "project-doc-cloud",
+  "title": "zudo-doc-cloud collect changes help",
+  "description": "A single project-grounded illustration study. This is a different teaching topic from the other project examples, not another tone candidate for the same explanation.",
+  "target": {
+    "width": 360,
+    "height": 200,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zudo-doc-cloud",
+    "reference": "https://github.com/zudolab/zudo-doc-cloud/blob/0bafaf39a278580f2f3118f972833b89347453ba/doc/src/content/docs/spec/project-hierarchy.mdx"
+  },
+  "context": {
+    "title": "Collect two changes into a named draft",
+    "body": "A square neutral fine-line diagram compares Workbench before and after moving selected changes A and B into Draft: Guide. Unselected change C remains on Workbench, which continues to exist."
+  }
+}

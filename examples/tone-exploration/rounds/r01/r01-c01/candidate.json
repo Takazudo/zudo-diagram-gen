@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Fine outline",
+  "toneId": "fine-outline",
+  "description": "Fine continuous outlines, open surfaces, a single filled teaching point.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

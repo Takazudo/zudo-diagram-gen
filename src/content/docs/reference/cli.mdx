@@ -1,0 +1,99 @@
+---
+title: CLI reference
+description: Implemented initializer and engine commands for local review sessions.
+sidebar_position: 1
+---
+
+These are application commands. The proposed Claude Code skill options are documented separately under [Core skill and personal wrapper](/docs/agent-workflow/core-and-wrapper/).
+
+## Initializer
+
+Before registry publication, invoke the downloaded source:
+
+```bash
+node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
+  <destination> \
+  --name "Diagram session" \
+  --engine-package /absolute/path/to/engine-package.tgz \
+  --yes
+```
+
+| Argument or option | Behavior |
+| --- | --- |
+| `destination` | Output directory; defaults to `diagram-session`. |
+| `--name <title>` | Human-readable display title. A safe package slug is derived from it; the persisted session ID adds a unique suffix so same-name sessions remain distinct. |
+| `--engine-package <spec>` | Engine dependency specification or an existing absolute local archive path. |
+| `--install` | Run dependency installation after scaffolding. Installation is otherwise left to the caller. |
+| `--yes` | Accepted for noninteractive automation. |
+| `--help` | Print the supported command interface. |
+
+Use an empty destination. The initializer refuses to overwrite unrelated existing content. It creates a private host with an empty `r01` round and does not initialize Git or install skills.
+
+Local archive paths must be absolute because the generated project runs from a different directory. A `file:` specification also needs to point at an absolute existing archive. For a published package, a version/tag or supported npm specification may be supplied instead.
+
+## Development, build, and preview
+
+```bash
+zudo-diagram-gen dev [directory] [--host <host>] [--port <port>]
+zudo-diagram-gen build [directory]
+zudo-diagram-gen preview [directory] [--host <host>] [--port <port>]
+```
+
+These commands prepare the session workbench and delegate to zfb. Development watches session content so candidate additions, edits, and removals can regenerate the page data. Build produces a static review site. Preview serves that build.
+
+In an initialized project, the package scripts provide the usual entrypoints:
+
+```bash
+pnpm dev
+pnpm build
+pnpm preview
+pnpm check
+```
+
+To pass engine options unambiguously, call the binary directly through `pnpm exec`:
+
+```bash
+pnpm exec zudo-diagram-gen dev . --host 0.0.0.0 --port 4799
+```
+
+## Validate a session
+
+```bash
+zudo-diagram-gen check [directory] [--json]
+```
+
+Checks the metadata and asset contract, IDs, paths, and lineage. The JSON form provides errors, warnings, and a summary for an automated caller. This is a structural check; it does not assess factual or visual correctness.
+
+## Inspect tone references
+
+```bash
+zudo-diagram-gen tones list [--json]
+zudo-diagram-gen tones show <id> [--json]
+```
+
+The list supports selecting useful references. Show returns the selected tone's guidance and reference information. The catalog is packaged with the engine, so inspecting a tone does not require an external service.
+
+## Export an SVG
+
+```bash
+zudo-diagram-gen export <candidate-id> \
+  --session <directory> \
+  --theme light \
+  --out <file.svg>
+```
+
+Choose `light` or `dark`. The command writes the exact validated asset declared for that candidate and theme. It reports an unavailable dark asset instead of silently exporting the light file. Keep export destinations outside the session's source files, for example in `exports/`; the command rejects an output path that overlaps `rounds/`, `session.json`, or `brief.md`.
+
+Exporting is a file operation. Integrating the result into another project is a separate instruction for the author or agent.
+
+## Export one offline HTML file
+
+```bash
+zudo-diagram-gen export-html [directory] --out <file.html>
+```
+
+Bundles session data, SVGs, viewer CSS, and viewer JavaScript into one review file. This is useful for retaining or sharing a snapshot without running a development server.
+
+The generated session also has an `export:html` script that writes `diagram-review.html`. The offline snapshot contains the diagrams and their metadata; review state belongs to the browser and should be transferred explicitly using review export/import.
+
+Clipboard and browser-storage behavior can vary when opening a file directly. Review JSON download provides a file-based transfer path. Use the local server when you need a consistent development origin.

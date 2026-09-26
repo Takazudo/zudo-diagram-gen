@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-c01",
+  "title": "Fine outline — stronger connectors",
+  "toneId": "fine-outline",
+  "description": "Demonstration revision of r01-c01. Only four connector stroke widths change from 1.6 to 2.8 SVG units; the accessible title identifies the revision. Labels, paths, positions, and palette remain intact.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": "r01-c01"
+}

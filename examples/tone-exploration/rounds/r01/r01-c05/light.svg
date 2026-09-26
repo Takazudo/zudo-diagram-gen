@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t09-title t09-desc" data-tone="09" data-theme="light">
+<title id="t09-title">09 — Technical blueprint</title>
+<desc id="t09-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. A precise drafting grid, fine orthogonal connectors, registration crosses, and measurement leaders make the composition read as an engineered construction.</desc>
+<style>
+svg[data-tone='09'] {--bg:#102E53;--ink:#E4F5FF;--accent:#78D7F2;--paper:#15395F;--secondary:#ABCADF;--grid:#285076}
+svg[data-tone='09'][data-theme='dark'] {--bg:#071727;--ink:#ECF8FF;--accent:#82DFF4;--paper:#0D263E;--secondary:#9EBBCD;--grid:#183951}
+.t09-text {font-family:'Courier New', Courier, monospace;fill:#E4F5FF;font-size:28px}
+.t09-label {font-weight:600;text-anchor:middle}
+.t09-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t09-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#285076" stroke-width=".8"/></pattern>
+<pattern id="t09-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M0 15L15 0L30 15L15 30Z" fill="none" stroke="#78D7F2" stroke-width="1.4"/><circle cx="15" cy="15" r="3" fill="none" stroke="#ABCADF" stroke-width="1"/></pattern>
+<marker id="t09-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#78D7F2" stroke-width="1.5"/></marker></defs>
+<rect width="720" height="400" fill="#102E53"/>
+<rect width="720" height="400" fill="url(#t09-grid)"/>
+<g stroke="#ABCADF" stroke-width="1" opacity=".8" fill="none"><path d="M28 67H40M34 61V73M213 67H225M219 61V73M28 184H40M34 178V190M213 184H225M219 178V190M28 245H40M34 239V251M213 245H225M219 239V251M28 353H40M34 347V359M213 353H225M219 347V359"/></g>
+<text class="t09-text t09-label" x="127" y="48">Pattern</text>
+<rect x="44" y="77" width="166" height="96" fill="#15395F" stroke="#E4F5FF" stroke-width="1.7"/>
+<rect x="51" y="84" width="152" height="82" fill="url(#t09-pattern)"/>
+<text class="t09-text t09-label" x="127" y="226">Text</text>
+<rect x="44" y="255" width="166" height="88" fill="#15395F" stroke="#E4F5FF" stroke-width="1.7"/>
+<path d="M54 278H200M54 321H200" stroke="#ABCADF" stroke-width=".8" stroke-dasharray="4 5"/>
+<text class="t09-text t09-make" x="127" y="314" style="font-size:38px">MAKE</text>
+<g fill="none" stroke="#78D7F2" stroke-width="1.8"><path d="M211 125H259V207H326" marker-end="url(#t09-arrow)"/><path d="M211 299H259V207"/><circle cx="259" cy="207" r="4" fill="#78D7F2"/></g>
+<rect x="339" y="88" width="204" height="238" fill="#15395F" stroke="#E4F5FF" stroke-width="2"/>
+<rect x="347" y="96" width="188" height="222" fill="url(#t09-pattern)"/>
+<rect x="351" y="169" width="180" height="74" fill="#15395F" stroke="#ABCADF" stroke-width="1"/>
+<text class="t09-text t09-make" x="441" y="225" style="font-size:52px">MAKE</text>
+<g fill="none" stroke="#ABCADF" stroke-width="1"><path d="M339 73V60M543 73V60M339 66H543M334 61L344 71M538 61L548 71M554 88H575M554 326H575M568 88V326M563 93L573 83M563 331L573 321"/></g>
+<path d="M548 208H607" fill="none" stroke="#78D7F2" stroke-width="1.8" marker-end="url(#t09-arrow)"/>
+<path d="M617 154H663L686 177V262H617Z M663 154V177H686" fill="#15395F" stroke="#E4F5FF" stroke-width="1.7"/>
+<text class="t09-text t09-label" x="652" y="229" style="font-size:26px">PNG</text>
+<path d="M339 340V348M543 340V348M339 344H543" stroke="#ABCADF" stroke-width="1"/>
+
+</svg>

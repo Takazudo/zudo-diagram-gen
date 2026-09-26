@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t10-title t10-desc" data-tone="10" data-theme="dark">
+<title id="t10-title">10 — Isometric wire</title>
+<desc id="t10-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. Thin open contours describe projected planes. Dashed construction lines, repeated wire grids, and an orange registration edge reveal the layer geometry without solid volumes.</desc>
+<style>
+svg[data-tone='10'] {--bg:#F8F8F2;--ink:#244D82;--accent:#D86838;--paper:#F8F8F2;--secondary:#8EACCB;--grid:#DCE4EA}
+svg[data-tone='10'][data-theme='dark'] {--bg:#132234;--ink:#C6D9F5;--accent:#FFA47E;--paper:#132234;--secondary:#7695B8;--grid:#293E56}
+.t10-text {font-family:Arial, Helvetica, sans-serif;fill:#C6D9F5;font-size:28px}
+.t10-label {font-weight:600;text-anchor:middle}
+.t10-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t10-pattern" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 0H22V22H0Z M0 0L22 22" fill="none" stroke="#7695B8" stroke-width="1.2"/></pattern>
+<marker id="t10-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#FFA47E" stroke-width="1.5"/></marker></defs>
+<rect width="720" height="400" fill="#132234"/>
+<g fill="none" stroke="#293E56" stroke-width="1"><path d="M26 365L384 192L701 343M25 296L319 154M133 396L655 143M268 396L704 185M12 90L634 393M69 32L704 341"/></g>
+<text class="t10-text t10-label" x="141" y="47">Pattern</text>
+<g transform="matrix(.86 -.42 .86 .42 40 124)"><rect width="118" height="118" fill="url(#t10-pattern)" stroke="#C6D9F5" stroke-width="2"/><path d="M0 0V-15H118V0 M118 -15L130 -15V118H118" fill="none" stroke="#7695B8" stroke-width="1" stroke-dasharray="4 5"/></g>
+<text class="t10-text t10-label" x="141" y="233">Text</text>
+<g transform="matrix(.86 -.42 .86 .42 40 310)"><rect width="118" height="118" fill="#132234" stroke="#C6D9F5" stroke-width="2"/><path d="M12 34H106M12 87H106" stroke="#7695B8" stroke-width="1" stroke-dasharray="5 5"/><text class="t10-text t10-make" x="59" y="79" style="font-size:39px;letter-spacing:0">MAKE</text></g>
+<g fill="none" stroke="#FFA47E" stroke-width="2"><path d="M244 123L278 140L293 203H309" marker-end="url(#t10-arrow)"/><path d="M244 309L278 292L293 203"/></g>
+<g fill="none" stroke="#7695B8" stroke-width="1.4"><path d="M319 239L442 179L565 239L442 299Z"/><path d="M319 223L442 163L565 223L442 283Z" stroke-dasharray="5 6"/><path d="M319 203V239M442 143V179M565 203V239M442 263V299" stroke-dasharray="4 5"/></g>
+<g transform="matrix(.82 -.40 .82 .40 319 203)"><rect width="150" height="150" fill="#132234" stroke="#C6D9F5" stroke-width="2"/><rect x="1" y="1" width="148" height="148" fill="url(#t10-pattern)"/><rect x="7" y="46" width="136" height="58" fill="#132234"/><text class="t10-text t10-make" x="75" y="92" style="font-size:50px;letter-spacing:0">MAKE</text><path d="M0 0H150V150" fill="none" stroke="#FFA47E" stroke-width="3"/></g>
+<path d="M571 203H608" stroke="#FFA47E" stroke-width="2" fill="none" marker-end="url(#t10-arrow)"/>
+<path d="M619 154H660L684 177V259H619Z M660 154V177H684" fill="#132234" stroke="#C6D9F5" stroke-width="2"/>
+<path d="M625 268H691V182M684 177L691 182M619 259L625 268" stroke="#7695B8" stroke-width="1.4" fill="none"/>
+<text class="t10-text t10-label" x="651" y="225" style="font-size:26px">PNG</text>
+</svg>

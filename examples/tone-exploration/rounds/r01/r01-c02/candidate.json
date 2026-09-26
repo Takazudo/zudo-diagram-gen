@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c02",
+  "title": "Soft fill",
+  "toneId": "soft-fill",
+  "description": "Large gentle shapes, generous rounding, almost no perimeter strokes.",
+  "order": 2,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

@@ -1,0 +1,48 @@
+---
+title: Sources and provenance
+description: Architecture precedents, illustration references, and the source material behind examples.
+sidebar_position: 2
+---
+
+The SVG references in this project are original drawings created for this exploration. The sources below informed architectural choices, general illustration principles, and the factual content of project examples. Individual tone recipes and example briefs retain their relevant links.
+
+## Architecture and workflow precedents
+
+- [zudo-doc](https://github.com/zudolab/zudo-doc): the zfb-based documentation system used by this project's documentation website.
+- [create-zudo-doc source](https://github.com/zudolab/zudo-doc/tree/main/packages/create-zudo-doc): the small generated host and package-owned configuration precedent.
+- [zudo-sg](https://github.com/Takazudo/zudo-sg): a related initializer and shared-engine approach for styleguide work.
+- [zudo-sg engine architecture](https://github.com/Takazudo/zudo-sg/blob/main/src/content/docs/architecture/engine-package.mdx): separation between engine-owned preview behavior and host content.
+- [design-visual-gen skill](https://github.com/Takazudo/claude-settings/tree/main/skills/design-visual-gen): SVG help-illustration authoring and candidate exploration context.
+- [protodev skill](https://github.com/Takazudo/claude-settings/tree/main/skills/protodev): the user's established visual prototype-and-feedback workflow.
+- [Claude Code skill-creator instructions](https://github.com/Takazudo/claude-settings/tree/main/skills/skill-creator): the requested reference for the later installable skill work.
+
+The first app version implements a content and command interface that a skill can drive. Referencing these skills does not mean that any of them was installed or modified as part of the app handoff.
+
+## Illustration references
+
+- IBM Design Language: [line illustration](https://www.ibm.com/design/language/illustration/line-style/design/), [flat illustration](https://www.ibm.com/design/language/illustration/flat-style/design/), [hybrid UI illustration](https://www.ibm.com/design/language/illustration/hybrid-ui-style/design/), [isometric illustration](https://www.ibm.com/design/language/illustration/isometric-style/design/), and [technical diagrams](https://www.ibm.com/design/language/infographics/technical-diagrams/design/).
+- [Atlassian illustration foundations](https://atlassian.design/foundations/illustrations): use and construction of product illustration.
+- [GitLab Pajamas illustration guidance](https://design.gitlab.com/product-foundations/illustration/): illustration construction and presentation considerations.
+- [Indeed's scalable illustration system](https://indeed.design/article/building-a-scalable-illustration-system/): an example of organizing a reusable illustration system.
+- [Rough.js](https://roughjs.com/): a reference for sketch-like vector contours and hatching.
+- [Stripe Connect front-end experience](https://stripe.com/blog/connect-front-end-experience): product explanation and interface representation context.
+
+The collection does not contain copied branded illustration assets. A reference's presence explains an influence or principle, not an affiliation or endorsement.
+
+## Project example content
+
+The worked examples were grounded in the following project material. An example snapshot illustrates the behavior described in its accompanying brief; check the current project sources before adapting it for production.
+
+| Project | Source material | Example focus |
+| --- | --- | --- |
+| zudo-pattern-gen | [Composer manual](https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx) | Combining pattern and text layers into an exported image. |
+| zudo-text | [Layout manual](https://github.com/zudolab/zudo-text/blob/main/manual/src/content/docs/basics/layout.mdx) | Splitting a frame creates an empty frame; choosing its content is a separate action. |
+| zudo-doc-cloud | [Project hierarchy specification](https://github.com/zudolab/zudo-doc-cloud/blob/main/doc/src/content/docs/spec/project-hierarchy.mdx) | Moving selected Workbench changes into a draft while other changes remain. |
+| zudo-ez-host | [Status, save, and publish guide](https://github.com/zudolab/zudo-ez-host/blob/main/manual/src/content/docs/sync/status-save-publish.mdx) | Local files, saved cloud checkpoints, and the live site as distinct states. |
+| zzmod | [Synth SVG package](https://github.com/zudolab/zzmod/tree/develop/sub-packages/synth-svg) | A basic signal path with audio and control relationships distinguished. |
+
+Tone examples use a shared explanation to support visual comparison. The second-round example is a constructed demonstration of refinement lineage, not a historical record of a user's selection.
+
+## Browser behavior reference
+
+[MDN's localStorage documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) describes browser-origin storage. This project uses browser storage for review convenience and explicit copy/download actions for transfer. Browser-local state is not a write into the session's source directory.

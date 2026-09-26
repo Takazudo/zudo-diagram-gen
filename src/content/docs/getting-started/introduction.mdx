@@ -1,0 +1,36 @@
+---
+title: Introduction
+description: A predictable local workspace for choosing and refining SVG diagrams.
+sidebar_position: 1
+---
+
+zudo-diagram-gen gives a person and an AI agent a shared place to compare SVG diagram candidates. The agent prepares the explanation and draws alternatives. You inspect the results, select a direction, and ask for specific refinements.
+
+The project combines a package-owned review app, a destination-based initializer, and a collection of 24 illustration tones. Its documentation site uses zfb and zudo-doc. Generated review sessions use zfb for development, build, and preview.
+
+## The working loop
+
+1. Establish what the diagram needs to explain and where it will appear.
+2. Create a review session and generate candidates into its content directories.
+3. Compare actual drawings at their intended display size.
+4. Choose a direction and describe what to keep or change.
+5. Create a new round from the saved baseline SVG.
+6. Export the chosen drawing and integrate it when requested.
+
+The review interface stays familiar across projects. The diagrams themselves can vary widely: UI miniatures, outlines, paper layers, technical diagrams, editorial compositions, and other approaches all use ordinary SVG files.
+
+## Explore the examples
+
+Visit the [tone collection](/tones/) to compare the 24 reference treatments. These examples illustrate possible drawing approaches; they are material an agent can consult when generating a diagram for a real feature.
+
+Visit the [worked examples](/examples/) to see diagrams adapted to project-specific explanations. The same tone may need a different arrangement, level of detail, or balance of labels when its subject changes.
+
+## What this version provides
+
+The `0.1.0` source handoff includes session loading and validation, candidate inspection and comparison, zoom and pan, placement context, artwork themes and backdrops, shortlisting and review feedback, SVG export, an offline HTML export, a local initializer, the reference collection, and this documentation website.
+
+The intended Claude Code `/diagram-gen` skill and personal `/my-diagram-gen` wrapper are documented under [Agent workflow](/docs/agent-workflow/core-and-wrapper/). Creating and installing those skills is a later integration step. The app already exposes the files and commands needed to implement that workflow.
+
+## Start locally
+
+Read [Local development](/docs/getting-started/local-development/) to run the downloaded project, then [Your first session](/docs/getting-started/first-session/) to initialize a separate review workspace. The [session file reference](/docs/authoring/session-files/) gives the exact content format for agents and manual authors.

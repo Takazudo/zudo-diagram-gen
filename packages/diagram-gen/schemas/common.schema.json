@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shared diagram workspace definitions",
+  "$defs": {
+    "nonemptyString": {
+      "type": "string",
+      "pattern": "\\S",
+      "description": "A string containing at least one non-whitespace character."
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?$",
+      "description": "A stable, case-sensitive URL-safe identifier."
+    },
+    "optionalParent": {
+      "anyOf": [
+        { "$ref": "#/$defs/slug" },
+        { "type": "null" }
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991,
+      "description": "A nonnegative safe integer used for display ordering."
+    },
+    "svgPath": {
+      "type": "string",
+      "pattern": "^(?![a-zA-Z]:)(?!/)(?![\\s\\S]*[\\\\\\u0000])(?!(?:[^/]+/)*\\.{1,2}(?:/|$))(?![\\s\\S]*//)[\\s\\S]+\\.[sS][vV][gG]$",
+      "description": "An SVG path relative to its candidate directory, using forward slashes. Empty segments, dot segments, backslashes, absolute paths, and NUL are forbidden. Filesystem containment and symlinks are checked by the CLI."
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonemptyString" }
+    }
+  }
+}

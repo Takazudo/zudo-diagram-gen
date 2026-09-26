@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "project-pattern-gen",
+  "title": "zudo-pattern-gen Composer help",
+  "description": "A single project-grounded illustration study. This is a different teaching topic from the other project examples, not another tone candidate for the same explanation.",
+  "target": {
+    "width": 360,
+    "height": 200,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zudo-pattern-gen",
+    "reference": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+  },
+  "context": {
+    "title": "Build a composition",
+    "body": "A pattern background and a text layer combine into one composed image. Square source panels and a checkerboard text layer distinguish what is being combined."
+  }
+}

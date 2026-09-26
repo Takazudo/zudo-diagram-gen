@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="24" data-theme="dark" role="img" aria-labelledby="t24-title t24-desc">
+<title id="t24-title">Luminous glass: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t24-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Translucent overlapping planes, restrained cyan-violet glow, luminous edges, and generous dark space. The layers remain distinct before becoming a single visible composition.</desc>
+<style>
+svg[data-tone='24'] {--bg:#111C31;--paper:#243652;--ink:#F4F5FF;--primary:#74D5DF;--secondary:#C7AAEF;--tertiary:#6176A1;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='24'][data-theme='dark'] {--bg:#080F20;--paper:#18283F;--ink:#F3F5FF;--primary:#83D4E1;--secondary:#C4A9E8;--tertiary:#53688F;}
+.t24-bg {fill:#080F20;}
+.t24-paper {fill:#18283F;}
+.t24-ink {fill:#F3F5FF;}
+.t24-primary {fill:#83D4E1;}
+.t24-secondary {fill:#C4A9E8;}
+.t24-tertiary {fill:#53688F;}
+.t24-label {fill:#F3F5FF;font-size:27px;font-weight:600;text-anchor:middle;}
+.t24-make {fill:#F3F5FF;font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t24-something {fill:#F3F5FF;font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t24-line {fill:none;stroke:#F3F5FF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t24-label{font-weight:500;font-size:27px;letter-spacing:.1px;}
+</style>
+<defs>
+<linearGradient id="t24-glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#83D4E1" stop-opacity=".24"/><stop offset=".55" stop-color="#18283F" stop-opacity=".5"/><stop offset="1" stop-color="#C4A9E8" stop-opacity=".35"/></linearGradient>
+<linearGradient id="t24-edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#83D4E1" stop-opacity=".9"/><stop offset=".5" stop-color="#F3F5FF" stop-opacity=".25"/><stop offset="1" stop-color="#C4A9E8" stop-opacity=".75"/></linearGradient>
+<radialGradient id="t24-orb"><stop stop-color="#83D4E1" stop-opacity=".65"/><stop offset=".65" stop-color="#83D4E1" stop-opacity=".22"/><stop offset="1" stop-color="#83D4E1" stop-opacity="0"/></radialGradient>
+<filter id="t24-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="15"/></filter>
+<pattern id="t24-planes" width="180" height="216" patternUnits="userSpaceOnUse">
+ <circle cx="150" cy="18" r="97" fill="url(#t24-orb)"/>
+ <path d="M-40 115 60 33 147 121 47 203Z" fill="#C4A9E8" fill-opacity=".32" stroke="#C4A9E8" stroke-opacity=".55" stroke-width="1.2"/>
+ <path d="M69 71 191 45 215 166 94 192Z" fill="#83D4E1" fill-opacity=".18" stroke="#83D4E1" stroke-opacity=".55" stroke-width="1.2"/>
+</pattern>
+<clipPath id="t24-source"><rect x="52" y="52" width="155" height="118" rx="14"/></clipPath>
+<clipPath id="t24-poster"><rect x="361" y="57" width="198" height="286" rx="20"/></clipPath>
+<marker id="t24-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="m1 1 5 3-5 3" fill="none" stroke="#83D4E1" stroke-width="1.3"/></marker>
+</defs>
+<rect width="720" height="400" class="t24-bg"/>
+
+<ellipse cx="145" cy="121" rx="61" ry="51" fill="#83D4E1" opacity=".16" filter="url(#t24-glow)"/>
+<rect x="52" y="52" width="155" height="118" rx="14" fill="url(#t24-glass)"/>
+<rect x="52" y="52" width="155" height="118" rx="14" fill="url(#t24-planes)" clip-path="url(#t24-source)"/>
+<rect x="52" y="52" width="155" height="118" rx="14" fill="none" stroke="url(#t24-edge)" stroke-width="1.5"/>
+<text x="130" y="209" class="t24-label">Pattern</text>
+<rect x="52" y="251" width="155" height="71" rx="14" fill="url(#t24-glass)" stroke="url(#t24-edge)" stroke-width="1.5"/>
+<text x="130" y="298" class="t24-make" style="font-size:34px;font-weight:600;letter-spacing:1px">MAKE</text>
+<text x="130" y="365" class="t24-label">Text</text>
+<path d="M225 112c56 0 48 68 119 68" fill="none" stroke="url(#t24-edge)" stroke-width="2.5" marker-end="url(#t24-arrow)"/>
+<path d="M225 285c56 0 48-61 119-61" fill="none" stroke="url(#t24-edge)" stroke-width="2.5" marker-end="url(#t24-arrow)"/>
+<ellipse cx="454" cy="194" rx="101" ry="135" fill="#C4A9E8" opacity=".15" filter="url(#t24-glow)"/>
+<rect x="370" y="66" width="198" height="286" rx="20" fill="#C4A9E8" opacity=".08" stroke="#C4A9E8" stroke-opacity=".17"/>
+<g clip-path="url(#t24-poster)">
+ <rect x="361" y="57" width="198" height="286" rx="20" class="t24-paper"/>
+ <rect x="361" y="57" width="198" height="286" rx="20" fill="url(#t24-glass)"/>
+ <rect x="361" y="57" width="198" height="286" rx="20" fill="url(#t24-planes)"/>
+ <rect x="361" y="154" width="198" height="93" fill="#080F20" opacity=".4"/>
+ <text x="460" y="195" class="t24-make" style="font-size:40px;font-weight:600;letter-spacing:1px">MAKE</text>
+ <text x="460" y="233" class="t24-something" style="font-size:26px;font-weight:500;letter-spacing:.3px">SOMETHING</text>
+</g>
+<rect x="361" y="57" width="198" height="286" rx="20" fill="none" stroke="url(#t24-edge)" stroke-width="1.5"/>
+<path d="M579 202h44" fill="none" stroke="#83D4E1" stroke-width="2.5" marker-end="url(#t24-arrow)"/>
+<circle cx="654" cy="201" r="30" fill="#83D4E1" opacity=".2" filter="url(#t24-glow)"/>
+<path d="M638 174h25l17 17v40h-42Z" fill="url(#t24-glass)" stroke="url(#t24-edge)" stroke-width="1.7"/>
+<path d="M663 175v17h16m-20 4v19m-8-7 8 8 8-8" fill="none" stroke="#F3F5FF" stroke-width="2" stroke-linejoin="round"/>
+<text x="657" y="274" class="t24-label">PNG</text>
+
+</svg>

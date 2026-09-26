@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "r02",
+  "title": "Demonstrate a bounded refinement",
+  "description": "Illustrative continuation only: keep fine-outline geometry and colors, strengthen its four connectors.",
+  "order": 2,
+  "baselineCandidateId": "r01-c01"
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="ppattern" data-project="p-pattern" data-theme="light" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="ppattern-title ppattern-desc">
+  <title id="ppattern-title">Build a composition in pgen</title>
+  <desc id="ppattern-desc">A pattern background and a text layer combine into one composed image. The sample pattern and simplified text layer illustrate the documented Composer concept, not exact application controls.</desc>
+  <style>
+    #ppattern{--paper:#f7f7f8;--ink:#24212a;--muted:#625c6b;--line:#aaa3b4;--surface:#e9e6ee;--accent:#76549b;--accent-soft:#c7aedf;--pattern-ink:#eee5fb;--pattern-bg:#483460;font-family:Arial,Helvetica,sans-serif}
+    #ppattern[data-theme="dark"]{--paper:#19171d;--ink:#eee9f5;--muted:#bcb1c9;--line:#776b87;--surface:#292430;--accent:#bd91e7;--accent-soft:#7d5a9c;--pattern-ink:#ede2f9;--pattern-bg:#483460}
+    #ppattern .label{fill:var(--ink);font-size:28px}
+    #ppattern .connector{fill:none;stroke:var(--muted);stroke-width:2.5;stroke-linejoin:round}
+  </style>
+  <defs>
+    <pattern id="ppattern-tile" width="56" height="56" patternUnits="userSpaceOnUse"><rect width="56" height="56" fill="var(--pattern-bg)"/><path d="M0 0H28V28H0ZM28 28H56V56H28Z" fill="var(--accent-soft)"/><path d="M28 0A28 28 0 0 1 56 28H28ZM0 28A28 28 0 0 1 28 56H0Z" fill="var(--accent)"/></pattern>
+    <pattern id="ppattern-transparency" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="var(--paper)"/><path d="M0 0H12V12H0ZM12 12H24V24H12Z" fill="var(--surface)"/></pattern>
+    <marker id="ppattern-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1 1L7 4L1 7" fill="none" stroke="var(--muted)" stroke-width="1.2"/></marker>
+  </defs>
+  <rect width="720" height="400" fill="var(--paper)"/>
+  <text x="32" y="47" fill="var(--ink)" font-size="34" font-weight="600">Build a composition</text>
+  <path d="M32 68H688" stroke="var(--line)"/>
+  <text x="40" y="110" class="label">Background</text>
+  <rect x="40" y="125" width="176" height="94" fill="url(#ppattern-tile)" stroke="var(--line)" stroke-width="1.5"/>
+  <text x="40" y="266" class="label">Text layer</text>
+  <rect x="40" y="281" width="176" height="94" fill="url(#ppattern-transparency)" stroke="var(--line)" stroke-width="1.5"/>
+  <text x="128" y="340" text-anchor="middle" fill="var(--ink)" font-size="36" font-weight="700">HELLO</text>
+  <path d="M216 172H262L319 229M216 328H262L319 255" class="connector"/>
+  <circle cx="333" cy="242" r="19" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <path d="M324 242H342M333 233V251" stroke="var(--accent)" stroke-width="2.5"/>
+  <path d="M353 242H422" class="connector" marker-end="url(#ppattern-arrow)"/>
+  <text x="444" y="160" class="label">Composition</text>
+  <rect x="444" y="178" width="240" height="126" fill="url(#ppattern-tile)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="456" y="211" width="216" height="63" fill="var(--pattern-bg)" opacity=".91"/>
+  <text x="564" y="254" text-anchor="middle" fill="var(--pattern-ink)" font-size="40" font-weight="700">HELLO</text>
+  <text x="444" y="353" fill="var(--muted)" font-size="26">One layered image</text>
+</svg>

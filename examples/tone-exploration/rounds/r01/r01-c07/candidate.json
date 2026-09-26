@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c07",
+  "title": "Paper layers",
+  "toneId": "paper-layers",
+  "description": "Overlapping off-white sheets, slight rotations, cut-paper motifs, and small offset shadows make the layer composition feel physical and easy to grasp.",
+  "order": 7,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

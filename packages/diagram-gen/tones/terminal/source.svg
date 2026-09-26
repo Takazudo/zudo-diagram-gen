@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="20" data-theme="light" role="img" aria-labelledby="t20-title t20-desc">
+<title id="t20-title">Terminal: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t20-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Monospace lettering, corner-bracket frames, spare orthogonal geometry, and phosphor colors on an inherently dark canvas. This is a vector diagram with terminal character, not a block of ASCII art.</desc>
+<style>
+svg[data-tone='20'] {--bg:#132123;--paper:#1A3033;--ink:#E2F6E5;--primary:#91E9B3;--secondary:#8FDBE8;--tertiary:#3C6264;font-family:'Courier New', Courier, monospace;}
+svg[data-tone='20'][data-theme='dark'] {--bg:#081416;--paper:#12272B;--ink:#EDF9ED;--primary:#9CEBBA;--secondary:#90D9E7;--tertiary:#35565B;}
+.t20-bg {fill:var(--bg);}
+.t20-paper {fill:var(--paper);}
+.t20-ink {fill:var(--ink);}
+.t20-primary {fill:var(--primary);}
+.t20-secondary {fill:var(--secondary);}
+.t20-tertiary {fill:var(--tertiary);}
+.t20-label {fill:var(--ink);font-size:27px;font-weight:600;text-anchor:middle;}
+.t20-make {fill:var(--ink);font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t20-something {fill:var(--ink);font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t20-line {fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t20-bracket{fill:none;stroke:var(--primary);stroke-width:2;}.t20-route{fill:none;stroke:var(--primary);stroke-width:2.5;}.t20-label{font-weight:400;font-size:26px;letter-spacing:0;}
+</style>
+<defs>
+<pattern id="t20-field" width="40" height="40" patternUnits="userSpaceOnUse">
+ <rect width="40" height="40" class="t20-paper"/>
+ <path d="M7 5h16v16H7Z" fill="none" stroke="var(--primary)" stroke-width="2" opacity=".48"/>
+ <path d="M29 28h5v5h-5Z" class="t20-secondary" opacity=".7"/>
+</pattern>
+<marker id="t20-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="m1 1 6 4-6 4" fill="none" stroke="var(--primary)" stroke-width="1.6"/></marker>
+</defs>
+<rect width="720" height="400" class="t20-bg"/>
+
+<rect x="52" y="56" width="164" height="112" fill="url(#t20-field)"/>
+<path d="M74 49H45v29m0 68v29h29m120-126h29v29m0 68v29h-29" class="t20-bracket"/>
+<text x="134" y="211" class="t20-label">Pattern</text>
+<rect x="52" y="252" width="164" height="62" class="t20-paper"/>
+<path d="M72 245H45v24m0 28v24h27m124-76h27v24m0 28v24h-27" class="t20-bracket"/>
+<text x="134" y="294" class="t20-make" style="font-size:36px;letter-spacing:0">MAKE</text>
+<text x="134" y="364" class="t20-label">Text</text>
+<path d="M241 112h39v66h57" class="t20-route" marker-end="url(#t20-arrow)"/>
+<path d="M241 283h39v-61h57" class="t20-route" marker-end="url(#t20-arrow)"/>
+<rect x="356" y="65" width="212" height="270" fill="url(#t20-field)" opacity=".6"/>
+<path d="M382 57h-34v34m0 218v34h34M542 57h34v34m0 218v34h-34" class="t20-bracket"/>
+<rect x="366" y="157" width="192" height="87" class="t20-paper"/>
+<text x="462" y="194" class="t20-make" style="fill:var(--primary);font-size:37px;letter-spacing:0">MAKE</text>
+<text x="462" y="232" class="t20-something" style="font-size:26px;letter-spacing:-.7px">SOMETHING</text>
+<path d="M588 202h35" class="t20-route" marker-end="url(#t20-arrow)"/>
+<path d="M647 175h27v12h12v45h-39Z" class="t20-paper" stroke="var(--secondary)" stroke-width="2"/>
+<path d="M674 175v13h12m-20 8v20m-7-7 7 7 7-7" fill="none" stroke="var(--secondary)" stroke-width="2"/>
+<text x="665" y="273" class="t20-label">PNG</text>
+
+</svg>

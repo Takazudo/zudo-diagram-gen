@@ -1,0 +1,12 @@
+{
+  "name": "create-zudo-diagram-gen",
+  "version": "0.1.0",
+  "description": "Initialize a small zfb workspace for SVG diagram exploration.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22 <25" },
+  "bin": { "create-zudo-diagram-gen": "./bin/create-zudo-diagram-gen.mjs" },
+  "exports": { ".": "./src/index.mjs" },
+  "files": ["bin", "src", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}

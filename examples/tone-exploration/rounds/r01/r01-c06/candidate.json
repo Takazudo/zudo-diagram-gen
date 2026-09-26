@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c06",
+  "title": "Isometric wire",
+  "toneId": "isometric-wire",
+  "description": "Thin open contours describe projected planes. Dashed construction lines, repeated wire grids, and an orange registration edge reveal the layer geometry without solid volumes.",
+  "order": 6,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c10",
+  "title": "Modular geometric",
+  "toneId": "modular-geometric",
+  "description": "A studio-style tile vocabulary of circles, quarter circles, blocks, and deliberately open space. Simple convergence paths preserve the explanation while the artwork carries the expressive geometry.",
+  "order": 10,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

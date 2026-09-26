@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Audio and control voltage",
+  "toneId": "circuit-route",
+  "description": "VCO to VCF to VCA to output follows the cyan audio path. The envelope sends purple control voltage to VCA. This uses the existing synth SVG subsystem's background, audio and CV colors. Intentionally dark in both appearance modes to retain existing semantic audio/CV colors. Symbols are original simplifications, not reused branded patch symbols; positions are conceptual, not physical module sockets. Envelope trigger and pitch inputs are outside this focused diagram.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}
