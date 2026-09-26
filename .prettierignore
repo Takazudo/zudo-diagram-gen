@@ -7,3 +7,4 @@ src/generated/
 public/previews/
 artifacts/
 test-output/
+pnpm-lock.yaml
