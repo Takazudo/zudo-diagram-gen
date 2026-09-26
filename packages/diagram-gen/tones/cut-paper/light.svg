@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="17" data-theme="light" role="img" aria-labelledby="t17-title t17-desc">
+<title id="t17-title">Cut paper: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t17-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Irregular cut silhouettes, offset paper edges, flat organic color fields, and a pasted text layer. Connectors feel cut by hand while keeping their direction explicit.</desc>
+<style>
+svg[data-tone='17'] {--bg:#F5F0E6;--paper:#FFEDB2;--ink:#27383D;--primary:#DC735C;--secondary:#5DACA2;--tertiary:#DFD8CA;--label:#27383D;--flow:#27383D;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='17'][data-theme='dark'] {--bg:#1D292B;--paper:#DCCDAC;--ink:#182D32;--primary:#DE816D;--secondary:#73B8AC;--tertiary:#3B4B4D;--label:#F4EDD9;--flow:#DCCDAC;}
+.t17-bg {fill:#F5F0E6;}
+.t17-paper {fill:#FFEDB2;}
+.t17-ink {fill:#27383D;}
+.t17-primary {fill:#DC735C;}
+.t17-secondary {fill:#5DACA2;}
+.t17-tertiary {fill:#DFD8CA;}
+.t17-label {fill:#27383D;font-size:27px;font-weight:600;text-anchor:middle;}
+.t17-make {fill:#27383D;font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t17-something {fill:#27383D;font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t17-line {fill:none;stroke:#27383D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t17-label{fill:#27383D;}svg[data-tone='17'] > path.t17-ink{fill:#27383D;}
+</style>
+<defs>
+<pattern id="t17-pattern" width="180" height="168" patternUnits="userSpaceOnUse">
+ <rect width="180" height="168" class="t17-paper"/>
+ <path d="M96-12 174-5 195 63 169 88 114 68 91 20Z" class="t17-primary"/>
+ <path d="M-17 76 28 51 64 64 83 116 51 176-15 168Z" class="t17-secondary"/>
+ <path d="m127 121 36-19 24 12-13 45-36 6-19-20Z" class="t17-primary"/>
+</pattern>
+<clipPath id="t17-poster"><path d="m360 80 176-6 11 244-182 9-9-144Z"/></clipPath>
+<clipPath id="t17-swatch"><path d="m57 57 142-5 8 104-146 8Z"/></clipPath>
+</defs>
+<rect width="720" height="400" class="t17-bg"/>
+
+<path d="m64 63 144-3 7 111-148-2Z" class="t17-tertiary"/>
+<g clip-path="url(#t17-swatch)"><rect x="51" y="46" width="167" height="127" fill="url(#t17-pattern)"/></g>
+<text x="131" y="202" class="t17-label">Pattern</text>
+<path d="m53 246 149-12 11 76-153 11Z" class="t17-tertiary"/>
+<path d="m57 240 146 3-2 64-148 7Z" class="t17-paper"/>
+<text x="129" y="285" class="t17-make" transform="rotate(-2 129 279)">MAKE</text>
+<text x="131" y="360" class="t17-label">Text</text>
+<path d="M221 103q46 3 67 38t44 36l-10-14 27 19-31 8 14-11q-39 3-60-31t-54-31Z" class="t17-ink"/>
+<path d="M223 278q50 3 59-25t46-31l-12-9 29 8-20 24 6-12q-23-1-37 25t-70 33Z" class="t17-ink"/>
+<path d="m369 87 176-2 8 243-184 5Z" class="t17-tertiary"/>
+<g clip-path="url(#t17-poster)">
+ <rect x="350" y="65" width="204" height="267" fill="url(#t17-pattern)"/>
+ <path d="m369 157 163-7-6 91-160-3Z" class="t17-paper"/>
+ <text x="447" y="195" class="t17-make" transform="rotate(-2 447 195)">MAKE</text>
+ <text x="447" y="228" class="t17-something" transform="rotate(-2 447 228)">SOMETHING</text>
+</g>
+<path d="m565 197 43-1-7-9 24 13-23 14 6-10-44 4Z" class="t17-ink"/>
+<path d="m627 171 34-3 20 19-3 47-52 3Z" class="t17-paper"/>
+<path d="m661 168-1 20 21-1" fill="none" stroke="#27383D" stroke-width="3"/>
+<path d="m645 193-1 20m-9-6 9 9 11-11" fill="none" stroke="#27383D" stroke-width="4" stroke-linecap="round"/>
+<text x="652" y="274" class="t17-label">PNG</text>
+
+</svg>

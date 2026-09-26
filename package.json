@@ -1,0 +1,39 @@
+{
+  "name": "zudo-diagram-gen-project",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build-showcase.mjs && zfb build",
+    "preview": "zfb preview",
+    "check": "node scripts/build-showcase.mjs && tsc --noEmit",
+    "test": "node --test test/*.test.mjs packages/diagram-gen/test/*.test.mjs packages/create-zudo-diagram-gen/test/*.test.mjs",
+    "check:examples": "node scripts/check-examples.mjs",
+    "export:preview": "node scripts/export-preview.mjs",
+    "pack:local": "node scripts/pack-local.mjs"
+  },
+  "dependencies": {
+    "@takazudo/zfb": "2.21.1",
+    "@takazudo/zfb-md-wasm": "2.21.1",
+    "@takazudo/zfb-runtime": "2.21.1",
+    "@takazudo/zudo-diagram-gen": "workspace:*",
+    "@takazudo/zudo-doc": "5.27.0",
+    "diff": "8.0.4",
+    "hono": "4.13.9",
+    "katex": "0.16.38",
+    "preact": "10.29.2",
+    "preact-render-to-string": "6.6.6",
+    "tailwindcss": "4.2.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.7",
+    "happy-dom": "20.10.6",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "composer-tone-exploration",
+  "title": "One explanation, ten directions",
+  "description": "A demonstration session: ten original tone studies explain the same composition relationship. Round 2 demonstrates a precise SVG refinement; it does not record a user-approved choice.",
+  "target": {
+    "width": 360,
+    "height": 200,
+    "label": "Proposed help illustration size"
+  },
+  "toneCollectionVersion": "0.1.0",
+  "project": {
+    "name": "zudo-pattern-gen — conceptual Composer example",
+    "reference": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+  },
+  "context": {
+    "title": "Build a composition",
+    "body": "Combine a pattern background with a text layer, then export the composition as an image. These drawings are conceptual examples rather than screenshots."
+  }
+}

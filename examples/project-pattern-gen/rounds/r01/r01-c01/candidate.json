@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Build a composition",
+  "toneId": "ui-miniature",
+  "description": "A pattern background and a text layer combine into one composed image. Square source panels and a checkerboard text layer distinguish what is being combined. A conceptual study with an invented sample pattern. It is not an exact screenshot, generator output, or app control map. Purple is a prototype palette choice, not a permanent pgen brand color.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

@@ -1,0 +1,113 @@
+---
+title: Your first session
+description: Initialize an empty review workspace and add its first SVG candidate.
+sidebar_position: 3
+---
+
+The initializer creates a small private project with session metadata, a brief, an initial round, zfb configuration, and package scripts. Its empty gallery is ready for an agent to add candidates.
+
+## Initialize from this source handoff
+
+In the downloaded repository, create local package archives:
+
+```bash
+pnpm pack:local
+```
+
+Copy the absolute path of the engine archive printed by that command, then run:
+
+```bash
+node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
+  ../my-diagram-session \
+  --name "Feature help diagram" \
+  --engine-package /absolute/path/to/the/engine-package.tgz \
+  --yes
+
+cd ../my-diagram-session
+pnpm install
+pnpm dev
+```
+
+Use an absolute path for a local engine archive so the generated project can resolve it from its own directory. Keep that archive available while the host depends on it. You can switch to a published package version later, when publication has actually happened.
+
+The initializer does not install dependencies unless `--install` is supplied. It does not initialize Git or install an agent skill. `--yes` is accepted for automated callers; this initializer does not require an interactive interview.
+
+## Establish the brief
+
+Edit `brief.md` before generating a batch. State:
+
+- The one idea the reader should understand.
+- The real states, actions, or relationships involved.
+- Exact user-facing labels and relevant source references.
+- The expected diagram size and surrounding help context.
+- What this round should explore, and which facts must stay fixed.
+
+Set `target.width` and `target.height` in `session.json` to the intended CSS-pixel dimensions of the placement preview. Set `context.title` and `context.body` when a nearby heading and explanation will help you assess the drawing.
+
+## Add a candidate
+
+Create a directory such as `rounds/r01/c01/`. Add `candidate.json`:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Fine outline",
+  "toneId": "fine-outline",
+  "description": "A quiet treatment with a direct reading order.",
+  "order": 1,
+  "assets": {
+    "light": "diagram.light.svg"
+  },
+  "parentCandidateId": null
+}
+```
+
+Add a complete SVG at `rounds/r01/c01/diagram.light.svg`. This small example is enough to exercise the gallery; replace its explanation with the real feature before using it in application help.
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"
+     role="img" aria-labelledby="title description">
+  <title id="title">Review a diagram candidate</title>
+  <desc id="description">A candidate drawing leads to a review decision.</desc>
+  <rect width="720" height="400" fill="#f6f5f1"/>
+  <g fill="none" stroke="#252a31" stroke-width="3">
+    <rect x="64" y="100" width="220" height="180" rx="12"/>
+    <rect x="436" y="100" width="220" height="180" rx="12"/>
+    <path d="M308 190H406m-16-12 16 12-16 12"/>
+  </g>
+  <circle cx="174" cy="174" r="28" fill="#2869c7"/>
+  <path d="m520 178 17 17 37-42" fill="none"
+        stroke="#2869c7" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#252a31" font-family="system-ui, sans-serif"
+     font-size="28" text-anchor="middle">
+    <text x="174" y="242">Candidate</text>
+    <text x="546" y="242">Review</text>
+  </g>
+</svg>
+```
+
+The asset path is relative to the candidate directory. A dark-theme asset can be declared as `assets.dark` when a corresponding file exists.
+
+The running session detects metadata and SVG changes, including newly added candidates. A partially written or invalid file must be corrected before the new session state can be prepared successfully; run the validation command for a readable diagnosis.
+
+## Validate and review
+
+```bash
+pnpm check
+```
+
+Open the gallery, inspect the drawing, and check the placement preview. Generate additional candidate directories to explore other approaches. Keep IDs stable so feedback can continue to refer to the same drawing.
+
+Use the gallery's copy-feedback or review-download action to pass your decision to the agent. A refinement belongs in a later round with a new candidate ID and a parent reference to the chosen baseline.
+
+## Export a chosen drawing
+
+```bash
+pnpm exec zudo-diagram-gen export r01-c01 \
+  --session . \
+  --theme light \
+  --out selected-diagram.svg
+```
+
+The SVG export copies the selected declared asset. It does not automatically integrate it into another application. Read [SVG authoring](/docs/authoring/svg-authoring/) for theme, accessibility, and destination considerations.

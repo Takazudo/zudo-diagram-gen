@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c04",
+  "title": "UI miniature",
+  "toneId": "ui-miniature",
+  "description": "Reduced application chrome, readable layer rows, one emphasized result.",
+  "order": 4,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

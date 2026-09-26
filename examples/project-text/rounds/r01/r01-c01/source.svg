@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="pt-svg" data-theme="light" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="pt-title pt-desc">
+  <title id="pt-title">Split a frame, then choose the new frame's component</title>
+  <desc id="pt-desc">The existing Note Tray remains on the left. Split adds an empty frame on the right. Choose a component, such as Kanban or Mind Map, for that new frame. The split operation does not duplicate the existing note.</desc>
+  <!-- Prototype schematic, not a pixel-accurate screenshot. Source: zudolab/zudo-text main 02e127725ed3c384750d16e9e0428fa95c4d2ae8. Colors and radii follow packages/ui-components/src/tokens.css; workflow follows manual/src/content/docs/basics/layout.mdx. -->
+  <style>
+    #pt-svg { --pt-bg:#e0e0e0; --pt-surface:#d9d9d9; --pt-fg:#444444; --pt-muted:#654516; --pt-accent:#52616b; --pt-border:#66615c; font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    #pt-svg[data-theme="dark"] { --pt-bg:#1c1c1c; --pt-surface:#1c1c1c; --pt-fg:#a0a0a0; --pt-muted:#b8b8b8; --pt-accent:#ae8556; --pt-border:#6a6a6a; }
+    #pt-svg text { fill:var(--pt-fg); font-size:26px; font-weight:500; }
+    #pt-svg .pt-title { font-size:32px; font-weight:600; letter-spacing:-.5px; }
+    #pt-svg .pt-page { fill:var(--pt-bg); }
+    #pt-svg .pt-surface { fill:var(--pt-surface); stroke:var(--pt-border); stroke-width:1; }
+    #pt-svg .pt-paper { fill:var(--pt-bg); stroke:var(--pt-border); stroke-width:1; }
+    #pt-svg .pt-rule { fill:none; stroke:var(--pt-border); stroke-width:1; }
+    #pt-svg .pt-accent { fill:none; stroke:var(--pt-accent); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+    #pt-svg .pt-step { fill:var(--pt-bg); stroke:var(--pt-accent); stroke-width:1.75; }
+    #pt-svg .pt-number { fill:var(--pt-accent); font-size:26px; font-weight:600; text-anchor:middle; }
+    #pt-svg .pt-copy { fill:var(--pt-fg); opacity:.34; }
+    #pt-svg .pt-caption { fill:var(--pt-muted); font-size:26px; font-weight:400; }
+  </style>
+  <defs>
+    <marker id="pt-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--pt-accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect class="pt-page" width="720" height="400"/>
+  <text class="pt-title" x="32" y="46">Add a second view</text>
+  <rect class="pt-step" x="32" y="78" width="36" height="36" rx="3"/>
+  <text class="pt-number" x="50" y="106">1</text>
+  <text x="80" y="106">Split</text>
+  <path class="pt-accent" d="M151 96H352V139" marker-end="url(#pt-arrow)"/>
+  <rect class="pt-step" x="383" y="78" width="36" height="36" rx="3"/>
+  <text class="pt-number" x="401" y="106">2</text>
+  <text x="431" y="106">Choose component</text>
+
+  <rect class="pt-surface" x="32.5" y="150.5" width="305" height="201" rx="4"/>
+  <path class="pt-rule" d="M33 198.5H337"/>
+  <text x="52" y="183">Note Tray</text>
+  <rect class="pt-paper" x="52.5" y="215.5" width="265" height="115" rx="3"/>
+  <rect class="pt-copy" x="72" y="236" width="174" height="6" rx="3"/>
+  <rect class="pt-copy" x="72" y="258" width="220" height="5" rx="2.5"/>
+  <rect class="pt-copy" x="72" y="279" width="203" height="5" rx="2.5"/>
+  <rect class="pt-copy" x="72" y="300" width="133" height="5" rx="2.5"/>
+  <path class="pt-accent" d="M214 294V310"/>
+
+  <path class="pt-rule" d="M352 156V346"/>
+  <path class="pt-accent" d="M352 234V266"/>
+  <rect class="pt-surface" x="366.5" y="150.5" width="321" height="201" rx="4"/>
+  <path class="pt-rule" d="M367 198.5H687"/>
+  <text x="386" y="183">Empty</text>
+  <rect class="pt-paper" x="386.5" y="215.5" width="281" height="49" rx="3"/>
+  <rect x="386.5" y="215.5" width="281" height="49" rx="3" class="pt-accent"/>
+  <g class="pt-accent"><rect x="402" y="229" width="22" height="20" rx="1"/><path d="M409.3 229V249M416.7 229V249"/></g>
+  <text x="437" y="249">Kanban</text>
+  <rect class="pt-paper" x="386.5" y="277.5" width="281" height="49" rx="3"/>
+  <g class="pt-rule"><path d="M405 302H415M415 290V314M415 290H424M415 314H424"/><rect x="398" y="298" width="7" height="8"/><rect x="424" y="286" width="7" height="8"/><rect x="424" y="310" width="7" height="8"/></g>
+  <text x="443" y="311">Mind Map</text>
+  <path d="M627 247V271L634 264 640 276 646 273 640 261 650 261Z" fill="var(--pt-bg)" stroke="var(--pt-accent)" stroke-width="1.75" stroke-linejoin="round"/>
+  <text class="pt-caption" x="32" y="390">The existing Note Tray stays in place.</text>
+</svg>

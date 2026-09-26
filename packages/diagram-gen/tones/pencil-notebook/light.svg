@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t13-title t13-desc" data-tone="13" data-theme="light">
+<title id="t13-title">13 — Pencil notebook</title>
+<desc id="t13-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. A ruled notebook ground, light doubled contours, imperfect hatch strokes, and quiet pencil arrows make a process feel like a clearly explained working sketch.</desc>
+<style>
+svg[data-tone='13'] {--bg:#F8F3E7;--ink:#4B4943;--accent:#A76955;--paper:#FAF6EE;--secondary:#A79C86;--grid:#DDDCD1}
+svg[data-tone='13'][data-theme='dark'] {--bg:#282B29;--ink:#E0DFD2;--accent:#D2937B;--paper:#303430;--secondary:#969D8E;--grid:#454B44}
+.t13-text {font-family:'Segoe Print', 'Comic Sans MS', 'Trebuchet MS', Arial, sans-serif;fill:#4B4943;font-size:28px}
+.t13-label {font-weight:600;text-anchor:middle}
+.t13-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t13-rule" width="720" height="25" patternUnits="userSpaceOnUse"><path d="M0 24H720" stroke="#DDDCD1" stroke-width="1"/></pattern>
+<pattern id="t13-pattern" width="37" height="37" patternUnits="userSpaceOnUse"><path d="M-8 37L29 0M3 39L40 2M15 42L42 15M-3 12L12 -3" fill="none" stroke="#A79C86" stroke-width="1.1"/><path d="M0 4L33 37M-3 17L17 37M16 -2L37 19" fill="none" stroke="#A76955" stroke-width=".85" opacity=".7"/></pattern></defs>
+<rect width="720" height="400" fill="#F8F3E7"/>
+<rect width="720" height="400" fill="url(#t13-rule)"/>
+<path d="M28 0L30 400" stroke="#A76955" stroke-width="1" opacity=".4"/>
+<text class="t13-text t13-label" x="137" y="47" transform="rotate(-2 137 47)">Pattern</text>
+<path d="M50 84L217 80L215 177L53 179Z" fill="#FAF6EE" stroke="#4B4943" stroke-width="1.7"/>
+<path d="M52 82L219 83L216 179L51 180Z" fill="none" stroke="#A79C86" stroke-width=".8"/>
+<path d="M57 90L210 87L208 169L59 171Z" fill="url(#t13-pattern)"/>
+<text class="t13-text t13-label" x="137" y="232" transform="rotate(2 137 232)">Text</text>
+<path d="M55 259L219 260L217 350L52 352Z" fill="#FAF6EE" stroke="#4B4943" stroke-width="1.7"/>
+<path d="M53 261L220 257L218 352L55 354Z" fill="none" stroke="#A79C86" stroke-width=".8"/>
+<text class="t13-text t13-make" x="137" y="320" style="font-size:40px" transform="rotate(-2 137 320)">MAKE</text>
+<path d="M72 330Q132 327 194 332" fill="none" stroke="#A79C86" stroke-width="1.4"/>
+<g fill="none" stroke="#4B4943" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M232 129C276 125 273 206 307 205L330 207M231 307C277 311 276 222 307 205M320 199L331 207L319 214"/></g>
+<g fill="none" stroke="#A79C86" stroke-width=".8"><path d="M231 132C273 128 270 208 306 208M231 309C278 314 280 218 308 208"/></g>
+<path d="M343 91L541 88L540 327L340 325Z" fill="#FAF6EE" stroke="#4B4943" stroke-width="2"/>
+<path d="M341 89L543 91L542 325L342 328Z" fill="none" stroke="#A79C86" stroke-width=".9"/>
+<path d="M351 99L533 97L532 318L349 317Z" fill="url(#t13-pattern)"/>
+<path d="M347 170L538 167L536 247L348 251Z" fill="#FAF6EE"/>
+<text class="t13-text t13-make" x="441" y="227" style="font-size:46px" transform="rotate(-2 441 227)">MAKE</text>
+<path d="M365 240Q449 235 518 240" stroke="#A76955" stroke-width="1.4" fill="none"/>
+<path d="M552 208Q581 205 607 209M597 201L608 209L597 216" stroke="#4B4943" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+<path d="M618 158L659 160L683 185L681 267L615 265Z M659 160L658 185L683 185" fill="#FAF6EE" stroke="#4B4943" stroke-width="1.9"/>
+<path d="M616 160L661 158L685 184L683 269L618 267" fill="none" stroke="#A79C86" stroke-width=".8"/>
+<text class="t13-text t13-label" x="650" y="233" style="font-size:26px" transform="rotate(-2 650 233)">PNG</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="22" data-theme="dark" role="img" aria-labelledby="t22-title t22-desc">
+<title id="t22-title">Transit wayfinding: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t22-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Thick routed lines, round station rings, clean transfer geometry, and bold wayfinding labels. Two named source branches join before the combined poster and one PNG destination.</desc>
+<style>
+svg[data-tone='22'] {--bg:#FAFBF8;--paper:#EEF2EF;--ink:#213D4A;--primary:#2777C7;--secondary:#DE8054;--tertiary:#A4B7AA;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='22'][data-theme='dark'] {--bg:#15242E;--paper:#213944;--ink:#F0F5EB;--primary:#80B9EF;--secondary:#F1AA7D;--tertiary:#668A88;}
+.t22-bg {fill:#15242E;}
+.t22-paper {fill:#213944;}
+.t22-ink {fill:#F0F5EB;}
+.t22-primary {fill:#80B9EF;}
+.t22-secondary {fill:#F1AA7D;}
+.t22-tertiary {fill:#668A88;}
+.t22-label {fill:#F0F5EB;font-size:27px;font-weight:600;text-anchor:middle;}
+.t22-make {fill:#F0F5EB;font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t22-something {fill:#F0F5EB;font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t22-line {fill:none;stroke:#F0F5EB;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t22-label{font-weight:800;font-size:28px;}.t22-make{font-weight:900;}
+</style>
+<defs>
+<pattern id="t22-routes" width="184" height="192" patternUnits="userSpaceOnUse">
+ <path d="M-14 34H66q22 0 22 22v41q0 19 19 19h91" fill="none" stroke="#80B9EF" stroke-width="10"/>
+ <path d="M152-10v35q0 18-18 18H54q-19 0-19 19v99q0 18-18 18h-31" fill="none" stroke="#F1AA7D" stroke-width="10"/>
+ <g class="t22-paper" stroke="#F0F5EB" stroke-width="3"><circle cx="88" cy="78" r="7"/><circle cx="122" cy="116" r="7"/><circle cx="35" cy="142" r="7"/></g>
+</pattern>
+</defs>
+<rect width="720" height="400" class="t22-bg"/>
+
+<rect x="55" y="52" width="148" height="114" rx="15" class="t22-paper"/>
+<rect x="55" y="52" width="148" height="114" rx="15" fill="url(#t22-routes)"/>
+<text x="129" y="204" class="t22-label">Pattern</text>
+<rect x="55" y="250" width="148" height="70" rx="15" class="t22-paper"/>
+<text x="129" y="297" class="t22-make" style="font-size:36px">MAKE</text>
+<text x="129" y="365" class="t22-label">Text</text>
+<path d="M208 108h46q27 0 27 27v42q0 25 29 25h16" fill="none" stroke="#80B9EF" stroke-width="8" stroke-linecap="round"/>
+<path d="M208 285h46q27 0 27-27v-31q0-25 29-25h16" fill="none" stroke="#F1AA7D" stroke-width="8" stroke-linecap="round"/>
+<path d="M327 202h34" fill="none" stroke="#F0F5EB" stroke-width="8"/>
+<circle cx="207" cy="108" r="7" class="t22-bg" stroke="#80B9EF" stroke-width="5"/>
+<circle cx="207" cy="285" r="7" class="t22-bg" stroke="#F1AA7D" stroke-width="5"/>
+<circle cx="320" cy="202" r="12" class="t22-bg" stroke="#F0F5EB" stroke-width="4"/>
+<path d="m351 192 10 10-10 10" fill="none" stroke="#F0F5EB" stroke-width="5" stroke-linejoin="round"/>
+<rect x="377" y="66" width="184" height="268" rx="19" class="t22-paper"/>
+<rect x="377" y="66" width="184" height="268" rx="19" fill="url(#t22-routes)" opacity=".76"/>
+<rect x="385" y="159" width="168" height="86" rx="5" class="t22-paper"/>
+<text x="469" y="195" class="t22-make">MAKE</text>
+<text x="469" y="230" class="t22-something">SOMETHING</text>
+<path d="M576 202h55" fill="none" stroke="#F0F5EB" stroke-width="8" stroke-linecap="round"/>
+<path d="m605 192 10 10-10 10" fill="none" stroke="#15242E" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="648" cy="202" r="23" class="t22-bg" stroke="#F0F5EB" stroke-width="6"/>
+<path d="M648 190v22m-9-8 9 9 9-9" fill="none" stroke="#F0F5EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="648" y="272" class="t22-label">PNG</text>
+
+</svg>

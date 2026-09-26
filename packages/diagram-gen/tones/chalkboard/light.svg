@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-labelledby="t15-title t15-desc" data-tone="15" data-theme="light">
+<title id="t15-title">15 — Chalkboard</title>
+<desc id="t15-desc">A Pattern source and a Text source containing MAKE combine into a poster that visibly contains both. The poster is exported as PNG. Dry broken strokes, chalk dust, soft secondary contours, and warm chalk accents present the relationship as a compact blackboard lesson.</desc>
+<style>
+svg[data-tone='15'] {--bg:#203B34;--ink:#F0EEE0;--accent:#E9C774;--paper:#203B34;--secondary:#ABBAAC;--grid:#415E51}
+svg[data-tone='15'][data-theme='dark'] {--bg:#13231F;--ink:#F5F2E3;--accent:#F0D189;--paper:#13231F;--secondary:#9EACA0;--grid:#2A4135}
+.t15-text {font-family:'Segoe Print', 'Comic Sans MS', 'Trebuchet MS', Arial, sans-serif;fill:#F0EEE0;font-size:28px}
+.t15-label {font-weight:600;text-anchor:middle}
+.t15-make {font-weight:800;letter-spacing:1px;text-anchor:middle}
+</style>
+<defs><pattern id="t15-dust" width="79" height="61" patternUnits="userSpaceOnUse"><g fill="#ABBAAC" opacity=".22"><circle cx="7" cy="9" r=".8"/><circle cx="33" cy="28" r=".6"/><circle cx="67" cy="17" r=".7"/><circle cx="44" cy="53" r=".6"/><circle cx="12" cy="46" r=".5"/></g></pattern>
+<pattern id="t15-pattern" width="43" height="43" patternUnits="userSpaceOnUse"><path d="M0 21L21 0L43 21L21 43Z" fill="none" stroke="#E9C774" stroke-width="2.4" stroke-dasharray="2.3 .6 5 .7" stroke-linecap="round"/><path d="M2 22L22 2L41 21L21 41Z" fill="none" stroke="#ABBAAC" stroke-width=".8" opacity=".7"/></pattern></defs>
+<rect width="720" height="400" fill="#203B34"/>
+<rect width="720" height="400" fill="url(#t15-dust)"/>
+<path d="M43 379Q334 372 692 379" stroke="#415E51" stroke-width="4" opacity=".6" fill="none"/>
+<text class="t15-text t15-label" x="135" y="48" transform="rotate(-2 135 48)">Pattern</text>
+<path d="M51 84L218 82L216 177L53 179Z" fill="url(#t15-pattern)" stroke="#F0EEE0" stroke-width="2.8" stroke-dasharray="3 .6 6 .8" stroke-linecap="round"/>
+<path d="M48 87L215 80M220 86L218 179" stroke="#ABBAAC" stroke-width=".8" fill="none"/>
+<text class="t15-text t15-label" x="135" y="232" transform="rotate(1 135 232)">Text</text>
+<path d="M55 261L219 260L216 351L54 349Z" fill="#203B34" stroke="#F0EEE0" stroke-width="2.8" stroke-dasharray="3 .6 6 .8" stroke-linecap="round"/>
+<text class="t15-text t15-make" x="137" y="321" style="font-size:40px">MAKE</text>
+<path d="M75 333L194 330" stroke="#E9C774" stroke-width="2" stroke-dasharray="2 .8 4 .5"/>
+<path d="M232 129C270 129 265 197 300 207L328 208 M231 305C274 309 266 224 300 207 M317 198L330 208L316 217" fill="none" stroke="#F0EEE0" stroke-width="2.7" stroke-dasharray="3 .8 5 .5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M343 91L541 89L540 326L341 324Z" fill="url(#t15-pattern)" stroke="#F0EEE0" stroke-width="3" stroke-dasharray="3 .6 7 .8" stroke-linecap="round"/>
+<path d="M339 94L338 327L539 329" fill="none" stroke="#ABBAAC" stroke-width=".8"/>
+<path d="M348 172L537 172L535 246L347 248Z" fill="#203B34"/>
+<text class="t15-text t15-make" x="442" y="228" style="font-size:48px">MAKE</text>
+<path d="M363 239L521 237" stroke="#E9C774" stroke-width="2.5" stroke-dasharray="3 .6 5 .5"/>
+<path d="M554 208L606 209M595 201L608 209L595 217" fill="none" stroke="#F0EEE0" stroke-width="2.7" stroke-dasharray="3 .7 5 .6" stroke-linecap="round"/>
+<path d="M618 160L660 161L684 185L682 267L616 266Z M660 161L659 185L684 185" fill="#203B34" stroke="#F0EEE0" stroke-width="2.8" stroke-dasharray="4 .7 5 .5" stroke-linecap="round" stroke-linejoin="round"/>
+<text class="t15-text t15-label" x="650" y="234" style="font-size:26px">PNG</text>
+</svg>

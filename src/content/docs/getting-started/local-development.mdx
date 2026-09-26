@@ -1,0 +1,56 @@
+---
+title: Local development
+description: Run the downloaded source, build the documentation, and package a local consumer.
+sidebar_position: 2
+---
+
+Use Node.js 22–24 and pnpm 10. The root `package.json` records the exact pnpm version and the project dependencies.
+
+## Run the project site
+
+From the project root:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open the address printed by zfb. The project website contains these documentation pages, the live [tone catalog](/tones/), and the [example galleries](/examples/).
+
+The development command prepares the showcase data before starting zfb and watches the examples, tone collection, and viewer assets for updates. A generated session has its own content watcher for candidate additions, edits, and removals.
+
+## Build and preview
+
+```bash
+pnpm check
+pnpm test
+pnpm check:examples
+pnpm build
+pnpm preview
+```
+
+`check` runs TypeScript checking for the project sources. `test` exercises engine and initializer behavior. `check:examples` validates the shipped sessions. `build` generates the documentation site using zfb; `preview` serves the build output.
+
+These commands are verification entrypoints, not a statement that they have already passed on your machine. Consult the handoff's verification report for the checks completed when the source bundle was produced.
+
+## Make local package archives
+
+```bash
+pnpm pack:local
+```
+
+The script prints the paths of the resulting package archives. Use the engine archive with the source initializer as described in [Your first session](/docs/getting-started/first-session/).
+
+This exercises the package boundary: the generated host consumes packaged files through its dependency. Keep this check when changing the engine's `files` list, relative asset paths, tone resources, initializer templates, or package exports.
+
+## Choose addresses at the caller
+
+The app accepts a destination and the session CLI accepts host and port options. A personal wrapper can select a logs directory or a network address that fits a particular machine. The reusable engine does not contain those personal choices.
+
+When passing flags directly to the installed engine, use its explicit command interface:
+
+```bash
+pnpm exec zudo-diagram-gen dev . --host 0.0.0.0 --port 4799
+```
+
+Choose a free port and stop the server you started when the review is finished. See the [CLI reference](/docs/reference/cli/) for the supported commands.

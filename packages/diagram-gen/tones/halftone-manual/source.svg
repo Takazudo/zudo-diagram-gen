@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="18" data-theme="light" role="img" aria-labelledby="t18-title t18-desc">
+<title id="t18-title">Halftone manual: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t18-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. Monochrome technical-print language: firm dark keylines, visible dot screens, diagonal hatching, and knockout lettering. Texture is confined to meaningful picture areas.</desc>
+<style>
+svg[data-tone='18'] {--bg:#F8F7F2;--paper:#FFFDF6;--ink:#25282A;--primary:#25282A;--secondary:#9F9E96;--tertiary:#DEDDD4;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='18'][data-theme='dark'] {--bg:#202326;--paper:#292D30;--ink:#F4F1E5;--primary:#F4F1E5;--secondary:#A3A69F;--tertiary:#44494B;}
+.t18-bg {fill:var(--bg);}
+.t18-paper {fill:var(--paper);}
+.t18-ink {fill:var(--ink);}
+.t18-primary {fill:var(--primary);}
+.t18-secondary {fill:var(--secondary);}
+.t18-tertiary {fill:var(--tertiary);}
+.t18-label {fill:var(--ink);font-size:27px;font-weight:600;text-anchor:middle;}
+.t18-make {fill:var(--ink);font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t18-something {fill:var(--ink);font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t18-line {fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t18-knockout{paint-order:stroke;stroke:var(--paper);stroke-width:10px;stroke-linejoin:round;}.t18-label{font-weight:700;}
+</style>
+<defs>
+<pattern id="t18-dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.45" class="t18-ink"/></pattern>
+<pattern id="t18-hatch" width="10" height="10" patternUnits="userSpaceOnUse"><path d="m-5 5 10-10M0 10 10 0m-5 15 10-10" fill="none" stroke="var(--ink)" stroke-width="1.5"/></pattern>
+<pattern id="t18-pattern" width="172" height="152" patternUnits="userSpaceOnUse">
+ <rect width="172" height="152" class="t18-paper"/>
+ <path d="M0 0h172v69L0 128Z" fill="url(#t18-dots)"/>
+ <path d="M93 65 172 91v61H57Z" fill="url(#t18-hatch)"/>
+ <circle cx="32" cy="47" r="26" class="t18-paper" stroke="var(--ink)" stroke-width="3"/>
+ <circle cx="32" cy="47" r="17" fill="url(#t18-dots)"/>
+</pattern>
+<marker id="t18-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 9 5 0 10Z" class="t18-ink"/></marker>
+</defs>
+<rect width="720" height="400" class="t18-bg"/>
+
+<rect x="57" y="59" width="147" height="107" class="t18-ink"/>
+<rect x="51" y="53" width="147" height="107" fill="url(#t18-pattern)" stroke="var(--ink)" stroke-width="3"/>
+<text x="126" y="202" class="t18-label">Pattern</text>
+<rect x="58" y="253" width="145" height="62" class="t18-ink"/>
+<rect x="52" y="247" width="145" height="62" class="t18-paper" stroke="var(--ink)" stroke-width="3"/>
+<text x="125" y="291" class="t18-make">MAKE</text>
+<text x="126" y="360" class="t18-label">Text</text>
+<path d="M219 106h49l63 68" class="t18-line" marker-end="url(#t18-arrow)"/>
+<path d="M219 279h50l64-51" class="t18-line" marker-end="url(#t18-arrow)"/>
+<rect x="357" y="83" width="187" height="247" class="t18-ink"/>
+<rect x="350" y="76" width="187" height="247" fill="url(#t18-pattern)" stroke="var(--ink)" stroke-width="3"/>
+<text x="444" y="194" class="t18-make t18-knockout">MAKE</text>
+<text x="444" y="233" class="t18-something t18-knockout">SOMETHING</text>
+<path d="M558 202h51" class="t18-line" marker-end="url(#t18-arrow)"/>
+<path d="M632 170h30l18 18v50h-48Z" class="t18-paper" stroke="var(--ink)" stroke-width="3"/>
+<path d="M660 171v19h19M644 213h24M656 197v19m-8-7 8 8 8-8" class="t18-line"/>
+<text x="655" y="275" class="t18-label">PNG</text>
+
+</svg>

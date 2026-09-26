@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" data-tone="23" data-theme="dark" role="img" aria-labelledby="t23-title t23-desc">
+<title id="t23-title">Modular geometric: Pattern and Text combine into a composition, exported as PNG</title>
+<desc id="t23-desc">A pattern background and a text layer, shown separately at left, combine in the poster at center. The poster visibly contains both the pattern and MAKE SOMETHING text. A rightward connector indicates its PNG export. A studio-style tile vocabulary of circles, quarter circles, blocks, and deliberately open space. Simple convergence paths preserve the explanation while the artwork carries the expressive geometry.</desc>
+<style>
+svg[data-tone='23'] {--bg:#F4F1E9;--paper:#FAF7F0;--ink:#283B42;--primary:#447F89;--secondary:#E58D62;--tertiary:#D9C777;font-family:Arial, Helvetica, sans-serif;}
+svg[data-tone='23'][data-theme='dark'] {--bg:#1B2D34;--paper:#263F48;--ink:#F6EAD5;--primary:#6FAAB0;--secondary:#DFA17B;--tertiary:#CBBA7D;}
+.t23-bg {fill:#1B2D34;}
+.t23-paper {fill:#263F48;}
+.t23-ink {fill:#F6EAD5;}
+.t23-primary {fill:#6FAAB0;}
+.t23-secondary {fill:#DFA17B;}
+.t23-tertiary {fill:#CBBA7D;}
+.t23-label {fill:#F6EAD5;font-size:27px;font-weight:600;text-anchor:middle;}
+.t23-make {fill:#F6EAD5;font-size:40px;font-weight:800;text-anchor:middle;letter-spacing:-1px;}
+.t23-something {fill:#F6EAD5;font-size:26px;font-weight:700;text-anchor:middle;letter-spacing:-.6px;}
+.t23-line {fill:none;stroke:#F6EAD5;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.t23-label{font-weight:600;letter-spacing:-.6px;}
+</style>
+<defs>
+<pattern id="t23-tiles" width="160" height="160" patternUnits="userSpaceOnUse">
+ <rect width="160" height="160" class="t23-paper"/>
+ <path d="M0 0h80a80 80 0 0 1-80 80Z" class="t23-primary"/>
+ <circle cx="120" cy="40" r="28" class="t23-secondary"/>
+ <path d="M0 80h80v80H0Z" class="t23-tertiary"/>
+ <path d="M0 80a80 80 0 0 1 80 80H0Z" class="t23-paper"/>
+ <rect x="80" y="80" width="80" height="80" class="t23-secondary"/>
+ <circle cx="120" cy="120" r="28" class="t23-paper"/>
+</pattern>
+<marker id="t23-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 6 4 1 7Z" class="t23-ink"/></marker>
+</defs>
+<rect width="720" height="400" class="t23-bg"/>
+
+<rect x="52" y="53" width="160" height="112" fill="url(#t23-tiles)"/>
+<text x="132" y="204" class="t23-label">Pattern</text>
+<circle cx="85" cy="282" r="38" class="t23-tertiary"/>
+<rect x="85" y="244" width="125" height="76" class="t23-paper"/>
+<text x="130" y="296" class="t23-make" style="font-size:35px">MAKE</text>
+<text x="132" y="363" class="t23-label">Text</text>
+<path d="M231 110h30l51 80M231 282h30l51-70" fill="none" stroke="#F6EAD5" stroke-width="3"/>
+<circle cx="318" cy="202" r="12" class="t23-ink"/>
+<path d="M330 202h27" fill="none" stroke="#F6EAD5" stroke-width="3" marker-end="url(#t23-arrow)"/>
+<rect x="374" y="66" width="184" height="268" fill="url(#t23-tiles)"/>
+<path d="M374 149h184v99H374Z" class="t23-paper"/>
+<circle cx="387" cy="199" r="13" class="t23-tertiary"/>
+<text x="467" y="193" class="t23-make" style="font-size:43px;letter-spacing:-2px">MAKE</text>
+<text x="467" y="231" class="t23-something">SOMETHING</text>
+<path d="M577 202h43" fill="none" stroke="#F6EAD5" stroke-width="3" marker-end="url(#t23-arrow)"/>
+<circle cx="654" cy="202" r="29" class="t23-secondary"/>
+<path d="M643 184h13l13 13v24h-26Z" class="t23-paper"/>
+<path d="M656 184v13h13" fill="none" stroke="#F6EAD5" stroke-width="2"/>
+<path d="M656 201v12m-5-4 5 5 5-5" fill="none" stroke="#F6EAD5" stroke-width="2.5"/>
+<text x="654" y="274" class="t23-label">PNG</text>
+
+</svg>

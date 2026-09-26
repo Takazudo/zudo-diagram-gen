@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Collect two changes into a named draft",
+  "toneId": "fine-outline",
+  "description": "A square neutral fine-line diagram compares Workbench before and after moving selected changes A and B into Draft: Guide. Unselected change C remains on Workbench, which continues to exist. A, B, and C are illustrative semantic change units, not whole pages or asset files. Guide is an invented example draft title. This successful Move example assumes no dependency expansion, blockers, or stale preview; it does not explain the optional Keep a copy on Workbench mode. The complete Workbench document is not visualized, only its changes.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}

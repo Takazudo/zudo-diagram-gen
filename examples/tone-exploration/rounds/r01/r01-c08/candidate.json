@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-c08",
+  "title": "Marker workshop",
+  "toneId": "marker-workshop",
+  "description": "Broad rounded marker lines, loose loop motifs, imperfect corners, and flat highlighter swipes give the diagram a lively workshop character.",
+  "order": 8,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null
+}
