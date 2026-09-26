@@ -22,7 +22,7 @@ const files = new Map([
 ]);
 const server = createServer((request, response) => {
   const content = files.get(request.url);
-  response.writeHead(content ? 200 : 404, { 'Content-Type': 'text/html; charset=utf-8' });
+  response.writeHead(content ? 200 : 404, { 'Content-Type': request.url.endsWith('.svg') ? 'image/svg+xml' : 'text/html; charset=utf-8' });
   response.end(content || 'Not found');
 });
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -172,6 +172,15 @@ try {
     await page.locator('[data-action="download-svg"]').click();
     const svg = await svgDownload;
     assert.match(svg.suggestedFilename(), /\.svg$/);
+    const svgBytes = await readFile(await svg.path());
+    const data = JSON.parse(await page.locator('#diagram-data').textContent());
+    assert.equal(svgBytes.toString(), data.candidates.find((candidate) => candidate.id === 'r01-c01').assets.dark);
+    files.set('/download.svg', svgBytes);
+    const svgPage = await context.newPage();
+    try {
+      await svgPage.goto(`${url}/download.svg`);
+      assert.equal(await svgPage.locator('svg').count(), 1);
+    } finally { await svgPage.close(); }
   });
   await page.goto(`${url}/consumer`);
   await verify('packed consumer standalone workbench', async () => {
