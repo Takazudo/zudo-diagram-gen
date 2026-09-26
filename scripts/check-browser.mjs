@@ -36,8 +36,10 @@ try {
   await page.goto(`${url}/project`);
   await page.locator('.dg-card').first().waitFor();
   await verify('overview IDs, search, and round filtering', async () => {
-    assert.equal(await page.locator('.dg-card').count(), 11);
+    assert.equal(await page.locator('.dg-card').count(), 10);
     assert.equal(await page.locator('.dg-candidate-id').first().textContent(), 'r01-c01');
+    await page.locator('[data-action="round"][data-id="all"]').click();
+    assert.equal(await page.locator('.dg-card').count(), 11);
     await page.locator('[data-field="search"]').fill('r01-c07');
     assert.equal(await page.locator('.dg-card').count(), 1);
     assert.equal(await page.locator('.dg-candidate-id').first().textContent(), 'r01-c07');
