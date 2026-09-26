@@ -27,3 +27,17 @@ route containing the package-owned UI and validated data.
 Feedback can be copied as text or downloaded as JSON. Browser storage is a local
 convenience; it does not write to the workspace or resume an agent. The source
 project includes full zudo-doc documentation, examples, and a Codex handoff.
+
+## Embed the workbench
+
+Import the package-owned module and stylesheet in a browser island. Mount after the host element exists and dispose when the island unmounts:
+
+```js
+import { mountDiagramApp } from '@takazudo/zudo-diagram-gen/client/mount';
+import '@takazudo/zudo-diagram-gen/client/app.css';
+
+const dispose = mountDiagramApp(element, galleryData, { embedded: true });
+// Call dispose() during island cleanup.
+```
+
+Embedded mode uses the host `<html data-theme="light|dark">` appearance (or its `dark` class), observes later theme changes, and keeps the diagram asset theme switch available. The host supplies project navigation. Standalone HTML exports continue to include their own classic script and CSS.
