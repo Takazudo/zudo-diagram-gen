@@ -4,11 +4,20 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { Window } from 'happy-dom';
 import { loadSession, loadToneCatalog } from '../packages/diagram-gen/src/model.mjs';
+import { mountDiagramApp } from '../packages/diagram-gen/client/mount.mjs';
 
 // DOM contract tests execute only this repository's own viewer source. They do
 // not assert real-browser layout, SVG paint, gesture behavior or OS clipboard access.
+const css = await readFile(
+  new URL('../packages/diagram-gen/client/app.css', import.meta.url),
+  'utf8',
+);
 const script = await readFile(
   new URL('../packages/diagram-gen/client/app.js', import.meta.url),
+  'utf8',
+);
+const mountSource = await readFile(
+  new URL('../packages/diagram-gen/client/mount.mjs', import.meta.url),
   'utf8',
 );
 const source = await loadSession(
@@ -305,4 +314,90 @@ test('empty sessions and unavailable clipboard have usable fallbacks', async () 
   } finally {
     await full.close();
   }
+});
+
+function embeddedWindow() {
+  const window = new Window({ url: 'https://diagram.test/docs/workbench/' });
+  window.document.head.innerHTML = `<style>${css}</style>`;
+  window.document.body.innerHTML =
+    '<input id="host-search"><div id="island" class="host-class"></div>';
+  return window;
+}
+
+test('embedded mount uses its container and follows host theme without changing artwork theme', async () => {
+  const window = embeddedWindow();
+  const root = window.document.getElementById('island');
+  window.document.documentElement.setAttribute('data-theme', 'dark');
+  const dispose = mountDiagramApp(root, structuredClone(source), { embedded: true });
+  try {
+    assert.equal(root.dataset.uiTheme, 'dark');
+    assert.equal(root.dataset.embedded, 'true');
+    assert.equal(window.getComputedStyle(root).minHeight, '0');
+    assert.equal(window.getComputedStyle(root.querySelector('.dg-layout')).minHeight, '0');
+    assert.equal(root.querySelectorAll('.dg-top-link, [data-action="ui-theme"]').length, 0);
+    assert.ok(root.querySelector('[data-action="theme"][data-value="dark"]'));
+    assert.equal(root.dataset.diagramTheme, 'light');
+    window.document.documentElement.setAttribute('data-theme', 'light');
+    await tick();
+    assert.equal(root.dataset.uiTheme, 'light');
+    window.document.documentElement.removeAttribute('data-theme');
+    window.document.documentElement.classList.add('dark');
+    await tick();
+    assert.equal(root.dataset.uiTheme, 'dark');
+  } finally {
+    dispose();
+    await window.happyDOM.close();
+  }
+});
+
+test('embedded shortcuts ignore host focus and dispose supports a clean remount', async () => {
+  const window = embeddedWindow();
+  const root = window.document.getElementById('island');
+  const hostSearch = window.document.getElementById('host-search');
+  let added = 0;
+  let removed = 0;
+  const add = window.addEventListener.bind(window);
+  const remove = window.removeEventListener.bind(window);
+  window.addEventListener = (...args) => {
+    added++;
+    return add(...args);
+  };
+  window.removeEventListener = (...args) => {
+    removed++;
+    return remove(...args);
+  };
+  try {
+    for (let cycle = 0; cycle < 2; cycle++) {
+      const dispose = mountDiagramApp(root, structuredClone(source), { embedded: true });
+      assert.equal(root.classList.contains('host-class'), true);
+      assert.equal(root.querySelectorAll('.dg-card').length, 10);
+      hostSearch.focus();
+      root.dispatchEvent(new window.KeyboardEvent('keydown', { key: 's', bubbles: true }));
+      assert.equal(
+        root
+          .querySelector('.dg-card [data-action="shortlist-toggle"]')
+          .getAttribute('aria-pressed'),
+        'false',
+      );
+      root.querySelector('[data-action="inspect"][data-id="r01-c01"]').click();
+      assert.ok(root.querySelector('.dg-inspector'));
+      dispose();
+      dispose();
+      assert.equal(root.innerHTML, '');
+      assert.equal(root.classList.contains('host-class'), true);
+      assert.equal(root.dataset.diagramReady, undefined);
+      window.localStorage.clear();
+    }
+    assert.equal(added, removed);
+  } finally {
+    await window.happyDOM.close();
+  }
+});
+
+test('classic standalone script contains the current mount implementation', () => {
+  assert.ok(
+    script.includes(
+      mountSource.replace('export function mountDiagramApp', 'function mountDiagramApp'),
+    ),
+  );
 });

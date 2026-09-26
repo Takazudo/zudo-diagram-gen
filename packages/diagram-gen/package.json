@@ -4,16 +4,43 @@
   "description": "A zfb-based workspace for comparing and refining SVG diagram candidates.",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22 <25" },
+  "engines": {
+    "node": ">=22 <25"
+  },
   "exports": {
-    ".": { "types": "./src/index.d.ts", "default": "./src/index.mjs" },
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.mjs"
+    },
     "./model": "./src/model.mjs",
     "./render": "./src/render.mjs",
+    "./client/mount": {
+      "types": "./client/mount.d.ts",
+      "default": "./client/mount.mjs"
+    },
+    "./client/app.css": "./client/app.css",
     "./schemas/*": "./schemas/*"
   },
-  "bin": { "zudo-diagram-gen": "./src/cli.mjs" },
-  "scripts": { "prepack": "node src/verify-package.mjs" },
-  "files": ["src", "client", "tones", "schemas", "README.md", "LICENSE"],
-  "dependencies": { "saxes": "6.0.0" },
-  "peerDependencies": { "@takazudo/zfb": "^2.21.1", "preact": "^10.29.1" }
+  "bin": {
+    "zudo-diagram-gen": "./src/cli.mjs"
+  },
+  "scripts": {
+    "build:client": "node client/build-standalone.mjs",
+    "prepack": "node client/build-standalone.mjs && node src/verify-package.mjs"
+  },
+  "files": [
+    "src",
+    "client",
+    "tones",
+    "schemas",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "saxes": "6.0.0"
+  },
+  "peerDependencies": {
+    "@takazudo/zfb": "^2.21.1",
+    "preact": "^10.29.1"
+  }
 }

@@ -1,5 +1,5 @@
 /* Scoped workbench styling; SVG artwork is rendered in isolated image elements. */
-#diagram-app {
+.dg-app {
   --dg-bg: #f5f6f8;
   --dg-panel: #ffffff;
   --dg-panel-soft: #f8f9fb;
@@ -20,7 +20,12 @@
   background: var(--dg-bg);
   color: var(--dg-text);
   min-height: 100vh;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
@@ -28,7 +33,7 @@
   text-align: left;
   -webkit-font-smoothing: antialiased;
 }
-#diagram-app[data-ui-theme="dark"] {
+.dg-app[data-ui-theme='dark'] {
   --dg-bg: #15181f;
   --dg-panel: #1c2029;
   --dg-panel-soft: #212630;
@@ -46,436 +51,2124 @@
   --dg-warning-text: #ead18c;
   color-scheme: dark;
 }
-#diagram-app *, #diagram-app *::before, #diagram-app *::after { box-sizing: border-box; }
-#diagram-app h1, #diagram-app h2, #diagram-app h3, #diagram-app h4, #diagram-app p, #diagram-app ul, #diagram-app ol, #diagram-app dl, #diagram-app dd { margin: 0; }
-#diagram-app h1, #diagram-app h2, #diagram-app h3, #diagram-app h4 { color: inherit; font-family: inherit; font-style: normal; line-height: 1.3; font-weight: 600; }
-#diagram-app button, #diagram-app input, #diagram-app select, #diagram-app textarea { font: inherit; color: inherit; letter-spacing: inherit; }
-#diagram-app button, #diagram-app select { -webkit-tap-highlight-color: transparent; }
-#diagram-app button { cursor: pointer; }
-#diagram-app button:disabled { cursor: not-allowed; opacity: .45; }
-#diagram-app button, #diagram-app input, #diagram-app select, #diagram-app textarea { outline-offset: 3px; }
-#diagram-app button:focus-visible, #diagram-app a:focus-visible, #diagram-app input:focus-visible, #diagram-app select:focus-visible, #diagram-app textarea:focus-visible, #diagram-app summary:focus-visible, #diagram-app [tabindex]:focus-visible { outline: 2px solid var(--dg-accent); outline-offset: 3px; }
-#diagram-app a { color: inherit; text-decoration: none; }
-#diagram-app a:hover { color: var(--dg-accent-text); }
-#diagram-app code, #diagram-app kbd { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; }
-#diagram-app img { display: block; max-width: 100%; }
-#diagram-app .dg-icon { display: inline-block; width: 18px; height: 18px; flex: 0 0 18px; vertical-align: middle; pointer-events: none; }
-#diagram-app .dg-sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+/* Win over host prose and reset rules inside a documentation content region. */
+.dg-app.dg-app :where(h1, h2, h3, h4, p, ul, ol, dl, dd) {
+  margin: 0;
+}
+.dg-app.dg-app :where(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: inherit;
+  font-style: normal;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.dg-app.dg-app :where(button, input, select, textarea) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+.dg-app.dg-app img {
+  display: block;
+  max-width: 100%;
+}
+.dg-app *,
+.dg-app *::before,
+.dg-app *::after {
+  box-sizing: border-box;
+}
+.dg-app h1,
+.dg-app h2,
+.dg-app h3,
+.dg-app h4,
+.dg-app p,
+.dg-app ul,
+.dg-app ol,
+.dg-app dl,
+.dg-app dd {
+  margin: 0;
+}
+.dg-app h1,
+.dg-app h2,
+.dg-app h3,
+.dg-app h4 {
+  color: inherit;
+  font-family: inherit;
+  font-style: normal;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.dg-app button,
+.dg-app input,
+.dg-app select,
+.dg-app textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+.dg-app button,
+.dg-app select {
+  -webkit-tap-highlight-color: transparent;
+}
+.dg-app button {
+  cursor: pointer;
+}
+.dg-app button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.dg-app button,
+.dg-app input,
+.dg-app select,
+.dg-app textarea {
+  outline-offset: 3px;
+}
+.dg-app button:focus-visible,
+.dg-app a:focus-visible,
+.dg-app input:focus-visible,
+.dg-app select:focus-visible,
+.dg-app textarea:focus-visible,
+.dg-app summary:focus-visible,
+.dg-app [tabindex]:focus-visible {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 3px;
+}
+.dg-app a {
+  color: inherit;
+  text-decoration: none;
+}
+.dg-app a:hover {
+  color: var(--dg-accent-text);
+}
+.dg-app code,
+.dg-app kbd {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 11px;
+}
+.dg-app img {
+  display: block;
+  max-width: 100%;
+}
+.dg-app .dg-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+.dg-app .dg-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
-#diagram-app .dg-topbar { min-height: 66px; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 0 28px; background: var(--dg-panel); border-bottom: 1px solid var(--dg-line); }
-#diagram-app .dg-brand { display: inline-flex; align-items: center; gap: 11px; white-space: nowrap; font-size: 16px; letter-spacing: -.3px; }
-#diagram-app .dg-brand strong { font-weight: 600; }
-#diagram-app .dg-brand-divider { color: var(--dg-line-strong); padding: 0 10px; font-weight: 400; }
-#diagram-app .dg-brand-symbol { display: grid; grid-template-columns: 7px 7px; grid-template-rows: 7px 7px; gap: 3px; width: 23px; transform: rotate(-8deg); }
-#diagram-app .dg-brand-symbol i { background: var(--dg-accent); border-radius: 1px; }
-#diagram-app .dg-brand-symbol i:nth-child(2) { opacity: .45; transform: translateY(-3px); }
-#diagram-app .dg-brand-symbol i:nth-child(3) { opacity: .65; }
-#diagram-app .dg-topbar-actions { display: flex; align-items: center; gap: 8px; }
-#diagram-app .dg-top-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--dg-muted); padding: 10px 6px; white-space: nowrap; }
-#diagram-app .dg-top-link .dg-icon { width: 13px; height: 13px; flex-basis: 13px; }
-#diagram-app .dg-topbar-separator { height: 18px; width: 1px; background: var(--dg-line); margin: 0 6px; }
-#diagram-app .dg-layout { display: grid; grid-template-columns: 232px minmax(0, 1fr); min-height: calc(100vh - 66px); }
-#diagram-app .dg-sidebar { border-right: 1px solid var(--dg-line); background: var(--dg-panel); display: flex; flex-direction: column; min-width: 0; }
-#diagram-app .dg-sidebar-section { padding: 24px 18px; border-bottom: 1px solid var(--dg-line); }
-#diagram-app .dg-overline { color: var(--dg-muted); font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.6; }
-#diagram-app .dg-session-title { font-size: 19px; letter-spacing: -.35px; margin: 9px 0 11px; overflow-wrap: anywhere; }
-#diagram-app .dg-session-description { font-size: 12px; color: var(--dg-muted); line-height: 1.65; }
-#diagram-app .dg-project-name { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--dg-muted); margin-top: 17px; overflow-wrap: anywhere; }
-#diagram-app .dg-project-name .dg-icon { width: 15px; height: 15px; flex-basis: 15px; }
-#diagram-app .dg-section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-#diagram-app .dg-section-heading h2 { font-size: 10px; color: var(--dg-muted); letter-spacing: 1.2px; text-transform: uppercase; }
-#diagram-app .dg-count { color: var(--dg-faint); font-size: 11px; }
-#diagram-app .dg-nav-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%; min-height: 37px; background: none; border: 1px solid transparent; padding: 8px 9px; border-radius: var(--dg-radius); color: var(--dg-muted); text-align: left; font-size: 12px; margin-bottom: 3px; }
-#diagram-app .dg-nav-row > span:first-child { display: inline-flex; gap: 9px; align-items: center; }
-#diagram-app .dg-nav-row > span:last-child { font-size: 10px; color: var(--dg-faint); }
-#diagram-app .dg-nav-row small { color: var(--dg-faint); font-size: 10px; }
-#diagram-app .dg-nav-row:hover { background: var(--dg-panel-soft); color: var(--dg-text); }
-#diagram-app .dg-nav-row.is-active { background: var(--dg-accent-soft); color: var(--dg-accent-text); }
-#diagram-app .dg-nav-row.is-active > span:last-child, #diagram-app .dg-nav-row.is-active small { color: var(--dg-accent-text); }
-#diagram-app .dg-nav-row .dg-icon { width: 15px; height: 15px; flex-basis: 15px; }
-#diagram-app .dg-round-description, #diagram-app .dg-sidebar-note { font-size: 11px; color: var(--dg-muted); line-height: 1.7; margin-top: 12px; padding: 0 8px; }
-#diagram-app .dg-direction-summary { margin-top: 20px; padding: 13px 10px 4px; border-top: 1px solid var(--dg-line); }
-#diagram-app .dg-direction-summary .dg-overline { font-size: 9px; letter-spacing: 1px; }
-#diagram-app .dg-direction-summary > button { display: flex; align-items: flex-start; gap: 8px; padding: 9px 0; background: none; border: 0; font-size: 12px; text-align: left; width: 100%; }
-#diagram-app .dg-direction-summary > button > .dg-icon { color: var(--dg-accent); margin-top: 1px; width: 14px; height: 14px; flex-basis: 14px; }
-#diagram-app .dg-direction-summary code { display: block; margin-top: 4px; color: var(--dg-muted); font-size: 10px; overflow-wrap: anywhere; }
-#diagram-app .dg-session-facts > div { display: flex; flex-direction: column; gap: 4px; margin-top: 13px; }
-#diagram-app .dg-session-facts dt { font-size: 10px; color: var(--dg-muted); }
-#diagram-app .dg-session-facts dd { font-size: 11px; }
-#diagram-app details > summary { cursor: pointer; }
-#diagram-app .dg-brief, #diagram-app .dg-keyboard { margin-top: 21px; font-size: 11px; }
-#diagram-app .dg-brief > summary, #diagram-app .dg-keyboard > summary { color: var(--dg-muted); }
-#diagram-app .dg-brief-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 430px; overflow-y: auto; font-size: 11px; line-height: 1.8; margin-top: 14px; }
-#diagram-app .dg-keyboard dl { margin-top: 12px; display: grid; gap: 9px; }
-#diagram-app .dg-keyboard dl > div { display: grid; grid-template-columns: 61px 1fr; gap: 6px; color: var(--dg-muted); }
-#diagram-app kbd { border: 1px solid var(--dg-line-strong); border-radius: 3px; padding: 1px 4px; font-size: 10px; }
-#diagram-app .dg-sidebar-footer { margin-top: auto; padding: 25px 20px; font-size: 10px; color: var(--dg-muted); }
-#diagram-app .dg-sidebar-footer code { display: block; padding-left: 14px; margin-top: 6px; font-size: 9px; overflow-wrap: anywhere; color: var(--dg-faint); }
-#diagram-app .dg-status-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--dg-accent); margin-right: 8px; margin-bottom: 1px; }
+.dg-app .dg-topbar {
+  min-height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 0 28px;
+  background: var(--dg-panel);
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-app .dg-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  white-space: nowrap;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+}
+.dg-app .dg-brand strong {
+  font-weight: 600;
+}
+.dg-app .dg-brand-divider {
+  color: var(--dg-line-strong);
+  padding: 0 10px;
+  font-weight: 400;
+}
+.dg-app .dg-brand-symbol {
+  display: grid;
+  grid-template-columns: 7px 7px;
+  grid-template-rows: 7px 7px;
+  gap: 3px;
+  width: 23px;
+  transform: rotate(-8deg);
+}
+.dg-app .dg-brand-symbol i {
+  background: var(--dg-accent);
+  border-radius: 1px;
+}
+.dg-app .dg-brand-symbol i:nth-child(2) {
+  opacity: 0.45;
+  transform: translateY(-3px);
+}
+.dg-app .dg-brand-symbol i:nth-child(3) {
+  opacity: 0.65;
+}
+.dg-app .dg-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dg-app .dg-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--dg-muted);
+  padding: 10px 6px;
+  white-space: nowrap;
+}
+.dg-app .dg-top-link .dg-icon {
+  width: 13px;
+  height: 13px;
+  flex-basis: 13px;
+}
+.dg-app .dg-topbar-separator {
+  height: 18px;
+  width: 1px;
+  background: var(--dg-line);
+  margin: 0 6px;
+}
+.dg-app .dg-layout {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  min-height: calc(100vh - 66px);
+}
+.dg-app .dg-sidebar {
+  border-right: 1px solid var(--dg-line);
+  background: var(--dg-panel);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dg-app .dg-sidebar-section {
+  padding: 24px 18px;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-app .dg-overline {
+  color: var(--dg-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+.dg-app .dg-session-title {
+  font-size: 19px;
+  letter-spacing: -0.35px;
+  margin: 9px 0 11px;
+  overflow-wrap: anywhere;
+}
+.dg-app .dg-session-description {
+  font-size: 12px;
+  color: var(--dg-muted);
+  line-height: 1.65;
+}
+.dg-app .dg-project-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--dg-muted);
+  margin-top: 17px;
+  overflow-wrap: anywhere;
+}
+.dg-app .dg-project-name .dg-icon {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.dg-app .dg-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.dg-app .dg-section-heading h2 {
+  font-size: 10px;
+  color: var(--dg-muted);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.dg-app .dg-count {
+  color: var(--dg-faint);
+  font-size: 11px;
+}
+.dg-app .dg-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 37px;
+  background: none;
+  border: 1px solid transparent;
+  padding: 8px 9px;
+  border-radius: var(--dg-radius);
+  color: var(--dg-muted);
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.dg-app .dg-nav-row > span:first-child {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+}
+.dg-app .dg-nav-row > span:last-child {
+  font-size: 10px;
+  color: var(--dg-faint);
+}
+.dg-app .dg-nav-row small {
+  color: var(--dg-faint);
+  font-size: 10px;
+}
+.dg-app .dg-nav-row:hover {
+  background: var(--dg-panel-soft);
+  color: var(--dg-text);
+}
+.dg-app .dg-nav-row.is-active {
+  background: var(--dg-accent-soft);
+  color: var(--dg-accent-text);
+}
+.dg-app .dg-nav-row.is-active > span:last-child,
+.dg-app .dg-nav-row.is-active small {
+  color: var(--dg-accent-text);
+}
+.dg-app .dg-nav-row .dg-icon {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.dg-app .dg-round-description,
+.dg-app .dg-sidebar-note {
+  font-size: 11px;
+  color: var(--dg-muted);
+  line-height: 1.7;
+  margin-top: 12px;
+  padding: 0 8px;
+}
+.dg-app .dg-direction-summary {
+  margin-top: 20px;
+  padding: 13px 10px 4px;
+  border-top: 1px solid var(--dg-line);
+}
+.dg-app .dg-direction-summary .dg-overline {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.dg-app .dg-direction-summary > button {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 0;
+  background: none;
+  border: 0;
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+}
+.dg-app .dg-direction-summary > button > .dg-icon {
+  color: var(--dg-accent);
+  margin-top: 1px;
+  width: 14px;
+  height: 14px;
+  flex-basis: 14px;
+}
+.dg-app .dg-direction-summary code {
+  display: block;
+  margin-top: 4px;
+  color: var(--dg-muted);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.dg-app .dg-session-facts > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 13px;
+}
+.dg-app .dg-session-facts dt {
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-session-facts dd {
+  font-size: 11px;
+}
+.dg-app details > summary {
+  cursor: pointer;
+}
+.dg-app .dg-brief,
+.dg-app .dg-keyboard {
+  margin-top: 21px;
+  font-size: 11px;
+}
+.dg-app .dg-brief > summary,
+.dg-app .dg-keyboard > summary {
+  color: var(--dg-muted);
+}
+.dg-app .dg-brief-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 430px;
+  overflow-y: auto;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 14px;
+}
+.dg-app .dg-keyboard dl {
+  margin-top: 12px;
+  display: grid;
+  gap: 9px;
+}
+.dg-app .dg-keyboard dl > div {
+  display: grid;
+  grid-template-columns: 61px 1fr;
+  gap: 6px;
+  color: var(--dg-muted);
+}
+.dg-app kbd {
+  border: 1px solid var(--dg-line-strong);
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 10px;
+}
+.dg-app .dg-sidebar-footer {
+  margin-top: auto;
+  padding: 25px 20px;
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-sidebar-footer code {
+  display: block;
+  padding-left: 14px;
+  margin-top: 6px;
+  font-size: 9px;
+  overflow-wrap: anywhere;
+  color: var(--dg-faint);
+}
+.dg-app .dg-status-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dg-accent);
+  margin-right: 8px;
+  margin-bottom: 1px;
+}
 
-#diagram-app .dg-main { min-width: 0; padding: 0 30px 48px; max-width: 1850px; width: 100%; margin: 0 auto; }
-#diagram-app .dg-workspace-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 83px; border-bottom: 1px solid var(--dg-line); }
-#diagram-app .dg-segmented { display: inline-flex; align-items: center; padding: 3px; border: 1px solid var(--dg-line); border-radius: 6px; background: var(--dg-panel); }
-#diagram-app .dg-segmented button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 32px; padding: 6px 11px; border: 0; border-radius: 3px; background: none; color: var(--dg-muted); font-size: 12px; white-space: nowrap; }
-#diagram-app .dg-segmented button:hover { color: var(--dg-text); background: var(--dg-panel-soft); }
-#diagram-app .dg-segmented button.is-active { color: var(--dg-text); background: var(--dg-bg); box-shadow: 0 1px 2px #0000000a; }
-#diagram-app .dg-segmented button small { font-size: 10px; border-radius: 2px; background: var(--dg-accent-soft); color: var(--dg-accent-text); padding: 0 5px; }
-#diagram-app .dg-segmented .dg-icon { width: 15px; height: 15px; flex-basis: 15px; }
-#diagram-app .dg-display-controls { display: flex; align-items: center; gap: 18px; }
-#diagram-app .dg-theme-switch { border-color: transparent; padding: 0; background: transparent; }
-#diagram-app .dg-theme-switch button { min-height: 30px; padding: 5px 8px; font-size: 11px; }
-#diagram-app .dg-theme-switch button.is-active { background: var(--dg-panel); box-shadow: none; }
-#diagram-app .dg-backdrop-select { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--dg-muted); }
-#diagram-app .dg-backdrop-select select { max-width: 145px; background: transparent; border: none; font-size: 11px; color: var(--dg-text); padding: 7px 2px; cursor: pointer; }
-#diagram-app select option { background: var(--dg-panel); color: var(--dg-text); }
-#diagram-app .dg-content-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 31px 0 20px; }
-#diagram-app .dg-content-heading h2 { font-size: 26px; letter-spacing: -.6px; margin-top: 6px; }
-#diagram-app .dg-result-count { flex-shrink: 0; color: var(--dg-muted); font-size: 11px; padding-bottom: 3px; }
-#diagram-app .dg-gallery-intro { color: var(--dg-muted); font-size: 13px; max-width: 650px; margin-top: -7px; margin-bottom: 23px; }
-#diagram-app .dg-filter-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-#diagram-app .dg-search { display: flex; align-items: center; gap: 9px; max-width: 370px; min-width: 160px; flex: 1; background: var(--dg-panel); border: 1px solid var(--dg-line); border-radius: var(--dg-radius); padding: 0 11px; min-height: 36px; color: var(--dg-faint); }
-#diagram-app .dg-search .dg-icon { width: 15px; height: 15px; flex-basis: 15px; }
-#diagram-app .dg-search input { background: none; border: 0; width: 100%; min-width: 0; padding: 8px 0; color: var(--dg-text); font-size: 12px; outline-offset: 7px; }
-#diagram-app .dg-search input::placeholder { color: var(--dg-faint); opacity: 1; }
-#diagram-app .dg-filter-select select { background: var(--dg-panel); border: 1px solid var(--dg-line); border-radius: var(--dg-radius); padding: 8px 29px 8px 10px; font-size: 12px; max-width: 185px; height: 36px; cursor: pointer; }
+.dg-app .dg-main {
+  min-width: 0;
+  padding: 0 30px 48px;
+  max-width: 1850px;
+  width: 100%;
+  margin: 0 auto;
+}
+.dg-app .dg-workspace-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  min-height: 83px;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-app .dg-segmented {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--dg-line);
+  border-radius: 6px;
+  background: var(--dg-panel);
+}
+.dg-app .dg-segmented button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 6px 11px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--dg-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.dg-app .dg-segmented button:hover {
+  color: var(--dg-text);
+  background: var(--dg-panel-soft);
+}
+.dg-app .dg-segmented button.is-active {
+  color: var(--dg-text);
+  background: var(--dg-bg);
+  box-shadow: 0 1px 2px #0000000a;
+}
+.dg-app .dg-segmented button small {
+  font-size: 10px;
+  border-radius: 2px;
+  background: var(--dg-accent-soft);
+  color: var(--dg-accent-text);
+  padding: 0 5px;
+}
+.dg-app .dg-segmented .dg-icon {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.dg-app .dg-display-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.dg-app .dg-theme-switch {
+  border-color: transparent;
+  padding: 0;
+  background: transparent;
+}
+.dg-app .dg-theme-switch button {
+  min-height: 30px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+.dg-app .dg-theme-switch button.is-active {
+  background: var(--dg-panel);
+  box-shadow: none;
+}
+.dg-app .dg-backdrop-select {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-backdrop-select select {
+  max-width: 145px;
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  color: var(--dg-text);
+  padding: 7px 2px;
+  cursor: pointer;
+}
+.dg-app select option {
+  background: var(--dg-panel);
+  color: var(--dg-text);
+}
+.dg-app .dg-content-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 31px 0 20px;
+}
+.dg-app .dg-content-heading h2 {
+  font-size: 26px;
+  letter-spacing: -0.6px;
+  margin-top: 6px;
+}
+.dg-app .dg-result-count {
+  flex-shrink: 0;
+  color: var(--dg-muted);
+  font-size: 11px;
+  padding-bottom: 3px;
+}
+.dg-app .dg-gallery-intro {
+  color: var(--dg-muted);
+  font-size: 13px;
+  max-width: 650px;
+  margin-top: -7px;
+  margin-bottom: 23px;
+}
+.dg-app .dg-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.dg-app .dg-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 370px;
+  min-width: 160px;
+  flex: 1;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-radius: var(--dg-radius);
+  padding: 0 11px;
+  min-height: 36px;
+  color: var(--dg-faint);
+}
+.dg-app .dg-search .dg-icon {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.dg-app .dg-search input {
+  background: none;
+  border: 0;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  color: var(--dg-text);
+  font-size: 12px;
+  outline-offset: 7px;
+}
+.dg-app .dg-search input::placeholder {
+  color: var(--dg-faint);
+  opacity: 1;
+}
+.dg-app .dg-filter-select select {
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-radius: var(--dg-radius);
+  padding: 8px 29px 8px 10px;
+  font-size: 12px;
+  max-width: 185px;
+  height: 36px;
+  cursor: pointer;
+}
 
-#diagram-app .dg-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
-#diagram-app .dg-card { min-width: 0; background: var(--dg-panel); border: 1px solid var(--dg-line); border-radius: 6px; overflow: hidden; transition: border-color 120ms ease; }
-#diagram-app .dg-card:hover { border-color: var(--dg-line-strong); }
-#diagram-app .dg-card.is-chosen { border-color: var(--dg-accent); box-shadow: 0 0 0 1px var(--dg-accent); }
-#diagram-app .dg-card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 6px 9px 6px 13px; }
-#diagram-app .dg-candidate-id { color: var(--dg-muted); font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; overflow-wrap: anywhere; }
-#diagram-app .dg-card-actions { display: flex; align-items: center; gap: 2px; }
-#diagram-app .dg-icon-button { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 30px; padding: 6px; background: transparent; border: 1px solid transparent; border-radius: 4px; color: var(--dg-muted); flex: 0 0 auto; }
-#diagram-app .dg-icon-button:hover { color: var(--dg-text); background: var(--dg-bg); }
-#diagram-app .dg-icon-button.is-active { color: var(--dg-accent-text); background: var(--dg-accent-soft); }
-#diagram-app .dg-icon-button .dg-icon { width: 16px; height: 16px; flex-basis: 16px; }
-#diagram-app .dg-starred .dg-icon { fill: currentColor; fill-opacity: .17; }
-#diagram-app .dg-thumbnail { width: 100%; padding: 0; border: 0; border-block: 1px solid var(--dg-line); aspect-ratio: 1.8; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-#diagram-app .dg-thumbnail img { width: 100%; height: 100%; object-fit: contain; transition: transform 180ms ease; }
-#diagram-app .dg-thumbnail:hover img { transform: scale(1.025); }
-#diagram-app .dg-thumbnail:focus-visible { outline-offset: -4px; }
-#diagram-app .dg-card-caption { padding: 15px 15px 17px; }
-#diagram-app .dg-card-title-row { display: flex; align-items: flex-start; gap: 8px; justify-content: space-between; }
-#diagram-app .dg-card-title-row h3 { font-size: 14px; line-height: 1.4; }
-#diagram-app .dg-card-title-row h3 button { font: inherit; text-align: left; padding: 0; background: none; border: 0; letter-spacing: -.12px; }
-#diagram-app .dg-card-title-row h3 button:hover { color: var(--dg-accent-text); }
-#diagram-app .dg-card-meta { font-size: 10px; text-transform: uppercase; letter-spacing: .75px; color: var(--dg-muted); margin-top: 6px; }
-#diagram-app .dg-card-description { color: var(--dg-muted); font-size: 12px; line-height: 1.65; margin-top: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-#diagram-app .dg-chosen-badge { display: inline-flex; align-items: center; gap: 4px; color: var(--dg-accent-text); font-size: 9px; white-space: nowrap; padding-top: 2px; }
-#diagram-app .dg-chosen-badge .dg-icon { width: 12px; height: 12px; flex-basis: 12px; }
-#diagram-app .dg-stale-label { display: inline-block; color: var(--dg-warning-text); background: var(--dg-warning-bg); border: 1px solid var(--dg-warning-line); border-radius: 3px; font-size: 9px; line-height: 1.6; padding: 2px 6px; margin-top: 10px; }
-#diagram-app .dg-empty { padding: 80px 25px; text-align: center; border: 1px dashed var(--dg-line-strong); border-radius: 6px; background: var(--dg-panel); color: var(--dg-muted); }
-#diagram-app .dg-empty > .dg-icon { width: 27px; height: 27px; margin-bottom: 15px; color: var(--dg-faint); }
-#diagram-app .dg-empty h2, #diagram-app .dg-empty h3 { font-size: 17px; color: var(--dg-text); margin-bottom: 8px; }
-#diagram-app .dg-empty p { font-size: 12px; }
-#diagram-app .dg-empty .dg-button { margin-top: 20px; }
+.dg-app .dg-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.dg-app .dg-card {
+  min-width: 0;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 120ms ease;
+}
+.dg-app .dg-card:hover {
+  border-color: var(--dg-line-strong);
+}
+.dg-app .dg-card.is-chosen {
+  border-color: var(--dg-accent);
+  box-shadow: 0 0 0 1px var(--dg-accent);
+}
+.dg-app .dg-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 9px 6px 13px;
+}
+.dg-app .dg-candidate-id {
+  color: var(--dg-muted);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.dg-app .dg-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.dg-app .dg-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--dg-muted);
+  flex: 0 0 auto;
+}
+.dg-app .dg-icon-button:hover {
+  color: var(--dg-text);
+  background: var(--dg-bg);
+}
+.dg-app .dg-icon-button.is-active {
+  color: var(--dg-accent-text);
+  background: var(--dg-accent-soft);
+}
+.dg-app .dg-icon-button .dg-icon {
+  width: 16px;
+  height: 16px;
+  flex-basis: 16px;
+}
+.dg-app .dg-starred .dg-icon {
+  fill: currentColor;
+  fill-opacity: 0.17;
+}
+.dg-app .dg-thumbnail {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-block: 1px solid var(--dg-line);
+  aspect-ratio: 1.8;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dg-app .dg-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 180ms ease;
+}
+.dg-app .dg-thumbnail:hover img {
+  transform: scale(1.025);
+}
+.dg-app .dg-thumbnail:focus-visible {
+  outline-offset: -4px;
+}
+.dg-app .dg-card-caption {
+  padding: 15px 15px 17px;
+}
+.dg-app .dg-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  justify-content: space-between;
+}
+.dg-app .dg-card-title-row h3 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.dg-app .dg-card-title-row h3 button {
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: 0;
+  letter-spacing: -0.12px;
+}
+.dg-app .dg-card-title-row h3 button:hover {
+  color: var(--dg-accent-text);
+}
+.dg-app .dg-card-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: var(--dg-muted);
+  margin-top: 6px;
+}
+.dg-app .dg-card-description {
+  color: var(--dg-muted);
+  font-size: 12px;
+  line-height: 1.65;
+  margin-top: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.dg-app .dg-chosen-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dg-accent-text);
+  font-size: 9px;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+.dg-app .dg-chosen-badge .dg-icon {
+  width: 12px;
+  height: 12px;
+  flex-basis: 12px;
+}
+.dg-app .dg-stale-label {
+  display: inline-block;
+  color: var(--dg-warning-text);
+  background: var(--dg-warning-bg);
+  border: 1px solid var(--dg-warning-line);
+  border-radius: 3px;
+  font-size: 9px;
+  line-height: 1.6;
+  padding: 2px 6px;
+  margin-top: 10px;
+}
+.dg-app .dg-empty {
+  padding: 80px 25px;
+  text-align: center;
+  border: 1px dashed var(--dg-line-strong);
+  border-radius: 6px;
+  background: var(--dg-panel);
+  color: var(--dg-muted);
+}
+.dg-app .dg-empty > .dg-icon {
+  width: 27px;
+  height: 27px;
+  margin-bottom: 15px;
+  color: var(--dg-faint);
+}
+.dg-app .dg-empty h2,
+.dg-app .dg-empty h3 {
+  font-size: 17px;
+  color: var(--dg-text);
+  margin-bottom: 8px;
+}
+.dg-app .dg-empty p {
+  font-size: 12px;
+}
+.dg-app .dg-empty .dg-button {
+  margin-top: 20px;
+}
 
-#diagram-app .dg-surface { --dg-surface-bg: #fff; --dg-surface-text: #303641; --dg-surface-muted: #697181; background-color: var(--dg-surface-bg); color: var(--dg-surface-text); }
-#diagram-app[data-diagram-theme="dark"] .dg-surface { --dg-surface-bg: #161b24; --dg-surface-text: #e6eaf3; --dg-surface-muted: #a4aec0; }
-#diagram-app[data-backdrop="paper"] .dg-surface { --dg-surface-bg: #f6f3ec; --dg-surface-text: #303641; --dg-surface-muted: #697181; }
-#diagram-app[data-backdrop="ink"] .dg-surface { --dg-surface-bg: #171a21; --dg-surface-text: #e6eaf3; --dg-surface-muted: #a4aec0; }
-#diagram-app[data-backdrop="checker"] .dg-surface { --dg-surface-bg: #f7f8fa; --dg-surface-text: #303641; --dg-surface-muted: #697181; background-image: linear-gradient(45deg, #e7eaf0 25%, transparent 25%), linear-gradient(-45deg, #e7eaf0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e7eaf0 75%), linear-gradient(-45deg, transparent 75%, #e7eaf0 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
-#diagram-app .dg-unavailable { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; text-align: center; width: 100%; height: 100%; }
-#diagram-app .dg-unavailable > .dg-icon { width: 30px; height: 30px; flex-basis: 30px; color: var(--dg-surface-muted); }
-#diagram-app .dg-unavailable strong { font-size: 14px; font-weight: 500; }
-#diagram-app .dg-unavailable span { max-width: 290px; font-size: 12px; line-height: 1.7; color: var(--dg-surface-muted); }
-#diagram-app .dg-unavailable--compact { gap: 9px; padding: 12px; }
-#diagram-app .dg-unavailable--compact strong { font-size: 11px; }
-#diagram-app .dg-unavailable--compact > .dg-icon { width: 20px; height: 20px; flex-basis: 20px; }
+.dg-app .dg-surface {
+  --dg-surface-bg: #fff;
+  --dg-surface-text: #303641;
+  --dg-surface-muted: #697181;
+  background-color: var(--dg-surface-bg);
+  color: var(--dg-surface-text);
+}
+.dg-app[data-diagram-theme='dark'] .dg-surface {
+  --dg-surface-bg: #161b24;
+  --dg-surface-text: #e6eaf3;
+  --dg-surface-muted: #a4aec0;
+}
+.dg-app[data-backdrop='paper'] .dg-surface {
+  --dg-surface-bg: #f6f3ec;
+  --dg-surface-text: #303641;
+  --dg-surface-muted: #697181;
+}
+.dg-app[data-backdrop='ink'] .dg-surface {
+  --dg-surface-bg: #171a21;
+  --dg-surface-text: #e6eaf3;
+  --dg-surface-muted: #a4aec0;
+}
+.dg-app[data-backdrop='checker'] .dg-surface {
+  --dg-surface-bg: #f7f8fa;
+  --dg-surface-text: #303641;
+  --dg-surface-muted: #697181;
+  background-image:
+    linear-gradient(45deg, #e7eaf0 25%, transparent 25%),
+    linear-gradient(-45deg, #e7eaf0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7eaf0 75%),
+    linear-gradient(-45deg, transparent 75%, #e7eaf0 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+}
+.dg-app .dg-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.dg-app .dg-unavailable > .dg-icon {
+  width: 30px;
+  height: 30px;
+  flex-basis: 30px;
+  color: var(--dg-surface-muted);
+}
+.dg-app .dg-unavailable strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.dg-app .dg-unavailable span {
+  max-width: 290px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--dg-surface-muted);
+}
+.dg-app .dg-unavailable--compact {
+  gap: 9px;
+  padding: 12px;
+}
+.dg-app .dg-unavailable--compact strong {
+  font-size: 11px;
+}
+.dg-app .dg-unavailable--compact > .dg-icon {
+  width: 20px;
+  height: 20px;
+  flex-basis: 20px;
+}
 
-#diagram-app .dg-inspector-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 28px; }
-#diagram-app .dg-inspector-top h2 { font-size: 25px; letter-spacing: -.6px; margin-top: 7px; }
-#diagram-app .dg-inspector-top .dg-overline span { color: var(--dg-faint); padding: 0 6px; }
-#diagram-app .dg-candidate-navigation { display: inline-flex; align-items: center; gap: 5px; }
-#diagram-app .dg-candidate-navigation > span { color: var(--dg-muted); font-size: 11px; margin-right: 8px; }
-#diagram-app .dg-candidate-navigation .dg-icon-button { border-color: var(--dg-line); background: var(--dg-panel); }
-#diagram-app .dg-inspect-description { color: var(--dg-muted); font-size: 12px; line-height: 1.7; margin-top: 10px; max-width: 740px; }
-#diagram-app .dg-workbench-columns { display: grid; grid-template-columns: minmax(0, 1fr) 294px; gap: 23px; align-items: start; margin-top: 24px; }
-#diagram-app .dg-drawing-column { min-width: 0; }
-#diagram-app .dg-zoom-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 10px 12px; border: 1px solid var(--dg-line); border-bottom: none; border-radius: 6px 6px 0 0; background: var(--dg-panel); min-height: 51px; }
-#diagram-app .dg-zoom-actions { display: flex; align-items: center; gap: 5px; }
-#diagram-app .dg-pan-hint { font-size: 10px; color: var(--dg-faint); }
-#diagram-app .dg-zoom-range { display: flex; align-items: center; gap: 8px; margin-left: 6px; }
-#diagram-app .dg-zoom-range input { width: 85px; height: 16px; accent-color: var(--dg-accent); cursor: pointer; }
-#diagram-app .dg-zoom-range output { color: var(--dg-muted); font-size: 10px; white-space: nowrap; min-width: 42px; }
-#diagram-app .dg-stage { position: relative; overflow: hidden; min-height: 300px; height: min(58vh, 560px); border: 1px solid var(--dg-line); isolation: isolate; }
-#diagram-app .dg-stage--pannable { cursor: grab; touch-action: none; }
-#diagram-app .dg-stage.is-dragging { cursor: grabbing; }
-#diagram-app .dg-pan-layer { position: absolute; top: 50%; left: 50%; transform-origin: center; will-change: transform; pointer-events: none; }
-#diagram-app .dg-pan-layer img { width: 100%; height: 100%; max-width: none; object-fit: contain; user-select: none; -webkit-user-drag: none; }
-#diagram-app .dg-stage-label, #diagram-app .dg-stage-dimensions { position: absolute; bottom: 12px; z-index: 1; font-size: 9px; font-family: "SFMono-Regular", Consolas, monospace; color: var(--dg-surface-muted); background: var(--dg-surface-bg); padding: 2px 5px; border-radius: 2px; pointer-events: none; }
-#diagram-app .dg-stage-label { left: 11px; }
-#diagram-app .dg-stage-dimensions { right: 11px; }
-#diagram-app .dg-stage-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 1px; font-size: 10px; color: var(--dg-muted); }
-#diagram-app .dg-stage-footer .dg-text-button { font-size: 10px; }
-#diagram-app .dg-placement { padding-top: 21px; margin-top: 12px; border-top: 1px solid var(--dg-line); min-width: 0; }
-#diagram-app .dg-placement-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
-#diagram-app .dg-placement-heading h3 { font-size: 12px; font-weight: 500; }
-#diagram-app .dg-placement-heading > span { font-size: 10px; color: var(--dg-muted); }
-#diagram-app .dg-placement-scroll { overflow-x: auto; padding: 1px 1px 12px; scrollbar-width: thin; }
-#diagram-app .dg-context { padding: 24px; border: 1px solid var(--dg-line); border-radius: 6px; box-shadow: 0 3px 12px #00000005; margin: 0 auto; box-sizing: content-box; }
-#diagram-app .dg-context-art { flex: 0 0 auto; margin: 0 auto 20px; }
-#diagram-app .dg-context-art img { width: 100%; height: 100%; max-width: none; object-fit: contain; }
-#diagram-app .dg-context h4 { font-size: 14px; margin: 0 0 9px; color: var(--dg-surface-text); }
-#diagram-app .dg-context > p { font-size: 12px; line-height: 1.8; color: var(--dg-surface-muted); white-space: pre-line; }
-#diagram-app .dg-placement-caption { font-size: 10px; color: var(--dg-muted); line-height: 1.7; margin-top: 10px; }
+.dg-app .dg-inspector-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 28px;
+}
+.dg-app .dg-inspector-top h2 {
+  font-size: 25px;
+  letter-spacing: -0.6px;
+  margin-top: 7px;
+}
+.dg-app .dg-inspector-top .dg-overline span {
+  color: var(--dg-faint);
+  padding: 0 6px;
+}
+.dg-app .dg-candidate-navigation {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.dg-app .dg-candidate-navigation > span {
+  color: var(--dg-muted);
+  font-size: 11px;
+  margin-right: 8px;
+}
+.dg-app .dg-candidate-navigation .dg-icon-button {
+  border-color: var(--dg-line);
+  background: var(--dg-panel);
+}
+.dg-app .dg-inspect-description {
+  color: var(--dg-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 10px;
+  max-width: 740px;
+}
+.dg-app .dg-workbench-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 294px;
+  gap: 23px;
+  align-items: start;
+  margin-top: 24px;
+}
+.dg-app .dg-drawing-column {
+  min-width: 0;
+}
+.dg-app .dg-zoom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 12px;
+  border: 1px solid var(--dg-line);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  background: var(--dg-panel);
+  min-height: 51px;
+}
+.dg-app .dg-zoom-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dg-app .dg-pan-hint {
+  font-size: 10px;
+  color: var(--dg-faint);
+}
+.dg-app .dg-zoom-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+}
+.dg-app .dg-zoom-range input {
+  width: 85px;
+  height: 16px;
+  accent-color: var(--dg-accent);
+  cursor: pointer;
+}
+.dg-app .dg-zoom-range output {
+  color: var(--dg-muted);
+  font-size: 10px;
+  white-space: nowrap;
+  min-width: 42px;
+}
+.dg-app .dg-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  height: min(58vh, 560px);
+  border: 1px solid var(--dg-line);
+  isolation: isolate;
+}
+.dg-app .dg-stage--pannable {
+  cursor: grab;
+  touch-action: none;
+}
+.dg-app .dg-stage.is-dragging {
+  cursor: grabbing;
+}
+.dg-app .dg-pan-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  will-change: transform;
+  pointer-events: none;
+}
+.dg-app .dg-pan-layer img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.dg-app .dg-stage-label,
+.dg-app .dg-stage-dimensions {
+  position: absolute;
+  bottom: 12px;
+  z-index: 1;
+  font-size: 9px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  color: var(--dg-surface-muted);
+  background: var(--dg-surface-bg);
+  padding: 2px 5px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.dg-app .dg-stage-label {
+  left: 11px;
+}
+.dg-app .dg-stage-dimensions {
+  right: 11px;
+}
+.dg-app .dg-stage-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 1px;
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-stage-footer .dg-text-button {
+  font-size: 10px;
+}
+.dg-app .dg-placement {
+  padding-top: 21px;
+  margin-top: 12px;
+  border-top: 1px solid var(--dg-line);
+  min-width: 0;
+}
+.dg-app .dg-placement-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.dg-app .dg-placement-heading h3 {
+  font-size: 12px;
+  font-weight: 500;
+}
+.dg-app .dg-placement-heading > span {
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-placement-scroll {
+  overflow-x: auto;
+  padding: 1px 1px 12px;
+  scrollbar-width: thin;
+}
+.dg-app .dg-context {
+  padding: 24px;
+  border: 1px solid var(--dg-line);
+  border-radius: 6px;
+  box-shadow: 0 3px 12px #00000005;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+.dg-app .dg-context-art {
+  flex: 0 0 auto;
+  margin: 0 auto 20px;
+}
+.dg-app .dg-context-art img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+.dg-app .dg-context h4 {
+  font-size: 14px;
+  margin: 0 0 9px;
+  color: var(--dg-surface-text);
+}
+.dg-app .dg-context > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--dg-surface-muted);
+  white-space: pre-line;
+}
+.dg-app .dg-placement-caption {
+  font-size: 10px;
+  color: var(--dg-muted);
+  line-height: 1.7;
+  margin-top: 10px;
+}
 
-#diagram-app .dg-review-panel { background: var(--dg-panel); border: 1px solid var(--dg-line); border-radius: 6px; padding: 20px 17px 0; overflow: hidden; }
-#diagram-app .dg-review-title { padding-bottom: 16px; border-bottom: 1px solid var(--dg-line); }
-#diagram-app .dg-review-title h2 { font-size: 15px; margin-top: 5px; }
-#diagram-app .dg-review-title > .dg-candidate-id { display: block; margin-top: 8px; }
-#diagram-app .dg-review-selection { display: flex; flex-wrap: wrap; gap: 7px; padding: 17px 0; }
-#diagram-app .dg-review-selection .dg-button { flex: 1 1 auto; font-size: 11px; }
-#diagram-app .dg-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: var(--dg-panel); border: 1px solid var(--dg-line-strong); border-radius: 4px; padding: 8px 12px; min-height: 35px; font-size: 12px; font-weight: 500; line-height: 1.4; white-space: nowrap; }
-#diagram-app .dg-button:hover:not(:disabled) { background: var(--dg-panel-soft); border-color: var(--dg-muted); }
-#diagram-app .dg-button .dg-icon { width: 15px; height: 15px; flex-basis: 15px; }
-#diagram-app .dg-button--primary { color: #fff; background: var(--dg-accent); border-color: var(--dg-accent); }
-#diagram-app .dg-button--primary:hover:not(:disabled) { color: #fff; background: var(--dg-accent-hover); border-color: var(--dg-accent-hover); }
-#diagram-app[data-ui-theme="dark"] .dg-button--primary { color: #0d152c; }
-#diagram-app[data-ui-theme="dark"] .dg-button--primary:hover:not(:disabled) { color: #0d152c; }
-#diagram-app .dg-button.is-active, #diagram-app .dg-button--chosen { background: var(--dg-accent-soft); color: var(--dg-accent-text); border-color: var(--dg-accent-soft); }
-#diagram-app .dg-button--chosen:hover:not(:disabled), #diagram-app .dg-button.is-active:hover:not(:disabled) { background: var(--dg-accent-soft); border-color: var(--dg-accent); }
-#diagram-app .dg-button--small { min-height: 28px; font-size: 10px; padding: 5px 8px; }
-#diagram-app .dg-button--wide { width: 100%; }
-#diagram-app .dg-text-button { display: inline-flex; justify-content: center; align-items: center; gap: 5px; padding: 4px 0; font-size: 11px; color: var(--dg-accent-text); background: transparent; border: 0; border-radius: 2px; white-space: nowrap; }
-#diagram-app .dg-text-button:hover { text-decoration: underline; }
-#diagram-app .dg-text-button .dg-icon { width: 13px; height: 13px; flex-basis: 13px; }
-#diagram-app .dg-lineage { font-size: 10px; color: var(--dg-muted); padding-bottom: 17px; }
-#diagram-app .dg-lineage button { color: var(--dg-accent-text); background: transparent; border: 0; padding: 0 0 0 5px; font-size: 10px; }
-#diagram-app .dg-lineage .dg-icon { width: 11px; height: 11px; margin-left: 2px; }
-#diagram-app .dg-note-fields { display: grid; gap: 15px; }
-#diagram-app .dg-note-fields label { display: block; }
-#diagram-app .dg-note-fields label > span { display: block; font-size: 11px; font-weight: 500; margin-bottom: 7px; }
-#diagram-app .dg-note-fields textarea, #diagram-app .dg-note-fields select { display: block; width: 100%; background: var(--dg-panel-soft); border: 1px solid var(--dg-line); border-radius: 4px; padding: 9px 10px; font-size: 11px; }
-#diagram-app .dg-note-fields textarea { line-height: 1.75; resize: vertical; min-height: 80px; max-height: 430px; }
-#diagram-app .dg-note-fields textarea::placeholder { color: var(--dg-faint); opacity: 1; }
-#diagram-app .dg-note-fields select { min-height: 37px; }
-#diagram-app .dg-feedback-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 21px; }
-#diagram-app .dg-feedback-actions .dg-button { font-size: 10px; padding-inline: 7px; }
-#diagram-app .dg-review-storage { font-size: 10px; color: var(--dg-muted); line-height: 1.7; margin-top: 11px; padding-bottom: 19px; }
-#diagram-app .dg-asset-actions { border-top: 1px solid var(--dg-line); padding: 19px 0; }
-#diagram-app .dg-asset-actions .dg-button { font-size: 11px; }
-#diagram-app .dg-asset-path { font-size: 9px; color: var(--dg-muted); margin-top: 12px; }
-#diagram-app .dg-asset-path > span { display: block; margin-bottom: 5px; }
-#diagram-app .dg-asset-path code { font-size: 9px; line-height: 1.6; overflow-wrap: anywhere; }
-#diagram-app .dg-tone-recipe { border-top: 1px solid var(--dg-line); margin: 0 -17px; }
-#diagram-app .dg-tone-recipe > summary { padding: 17px; font-size: 11px; list-style-position: inside; }
-#diagram-app .dg-tone-recipe > summary > span:last-child { display: block; color: var(--dg-muted); font-size: 10px; margin-top: 5px; padding-left: 14px; }
-#diagram-app .dg-recipe-body { padding: 0 17px 21px; font-size: 11px; line-height: 1.85; color: var(--dg-muted); }
-#diagram-app .dg-recipe-body ol { padding-left: 18px; margin-top: 15px; }
-#diagram-app .dg-recipe-body li { padding-left: 2px; margin-bottom: 10px; }
-#diagram-app .dg-recipe-body h4 { font-size: 10px; color: var(--dg-text); margin: 17px 0 7px; }
-#diagram-app .dg-reference-links { list-style: none; padding: 0; }
-#diagram-app .dg-reference-links li { padding: 0; margin: 0 0 7px; }
-#diagram-app .dg-reference-links a { display: inline; color: var(--dg-accent-text); text-decoration: underline; text-underline-offset: 3px; }
-#diagram-app .dg-reference-links .dg-icon { width: 11px; height: 11px; margin-left: 4px; }
-#diagram-app .dg-tone-id { display: inline-block; color: var(--dg-faint); font-size: 9px; margin-top: 12px; }
-#diagram-app .dg-stale-notice { border: 1px solid var(--dg-warning-line); background: var(--dg-warning-bg); color: var(--dg-warning-text); border-radius: 4px; padding: 12px; margin: 0 0 16px; }
-#diagram-app .dg-stale-notice > strong { display: block; font-size: 11px; font-weight: 600; }
-#diagram-app .dg-stale-notice > p { font-size: 10px; line-height: 1.75; margin: 6px 0 10px; }
-#diagram-app .dg-stale-notice > .dg-button { font-size: 9px; white-space: normal; color: var(--dg-warning-text); background: transparent; border-color: var(--dg-warning-line); }
+.dg-app .dg-review-panel {
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-radius: 6px;
+  padding: 20px 17px 0;
+  overflow: hidden;
+}
+.dg-app .dg-review-title {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-app .dg-review-title h2 {
+  font-size: 15px;
+  margin-top: 5px;
+}
+.dg-app .dg-review-title > .dg-candidate-id {
+  display: block;
+  margin-top: 8px;
+}
+.dg-app .dg-review-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 17px 0;
+}
+.dg-app .dg-review-selection .dg-button {
+  flex: 1 1 auto;
+  font-size: 11px;
+}
+.dg-app .dg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line-strong);
+  border-radius: 4px;
+  padding: 8px 12px;
+  min-height: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.dg-app .dg-button:hover:not(:disabled) {
+  background: var(--dg-panel-soft);
+  border-color: var(--dg-muted);
+}
+.dg-app .dg-button .dg-icon {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.dg-app .dg-button--primary {
+  color: #fff;
+  background: var(--dg-accent);
+  border-color: var(--dg-accent);
+}
+.dg-app .dg-button--primary:hover:not(:disabled) {
+  color: #fff;
+  background: var(--dg-accent-hover);
+  border-color: var(--dg-accent-hover);
+}
+.dg-app[data-ui-theme='dark'] .dg-button--primary {
+  color: #0d152c;
+}
+.dg-app[data-ui-theme='dark'] .dg-button--primary:hover:not(:disabled) {
+  color: #0d152c;
+}
+.dg-app .dg-button.is-active,
+.dg-app .dg-button--chosen {
+  background: var(--dg-accent-soft);
+  color: var(--dg-accent-text);
+  border-color: var(--dg-accent-soft);
+}
+.dg-app .dg-button--chosen:hover:not(:disabled),
+.dg-app .dg-button.is-active:hover:not(:disabled) {
+  background: var(--dg-accent-soft);
+  border-color: var(--dg-accent);
+}
+.dg-app .dg-button--small {
+  min-height: 28px;
+  font-size: 10px;
+  padding: 5px 8px;
+}
+.dg-app .dg-button--wide {
+  width: 100%;
+}
+.dg-app .dg-text-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+  font-size: 11px;
+  color: var(--dg-accent-text);
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.dg-app .dg-text-button:hover {
+  text-decoration: underline;
+}
+.dg-app .dg-text-button .dg-icon {
+  width: 13px;
+  height: 13px;
+  flex-basis: 13px;
+}
+.dg-app .dg-lineage {
+  font-size: 10px;
+  color: var(--dg-muted);
+  padding-bottom: 17px;
+}
+.dg-app .dg-lineage button {
+  color: var(--dg-accent-text);
+  background: transparent;
+  border: 0;
+  padding: 0 0 0 5px;
+  font-size: 10px;
+}
+.dg-app .dg-lineage .dg-icon {
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+}
+.dg-app .dg-note-fields {
+  display: grid;
+  gap: 15px;
+}
+.dg-app .dg-note-fields label {
+  display: block;
+}
+.dg-app .dg-note-fields label > span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+.dg-app .dg-note-fields textarea,
+.dg-app .dg-note-fields select {
+  display: block;
+  width: 100%;
+  background: var(--dg-panel-soft);
+  border: 1px solid var(--dg-line);
+  border-radius: 4px;
+  padding: 9px 10px;
+  font-size: 11px;
+}
+.dg-app .dg-note-fields textarea {
+  line-height: 1.75;
+  resize: vertical;
+  min-height: 80px;
+  max-height: 430px;
+}
+.dg-app .dg-note-fields textarea::placeholder {
+  color: var(--dg-faint);
+  opacity: 1;
+}
+.dg-app .dg-note-fields select {
+  min-height: 37px;
+}
+.dg-app .dg-feedback-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 21px;
+}
+.dg-app .dg-feedback-actions .dg-button {
+  font-size: 10px;
+  padding-inline: 7px;
+}
+.dg-app .dg-review-storage {
+  font-size: 10px;
+  color: var(--dg-muted);
+  line-height: 1.7;
+  margin-top: 11px;
+  padding-bottom: 19px;
+}
+.dg-app .dg-asset-actions {
+  border-top: 1px solid var(--dg-line);
+  padding: 19px 0;
+}
+.dg-app .dg-asset-actions .dg-button {
+  font-size: 11px;
+}
+.dg-app .dg-asset-path {
+  font-size: 9px;
+  color: var(--dg-muted);
+  margin-top: 12px;
+}
+.dg-app .dg-asset-path > span {
+  display: block;
+  margin-bottom: 5px;
+}
+.dg-app .dg-asset-path code {
+  font-size: 9px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.dg-app .dg-tone-recipe {
+  border-top: 1px solid var(--dg-line);
+  margin: 0 -17px;
+}
+.dg-app .dg-tone-recipe > summary {
+  padding: 17px;
+  font-size: 11px;
+  list-style-position: inside;
+}
+.dg-app .dg-tone-recipe > summary > span:last-child {
+  display: block;
+  color: var(--dg-muted);
+  font-size: 10px;
+  margin-top: 5px;
+  padding-left: 14px;
+}
+.dg-app .dg-recipe-body {
+  padding: 0 17px 21px;
+  font-size: 11px;
+  line-height: 1.85;
+  color: var(--dg-muted);
+}
+.dg-app .dg-recipe-body ol {
+  padding-left: 18px;
+  margin-top: 15px;
+}
+.dg-app .dg-recipe-body li {
+  padding-left: 2px;
+  margin-bottom: 10px;
+}
+.dg-app .dg-recipe-body h4 {
+  font-size: 10px;
+  color: var(--dg-text);
+  margin: 17px 0 7px;
+}
+.dg-app .dg-reference-links {
+  list-style: none;
+  padding: 0;
+}
+.dg-app .dg-reference-links li {
+  padding: 0;
+  margin: 0 0 7px;
+}
+.dg-app .dg-reference-links a {
+  display: inline;
+  color: var(--dg-accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dg-app .dg-reference-links .dg-icon {
+  width: 11px;
+  height: 11px;
+  margin-left: 4px;
+}
+.dg-app .dg-tone-id {
+  display: inline-block;
+  color: var(--dg-faint);
+  font-size: 9px;
+  margin-top: 12px;
+}
+.dg-app .dg-stale-notice {
+  border: 1px solid var(--dg-warning-line);
+  background: var(--dg-warning-bg);
+  color: var(--dg-warning-text);
+  border-radius: 4px;
+  padding: 12px;
+  margin: 0 0 16px;
+}
+.dg-app .dg-stale-notice > strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+}
+.dg-app .dg-stale-notice > p {
+  font-size: 10px;
+  line-height: 1.75;
+  margin: 6px 0 10px;
+}
+.dg-app .dg-stale-notice > .dg-button {
+  font-size: 9px;
+  white-space: normal;
+  color: var(--dg-warning-text);
+  background: transparent;
+  border-color: var(--dg-warning-line);
+}
 
-#diagram-app .dg-comparison .dg-workbench-columns { margin-top: 3px; }
-#diagram-app .dg-compare-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
-#diagram-app .dg-compare-cell { min-width: 0; }
-#diagram-app .dg-comparison .dg-zoom-toolbar { border-bottom: 1px solid var(--dg-line); border-radius: 6px; margin-bottom: 15px; }
-#diagram-app .dg-compare-heading { display: flex; align-items: center; gap: 8px; background: var(--dg-panel); border: 1px solid var(--dg-line); border-bottom: 0; border-radius: 5px 5px 0 0; padding: 11px 10px; }
-#diagram-app .dg-compare-letter { width: 22px; height: 22px; background: var(--dg-bg); border-radius: 3px; display: inline-flex; justify-content: center; align-items: center; font-size: 10px; font-weight: 600; color: var(--dg-muted); }
-#diagram-app .dg-compare-heading > label { min-width: 0; flex: 1; }
-#diagram-app .dg-compare-heading select { background: transparent; border: 0; width: 100%; padding: 2px 0; font-size: 11px; cursor: pointer; }
-#diagram-app .dg-compare-cell .dg-stage { min-height: 270px; height: min(47vh, 440px); }
-#diagram-app .dg-compare-cell.is-reviewing .dg-compare-heading { border-top-color: var(--dg-accent); box-shadow: inset 0 1px 0 var(--dg-accent); }
-#diagram-app .dg-compare-cell.is-reviewing .dg-compare-letter { background: var(--dg-accent-soft); color: var(--dg-accent-text); }
-#diagram-app .dg-compare-cell-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 0; }
-#diagram-app .dg-compare-cell-footer > span { font-size: 10px; color: var(--dg-muted); }
-#diagram-app .dg-compare-cell-footer .dg-text-button { font-size: 10px; }
-#diagram-app .dg-compare-cell .dg-placement-heading { flex-wrap: wrap; gap: 4px; }
-#diagram-app .dg-compare-cell .dg-placement-heading > span { font-size: 9px; }
-#diagram-app .dg-compare-placeholder { min-height: 330px; padding: 70px 20px; }
-#diagram-app .dg-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 12px); max-width: min(620px, calc(100vw - 32px)); z-index: 100; background: var(--dg-text); color: var(--dg-panel); padding: 12px 20px; font-size: 12px; border-radius: 6px; box-shadow: 0 8px 25px #00000024; opacity: 0; pointer-events: none; transition: opacity 140ms ease, transform 140ms ease; text-align: center; }
-#diagram-app .dg-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
-#diagram-app .dg-copy-fallback { position: fixed; top: 0; left: -10000px; width: 1px; height: 1px; opacity: 0; }
-#diagram-app .dg-fatal { padding: 60px 30px; max-width: 700px; margin: 0 auto; }
-#diagram-app .dg-fatal h1 { font-size: 24px; margin-bottom: 16px; }
-#diagram-app .dg-fatal p { margin-bottom: 12px; color: var(--dg-muted); }
+.dg-app .dg-comparison .dg-workbench-columns {
+  margin-top: 3px;
+}
+.dg-app .dg-compare-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+.dg-app .dg-compare-cell {
+  min-width: 0;
+}
+.dg-app .dg-comparison .dg-zoom-toolbar {
+  border-bottom: 1px solid var(--dg-line);
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+.dg-app .dg-compare-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  padding: 11px 10px;
+}
+.dg-app .dg-compare-letter {
+  width: 22px;
+  height: 22px;
+  background: var(--dg-bg);
+  border-radius: 3px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--dg-muted);
+}
+.dg-app .dg-compare-heading > label {
+  min-width: 0;
+  flex: 1;
+}
+.dg-app .dg-compare-heading select {
+  background: transparent;
+  border: 0;
+  width: 100%;
+  padding: 2px 0;
+  font-size: 11px;
+  cursor: pointer;
+}
+.dg-app .dg-compare-cell .dg-stage {
+  min-height: 270px;
+  height: min(47vh, 440px);
+}
+.dg-app .dg-compare-cell.is-reviewing .dg-compare-heading {
+  border-top-color: var(--dg-accent);
+  box-shadow: inset 0 1px 0 var(--dg-accent);
+}
+.dg-app .dg-compare-cell.is-reviewing .dg-compare-letter {
+  background: var(--dg-accent-soft);
+  color: var(--dg-accent-text);
+}
+.dg-app .dg-compare-cell-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 0;
+}
+.dg-app .dg-compare-cell-footer > span {
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-app .dg-compare-cell-footer .dg-text-button {
+  font-size: 10px;
+}
+.dg-app .dg-compare-cell .dg-placement-heading {
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dg-app .dg-compare-cell .dg-placement-heading > span {
+  font-size: 9px;
+}
+.dg-app .dg-compare-placeholder {
+  min-height: 330px;
+  padding: 70px 20px;
+}
+.dg-app .dg-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 12px);
+  max-width: min(620px, calc(100vw - 32px));
+  z-index: 100;
+  background: var(--dg-text);
+  color: var(--dg-panel);
+  padding: 12px 20px;
+  font-size: 12px;
+  border-radius: 6px;
+  box-shadow: 0 8px 25px #00000024;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+  text-align: center;
+}
+.dg-app .dg-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.dg-app .dg-copy-fallback {
+  position: fixed;
+  top: 0;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.dg-app .dg-fatal {
+  padding: 60px 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.dg-app .dg-fatal h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.dg-app .dg-fatal p {
+  margin-bottom: 12px;
+  color: var(--dg-muted);
+}
 
 @media (min-width: 1800px) {
-  #diagram-app .dg-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  #diagram-app .dg-main { padding-inline: 38px; }
-  #diagram-app .dg-workbench-columns { grid-template-columns: minmax(0, 1fr) 310px; gap: 28px; }
+  .dg-app .dg-card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .dg-app .dg-main {
+    padding-inline: 38px;
+  }
+  .dg-app .dg-workbench-columns {
+    grid-template-columns: minmax(0, 1fr) 310px;
+    gap: 28px;
+  }
 }
 @media (max-width: 1390px) {
-  #diagram-app .dg-layout { grid-template-columns: 208px minmax(0, 1fr); }
-  #diagram-app .dg-main { padding-inline: 24px; }
-  #diagram-app .dg-sidebar-section { padding-inline: 15px; }
-  #diagram-app .dg-card-grid { gap: 15px; }
-  #diagram-app .dg-card-caption { padding: 13px; }
-  #diagram-app .dg-workbench-columns { grid-template-columns: minmax(0, 1fr) 272px; gap: 17px; }
-  #diagram-app .dg-pan-hint { display: none; }
-  #diagram-app .dg-display-controls { gap: 10px; }
-  #diagram-app .dg-backdrop-select > span { display: none; }
-  #diagram-app .dg-stage-footer { flex-wrap: wrap; }
+  .dg-app .dg-layout {
+    grid-template-columns: 208px minmax(0, 1fr);
+  }
+  .dg-app .dg-main {
+    padding-inline: 24px;
+  }
+  .dg-app .dg-sidebar-section {
+    padding-inline: 15px;
+  }
+  .dg-app .dg-card-grid {
+    gap: 15px;
+  }
+  .dg-app .dg-card-caption {
+    padding: 13px;
+  }
+  .dg-app .dg-workbench-columns {
+    grid-template-columns: minmax(0, 1fr) 272px;
+    gap: 17px;
+  }
+  .dg-app .dg-pan-hint {
+    display: none;
+  }
+  .dg-app .dg-display-controls {
+    gap: 10px;
+  }
+  .dg-app .dg-backdrop-select > span {
+    display: none;
+  }
+  .dg-app .dg-stage-footer {
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 1180px) {
-  #diagram-app .dg-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  #diagram-app .dg-workbench-columns { grid-template-columns: minmax(0, 1fr); }
-  #diagram-app .dg-review-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; padding: 22px 23px 0; }
-  #diagram-app .dg-review-title { grid-column: 1; grid-row: 1; }
-  #diagram-app .dg-review-selection { grid-column: 1; grid-row: 2; align-content: start; }
-  #diagram-app .dg-note-fields { grid-column: 2; grid-row: 1 / span 5; padding-bottom: 22px; }
-  #diagram-app .dg-stale-notice, #diagram-app .dg-lineage { grid-column: 1; }
-  #diagram-app .dg-feedback-actions { grid-column: 1; margin-top: 2px; align-content: end; }
-  #diagram-app .dg-review-storage { grid-column: 1; }
-  #diagram-app .dg-asset-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: center; }
-  #diagram-app .dg-asset-path { margin: 0; }
-  #diagram-app .dg-tone-recipe { grid-column: 1 / -1; margin-inline: -23px; }
-  #diagram-app .dg-tone-recipe > summary, #diagram-app .dg-recipe-body { padding-inline: 23px; }
-  #diagram-app .dg-recipe-body ol { columns: 2; column-gap: 30px; }
-  #diagram-app .dg-recipe-body li { break-inside: avoid; }
-  #diagram-app .dg-stage { height: min(59vh, 530px); }
-  #diagram-app .dg-workspace-toolbar { gap: 10px; }
-  #diagram-app .dg-segmented button { gap: 5px; padding-inline: 9px; }
+  .dg-app .dg-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .dg-app .dg-workbench-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dg-app .dg-review-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+    padding: 22px 23px 0;
+  }
+  .dg-app .dg-review-title {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .dg-app .dg-review-selection {
+    grid-column: 1;
+    grid-row: 2;
+    align-content: start;
+  }
+  .dg-app .dg-note-fields {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    padding-bottom: 22px;
+  }
+  .dg-app .dg-stale-notice,
+  .dg-app .dg-lineage {
+    grid-column: 1;
+  }
+  .dg-app .dg-feedback-actions {
+    grid-column: 1;
+    margin-top: 2px;
+    align-content: end;
+  }
+  .dg-app .dg-review-storage {
+    grid-column: 1;
+  }
+  .dg-app .dg-asset-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+  }
+  .dg-app .dg-asset-path {
+    margin: 0;
+  }
+  .dg-app .dg-tone-recipe {
+    grid-column: 1 / -1;
+    margin-inline: -23px;
+  }
+  .dg-app .dg-tone-recipe > summary,
+  .dg-app .dg-recipe-body {
+    padding-inline: 23px;
+  }
+  .dg-app .dg-recipe-body ol {
+    columns: 2;
+    column-gap: 30px;
+  }
+  .dg-app .dg-recipe-body li {
+    break-inside: avoid;
+  }
+  .dg-app .dg-stage {
+    height: min(59vh, 530px);
+  }
+  .dg-app .dg-workspace-toolbar {
+    gap: 10px;
+  }
+  .dg-app .dg-segmented button {
+    gap: 5px;
+    padding-inline: 9px;
+  }
 }
 @media (max-width: 930px) {
-  #diagram-app .dg-topbar { padding-inline: 20px; }
-  #diagram-app .dg-top-link:first-child { display: none; }
-  #diagram-app .dg-layout { grid-template-columns: 180px minmax(0, 1fr); }
-  #diagram-app .dg-session-title { font-size: 17px; }
-  #diagram-app .dg-session-description { font-size: 11px; }
-  #diagram-app .dg-main { padding-inline: 19px; }
-  #diagram-app .dg-sidebar-section { padding: 21px 12px; }
-  #diagram-app .dg-workspace-toolbar { flex-wrap: wrap; padding-block: 17px; gap: 14px; }
-  #diagram-app .dg-display-controls { margin-left: auto; }
-  #diagram-app .dg-card-grid { gap: 14px; }
-  #diagram-app .dg-content-heading h2 { font-size: 23px; }
-  #diagram-app .dg-content-heading { padding-top: 24px; }
-  #diagram-app .dg-filter-bar { flex-wrap: wrap; }
-  #diagram-app .dg-search { max-width: none; flex-basis: 100%; }
-  #diagram-app .dg-card-title-row { flex-wrap: wrap; }
-  #diagram-app .dg-card-meta { font-size: 9px; }
-  #diagram-app .dg-card-title-row h3 { font-size: 13px; }
-  #diagram-app .dg-card-description { font-size: 11px; }
+  .dg-app .dg-topbar {
+    padding-inline: 20px;
+  }
+  .dg-app .dg-top-link:first-child {
+    display: none;
+  }
+  .dg-app .dg-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+  .dg-app .dg-session-title {
+    font-size: 17px;
+  }
+  .dg-app .dg-session-description {
+    font-size: 11px;
+  }
+  .dg-app .dg-main {
+    padding-inline: 19px;
+  }
+  .dg-app .dg-sidebar-section {
+    padding: 21px 12px;
+  }
+  .dg-app .dg-workspace-toolbar {
+    flex-wrap: wrap;
+    padding-block: 17px;
+    gap: 14px;
+  }
+  .dg-app .dg-display-controls {
+    margin-left: auto;
+  }
+  .dg-app .dg-card-grid {
+    gap: 14px;
+  }
+  .dg-app .dg-content-heading h2 {
+    font-size: 23px;
+  }
+  .dg-app .dg-content-heading {
+    padding-top: 24px;
+  }
+  .dg-app .dg-filter-bar {
+    flex-wrap: wrap;
+  }
+  .dg-app .dg-search {
+    max-width: none;
+    flex-basis: 100%;
+  }
+  .dg-app .dg-card-title-row {
+    flex-wrap: wrap;
+  }
+  .dg-app .dg-card-meta {
+    font-size: 9px;
+  }
+  .dg-app .dg-card-title-row h3 {
+    font-size: 13px;
+  }
+  .dg-app .dg-card-description {
+    font-size: 11px;
+  }
 }
 @media (max-width: 720px) {
-  #diagram-app .dg-topbar { min-height: 59px; padding-inline: 17px; gap: 12px; }
-  #diagram-app .dg-brand { font-size: 14px; gap: 8px; }
-  #diagram-app .dg-brand-divider { padding-inline: 7px; }
-  #diagram-app .dg-brand-symbol { transform: scale(.9) rotate(-8deg); width: 20px; }
-  #diagram-app .dg-topbar-actions { gap: 2px; }
-  #diagram-app .dg-top-link { display: none; }
-  #diagram-app .dg-topbar-separator { display: none; }
-  #diagram-app .dg-layout { display: block; }
-  #diagram-app .dg-sidebar { border-right: 0; border-bottom: 1px solid var(--dg-line); display: grid; grid-template-columns: 1fr 1fr; }
-  #diagram-app .dg-sidebar-section { padding: 17px; }
-  #diagram-app .dg-sidebar-section:first-child { grid-column: 1 / -1; padding-bottom: 13px; }
-  #diagram-app .dg-sidebar-section:first-child .dg-overline { font-size: 9px; }
-  #diagram-app .dg-session-title { font-size: 20px; margin: 5px 0 5px; }
-  #diagram-app .dg-session-description { max-width: 600px; font-size: 11px; }
-  #diagram-app .dg-project-name { margin-top: 11px; }
-  #diagram-app .dg-sidebar-section:nth-child(2), #diagram-app .dg-sidebar-section:nth-child(3) { border-bottom: 0; padding-block: 14px; }
-  #diagram-app .dg-sidebar-section:nth-child(2) { border-right: 1px solid var(--dg-line); }
-  #diagram-app .dg-sidebar-section:nth-child(2) .dg-section-heading { margin-bottom: 6px; }
-  #diagram-app .dg-sidebar-section:nth-child(3) .dg-section-heading { margin-bottom: 6px; }
-  #diagram-app .dg-nav-row { min-height: 34px; padding: 6px; font-size: 11px; }
-  #diagram-app .dg-round-description, #diagram-app .dg-sidebar-note { font-size: 10px; padding-inline: 5px; }
-  #diagram-app .dg-sidebar-reference { grid-column: 1 / -1; border-top: 1px solid var(--dg-line); border-bottom: 0; padding-block: 12px; }
-  #diagram-app .dg-sidebar-reference > .dg-section-heading, #diagram-app .dg-sidebar-reference .dg-session-facts, #diagram-app .dg-sidebar-footer { display: none; }
-  #diagram-app .dg-sidebar-reference .dg-brief, #diagram-app .dg-sidebar-reference .dg-keyboard { margin-top: 0; }
-  #diagram-app .dg-sidebar-reference .dg-keyboard { margin-top: 9px; }
-  #diagram-app .dg-direction-summary { margin-top: 10px; padding: 10px 5px 0; }
-  #diagram-app .dg-direction-summary > button { font-size: 11px; }
-  #diagram-app .dg-main { padding: 0 17px 35px; }
-  #diagram-app .dg-workspace-toolbar { padding-block: 16px; flex-wrap: nowrap; gap: 8px; align-items: flex-start; }
-  #diagram-app .dg-view-switch button { font-size: 11px; padding: 5px 8px; min-height: 31px; }
-  #diagram-app .dg-view-switch button .dg-icon { width: 14px; height: 14px; flex-basis: 14px; }
-  #diagram-app .dg-display-controls { gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
-  #diagram-app .dg-theme-switch { flex-shrink: 0; }
-  #diagram-app .dg-theme-switch button { padding: 5px 7px; }
-  #diagram-app .dg-theme-switch button span { display: none; }
-  #diagram-app .dg-backdrop-select select { font-size: 10px; max-width: 98px; padding-block: 6px; }
-  #diagram-app .dg-content-heading h2 { font-size: 23px; }
-  #diagram-app .dg-result-count { font-size: 10px; }
-  #diagram-app .dg-filter-bar { margin-bottom: 18px; }
-  #diagram-app .dg-filter-select { flex: 1; }
-  #diagram-app .dg-filter-select select { width: 100%; max-width: none; font-size: 11px; }
-  #diagram-app .dg-card-grid { gap: 15px; }
-  #diagram-app .dg-card-caption { padding: 13px 12px; }
-  #diagram-app .dg-card-top { padding: 5px 6px 5px 10px; min-height: 40px; }
-  #diagram-app .dg-card-top .dg-candidate-id { font-size: 9px; }
-  #diagram-app .dg-card-actions .dg-icon-button { min-width: 25px; width: 25px; height: 27px; padding: 4px; }
-  #diagram-app .dg-card-actions .dg-icon { width: 14px; height: 14px; }
-  #diagram-app .dg-inspector-top { padding-top: 22px; }
-  #diagram-app .dg-inspector-top h2 { font-size: 23px; }
-  #diagram-app .dg-inspector-top .dg-overline { font-size: 9px; }
-  #diagram-app .dg-candidate-navigation { gap: 3px; }
-  #diagram-app .dg-candidate-navigation > span { font-size: 10px; margin-right: 3px; }
-  #diagram-app .dg-workbench-columns { margin-top: 20px; }
-  #diagram-app .dg-stage { min-height: 310px; height: 48vh; max-height: 480px; }
-  #diagram-app .dg-compare-grid { gap: 11px; }
-  #diagram-app .dg-compare-heading { padding: 10px 7px; gap: 5px; }
-  #diagram-app .dg-compare-heading select { font-size: 10px; }
-  #diagram-app .dg-compare-cell .dg-stage { height: 280px; min-height: 230px; }
-  #diagram-app .dg-compare-cell .dg-stage-dimensions { display: none; }
-  #diagram-app .dg-compare-cell-footer { flex-wrap: wrap; gap: 1px; }
-  #diagram-app .dg-compare-cell .dg-placement-heading h3 { font-size: 11px; }
-  #diagram-app .dg-stage-footer { font-size: 9px; }
-  #diagram-app .dg-review-panel { column-gap: 18px; padding-inline: 17px; }
-  #diagram-app .dg-tone-recipe { margin-inline: -17px; }
-  #diagram-app .dg-tone-recipe > summary, #diagram-app .dg-recipe-body { padding-inline: 17px; }
+  .dg-app .dg-topbar {
+    min-height: 59px;
+    padding-inline: 17px;
+    gap: 12px;
+  }
+  .dg-app .dg-brand {
+    font-size: 14px;
+    gap: 8px;
+  }
+  .dg-app .dg-brand-divider {
+    padding-inline: 7px;
+  }
+  .dg-app .dg-brand-symbol {
+    transform: scale(0.9) rotate(-8deg);
+    width: 20px;
+  }
+  .dg-app .dg-topbar-actions {
+    gap: 2px;
+  }
+  .dg-app .dg-top-link {
+    display: none;
+  }
+  .dg-app .dg-topbar-separator {
+    display: none;
+  }
+  .dg-app .dg-layout {
+    display: block;
+  }
+  .dg-app .dg-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--dg-line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .dg-app .dg-sidebar-section {
+    padding: 17px;
+  }
+  .dg-app .dg-sidebar-section:first-child {
+    grid-column: 1 / -1;
+    padding-bottom: 13px;
+  }
+  .dg-app .dg-sidebar-section:first-child .dg-overline {
+    font-size: 9px;
+  }
+  .dg-app .dg-session-title {
+    font-size: 20px;
+    margin: 5px 0 5px;
+  }
+  .dg-app .dg-session-description {
+    max-width: 600px;
+    font-size: 11px;
+  }
+  .dg-app .dg-project-name {
+    margin-top: 11px;
+  }
+  .dg-app .dg-sidebar-section:nth-child(2),
+  .dg-app .dg-sidebar-section:nth-child(3) {
+    border-bottom: 0;
+    padding-block: 14px;
+  }
+  .dg-app .dg-sidebar-section:nth-child(2) {
+    border-right: 1px solid var(--dg-line);
+  }
+  .dg-app .dg-sidebar-section:nth-child(2) .dg-section-heading {
+    margin-bottom: 6px;
+  }
+  .dg-app .dg-sidebar-section:nth-child(3) .dg-section-heading {
+    margin-bottom: 6px;
+  }
+  .dg-app .dg-nav-row {
+    min-height: 34px;
+    padding: 6px;
+    font-size: 11px;
+  }
+  .dg-app .dg-round-description,
+  .dg-app .dg-sidebar-note {
+    font-size: 10px;
+    padding-inline: 5px;
+  }
+  .dg-app .dg-sidebar-reference {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--dg-line);
+    border-bottom: 0;
+    padding-block: 12px;
+  }
+  .dg-app .dg-sidebar-reference > .dg-section-heading,
+  .dg-app .dg-sidebar-reference .dg-session-facts,
+  .dg-app .dg-sidebar-footer {
+    display: none;
+  }
+  .dg-app .dg-sidebar-reference .dg-brief,
+  .dg-app .dg-sidebar-reference .dg-keyboard {
+    margin-top: 0;
+  }
+  .dg-app .dg-sidebar-reference .dg-keyboard {
+    margin-top: 9px;
+  }
+  .dg-app .dg-direction-summary {
+    margin-top: 10px;
+    padding: 10px 5px 0;
+  }
+  .dg-app .dg-direction-summary > button {
+    font-size: 11px;
+  }
+  .dg-app .dg-main {
+    padding: 0 17px 35px;
+  }
+  .dg-app .dg-workspace-toolbar {
+    padding-block: 16px;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .dg-app .dg-view-switch button {
+    font-size: 11px;
+    padding: 5px 8px;
+    min-height: 31px;
+  }
+  .dg-app .dg-view-switch button .dg-icon {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+  .dg-app .dg-display-controls {
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .dg-app .dg-theme-switch {
+    flex-shrink: 0;
+  }
+  .dg-app .dg-theme-switch button {
+    padding: 5px 7px;
+  }
+  .dg-app .dg-theme-switch button span {
+    display: none;
+  }
+  .dg-app .dg-backdrop-select select {
+    font-size: 10px;
+    max-width: 98px;
+    padding-block: 6px;
+  }
+  .dg-app .dg-content-heading h2 {
+    font-size: 23px;
+  }
+  .dg-app .dg-result-count {
+    font-size: 10px;
+  }
+  .dg-app .dg-filter-bar {
+    margin-bottom: 18px;
+  }
+  .dg-app .dg-filter-select {
+    flex: 1;
+  }
+  .dg-app .dg-filter-select select {
+    width: 100%;
+    max-width: none;
+    font-size: 11px;
+  }
+  .dg-app .dg-card-grid {
+    gap: 15px;
+  }
+  .dg-app .dg-card-caption {
+    padding: 13px 12px;
+  }
+  .dg-app .dg-card-top {
+    padding: 5px 6px 5px 10px;
+    min-height: 40px;
+  }
+  .dg-app .dg-card-top .dg-candidate-id {
+    font-size: 9px;
+  }
+  .dg-app .dg-card-actions .dg-icon-button {
+    min-width: 25px;
+    width: 25px;
+    height: 27px;
+    padding: 4px;
+  }
+  .dg-app .dg-card-actions .dg-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .dg-app .dg-inspector-top {
+    padding-top: 22px;
+  }
+  .dg-app .dg-inspector-top h2 {
+    font-size: 23px;
+  }
+  .dg-app .dg-inspector-top .dg-overline {
+    font-size: 9px;
+  }
+  .dg-app .dg-candidate-navigation {
+    gap: 3px;
+  }
+  .dg-app .dg-candidate-navigation > span {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+  .dg-app .dg-workbench-columns {
+    margin-top: 20px;
+  }
+  .dg-app .dg-stage {
+    min-height: 310px;
+    height: 48vh;
+    max-height: 480px;
+  }
+  .dg-app .dg-compare-grid {
+    gap: 11px;
+  }
+  .dg-app .dg-compare-heading {
+    padding: 10px 7px;
+    gap: 5px;
+  }
+  .dg-app .dg-compare-heading select {
+    font-size: 10px;
+  }
+  .dg-app .dg-compare-cell .dg-stage {
+    height: 280px;
+    min-height: 230px;
+  }
+  .dg-app .dg-compare-cell .dg-stage-dimensions {
+    display: none;
+  }
+  .dg-app .dg-compare-cell-footer {
+    flex-wrap: wrap;
+    gap: 1px;
+  }
+  .dg-app .dg-compare-cell .dg-placement-heading h3 {
+    font-size: 11px;
+  }
+  .dg-app .dg-stage-footer {
+    font-size: 9px;
+  }
+  .dg-app .dg-review-panel {
+    column-gap: 18px;
+    padding-inline: 17px;
+  }
+  .dg-app .dg-tone-recipe {
+    margin-inline: -17px;
+  }
+  .dg-app .dg-tone-recipe > summary,
+  .dg-app .dg-recipe-body {
+    padding-inline: 17px;
+  }
 }
 @media (max-width: 500px) {
-  #diagram-app .dg-topbar { padding-inline: 13px; }
-  #diagram-app .dg-main { padding-inline: 13px; }
-  #diagram-app .dg-sidebar-section { padding-inline: 13px; }
-  #diagram-app .dg-card-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  #diagram-app .dg-card-top { min-height: 44px; padding-inline: 14px; }
-  #diagram-app .dg-card-top .dg-candidate-id { font-size: 10px; }
-  #diagram-app .dg-card-actions .dg-icon-button { min-width: 30px; height: 30px; }
-  #diagram-app .dg-card-caption { padding: 16px; }
-  #diagram-app .dg-card-title-row h3 { font-size: 15px; }
-  #diagram-app .dg-card-description { font-size: 12px; }
-  #diagram-app .dg-card-meta { font-size: 10px; }
-  #diagram-app .dg-thumbnail { aspect-ratio: 1.8; }
-  #diagram-app .dg-view-switch button { min-height: 32px; gap: 5px; }
-  #diagram-app .dg-view-switch button span { display: none; }
-  #diagram-app .dg-view-switch button .dg-icon { width: 17px; height: 17px; flex-basis: 17px; }
-  #diagram-app .dg-display-controls { gap: 7px; }
-  #diagram-app .dg-backdrop-select select { max-width: 123px; }
-  #diagram-app .dg-workspace-toolbar { min-height: 72px; align-items: center; }
-  #diagram-app .dg-content-heading h2 { font-size: 22px; }
-  #diagram-app .dg-content-heading { align-items: center; }
-  #diagram-app .dg-gallery-intro { font-size: 12px; margin-top: -4px; }
-  #diagram-app .dg-inspector-top { gap: 10px; }
-  #diagram-app .dg-inspector-top h2 { font-size: 21px; }
-  #diagram-app .dg-candidate-navigation > span { display: none; }
-  #diagram-app .dg-zoom-toolbar { padding-inline: 8px; }
-  #diagram-app .dg-zoom-range input { width: 70px; }
-  #diagram-app .dg-zoom-range output { min-width: 46px; font-size: 9px; }
-  #diagram-app .dg-zoom-range { margin-left: 1px; gap: 4px; }
-  #diagram-app .dg-zoom-actions { gap: 4px; }
-  #diagram-app .dg-review-panel { display: block; padding-inline: 17px; }
-  #diagram-app .dg-review-title { padding-bottom: 15px; }
-  #diagram-app .dg-review-selection .dg-button { min-height: 38px; font-size: 12px; }
-  #diagram-app .dg-note-fields { padding-bottom: 0; }
-  #diagram-app .dg-note-fields textarea, #diagram-app .dg-note-fields select { font-size: 13px; }
-  #diagram-app .dg-note-fields label > span { font-size: 12px; }
-  #diagram-app .dg-feedback-actions { margin-top: 20px; }
-  #diagram-app .dg-feedback-actions .dg-button { min-height: 39px; font-size: 11px; }
-  #diagram-app .dg-asset-actions { display: block; }
-  #diagram-app .dg-asset-path { margin-top: 14px; }
-  #diagram-app .dg-recipe-body ol { columns: 1; }
-  #diagram-app .dg-comparison .dg-content-heading { align-items: flex-start; flex-wrap: wrap; gap: 9px; }
-  #diagram-app .dg-comparison .dg-content-heading .dg-text-button { font-size: 10px; }
-  #diagram-app .dg-compare-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  #diagram-app .dg-compare-heading select { font-size: 12px; }
-  #diagram-app .dg-compare-cell .dg-stage { height: 330px; }
-  #diagram-app .dg-compare-cell .dg-stage-dimensions { display: block; }
-  #diagram-app .dg-compare-cell-footer { flex-wrap: nowrap; }
-  #diagram-app .dg-placement-heading { flex-wrap: wrap; gap: 5px; }
-  #diagram-app .dg-placement-heading > span { font-size: 9px; }
-  #diagram-app .dg-unavailable strong { font-size: 12px; }
+  .dg-app .dg-topbar {
+    padding-inline: 13px;
+  }
+  .dg-app .dg-main {
+    padding-inline: 13px;
+  }
+  .dg-app .dg-sidebar-section {
+    padding-inline: 13px;
+  }
+  .dg-app .dg-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .dg-app .dg-card-top {
+    min-height: 44px;
+    padding-inline: 14px;
+  }
+  .dg-app .dg-card-top .dg-candidate-id {
+    font-size: 10px;
+  }
+  .dg-app .dg-card-actions .dg-icon-button {
+    min-width: 30px;
+    height: 30px;
+  }
+  .dg-app .dg-card-caption {
+    padding: 16px;
+  }
+  .dg-app .dg-card-title-row h3 {
+    font-size: 15px;
+  }
+  .dg-app .dg-card-description {
+    font-size: 12px;
+  }
+  .dg-app .dg-card-meta {
+    font-size: 10px;
+  }
+  .dg-app .dg-thumbnail {
+    aspect-ratio: 1.8;
+  }
+  .dg-app .dg-view-switch button {
+    min-height: 32px;
+    gap: 5px;
+  }
+  .dg-app .dg-view-switch button span {
+    display: none;
+  }
+  .dg-app .dg-view-switch button .dg-icon {
+    width: 17px;
+    height: 17px;
+    flex-basis: 17px;
+  }
+  .dg-app .dg-display-controls {
+    gap: 7px;
+  }
+  .dg-app .dg-backdrop-select select {
+    max-width: 123px;
+  }
+  .dg-app .dg-workspace-toolbar {
+    min-height: 72px;
+    align-items: center;
+  }
+  .dg-app .dg-content-heading h2 {
+    font-size: 22px;
+  }
+  .dg-app .dg-content-heading {
+    align-items: center;
+  }
+  .dg-app .dg-gallery-intro {
+    font-size: 12px;
+    margin-top: -4px;
+  }
+  .dg-app .dg-inspector-top {
+    gap: 10px;
+  }
+  .dg-app .dg-inspector-top h2 {
+    font-size: 21px;
+  }
+  .dg-app .dg-candidate-navigation > span {
+    display: none;
+  }
+  .dg-app .dg-zoom-toolbar {
+    padding-inline: 8px;
+  }
+  .dg-app .dg-zoom-range input {
+    width: 70px;
+  }
+  .dg-app .dg-zoom-range output {
+    min-width: 46px;
+    font-size: 9px;
+  }
+  .dg-app .dg-zoom-range {
+    margin-left: 1px;
+    gap: 4px;
+  }
+  .dg-app .dg-zoom-actions {
+    gap: 4px;
+  }
+  .dg-app .dg-review-panel {
+    display: block;
+    padding-inline: 17px;
+  }
+  .dg-app .dg-review-title {
+    padding-bottom: 15px;
+  }
+  .dg-app .dg-review-selection .dg-button {
+    min-height: 38px;
+    font-size: 12px;
+  }
+  .dg-app .dg-note-fields {
+    padding-bottom: 0;
+  }
+  .dg-app .dg-note-fields textarea,
+  .dg-app .dg-note-fields select {
+    font-size: 13px;
+  }
+  .dg-app .dg-note-fields label > span {
+    font-size: 12px;
+  }
+  .dg-app .dg-feedback-actions {
+    margin-top: 20px;
+  }
+  .dg-app .dg-feedback-actions .dg-button {
+    min-height: 39px;
+    font-size: 11px;
+  }
+  .dg-app .dg-asset-actions {
+    display: block;
+  }
+  .dg-app .dg-asset-path {
+    margin-top: 14px;
+  }
+  .dg-app .dg-recipe-body ol {
+    columns: 1;
+  }
+  .dg-app .dg-comparison .dg-content-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .dg-app .dg-comparison .dg-content-heading .dg-text-button {
+    font-size: 10px;
+  }
+  .dg-app .dg-compare-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .dg-app .dg-compare-heading select {
+    font-size: 12px;
+  }
+  .dg-app .dg-compare-cell .dg-stage {
+    height: 330px;
+  }
+  .dg-app .dg-compare-cell .dg-stage-dimensions {
+    display: block;
+  }
+  .dg-app .dg-compare-cell-footer {
+    flex-wrap: nowrap;
+  }
+  .dg-app .dg-placement-heading {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .dg-app .dg-placement-heading > span {
+    font-size: 9px;
+  }
+  .dg-app .dg-unavailable strong {
+    font-size: 12px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  #diagram-app *, #diagram-app *::before, #diagram-app *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+  .dg-app *,
+  .dg-app *::before,
+  .dg-app *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Embedded instances follow the host theme and size to their own content. */
+.dg-app[data-embedded='true'] {
+  --dg-bg: var(--color-bg, #f5f6f8);
+  --dg-panel: var(--color-surface, #ffffff);
+  --dg-text: var(--color-fg, #202531);
+  --dg-muted: var(--color-muted, #686f7d);
+  --dg-accent: var(--color-accent, #3459df);
+  --dg-accent-hover: var(--color-accent-hover, #2544b9);
+  min-height: 0;
+  width: 100%;
+  min-width: 0;
+}
+.dg-app[data-embedded='true'] .dg-layout {
+  min-height: 0;
+}
+.dg-app[data-embedded='true'] .dg-stage {
+  height: 420px;
+}
+.dg-app[data-embedded='true'] .dg-compare-cell .dg-stage {
+  height: 340px;
+}
+@media (max-width: 720px) {
+  .dg-app[data-embedded='true'] .dg-stage {
+    height: 310px;
+  }
+  .dg-app[data-embedded='true'] .dg-compare-cell .dg-stage {
+    height: 280px;
+  }
+}
+.dg-app[data-embedded='true'] .dg-top-link,
+.dg-app[data-embedded='true'] [data-action='ui-theme'] {
+  display: none;
 }
