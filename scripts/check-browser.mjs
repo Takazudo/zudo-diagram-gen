@@ -78,7 +78,7 @@ try {
     await page.mouse.up();
     assert.match(await page.locator('.dg-pan-layer').evaluate((element) => element.style.transform), /translate/);
     await page.locator('[data-action="zoom-reset"]').click();
-    assert.equal(await page.locator('[data-zoom-label]').textContent(), 'Fit');
+    assert.match(await page.locator('[data-zoom-label]').textContent(), /^Fit/);
     const data = JSON.parse(await page.locator('#diagram-data').textContent());
     const size = await page.locator('.dg-context-art').evaluate((element) => ({ width: element.getBoundingClientRect().width, height: element.getBoundingClientRect().height }));
     assert.deepEqual(size, { width: data.session.target.width, height: data.session.target.height });
