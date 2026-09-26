@@ -4,7 +4,7 @@ This file coordinates the first implementation. Public guidance is in the projec
 
 ## Architecture
 
-- pnpm workspace; root is a zfb + zudo-doc project documentation website.
+- pnpm workspace; root is one zudo-doc documentation site hosted by zfb. The review workbench is embedded on a documentation page through zudo-doc chrome bindings rather than served as a separate custom page.
 - `packages/diagram-gen` is `@takazudo/zudo-diagram-gen`, version `0.1.0`.
 - `packages/create-zudo-diagram-gen` is a small initializer. No personal directories or automatic git initialization.
 - Runtime Node code uses ESM `.mjs`; browser code is dependency-free `.js` and CSS; zfb page entrypoints use Preact TSX.
@@ -12,6 +12,7 @@ This file coordinates the first implementation. Public guidance is in the projec
 - Browser app is package-owned. Agents normally edit session content only.
 - First-version feedback transport: copy text and download review JSON. Browser state is never described as a workspace write.
 - Local session CLI delegates dev/build/preview to **zfb**, and regenerates a static workbench page/data on additions, edits, and removals. Root docs also use zfb/zudo-doc.
+- Root site routes keep project content under `/docs/`: the tone catalog is `/docs/tones/`, examples are `/docs/examples/` (including `/docs/examples/<slug>/`), the embedded workbench is `/docs/workbench/`, and the changelog is `/docs/changelog/`.
 - Standalone `export-html` bundles data, CSS, and JS into one offline HTML file. This supplements zfb; it does not replace it.
 
 ## Source files in a session
@@ -40,6 +41,7 @@ This file coordinates the first implementation. Public guidance is in the projec
 - `renderGallery(data, options?)` -> full standalone HTML string. Embeds CSS, app.js, JSON safely. Options `{homeUrl?,docsUrl?,catalogUrl?,title?}`.
 - HTML contains `<div id="diagram-app"></div>` and `<script id="diagram-data" type="application/json">...</script>`.
 - `window.__DIAGRAM_LINKS__` is optional; links also embedded in data as `links` before serialization.
+- The root site exposes the workbench through a zfb Island in an MDX documentation page, registered with zudo-doc's `chromeBindings.mdxExtras`. Standalone session rendering remains available through the session host and offline HTML export.
 - `renderZfbGallery(data, options?)` -> HTML body fragment, stylesheet and application bootstrap embedded; used by generated Preact page.
 - Browser uses `<img>` with data SVG URLs, keeping SVG CSS and IDs isolated. Existing light/dark files are flattened literal colors.
 

@@ -90,11 +90,11 @@ The required fields are `schemaVersion`, `id`, `title`, `toneId`, `order`, and `
 
 Asset paths resolve relative to the directory containing `candidate.json`. Keep every referenced SVG inside that directory; use forward-slash relative paths without empty, `.` or `..` segments. The rounds tree does not support symbolic-link entries. This makes a candidate portable and keeps exports complete.
 
-`toneId` records the illustration reference used to develop the candidate. Use the [tone catalog](/tones/) and [tone authoring guide](/docs/authoring/tone-collection/) to choose a reference. A locally invented treatment can have its own stable tone ID; describe its conventions in the brief and candidate description.
+`toneId` records the illustration reference used to develop the candidate. Use the [tone catalog](/docs/tones/) and [tone authoring guide](/docs/authoring/tone-collection/) to choose a reference. A locally invented treatment can have its own stable tone ID; describe its conventions in the brief and candidate description.
 
 ## Create a refinement round
 
-Start from the SVG the reviewer selected. For example, the [tone-exploration fixture](/examples/tone-exploration/) keeps `r01-c01` and creates `r02-c01` with stronger connectors. Its second round is an illustrative continuation, not user approval.
+Start from the SVG the reviewer selected. For example, the [tone-exploration fixture](/docs/examples/tone-exploration/) keeps `r01-c01` and creates `r02-c01` with stronger connectors. Its second round is an illustrative continuation, not user approval.
 
 For your own `r01-c01`, agree on the edit first. The metadata below assumes a request for clearer connectors while retaining the rest of the drawing; replace that description with the feedback you received. Create `rounds/r02/round.json`:
 

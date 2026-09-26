@@ -2,7 +2,7 @@
 
 ## Intended outcome
 
-Continue a working first version of `zudo-diagram-gen`: a reusable local app in which agents place SVG candidates, the user compares and chooses them, and subsequent rounds refine the actual selected drawing. The root project site documents the app and exposes a catalog of 24 tone references and worked examples.
+Continue a working first version of `zudo-diagram-gen`: a reusable local app in which agents place SVG candidates, the user compares and chooses them, and subsequent rounds refine the actual selected drawing. The root project site is one zudo-doc documentation site with a catalog of 24 tone references, worked examples, and the review workbench embedded through zudo-doc chrome bindings.
 
 The user explicitly wants **zfb** as the core development/build CLI and a setup similar to **zudo-doc**. Keep those choices. The generated review app should stay small, and its behavior should come from an installed package.
 
@@ -22,7 +22,7 @@ This document describes the implementation and the next useful work. It does not
 
 | Location | Responsibility |
 | --- | --- |
-| Root `package.json`, zfb config, `pages/`, `src/` | Project documentation site and live catalog/example presentation. |
+| Root `package.json`, zfb config, `pages/`, `src/` | Single zudo-doc site, including documentation, catalog and example pages, and the embedded workbench. |
 | `packages/diagram-gen/src/model.mjs` | Session and catalog loading, validation, asset rules, lineage, exports. |
 | `packages/diagram-gen/src/commands.mjs` | Data-oriented CLI commands. |
 | `packages/diagram-gen/src/cli.mjs` and renderer modules | CLI dispatch, zfb lifecycle, prepared workbench output, standalone export. |
@@ -49,7 +49,7 @@ pnpm build
 pnpm dev
 ```
 
-Open the address printed by zfb. Check the home page, `/tones/`, `/examples/`, and a documentation page. The root project prepares showcase data before starting zfb and watches examples, tone resources, and viewer assets for updates.
+Open the address printed by zfb. Check the home page, `/docs/tones/`, `/docs/examples/`, `/docs/workbench/`, and a documentation page. The workbench is an embedded zfb Island on its documentation page. The root project prepares showcase data before starting zfb and watches examples, tone resources, and viewer assets for updates.
 
 Then verify a packaged consumer outside this checkout:
 
