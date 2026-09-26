@@ -73,6 +73,11 @@ try {
           path: `test-output/doc-combine-overflow-${width}.png`,
           fullPage: true,
         });
+      if (width === 390)
+        await page.screenshot({
+          path: `test-output/doc-combine-mobile-${route === '/' ? 'home' : route.split('/').filter(Boolean).at(-1)}.png`,
+          fullPage: true,
+        });
       assert.ok(
         dimensions.scroll <= dimensions.viewport + 1,
         `${route} at ${width}: ${JSON.stringify(dimensions)}`,
@@ -137,21 +142,24 @@ try {
     /Doc combine browser note/,
   );
   console.log('PASS embedded review and persistence');
-  await page.locator('[data-zd-theme-menu] button[aria-haspopup="menu"]').click();
+  const appearanceToggle = page
+    .locator('[data-zd-theme-menu] button[aria-haspopup="menu"]')
+    .first();
+  await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'Dark' }).click();
   await page.waitForFunction(
     () =>
       document.documentElement.dataset.theme === 'dark' &&
       document.querySelector('.dg-app')?.dataset.uiTheme === 'dark',
   );
-  await page.locator('[data-zd-theme-menu] button[aria-haspopup="menu"]').click();
+  await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'Light' }).click();
   await page.waitForFunction(
     () =>
       document.documentElement.dataset.theme === 'light' &&
       document.querySelector('.dg-app')?.dataset.uiTheme === 'light',
   );
-  await page.locator('[data-zd-theme-menu] button[aria-haspopup="menu"]').click();
+  await appearanceToggle.click();
   await page.getByRole('menuitemradio', { name: 'System' }).click();
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.waitForFunction(
