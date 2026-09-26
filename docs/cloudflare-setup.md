@@ -35,7 +35,7 @@ pnpm deploy:cloudflare
 pnpm smoke:cloudflare https://zudo-diagram-gen.zudolab.dev/
 ```
 
-Record the commit, previous live version ID (if one exists), new version ID, deploy URL, and smoke output. The deploy script checks for the required `dist` HTML files and invokes the pinned Wrangler. Its `versions list` step must be run before deployment for a rollback target. If local OAuth is used, verify `wrangler whoami` is still authenticated to the account above. In CI the account secret must match the configured account ID.
+Record the commit, previous live version ID (if one exists), new version ID, deploy URL, and smoke output. The deploy script checks for the required `dist` HTML files and invokes the pinned Wrangler. Its `versions list` step must be run before deployment for a rollback target. The smoke command allows up to 60 seconds for newly deployed assets to become available, then fails if any requested asset is still missing. If local OAuth is used, verify `wrangler whoami` is still authenticated to the account above. In CI the account secret must match the configured account ID.
 
 If the machine-wide heavy guard cannot admit a local build, use the `site-dist` artifact from a **successful main push CI run for the exact checked-out SHA**. Check `gh run view <run-id> --json event,headSha,conclusion`, then in a clean checkout with no existing `dist` run `gh run download <run-id> --name site-dist --dir dist`. Run the same Wrangler dry-run, deploy, and smoke commands. This is a CI build result; do not record it as a local build pass.
 
