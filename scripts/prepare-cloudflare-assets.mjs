@@ -1,19 +1,11 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 
-await mkdir('dist', { recursive: true });
-await writeFile(
-  'dist/404.html',
-  `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found | zudo-diagram-gen</title>
-  <style>body{font:1rem/1.6 system-ui,sans-serif;max-width:42rem;margin:12vh auto;padding:0 1.5rem;color:#222}a{color:#2459a5}</style>
-</head>
-<body>
-  <main><h1>Page not found</h1><p>That page is not in this documentation site.</p><p><a href="/">Return to the project home</a></p></main>
-</body>
-</html>
-`,
-);
+const notFoundPage = await readFile('dist/404.html', 'utf8').catch((cause) => {
+  throw new Error('The zudo-doc build must emit dist/404.html for Workers 404-page routing.', {
+    cause,
+  });
+});
+
+if (!notFoundPage.includes('Page not found.')) {
+  throw new Error('The generated zudo-doc 404 page no longer contains its expected message.');
+}

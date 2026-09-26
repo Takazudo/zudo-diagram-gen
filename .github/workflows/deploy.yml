@@ -61,3 +61,6 @@ jobs:
       - name: Smoke production
         if: steps.bootstrap.outputs.ready == 'true'
         run: pnpm smoke:cloudflare
+      - name: Smoke legacy-host redirect
+        if: steps.bootstrap.outputs.ready == 'true'
+        run: pnpm smoke:cloudflare --legacy https://zudo-diagram-gen.zudolab.dev/

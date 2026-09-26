@@ -69,7 +69,7 @@ jobs:
             if curl --fail --silent http://127.0.0.1:4333/ > /dev/null && curl --fail --silent http://127.0.0.1:4334/ > /dev/null; then break; fi
             sleep 1
           done
-          for route in / /tones/ /examples/ /workbench/ /docs/getting-started/introduction/; do
+          for route in / /docs/tones/ /docs/examples/ /docs/workbench/ /docs/changelog/ /docs/getting-started/introduction/; do
             curl --fail --silent "http://127.0.0.1:4333$route" > /dev/null || { cat "$RUNNER_TEMP/root-preview.log"; exit 1; }
           done
           curl --fail --silent http://127.0.0.1:4334/ > /dev/null || { cat "$RUNNER_TEMP/consumer-preview.log"; exit 1; }
