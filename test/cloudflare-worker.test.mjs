@@ -1,13 +1,11 @@
 import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import worker, { mapLegacyUrl } from '../worker/index.mjs';
+import worker, { mapShortPath } from '../worker/index.mjs';
 
-const documentationOrigin = 'https://zudo-diagram-gen-doc.zudolab.dev';
-const legacyOrigin = 'https://zudo-diagram-gen.zudolab.dev';
+const siteOrigin = 'https://zudo-diagram-gen.zudolab.dev';
 
-test('legacy URLs map the moved pages, including slashless paths and query strings', () => {
+test('short site paths map to their documentation routes', () => {
   const cases = [
-    ['/', '/'],
     ['/tones', '/docs/tones/'],
     ['/tones/', '/docs/tones/'],
     ['/examples', '/docs/examples/'],
@@ -16,34 +14,31 @@ test('legacy URLs map the moved pages, including slashless paths and query strin
     ['/examples/project-text/', '/docs/examples/project-text/'],
     ['/workbench', '/docs/workbench/'],
     ['/workbench/', '/docs/workbench/'],
-    ['/assets/site.css', '/assets/site.css'],
-    ['/docs/getting-started/', '/docs/getting-started/'],
-    ['/does-not-exist', '/does-not-exist'],
   ];
 
   for (const [path, expectedPath] of cases) {
-    assert.equal(mapLegacyUrl(`${legacyOrigin}${path}`), `${documentationOrigin}${expectedPath}`);
+    assert.equal(mapShortPath(path), expectedPath);
   }
 
-  assert.equal(
-    mapLegacyUrl(`${legacyOrigin}/docs/getting-started/?q=1`),
-    `${documentationOrigin}/docs/getting-started/?q=1`,
-  );
-  assert.equal(mapLegacyUrl(`${documentationOrigin}/tones/`), null);
+  assert.equal(mapShortPath('/'), null);
+  assert.equal(mapShortPath('/assets/site.css'), null);
+  assert.equal(mapShortPath('/examples/project-text/nested/'), null);
 });
 
-test('legacy requests redirect and requests on other hosts pass through to assets', async () => {
-  const legacyRequest = new Request(`${legacyOrigin}/examples/project-text?view=full`);
-  const redirect = await worker.fetch(legacyRequest, {
-    ASSETS: { fetch: () => assert.fail('legacy requests should redirect before asset lookup') },
+test('short paths redirect on the site host with their query string', async () => {
+  const request = new Request(`${siteOrigin}/examples/project-text?view=full`);
+  const redirect = await worker.fetch(request, {
+    ASSETS: { fetch: () => assert.fail('short paths should redirect before asset lookup') },
   });
   assert.equal(redirect.status, 301);
   assert.equal(
     redirect.headers.get('location'),
-    `${documentationOrigin}/docs/examples/project-text/?view=full`,
+    `${siteOrigin}/docs/examples/project-text/?view=full`,
   );
+});
 
-  const assetRequest = new Request(`${documentationOrigin}/assets/site.css`);
+test('all other requests pass through to assets, including short paths on another host', async () => {
+  const assetRequest = new Request(`${siteOrigin}/assets/site.css`);
   const assetResponse = new Response('asset');
   let forwarded;
   const response = await worker.fetch(assetRequest, {
@@ -56,4 +51,17 @@ test('legacy requests redirect and requests on other hosts pass through to asset
   });
   assert.equal(response, assetResponse);
   assert.equal(forwarded, assetRequest);
+
+  const previewRequest = new Request('https://preview.example.workers.dev/tones/');
+  forwarded = undefined;
+  const previewResponse = await worker.fetch(previewRequest, {
+    ASSETS: {
+      fetch(request) {
+        forwarded = request;
+        return assetResponse;
+      },
+    },
+  });
+  assert.equal(previewResponse, assetResponse);
+  assert.equal(forwarded, previewRequest);
 });

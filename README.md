@@ -2,7 +2,7 @@
 
 A local workspace for comparing, choosing, and refining SVG diagrams with an agent. The agent writes candidate SVG files; a person reviews them at the intended placement size, selects a direction, and gives feedback for the next round. Earlier drawings remain available.
 
-This repository contains the reusable review package, a destination-based initializer, 24 illustrated tone references, worked example sessions, and a zfb + zudo-doc project site. Visit [the live site](https://zudo-diagram-gen-doc.zudolab.dev/) for the home page, documentation under `/docs/`, tones at `/docs/tones/`, examples at `/docs/examples/` and `/docs/examples/<slug>/`, the workbench at `/docs/workbench/`, and the changelog at `/docs/changelog/`. The previous `zudo-diagram-gen.zudolab.dev` hostname redirects to the matching page on the new host. Run it locally with `pnpm dev`.
+This repository contains the reusable review package, a destination-based initializer, 24 illustrated tone references, worked example sessions, and a zfb + zudo-doc project site. Visit [the live site](https://zudo-diagram-gen.zudolab.dev/) for the home page, documentation under `/docs/`, tones at `/docs/tones/`, examples at `/docs/examples/` and `/docs/examples/<slug>/`, the workbench at `/docs/workbench/`, and the changelog at `/docs/changelog/`. The former `/tones`, `/examples`, `/examples/<slug>`, and `/workbench` URLs redirect to matching `/docs/` routes on the same host. Run it locally with `pnpm dev`.
 
 ## Status and requirements
 

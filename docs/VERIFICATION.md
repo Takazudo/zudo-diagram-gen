@@ -105,3 +105,9 @@ Both package manifests are `0.1.0` with `MIT` license declarations and include t
 Neither package has been published to npm through this handoff. At the time of the earlier source handoff, the website had not been deployed; the first live deployment is recorded above. Install from downloaded source and local archives as described in the [README](../README.md). The proposed `/diagram-gen` core skill, `/my-diagram-gen` wrapper, project-selection workflow, and a real-project diagram integration remain future work. Browser review state stays local until copied or downloaded; no source feedback-write or automatic agent-resume path exists.
 
 SVG validation checks supported structure and references. It does not judge whether a diagram is factually correct, legible, or suitable for a target placement.
+
+## Production hostname update — 2026-09-27
+
+Issue #44 makes `zudo-diagram-gen.zudolab.dev` the only configured production custom domain and retires the former documentation hostname from the active Wrangler config. The next successful main deployment will reconcile the attachment. This topic branch did not deploy or detach a production domain; verify the attachment state after merge. Wrangler 4.141.0's replacement-state behavior and its bundled source locations are recorded in [the Cloudflare setup guide](./cloudflare-setup.md).
+
+The unchanged `wrangler.preview.jsonc` still names its separate `workers.dev` preview Worker `zudo-diagram-gen-docs-smoke`, as directed by issue #44. This is a Worker name, not a production hostname or custom-domain attachment.
