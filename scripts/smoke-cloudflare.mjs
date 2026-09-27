@@ -1,18 +1,18 @@
 import { setTimeout as delay } from 'node:timers/promises';
 
 const args = process.argv.slice(2);
-const legacyMode = args[0] === '--legacy';
-const baseInput = legacyMode ? args[1] : args[0];
+const redirectsMode = args[0] === '--redirects';
+const baseInput = redirectsMode ? args[1] : args[0];
 const usage =
   'Usage: pnpm smoke:cloudflare [http://localhost:8787/ | https://hostname/]\n' +
-  '       pnpm smoke:cloudflare --legacy https://legacy-hostname/';
+  '       pnpm smoke:cloudflare --redirects [https://zudo-diagram-gen.zudolab.dev/]';
 
-if ((legacyMode && args.length !== 2) || (!legacyMode && args.length > 1)) {
+if ((redirectsMode && args.length > 2) || (!redirectsMode && args.length > 1)) {
   console.error(usage);
   process.exit(2);
 }
 
-const defaultBase = 'https://zudo-diagram-gen-doc.zudolab.dev/';
+const defaultBase = 'https://zudo-diagram-gen.zudolab.dev/';
 const base = new URL(baseInput ?? defaultBase);
 if (!['http:', 'https:'].includes(base.protocol) || base.pathname !== '/') {
   console.error(usage);
@@ -87,25 +87,34 @@ async function requestAsset(path, expectedType) {
   }
 }
 
-if (legacyMode) {
-  const expectedOrigin = 'https://zudo-diagram-gen-doc.zudolab.dev';
+if (redirectsMode) {
   const redirects = [
-    ['/', `${expectedOrigin}/`],
-    ['/tones/', `${expectedOrigin}/docs/tones/`],
-    ['/examples/project-text/', `${expectedOrigin}/docs/examples/project-text/`],
-    ['/docs/getting-started/?q=1', `${expectedOrigin}/docs/getting-started/?q=1`],
+    ['/tones', '/docs/tones/'],
+    ['/tones/', '/docs/tones/'],
+    ['/examples', '/docs/examples/'],
+    ['/examples/', '/docs/examples/'],
+    ['/examples/project-text', '/docs/examples/project-text/'],
+    ['/examples/project-text/', '/docs/examples/project-text/'],
+    ['/workbench', '/docs/workbench/'],
+    ['/workbench/', '/docs/workbench/'],
+    ['/examples/project-text?view=full', '/docs/examples/project-text/?view=full'],
   ];
 
-  for (const [path, expectedLocation] of redirects) {
-    const response = await fetchWithDnsRetry(new URL(path, base), { redirect: 'manual' });
+  for (const [path, targetPath] of redirects) {
+    const requestedUrl = new URL(path, base);
+    const expectedUrl = new URL(requestedUrl);
+    expectedUrl.pathname = targetPath.split('?')[0];
+    expectedUrl.search = new URL(targetPath, base).search;
+    expectedUrl.hash = '';
+    const response = await fetchWithDnsRetry(requestedUrl, { redirect: 'manual' });
     const actualLocation = response.headers.get('location');
     if (
       response.status !== 301 ||
       !actualLocation ||
-      new URL(actualLocation, base).href !== expectedLocation
+      new URL(actualLocation, base).href !== expectedUrl.href
     ) {
       throw new Error(
-        `${path}: expected 301 Location ${expectedLocation}, got ${response.status} ${actualLocation}`,
+        `${path}: expected 301 Location ${expectedUrl.href}, got ${response.status} ${actualLocation}`,
       );
     }
     console.log(`${response.status} ${path} → ${actualLocation}`);

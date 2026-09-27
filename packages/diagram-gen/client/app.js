@@ -90,6 +90,7 @@ function mountDiagramApp(root, data, options = {}) {
   const tones = data.tones || [];
   const byTone = new Map(tones.map((tone) => [tone.id, tone]));
   const catalog = data.kind === 'catalog';
+  if (embedded && catalog) root.dataset.catalog = 'true';
   const storageKey = `zudo-diagram-gen:v1:${data.kind}:${data.session.id}`;
   const validActions = new Set(['refine', 'integrate', 'explore']);
   const validViews = new Set(['grid', 'inspect', 'compare']);
@@ -1190,6 +1191,7 @@ function mountDiagramApp(root, data, options = {}) {
     root.classList.remove('dg-app');
     delete root.dataset.diagramReady;
     delete root.dataset.embedded;
+    delete root.dataset.catalog;
     delete root.dataset.uiTheme;
     delete root.dataset.diagramTheme;
     delete root.dataset.backdrop;
