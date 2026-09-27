@@ -2341,18 +2341,172 @@
 
 /* Embedded instances follow the host theme and size to their own content. */
 .dg-app[data-embedded='true'] {
-  --dg-bg: var(--color-bg, #f5f6f8);
-  --dg-panel: var(--color-surface, #ffffff);
-  --dg-text: var(--color-fg, #202531);
-  --dg-muted: var(--color-muted, #686f7d);
-  --dg-accent: var(--color-accent, #3459df);
-  --dg-accent-hover: var(--color-accent-hover, #2544b9);
+  --dg-hsp-2xs: var(--spacing-hsp-2xs);
+  --dg-hsp-xs: var(--spacing-hsp-xs);
+  --dg-hsp-sm: var(--spacing-hsp-sm);
+  --dg-hsp-md: var(--spacing-hsp-md);
+  --dg-hsp-lg: var(--spacing-hsp-lg);
+  --dg-hsp-xl: var(--spacing-hsp-xl);
+  --dg-vsp-2xs: var(--spacing-vsp-3xs);
+  --dg-vsp-xs: var(--spacing-vsp-2xs);
+  --dg-vsp-sm: var(--spacing-vsp-xs);
+  --dg-vsp-md: var(--spacing-vsp-sm);
+  --dg-vsp-lg: var(--spacing-vsp-md);
+  --dg-vsp-xl: var(--spacing-vsp-lg);
+  --dg-text-micro: var(--text-micro);
+  --dg-text-caption: var(--text-caption);
+  --dg-text-small: var(--text-caption);
+  --dg-text-body-sm: var(--text-caption);
+  --dg-text-body-md: var(--text-small);
+  --dg-text-body: var(--text-small);
+  --dg-text-body-lg: var(--text-small);
+  --dg-text-brand: var(--text-small);
+  --dg-text-title-sm: var(--text-title);
+  --dg-text-intro: var(--text-title);
+  --dg-text-title-md: var(--text-title);
+  --dg-text-title-lg: var(--text-title);
+  --dg-text-title-xl: var(--text-title);
+  --dg-text-heading-sm: var(--text-title);
+  --dg-text-heading-md: var(--text-title);
+  --dg-text-heading-lg: var(--text-title);
+  --dg-text-display: var(--text-title);
+  --dg-font-family: inherit;
+  --dg-font-family-mono: var(--font-mono);
+  --dg-font-family-mono-compact: var(--font-mono);
+  --dg-radius-dot: var(--radius-DEFAULT);
+  --dg-radius-2xs: var(--radius-DEFAULT);
+  --dg-radius-xs: var(--radius-DEFAULT);
+  --dg-radius-sm: var(--radius-DEFAULT);
+  --dg-radius-md: var(--radius-DEFAULT);
+  --dg-radius-lg: var(--radius-lg);
+  --dg-bg: var(--color-zd-bg);
+  --dg-panel: var(--color-zd-surface);
+  --dg-panel-soft: var(--color-zd-bg);
+  --dg-text: var(--color-zd-fg);
+  --dg-muted: var(--color-zd-muted);
+  --dg-faint: var(--color-zd-muted);
+  --dg-line: var(--color-zd-muted);
+  --dg-line-strong: var(--color-zd-muted);
+  --dg-accent: var(--color-zd-accent);
+  --dg-accent-hover: var(--color-zd-accent-hover);
+  --dg-accent-soft: color-mix(in oklch, var(--color-zd-accent) 12%, var(--color-zd-surface));
+  --dg-accent-text: var(--color-zd-accent);
+  --dg-warning-bg: color-mix(in oklch, var(--color-zd-warning) 12%, var(--color-zd-surface));
+  --dg-warning-line: var(--color-zd-warning);
+  --dg-warning-text: var(--color-zd-warning);
+  --dg-accent-contrast: var(--color-zd-sel-fg);
+  --dg-art-light-bg: var(--color-zd-surface);
+  --dg-art-light-text: var(--color-zd-fg);
+  --dg-art-light-muted: var(--color-zd-muted);
+  --dg-art-dark-bg: var(--color-zd-code-bg);
+  --dg-art-dark-text: var(--color-zd-code-fg);
+  --dg-art-dark-muted: var(--color-zd-code-fg);
+  --dg-art-paper-bg: var(--color-zd-surface);
+  --dg-art-ink-bg: var(--color-zd-code-bg);
+  --dg-art-checker-bg: var(--color-zd-surface);
+  --dg-art-checker-cell: var(--color-zd-bg);
+  --dg-shadow-card: color-mix(in srgb, var(--color-zd-overlay) 4%, transparent);
+  --dg-shadow-context: color-mix(in srgb, var(--color-zd-overlay) 2%, transparent);
+  --dg-shadow-toast: color-mix(in srgb, var(--color-zd-overlay) 14%, transparent);
+  --dg-radius: var(--radius-DEFAULT);
   min-height: 0;
   width: 100%;
   min-width: 0;
+  color-scheme: inherit;
+}
+/* Keep the named artwork backdrops light or dark when the host scheme flips. */
+.dg-app[data-embedded='true'][data-ui-theme='dark'] {
+  --dg-art-light-bg: var(--color-zd-code-bg);
+  --dg-art-light-text: var(--color-zd-code-fg);
+  --dg-art-light-muted: var(--color-zd-code-fg);
+  --dg-art-dark-bg: var(--color-zd-bg);
+  --dg-art-dark-text: var(--color-zd-fg);
+  --dg-art-dark-muted: var(--color-zd-muted);
+  --dg-art-paper-bg: var(--color-zd-code-bg);
+  --dg-art-ink-bg: var(--color-zd-bg);
+  --dg-art-checker-bg: var(--color-zd-code-bg);
+  --dg-art-checker-cell: var(--color-zd-surface);
 }
 .dg-app[data-embedded='true'] .dg-layout {
   min-height: 0;
+}
+.dg-app[data-embedded='true'] .dg-topbar {
+  min-height: 0;
+  justify-content: flex-end;
+  padding-block: var(--dg-vsp-2xs);
+  padding-inline: var(--dg-hsp-md);
+  background: transparent;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-app[data-embedded='true'] .dg-brand,
+.dg-app[data-embedded='true'] .dg-sidebar-footer,
+.dg-app[data-embedded='true'] .dg-sidebar-section:first-child > .dg-overline,
+.dg-app[data-embedded='true'] .dg-gallery .dg-content-heading .dg-overline {
+  display: none;
+}
+.dg-app[data-embedded='true'] .dg-sidebar {
+  background: transparent;
+}
+.dg-app[data-embedded='true'] .dg-sidebar-section {
+  padding-block: var(--dg-vsp-md);
+  padding-inline: var(--dg-hsp-lg);
+}
+.dg-app[data-embedded='true'] .dg-main {
+  min-width: 0;
+  padding-inline: var(--dg-hsp-xl);
+}
+.dg-app[data-embedded='true'] .dg-content-heading {
+  padding-block: var(--dg-vsp-lg) var(--dg-vsp-sm);
+}
+.dg-app[data-embedded='true'] .dg-nav-row {
+  margin-block-end: 0;
+  padding-block: var(--dg-vsp-2xs);
+  padding-inline: var(--dg-hsp-sm);
+  color: var(--dg-muted);
+}
+.dg-app[data-embedded='true'] .dg-nav-row:hover,
+.dg-app[data-embedded='true'] .dg-nav-row:focus-visible,
+.dg-app[data-embedded='true'] .dg-nav-row.is-active {
+  color: var(--dg-accent-text);
+  background: transparent;
+}
+.dg-app[data-embedded='true'] .dg-segmented button:hover,
+.dg-app[data-embedded='true'] .dg-segmented button:focus-visible,
+.dg-app[data-embedded='true'] .dg-icon-button:hover,
+.dg-app[data-embedded='true'] .dg-icon-button:focus-visible {
+  color: var(--dg-accent-text);
+}
+.dg-app[data-embedded='true'] .dg-card {
+  background: transparent;
+  box-shadow: none;
+}
+.dg-app[data-embedded='true'] .dg-card:hover,
+.dg-app[data-embedded='true'] .dg-card:focus-within {
+  border-color: var(--dg-accent);
+}
+.dg-app[data-embedded='true'] .dg-card-title-row h3 button:hover,
+.dg-app[data-embedded='true'] .dg-card-title-row h3 button:focus-visible,
+.dg-app[data-embedded='true'] a:hover,
+.dg-app[data-embedded='true'] a:focus-visible,
+.dg-app[data-embedded='true'] .dg-tone-recipe > summary:hover,
+.dg-app[data-embedded='true'] .dg-tone-recipe > summary:focus-visible {
+  color: var(--dg-accent-text);
+  text-decoration: underline;
+}
+.dg-app[data-embedded='true'] .dg-filter-bar {
+  row-gap: var(--dg-vsp-xs);
+  column-gap: var(--dg-hsp-md);
+}
+.dg-app[data-embedded='true'] .dg-card-grid {
+  row-gap: var(--dg-vsp-sm);
+  column-gap: var(--dg-hsp-lg);
+}
+.dg-app[data-embedded='true'] .dg-card-caption {
+  padding-block: var(--dg-vsp-xs);
+  padding-inline: var(--dg-hsp-lg);
+}
+.dg-app[data-embedded='true'] .dg-tone-recipe {
+  background: transparent;
 }
 .dg-app[data-embedded='true'] .dg-stage {
   height: 420px;
@@ -2361,6 +2515,13 @@
   height: 340px;
 }
 @media (max-width: 720px) {
+  .dg-app[data-embedded='true'] .dg-main {
+    padding-inline: var(--dg-hsp-lg);
+  }
+  .dg-app[data-embedded='true'] .dg-sidebar-section {
+    padding-block: var(--dg-vsp-xs);
+    padding-inline: var(--dg-hsp-lg);
+  }
   .dg-app[data-embedded='true'] .dg-stage {
     height: 310px;
   }
