@@ -2447,6 +2447,9 @@
 .dg-app[data-embedded='true'] .dg-sidebar {
   background: transparent;
 }
+.dg-app[data-embedded='true'][data-catalog='true'] .dg-sidebar-section:first-child {
+  display: none;
+}
 .dg-app[data-embedded='true'] .dg-sidebar-section {
   padding-block: var(--dg-vsp-md);
   padding-inline: var(--dg-hsp-lg);
