@@ -34,12 +34,15 @@ ${intro}
 function examplesIndex(sessions) {
   const cards = sessions
     .map(
-      (session) => `  <article className="diagram-example-card">
-    ${session.hasPreview ? `<a href=${JSON.stringify(session.href)} className="diagram-example-preview"><img src=${JSON.stringify(session.preview)} alt=${JSON.stringify(`Preview of ${session.title}`)} loading="lazy" /></a>` : ''}
-    <div className="diagram-example-card-body">
-      <h2><a href=${JSON.stringify(session.href)}>${mdxText(session.title)}</a></h2>
-      <p>${mdxText(session.description)}</p>
-      <p className="diagram-example-counts">${session.candidates} ${session.candidates === 1 ? 'candidate' : 'candidates'} · ${session.rounds} ${session.rounds === 1 ? 'round' : 'rounds'}</p>
+      (session) => `  <article className="min-w-0">
+    ${session.hasPreview ? `<a href=${JSON.stringify(session.href)} className="block" aria-label=${JSON.stringify(`Open ${session.title}`)}><img src=${JSON.stringify(session.preview)} alt=${JSON.stringify(`Preview of ${session.title}`)} loading="lazy" className="block h-auto w-full max-w-full" /></a>` : ''}
+    <div className="mt-vsp-sm">
+      <a href=${JSON.stringify(session.href)} className="inline-flex items-start gap-x-hsp-xs font-medium text-fg hover:text-accent hover:underline focus-visible:text-accent focus-visible:underline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="w-hsp-lg shrink-0"><path d="m13.2 3.6-1.4 1.4 6 6H2v2h15.8l-6 6 1.4 1.4L21.6 12l-8.4-8.4Z" /></svg>
+        <span>${mdxText(session.title)}</span>
+      </a>
+      <p className="mt-vsp-2xs text-small text-muted">${mdxText(session.description)}</p>
+      <p className="mt-vsp-2xs text-caption text-muted">${session.candidates} ${session.candidates === 1 ? 'candidate' : 'candidates'} · ${session.rounds} ${session.rounds === 1 ? 'round' : 'rounds'}</p>
     </div>
   </article>`,
     )
@@ -47,12 +50,13 @@ function examplesIndex(sessions) {
   return `---
 title: Worked examples
 description: Complete sessions showing tone exploration and project-specific diagrams.
+sidebar_position: 0
 wide: true
 ---
 
 Each session has its own brief and target size. Open one to inspect its drawings and try the review controls.
 
-<div className="diagram-examples-grid">
+<div className="mt-vsp-lg grid grid-cols-1 gap-x-hsp-lg gap-y-vsp-lg sm:grid-cols-2 lg:grid-cols-3">
 ${cards}
 </div>
 `;
