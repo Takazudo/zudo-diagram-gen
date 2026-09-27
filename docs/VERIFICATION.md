@@ -108,6 +108,14 @@ SVG validation checks supported structure and references. It does not judge whet
 
 ## Production hostname update — 2026-09-27
 
-Issue #44 makes `zudo-diagram-gen.zudolab.dev` the only configured production custom domain and retires the former documentation hostname from the active Wrangler config. The next successful main deployment will reconcile the attachment. This topic branch did not deploy or detach a production domain; verify the attachment state after merge. Wrangler 4.141.0's replacement-state behavior and its bundled source locations are recorded in [the Cloudflare setup guide](./cloudflare-setup.md).
+Issue #44 made `zudo-diagram-gen.zudolab.dev` the only configured production custom domain and retired the former documentation hostname from the active Wrangler config. At that topic-branch checkpoint, deployment and attachment verification were still pending. Wrangler 4.141.0's replacement-state behavior and its bundled source locations are recorded in [the Cloudflare setup guide](./cloudflare-setup.md).
 
 The unchanged `wrangler.preview.jsonc` still names its separate `workers.dev` preview Worker `zudo-diagram-gen-docs-smoke`, as directed by issue #44. This is a Worker name, not a production hostname or custom-domain attachment.
+
+### Post-merge production verification
+
+The [site-polish root PR](https://github.com/Takazudo/zudo-diagram-gen/pull/56) merged into `main` as `8ef15bc987f804665d16895c52c25cc208a3b60d`. Its [main CI](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36297575603), security audit, and actionlint runs passed. The subsequent [production deploy](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/36297629556) completed successfully.
+
+Against `https://zudo-diagram-gen.zudolab.dev/`, `pnpm smoke:cloudflare` passed all seven HTML routes, the workbench JSON, CSS, SVG, and JavaScript assets, and the expected missing-page 404. `pnpm smoke:cloudflare --redirects` passed all nine same-host short-path redirects, including query preservation.
+
+The read-only Cloudflare `GET /accounts/{account_id}/workers/domains?service=zudo-diagram-gen` response reported one production custom domain for this Worker: `zudo-diagram-gen.zudolab.dev`. The retired `zudo-diagram-gen-doc.zudolab.dev` was absent. Direct DNS queries to the zone's authoritative nameservers, `joselyn.ns.cloudflare.com` and `rohin.ns.cloudflare.com`, returned `ENOTFOUND` for the retired hostname and A records for the canonical hostname. This confirms the old hostname is no longer attached or published in authoritative DNS; a browser with a cached old 301 may still attempt to visit it until that cache expires.
