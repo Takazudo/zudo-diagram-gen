@@ -16,10 +16,6 @@
   },
   "routes": [
     {
-      "pattern": "zudo-diagram-gen-doc.zudolab.dev",
-      "custom_domain": true,
-    },
-    {
       "pattern": "zudo-diagram-gen.zudolab.dev",
       "custom_domain": true,
     },

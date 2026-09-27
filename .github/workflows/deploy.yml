@@ -61,6 +61,6 @@ jobs:
       - name: Smoke production
         if: steps.bootstrap.outputs.ready == 'true'
         run: pnpm smoke:cloudflare
-      - name: Smoke legacy-host redirect
+      - name: Smoke short-path redirects
         if: steps.bootstrap.outputs.ready == 'true'
-        run: pnpm smoke:cloudflare --legacy https://zudo-diagram-gen.zudolab.dev/
+        run: pnpm smoke:cloudflare --redirects https://zudo-diagram-gen.zudolab.dev/
