@@ -37,7 +37,7 @@
     "diff": "8.0.4",
     "hono": "4.13.9",
     "katex": "0.16.38",
-    "preact": "10.29.2",
+    "preact": "10.29.8",
     "preact-render-to-string": "6.6.6",
     "tailwindcss": "4.2.0",
     "zod": "4.3.6"
