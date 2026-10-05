@@ -34,7 +34,7 @@ This document describes the implementation and the next useful work. It does not
 | `src/content/docs/` | Public MDX documentation for usage, authoring, architecture, commands, and agent workflow. |
 | `scripts/` | Showcase preparation, example checking, local packaging, and related project tasks. |
 
-Runtime Node code is ESM `.mjs`; the browser app uses ordinary JavaScript and CSS; zfb entrypoints use Preact TSX. The engine is shipped from source, so its package `files` list and relative runtime resource paths are part of the distributable contract.
+Runtime Node code is ESM `.mjs`; the browser app uses ordinary JavaScript and CSS; generated sessions use zudo-react TSX on zfb 3; the root zudo-doc host retains Preact TSX on zfb 2. The engine is shipped from source, so its package `files` list and relative runtime resource paths are part of the distributable contract.
 
 ## Run and assess the current checkout
 

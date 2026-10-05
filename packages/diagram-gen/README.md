@@ -41,3 +41,5 @@ const dispose = mountDiagramApp(element, galleryData, { embedded: true });
 ```
 
 Embedded mode uses the host `<html data-theme="light|dark">` appearance (or its `dark` class), observes later theme changes, and keeps the diagram asset theme switch available. The host supplies project navigation. Standalone HTML exports continue to include their own classic script and CSS.
+
+The engine supports zfb `^2.21.1 || ^3.2.0`. Existing v2 hosts keep their Preact dependencies; the optional Preact peer avoids adding Preact to new v3 hosts. `createPageSource(data, options, zfbMajor)` keeps its v2 default for existing programmatic callers; the CLI selects the major from the destination’s installed zfb.

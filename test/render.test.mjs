@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { renderGallery, createPageSource } from '../packages/diagram-gen/src/render.mjs';
 import { loadSession } from '../packages/diagram-gen/src/model.mjs';
-import { prepareProject, contentSignature } from '../packages/diagram-gen/src/runner.mjs';
+import { prepareProject, contentSignature, runZfb } from '../packages/diagram-gen/src/runner.mjs';
 import { createProject } from '../packages/create-zudo-diagram-gen/src/index.mjs';
 
 test('portable HTML embeds all assets and preserves literal text without script breakout', async () => {
@@ -66,6 +66,64 @@ test('content discovery notices additions, renames and deletions while ignoring 
     assert.equal(await contentSignature(temp), renamed);
     await rm(join(temp, 'rounds/r01/renamed'), { recursive: true });
     assert.equal(await contentSignature(temp), before);
+  } finally {
+    await rm(temp, { recursive: true, force: true });
+  }
+});
+
+test('renderer selection preserves embedded data, links, and v2 callers', async () => {
+  const data = await loadSession('examples/tone-exploration');
+  data.session.title = '</title><script>window.injected=true</script>';
+  data.brief = '</script><img src=x onerror="bad()">';
+  const options = { homeUrl: '/home?x=1&y=2' };
+  const legacy = await createPageSource(data, options);
+  const current = await createPageSource(data, options, 3);
+  assert.match(legacy, /@jsxImportSource preact/);
+  assert.match(legacy, /dangerouslySetInnerHTML/);
+  assert.doesNotMatch(current, /@jsxImportSource|dangerouslySetInnerHTML|charSet/);
+  assert.match(current, /charset="utf-8"/);
+  assert.match(current, /rawHtml=\{body\}/);
+  const body = (source) =>
+    JSON.parse(source.match(/const body = (.*);\nexport const frontmatter/)[1]);
+  assert.equal(body(current), body(legacy));
+  const payload = JSON.parse(body(current).match(/type="application\/json">(.*?)<\/script>/s)[1]);
+  assert.equal(payload.session.title, data.session.title);
+  assert.equal(payload.brief, data.brief);
+  assert.equal(payload.links.homeUrl, options.homeUrl);
+  assert.doesNotMatch(body(current), /<script>window.injected/);
+  await assert.rejects(createPageSource(data, options, 4), /Unsupported zfb major/);
+});
+
+test('runner selects the renderer and binary from the destination-installed zfb', async () => {
+  const temp = await mkdtemp(join(tmpdir(), 'diagram-installed-'));
+  try {
+    for (const major of [2, 3]) {
+      const root = join(temp, `consumer-${major}`);
+      await createProject({ destination: root });
+      const installed = join(root, 'node_modules/@takazudo/zfb');
+      await mkdir(join(installed, 'bin'), { recursive: true });
+      await writeFile(
+        join(installed, 'package.json'),
+        JSON.stringify({
+          name: '@takazudo/zfb',
+          version: `${major}.21.1`,
+          exports: { './package.json': './package.json' },
+        }),
+      );
+      await writeFile(
+        join(installed, 'bin/zfb.mjs'),
+        `import { writeFileSync } from 'node:fs'; writeFileSync('invoked.json', JSON.stringify(process.argv.slice(2)));`,
+      );
+      assert.equal(await runZfb('build', root, ['--base', '/review/']), 0);
+      assert.deepEqual(JSON.parse(await readFile(join(root, 'invoked.json'), 'utf8')), [
+        'build',
+        '--base',
+        '/review/',
+      ]);
+      const source = await readFile(join(root, 'pages/index.tsx'), 'utf8');
+      assert.equal(source.includes('@jsxImportSource preact'), major === 2);
+      assert.equal(source.includes('rawHtml={body}'), major === 3);
+    }
   } finally {
     await rm(temp, { recursive: true, force: true });
   }

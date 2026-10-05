@@ -34,11 +34,11 @@ test('creates an empty session with predictable defaults and package-owned page 
   assert.equal(pkg.name, 'note-history-help');
   assert.equal(pkg.private, true);
   assert.equal(pkg.dependencies['@takazudo/zudo-diagram-gen'], '0.1.0');
-  assert.equal(pkg.dependencies['@takazudo/zfb'], '2.21.1');
-  assert.equal(pkg.dependencies['@takazudo/zfb-runtime'], '2.21.1');
-  assert.equal(pkg.dependencies.hono, '4.13.9');
-  assert.equal(pkg.dependencies.preact, '10.29.2');
-  assert.equal(pkg.dependencies['preact-render-to-string'], '6.6.6');
+  assert.equal(pkg.dependencies['@takazudo/zfb'], '3.2.0');
+  assert.equal(pkg.dependencies['@takazudo/zfb-runtime'], '3.2.0');
+  assert.equal(pkg.dependencies.hono, undefined);
+  assert.equal(pkg.dependencies.preact, undefined);
+  assert.equal(pkg.dependencies['preact-render-to-string'], undefined);
   assert.deepEqual(pkg.scripts, {
     dev: 'zudo-diagram-gen dev .',
     build: 'zudo-diagram-gen build .',
