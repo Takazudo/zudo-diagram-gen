@@ -29,6 +29,7 @@ jobs:
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm check
+      - run: pnpm exec zfb check
       - run: pnpm test
       - run: pnpm check:examples
       - run: pnpm build
@@ -49,12 +50,19 @@ jobs:
             create-zudo-diagram-gen "$consumer" --name 'CI consumer' \
             --engine-package "$GITHUB_WORKSPACE/artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz" --yes
           cd "$consumer"
-          pnpm install
+          pnpm install --strict-peer-dependencies
           pnpm check
           pnpm build
+          pnpm exec zfb check
+          pnpm exec zfb wind audit --fail-on error
           mkdir -p "$GITHUB_WORKSPACE/test-output"
           pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer-empty.html"
           cp -R "$GITHUB_WORKSPACE/examples/project-text/rounds/r01/r01-c01" rounds/r01/
+          # Literal documentation text must survive the renderer's boundary guard.
+          printf '\nLiteral marker text: data-zfb-island="Demo" and zr:1:example\n' >> brief.md
+          pnpm check
+          pnpm build
+          pnpm exec zfb check
           pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer.html"
       - name: Check built preview routes
         shell: bash
@@ -79,6 +87,7 @@ jobs:
           pnpm exec zudo-diagram-gen export-html examples/tone-exploration --out test-output/browser-project.html
           pnpm check:browser
           pnpm check:site-browser
+          node scripts/check-offline-file.mjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:

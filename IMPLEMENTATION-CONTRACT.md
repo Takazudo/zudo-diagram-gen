@@ -7,7 +7,7 @@ This file coordinates the first implementation. Public guidance is in the projec
 - pnpm workspace; root is one zudo-doc documentation site hosted by zfb. The review workbench is embedded on a documentation page through zudo-doc chrome bindings rather than served as a separate custom page.
 - `packages/diagram-gen` is `@takazudo/zudo-diagram-gen`, version `0.1.0`.
 - `packages/create-zudo-diagram-gen` is a small initializer. No personal directories or automatic git initialization.
-- Runtime Node code uses ESM `.mjs`; browser code is dependency-free `.js` and CSS; zfb page entrypoints use Preact TSX.
+- Runtime Node code uses ESM `.mjs`; browser code is dependency-free `.js` and CSS; generated session pages use zudo-react TSX on zfb 3 and retain Preact TSX support on zfb 2. The root zudo-doc host remains on Preact and zfb 2.
 - Node >=22 <25. Package source is directly shipped; no compile step for engine or CLI.
 - Browser app is package-owned. Agents normally edit session content only.
 - First-version feedback transport: copy text and download review JSON. Browser state is never described as a workspace write.
@@ -42,7 +42,7 @@ This file coordinates the first implementation. Public guidance is in the projec
 - HTML contains `<div id="diagram-app"></div>` and `<script id="diagram-data" type="application/json">...</script>`.
 - `window.__DIAGRAM_LINKS__` is optional; links also embedded in data as `links` before serialization.
 - The root site exposes the workbench through a zfb Island in an MDX documentation page, registered with zudo-doc's `chromeBindings.mdxExtras`. Standalone session rendering remains available through the session host and offline HTML export.
-- `renderZfbGallery(data, options?)` -> HTML body fragment, stylesheet and application bootstrap embedded; used by generated Preact page.
+- `renderZfbGallery(data, options?)` -> HTML body fragment, stylesheet and application bootstrap embedded; used by generated pages on either supported zfb major.
 - Browser uses `<img>` with data SVG URLs, keeping SVG CSS and IDs isolated. Existing light/dark files are flattened literal colors.
 
 ## Browser UI (`client/app.js`, `client/app.css`)

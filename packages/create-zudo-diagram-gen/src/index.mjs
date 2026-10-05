@@ -33,11 +33,26 @@ export function parseArguments(args) {
   let literal = false;
   for (let i = 0; i < args.length; i++) {
     const argument = args[i];
-    if (!literal && argument === '--') { literal = true; continue; }
-    if (!literal && ['--help', '-h'].includes(argument)) { options.help = true; continue; }
-    if (!literal && ['--version', '-v'].includes(argument)) { options.version = true; continue; }
-    if (!literal && ['--yes', '-y'].includes(argument)) { options.yes = true; continue; }
-    if (!literal && argument === '--install') { options.install = true; continue; }
+    if (!literal && argument === '--') {
+      literal = true;
+      continue;
+    }
+    if (!literal && ['--help', '-h'].includes(argument)) {
+      options.help = true;
+      continue;
+    }
+    if (!literal && ['--version', '-v'].includes(argument)) {
+      options.version = true;
+      continue;
+    }
+    if (!literal && ['--yes', '-y'].includes(argument)) {
+      options.yes = true;
+      continue;
+    }
+    if (!literal && argument === '--install') {
+      options.install = true;
+      continue;
+    }
     if (!literal && /^(--name|--engine-package)(=|$)/.test(argument)) {
       const equal = argument.indexOf('=');
       const flag = equal === -1 ? argument : argument.slice(0, equal);
@@ -46,7 +61,8 @@ export function parseArguments(args) {
       options[flag === '--name' ? 'name' : 'enginePackage'] = value;
       continue;
     }
-    if (!literal && argument.startsWith('-')) throw new Error(`Unknown option ${argument}. Run with --help for supported options.`);
+    if (!literal && argument.startsWith('-'))
+      throw new Error(`Unknown option ${argument}. Run with --help for supported options.`);
     if (hasDestination) throw new Error('Provide exactly one destination directory.');
     options.destination = argument;
     hasDestination = true;
@@ -86,59 +102,88 @@ export async function createProject(options = {}) {
     }
   } catch (error) {
     // Only remove files created by this call. Never remove a competing process's files.
-    await Promise.allSettled(createdFiles.map(filename => rm(filename)));
+    await Promise.allSettled(createdFiles.map((filename) => rm(filename)));
     throw new Error(`Could not finish creating ${directory}: ${error.message}`);
   }
   if (options.install === true) await installDependencies(directory);
-  return { directory, name: nameSlug, sessionId: id, title, installed: options.install === true, files: Object.keys(files) };
+  return {
+    directory,
+    name: nameSlug,
+    sessionId: id,
+    title,
+    installed: options.install === true,
+    files: Object.keys(files),
+  };
 }
 
 function slug(value) {
-  const normalized = value.normalize('NFKD').toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64).replace(/-+$/g, '');
+  const normalized = value
+    .normalize('NFKD')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 64)
+    .replace(/-+$/g, '');
   return normalized || `diagram-${createHash('sha256').update(value).digest('hex').slice(0, 10)}`;
 }
 
 async function assertEmptyDestination(directory) {
   let entry;
-  try { entry = await lstat(directory); } catch (error) {
+  try {
+    entry = await lstat(directory);
+  } catch (error) {
     if (error.code === 'ENOENT') return;
     throw error;
   }
-  if (entry.isSymbolicLink()) throw new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`);
+  if (entry.isSymbolicLink())
+    throw new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`);
   if (!entry.isDirectory()) throw new Error(`Destination is not a directory: ${directory}.`);
   if ((await readdir(directory)).length) {
-    throw new Error(`Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`);
+    throw new Error(
+      `Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`,
+    );
   }
 }
 
 async function normalizeEnginePackage(input) {
   if (typeof input !== 'string' || !input.trim() || /[\r\n\0]/.test(input)) {
-    throw new Error('--engine-package requires a nonempty package spec or an absolute tarball path.');
+    throw new Error(
+      '--engine-package requires a nonempty package spec or an absolute tarball path.',
+    );
   }
   const value = input.trim();
   const tarball = value.startsWith('file:') ? value.slice(5) : value;
   if (path.isAbsolute(tarball) || value.startsWith('file:')) {
-    if (!path.isAbsolute(tarball)) throw new Error('Local engine tarballs must use an absolute path.');
-    if (!/\.(tgz|tar\.gz)$/i.test(tarball)) throw new Error('Local engine package must be a .tgz or .tar.gz file.');
+    if (!path.isAbsolute(tarball))
+      throw new Error('Local engine tarballs must use an absolute path.');
+    if (!/\.(tgz|tar\.gz)$/i.test(tarball))
+      throw new Error('Local engine package must be a .tgz or .tar.gz file.');
     let entry;
-    try { entry = await stat(tarball); } catch (error) {
+    try {
+      entry = await stat(tarball);
+    } catch (error) {
       if (error.code === 'ENOENT') throw new Error(`Engine tarball does not exist: ${tarball}.`);
       throw error;
     }
     if (!entry.isFile()) throw new Error(`Engine tarball is not a regular file: ${tarball}.`);
     return `file:${path.resolve(tarball)}`;
   }
-  if (/^(\.|~|workspace:|link:)/.test(value) || /\.(tgz|tar\.gz)$/i.test(value) && !/^https?:\/\//.test(value)) {
-    throw new Error('Local engine tarballs must use an absolute path. Workspace and linked dependencies are not supported in a standalone session.');
+  if (
+    /^(\.|~|workspace:|link:)/.test(value) ||
+    (/\.(tgz|tar\.gz)$/i.test(value) && !/^https?:\/\//.test(value))
+  ) {
+    throw new Error(
+      'Local engine tarballs must use an absolute path. Workspace and linked dependencies are not supported in a standalone session.',
+    );
   }
   if (value === ENGINE_PACKAGE) return 'latest';
-  if (value.startsWith(`${ENGINE_PACKAGE}@`)) return value.slice(ENGINE_PACKAGE.length + 1) || 'latest';
+  if (value.startsWith(`${ENGINE_PACKAGE}@`))
+    return value.slice(ENGINE_PACKAGE.length + 1) || 'latest';
   if (value.startsWith('-')) throw new Error('Engine package spec must not begin with a dash.');
   return value;
 }
 
-const json = value => `${JSON.stringify(value, null, 2)}\n`;
+const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
 function scaffold({ id, nameSlug, title, engine }) {
   return {
@@ -154,33 +199,53 @@ function scaffold({ id, nameSlug, title, engine }) {
         build: 'zudo-diagram-gen build .',
         preview: 'zudo-diagram-gen preview .',
         check: 'zudo-diagram-gen check .',
-        'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html'
+        'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html',
       },
       dependencies: {
         [ENGINE_PACKAGE]: engine,
-        '@takazudo/zfb': '2.21.1',
-        '@takazudo/zfb-runtime': '2.21.1',
-        hono: '4.13.9',
-        preact: '10.29.2',
-        'preact-render-to-string': '6.6.6'
-      }
+        '@takazudo/zfb': '3.2.0',
+        '@takazudo/zfb-runtime': '3.2.0',
+      },
+      devDependencies: { typescript: '5.9.3', '@types/node': '22.19.7' },
     }),
-    'pnpm-workspace.yaml': "packages:\n  - '.'\nonlyBuiltDependencies:\n  - '@takazudo/zfb'\n  - esbuild\n",
-    'zfb.config.ts': "import { defineConfig } from '@takazudo/zfb/config';\n\nexport default defineConfig({});\n",
-    '.gitignore': 'node_modules/\ndist/\n.zfb/\n.zfb-*\n.generated/\npages/index.tsx\ndiagram-review.html\n',
+    'pnpm-workspace.yaml':
+      "packages:\n  - '.'\nonlyBuiltDependencies:\n  - '@takazudo/zfb'\n  - esbuild\n",
+    'tsconfig.json': json({
+      compilerOptions: {
+        jsx: 'react-jsx',
+        jsxImportSource: '@takazudo/zfb/zudo-react',
+        module: 'ESNext',
+        moduleResolution: 'Bundler',
+        target: 'ES2022',
+        noEmit: true,
+      },
+      include: ['pages/**/*.tsx', 'zfb.config.ts'],
+    }),
+    'zfb.config.ts':
+      "import { defineConfig } from '@takazudo/zfb/config';\n\nexport default defineConfig({});\n",
+    '.gitignore':
+      'node_modules/\ndist/\n.zfb/\n.zfb-*\n.generated/\npages/index.tsx\ndiagram-review.html\n',
     'session.json': json({
       schemaVersion: 1,
       id,
       title,
       description: 'A workspace for comparing and refining SVG diagram candidates.',
       target: { width: 360, height: 200, label: 'Help diagram' },
-      toneCollectionVersion: VERSION
+      toneCollectionVersion: VERSION,
     }),
     'brief.md': `# Diagram brief\n\nRecord the actual feature behavior, source references, fixed labels, intended placement, and the visual question this round will explore.\n\nThe default target is 360 × 200 CSS pixels. Set the intended size in session.json before comparing candidates.\n`,
-    'rounds/r01/round.json': json({ schemaVersion: 1, id: 'r01', title: 'First exploration', description: 'Compare alternative directions for the shared brief.', order: 1, baselineCandidateId: null }),
+    'rounds/r01/round.json': json({
+      schemaVersion: 1,
+      id: 'r01',
+      title: 'First exploration',
+      description: 'Compare alternative directions for the shared brief.',
+      order: 1,
+      baselineCandidateId: null,
+    }),
     'AGENTS.md': agentInstructions,
-    'CLAUDE.md': '# Agent instructions\n\nRead and follow [AGENTS.md](./AGENTS.md) before generating or editing diagrams.\n',
-    'README.md': sessionReadme
+    'CLAUDE.md':
+      '# Agent instructions\n\nRead and follow [AGENTS.md](./AGENTS.md) before generating or editing diagrams.\n',
+    'README.md': sessionReadme,
   };
 }
 
@@ -264,11 +329,26 @@ The initializer pins the engine version unless --engine-package supplied another
 
 async function installDependencies(directory) {
   await new Promise((resolve, reject) => {
-    const child = spawn('pnpm', ['install'], { cwd: directory, stdio: 'inherit', shell: process.platform === 'win32' });
-    child.once('error', error => reject(new Error(`Workspace created, but pnpm install could not start: ${error.message}. Run pnpm install in ${directory}.`)));
+    const child = spawn('pnpm', ['install'], {
+      cwd: directory,
+      stdio: 'inherit',
+      shell: process.platform === 'win32',
+    });
+    child.once('error', (error) =>
+      reject(
+        new Error(
+          `Workspace created, but pnpm install could not start: ${error.message}. Run pnpm install in ${directory}.`,
+        ),
+      ),
+    );
     child.once('exit', (code, signal) => {
       if (code === 0) resolve();
-      else reject(new Error(`Workspace created, but pnpm install failed (${signal ? `signal ${signal}` : `exit ${code}`}). Files are preserved in ${directory}; run pnpm install there to retry.`));
+      else
+        reject(
+          new Error(
+            `Workspace created, but pnpm install failed (${signal ? `signal ${signal}` : `exit ${code}`}). Files are preserved in ${directory}; run pnpm install there to retry.`,
+          ),
+        );
     });
   });
 }
