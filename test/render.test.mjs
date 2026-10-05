@@ -128,3 +128,18 @@ test('runner selects the renderer and binary from the destination-installed zfb'
     await rm(temp, { recursive: true, force: true });
   }
 });
+
+test('v3 JSON transport preserves literal reserved marker text without emitting boundaries', async () => {
+  const data = await loadSession('examples/tone-exploration');
+  const literal =
+    'data-zfb-island="Demo" DATA-ZFB-ISLAND zr:1: ZR:1: <!--zr:1:test--> \\u0064ata-zfb-island </script>';
+  data.brief = literal;
+  data.session.title = literal;
+  data.candidates[0].description = literal;
+  data.candidates[0].assets.light = `<svg><desc>${literal}</desc></svg>`;
+  const source = await createPageSource(data, {}, 3);
+  const body = JSON.parse(source.match(/const body = (.*);\nexport const frontmatter/)[1]);
+  const json = body.match(/type="application\/json">(.*?)<\/script>/s)[1];
+  assert.doesNotMatch(json, /data-zfb-island|zr:1:|<\/script/i);
+  assert.deepEqual(JSON.parse(json), { ...data, links: {} });
+});

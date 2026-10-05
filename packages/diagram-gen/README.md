@@ -19,8 +19,9 @@ Paths are caller supplied. Personal output policies belong in a wrapper.
 
 Import `loadSession`, `validateSession`, `loadToneCatalog`, `exportCandidate`,
 `renderGallery`, `renderZfbGallery`, or `createPageSource` from the package root.
-Node I/O APIs run outside zfb's SSR graph. `createPageSource()` prepares a Preact
-route containing the package-owned UI and validated data.
+Node I/O APIs run outside zfb's SSR graph. `createPageSource()` prepares a zfb
+route containing the package-owned UI and validated data, using the selected
+v2 Preact or v3 zudo-react dialect.
 
 ## First release
 

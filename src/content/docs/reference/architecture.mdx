@@ -25,7 +25,7 @@ The engine reads the session directory, validates source files, and normalizes t
 
 The renderer serializes this data safely and supplies the package-owned stylesheet and browser application. SVGs are displayed as images so their internal IDs and styles do not collide with the host document or another candidate.
 
-The browser is a dependency-free JavaScript application. The embedded zfb Island hosts the prepared workbench, while the standalone session page entrypoint uses Preact. The package source is shipped directly, with Node runtime modules in ESM `.mjs` files. A fresh generated host must resolve the installed engine from its own `node_modules`; resolving files from this repository would hide a package boundary error.
+The browser is a dependency-free JavaScript application. The embedded zfb Island hosts the prepared workbench, while standalone session entrypoints use zudo-react on zfb v3 and retain Preact on zfb v2. The runner selects the entrypoint dialect from the host’s installed zfb version; the root zudo-doc showcase remains on v2. The package source is shipped directly, with Node runtime modules in ESM `.mjs` files. A fresh generated host must resolve the installed engine from its own `node_modules`; resolving files from this repository would hide a package boundary error.
 
 ## zfb lifecycle
 
