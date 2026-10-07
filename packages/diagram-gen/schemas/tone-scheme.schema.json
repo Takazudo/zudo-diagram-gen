@@ -1,0 +1,422 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://takazudo.github.io/zudo-diagram-gen/schemas/tone-scheme.schema.json",
+  "title": "Version 1 tone scheme",
+  "$comment": "Rule IDs must be unique across groups; kind none requires zero seed/amplitude/frequency. Resource identity and path existence are runtime checks.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "toneId": {
+      "type": "string",
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?$"
+    },
+    "toneRevision": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "collectionVersion": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "coordinateSystem": {
+      "type": "object",
+      "properties": {
+        "viewBox": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          ]
+        },
+        "units": {
+          "const": "svg-user-units"
+        }
+      },
+      "required": ["viewBox", "units"],
+      "additionalProperties": false
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "strokeWidths": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "radii": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "fills": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "enum": ["ink", "surface", "border", "accent", "deep", "warning"]
+          }
+        },
+        "opacities": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "layers": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "dx": {
+                "type": "number"
+              },
+              "dy": {
+                "type": "number"
+              },
+              "opacity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": ["dx", "dy", "opacity"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["strokeWidths", "radii", "fills", "opacities", "layers"],
+      "additionalProperties": false
+    },
+    "palette": {
+      "type": "object",
+      "properties": {
+        "light": {
+          "type": "object",
+          "properties": {
+            "ink": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "surface": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "border": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "accent": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "deep": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "warning": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "required": ["ink", "surface", "border", "accent", "deep", "warning"],
+          "additionalProperties": false
+        },
+        "dark": {
+          "type": "object",
+          "properties": {
+            "ink": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "surface": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "border": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "accent": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "deep": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "warning": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "required": ["ink", "surface", "border", "accent", "deep", "warning"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["light", "dark"],
+      "additionalProperties": false
+    },
+    "typography": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "fontFamily": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "fontSize": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minCssPx": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "fontWeight": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 900
+          }
+        },
+        "required": ["fontFamily", "fontSize", "minCssPx", "fontWeight"],
+        "additionalProperties": false
+      }
+    },
+    "texture": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "amplitude": {
+          "type": "number",
+          "minimum": 0
+        },
+        "frequency": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": ["kind", "seed", "amplitude", "frequency"],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "none"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "seed": {
+                "const": 0
+              },
+              "amplitude": {
+                "const": 0
+              },
+              "frequency": {
+                "const": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "composition": {
+      "type": "object",
+      "properties": {
+        "arrows": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "people": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "empty": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "pending": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "emphasis": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "warning": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      },
+      "required": ["arrows", "people", "empty", "pending", "emphasis", "warning"],
+      "additionalProperties": false
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "description": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            },
+            "required": ["id", "description"],
+            "additionalProperties": false
+          }
+        },
+        "preferred": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "description": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            },
+            "required": ["id", "description"],
+            "additionalProperties": false
+          }
+        },
+        "flexible": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "description": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            },
+            "required": ["id", "description"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["required", "preferred", "flexible"],
+      "additionalProperties": false
+    },
+    "primitiveAlternatives": {
+      "type": "object",
+      "properties": {
+        "person": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "pin": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "slot-card": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "empty-seat": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "arrow": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "check": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "clock": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "toneId",
+    "toneRevision",
+    "collectionVersion",
+    "coordinateSystem",
+    "geometry",
+    "palette",
+    "typography",
+    "texture",
+    "composition",
+    "rules"
+  ],
+  "additionalProperties": false
+}

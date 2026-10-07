@@ -15,3 +15,20 @@ export {
   portablePlacement,
   CaptureError,
 } from './placement.mjs';
+
+export {
+  resolveToneContext,
+  validateToneScheme,
+  validatePalette,
+  canonicalJson,
+  canonicalHash,
+  hashBytes,
+  renderSchemeRecipe,
+  schemeNumericSummary,
+  checkRecipeNumericReferences,
+  checkMachineRecipe,
+  checkNominalTypography,
+  toneContextStatus,
+  PALETTE_ROLES,
+  KIT_PRIMITIVES,
+} from './tone-context.mjs';

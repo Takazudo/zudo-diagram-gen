@@ -2,23 +2,9 @@ import { open, realpath } from 'node:fs/promises';
 import path from 'node:path';
 import { constants } from 'node:fs';
 import { inspectRaster } from './capture-inputs.mjs';
-import { createHash } from 'node:crypto';
+import { canonicalHash, hashBytes } from './tone-context.mjs';
 import { validatePlacement, renderPlacement } from '../client/placement.mjs';
-export { validatePlacement, renderPlacement };
-export const hashBytes = (bytes) => createHash('sha256').update(bytes).digest('hex');
-export function canonicalHash(value) {
-  const canonical = (v) =>
-    Array.isArray(v)
-      ? v.map(canonical)
-      : v && typeof v === 'object'
-        ? Object.fromEntries(
-            Object.keys(v)
-              .sort()
-              .map((k) => [k, canonical(v[k])]),
-          )
-        : v;
-  return hashBytes(JSON.stringify(canonical(value)));
-}
+export { validatePlacement, renderPlacement, canonicalHash, hashBytes };
 export class CaptureError extends Error {
   constructor(code, message) {
     super(message);
