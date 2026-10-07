@@ -1,0 +1,62 @@
+{
+  "tone": "pencil-notebook",
+  "deliberateDepartures": [
+    "The common six-role light palette overrides the notebook example’s beige palette, as required. White paper and subordinate notebook ruling preserve the sketch construction.",
+    "Essential Japanese glyphs remain upright in Noto Sans CJK JP; the examples’ Latin handwriting fonts and rotated labels are not transferred.",
+    "Card shapes, routes and field sizes are authored for each target, rather than copying the composition example. Fields use seed 1307, opposing jittered diagonal families at approximately eight intervals per 100 units, with exposed interior crossings.",
+    "Long担当 labels are split across lines without abbreviation. Compact seat diagrams use 14px labels and 12px status captions; decoration is confined to backing regions and vacant chair interiors remain clear.",
+    "Waiting states use clocks and explicit text; the pending publication connector is dashed to distinguish an outstanding result. Warning color is reserved for missing items and the damaged-item consultation branch."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/example-light.png",
+    "inputs/tone/kit.svg",
+    "inputs/tone/pencil-notebook/dark.svg",
+    "inputs/tone/pencil-notebook/light.svg",
+    "inputs/tone/pencil-notebook/recipe.md",
+    "inputs/tone/recipe.json",
+    "inputs/tone/scheme.json",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md"
+  ],
+  "originalPngsActuallyViewed": [
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png"
+  ],
+  "fontVerification": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "fcMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "limitation": "Font is referenced, not embedded. Downstream rendering can fall back if unavailable; actual glyph rendering and visual acceptance have not been independently verified."
+  },
+  "checks": [
+    "All five SVGs parsed as XML.",
+    "Exact labels checked after joining each text element in document order; long labels retain their characters across line breaks.",
+    "Explicit target-sized viewBox, accessible title/description, and standalone drawing data checked."
+  ],
+  "limitations": [
+    "No evaluator feedback or user approval was used.",
+    "No browser or raster output rendering was performed; visual acceptance is not claimed."
+  ]
+}

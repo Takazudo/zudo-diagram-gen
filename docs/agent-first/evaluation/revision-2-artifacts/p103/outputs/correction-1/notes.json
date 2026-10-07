@@ -1,0 +1,21 @@
+{
+  "correction": "turn1",
+  "changes": {
+    "empty-seats": "Added a clear #FFFFFF surface-role backing behind each of the four existing selection sublabels. Text positions, labels, paper backing geometry, chairs and all facts are unchanged. The new planes separate sublabel glyphs from the lower arch decoration.",
+    "return-items": "Added a clear #FFFFFF surface-role backing behind the existing 空でも利用可能 sublabel, keeping its position and all existing geometry and relationships."
+  },
+  "unchangedCopies": [
+    "reservation-flow.svg",
+    "long-labels.svg",
+    "pending-queue.svg"
+  ],
+  "preservation": "All five initial outputs remain unchanged. Other three corrected-directory SVGs are byte-identical copies.",
+  "verification": [
+    "All five correction-1 SVGs parse as XML.",
+    "Existing text nodes and attributes are identical to their initial versions.",
+    "Only four surface rectangles in empty-seats and one surface rectangle in return-items were added."
+  ],
+  "limitations": [
+    "No target-size rendering or visual acceptance is claimed. Font and glyph coverage uncertainty remains as documented in the initial notes."
+  ]
+}

@@ -468,3 +468,28 @@ test('tone CLI retains legacy show fields/examples, adds context, keeps list fre
   assert.equal(list.tones[0].context, undefined);
   assert.equal(list.tones[0].examples, undefined);
 });
+
+test('catalog consumers receive validated resolved recipes while authored templates remain intact', async () => {
+  const { root, options, catalog } = await fixture();
+  const scheme = copy();
+  const before = await loadToneCatalog(options);
+  assert.deepEqual(before.tones[0].recipe, [
+    `Use ${scheme.geometry.strokeWidths.outline} user units.`,
+  ]);
+  assert.deepEqual(before.tones[0].recipe, before.tones[0].context.recipe);
+  scheme.geometry.strokeWidths.outline += 0.7;
+  await write(root, 'fixture-tone/scheme.json', scheme);
+  const after = await loadToneCatalog(options);
+  assert.deepEqual(after.tones[0].recipe, [
+    `Use ${scheme.geometry.strokeWidths.outline} user units.`,
+  ]);
+  assert.deepEqual(
+    JSON.parse(await fs.readFile(path.join(root, 'catalog.json'), 'utf8')).tones[0].recipe,
+    catalog.tones[0].recipe,
+  );
+  catalog.tones[0].recipe = ['Use {{scheme:palette.light.ink}} user units.'];
+  await write(root, 'catalog.json', catalog);
+  await assert.rejects(loadToneCatalog(options), /numeric role/);
+  const legacy = await fixture({ scheme: false, kit: false });
+  assert.deepEqual((await loadToneCatalog(legacy.options)).tones[0].recipe, ['Legacy recipe.']);
+});

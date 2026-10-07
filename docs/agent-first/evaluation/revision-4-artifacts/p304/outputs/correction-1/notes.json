@@ -1,0 +1,20 @@
+{
+  "correction": "Added a white surface backing immediately behind 確定した予約のみ in reservation-flow.svg so the green change connector cannot cross its glyphs.",
+  "preserved": "All existing text, facts, geometry, colors and fonts are unchanged. Initial artifacts are preserved. The other four SVGs are byte-identical copies.",
+  "resourcesActuallyUsed": [
+    "correction-1-feedback.txt",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg"
+  ],
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "Reservation-flow differs only by one added #FFFFFF backing rectangle.",
+    "Other four corrected SVGs match original bytes."
+  ],
+  "limitations": [
+    "No output rasterization or acceptance claim. Host font rendering remains dependent on the consuming environment."
+  ]
+}

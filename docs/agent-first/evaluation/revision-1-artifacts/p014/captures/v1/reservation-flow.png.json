@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "reservation-flow",
+  "candidateId": "p014-reservation-flow-v1",
+  "fingerprint": "953cbf032b8fc995ee05d5a82a5ac988522b3069c221c7cbfb68b4f867cc2451",
+  "assetHash": "27c1cf04d76788f26720a9018db1034c39a3b248a51ce509fa629e77e72053dd",
+  "styleHash": null,
+  "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+  "theme": "light",
+  "crop": "frame",
+  "frame": {
+    "width": 688,
+    "height": 416,
+    "background": "#FFFFFF"
+  },
+  "slot": {
+    "x": 24,
+    "y": 48,
+    "width": 640,
+    "height": 320
+  },
+  "dpr": 1,
+  "pixelDimensions": {
+    "width": 688,
+    "height": 416
+  },
+  "viewport": {
+    "width": 688,
+    "height": 416
+  },
+  "browser": {
+    "name": "chromium",
+    "version": "151.0.7922.173",
+    "systemExecutable": true
+  },
+  "environment": {
+    "os": "linux 6.18.44 x64",
+    "fonts": [
+      {
+        "family": "Noto Sans CJK JP",
+        "ready": true,
+        "generic": false
+      },
+      {
+        "family": "sans-serif",
+        "ready": true,
+        "generic": true
+      }
+    ]
+  },
+  "referenceImages": [],
+  "imageHash": "36cc9461e2df37d0aea4342008b500b07ed3fb085d6f4881c53a7a6499760ea0",
+  "capturedAt": "2026-10-07T19:03:13.716Z",
+  "inspected": false,
+  "limitations": [
+    "Font readiness does not certify Japanese glyph coverage, text shaping, readable labels, SVG internal clipping or semantic correctness."
+  ],
+  "captureHash": "9bfb166ecf3d57be53710018ea36c417f2d5dc7662f7866701790e19fe8f2d14"
+}

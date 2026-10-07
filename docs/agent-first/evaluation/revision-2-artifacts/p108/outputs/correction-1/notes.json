@@ -1,0 +1,52 @@
+{
+  "correction": "correction-1",
+  "modified_svg": "return-items.svg",
+  "change": "Added two white surface rectangles beneath 破損なし and 破損あり to mask vertical connectors behind the labels. Label typography, all original paths, branch directions, facts, palette, and original geometry are unchanged.",
+  "backing_rectangles": [
+    {
+      "x": 42,
+      "y": 266,
+      "width": 76,
+      "height": 25,
+      "fill": "#FFFFFF"
+    },
+    {
+      "x": 202,
+      "y": 266,
+      "width": 76,
+      "height": 25,
+      "fill": "#FFFFFF"
+    }
+  ],
+  "resources_actually_used": [
+    "../correction-1-feedback.txt",
+    "outputs/return-items.svg",
+    "other four initial SVGs copied byte-for-byte"
+  ],
+  "checks": {
+    "reservation-flow": {
+      "xml_parsed": true,
+      "byte_identical_to_initial": true
+    },
+    "empty-seats": {
+      "xml_parsed": true,
+      "byte_identical_to_initial": true
+    },
+    "long-labels": {
+      "xml_parsed": true,
+      "byte_identical_to_initial": true
+    },
+    "pending-queue": {
+      "xml_parsed": true,
+      "byte_identical_to_initial": true
+    },
+    "return-items": {
+      "xml_parsed": true,
+      "byte_identical_to_initial": false
+    }
+  },
+  "preservation": "All five original SVGs remain untouched. The other four correction SVGs are byte-identical copies.",
+  "limitations": [
+    "No browser or raster rendering performed in this bounded correction turn. Actual font selection remains unverified. No acceptance claim."
+  ]
+}

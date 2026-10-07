@@ -1,0 +1,56 @@
+{
+  "tone": "pencil-notebook",
+  "deliberateDepartures": [
+    "共通palette.jsonの意味役を優先し、原例の暖色紙・茶色鉛筆色を使わず白地と指定色で構成した。",
+    "日本語の必須ラベルはNoto Sans CJK JP, sans-serifで直立させ、原例の欧文手書き字体と文字回転を省いた。",
+    "ターゲット寸法に合わせてラベル19〜23px、補助文12〜18pxへ調整した。原例の720×400構成をテンプレート化せず各配置を個別に組んだ。",
+    "scheme.jsonの必須ルールに従い、旧recipeの疎なハッチよりも、主要物の裏板へ連続した交差領域を付けた。空席や返却箱の空の内部には交差線を入れなかった。",
+    "長いラベルは省略せず改行した。",
+    "局所的な白いラベル平面で席と箱の下端の交差線を覆い、必須ラベルにハッチがかからないようにした。"
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "visualResourcesViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Inkscapeによる目標寸法レンダリングで日本語が表示され、視認上の欠落グリフはなかった。実使用フォント名は確認していない。SVGはフォントを埋め込まないため、閲覧環境の代替フォントは未確認。"
+  },
+  "limitations": [
+    "元PNG二種を実際に表示して確認した。生成SVGはXML・ラベル・寸法を確認し、InkscapeのローカルPNG標準出力で全五図を目標CSS寸法に描画・表示した。ブラウザごとの描画差は未確認。",
+    "これは初回の独立実験出力。視覚的受入れやユーザー承認は推定していない。"
+  ]
+}

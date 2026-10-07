@@ -1,0 +1,53 @@
+{
+  "tone": "fine-outline",
+  "deliberateDepartures": [
+    "共通palette.jsonを優先し、参照の紙色・独自色を共通の六つの意味色に置換。",
+    "参照の英語・柄・横長構図は各ブリーフの日本語と実寸の構図に変更。schemeのtexture:noneに従い柄を追加しない。",
+    "日本語ラベルの長さと小さな配置に合わせ、ラベルを実寸16–21px、補助文を13–17pxとし、担当名のみ二行化。",
+    "コネクタは実寸2.2px、輪郭1.6px。kitの記号を簡略化・手描き再構成し、状態を文字でも示す。",
+    "空席の四つの椅子は同じ形で、予約済みはチェック、保留中は時計を加えた。",
+    "参照の大きな合成パネルを再利用せず、各事実の読み順に応じた開いた図形と経路を作成。"
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/recipe.json",
+    "inputs/tone/fine-outline/recipe.md",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md",
+    "inputs/tone/fine-outline/light.svg",
+    "inputs/tone/fine-outline/dark.svg",
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/scheme.json",
+    "inputs/tone/kit.svg"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "limitations": "Font is not embedded. Rendering on another host may use sans-serif fallback; no guarantee of identical metrics or glyph availability."
+  },
+  "limitations": [
+    "No evaluator feedback, acceptance, or approval has been inferred."
+  ]
+}

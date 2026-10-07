@@ -1,0 +1,51 @@
+{
+  "tone": "soft-fill",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/soft-fill/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/soft-fill/light.svg",
+    "tone/soft-fill/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "Used the explicit common light palette in place of the example purple palette; pale fills are opacity blends of declared role colors over white.",
+    "Replaced example composition imagery with only the supplied teaching facts. Rounded cards and broad curved connectors retain the construction recipe.",
+    "Used two accent seat cards because both B and C are selectable; this adapts the single accented destination recommendation to two equally valid available seats.",
+    "Used warning for the insufficient-item return route and the damaged-item consultation branch. Waiting states use neutral/deep roles, not warning.",
+    "Split two long role names across lines without omitting characters.",
+    "Kept output viewBoxes equal to their CSS slots; placement frames and surrounding explanatory copy are not reproduced inside the diagrams."
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "uncertainty": "Font is not embedded. Actual font selection and glyph availability depend on the SVG renderer and destination environment. No rendered output acceptance is claimed."
+  },
+  "limitations": [
+    "No browser or evaluator feedback used. Local checks cover XML, labels, geometry coordinates and estimated text widths; final renderer-dependent appearance remains unverified."
+  ]
+}

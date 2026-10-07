@@ -1,0 +1,51 @@
+{
+  "deliberateDepartures": [
+    "The explicit common light palette replaces the reference palette while retaining semantic roles.",
+    "Geometry, card placement and connector routing adapt to the five target aspect ratios; reference Pattern/Text/export content is omitted because it is unrelated to the briefs.",
+    "Kit primitives are simplified and resized by hand. Rounded cards have no perimeter outlines, while clocks, checks and chair legs retain necessary detail strokes.",
+    "Available-seat emphasis appears in both B and C text badges to preserve the required equal selection eligibility.",
+    "Essential Japanese labels use 16–22 CSS px, and supporting labels use 12–14 CSS px to fit the declared targets; the scheme reference label size of 32 units is adapted to target dimensions."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/kit.svg",
+    "tone/soft-fill/recipe.md",
+    "tone/soft-fill/light.svg",
+    "tone/soft-fill/dark.svg",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "Noto Sans CJK JP /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "limitations": "Font is not embedded. Rendering depends on the consuming environment; fallback and missing glyph behavior there is unverified. No browser rendering or visual acceptance has been claimed."
+  },
+  "limitations": [
+    "Outputs are the initial attempt artifacts. XML structure and exact visible labels were checked. Target-size output rendering could not be completed: CairoSVG is unavailable and ImageMagick requires an unavailable rsvg-convert delegate. No packages or browsers were installed or launched, and no visual acceptance is claimed."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "correction": "correction-1",
+  "scope": "Only reservation-flow readability adjusted.",
+  "change": "Added a surface-role white backing behind 日時を変更, drawn above the return route. Existing label position, connector geometry and confirmed-to-pending direction are preserved.",
+  "preservation": "Original five SVGs remain untouched; the other four correction copies are byte-identical to their originals.",
+  "verification": [
+    "Corrected SVG parses as XML.",
+    "Other four copies checked byte-for-byte against originals.",
+    "Corrected reservation-flow rendered and inspected at 640 × 320; the connector no longer crosses the label glyphs."
+  ],
+  "limitations": [
+    "No acceptance or approval claim. Fonts remain environment dependent."
+  ]
+}

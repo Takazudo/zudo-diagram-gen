@@ -1,0 +1,72 @@
+{
+  "tone": "pencil-notebook",
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "departure": "Use mandatory common light semantic palette in place of the original warm pencil palette; retain doubled contours, fixed supplied seed-1307 hatch geometry and faint notebook ruling."
+    },
+    {
+      "scope": "all",
+      "departure": "Use upright Noto Sans CJK JP Japanese text at 13–22 CSS px rather than tilted Latin sample lettering or the scheme reference-scale 28–32 units. Cards and label backplates suppress notebook ruling behind essential labels."
+    },
+    {
+      "scope": "all",
+      "departure": "Adapt reference layout and connector paths to the five aspect ratios. Copy hatch, clock, check and chair primitives as needed; omit people and location pins because the briefs do not require them."
+    },
+    {
+      "scope": "pending-queue",
+      "departure": "Dashed incoming waiting branch indicates an unfinished contribution, alongside the exact result-waiting label and clock; it does not indicate failure."
+    }
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/kit.svg",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/example-light.png",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md"
+  ],
+  "originalExamplePNGsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "environmentMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "uncertainty": "SVG font is not embedded. Other viewers may substitute sans-serif or lack Japanese glyphs; actual font use outside this environment is unverified."
+  },
+  "limitations": [
+    "No evaluator feedback or visual acceptance inferred."
+  ],
+  "authorChecks": [
+    "All five SVGs parsed as XML.",
+    "All exact checklist labels matched complete text content, with long Japanese labels preserved across tspan line breaks.",
+    "All five rendered with Inkscape at declared CSS dimensions and viewed locally; temporary check PNGs removed."
+  ]
+}

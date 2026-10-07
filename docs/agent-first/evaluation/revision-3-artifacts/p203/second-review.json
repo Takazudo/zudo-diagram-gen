@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "runId": "p203",
+  "reviewType": "independent visual second review",
+  "timestampUtc": "2026-10-07T20:47:45.905783+00:00",
+  "scope": {
+    "actuallyViewedReferences": true,
+    "actuallyViewedAllFiveImages": true,
+    "readOnlyInputs": [
+      "second-review-dispatch.txt",
+      "two original paper-layers references",
+      "five captures/v0 PNGs",
+      "five briefs and checklists",
+      "common/palette.json"
+    ],
+    "excludedResourcesNotRead": [
+      "conditions",
+      "prompts",
+      "run-record",
+      "schemes/kits",
+      "SVG source",
+      "coordinator judgments",
+      "other runs"
+    ],
+    "outputOnly": "second-review.json"
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-light.png",
+      "sha256": "a642eaf4d14e272f053d7bb804f02459b9d59e21241b38a8e3cbdede057073b1",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-dark.png",
+      "sha256": "f0f16609851d5157007d4c4cb3ed32c3a2087f8a27ef23c5eae444969d841623",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image"
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Offset and slightly rotated paper sheets with visible underlayers and cast shadows.",
+    "Repeating rounded arch motif with inset openings and contrasting inner accents.",
+    "Large type on an overlapping plain paper panel, with pattern visible above and below.",
+    "Thin curved arrow connectors and asymmetric collage composition.",
+    "Light and dark variants preserve construction while changing ground, paper and ink colors."
+  ],
+  "authorizedOverrides": "Common six-role palette and Japanese Noto Sans CJK JP preference supersede reference colors and Latin serif fonts. Literal Pattern/Text/PNG narrative is not required.",
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v0/reservation-flow.png",
+      "sha256": "2db66c41bc926ae1005edc99e12e6e872617fe7f2e4d715906b4472faceb51df",
+      "dimensions": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "id": "reservation-flow",
+      "targetArtworkDimensions": [
+        640,
+        320
+      ],
+      "exactLabels": {
+        "required": [
+          "申請",
+          "確認待ち",
+          "確定",
+          "日時を変更"
+        ],
+        "visuallyPresent": [
+          "申請",
+          "確認待ち",
+          "確定",
+          "日時を変更"
+        ],
+        "missing": [],
+        "assessment": "All locked labels visually present with full wording; visual line spacing/punctuation placement is not a source-text audit."
+      },
+      "observations": [
+        "Left-to-right application, pending and confirmed cards are legible, with arrows between them.",
+        "Pending has a clock and 予約は未確定; confirmed has a check and 変更できる.",
+        "The change path curves down from confirmed and returns upward to pending; the bottom note explicitly says no automatic approval.",
+        "Main labels, status notes and action have clear hierarchy; no text clipping observed."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Main labels, status notes and action have clear hierarchy; no text clipping observed."
+      },
+      "factualChecks": {
+        "assessment": "Required state, count and direction facts preserved; see omissions for any impaired explanatory text.",
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "paletteObservation": "Dark blue supports ordinary/pending information and teal emphasizes available/completed paths."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v0/empty-seats.png",
+      "sha256": "745e1fc2d9073899d7d481b55acd874d7bc14a02b347bb953173bd59309f0782",
+      "dimensions": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "id": "empty-seats",
+      "targetArtworkDimensions": [
+        360,
+        240
+      ],
+      "exactLabels": {
+        "required": [
+          "A席：予約済み",
+          "B席：空席",
+          "C席：空席",
+          "D席：保留中"
+        ],
+        "visuallyPresent": [
+          "A席：予約済み",
+          "B席：空席",
+          "C席：空席",
+          "D席：保留中"
+        ],
+        "missing": [],
+        "assessment": "All locked labels visually present with full wording; visual line spacing/punctuation placement is not a source-text audit."
+      },
+      "observations": [
+        "Exactly four cards in a compact two-by-two arrangement.",
+        "A and D say 選択不可; B and C say 選択可; D also has a clock, distinguishing pending from reserved.",
+        "The bottom note limits selection to B and C.",
+        "Seat labels and selection notes are readable; pattern remains peripheral to the label bands."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Seat labels and selection notes are readable; pattern remains peripheral to the label bands."
+      },
+      "factualChecks": {
+        "assessment": "Required state, count and direction facts preserved; see omissions for any impaired explanatory text.",
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "paletteObservation": "Dark blue supports ordinary/pending information and teal emphasizes available/completed paths."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v0/long-labels.png",
+      "sha256": "c82e4d4366e9b3ddcd2f849e55c39d8491e9eb22cdfdfece41f4b10e31bf454f",
+      "dimensions": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "id": "long-labels",
+      "targetArtworkDimensions": [
+        480,
+        360
+      ],
+      "exactLabels": {
+        "required": [
+          "地域交流イベント開催準備担当",
+          "参加申込内容の確認・連絡担当",
+          "当日受付と案内の担当",
+          "不足項目あり",
+          "確認完了"
+        ],
+        "visuallyPresent": [
+          "地域交流イベント開催準備担当",
+          "参加申込内容の確認・連絡担当",
+          "当日受付と案内の担当",
+          "不足項目あり",
+          "確認完了"
+        ],
+        "missing": [],
+        "assessment": "All locked labels visually present with full wording; visual line spacing/punctuation placement is not a source-text audit."
+      },
+      "observations": [
+        "All three full Japanese department labels are visible without abbreviation.",
+        "Top-to-middle downward arrow communicates initial transfer; warning-colored return loop from middle reaches top beside 不足項目あり.",
+        "Middle-to-bottom accent arrow is labeled 確認完了.",
+        "Long labels fit their white panels and remain clear; arrows and condition labels have adequate separation."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Long labels fit their white panels and remain clear; arrows and condition labels have adequate separation."
+      },
+      "factualChecks": {
+        "assessment": "Required state, count and direction facts preserved; see omissions for any impaired explanatory text.",
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "paletteObservation": "Dark blue supports ordinary/pending information and teal emphasizes available/completed paths."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v0/pending-queue.png",
+      "sha256": "53d2cc97ed03a7cbddbdac153e1ba8b511cf900267f4afea7196e8596ff4296d",
+      "dimensions": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "id": "pending-queue",
+      "targetArtworkDimensions": [
+        720,
+        240
+      ],
+      "exactLabels": {
+        "required": [
+          "案内文",
+          "表記確認：完了",
+          "会場情報確認：結果待ち",
+          "両方完了後に公開",
+          "公開済み：0"
+        ],
+        "visuallyPresent": [
+          "案内文",
+          "表記確認：完了",
+          "会場情報確認：結果待ち",
+          "両方完了後に公開",
+          "公開済み：0"
+        ],
+        "missing": [],
+        "assessment": "All locked labels visually present with full wording; visual line spacing/punctuation placement is not a source-text audit."
+      },
+      "observations": [
+        "Common source branches into two paths; upper review is complete with a check, lower review is waiting with a clock.",
+        "Waiting path is dashed into the collector, reinforcing an incomplete result rather than failure.",
+        "Collector states both-complete publication condition and current zero published count.",
+        "Source, branch labels and publication count are legible; zero count receives useful emphasis."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Source, branch labels and publication count are legible; zero count receives useful emphasis."
+      },
+      "factualChecks": {
+        "assessment": "Required state, count and direction facts preserved; see omissions for any impaired explanatory text.",
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "paletteObservation": "Dark blue supports ordinary/pending information and teal emphasizes available/completed paths."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v0/return-items.png",
+      "sha256": "a2e47eca9ba96d7147bda73d636a313590b98f82589c77dc9da675176eda4f4f",
+      "dimensions": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "id": "return-items",
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "exactLabels": {
+        "required": [
+          "入口",
+          "返却確認台",
+          "破損なし",
+          "返却箱：空",
+          "破損あり",
+          "相談窓口"
+        ],
+        "visuallyPresent": [
+          "入口",
+          "返却確認台",
+          "破損なし",
+          "返却箱：空",
+          "破損あり",
+          "相談窓口"
+        ],
+        "missing": [],
+        "assessment": "All locked labels visually present with full wording; visual line spacing/punctuation placement is not a source-text audit."
+      },
+      "observations": [
+        "Entrance points down to the return check desk.",
+        "Accent left branch labeled 破損なし reaches the empty return box; warning right branch labeled 破損あり reaches consultation.",
+        "All six locked labels are readable and the return box is visibly empty.",
+        "Small supplemental availability wording under the box outline crosses the teal arch fill; its contrast and interference with texture make it difficult to read at target size. This is one material local readability defect."
+      ],
+      "readability": {
+        "score": 2,
+        "reason": "Small supplemental availability wording under the box outline crosses the teal arch fill; its contrast and interference with texture make it difficult to read at target size. This is one material local readability defect."
+      },
+      "factualChecks": {
+        "assessment": "Required state, count and direction facts preserved; see omissions for any impaired explanatory text.",
+        "omissions": [
+          "The intended explicit statement that the empty box remains usable is not reliably legible. Usability is still conveyed by the active undamaged-items arrow into the box, so this is impaired explanation rather than a reversed destination."
+        ],
+        "inventions": [],
+        "reversals": []
+      },
+      "paletteObservation": "Teal supports undamaged return; orange warning supports damaged-item consultation, without penalty language."
+    }
+  ],
+  "batch": {
+    "consistency": {
+      "score": 3,
+      "reason": "Coherent arch-pattern cards, plain label bands, offset pale shadows and thin directional arrows recur across every ratio. Branches, grids, stacks and portrait flow adapt correctly to the briefs. The repeated card treatment makes ratios coherent, but distinct composition and texture treatment are limited; the portrait availability note loses clarity."
+    },
+    "character": {
+      "score": 3,
+      "reason": "Recognizable layered-paper geometry, inset arch texture, overlapping label panels and slim curved connectors are retained. Useful subject-specific clocks, checkmarks and empty-box geometry are present. Compared with the originals, sheets are more regularly aligned and arch openings are often elongated; collage depth and large overlapping paper variation are reduced. The shared repeated card construction does not reach the expressive variation required for 4.",
+      "retained": [
+        "Offset shadow/underlayer edges and subtly skewed paper outlines",
+        "Repeating rounded arches with inset openings",
+        "Plain text panels overlapping patterned cards",
+        "Thin curved branch/return arrows"
+      ],
+      "losses": [
+        "Strong rotation and varied sheet overlaps of original collage are subdued",
+        "Broad reference arches become repeated narrow tall slots in several cards",
+        "Large central layered assembly is replaced by mostly uniform node cards"
+      ]
+    },
+    "factualSummary": "No invented fees, people, countdowns, automatic approval, failure state, fine or refusal observed. Counts and route directions are preserved. Return-box usability is conveyed by route but its small explicit note is difficult to read."
+  },
+  "uncertainty": {
+    "font": "Raster inspection shows readable Japanese glyphs and a consistent sans-serif appearance; actual Noto Sans CJK JP selection, fallback use and font provenance cannot be established from PNGs alone. No missing-glyph boxes observed.",
+    "scale": "Captures are larger placement frames: 688x416, 408x336, 528x456, 768x336 and 368x576. Target artwork dimensions are those supplied by dispatch/briefs. Reviewed the actual PNGs at their native image dimensions without enlarging them; placement metadata was outside the allowed scope, so exact CSS/device scale and artwork bounds are not independently verified.",
+    "smallText": "Return-box availability note cannot be reliably transcribed at target/native presentation; do not treat it as a verified exact label."
+  },
+  "correctedFinal": {
+    "timestampUtc": "2026-10-07T20:49:10.070394+00:00",
+    "scope": "Independent visual review of corrected return-items only; initial judgments above are preserved. Other four sources/PNGs reported byte-identical by manager, not independently rechecked in this correction review. No source, condition or manager judgments read.",
+    "image": {
+      "id": "return-items",
+      "path": "/workspace/diagram-evidence/pilot-runs/p203/captures/v1/return-items.png",
+      "sha256": "39dbd71b1f51d24f4dc8420ed314dc9466628ead385b62507454b091eb684a51",
+      "dimensions": [
+        368,
+        576
+      ],
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image"
+    },
+    "observations": [
+      "The availability note now visibly reads 空でも返却可 on a plain white band below the empty-box drawing.",
+      "The note no longer collides with teal patterned fill; all locked labels and both branch conditions remain clear.",
+      "Paper underlayer/shadow, arch texture, empty-box drawing and accent/warning branch colors remain recognizable."
+    ],
+    "readability": {
+      "score": 4,
+      "previousScore": 2,
+      "reason": "The material local contrast defect is resolved. Main station labels, colored branch conditions and the smaller availability note are readable with clear hierarchy at the displayed native capture size."
+    },
+    "facts": {
+      "exactLabelsVisuallyPresent": [
+        "入口",
+        "返却確認台",
+        "破損なし",
+        "返却箱：空",
+        "破損あり",
+        "相談窓口"
+      ],
+      "supplementalLabel": "空でも返却可",
+      "assessment": "Entrance leads to check desk; undamaged items lead to empty return box; damaged items lead to consultation. Empty-box availability is now explicitly readable.",
+      "omissions": [],
+      "inventions": [],
+      "reversals": []
+    },
+    "characterEffect": {
+      "score": 3,
+      "reason": "The added plain band is consistent with the overlapping white label panels already used in the batch and preserves arches around it. It resolves legibility without materially changing the earlier character judgment: layered-paper/arch identity persists, while original collage rotation and varied overlaps remain subdued."
+    },
+    "correctedBatch": {
+      "consistency": {
+        "score": 3,
+        "reason": "With the other four images held unchanged as reported, the local defect is resolved and the batch remains coherent. Limited distinct composition and texture treatment across ratios still hold it below 4."
+      },
+      "character": {
+        "score": 3,
+        "reason": "The correction preserves defining visual traits and does not introduce additional expressive variation sufficient for 4."
+      },
+      "readabilitySummary": "All five images now score 4 using the earlier judgments for the four unchanged images and this direct review for return-items."
+    },
+    "uncertainty": {
+      "font": "Actual font selection/fallback cannot be verified from the raster; no missing glyphs observed.",
+      "scale": "Viewed the 368x576 placement-frame capture at native image dimensions; 320x480 target artwork dimensions come from brief/dispatch. Exact CSS/device scale remains unverified."
+    }
+  }
+}

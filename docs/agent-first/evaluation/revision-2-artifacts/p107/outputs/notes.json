@@ -1,0 +1,57 @@
+{
+  "tone": "paper-layers",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/kit.svg",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "originalPngsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "Common semantic palette replaces the warm example palette, including white surface planes.",
+    "Required Japanese labels stay upright while backing sheets rotate slightly. No decorative serif lettering is used.",
+    "Custom assemblies reuse the supplied four arches per row and two rows construction, scaled for each target; shadows are reduced to preserve separation in compact slots.",
+    "Layouts follow each locked brief rather than the example Pattern/Text/PNG composition.",
+    "Small chair, clock, check and container marks omit repeated motifs; the enclosing paper assemblies retain them."
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRendererFont": "Unverified; no output renderer was run.",
+    "fallbackAndMissingGlyphs": "Font is not embedded or distributed. Availability, fallback and missing glyph behavior depend on the consuming renderer."
+  },
+  "limitations": [
+    "SVG XML and locked-label presence checked locally; output rendering at target size has not been verified.",
+    "No evaluator feedback, visual acceptance or user approval inferred."
+  ]
+}

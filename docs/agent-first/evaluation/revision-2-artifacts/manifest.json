@@ -1,0 +1,1325 @@
+{
+  "description": "Immutable original/corrected SVGs, exact author prompts/feedback and capture sidecars. Large PNGs local with hashes.",
+  "files": [
+    {
+      "path": "p101/prompt.txt",
+      "sha256": "82c81f7472f14e10f460318603b8c4ba82ef5fdf6f9695923f27ebbceed454ef",
+      "bytes": 2240
+    },
+    {
+      "path": "p101/dispatch-message.txt",
+      "sha256": "0dbe75c9944497e08bcc9c61e3435e2fc8f417c00bfe5734365b4545ad06cb7a",
+      "bytes": 478
+    },
+    {
+      "path": "p101/outputs/notes.json",
+      "sha256": "b5d795e7be8318cb3e663df76aef5471282170973f66b21083d9cad4281d1d85",
+      "bytes": 2890
+    },
+    {
+      "path": "p101/second-review-dispatch.txt",
+      "sha256": "de4ca68e44c5f0e19b5b1c787c574c43db5b5e23241907369cca14d8671e3d08",
+      "bytes": 1820
+    },
+    {
+      "path": "p101/outputs/reservation-flow.svg",
+      "sha256": "84480c64f187ceef2fc55e7052150956bcbda454eba7ce5bd78a7966c8cb46f9",
+      "bytes": 3627
+    },
+    {
+      "path": "p101/captures/v0/reservation-flow.png.json",
+      "sha256": "349000ac15f4821569ea6a99644e995b33586c261208f99f311113c5d0fa6c54",
+      "bytes": 1519
+    },
+    {
+      "path": "p101/outputs/empty-seats.svg",
+      "sha256": "0df7eaa6eb416b70aa35b4b3bfd7c98b92a6e59ce7d22d3e673b612d14b4822b",
+      "bytes": 3594
+    },
+    {
+      "path": "p101/captures/v0/empty-seats.png.json",
+      "sha256": "57921fd9ee7ad7f54a8202956e166cce6f70051ebb0859bd33b2a7482c8890af",
+      "bytes": 1509
+    },
+    {
+      "path": "p101/outputs/long-labels.svg",
+      "sha256": "a325db9ce4bd96e10770777bd63dd68844cac5383797c7bc75eaa30ada2f1740",
+      "bytes": 3510
+    },
+    {
+      "path": "p101/captures/v0/long-labels.png.json",
+      "sha256": "52c01bf32f504ee9a68a48105069ede818acc65599ca63f8439696445426f1a2",
+      "bytes": 1509
+    },
+    {
+      "path": "p101/outputs/pending-queue.svg",
+      "sha256": "915a6e02d7da10380dbf71cc0e9f31e8f4130d3e3187db854a60954e0b94dd6f",
+      "bytes": 4066
+    },
+    {
+      "path": "p101/captures/v0/pending-queue.png.json",
+      "sha256": "8e78df3065fe2d3d39fda9e8729dcdbed3264918ee0d9fe4b7da26ca92579362",
+      "bytes": 1513
+    },
+    {
+      "path": "p101/outputs/return-items.svg",
+      "sha256": "bbeda626eee351c9d47fdee85441f75337f03daf2aceec2e4e090f0aadac3140",
+      "bytes": 3856
+    },
+    {
+      "path": "p101/captures/v0/return-items.png.json",
+      "sha256": "d04eec6fc0074b457279a38cb419f8b3257bd10134ab21d620e7ab121ec9af44",
+      "bytes": 1511
+    },
+    {
+      "path": "p102/prompt.txt",
+      "sha256": "243aad820fb79f36f9196709a0d0e25fcc492e1758be20d4acd8744f0dd85287",
+      "bytes": 2243
+    },
+    {
+      "path": "p102/dispatch-message.txt",
+      "sha256": "4d036c6f8725a84e6ec3f5800ed5c1421663e9930b171f276a6afcc26be76dc9",
+      "bytes": 478
+    },
+    {
+      "path": "p102/outputs/notes.json",
+      "sha256": "8a2079a9f8f7ffded0e151c8608dacdef3a6631c6592ad3c0366f8ebfff202cc",
+      "bytes": 2858
+    },
+    {
+      "path": "p102/second-review-dispatch.txt",
+      "sha256": "fc30d2b8531f83120157a239d6d5b444afb63ead416066c26dc8c4cdf88fd32d",
+      "bytes": 1823
+    },
+    {
+      "path": "p102/outputs/reservation-flow.svg",
+      "sha256": "4440b8bac434ca25a0a2171d56231b5bca7de109756bd58e6cc8a4e934e4c94c",
+      "bytes": 12792
+    },
+    {
+      "path": "p102/captures/v0/reservation-flow.png.json",
+      "sha256": "628d26503469b5765be9f885817c8282f15adc9b4415d1aa39ec93541ed8463d",
+      "bytes": 1519
+    },
+    {
+      "path": "p102/outputs/empty-seats.svg",
+      "sha256": "15a6b6c277b561c0d2a97030140f5ba529b7ac78d9710ddf2c70cd6ead90fc77",
+      "bytes": 11647
+    },
+    {
+      "path": "p102/captures/v0/empty-seats.png.json",
+      "sha256": "d20234a5f6245a2ed0368c26876b88f4cd27447ff3832683fcde4098fd7f619c",
+      "bytes": 1509
+    },
+    {
+      "path": "p102/outputs/long-labels.svg",
+      "sha256": "deb78872ee51752af36e09413ae640c18499139dc47e69f27ffebc24dee63a27",
+      "bytes": 12601
+    },
+    {
+      "path": "p102/captures/v0/long-labels.png.json",
+      "sha256": "0886329122496cca7552410dc2497f7b28304b8651767efa10fdf8d49c239147",
+      "bytes": 1509
+    },
+    {
+      "path": "p102/outputs/pending-queue.svg",
+      "sha256": "b35e00b0ec4f7b05c1f289243d7a072f8c105e99ab8e394ec437b7309ec1c5e4",
+      "bytes": 12194
+    },
+    {
+      "path": "p102/captures/v0/pending-queue.png.json",
+      "sha256": "a4939e2f5e6c60f1ddee36abaaafad040e87b03b84f21355d6150642a83ca492",
+      "bytes": 1513
+    },
+    {
+      "path": "p102/outputs/return-items.svg",
+      "sha256": "0b7ff5911e4b4515ef76a6b7b0e270aba542a8a8babe4015d5e2e40ae7712c1a",
+      "bytes": 13961
+    },
+    {
+      "path": "p102/captures/v0/return-items.png.json",
+      "sha256": "c601cd92c40adcae9ee39869ec4b738203aedf3aba2e55b3d4dc00d16bfb20d0",
+      "bytes": 1511
+    },
+    {
+      "path": "p103/prompt.txt",
+      "sha256": "87ea1e25379625fd7929023bcea9e69f19308beb7f7e5f87dbe1bc911fe8ead7",
+      "bytes": 2240
+    },
+    {
+      "path": "p103/dispatch-message.txt",
+      "sha256": "27b7b384e0bdd41b0e6d07bab6b1467e23d0badba5543d9e5f0a908539073202",
+      "bytes": 478
+    },
+    {
+      "path": "p103/outputs/notes.json",
+      "sha256": "2122de315a30d9e0753bd35c824ce3598df5222e3279b1a8391f31f84c5c318a",
+      "bytes": 2898
+    },
+    {
+      "path": "p103/second-review-dispatch.txt",
+      "sha256": "680d6ca5c553e52ca60748625040f23898cf7e8b92504f0fe8160228b0dc9d8e",
+      "bytes": 1820
+    },
+    {
+      "path": "p103/correction-1-feedback.txt",
+      "sha256": "a0d194d3e7dbd08e35d5c9fe1515d22bac839d7267faf4ce41e265c0703cf4f0",
+      "bytes": 1028
+    },
+    {
+      "path": "p103/outputs/reservation-flow.svg",
+      "sha256": "8bc1eab89ea41a3e473c09ad534de164d8242e0ffccc10587ba01bd4f5a2c051",
+      "bytes": 7064
+    },
+    {
+      "path": "p103/captures/v0/reservation-flow.png.json",
+      "sha256": "4d55edd7c3967309478402eb4adb58c5a008c55366ee42c7514d05359e952bea",
+      "bytes": 1519
+    },
+    {
+      "path": "p103/outputs/empty-seats.svg",
+      "sha256": "4de5c29790f82cede1bb780eebba23d366910620b78f38d3427fb2f9bad400d6",
+      "bytes": 8501
+    },
+    {
+      "path": "p103/captures/v0/empty-seats.png.json",
+      "sha256": "99c9811c56defafadfe41510cba7c5b3709a5bf9bddd69d9d9483ece4e564eaa",
+      "bytes": 1509
+    },
+    {
+      "path": "p103/outputs/long-labels.svg",
+      "sha256": "3295060b87a4d8c895fe86e629e7aa9bd25270e0872d672620dd05b751eee282",
+      "bytes": 6553
+    },
+    {
+      "path": "p103/captures/v0/long-labels.png.json",
+      "sha256": "68a68d266838f1c55e51f8c266843e8a5187c39d486cc0b0760be9341ea5d447",
+      "bytes": 1509
+    },
+    {
+      "path": "p103/outputs/pending-queue.svg",
+      "sha256": "49e103b936573593aa7387540719ab911e55aeff34813976f77ef3ca38fef814",
+      "bytes": 8315
+    },
+    {
+      "path": "p103/captures/v0/pending-queue.png.json",
+      "sha256": "937080bfe001d6525bc0f1190343c559df8cd85d1d7ea14a49c6e26444fcc78e",
+      "bytes": 1513
+    },
+    {
+      "path": "p103/outputs/return-items.svg",
+      "sha256": "84541431a0f98a930754df29d280bb36ee240795023471185dd0b8aa9416a803",
+      "bytes": 8158
+    },
+    {
+      "path": "p103/captures/v0/return-items.png.json",
+      "sha256": "d2cc1f97dd68ac72d0de6bc696e82472e180401e63f1ff34d18f11c8abf9f42e",
+      "bytes": 1511
+    },
+    {
+      "path": "p103/outputs/correction-1/reservation-flow.svg",
+      "sha256": "8bc1eab89ea41a3e473c09ad534de164d8242e0ffccc10587ba01bd4f5a2c051",
+      "bytes": 7064
+    },
+    {
+      "path": "p103/captures/v1/reservation-flow.png.json",
+      "sha256": "13c8b2d3369827d03d3b993c550dda314625fbefeb218456bef25babdc6d6ff7",
+      "bytes": 1519
+    },
+    {
+      "path": "p103/outputs/correction-1/empty-seats.svg",
+      "sha256": "b9e10fcbef71008feafda23525b9b16d2a3ec0c22eaff4da54597fca86ff47c8",
+      "bytes": 8821
+    },
+    {
+      "path": "p103/captures/v1/empty-seats.png.json",
+      "sha256": "1ca3272e672bcd2ea5968474aa7689550957a497206c6ad59ce00a5e652921ad",
+      "bytes": 1509
+    },
+    {
+      "path": "p103/outputs/correction-1/long-labels.svg",
+      "sha256": "3295060b87a4d8c895fe86e629e7aa9bd25270e0872d672620dd05b751eee282",
+      "bytes": 6553
+    },
+    {
+      "path": "p103/captures/v1/long-labels.png.json",
+      "sha256": "408b61ceb2004958f367d467672c360277af84682127db121ec21a8f5e31bdcd",
+      "bytes": 1509
+    },
+    {
+      "path": "p103/outputs/correction-1/pending-queue.svg",
+      "sha256": "49e103b936573593aa7387540719ab911e55aeff34813976f77ef3ca38fef814",
+      "bytes": 8315
+    },
+    {
+      "path": "p103/captures/v1/pending-queue.png.json",
+      "sha256": "a4d10ea995e4ba3a0632932d05f5c32bfefbebe2e0cb67a8234fc5d4cff66f5f",
+      "bytes": 1513
+    },
+    {
+      "path": "p103/outputs/correction-1/return-items.svg",
+      "sha256": "68c04aefca9b6db9164455ea368a581d37cd18d4d981bc2acbfbf375f21081af",
+      "bytes": 8238
+    },
+    {
+      "path": "p103/captures/v1/return-items.png.json",
+      "sha256": "4b57cff9c014dc5fb20f4c7455525d5358af2c578be199d55e1700a22ac501e7",
+      "bytes": 1511
+    },
+    {
+      "path": "p103/outputs/correction-1/notes.json",
+      "sha256": "d427ddafe7a21e830ed99e175c8f4abc646bae440314ffa1c81bcc199240de31",
+      "bytes": 1165
+    },
+    {
+      "path": "p104/prompt.txt",
+      "sha256": "5bb31155a5082eaac29f028afef28e3467512806d231461cc9a52850f6a5d778",
+      "bytes": 2243
+    },
+    {
+      "path": "p104/dispatch-message.txt",
+      "sha256": "ea9875989aff41506fe40d7b9277adca0fe1ebe51beaae70c543b3f7af37f17f",
+      "bytes": 478
+    },
+    {
+      "path": "p104/outputs/notes.json",
+      "sha256": "7012eaf531f78079d88834ff04c9f8990bde50252f196aa6cfe7292dbc24e2fe",
+      "bytes": 2563
+    },
+    {
+      "path": "p104/second-review-dispatch.txt",
+      "sha256": "4abbd453709b5bba25418c16cd5f85796f2c305946d182cdb7c1ffb38f5b8cd4",
+      "bytes": 1823
+    },
+    {
+      "path": "p104/correction-1-feedback.txt",
+      "sha256": "1ae5d352fbe06aaf4db43cfc46707517efea895d90c5851749b029de7ddf42a3",
+      "bytes": 791
+    },
+    {
+      "path": "p104/outputs/reservation-flow.svg",
+      "sha256": "01caa16b11dc34b5a957e2b996cd8bf587099144a9fb49d36d1c9ebf8d47a2ee",
+      "bytes": 19853
+    },
+    {
+      "path": "p104/captures/v0/reservation-flow.png.json",
+      "sha256": "93d90f82f505811c3c282409c96be6d39a4bb70bacf5c127738ebdb5378f4e3d",
+      "bytes": 1519
+    },
+    {
+      "path": "p104/outputs/empty-seats.svg",
+      "sha256": "4f1041df96ff2e548453bf45c76fc6a6c8be95f2ea7c881ffaa06515250d3499",
+      "bytes": 24452
+    },
+    {
+      "path": "p104/captures/v0/empty-seats.png.json",
+      "sha256": "730819ffce4464404fafe6b5ef8241f84004c8ca27342886ddadcd66787e36f7",
+      "bytes": 1509
+    },
+    {
+      "path": "p104/outputs/long-labels.svg",
+      "sha256": "703401ee9e7d33fa86a3b6f9f56fa9607e9a4198c6fed21523f76022661e5ad1",
+      "bytes": 19816
+    },
+    {
+      "path": "p104/captures/v0/long-labels.png.json",
+      "sha256": "ae5f5e8738e2368b8c7b0a7d1b486baa335d845cb6ff61ef920f1e09703cc776",
+      "bytes": 1509
+    },
+    {
+      "path": "p104/outputs/pending-queue.svg",
+      "sha256": "5b5339b7f6e94e312d819e363660d91ffbd17f7358e70b01bec71ac50e4a8285",
+      "bytes": 24727
+    },
+    {
+      "path": "p104/captures/v0/pending-queue.png.json",
+      "sha256": "5d4a41f9144eb4af3db79253230f407dcf781ffc6766ccbfcefc2d69c8cedfc4",
+      "bytes": 1513
+    },
+    {
+      "path": "p104/outputs/return-items.svg",
+      "sha256": "9f004499326faa8749addebe4e7785e6419cdd4a644b1b9eef99c8e25ce55f68",
+      "bytes": 25538
+    },
+    {
+      "path": "p104/captures/v0/return-items.png.json",
+      "sha256": "d5ca59317c934903f8327623b60860830ee3117dd50b7f7bbfb403c25606463d",
+      "bytes": 1511
+    },
+    {
+      "path": "p104/outputs/correction-1/reservation-flow.svg",
+      "sha256": "01caa16b11dc34b5a957e2b996cd8bf587099144a9fb49d36d1c9ebf8d47a2ee",
+      "bytes": 19853
+    },
+    {
+      "path": "p104/captures/v1/reservation-flow.png.json",
+      "sha256": "cbcfb5adbb3ca659c1d9e668b0ed6bd247d556959a7006274fa0211931b676de",
+      "bytes": 1519
+    },
+    {
+      "path": "p104/outputs/correction-1/empty-seats.svg",
+      "sha256": "d5cab23f37a50313c5453fb46804afc1e6261304ba639e67e1255aa5fa2bbdb6",
+      "bytes": 24513
+    },
+    {
+      "path": "p104/captures/v1/empty-seats.png.json",
+      "sha256": "9ef954259cc6e353d0d693f77e0ddbbf23dd1f38535727e41cf16f1509a725d5",
+      "bytes": 1509
+    },
+    {
+      "path": "p104/outputs/correction-1/long-labels.svg",
+      "sha256": "703401ee9e7d33fa86a3b6f9f56fa9607e9a4198c6fed21523f76022661e5ad1",
+      "bytes": 19816
+    },
+    {
+      "path": "p104/captures/v1/long-labels.png.json",
+      "sha256": "ccd26348c2b2384faf8acbb10b4e8160572ee048060ad6b98d14155a325f28bb",
+      "bytes": 1509
+    },
+    {
+      "path": "p104/outputs/correction-1/pending-queue.svg",
+      "sha256": "5b5339b7f6e94e312d819e363660d91ffbd17f7358e70b01bec71ac50e4a8285",
+      "bytes": 24727
+    },
+    {
+      "path": "p104/captures/v1/pending-queue.png.json",
+      "sha256": "ea3d420a7e53d428c6787534fb76387857daebb968ce2d4c38ad1af62c0ae31f",
+      "bytes": 1513
+    },
+    {
+      "path": "p104/outputs/correction-1/return-items.svg",
+      "sha256": "9f004499326faa8749addebe4e7785e6419cdd4a644b1b9eef99c8e25ce55f68",
+      "bytes": 25538
+    },
+    {
+      "path": "p104/captures/v1/return-items.png.json",
+      "sha256": "ef4f309573dfd14e9de389b61d5b5400d42af6634eb74f2e1e2c033e414937b3",
+      "bytes": 1511
+    },
+    {
+      "path": "p104/outputs/correction-1/notes.json",
+      "sha256": "89f9f08965b858dc40ebc0ef675d8d804f5b00cc467e9ed2400019659f31511c",
+      "bytes": 1145
+    },
+    {
+      "path": "p105/prompt.txt",
+      "sha256": "e9ded85b5be2426a172d783a1a3fe9563de4e33070fa9c8817a3a18ca0cd4f7a",
+      "bytes": 2240
+    },
+    {
+      "path": "p105/dispatch-message.txt",
+      "sha256": "003b02d4208513aacbf36a38bdf6f87db52458e06c2409a47637744afba4fdc5",
+      "bytes": 478
+    },
+    {
+      "path": "p105/outputs/notes.json",
+      "sha256": "3a689632c52cce15565f58b5259d96cf3abb2ab25ef10d760962bdfbc3087982",
+      "bytes": 2820
+    },
+    {
+      "path": "p105/second-review-dispatch.txt",
+      "sha256": "b7a97c5cb64ea418efdabeac04e408389bf379729b28dd748f75807f5fac1650",
+      "bytes": 1820
+    },
+    {
+      "path": "p105/correction-1-feedback.txt",
+      "sha256": "0480eadc4b4190fad472ddf76fac4258240db43951f95a5e81bf91bd4cd18ebe",
+      "bytes": 690
+    },
+    {
+      "path": "p105/outputs/reservation-flow.svg",
+      "sha256": "6fbd7d7382cdfdec32cf835e8a809e84636c7c4e61afa83b758d790e4bcba8b3",
+      "bytes": 5917
+    },
+    {
+      "path": "p105/captures/v0/reservation-flow.png.json",
+      "sha256": "1c4856b362ee317afdac7c52c5e6bef42403ee7ba5b6db22de047509f33aea39",
+      "bytes": 1519
+    },
+    {
+      "path": "p105/outputs/empty-seats.svg",
+      "sha256": "f42408cf3233171ebe7f8771caeae4eb536aa4bba35dee2a80648b85320a7a66",
+      "bytes": 6713
+    },
+    {
+      "path": "p105/captures/v0/empty-seats.png.json",
+      "sha256": "c61646cb087c2fcf9673a40efd250c76bcabe1ebafee77b9ec65872dfdf137bd",
+      "bytes": 1509
+    },
+    {
+      "path": "p105/outputs/long-labels.svg",
+      "sha256": "23f95f0c7e8b7349df7e9c041fe7141c54496a26a0817fcb1e99672be3cb3347",
+      "bytes": 5912
+    },
+    {
+      "path": "p105/captures/v0/long-labels.png.json",
+      "sha256": "4fcc712b5b3d612dbe2e2c3e1eb883052b9fae31240be3348353e3092f68f6e9",
+      "bytes": 1509
+    },
+    {
+      "path": "p105/outputs/pending-queue.svg",
+      "sha256": "902324e2d8299a99cfee35f2d6ae5be8b124f41bfd60daefc666120248d0268d",
+      "bytes": 6475
+    },
+    {
+      "path": "p105/captures/v0/pending-queue.png.json",
+      "sha256": "c9575e4e4863a614e81f51ab17e86a4012a3f8f1df2762187a7f2a8728faf071",
+      "bytes": 1513
+    },
+    {
+      "path": "p105/outputs/return-items.svg",
+      "sha256": "3a55efc5209a7cd5e8d8924076b30811fc6642439fb03350b00f5d71cd340156",
+      "bytes": 6461
+    },
+    {
+      "path": "p105/captures/v0/return-items.png.json",
+      "sha256": "45d9b617e57875501ee3885c9d6c8db0b5fc3de2f75082198a1b815f34319d81",
+      "bytes": 1511
+    },
+    {
+      "path": "p105/outputs/correction-1/reservation-flow.svg",
+      "sha256": "1e987fc3bed4621d3d0251e8fdaed8763f87966ecef1ec838197d9afaaa12c53",
+      "bytes": 5979
+    },
+    {
+      "path": "p105/captures/v1/reservation-flow.png.json",
+      "sha256": "4dbe99ae87fa405dc808be3e3750f54481d40e7a2427c0bf5d4fb4e61dad8811",
+      "bytes": 1519
+    },
+    {
+      "path": "p105/outputs/correction-1/empty-seats.svg",
+      "sha256": "f42408cf3233171ebe7f8771caeae4eb536aa4bba35dee2a80648b85320a7a66",
+      "bytes": 6713
+    },
+    {
+      "path": "p105/captures/v1/empty-seats.png.json",
+      "sha256": "4c8a9f9206191bacd65f63bbfc581c0dd8ad902817b7648884e71722c006d949",
+      "bytes": 1509
+    },
+    {
+      "path": "p105/outputs/correction-1/long-labels.svg",
+      "sha256": "23f95f0c7e8b7349df7e9c041fe7141c54496a26a0817fcb1e99672be3cb3347",
+      "bytes": 5912
+    },
+    {
+      "path": "p105/captures/v1/long-labels.png.json",
+      "sha256": "bfe463f967c596d47c691bde4832540c01b9ba89dbd6a9d1e4b13098e40e6378",
+      "bytes": 1509
+    },
+    {
+      "path": "p105/outputs/correction-1/pending-queue.svg",
+      "sha256": "902324e2d8299a99cfee35f2d6ae5be8b124f41bfd60daefc666120248d0268d",
+      "bytes": 6475
+    },
+    {
+      "path": "p105/captures/v1/pending-queue.png.json",
+      "sha256": "6dc52ae1b29a8e947fb2d2dae984b156809b86869e0189ee792cde173036b2de",
+      "bytes": 1513
+    },
+    {
+      "path": "p105/outputs/correction-1/return-items.svg",
+      "sha256": "3a55efc5209a7cd5e8d8924076b30811fc6642439fb03350b00f5d71cd340156",
+      "bytes": 6461
+    },
+    {
+      "path": "p105/captures/v1/return-items.png.json",
+      "sha256": "874da897fb27dd014aa182ccdccda0fd899eebac9263a69dafc9d9eb5989afbd",
+      "bytes": 1511
+    },
+    {
+      "path": "p105/outputs/correction-1/notes.json",
+      "sha256": "87604c349d04a5008508846f449af7b533a8619ca3b3609d7f39e97040081137",
+      "bytes": 768
+    },
+    {
+      "path": "p106/prompt.txt",
+      "sha256": "2760430b0654a79483abb2fb5daa114b2ec1937e4dd825754cf378d2cbe92df4",
+      "bytes": 2243
+    },
+    {
+      "path": "p106/dispatch-message.txt",
+      "sha256": "f89c6d231d570b9a0080f3b7db6cb15e05d78b082b95192a1bcdf4b1e7fc22d1",
+      "bytes": 478
+    },
+    {
+      "path": "p106/outputs/notes.json",
+      "sha256": "02e7eeb07fafcee35d1088e2be40ea9bc91b50159be45161f651937dc665471c",
+      "bytes": 2515
+    },
+    {
+      "path": "p106/second-review-dispatch.txt",
+      "sha256": "fef31b32cb1230d3c63d64994a83705580fa0374f73729ef7472492aec2fa4c6",
+      "bytes": 1823
+    },
+    {
+      "path": "p106/correction-1-feedback.txt",
+      "sha256": "0d0710e630a37b39d06576cea837af8362d12b1eedfde75148cd73006675a943",
+      "bytes": 643
+    },
+    {
+      "path": "p106/outputs/reservation-flow.svg",
+      "sha256": "2116844d365bd0754e3721dc040459e6861961904847dfd5816aac04d5dd4ad1",
+      "bytes": 3217
+    },
+    {
+      "path": "p106/captures/v0/reservation-flow.png.json",
+      "sha256": "d36366ad437932d905865999168db11bc66c0e7fa825c6e374c00df582e5196d",
+      "bytes": 1519
+    },
+    {
+      "path": "p106/outputs/empty-seats.svg",
+      "sha256": "920518e1bd8ab007370493dfd6c3561782f4b321832fed8c64cabfba0d41912e",
+      "bytes": 3140
+    },
+    {
+      "path": "p106/captures/v0/empty-seats.png.json",
+      "sha256": "50cac3357d9b6c263c3a6d2d9b2fc583706a9d1f8a3d06483ecf8fef1e3101e6",
+      "bytes": 1509
+    },
+    {
+      "path": "p106/outputs/long-labels.svg",
+      "sha256": "c157e6a1cf68b8c0336d43d9151d3028af89e4b466594a389d17a9b69a234682",
+      "bytes": 3172
+    },
+    {
+      "path": "p106/captures/v0/long-labels.png.json",
+      "sha256": "20fffd8e4b8e8cadef7752f082027e4e1023272b09d51d5e2571fb858be6c0f3",
+      "bytes": 1509
+    },
+    {
+      "path": "p106/outputs/pending-queue.svg",
+      "sha256": "9a8bad721e08506d72bfc3a76eebc1dfd675c846461065864ca23d579b2c1094",
+      "bytes": 3349
+    },
+    {
+      "path": "p106/captures/v0/pending-queue.png.json",
+      "sha256": "dc44dbe4c4565b7e6ba3da119cad0a6b6ac4037f4e2361220da72bd6d0e26f41",
+      "bytes": 1513
+    },
+    {
+      "path": "p106/outputs/return-items.svg",
+      "sha256": "35b6f62c1d5ead1306e04e2bcfa315c58187dcaa04742c96353c4f3cc92be741",
+      "bytes": 3284
+    },
+    {
+      "path": "p106/captures/v0/return-items.png.json",
+      "sha256": "a626e59f97bc89f7d1215d705f6e556827500083069a963a38a3549006d4ecf8",
+      "bytes": 1511
+    },
+    {
+      "path": "p106/outputs/correction-1/reservation-flow.svg",
+      "sha256": "2116844d365bd0754e3721dc040459e6861961904847dfd5816aac04d5dd4ad1",
+      "bytes": 3217
+    },
+    {
+      "path": "p106/captures/v1/reservation-flow.png.json",
+      "sha256": "38015b40aea20c3da61c97b4705525ad74d55b582125b15be90a6c54cf678c9a",
+      "bytes": 1519
+    },
+    {
+      "path": "p106/outputs/correction-1/empty-seats.svg",
+      "sha256": "920518e1bd8ab007370493dfd6c3561782f4b321832fed8c64cabfba0d41912e",
+      "bytes": 3140
+    },
+    {
+      "path": "p106/captures/v1/empty-seats.png.json",
+      "sha256": "4ba92a52dc46b1d96fa9d7dc434f2705f61e2033e6a45cbea6a858147d73d8cd",
+      "bytes": 1509
+    },
+    {
+      "path": "p106/outputs/correction-1/long-labels.svg",
+      "sha256": "c157e6a1cf68b8c0336d43d9151d3028af89e4b466594a389d17a9b69a234682",
+      "bytes": 3172
+    },
+    {
+      "path": "p106/captures/v1/long-labels.png.json",
+      "sha256": "51700dfd5fbe328f216af92841c597091a1c6dd2f3aee834d07a74e858c3fd9e",
+      "bytes": 1509
+    },
+    {
+      "path": "p106/outputs/correction-1/pending-queue.svg",
+      "sha256": "9a8bad721e08506d72bfc3a76eebc1dfd675c846461065864ca23d579b2c1094",
+      "bytes": 3349
+    },
+    {
+      "path": "p106/captures/v1/pending-queue.png.json",
+      "sha256": "a77c9ee74692a49744c05afc8b1d63479afc621e789e9e8b5622418c1626402d",
+      "bytes": 1513
+    },
+    {
+      "path": "p106/outputs/correction-1/return-items.svg",
+      "sha256": "8f36c5a53e6e0ae9d2e815dd5a3e930a426c740da3c7a20e3ff5e1d52a59209a",
+      "bytes": 3405
+    },
+    {
+      "path": "p106/captures/v1/return-items.png.json",
+      "sha256": "f81c1ee8e838c00e1a78d3bfe842a2bf975f3e1700be0f72cd5bca10ed75ded2",
+      "bytes": 1511
+    },
+    {
+      "path": "p106/outputs/correction-1/notes.json",
+      "sha256": "b68ccf16286f7498253b01af2e5f287efe854581b72f7b1d964676ba92a503bb",
+      "bytes": 894
+    },
+    {
+      "path": "p107/prompt.txt",
+      "sha256": "3c5debd7a3336e6225ed4527f8d5926269ed09574b8740907aff0e45ee51f175",
+      "bytes": 2240
+    },
+    {
+      "path": "p107/dispatch-message.txt",
+      "sha256": "1a5dd198def37fac059ebd703acf0ba8a06fd4786848302aeeb53f95dc3ffdaa",
+      "bytes": 478
+    },
+    {
+      "path": "p107/outputs/notes.json",
+      "sha256": "f5f85f589b24ae03335d368cedecf5b45b82b77a349a5b2b91c4034f8f8313c0",
+      "bytes": 2603
+    },
+    {
+      "path": "p107/second-review-dispatch.txt",
+      "sha256": "0e4a2412c67e6456370315d0f720e67c0b3976428348b100f36dea7ac2b28e53",
+      "bytes": 1820
+    },
+    {
+      "path": "p107/correction-1-feedback.txt",
+      "sha256": "486863107140e453eaeb786e76ffb0efe053ad9b8dc201727c360f2c4c811ad8",
+      "bytes": 764
+    },
+    {
+      "path": "p107/outputs/reservation-flow.svg",
+      "sha256": "05be35cb6a5de032b89926da1034fb28051e6ba9d44d0049e6cb3c7280c39da5",
+      "bytes": 9699
+    },
+    {
+      "path": "p107/captures/v0/reservation-flow.png.json",
+      "sha256": "26ee0303b69ca475ee0456e8b5539e7b7a83509cf0d1e58bc77576102de4125a",
+      "bytes": 1519
+    },
+    {
+      "path": "p107/outputs/empty-seats.svg",
+      "sha256": "6acc631a0b0edee7d6b01ec6e9f5b9b633fd75c14ef3261aee5ab23c0efac40f",
+      "bytes": 12886
+    },
+    {
+      "path": "p107/captures/v0/empty-seats.png.json",
+      "sha256": "14cb3a91ef1f568c24c08c01d4b8ef06db9195573a76daffa2caf594d3f2afa0",
+      "bytes": 1509
+    },
+    {
+      "path": "p107/outputs/long-labels.svg",
+      "sha256": "ef401f2b71981281941aa10cbf9fe66978d1425103c26c7e75c39505b6638383",
+      "bytes": 9532
+    },
+    {
+      "path": "p107/captures/v0/long-labels.png.json",
+      "sha256": "c1020e67d0ae75fa2ffe606cd70c9de0fe4da86cec49fa8b8b7542348f5a051c",
+      "bytes": 1509
+    },
+    {
+      "path": "p107/outputs/pending-queue.svg",
+      "sha256": "b0e99e1c91399210e39c9da3ba7002fda39993f4a6b677b8d6a739c7f2cb424f",
+      "bytes": 12338
+    },
+    {
+      "path": "p107/captures/v0/pending-queue.png.json",
+      "sha256": "db6c9b2b2987ae6bced80f62540d9a93f81a88eece3da09396caa7403c99813f",
+      "bytes": 1513
+    },
+    {
+      "path": "p107/outputs/return-items.svg",
+      "sha256": "5aec064812fdac8c960336761fe53d1e183dfc510502ed54a47a0d8cea7fd993",
+      "bytes": 12002
+    },
+    {
+      "path": "p107/captures/v0/return-items.png.json",
+      "sha256": "d9ef5875ff32537cd14f41633c3ec8fbe09717fee60685a21fbd01220557f035",
+      "bytes": 1511
+    },
+    {
+      "path": "p107/outputs/correction-1/reservation-flow.svg",
+      "sha256": "05be35cb6a5de032b89926da1034fb28051e6ba9d44d0049e6cb3c7280c39da5",
+      "bytes": 9699
+    },
+    {
+      "path": "p107/captures/v1/reservation-flow.png.json",
+      "sha256": "2da702532bf3ec589ca7c397ed0ab324e5054b75f7bc0b60234b7494f884b5c8",
+      "bytes": 1519
+    },
+    {
+      "path": "p107/outputs/correction-1/empty-seats.svg",
+      "sha256": "e608f5069d144c51c903d360465aa4b3d35fdebdacee69e76e3c09d9ceb43548",
+      "bytes": 12932
+    },
+    {
+      "path": "p107/captures/v1/empty-seats.png.json",
+      "sha256": "c07dc05962c8194bfcccfe07fcd56bf5d2eee3ff2eed3b535bc81f14c1815a1a",
+      "bytes": 1509
+    },
+    {
+      "path": "p107/outputs/correction-1/long-labels.svg",
+      "sha256": "ef401f2b71981281941aa10cbf9fe66978d1425103c26c7e75c39505b6638383",
+      "bytes": 9532
+    },
+    {
+      "path": "p107/captures/v1/long-labels.png.json",
+      "sha256": "de109e75b75ee1b5ffdd507e065469898a927b85cb99d6d01b0c86dc6375c66d",
+      "bytes": 1509
+    },
+    {
+      "path": "p107/outputs/correction-1/pending-queue.svg",
+      "sha256": "b0e99e1c91399210e39c9da3ba7002fda39993f4a6b677b8d6a739c7f2cb424f",
+      "bytes": 12338
+    },
+    {
+      "path": "p107/captures/v1/pending-queue.png.json",
+      "sha256": "25dca97c91399b26ee1d08b05c2e2a647582fe3906dfc707f274be725e8b7a2d",
+      "bytes": 1513
+    },
+    {
+      "path": "p107/outputs/correction-1/return-items.svg",
+      "sha256": "da9598ce521c9f46878d9a41ca82961cb016bf48292e65013ebeb79d80974660",
+      "bytes": 12002
+    },
+    {
+      "path": "p107/captures/v1/return-items.png.json",
+      "sha256": "23feac840bb760e6d7e19d97d487099b80095bc3f984ee294060f9c304c5ee44",
+      "bytes": 1511
+    },
+    {
+      "path": "p107/outputs/correction-1/notes.json",
+      "sha256": "a63bde5ce19fd1006212ee9d09998bfe5c386bf956c9f6acc76e94cb96be9c11",
+      "bytes": 1244
+    },
+    {
+      "path": "p108/prompt.txt",
+      "sha256": "e452303f62005479601018ad1e7e52dbb98d84a7780d340b4e5745b336800593",
+      "bytes": 2243
+    },
+    {
+      "path": "p108/dispatch-message.txt",
+      "sha256": "0938581fc6fd063a171a70a04825679367eb7d3ed0acc90958a4ba27c74e5896",
+      "bytes": 478
+    },
+    {
+      "path": "p108/outputs/notes.json",
+      "sha256": "0e45bcae585449a44f6cf5dab1cd8a73f4e0b828c0cd4fc2aa1ac27a02ac5148",
+      "bytes": 3340
+    },
+    {
+      "path": "p108/second-review-dispatch.txt",
+      "sha256": "76c53921404b45d063f649d94034edf6fc223902940db405232a6d843f9df2bd",
+      "bytes": 1823
+    },
+    {
+      "path": "p108/correction-1-feedback.txt",
+      "sha256": "56212e143fd0f78e49365b3b05bd31dbbb76369bff59bcbf20b4ba4c3fe465e5",
+      "bytes": 643
+    },
+    {
+      "path": "p108/outputs/reservation-flow.svg",
+      "sha256": "2a3b6dcb02149f34ed0af026812cb874fb3fea0d18b53514caa351545d49086e",
+      "bytes": 4004
+    },
+    {
+      "path": "p108/captures/v0/reservation-flow.png.json",
+      "sha256": "a2bf6bcabd8ad154a30f28848e6748183f49bf7e2b7c77d12a75af1343d4ec40",
+      "bytes": 1519
+    },
+    {
+      "path": "p108/outputs/empty-seats.svg",
+      "sha256": "a923b2ddc44b28f508f3db7ccae355bc39bb0dfa0e6de73a860961806ff538ba",
+      "bytes": 3832
+    },
+    {
+      "path": "p108/captures/v0/empty-seats.png.json",
+      "sha256": "205e1647f8756f6b0392542770c812106ee5d1c8d78f317fc7ad2ac24c070001",
+      "bytes": 1509
+    },
+    {
+      "path": "p108/outputs/long-labels.svg",
+      "sha256": "31a7126fe0eb1463e19ab77e9211169fb098addd64c97d2657276a39c642ab1a",
+      "bytes": 3774
+    },
+    {
+      "path": "p108/captures/v0/long-labels.png.json",
+      "sha256": "c85beb19f27fc1b64797dbb65a3398b6ee3030a5902e28d40589289f32f44ff7",
+      "bytes": 1509
+    },
+    {
+      "path": "p108/outputs/pending-queue.svg",
+      "sha256": "2cabcf24ec327d688a1f303986e36417d3aa924c44df760991fe8d87929de7c2",
+      "bytes": 4104
+    },
+    {
+      "path": "p108/captures/v0/pending-queue.png.json",
+      "sha256": "13858450399b0ac1e6ab563f577f6b0e2648deab6a3a966773adec2e2c8d6a6a",
+      "bytes": 1513
+    },
+    {
+      "path": "p108/outputs/return-items.svg",
+      "sha256": "a61bffe3e949bfd6b58bf0c670069915ffcdc3048068ddddce4dfb1b48bd1037",
+      "bytes": 4027
+    },
+    {
+      "path": "p108/captures/v0/return-items.png.json",
+      "sha256": "2481f214d8580bb3f8d14135a97b2426d24f21e8ce893521b73dd4f8b0c145c1",
+      "bytes": 1511
+    },
+    {
+      "path": "p108/outputs/correction-1/reservation-flow.svg",
+      "sha256": "2a3b6dcb02149f34ed0af026812cb874fb3fea0d18b53514caa351545d49086e",
+      "bytes": 4004
+    },
+    {
+      "path": "p108/captures/v1/reservation-flow.png.json",
+      "sha256": "f25983b4398d0f3fdb39055d4c60344928f4b313a48c3e3158a005a8b42c2e06",
+      "bytes": 1519
+    },
+    {
+      "path": "p108/outputs/correction-1/empty-seats.svg",
+      "sha256": "a923b2ddc44b28f508f3db7ccae355bc39bb0dfa0e6de73a860961806ff538ba",
+      "bytes": 3832
+    },
+    {
+      "path": "p108/captures/v1/empty-seats.png.json",
+      "sha256": "209568b996a0763d06f817317766b604d613aa17563cba7a61355ac1fca7dd70",
+      "bytes": 1509
+    },
+    {
+      "path": "p108/outputs/correction-1/long-labels.svg",
+      "sha256": "31a7126fe0eb1463e19ab77e9211169fb098addd64c97d2657276a39c642ab1a",
+      "bytes": 3774
+    },
+    {
+      "path": "p108/captures/v1/long-labels.png.json",
+      "sha256": "a1c5a6e6e247f2db2019faba5541922d90cd463219ecb09d7900cda5ca194692",
+      "bytes": 1509
+    },
+    {
+      "path": "p108/outputs/correction-1/pending-queue.svg",
+      "sha256": "2cabcf24ec327d688a1f303986e36417d3aa924c44df760991fe8d87929de7c2",
+      "bytes": 4104
+    },
+    {
+      "path": "p108/captures/v1/pending-queue.png.json",
+      "sha256": "12001c5d4ae8da3265d3963966541d685380e1d47cae9c66b7d5b35e06d90823",
+      "bytes": 1513
+    },
+    {
+      "path": "p108/outputs/correction-1/return-items.svg",
+      "sha256": "715e5057b38ca27a08e1e1d017571d61fc00c9c0b5afdecfce6327fc5b226416",
+      "bytes": 4148
+    },
+    {
+      "path": "p108/captures/v1/return-items.png.json",
+      "sha256": "91a4ea9c1b004f1aa39efba562f09504fb8bfc6fc5d27a097813589b0b372e6f",
+      "bytes": 1511
+    },
+    {
+      "path": "p108/outputs/correction-1/notes.json",
+      "sha256": "86449ad790738c3704533bf7bba17e9ae833b16508148fc313352df0cd6a65d1",
+      "bytes": 1502
+    },
+    {
+      "path": "p109/prompt.txt",
+      "sha256": "ecf8af9816263160e3273a6672d71ee235ea4e422e9faccef800bae756d8dace",
+      "bytes": 2240
+    },
+    {
+      "path": "p109/dispatch-message.txt",
+      "sha256": "81e6d5c5264bdf9385322ad2ae5726e772aa82bd00d897694a327914e9721bd7",
+      "bytes": 478
+    },
+    {
+      "path": "p109/outputs/notes.json",
+      "sha256": "3939faa90458b431d641ce41696a7d43ac200091c7e5812637aed90fd65718cf",
+      "bytes": 2657
+    },
+    {
+      "path": "p109/second-review-dispatch.txt",
+      "sha256": "e3cdfb075a6a8ead6b661e6adf0d60adc78805430c3c7eac3b91bd689094c166",
+      "bytes": 1820
+    },
+    {
+      "path": "p109/outputs/reservation-flow.svg",
+      "sha256": "6cc38e9059bde676cf7a2d6f5bf78602dc25e999de71568dce3be050908fde9a",
+      "bytes": 7812
+    },
+    {
+      "path": "p109/captures/v0/reservation-flow.png.json",
+      "sha256": "0e76f3e59b3fcd4789ff6ff7301689d11907a02a694886c4fa2009176dde0a9c",
+      "bytes": 1519
+    },
+    {
+      "path": "p109/outputs/empty-seats.svg",
+      "sha256": "f41db314411371f161bb9242cd0317e6ea1e1727f70614be63246b2674e7c81a",
+      "bytes": 9626
+    },
+    {
+      "path": "p109/captures/v0/empty-seats.png.json",
+      "sha256": "54ee44335b4e43df09cd99fdd699a2dfb75d7fd388212ced93f6da9800010d24",
+      "bytes": 1509
+    },
+    {
+      "path": "p109/outputs/long-labels.svg",
+      "sha256": "4541341c4490d82c9b2bd01e506c275898057c5987773a34b914a41521578706",
+      "bytes": 7642
+    },
+    {
+      "path": "p109/captures/v0/long-labels.png.json",
+      "sha256": "301821e4fc67ebc33acbc9bb3d6a80af40221beec68e3eaaf6db3b0e8a88f4cd",
+      "bytes": 1509
+    },
+    {
+      "path": "p109/outputs/pending-queue.svg",
+      "sha256": "769611075a53148b0d0344f6ad7b7f2569867ca4746753a20fcee12a85afe4c2",
+      "bytes": 9789
+    },
+    {
+      "path": "p109/captures/v0/pending-queue.png.json",
+      "sha256": "aea488be21cd406c33ce4d5b7ecef7d7ad0c7753c149f7967be08d5628cf02c6",
+      "bytes": 1513
+    },
+    {
+      "path": "p109/outputs/return-items.svg",
+      "sha256": "0b92a78d995f6027b76e5ebbf868e3d350624bef213a8a763d00c618892c5960",
+      "bytes": 9836
+    },
+    {
+      "path": "p109/captures/v0/return-items.png.json",
+      "sha256": "0d221c712f92d856832a441ab36a57257bdb6ce6f867707eac686fdc25c836a1",
+      "bytes": 1511
+    },
+    {
+      "path": "p110/prompt.txt",
+      "sha256": "10ac2037e04d756a9ca940889122bd608908847995dc585c7ca7dcf6da4cba9d",
+      "bytes": 2243
+    },
+    {
+      "path": "p110/dispatch-message.txt",
+      "sha256": "ededa5d6aaa8e92b953d27486db847522fdfaf1ad9d5e31f3896ff904bd3c119",
+      "bytes": 478
+    },
+    {
+      "path": "p110/outputs/notes.json",
+      "sha256": "1bc32432e65ac68476c1f20e83525e14803f7d9aa5670f5d3b7bc5c05c286cd9",
+      "bytes": 2975
+    },
+    {
+      "path": "p110/second-review-dispatch.txt",
+      "sha256": "5919ab0eaa6ead33dbfcd2d296586df17dbd3c4f3506d3238ac585fd0ebc1fbe",
+      "bytes": 1823
+    },
+    {
+      "path": "p110/outputs/reservation-flow.svg",
+      "sha256": "ed86d1e89b1dc9f1d055461e78d47f4bb5afd3f400b0b12fb92275995284c73c",
+      "bytes": 10352
+    },
+    {
+      "path": "p110/captures/v0/reservation-flow.png.json",
+      "sha256": "4b7553474cb71505db59db997b0d28dba515c88f71fee65c9cd78d6aa8de0aa0",
+      "bytes": 1519
+    },
+    {
+      "path": "p110/outputs/empty-seats.svg",
+      "sha256": "afa858d79374042ce2e614859ebaf5c236d65940f414f316a5ef473e4d4e7228",
+      "bytes": 10405
+    },
+    {
+      "path": "p110/captures/v0/empty-seats.png.json",
+      "sha256": "a49b1628dc1a4e3ae5550e1451006977596e266a8681318398385e1a66f3128f",
+      "bytes": 1509
+    },
+    {
+      "path": "p110/outputs/long-labels.svg",
+      "sha256": "5fc404b1e59820e7213d07d007058aaee711ed7d0d21b1f52eef30e2245ca170",
+      "bytes": 10204
+    },
+    {
+      "path": "p110/captures/v0/long-labels.png.json",
+      "sha256": "fb33836ba3062db230df5d944781e6927536b6718650fb44a5fc27b5bfe6e200",
+      "bytes": 1509
+    },
+    {
+      "path": "p110/outputs/pending-queue.svg",
+      "sha256": "eafc9107eb7d18f488196753c27b03ee42a12a13cd4bf656523a13b2ca1dbfb7",
+      "bytes": 10931
+    },
+    {
+      "path": "p110/captures/v0/pending-queue.png.json",
+      "sha256": "e17d8ce5d4186292e51b8342e21afff607de116a8f7cfae63f34c106f79c14d6",
+      "bytes": 1513
+    },
+    {
+      "path": "p110/outputs/return-items.svg",
+      "sha256": "0cb68c2ed60dc13f16fa1fb1fac63b3e4f1727752f4cb3bd22c11f554dcc2c97",
+      "bytes": 11844
+    },
+    {
+      "path": "p110/captures/v0/return-items.png.json",
+      "sha256": "c9f333beb8b005cd9fcfa36390d67abc84ea64a068c580070cef23bbffff9d89",
+      "bytes": 1511
+    },
+    {
+      "path": "p111/prompt.txt",
+      "sha256": "e7816b62929a345f68372ab622fd6b962a3df4c9a8f53940591990ee5213e8b2",
+      "bytes": 2240
+    },
+    {
+      "path": "p111/dispatch-message.txt",
+      "sha256": "663a48a171a84f2909df7d3d3f40ce272e8b428a533bd9ef26fb787aafc88e7d",
+      "bytes": 478
+    },
+    {
+      "path": "p111/outputs/notes.json",
+      "sha256": "811801582a792f4eb368772968dbb279da6da4560aca0a56e378e3bc261b7c99",
+      "bytes": 2508
+    },
+    {
+      "path": "p111/second-review-dispatch.txt",
+      "sha256": "c280315a953e22ab446fac2e96bf2dbecb4c5715e6e933bbbce83f9e927dfb19",
+      "bytes": 1820
+    },
+    {
+      "path": "p111/correction-1-feedback.txt",
+      "sha256": "1072eab0d924ce9af808ab2fd3b2505c80445f1631c4e3bcf7f3eec57a555ade",
+      "bytes": 643
+    },
+    {
+      "path": "p111/outputs/reservation-flow.svg",
+      "sha256": "498d657509e7e4838d6238276dd565cc33dc325633b466d95918432de19cd479",
+      "bytes": 3764
+    },
+    {
+      "path": "p111/captures/v0/reservation-flow.png.json",
+      "sha256": "f39ca6e6f618535e92ee2d4dee05364b5189eea439738a9fe7622d075b503a94",
+      "bytes": 1519
+    },
+    {
+      "path": "p111/outputs/empty-seats.svg",
+      "sha256": "85d190a15c3d86a03f1c59063b2744a4865641a848efae14e29745e2f68e4e43",
+      "bytes": 3864
+    },
+    {
+      "path": "p111/captures/v0/empty-seats.png.json",
+      "sha256": "2f922ad1a31b02e9289948d502a81268facea0fe6bbaf58361a9e66fa07606db",
+      "bytes": 1509
+    },
+    {
+      "path": "p111/outputs/long-labels.svg",
+      "sha256": "361b4d0530e8d13436cb123ad97759c78ecaa79acfd1ab7754dd2bb4efb392db",
+      "bytes": 3873
+    },
+    {
+      "path": "p111/captures/v0/long-labels.png.json",
+      "sha256": "fc80a7d7a28faab53c5e9186a425fa9941cfc09ff9714aa472f10bf1f8dc2c0a",
+      "bytes": 1509
+    },
+    {
+      "path": "p111/outputs/pending-queue.svg",
+      "sha256": "46e375d27eb0bcfa8661309b4ab6ad7f8b9dcd5e32acff721a574e9f8a9f73e9",
+      "bytes": 4080
+    },
+    {
+      "path": "p111/captures/v0/pending-queue.png.json",
+      "sha256": "b65d60f22c3d89f5d60e9e6b5681dd109e409cc864231edad90c09df0da90000",
+      "bytes": 1513
+    },
+    {
+      "path": "p111/outputs/return-items.svg",
+      "sha256": "a01acf2578fa2e356c60956bbf7a5870d119b1405756ae1785e41c210482c1cb",
+      "bytes": 4057
+    },
+    {
+      "path": "p111/captures/v0/return-items.png.json",
+      "sha256": "0d803d13c90211a4bb31854f85c7393331aa940745121f38e7ac1124b7c22b77",
+      "bytes": 1511
+    },
+    {
+      "path": "p111/outputs/correction-1/reservation-flow.svg",
+      "sha256": "498d657509e7e4838d6238276dd565cc33dc325633b466d95918432de19cd479",
+      "bytes": 3764
+    },
+    {
+      "path": "p111/captures/v1/reservation-flow.png.json",
+      "sha256": "cb33f660fe8876b8f8804142d609fc30060ad3665b39671c5926d2a9a7a836d7",
+      "bytes": 1519
+    },
+    {
+      "path": "p111/outputs/correction-1/empty-seats.svg",
+      "sha256": "85d190a15c3d86a03f1c59063b2744a4865641a848efae14e29745e2f68e4e43",
+      "bytes": 3864
+    },
+    {
+      "path": "p111/captures/v1/empty-seats.png.json",
+      "sha256": "e2c7edb71cad5ff1eb805c4162e7740c3f48d524bcf441e88dc9ea0461f76adc",
+      "bytes": 1509
+    },
+    {
+      "path": "p111/outputs/correction-1/long-labels.svg",
+      "sha256": "361b4d0530e8d13436cb123ad97759c78ecaa79acfd1ab7754dd2bb4efb392db",
+      "bytes": 3873
+    },
+    {
+      "path": "p111/captures/v1/long-labels.png.json",
+      "sha256": "4a82165ab2603181d6e93b4c7224703ce16940a9c2e7345ba2f647ffc796daa5",
+      "bytes": 1509
+    },
+    {
+      "path": "p111/outputs/correction-1/pending-queue.svg",
+      "sha256": "46e375d27eb0bcfa8661309b4ab6ad7f8b9dcd5e32acff721a574e9f8a9f73e9",
+      "bytes": 4080
+    },
+    {
+      "path": "p111/captures/v1/pending-queue.png.json",
+      "sha256": "cac4d4fad61f7a07307488ba17ddc0a076815e0d964757ea99c834265b3de5c1",
+      "bytes": 1513
+    },
+    {
+      "path": "p111/outputs/correction-1/return-items.svg",
+      "sha256": "26223acbfc74d43be9e4f4ea638938ca25daa0772adaeda559253683ac05d4ce",
+      "bytes": 4178
+    },
+    {
+      "path": "p111/captures/v1/return-items.png.json",
+      "sha256": "7e8068ba5a92821b28c5a7396f3f564b57b0b0ca70155981bb7f2767393a2615",
+      "bytes": 1511
+    },
+    {
+      "path": "p111/outputs/correction-1/notes.json",
+      "sha256": "bfedd8a29af0d7d2a59de67c33d0c82a29e1e0ca5ee2c404bc0da2dd6e10bae7",
+      "bytes": 987
+    },
+    {
+      "path": "p112/prompt.txt",
+      "sha256": "51433fa4a8f79480bcb1e3ada1642781dcea434dfa82537a06c9602615d0a795",
+      "bytes": 2243
+    },
+    {
+      "path": "p112/dispatch-message.txt",
+      "sha256": "92f95e608e57a9bd428d63d1326721ceb562f17a627fe62e30db13270e50e436",
+      "bytes": 478
+    },
+    {
+      "path": "p112/outputs/notes.json",
+      "sha256": "deb6ab63d83ffb67171463b24dabc4dc7f1ebb303de09fd7e40189b51959fcdc",
+      "bytes": 2476
+    },
+    {
+      "path": "p112/second-review-dispatch.txt",
+      "sha256": "3c42572b0b97d8a41d54d295b88b3f15a3b2878542fc9fb77638829f7d403138",
+      "bytes": 1823
+    },
+    {
+      "path": "p112/correction-1-feedback.txt",
+      "sha256": "370697caec109f2d11e98db1c30d6f150765def965ae6202523a1d9dc0af162b",
+      "bytes": 622
+    },
+    {
+      "path": "p112/outputs/reservation-flow.svg",
+      "sha256": "67dfa981ba8bc47f3949dc2afd2a737c0848985434266630c580619935dc9db0",
+      "bytes": 8882
+    },
+    {
+      "path": "p112/captures/v0/reservation-flow.png.json",
+      "sha256": "edafd2126a72f43efd7766a3c2f4ed12bf626fc180a05bd4f708cf1a7e35bfb4",
+      "bytes": 1519
+    },
+    {
+      "path": "p112/outputs/empty-seats.svg",
+      "sha256": "6b652e17df9beb8b25fcf9a2f14a460644dc05c3edb278dac297a2f2ca8111e5",
+      "bytes": 8308
+    },
+    {
+      "path": "p112/captures/v0/empty-seats.png.json",
+      "sha256": "e968836a13cf91a29ea2232c6453e4126dd54671a5bc2adcd04ccb5d1049f2de",
+      "bytes": 1509
+    },
+    {
+      "path": "p112/outputs/long-labels.svg",
+      "sha256": "ca648f32b3fc78978d337a6f2dad5b8320ab11dc06622e8c3a10940280cee925",
+      "bytes": 8541
+    },
+    {
+      "path": "p112/captures/v0/long-labels.png.json",
+      "sha256": "927bd385d1e7865533df0ae104dad98317c78019f46f7786deca3f4bec43e5d9",
+      "bytes": 1509
+    },
+    {
+      "path": "p112/outputs/pending-queue.svg",
+      "sha256": "dff4893c9b3763de1de51e3737c50ee0783b19c151661a14fcc77b714d0bf6d6",
+      "bytes": 9186
+    },
+    {
+      "path": "p112/captures/v0/pending-queue.png.json",
+      "sha256": "94d779b6c0882eaebf61c7eda0344dce2d094481e4bfbd5bc81018c2ba04c743",
+      "bytes": 1513
+    },
+    {
+      "path": "p112/outputs/return-items.svg",
+      "sha256": "62d1ed489cf70d1c8f3e062ca9948088b93a80aaf410700bf9dfed33ed54fdd3",
+      "bytes": 9169
+    },
+    {
+      "path": "p112/captures/v0/return-items.png.json",
+      "sha256": "dc0b6ae75761fd17867c7d9bb6cc2f97bdc231088943c789f605db2aec0c3ebf",
+      "bytes": 1511
+    },
+    {
+      "path": "p112/outputs/correction-1/reservation-flow.svg",
+      "sha256": "67dfa981ba8bc47f3949dc2afd2a737c0848985434266630c580619935dc9db0",
+      "bytes": 8882
+    },
+    {
+      "path": "p112/captures/v1/reservation-flow.png.json",
+      "sha256": "3a23b62385ca125bb2aae4772b43e89e9b5e1d562674988816d3709727297000",
+      "bytes": 1519
+    },
+    {
+      "path": "p112/outputs/correction-1/empty-seats.svg",
+      "sha256": "b2b8668c8c420450eb53c026cef83506599ddb1634d719e44dc6f2c63e025552",
+      "bytes": 8549
+    },
+    {
+      "path": "p112/captures/v1/empty-seats.png.json",
+      "sha256": "c7402c266980635cd7302470927220076a0094717d3b213ee1e9a4e5690ddeec",
+      "bytes": 1509
+    },
+    {
+      "path": "p112/outputs/correction-1/long-labels.svg",
+      "sha256": "ca648f32b3fc78978d337a6f2dad5b8320ab11dc06622e8c3a10940280cee925",
+      "bytes": 8541
+    },
+    {
+      "path": "p112/captures/v1/long-labels.png.json",
+      "sha256": "832158d5f859e407a307a3cde1f8f05f3549823878ec5857932465d5b221c0b1",
+      "bytes": 1509
+    },
+    {
+      "path": "p112/outputs/correction-1/pending-queue.svg",
+      "sha256": "dff4893c9b3763de1de51e3737c50ee0783b19c151661a14fcc77b714d0bf6d6",
+      "bytes": 9186
+    },
+    {
+      "path": "p112/captures/v1/pending-queue.png.json",
+      "sha256": "778fedb65d9a90245a9c80d725057054985be0132dbdbdb4e615fd88a82504fa",
+      "bytes": 1513
+    },
+    {
+      "path": "p112/outputs/correction-1/return-items.svg",
+      "sha256": "62d1ed489cf70d1c8f3e062ca9948088b93a80aaf410700bf9dfed33ed54fdd3",
+      "bytes": 9169
+    },
+    {
+      "path": "p112/captures/v1/return-items.png.json",
+      "sha256": "95e72ba33d0caefb68206231a3a37ea5be7493fb287e48ee0df6b12160773c6b",
+      "bytes": 1511
+    },
+    {
+      "path": "p112/outputs/correction-1/notes.json",
+      "sha256": "49e3deae560cafcc4c497d3e8f7112c0d4c813e2807586570684958ae1089647",
+      "bytes": 666
+    }
+  ]
+}

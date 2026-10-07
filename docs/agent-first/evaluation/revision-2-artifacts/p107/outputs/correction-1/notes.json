@@ -1,0 +1,25 @@
+{
+  "lineage": "correction-1",
+  "changes": {
+    "empty-seats": "Moved all four chair icons below the exact seat label planes and scaled only the icons to 60%. Chair geometry and vacancy are preserved; labels, status text, paper assemblies and colors are unchanged.",
+    "return-items": "Moved the empty-bin icon down 20 SVG units, below the exact label plane. The bin remains empty, within the target, and separated from the lower explanatory text."
+  },
+  "preservation": "All original SVGs are unchanged. Reservation-flow, long-labels and pending-queue correction copies are byte-identical to originals.",
+  "resourcesActuallyUsed": [
+    "correction-1-feedback.txt",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg"
+  ],
+  "checks": [
+    "All five correction SVGs parse as XML.",
+    "All original text labels are preserved.",
+    "Original files compared byte-for-byte after writes.",
+    "Other three correction copies compared byte-for-byte to originals."
+  ],
+  "limitations": [
+    "No rendered visual acceptance claimed. The declared Japanese font remains unchanged; renderer font selection remains unverified."
+  ]
+}

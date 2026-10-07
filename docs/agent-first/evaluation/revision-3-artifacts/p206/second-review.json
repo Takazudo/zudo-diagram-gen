@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "runId": "p206",
+  "reviewType": "independent visual second review",
+  "timestampUtc": "2026-10-07T21:00:29.557377+00:00",
+  "actuallyViewed": {
+    "bothOriginalReferences": true,
+    "allFiveRunImages": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-light.png",
+      "sha256": "1be466d46c89db0b0a68a7fa13e7421794a2402320b535291ccb571866676895",
+      "dimensionsPx": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-dark.png",
+      "sha256": "70f7bcaca10bafdd7dbadc3fdd4f46fe45852da244eeea6089ec54dcbbac1f18",
+      "dimensionsPx": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG"
+    }
+  ],
+  "reviewScope": {
+    "read": [
+      "second-review-dispatch.txt",
+      "two original reference PNGs",
+      "five captures/v0 PNGs",
+      "five brief.md files",
+      "five checklist.json files",
+      "inputs/common/palette.json"
+    ],
+    "excluded": [
+      "condition",
+      "prompt",
+      "run-record",
+      "schemes/kits",
+      "SVG source",
+      "coordinator scores",
+      "other runs"
+    ],
+    "startup": "Parent reported completed startup; not rerun."
+  },
+  "referenceDefiningTraits": [
+    "Ruled notebook page with a vertical margin rule.",
+    "Slightly skewed rectangular paper panels, restrained doubled pencil contours and offset secondary edges.",
+    "Dense diagonal crosshatching with interrupted strokes in substantial panel regions, functioning as visible pencil texture.",
+    "Thin hand-drawn curved merging connectors and open arrowheads.",
+    "Strong bold type and a light hand-drawn underline; substantial negative space.",
+    "Light and dark examples preserve the same construction and hierarchy."
+  ],
+  "overridesAppliedInReview": "Common six-role palette and requested Japanese sans-serif take precedence over original reference colors and Latin type. Pattern, Text, MAKE and PNG are example content, not requirements.",
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p206/captures/v0/reservation-flow.png",
+      "sha256": "025fd7c63ad4cf622d00c2bc6b01bafd0c6d6aa5d0eee7bf3247df4701a7cee5",
+      "dimensionsPx": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG",
+      "id": "reservation-flow",
+      "targetArtworkDimensionsCssPx": [
+        640,
+        320
+      ],
+      "readability": 4,
+      "readabilityReason": "All required labels and supporting condition/status text visibly readable; title-to-panel-to-note hierarchy is clear, with no material clipping or overlap.",
+      "character": 2,
+      "characterReason": "Retains ruled notebook ground, slightly skewed boxes, secondary edges and open arrows, but loses the original substantial crosshatched texture.",
+      "observations": [
+        "Three panels read left to right as 申請 → 確認待ち → 確定.",
+        "Dashed waiting panel and explicit 予約確定ではない distinguish waiting from confirmation.",
+        "Curved return arrow begins below confirmed panel and points back toward waiting, labeled 日時を変更. Supporting notes explicitly restrict changes to confirmed reservations and reject automatic approval.",
+        "All labels and bottom notes are readable; title and state panels lead the hierarchy. Corner hatching is very sparse."
+      ],
+      "exactLabels": [
+        {
+          "required": "申請",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "確認待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "確定",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "日時を変更",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "assertion": "Order is application, waiting, confirmation.",
+          "passes": true
+        },
+        {
+          "assertion": "Waiting is explicitly not confirmed.",
+          "passes": true
+        },
+        {
+          "assertion": "Change goes from confirmed back to waiting; only confirmed reservations can change.",
+          "passes": true
+        },
+        {
+          "assertion": "No automatic approval or fees added.",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteObservations": "Ink, deep and accent distinguish ordinary, pending and emphasized content. Warning orange marks the conditional return/damage paths where present. Status meaning also appears in text and/or solid/dashed outlines; exact pixel color sampling was not performed."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p206/captures/v0/empty-seats.png",
+      "sha256": "b0724f439dbe1afc4f1b0268cbac9bcf1a1d5a3d2475c528dab336452033acde",
+      "dimensionsPx": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG",
+      "id": "empty-seats",
+      "targetArtworkDimensionsCssPx": [
+        360,
+        240
+      ],
+      "readability": 4,
+      "readabilityReason": "All required labels and supporting condition/status text visibly readable; title-to-panel-to-note hierarchy is clear, with no material clipping or overlap.",
+      "character": 2,
+      "characterReason": "Retains ruled notebook ground, slightly skewed boxes, secondary edges and open arrows, but loses the original substantial crosshatched texture.",
+      "observations": [
+        "Exactly four panels form a compact 2×2 grid.",
+        "A and D say 選択不可; B and C say 選択可能, reinforced by the bottom note that only B and C are selectable.",
+        "D has a dashed outline and distinct waiting text; A has a solid dark outline. Color is not the sole status cue.",
+        "Seat labels and selection notes are comfortably readable. Rules, skewed panel edges and light secondary outlines carry style; large crosshatched areas are absent."
+      ],
+      "exactLabels": [
+        {
+          "required": "A席：予約済み",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "B席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "C席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "D席：保留中",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "assertion": "Exactly four seats.",
+          "passes": true
+        },
+        {
+          "assertion": "Only B and C selectable.",
+          "passes": true
+        },
+        {
+          "assertion": "D is pending and unselectable, distinct from empty and reserved.",
+          "passes": true
+        },
+        {
+          "assertion": "No invented people or remaining time.",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteObservations": "Ink, deep and accent distinguish ordinary, pending and emphasized content. Warning orange marks the conditional return/damage paths where present. Status meaning also appears in text and/or solid/dashed outlines; exact pixel color sampling was not performed."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p206/captures/v0/long-labels.png",
+      "sha256": "4706a91e9a5ee93543ea5814eb7a2603468ac6784a110a4ff7dd02a3038a9b8f",
+      "dimensionsPx": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG",
+      "id": "long-labels",
+      "targetArtworkDimensionsCssPx": [
+        480,
+        360
+      ],
+      "readability": 4,
+      "readabilityReason": "All required labels and supporting condition/status text visibly readable; title-to-panel-to-note hierarchy is clear, with no material clipping or overlap.",
+      "character": 2,
+      "characterReason": "Retains ruled notebook ground, slightly skewed boxes, secondary edges and open arrows, but loses the original substantial crosshatched texture.",
+      "observations": [
+        "All three full role names are retained; first and second wrap into two lines without shortening.",
+        "Stacked arrows lead preparation to checking to reception.",
+        "Orange left-hand loop points back to preparation with 不足項目あり; the bottom note says return only when missing items exist.",
+        "Green down arrow to reception is labeled 確認完了.",
+        "Long names, loop label and footer are readable without clipping or collisions. The loop has a small visible gap before the checking panel but remains understandable."
+      ],
+      "exactLabels": [
+        {
+          "required": "地域交流イベント開催準備担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "参加申込内容の確認・連絡担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "当日受付と案内の担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "不足項目あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "確認完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "assertion": "All three complete role names preserved.",
+          "passes": true
+        },
+        {
+          "assertion": "Initial handoff is preparation to checking.",
+          "passes": true
+        },
+        {
+          "assertion": "Missing items condition returns to preparation.",
+          "passes": true
+        },
+        {
+          "assertion": "Completed checking proceeds to reception.",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteObservations": "Ink, deep and accent distinguish ordinary, pending and emphasized content. Warning orange marks the conditional return/damage paths where present. Status meaning also appears in text and/or solid/dashed outlines; exact pixel color sampling was not performed."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p206/captures/v0/pending-queue.png",
+      "sha256": "46f4eef3dc9655e216e02d9a5081d85984aeea822ed43aaa699683bb6774fd5e",
+      "dimensionsPx": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG",
+      "id": "pending-queue",
+      "targetArtworkDimensionsCssPx": [
+        720,
+        240
+      ],
+      "readability": 4,
+      "readabilityReason": "All required labels and supporting condition/status text visibly readable; title-to-panel-to-note hierarchy is clear, with no material clipping or overlap.",
+      "character": 2,
+      "characterReason": "Retains ruled notebook ground, slightly skewed boxes, secondary edges and open arrows, but loses the original substantial crosshatched texture.",
+      "observations": [
+        "A shared source visibly splits into two parallel review paths.",
+        "Upper review is complete; lower review explicitly waits for a result and uses a dashed panel/connector.",
+        "Both paths converge toward the publication-condition panel. Its dashed outline, 公開済み：0 and supporting note make current nonpublication clear.",
+        "結果待ち＝未到着 supports the intended waiting meaning without inventing failure.",
+        "Wide geometry maintains readable branch labels and clear separation. Slightly skewed rectangles and secondary edges persist, but texture is limited to a few corner strokes."
+      ],
+      "exactLabels": [
+        {
+          "required": "案内文",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "表記確認：完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "会場情報確認：結果待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "両方完了後に公開",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "公開済み：0",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "assertion": "Two parallel paths exist.",
+          "passes": true
+        },
+        {
+          "assertion": "Venue information is waiting rather than failed.",
+          "passes": true
+        },
+        {
+          "assertion": "Both completions are the publication condition.",
+          "passes": true
+        },
+        {
+          "assertion": "Currently published count is zero.",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteObservations": "Ink, deep and accent distinguish ordinary, pending and emphasized content. Warning orange marks the conditional return/damage paths where present. Status meaning also appears in text and/or solid/dashed outlines; exact pixel color sampling was not performed."
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p206/captures/v0/return-items.png",
+      "sha256": "78f9ea6265d158f019fa82733d504596ca6e6a91ab9cf7cf678d59ae9242f094",
+      "dimensionsPx": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original supplied PNG",
+      "id": "return-items",
+      "targetArtworkDimensionsCssPx": [
+        320,
+        480
+      ],
+      "readability": 4,
+      "readabilityReason": "All required labels and supporting condition/status text visibly readable; title-to-panel-to-note hierarchy is clear, with no material clipping or overlap.",
+      "character": 2,
+      "characterReason": "Retains ruled notebook ground, slightly skewed boxes, secondary edges and open arrows, but loses the original substantial crosshatched texture.",
+      "observations": [
+        "Entrance leads down to the checking desk.",
+        "Green no-damage branch points into the empty return box; orange damaged branch points into consultation.",
+        "The box includes 返却に使える; the bottom note explicitly says it is currently empty and usable even while empty.",
+        "No fine or refusal is shown. Branch labels, destinations and notes fit the portrait artwork and are readable.",
+        "Compact lower panels retain secondary edges and slight skew; consultation has tiny corner strokes rather than the reference’s dense crosshatching."
+      ],
+      "exactLabels": [
+        {
+          "required": "入口",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "返却確認台",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "破損なし",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "返却箱：空",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "破損あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        },
+        {
+          "required": "相談窓口",
+          "visuallyPresent": true,
+          "complete": true,
+          "lineBreaksPermitted": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "assertion": "Entrance leads to checking desk.",
+          "passes": true
+        },
+        {
+          "assertion": "No damage goes to return box.",
+          "passes": true
+        },
+        {
+          "assertion": "Damage goes to consultation.",
+          "passes": true
+        },
+        {
+          "assertion": "Empty box remains usable.",
+          "passes": true
+        },
+        {
+          "assertion": "No fines or return refusal invented.",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteObservations": "Ink, deep and accent distinguish ordinary, pending and emphasized content. Warning orange marks the conditional return/damage paths where present. Status meaning also appears in text and/or solid/dashed outlines; exact pixel color sampling was not performed."
+    }
+  ],
+  "batch": {
+    "readability": 4,
+    "readabilityReason": "Every required label and explanatory state/condition is readable in the visible target artwork. Titles, panel labels, arrows and supporting notes form a clear hierarchy; no observed clipping or text/shape collision.",
+    "consistency": 4,
+    "consistencyReason": "Coherent rule spacing, dark ink titles, restrained irregular rectangular outlines, secondary gray edges, open arrowheads and role colors recur. Layouts vary meaningfully with ratio and task: horizontal state chain, four-seat grid, stacked handoff, wide parallel branches and portrait return routing.",
+    "character": 2,
+    "characterReason": "The notebook margin/rules, skewed paper outlines, open pencil-like arrows and offset edges remain recognizable. However, the defining dense crosshatched panel regions are replaced with nearly white panels and occasional tiny corner slash marks. Lines and connectors are substantially cleaner and more regular, and the original expressive bold central lettering/underline construction is largely absent. Japanese/font and palette overrides are not penalized in themselves.",
+    "factualSummary": "No observed required-label omissions, invented facts or reversed transitions across the five images. Waiting, empty and completed states use text and/or outlines in addition to color.",
+    "losses": [
+      "Dense, visibly hand-worked crosshatching no longer constructs large panel areas.",
+      "Original bolder central type/underline relationship is reduced to ordinary centered panel labels.",
+      "Connector and contour irregularity is restrained enough to read closer to a clean notebook diagram than a textured pencil sketch."
+    ],
+    "retained": [
+      "Notebook ruling and margin.",
+      "Slightly nonparallel panel outlines with offset secondary edges.",
+      "Curved connectors/open arrowheads and generous whitespace.",
+      "Consistent semantic accent/deep/warning roles."
+    ]
+  },
+  "fontAndScaleUncertainty": {
+    "font": "PNG appearance alone cannot establish the actual font family, fallback chain or runtime font resolution. Japanese glyphs appear intact and coherent; no visible missing-glyph boxes. Noto Sans CJK JP is requested, not independently verified from these PNGs.",
+    "scale": "Capture frames are larger than the stated target artwork by 48 horizontal and 96 vertical pixels. Review used the original PNGs displayed at their recorded pixel dimensions, judging the internal target artwork rather than the duplicate caption below it. Browser CSS/device scale and actual placement metadata were not inspected because outside allowed scope. No assertion of runtime/CSS/font provenance is made."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    "The common light palette replaces the example warm palette and serif lettering, as required.",
+    "Paper rotations are reduced to 1.5–2 degrees and Japanese text remains upright for target-size readability.",
+    "The reference composition pattern and export icon are omitted because they would introduce unrelated objects. Hand-authored chair, clock, check and box cutouts adapt the supplied kit construction.",
+    "Long role labels use deliberate line breaks without abbreviation.",
+    "The common surface is pure white; border-colored offset shadows and sheet top strips provide layer separation without a new background color."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/kit.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "originalExamplePNGsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Not verified: no output renderer or font inventory consulted; viewer resolves locally.",
+    "fallbackAndMissingGlyphs": "Font not embedded. Availability, fallback and glyph coverage remain dependent on the displaying environment."
+  },
+  "checks": [
+    "Parsed all five SVGs as XML.",
+    "Verified target width, height, viewBox and accessible title.",
+    "Checked exact labels against supplied checklists, allowing tspan/line-break reconstruction."
+  ],
+  "limitations": [
+    "No evaluator feedback or visual acceptance obtained.",
+    "Output artwork not raster-rendered; geometry and target-size text spacing checked during authorship."
+  ]
+}

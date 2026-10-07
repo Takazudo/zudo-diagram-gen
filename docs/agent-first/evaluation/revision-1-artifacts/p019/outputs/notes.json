@@ -1,0 +1,54 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    "Common light semantic palette replaces the example warm palette as required. Pale grounds and shadows use border-role opacity, not additional literal colors.",
+    "Essential Japanese labels remain upright while underlying paper sheets rotate; this preserves readability in the smaller slots.",
+    "No repeating pattern or serif sample lettering: these would add irrelevant composition content to the five locked teaching scenarios.",
+    "Long role names wrap across two lines without abbreviation. Minimal icons supplement explicit labels; decorative stacked sheets do not represent extra seats or workflow stages."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/paper-layers/dark.svg",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Not verified; SVG retains live text and does not bundle fonts. Viewer substitution and missing-glyph behavior remain uncertain."
+  },
+  "checks": [
+    "Parsed all five standalone SVGs as XML.",
+    "Checked target width, height, viewBox, accessible title and description, and locked labels by concatenating text nodes.",
+    "Manually reviewed authored geometry and directed paths against each factual checklist; no browser rendering or acceptance evaluation performed."
+  ],
+  "limitations": [
+    "Original example PNGs were actually viewed; generated outputs have not been raster-rendered at target CSS size. Font rendering and visual acceptance remain unverified."
+  ]
+}

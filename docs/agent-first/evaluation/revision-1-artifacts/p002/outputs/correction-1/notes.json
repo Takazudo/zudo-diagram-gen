@@ -1,0 +1,20 @@
+{
+  "fixes": [
+    {
+      "file": "reservation-flow.svg",
+      "change": "Moved the 日時を変更 pill and label left of the vertical return connector and above its horizontal segment. Preserved the connector direction, labels, palette and rounded style."
+    },
+    {
+      "file": "long-labels.svg",
+      "change": "Moved 資料を渡す to the right of the preparation-to-confirmation connector. Preserved all exact labels, arrow routes and style."
+    },
+    {
+      "files": [
+        "empty-seats.svg",
+        "pending-queue.svg",
+        "return-items.svg"
+      ],
+      "change": "Copied unchanged byte-for-byte from the initial outputs."
+    }
+  ]
+}

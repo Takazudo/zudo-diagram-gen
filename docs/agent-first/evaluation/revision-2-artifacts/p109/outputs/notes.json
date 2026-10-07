@@ -1,0 +1,55 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    "共通palette.jsonの意味色を優先し、参考例の暖色紙・セリフ体は使わず白い紙とNoto Sans CJK JPを指定した。",
+    "狭い配置のためラベル面は水平に保ち、背面のみ小さく回転させた。各主要カードには4列2行の切り紙アーチと独立したラベル紙を使用。",
+    "長い担当名は省略せず一行で配置。装飾を抑え、担当間の戻り経路と進行経路を分離した。",
+    "椅子・時計・空の箱など小さな認識用形状は模様を省略した。座席の背面模様と紙は追加の席を意味しない。"
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRendering": "Not measured: SVG retains editable text; rendering depends on host font availability. No font bundled.",
+    "uncertainties": "Fallback font and missing-glyph behavior remain host dependent."
+  },
+  "checks": [
+    "Five SVGs parsed as XML.",
+    "All exact labels checked in SVG text content.",
+    "Dimensions match session targets; no external references, scripts, animation or images."
+  ],
+  "limitations": [
+    "No browser or raster rendering of outputs was performed under the run constraints. Visual acceptance and user approval are not inferred."
+  ]
+}

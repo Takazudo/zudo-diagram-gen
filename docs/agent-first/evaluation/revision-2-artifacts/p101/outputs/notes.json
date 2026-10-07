@@ -1,0 +1,50 @@
+{
+  "deliberateDepartures": [
+    "Used the explicit common light palette and white paper instead of the tone example’s warm palette. Sheet edges, small rotations, cut corners, and consistent down-right offset shadows retain paper-layer construction.",
+    "Used Noto Sans CJK JP, sans-serif instead of the examples’ serif type. Labels are upright while backing sheets rotate, to preserve readability at target CSS sizes.",
+    "Did not reuse the examples’ pattern/Text/MAKE/PNG composition facts: each diagram uses only its supplied scenario.",
+    "Long担当 labels and 不足項目あり are broken across lines without abbreviation.",
+    "Dotted outlines identify pending states; text independently states their meanings. Pending work is not rendered as failure."
+  ],
+  "resourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/recipe.json",
+    "inputs/tone/paper-layers/recipe.md",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md",
+    "inputs/tone/paper-layers/light.svg",
+    "inputs/tone/paper-layers/dark.svg",
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png"
+  ],
+  "fonts": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Not verified: SVG text remains editable and resolved by the consuming renderer.",
+    "fallbackAndMissingGlyphUncertainty": "Font files were not supplied or embedded; renderer fallback and glyph coverage remain unverified."
+  },
+  "limitations": [
+    "No browser or external renderer launched. XML and textual factual checks performed; final visual acceptance and actual font rendering remain unverified.",
+    "All five files are the initial author attempt; no evaluator feedback or approval inferred."
+  ]
+}

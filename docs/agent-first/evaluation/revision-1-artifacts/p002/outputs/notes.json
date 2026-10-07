@@ -1,0 +1,55 @@
+{
+  "tone": "soft-fill",
+  "deliberateDepartures": [
+    "共通palette.jsonを優先し、例示SVGとscheme.jsonの紫系サンプル色を使用しない。白地にdeep・accent・warningの半透明塗りを重ね、穏やかな面を作成した。",
+    "各briefの縦横比と固定関係に合わせてパネル数・ルートを変更。参照の模様と英語サンプルは新しい事実に関係しないため省略した。",
+    "長い担当名は省略せず2行に分割。小型の席図では14pxの状態名と13pxの選択可否を使用した。",
+    "待機をwarningで表さず、時計と明示ラベルを使用。warningは不足項目と破損ありの分岐に限定した。",
+    "返却図は返却箱を単一のaccent到達先とし、相談窓口をwarning面で区別した。空席図は選択可能な2席をまとめた1つのaccent帯を使用した。"
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/soft-fill/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/soft-fill/light.svg",
+    "tone/soft-fill/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/kit.svg"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "embedded": false,
+    "actualRenderedFont": "未確認。SVGをこのターンではレンダリングしていないため、使用されたフォントと欠落グリフは確認できない。閲覧環境のインストール状態によりsans-serifへ代替される。"
+  },
+  "checks": {
+    "xml": "全5SVGをPython標準XMLパーサーで構文確認。",
+    "dimensions": "viewBoxとwidth/heightを各sessionのCSSターゲットに一致させた。placementの外側フレームはSVGに含めず、slotに配置できる画像として作成。",
+    "originalExamples": "供給されたlight/dark PNGをview_imageで実際に閲覧。",
+    "limitations": "出力の実レンダリング・最終サイズでのフォント検証は未実施。視覚的承認や評価結果を主張しない。"
+  }
+}

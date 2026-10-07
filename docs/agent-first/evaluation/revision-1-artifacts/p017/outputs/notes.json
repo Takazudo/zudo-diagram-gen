@@ -1,0 +1,48 @@
+{
+  "deliberateDepartures": [
+    "The shared light palette replaces the tone example palette, as required. Japanese uses the declared Noto Sans CJK JP, sans-serif stack instead of the example’s Latin fonts.",
+    "Each canvas equals its CSS slot dimensions; the surrounding placement frame and context caption are not included in the standalone SVG.",
+    "The example composition motif is omitted: the supplied scheme declares no texture. Open contours and a small filled junction or accent mark preserve the tone.",
+    "Essential connectors use 2.2 CSS-pixel strokes rather than literal 2.8 scheme units; object contours retain 1.6 pixels. Text is sized directly for each target, with long role labels wrapped without omission.",
+    "Empty chairs are open contours; reservation and queue states use explicit text with clock/check marks. The return box uses an open box silhouette rather than a chair because the object in that brief is a box.",
+    "The pending branch continuation is dashed to distinguish an awaited result, accompanied by explicit waiting text. No failure or current publication is implied."
+  ],
+  "resourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/common/palette.json",
+    "inputs/tone/recipe.json",
+    "inputs/tone/fine-outline/recipe.md",
+    "inputs/tone/fine-outline/light.svg",
+    "inputs/tone/fine-outline/dark.svg",
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/scheme.json",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md"
+  ],
+  "limitations": [
+    "Both original example PNGs were actually viewed. Output SVGs received XML and required-label checks, but output raster rendering and font substitution were not verified.",
+    "Noto Sans CJK JP is declared but not embedded. The supplied snapshot does not establish its availability at the eventual host; actual font selection and missing-glyph behavior remain unverified.",
+    "These are initial independent experimental artifacts. No evaluator feedback, visual acceptance, or user approval was inferred."
+  ]
+}

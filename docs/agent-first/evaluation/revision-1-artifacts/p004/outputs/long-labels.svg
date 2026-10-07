@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc"><title id="title">長いラベルの担当引継ぎ</title><desc id="desc">準備担当から確認担当へ資料を渡す。不足項目があれば準備担当へ戻し、確認完了したら受付担当へ渡す。</desc><style>text{font-family:"Noto Sans CJK JP",sans-serif}</style><defs>
+<symbol id="pencil-hatch" viewBox="0 0 100 70"><path d="M4.679 63.919L24.653 5.735" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M13.875 64.064L34.586 5.745" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M23.716 63.468L44.885 7.804" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M33.64 64.15L53.803 7.563" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M45.065 62.1L64.374 7.468" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M54.772 62.045L73.704 8.32" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M63.863 63.595L83.451 6.103" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M75.207 64.29L93.555 7.748" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/></symbol>
+<symbol id="person" viewBox="0 0 100 100">
+<path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="pin" viewBox="0 0 100 100">
+<path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="slot-card" viewBox="0 0 100 100">
+<path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="empty-seat" viewBox="0 0 100 100">
+<path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><use href="#pencil-hatch" x="32" y="22" width="32" height="22"/>
+</symbol>
+<symbol id="arrow" viewBox="0 0 100 100">
+<path d="M12 65Q48 69 48 45Q47 28 84 29M73 18L87 30L74 42" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 67Q45 72 46 46Q45 31 82 32M72 20L85 32L74 44" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" opacity="0.65"/>
+</symbol>
+<symbol id="check" viewBox="0 0 100 100">
+<path d="M19 52L40 76L81 25" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 52L40 76L81 25" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 83Q53 86 80 79" fill="none" data-palette-stroke="accent" stroke="#267D75" stroke-width="0.8"/>
+</symbol>
+<symbol id="clock" viewBox="0 0 100 100">
+<path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs><rect width="480" height="360" fill="#FFFFFF" data-palette-fill="surface"/>
+<path d="M0 24H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 48H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 72H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 96H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 120H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 144H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 168H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 192H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 216H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 240H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 264H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 288H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 312H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 336H480" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 0L13 360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.22" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="9" width="446" height="27" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="24" y="29" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="start"><tspan x="24" dy="0">長いラベルの担当引継ぎ</tspan></text>
+<path d="M145 51L449 49L450 111L146 113Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M145 51L449 49L450 111L146 113Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="297" y="76" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="middle"><tspan x="297" dy="0">地域交流イベント</tspan><tspan x="297" dy="25.2">開催準備担当</tspan></text>
+<path d="M145 157L449 155L450 217L146 219Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M145 157L449 155L450 217L146 219Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="297" y="181" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="middle"><tspan x="297" dy="0">参加申込内容の</tspan><tspan x="297" dy="25.2">確認・連絡担当</tspan></text>
+<path d="M145 281L449 279L450 336L146 338Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M145 281L449 279L450 336L146 338Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="297" y="315" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="middle"><tspan x="297" dy="0">当日受付と案内の担当</tspan></text>
+<path d="M297 115Q295 132 297 150" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M297 115Q295 132 297 150" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M290 139L297 151L304 140" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="322.0" y="126" width="36" height="21" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="340" y="140" fill="#203040" data-palette-fill="ink" font-size="14" font-weight="400" text-anchor="middle"><tspan x="340" dy="0">資料</tspan></text>
+<path d="M297 221Q295 248 297 274" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M297 221Q295 248 297 274" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M290 263L297 275L304 264" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="323.0" y="236" width="72" height="23" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="359" y="252" fill="#203040" data-palette-fill="ink" font-size="16" font-weight="600" text-anchor="middle"><tspan x="359" dy="0">確認完了</tspan></text>
+<path d="M326 259Q359 257 391 259" fill="none" stroke="#267D75" data-palette-stroke="accent" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M142 185L46 187Q32 187 32 173L32 95Q32 81 47 81L139 81" fill="none" stroke="#B85A18" data-palette-stroke="warning" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M142 185L46 187Q32 187 32 173L32 95Q32 81 47 81L139 81" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M128 74L140 81L129 88" fill="none" stroke="#B85A18" data-palette-stroke="warning" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="47.0" y="116" width="92" height="21" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="93" y="130" fill="#B85A18" data-palette-fill="warning" font-size="14" font-weight="600" text-anchor="middle"><tspan x="93" dy="0">不足項目あり</tspan></text>
+<use href="#pencil-hatch" x="150" y="54" width="16" height="15"/></svg>

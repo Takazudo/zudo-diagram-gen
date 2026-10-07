@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "toneId": "paper-layers",
+  "toneRevision": "pilot-3",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 2.1,
+      "detail": 1.5
+    },
+    "radii": {
+      "card": 0,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "shadow": 0.65
+    },
+    "layers": {
+      "shadow": {
+        "dx": 7,
+        "dy": 7,
+        "opacity": 0.65
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#35494C",
+      "surface": "#FFFCF4",
+      "border": "#D8D0C2",
+      "accent": "#CC754E",
+      "deep": "#769D9A",
+      "warning": "#A9513C"
+    },
+    "dark": {
+      "ink": "#E8ECE5",
+      "surface": "#394545",
+      "border": "#182121",
+      "accent": "#C78360",
+      "deep": "#739D99",
+      "warning": "#EAB69B"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "cut-paper-repeat",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 4
+  },
+  "composition": {
+    "arrows": "A slim curved ink route joins sheets; a cut triangular tip indicates direction without becoming another sheet.",
+    "people": "Separate cut-paper head, shoulders and torso overlap; a backing silhouette exposes the paper depth.",
+    "empty": "A cut chair from separate back, seat and legs, with visible vacancy; label the seat explicitly.",
+    "pending": "Place a cut clock disk and pointer alongside the waiting sheet; retain the pending label.",
+    "emphasis": "Overlap a separately cut clear label sheet with a substantial filled motif backing. Reserve a contiguous exposed motif region beside or around the label, retaining filled shapes and contrasting inset pieces rather than pale hollow edge fragments.",
+    "warning": "Use a distinct labeled paper tab rather than an alarming shadow or extra data layer."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Use visibly overlapping cut-paper planes with a substantial filled decorative region still exposed after labels are placed. A separate readable label sheet belongs to the same logical object. Pale hollow outlines, edge tips, shadow alone or generic boxed strips do not carry the construction. Exact motif family and exposed-area percentage are not requirements; keep factual counts and Japanese labels intact."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use the scheme cut-paper-repeat construction. Frequency is motifs per row in the canonical support patch; the patch has two authored rows. Seed and amplitude are zero because the cut motif is periodic, not randomly perturbed. No photographic or procedural noise."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Keep paper edges visible around labels; shadows and rotations must never imply extra factual objects."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Retain editorial spacing and optional serif sample lettering; required Japanese labels remain upright in the declared readable font."
+      },
+      {
+        "id": "clear-label-plane",
+        "description": "Keep essential labels ink on a clear surface-role plane, with no connector crossing the text. A shadow or top rule alone does not carry the layered construction."
+      },
+      {
+        "id": "construction-transfer",
+        "description": "State diagrams may use layered state objects; seat diagrams decorate enclosing label/backing planes while retaining exact chair counts and vacancies. Long labels occupy a clear foreground sheet. Parallel checks keep their distinct branches; return guidance keeps the empty container empty. These are construction options, not a fixed diagram layout."
+      },
+      {
+        "id": "wide-construction",
+        "description": "For short wide or label-heavy objects, expose an offset lateral motif sheet or another contiguous filled region, rather than stretching a fixed motif patch behind a full-width label. Wrap or shift the clear label sheet to preserve both text and material construction. Use purposeful asymmetry; do not repeat one boxed strip for every object."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      },
+      {
+        "id": "motif-family",
+        "description": "Arches, scallops, bands or other cut shapes may vary freely if filled decorative mass, contrasting pieces and separate overlapping planes remain visible. Original Pattern/Text labels, poster merge and PNG output are example facts, never required content. Small primitives may omit motifs; the principal construction still carries the tone."
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    "Common six-role light palette replaces the warm example palette, as required.",
+    "Japanese labels use upright Noto Sans CJK JP rather than the sample serif typography.",
+    "Backings use slight skewed corners instead of rotating the text. Four motifs per row and two rows remain visible around the foreground planes.",
+    "No sample Pattern, Text, MAKE or PNG labels are transferred because they are unrelated example facts.",
+    "Small chair, clock and empty-box marks omit repeated motifs for recognition. Chairs are exactly four, with no added people."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/recipe.json",
+    "inputs/tone/paper-layers/recipe.md",
+    "inputs/tone/paper-layers/light.svg",
+    "inputs/tone/paper-layers/dark.svg",
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/kit.svg",
+    "inputs/tone/scheme.json",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "limitation": "Fonts are not embedded; downstream renderer substitution and glyph availability are environment dependent."
+  },
+  "limitations": [
+    "No evaluator feedback or approval was used."
+  ],
+  "ownChecks": [
+    "All five SVGs parsed as XML.",
+    "All five SVGs rendered with Inkscape at the exact target dimensions and visually inspected. Supporting text received clear paper planes after inspection.",
+    "Both original example PNGs were actually viewed."
+  ]
+}

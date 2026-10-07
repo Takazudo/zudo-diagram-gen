@@ -727,6 +727,9 @@ export async function loadToneCatalog({ toneRoot = PACKAGE_TONES, requireComplet
       if (raw[key] !== undefined) tone[key] = raw[key];
     try {
       tone.context = await resolveToneResources(root, tone, catalog.version, { requireComplete });
+      // Both browser catalog consumers read this public field. Resolve only after
+      // the authored resources and numeric bindings have passed context validation.
+      tone.recipe = tone.context.recipe;
     } catch (error) {
       errors.push(error.message);
     }

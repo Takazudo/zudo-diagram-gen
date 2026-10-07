@@ -9,7 +9,7 @@
       "family": "Quiet",
       "summary": "Fine continuous outlines, open surfaces, a single filled teaching point.",
       "recipe": [
-        "Build open shapes with a consistent fine contour; the reference uses 1.6-unit strokes on a 720 by 400 canvas.",
+        "Build open shapes with a consistent fine contour; use {{scheme:geometry.strokeWidths.outline}}-unit strokes on the {{scheme:coordinateSystem.viewBox.2}} by {{scheme:coordinateSystem.viewBox.3}} reference canvas.",
         "Use one restrained accent for the teaching point and keep the remaining surfaces quiet.",
         "Use generous negative space, short upright labels, and clearly joined input paths.",
         "Keep arrows and silhouettes readable at the target width; thicken essential connectors when reducing the drawing.",
@@ -50,7 +50,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "fine-outline/scheme.json",
+      "kit": "fine-outline/kit.svg",
+      "toneRevision": "pilot-1"
     },
     {
       "id": "soft-fill",
@@ -100,7 +103,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "soft-fill/scheme.json",
+      "kit": "soft-fill/kit.svg",
+      "toneRevision": "pilot-1"
     },
     {
       "id": "ink-silhouette",
@@ -599,7 +605,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "paper-layers/scheme.json",
+      "kit": "paper-layers/kit.svg",
+      "toneRevision": "pilot-3"
     },
     {
       "id": "pencil-notebook",
@@ -650,7 +659,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "pencil-notebook/scheme.json",
+      "kit": "pencil-notebook/kit.svg",
+      "toneRevision": "pilot-4"
     },
     {
       "id": "marker-workshop",

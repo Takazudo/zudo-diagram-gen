@@ -1,0 +1,18 @@
+{
+  "correction": "One bounded readability correction; originals preserved.",
+  "changed": [
+    "empty-seats.svg: all four chair contour pairs reduced to 70% around their horizontal center, with chair-back tops moved down 10 CSS units. This separates icons from exact seat-status labels while retaining vacant interiors and the displaced retraces."
+  ],
+  "unchanged": [
+    "All Japanese text and typography, facts, palette, panels, hatching, pending clock, and other geometry.",
+    "reservation-flow.svg, long-labels.svg, pending-queue.svg and return-items.svg copied byte-identically."
+  ],
+  "checks": [
+    "All five correction SVGs parse as XML.",
+    "Four unchanged SVGs compared byte-for-byte against original outputs.",
+    "Each chair contour now starts 10 units below its original top; label baselines and font sizes unchanged."
+  ],
+  "limitations": [
+    "No browser or raster rendering performed; visual acceptance is not claimed. Actual viewer font resolution remains unverified."
+  ]
+}

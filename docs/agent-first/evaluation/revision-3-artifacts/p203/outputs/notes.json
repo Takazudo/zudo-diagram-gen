@@ -1,0 +1,51 @@
+{
+  "deliberateDepartures": [
+    "The common six-role light palette replaces the examples’ warm paper colors; paper planes use surface white and restrained border-role offset shadows.",
+    "Essential Japanese labels remain upright in Noto Sans CJK JP, sans-serif instead of the original serif sample lettering.",
+    "Four-by-two periodic filled arch patches are adapted to each support plane; sheet dimensions, rotations and foreground offsets vary with the target aspect ratio.",
+    "Connectors use compact curves or rounded elbows where needed; the unfinished venue branch uses a dashed connector and clock while the publication condition remains explicit.",
+    "The portrait return-box illustration uses a small unpatterned container primitive to keep its empty interior visible."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFamily": "Unverified: no renderer/font inventory consulted; font files are not supplied.",
+    "fallbackAndMissingGlyphUncertainty": "Viewer font availability, substitution and missing glyphs remain unverified."
+  },
+  "limitations": [
+    "Original example PNGs were actually viewed. Outputs were authored at the declared CSS target sizes and checked structurally; output raster rendering and visual acceptance are not established.",
+    "No external resources, evaluator feedback or user approval were consulted."
+  ]
+}

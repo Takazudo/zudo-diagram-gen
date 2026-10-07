@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 1,
+  "runId": "p205",
+  "reviewType": "independent visual second review",
+  "timestamp": "2026-10-07T20:58:45.260859+00:00",
+  "actuallyViewed": {
+    "originalLightReference": true,
+    "originalDarkReference": true,
+    "allFiveRunImages": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-light.png",
+      "sha256": "a642eaf4d14e272f053d7bb804f02459b9d59e21241b38a8e3cbdede057073b1",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-dark.png",
+      "sha256": "f0f16609851d5157007d4c4cb3ed32c3a2087f8a27ef23c5eae444969d841623",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions"
+    }
+  ],
+  "allowedInputsRead": {
+    "palette": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/palette.json",
+    "briefsAndChecklists": true,
+    "dispatch": "/workspace/diagram-evidence/pilot-runs/p205/second-review-dispatch.txt"
+  },
+  "referenceDefiningTraits": [
+    "Layered paper rectangles with slight rotations and offset hard-edged shadows.",
+    "Repeated arch motif with contrasting small internal arches creating patterned paper texture.",
+    "A prominent text slip overlays patterned paper.",
+    "Fine curved connector arrows join separate pieces, with generous open space.",
+    "Strong display-type hierarchy; dark reference translates the same construction to dark papers and light ink."
+  ],
+  "images": [
+    {
+      "id": "reservation-flow",
+      "path": "/workspace/diagram-evidence/pilot-runs/p205/captures/v0/reservation-flow.png",
+      "sha256": "ea2b91d0ed2d8702763730511f21477a6602700185b235e8b92180f013abffcd",
+      "dimensions": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions",
+      "targetArtworkDimensions": [
+        640,
+        320
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/reservation-flow/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/reservation-flow/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Three large bold state labels form a clear left-to-right hierarchy; subordinate explanations and the return-action label remain readable at the target artwork size. No text clipping or collisions observed."
+      },
+      "observations": [
+        "Three arch-pattern paper cards, offset pale shadows, and white label strips establish a coherent progression.",
+        "Forward arrowheads show 申請 to 確認待ち to 確定. A clock distinguishes waiting and a check distinguishes confirmation independently of color.",
+        "日時を変更 is connected from 確定, and the bent return route points upward into 確認待ち. The bottom explanation explicitly says there is no automatic approval."
+      ],
+      "exactLabels": [
+        {
+          "required": "申請",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "確認待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "確定",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "日時を変更",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "id": "empty-seats",
+      "path": "/workspace/diagram-evidence/pilot-runs/p205/captures/v0/empty-seats.png",
+      "sha256": "67fac16af37f9649d0728d27096ef92f7d4e4a38534d2de409dbc66f4f19b290",
+      "dimensions": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions",
+      "targetArtworkDimensions": [
+        360,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/empty-seats/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/empty-seats/checklist.json",
+      "readability": {
+        "score": 3,
+        "reason": "All four exact seat labels and selection permissions are readable. Small status tags and several overlapping white paper fragments crowd the arch motifs and weaken visual hierarchy, but no label is materially obscured or clipped."
+      },
+      "observations": [
+        "Exactly four cards arranged in a two-by-two grid.",
+        "A says 選択不可; B and C say 選択可; D says 選択不可 and includes a clock. D is explicitly 保留中, distinct from reserved and empty.",
+        "Repeated arches are heavily occluded by the seat and permission strips, leaving fragmented shapes; status wording carries the distinctions."
+      ],
+      "exactLabels": [
+        {
+          "required": "A席：予約済み",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "B席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "C席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "D席：保留中",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "id": "long-labels",
+      "path": "/workspace/diagram-evidence/pilot-runs/p205/captures/v0/long-labels.png",
+      "sha256": "dbd352e84879c4fe828a883e87b4c55a0fdfa3da7c5cb2cc1a5864808216a88c",
+      "dimensions": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions",
+      "targetArtworkDimensions": [
+        480,
+        360
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/long-labels/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/long-labels/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Bold full-length Japanese names fit on two lines in the first two cards and one in the last. Vertical flow and the separately labeled warning-colored return path give clear hierarchy without collisions or truncation."
+      },
+      "observations": [
+        "Three broad arch-pattern paper cards are stacked with offset shadows and white label strips.",
+        "The first two names preserve all characters across line breaks. The downward initial arrow says 資料を渡す.",
+        "The orange return route starts at the checking role and ends with an arrow toward the preparation role, labeled 不足項目あり. The downward green route is labeled 確認完了 and reaches reception.",
+        "The footer states 不足がなければ受付へ, reinforcing the completion condition."
+      ],
+      "exactLabels": [
+        {
+          "required": "地域交流イベント開催準備担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "参加申込内容の確認・連絡担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "当日受付と案内の担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "不足項目あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "確認完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "id": "pending-queue",
+      "path": "/workspace/diagram-evidence/pilot-runs/p205/captures/v0/pending-queue.png",
+      "sha256": "618edb4b7273db4090daea5172581259f8ad218b1b413abe556a977f55ab1f3a",
+      "dimensions": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions",
+      "targetArtworkDimensions": [
+        720,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/pending-queue/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/pending-queue/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Source, two parallel checking cards, and publication gate are easy to scan across the wide artwork. Both status labels fit, and the two-line publication wording and smaller explanation remain legible."
+      },
+      "observations": [
+        "案内文 branches through a visible fork into two checking paths.",
+        "The upper card says 表記確認：完了 with a check; the lower says 会場情報確認：結果待ち with a clock. Waiting is not depicted as failure.",
+        "A solid completion route and dashed pending route converge toward a publication card stating 両方完了後に公開 and 公開済み：0. The note explicitly forbids publication until both finish."
+      ],
+      "exactLabels": [
+        {
+          "required": "案内文",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "表記確認：完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "会場情報確認：結果待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "両方完了後に公開",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "公開済み：0",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "id": "return-items",
+      "path": "/workspace/diagram-evidence/pilot-runs/p205/captures/v0/return-items.png",
+      "sha256": "91d07c1852e76d3c2aa9b45bb197239875b8e67c83aa800693feb739eb66b4b5",
+      "dimensions": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; original PNG at native recorded pixel dimensions",
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/return-items/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p205/inputs/common/briefs/return-items/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "The portrait layout gives clear top-to-bottom movement, readable large node labels, and distinct labeled branch conditions. The two lower destinations fit without clipping; the availability note is readable."
+      },
+      "observations": [
+        "入口 points down to 返却確認台.",
+        "The green 破損なし branch points to 返却箱：空; the orange 破損あり branch points to 相談窓口.",
+        "An outlined open box and the note 空でも返却に使える communicate empty-but-available. The warning-colored consultation branch implies neither a fine nor refusal.",
+        "Stacked papers, pale offset shadows, white label strips, and repeated arches persist through the portrait layout."
+      ],
+      "exactLabels": [
+        {
+          "required": "入口",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "返却確認台",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "破損なし",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "返却箱：空",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "破損あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        },
+        {
+          "required": "相談窓口",
+          "visuallyPresent": true,
+          "complete": true,
+          "note": "Line breaks and typographic spacing do not omit or replace characters."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    }
+  ],
+  "batch": {
+    "consistency": {
+      "score": 3,
+      "reason": "The five ratios share repeated arches, paper layers, offset shadows, white strips, dark ink, green emphasis, and orange warning branches. Horizontal, grid, stacked, wide parallel, and portrait arrangements are justified by their briefs. Pattern scale and occlusion vary substantially: compact seats show fragmented arches, whereas the large stacked cards show broad exposed arches. This is coherent but does not sustain equally controlled texture and spacing across every ratio."
+    },
+    "character": {
+      "score": 3,
+      "reason": "The defining arch geometry, overlapping patterned paper and label slips, and hard offset shadows are retained recognizably across the batch. Common Japanese sans typography and palette override the reference serif and reference colors as instructed; those substitutions are not counted as violations. Mostly upright cards, orthogonal connectors, and dense repeated label strips reduce the references' tilted-paper playfulness and fine flowing connectors. The batch retains its defining construction but does not consistently supply useful expressive variation deserving 4."
+    },
+    "retainedTraits": [
+      "Repeated arch-pattern geometry and contrasting inner arches.",
+      "Paper-card layering with visible offset shadows.",
+      "White text slips over patterned cards.",
+      "Bold principal labels with supporting explanatory text."
+    ],
+    "losses": [
+      "Most paper groups appear more upright and regular than the reference collage.",
+      "Mostly straight or orthogonal arrows replace the fine organic merging curves.",
+      "The compact seat panels obscure much of the repeated pattern with several competing label slips."
+    ],
+    "factualSummary": "No required label omission, invented fact, or reversed route found in the five viewed captures.",
+    "paletteAssessment": "Visible roles align with the supplied light palette: dark ink/deep patterned papers, white surfaces, pale border-derived shadows, green emphasis/completion paths, and orange deficiency/damage warning paths. No pixel-exact palette conformance claim is made."
+  },
+  "uncertainty": {
+    "font": "Noto Sans CJK JP is required by the briefs. The PNG glyphs are visually consistent with Japanese sans typography and show no visible missing-glyph boxes, but actual font selection or fallback cannot be proven from raster inspection alone; no font or source resources were read.",
+    "scale": "Readability was judged on the original captures at their recorded pixel dimensions. Each frame exceeds its declared target artwork by 48 pixels in width and 96 in height, consistent with the recorded placement framing. The artwork was assessed within those frames; without reading placement metadata, CSS-to-device scale cannot be independently verified. No magnification or resampled image was used.",
+    "environmentInterruption": "Manager reported environment replacement and unchanged initial captures. This review freshly opened both original references and all five permitted captures after that notice; no prior partial scores were reused."
+  },
+  "scope": "Only dispatch, named references, five initial PNG captures, associated briefs/checklists, and common palette were read. No conditions, prompts, run records, source, coordinator judgments, other runs, browser/network/git, or descendants used."
+}

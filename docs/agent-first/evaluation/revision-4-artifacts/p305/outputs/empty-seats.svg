@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-labelledby="title desc"><title id="title">空席と保留中の席</title><desc id="desc">A席は予約済み、B席とC席は空席で選択可能。D席は保留中で選択不可。席は四つ。</desc><style>text{font-family:"Noto Sans CJK JP",sans-serif;fill:#203040}</style>
+<rect width="360" height="240" fill="#FFFFFF" data-role="surface"/>
+<path d="M0 23H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 47H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 71H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 95H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 119H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 143H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 167H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 191H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 215H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0 239H360" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.13" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M13 0L15 240" fill="none" stroke="#267D75" stroke-width="0.8" opacity="0.18" stroke-linecap="round" stroke-linejoin="round" data-role="accent" />
+<text x="23" y="25" font-size="17" font-weight="600" text-anchor="start" style="fill:#267D75" data-role="accent"><tspan x="23" dy="0">選べる席は B席・C席</tspan></text>
+<path d="M21 44L168 42L170 124L20 126Z" fill="#FFFFFF" stroke="#174C66" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M19 42L171 44L168 128L22 125Z" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<defs><clipPath id="field1"><rect x="26" y="48" width="29" height="72"/></clipPath></defs><g clip-path="url(#field1)">
+<path d="M-61.51 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-49.90 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-37.52 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-23.17 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-11.00 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M2.07 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M13.49 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M25.08 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M38.70 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M52.00 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M62.77 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M75.99 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M87.56 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M100.95 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M112.89 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M126.48 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M137.65 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M150.13 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-60.80 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-49.62 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-37.61 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-23.61 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-12.66 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M0.46 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M14.10 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M25.85 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M39.63 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M51.77 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M63.50 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M77.19 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M89.81 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M100.72 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M113.75 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M124.61 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M139.32 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M150.77 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+</g>
+<path d="M97 74L98 52Q112 49 127 53L128 74M92 75L132 74L130 84L94 85Z M95 85L93 96M129 84L131 95" fill="none" stroke="#203040" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="ink" />
+<path d="M95 73L96 51Q112 47 129 52L130 75M93 77L133 76M96 86L95 96M131 85L133 94" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M104 62l6 6 12-13" fill="none" stroke="#174C66" stroke-width="2" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<rect x="25" y="98" width="140" height="25" fill="#FFFFFF" data-role="surface"/>
+<text x="99" y="113" font-size="15" font-weight="600" text-anchor="middle" style="fill:#203040" data-role="ink"><tspan x="99" dy="0">A席：予約済み</tspan></text>
+<path d="M191 44L338 42L340 124L190 126Z" fill="#FFFFFF" stroke="#267D75" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="accent" />
+<path d="M189 42L341 44L338 128L192 125Z" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<defs><clipPath id="field2"><rect x="196" y="48" width="29" height="72"/></clipPath></defs><g clip-path="url(#field2)">
+<path d="M108.50 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M121.64 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M132.99 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M145.24 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M158.56 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M171.09 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M183.65 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M195.99 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M207.62 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M220.60 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M233.65 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M247.33 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M258.26 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M270.83 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M283.50 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M295.55 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M309.40 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M320.41 48l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M108.46 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M121.58 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M133.76 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M146.87 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M157.84 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M172.10 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M184.56 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M197.01 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M209.75 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M219.76 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M232.27 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M246.80 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M259.73 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M272.32 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M282.32 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M296.11 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M307.51 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M320.83 48l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+</g>
+<path d="M267 74L268 52Q282 49 297 53L298 74M262 75L302 74L300 84L264 85Z M265 85L263 96M299 84L301 95" fill="none" stroke="#203040" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="ink" />
+<path d="M265 73L266 51Q282 47 299 52L300 75M263 77L303 76M266 86L265 96M301 85L303 94" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<rect x="195" y="98" width="140" height="25" fill="#FFFFFF" data-role="surface"/>
+<text x="269" y="113" font-size="15" font-weight="600" text-anchor="middle" style="fill:#203040" data-role="ink"><tspan x="269" dy="0">B席：空席</tspan></text>
+<rect x="201" y="73" width="48" height="20" fill="#FFFFFF" data-role="surface"/>
+<text x="209" y="87" font-size="12" font-weight="400" text-anchor="start" style="fill:#267D75" data-role="accent"><tspan x="209" dy="0">選べる</tspan></text>
+<path d="M21 139L168 137L170 219L20 221Z" fill="#FFFFFF" stroke="#267D75" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="accent" />
+<path d="M19 137L171 139L168 223L22 220Z" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<defs><clipPath id="field3"><rect x="26" y="143" width="29" height="72"/></clipPath></defs><g clip-path="url(#field3)">
+<path d="M-60.30 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-48.79 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-36.33 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-25.34 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-10.50 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M0.44 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M13.54 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M26.38 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M38.70 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M50.85 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M62.60 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M75.30 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M89.77 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M101.93 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M113.05 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M126.33 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M137.31 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M150.70 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M-62.43 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-48.14 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-35.68 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-22.75 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-11.02 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M-0.21 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M12.77 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M26.74 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M38.63 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M50.19 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M64.02 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M75.35 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M87.70 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M101.63 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M112.34 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M126.88 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M137.21 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M151.20 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+</g>
+<path d="M97 169L98 147Q112 144 127 148L128 169M92 170L132 169L130 179L94 180Z M95 180L93 191M129 179L131 190" fill="none" stroke="#203040" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="ink" />
+<path d="M95 168L96 146Q112 142 129 147L130 170M93 172L133 171M96 181L95 191M131 180L133 189" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<rect x="25" y="193" width="140" height="25" fill="#FFFFFF" data-role="surface"/>
+<text x="99" y="208" font-size="15" font-weight="600" text-anchor="middle" style="fill:#203040" data-role="ink"><tspan x="99" dy="0">C席：空席</tspan></text>
+<rect x="31" y="168" width="48" height="20" fill="#FFFFFF" data-role="surface"/>
+<text x="39" y="182" font-size="12" font-weight="400" text-anchor="start" style="fill:#267D75" data-role="accent"><tspan x="39" dy="0">選べる</tspan></text>
+<path d="M191 139L338 137L340 219L190 221Z" fill="#FFFFFF" stroke="#174C66" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M189 137L341 139L338 223L192 220Z" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<defs><clipPath id="field4"><rect x="196" y="143" width="29" height="72"/></clipPath></defs><g clip-path="url(#field4)">
+<path d="M107.51 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M120.51 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M134.25 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M147.27 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M157.32 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M169.68 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M184.43 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M196.65 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M209.00 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M220.82 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M233.32 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M244.72 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M258.70 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M271.12 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M284.76 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M296.81 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M308.94 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M321.94 143l72.00 72" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M109.12 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M120.60 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M133.61 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M146.96 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M158.43 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M172.32 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M183.00 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M196.33 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M208.85 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M220.74 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M233.11 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M245.42 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M259.88 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M271.58 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M283.38 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M297.36 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M308.76 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M320.97 143l-72.00 72" fill="none" stroke="#174C66" stroke-width="0.8" opacity="0.48" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+</g>
+<path d="M267 169L268 147Q282 144 297 148L298 169M262 170L302 169L300 179L264 180Z M265 180L263 191M299 179L301 190" fill="none" stroke="#203040" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="ink" />
+<path d="M265 168L266 146Q282 142 299 147L300 170M263 172L303 171M266 181L265 191M301 180L303 189" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M274 160C272 151 289 150 290 160C292 168 275 170 274 160Z" fill="none" stroke="#174C66" stroke-width="1.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<path d="M273 161C274 149 292 152 291 161C290 171 272 168 273 161" fill="none" stroke="#708090" stroke-width="0.75" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" data-role="border" />
+<path d="M282 156V160l5 3" fill="none" stroke="#174C66" stroke-width="1.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" data-role="deep" />
+<rect x="195" y="193" width="140" height="25" fill="#FFFFFF" data-role="surface"/>
+<text x="269" y="208" font-size="15" font-weight="600" text-anchor="middle" style="fill:#203040" data-role="ink"><tspan x="269" dy="0">D席：保留中</tspan></text>
+<rect x="200" y="167" width="45" height="32" fill="#FFFFFF" data-role="surface"/>
+<text x="208" y="182" font-size="12" font-weight="400" text-anchor="start" style="fill:#203040" data-role="ink"><tspan x="208" dy="0">選択</tspan><tspan x="208" dy="15.600000000000001">不可</tspan></text>
+</svg>

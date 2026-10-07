@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "runId": "p209",
+  "reviewType": "independent visual second review",
+  "timestamp": "2026-10-07T21:15:23.367142+00:00",
+  "actuallyViewed": {
+    "references": true,
+    "allFiveCaptures": true
+  },
+  "referencePathCorrection": {
+    "dispatchedDirectory": "/workspace/diagram-evidence/pilot-baseline/paper-cut/",
+    "initialResult": "Both exact dispatched reference paths were absent.",
+    "managerAuthorizedCorrection": "/workspace/diagram-evidence/pilot-baseline/paper-layers/",
+    "scope": "Path correction only; no additional run evidence read."
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-light.png",
+      "sha256": "a642eaf4d14e272f053d7bb804f02459b9d59e21241b38a8e3cbdede057073b1",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-dark.png",
+      "sha256": "f0f16609851d5157007d4c4cb3ed32c3a2087f8a27ef23c5eae444969d841623",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Repeated rounded arches with inset centers, cropped into pattern sheets.",
+    "Overlapping paper rectangles with visible offset shadow layers and mildly rotated edges.",
+    "Large text placed on clean paper bands against pattern areas.",
+    "Curving connectors and a compact folded-corner output sheet.",
+    "Flat graphic construction rather than photographic texture."
+  ],
+  "referenceTraitLosses": [
+    "Most cards are aligned and regular, reducing the loose tilted collage quality.",
+    "The distinctive folded-corner output sheet is not carried through.",
+    "Pattern clipping sometimes reads as detached arch tops; pending-queue secondary text loses a clean paper backing."
+  ],
+  "palettePath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/palette.json",
+  "images": [
+    {
+      "id": "reservation-flow",
+      "image": {
+        "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/reservation-flow.png",
+        "sha256": "9afdd4484bebaae0c4eaf6eee030b32fbe6986a5f556e7b7abf86732d6ffd2a1",
+        "dimensions": [
+          688,
+          416
+        ],
+        "actuallyViewed": true
+      },
+      "targetArtworkDimensions": [
+        640,
+        320
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/reservation-flow/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/reservation-flow/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Three large state labels form a clear left-to-right hierarchy. The change label and return arrow are legible, with supporting statements smaller but readable."
+      },
+      "observations": [
+        "申請 → 確認待ち → 確定 is clear.",
+        "The clock and 予約は未確定 distinguish waiting from confirmation.",
+        "日時を変更 belongs beneath 確定, and its arrow points back up into 確認待ち.",
+        "変更申請は確認待ちへ戻る・自動承認なし explicitly resolves the return condition.",
+        "Arch patterns, offset paper shadows and slightly slanted card edges retain the reference construction."
+      ],
+      "exactLabels": [
+        {
+          "label": "申請",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "確認待ち",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "確定",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "日時を変更",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "pass": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "pass": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "pass": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "pass": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Recognizable repeating arch geometry, masked pattern strips, paper cards and offset layer shadows retain the defining construction. The arrangement is more regular and flatter than the reference collage; palette and Japanese font changes are required overrides, not character losses."
+      }
+    },
+    {
+      "id": "empty-seats",
+      "image": {
+        "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/empty-seats.png",
+        "sha256": "d7e287a2377d3017b86d55a5e9edad458d2837a0403db27a96905cd1dc952bae",
+        "dimensions": [
+          408,
+          336
+        ],
+        "actuallyViewed": true
+      },
+      "targetArtworkDimensions": [
+        360,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/empty-seats/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/empty-seats/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Four clearly separated cards pair bold seat/status labels with readable selection labels. Occupant and clock icons reinforce distinctions beyond color."
+      },
+      "observations": [
+        "Exactly four labeled seat cards are shown.",
+        "A席：予約済み and D席：保留中 both say 選択不可; B席：空席 and C席：空席 both say 選択可能.",
+        "A has an occupied-seat symbol and D has a clock; the two empty seats use the accent role.",
+        "Small arch rows and paper offsets repeat coherently, although the strict two-by-two grid feels more rigid than the loose reference collage."
+      ],
+      "exactLabels": [
+        {
+          "label": "A席：予約済み",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "B席：空席",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "C席：空席",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "D席：保留中",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "pass": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "pass": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "pass": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "pass": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Recognizable repeating arch geometry, masked pattern strips, paper cards and offset layer shadows retain the defining construction. The arrangement is more regular and flatter than the reference collage; palette and Japanese font changes are required overrides, not character losses."
+      }
+    },
+    {
+      "id": "long-labels",
+      "image": {
+        "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/long-labels.png",
+        "sha256": "75b8e5d1b21b3279d7200ba20f2e815e3f6c6ce7412afd7adfe2893c9de1cafc",
+        "dimensions": [
+          528,
+          456
+        ],
+        "actuallyViewed": true
+      },
+      "targetArtworkDimensions": [
+        480,
+        360
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/long-labels/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/long-labels/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "Long Japanese names are complete and comfortably broken into lines. The vertical order and two conditional routes are legible and separated."
+      },
+      "observations": [
+        "地域交流イベント開催準備担当 and 参加申込内容の確認・連絡担当 wrap without abbreviation.",
+        "Preparation points down to confirmation.",
+        "The warning-colored 不足項目あり route points from confirmation back to preparation.",
+        "The accent-colored 確認完了 route points down to 当日受付と案内の担当.",
+        "Patterned left edges and offset shadows preserve paper layering, but broad aligned rectangles reduce the reference’s overlapping, loosely rotated arrangement."
+      ],
+      "exactLabels": [
+        {
+          "label": "地域交流イベント開催準備担当",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "参加申込内容の確認・連絡担当",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "当日受付と案内の担当",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "不足項目あり",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "確認完了",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "pass": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "pass": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "pass": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "pass": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Recognizable repeating arch geometry, masked pattern strips, paper cards and offset layer shadows retain the defining construction. The arrangement is more regular and flatter than the reference collage; palette and Japanese font changes are required overrides, not character losses."
+      }
+    },
+    {
+      "id": "pending-queue",
+      "image": {
+        "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/pending-queue.png",
+        "sha256": "e7c487d8aeb4b3793a1fab20ab7186e61fe183baa04d616bb30056e35a1c2a3b",
+        "dimensions": [
+          768,
+          336
+        ],
+        "actuallyViewed": true
+      },
+      "targetArtworkDimensions": [
+        720,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/pending-queue/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/pending-queue/checklist.json",
+      "readability": {
+        "score": 2,
+        "reason": "One material defect: supplemental まだ公開しない is drawn across the patterned strip under the publication card, reducing contrast and legibility. All five required labels remain readable."
+      },
+      "observations": [
+        "案内文 visibly branches into two parallel review paths.",
+        "表記確認：完了 has a check symbol; 会場情報確認：結果待ち has a clock.",
+        "Both paths converge on 両方完了後に公開, with 公開済み：0 clearly underneath.",
+        "The supplemental current-state note まだ公開しない overlaps arch/stripe decoration and is harder to read than the required labels.",
+        "Layer offsets, repeated arches and curved/angled routing retain the reference motif; the hidden secondary note weakens the reference’s clean text-on-paper separation."
+      ],
+      "exactLabels": [
+        {
+          "label": "案内文",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "表記確認：完了",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "会場情報確認：結果待ち",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "両方完了後に公開",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "公開済み：0",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "pass": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "pass": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "pass": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "pass": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Recognizable repeating arch geometry, masked pattern strips, paper cards and offset layer shadows retain the defining construction. The arrangement is more regular and flatter than the reference collage; palette and Japanese font changes are required overrides, not character losses."
+      }
+    },
+    {
+      "id": "return-items",
+      "image": {
+        "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/return-items.png",
+        "sha256": "3cecee9e6bb45e33f9fed3eb51917da8b3849168219d11199e162df404f11cf5",
+        "dimensions": [
+          368,
+          576
+        ],
+        "actuallyViewed": true
+      },
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/return-items/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p209/inputs/common/briefs/return-items/checklist.json",
+      "readability": {
+        "score": 4,
+        "reason": "The vertical sequence and two labeled branches are readable. The warning branch is especially distinct; empty-box usability has both a caption and a concrete empty-box drawing."
+      },
+      "observations": [
+        "入口 points down to 返却確認台.",
+        "破損なし points to 返却箱：空 and 破損あり points to 相談窓口.",
+        "利用可能 and 空でも返却に使える make the empty box’s usability explicit.",
+        "The orange warning label and arrow mark consultation without suggesting fines or refusal.",
+        "Stacked paper cards and partly masked arches remain recognizable; the empty outlined container supplies useful variation for the tall ratio."
+      ],
+      "exactLabels": [
+        {
+          "label": "入口",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "返却確認台",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "破損なし",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "返却箱：空",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "破損あり",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        },
+        {
+          "label": "相談窓口",
+          "present": true,
+          "readable": true,
+          "note": "Line wrapping and visual spaces do not omit label content."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "pass": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "pass": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "pass": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "pass": true
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "pass": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Recognizable repeating arch geometry, masked pattern strips, paper cards and offset layer shadows retain the defining construction. The arrangement is more regular and flatter than the reference collage; palette and Japanese font changes are required overrides, not character losses."
+      }
+    }
+  ],
+  "batch": {
+    "consistency": {
+      "score": 4,
+      "reason": "The same arch vocabulary, paper offsets, dark ink, deep structural fill and accent/warning meanings recur across all five images. Horizontal states, compact seat grid, stacked long names, wide parallel paths and portrait return branching remain compositionally distinct and suit their ratios."
+    },
+    "character": {
+      "score": 3,
+      "reason": "Defining geometry and layered-paper construction survive the mandated palette and Japanese type override. Repetition and shadows make the source recognizable, but regular card alignment and reduced overlap diminish its loose assembled-paper expression. Variation is useful without reaching the reference’s expressive collage quality."
+    },
+    "readabilitySummary": "Four images have clear hierarchy; pending-queue has one material secondary-text overlap while preserving required-label readability.",
+    "factualSummary": "All checklist facts and exact required labels are visibly represented; no factual omissions, inventions or reversals observed."
+  },
+  "fontAndScaleUncertainty": {
+    "font": "Japanese glyphs are visibly intact; pixels alone cannot verify actual Noto Sans CJK JP font selection or fallback. No font/source inspection performed. Reference Latin serif type is explicitly overridden.",
+    "scale": "Viewed the supplied PNG captures at native image dimensions. Capture frames are larger than the specified artwork dimensions; target dimensions are recorded separately. Exact placement origin and CSS/device-pixel scale cannot be proven from the permitted raster inputs alone. Readability judgments concern the visible artwork at its supplied capture scale, without enlarged detail crops."
+  },
+  "limits": [
+    "Only dispatched briefs, checklists, palette, captures and manager-corrected references were read.",
+    "No condition, prompt, run-record, schemes/kits, SVG source, coordinator scores or other runs read.",
+    "No browser/network/git used; only this review file written.",
+    "No approval, preference lock or rollout claim."
+  ],
+  "correctedFinal": {
+    "timestamp": "2026-10-07T21:16:16.434007+00:00",
+    "scope": "Bounded corrected pending-queue review; original independent review preserved.",
+    "image": {
+      "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v1/pending-queue.png",
+      "sha256": "44942df80749622be2913348b22b12cdd0e592090e72a5497ce1080ce4392124",
+      "dimensions": [
+        768,
+        336
+      ],
+      "actuallyViewed": true
+    },
+    "comparedWith": {
+      "path": "/workspace/diagram-evidence/pilot-runs/p209/captures/v0/pending-queue.png",
+      "actuallyViewedPreviously": true,
+      "sha256": "e7c487d8aeb4b3793a1fab20ab7186e61fe183baa04d616bb30056e35a1c2a3b"
+    },
+    "readability": {
+      "score": 4,
+      "previousScore": 2,
+      "defectCorrected": true,
+      "reason": "まだ公開しない now has a clean light paper backing, making it fully legible against the patterned strip. Large main labels, two parallel routes and the separate publication count retain a clear hierarchy."
+    },
+    "factualObservations": [
+      "案内文 still branches to 表記確認：完了 and 会場情報確認：結果待ち.",
+      "Check and clock symbols still distinguish completion from waiting.",
+      "The two routes converge on 両方完了後に公開.",
+      "まだ公開しない explicitly states the present hold; 公開済み：0 remains visible.",
+      "All five required labels remain present and readable."
+    ],
+    "factualOmissions": [],
+    "factualInventions": [],
+    "factualReversals": [],
+    "character": {
+      "score": 3,
+      "preserved": true,
+      "reason": "Arch patterns, cropped pattern strips, offset layered-paper cards and connector arrangement are visually retained. The new backing reinforces the reference’s clean separation of text and patterned paper; the original limitations of regular alignment and reduced collage overlap remain."
+    },
+    "otherFourImages": {
+      "independentlyReopened": false,
+      "managerReport": "Manager verified corrected SVG and PNG copies byte-identical to their originals.",
+      "assessment": "Original visual judgments retained for those four images. Corrected pending-queue acceptance is based on actual visual inspection, not its hash."
+    },
+    "batchAfterCorrection": {
+      "consistencyScore": 4,
+      "characterScore": 3,
+      "readabilitySummary": "All five images now have clear readable hierarchy, combining the original judgments for four unchanged captures with the actually viewed corrected pending-queue."
+    },
+    "fontAndScaleUncertainty": "Same uncertainty as original review: actual font choice and exact CSS/device-pixel scale cannot be verified from the permitted raster alone."
+  }
+}

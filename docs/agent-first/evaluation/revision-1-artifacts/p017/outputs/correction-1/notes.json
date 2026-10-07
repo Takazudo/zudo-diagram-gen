@@ -1,0 +1,24 @@
+{
+  "correction": "correction-1",
+  "deliberateDepartures": [
+    "Only return-items.svg changes: the 破損なし label moves from x=74 to x=120 and 破損あり from x=246 to x=200. Both remain at y=291, 16 CSS px and their original semantic colors.",
+    "The four-character branch labels occupy nominal x=88–152 and x=168–232 respectively, leaving 14 CSS px from the adjacent vertical connector centerlines at x=74 and x=246. Routes, arrow directions, outlines, destinations, facts and other typography are preserved."
+  ],
+  "resourcesActuallyUsed": [
+    "outputs/return-items.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "captures/v0/return-items.png"
+  ],
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "Other four SVGs match the original files byte-for-byte.",
+    "Return-items differs only in the two branch label x coordinates.",
+    "All six required return-items labels remain present."
+  ],
+  "limitations": [
+    "The original return-items capture was actually viewed. The corrected SVG has not been recaptured in this turn, so final host rendering remains unverified. No acceptance or score is claimed."
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "toneId": "soft-fill",
+  "toneRevision": "pilot-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 7,
+      "detail": 3
+    },
+    "radii": {
+      "card": 24,
+      "head": 14
+    },
+    "fills": {
+      "body": "ink",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "quiet": 0.3
+    },
+    "layers": {
+      "trace": {
+        "dx": 0,
+        "dy": 0,
+        "opacity": 1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#263551",
+      "surface": "#F7F8FC",
+      "border": "#BAC4D9",
+      "accent": "#586ED0",
+      "deep": "#BCC8F4",
+      "warning": "#B76248"
+    },
+    "dark": {
+      "ink": "#EDF0FD",
+      "surface": "#1B2235",
+      "border": "#536286",
+      "accent": "#AAB8FF",
+      "deep": "#5D6EAA",
+      "warning": "#E4A18B"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "A broad rounded route terminating in a filled soft wedge; avoid fine wire connectors.",
+    "people": "A solid round head and broad shoulder/body silhouette separated by a clear gap.",
+    "empty": "A broad filled chair, vacant between back and seat, accompanied by an explicit empty label.",
+    "pending": "Use a filled clock badge adjacent to the waiting object, with a text label.",
+    "emphasis": "Use a single accent destination or badge and quiet deep-role subordinate forms.",
+    "warning": "Use a labeled warning badge whose shape remains distinct under palette remapping."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Broad rounded filled silhouettes carry objects; do not add perimeter outlines to every form."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Separate overlapping objects by spacing and semantic tonal contrast."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Keep the broad rounded connector subordinate to the main surface; use ink for labels rather than muted shape colors."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      }
+    ]
+  }
+}
