@@ -1,3 +1,10 @@
+import {
+  argumentError,
+  envelope,
+  machineRequested,
+  parseOptions,
+  reportError,
+} from './command-contract.mjs';
 import { isProject, validateProject } from './project.mjs';
 import { resolveToneContext } from './tone-context.mjs';
 import { exportCandidate, loadToneCatalog, validateSession } from './model.mjs';
@@ -10,43 +17,6 @@ const help = {
     'Usage: zudo-diagram-gen tones list [--json]\n       zudo-diagram-gen tones show <id> [--json]',
 };
 
-function parse(args, allowed) {
-  const positionals = [];
-  const options = {};
-  let positionalOnly = false;
-  for (let index = 0; index < args.length; index += 1) {
-    const argument = args[index];
-    if (argument === '--') {
-      positionalOnly = true;
-      continue;
-    }
-    if (positionalOnly || !argument.startsWith('-')) {
-      positionals.push(argument);
-      continue;
-    }
-    const match = argument.match(/^--([^=]+)(?:=(.*))?$/);
-    if (!match || !(match[1] in allowed))
-      throw new Error(`Unknown option ${JSON.stringify(argument)}.`);
-    const [, name, inline] = match;
-    if (Object.hasOwn(options, name))
-      throw new Error(`Option --${name} was supplied more than once.`);
-    if (allowed[name] === 'boolean') {
-      if (inline !== undefined) throw new Error(`Option --${name} does not accept a value.`);
-      options[name] = true;
-    } else {
-      let value = inline;
-      if (value === undefined) {
-        value = args[index + 1];
-        if (!value || value.startsWith('--')) throw new Error(`Option --${name} needs a value.`);
-        index += 1;
-      }
-      if (!value) throw new Error(`Option --${name} needs a nonempty value.`);
-      options[name] = value;
-    }
-  }
-  return { positionals, options };
-}
-
 /** Handle data commands. Rendering/server commands are dispatched by the CLI. */
 export async function runDataCommand(args) {
   const [command, ...rest] = args;
@@ -55,14 +25,31 @@ export async function runDataCommand(args) {
     console.log(help[command]);
     return true;
   }
+  const versioned = rest.some((argument) => argument.startsWith('--json-version'));
+  const machine = machineRequested(rest);
   try {
     if (command === 'check') {
-      const { positionals, options } = parse(rest, { json: 'boolean' });
-      if (positionals.length > 1) throw new Error(help.check);
+      const { positionals, options } = parseOptions(rest, {
+        json: { type: 'boolean' },
+        'json-version': { type: 'string' },
+      });
+      if (positionals.length > 1) throw argumentError(help.check);
       const directory = positionals[0] ?? process.cwd();
       const project = await isProject(directory);
       const result = project ? await validateProject(directory) : await validateSession(directory);
-      if (options.json) console.log(JSON.stringify(result, null, 2));
+      if (versioned)
+        envelope(command, result, {
+          errors: result.ok
+            ? []
+            : [
+                {
+                  code: project ? 'INCOMPLETE_PROJECT' : 'VALIDATION_FAILED',
+                  message: result.errors.join('\n'),
+                },
+              ],
+          warnings: result.warnings.map((message) => ({ code: 'VALIDATION_WARNING', message })),
+        });
+      else if (options.json) console.log(JSON.stringify(result, null, 2));
       else {
         if (project)
           console.log(
@@ -79,34 +66,48 @@ export async function runDataCommand(args) {
       return true;
     }
     if (command === 'export') {
-      const { positionals, options } = parse(rest, {
-        session: 'string',
-        theme: 'string',
-        out: 'string',
-        'resource-root': 'string',
+      const { positionals, options } = parseOptions(rest, {
+        session: { type: 'string' },
+        theme: { type: 'string' },
+        out: { type: 'string' },
+        'resource-root': { type: 'string' },
+        json: { type: 'boolean' },
+        'json-version': { type: 'string' },
       });
-      if (positionals.length !== 1 || !options.out) throw new Error(help.export);
+      if (positionals.length !== 1 || !options.out) throw argumentError(help.export);
+      if (options.theme !== undefined && !['light', 'dark'].includes(options.theme))
+        throw argumentError('--theme must be light or dark.');
       const result = await exportCandidate(options.session ?? process.cwd(), positionals[0], {
         theme: options.theme ?? 'light',
         output: options.out,
         resourceRoot: options['resource-root'],
       });
-      console.log(
-        `Exported ${result.candidateId} (${result.theme}), ${result.bytes} bytes, to ${result.output}`,
-      );
+      if (machine) envelope(command, result);
+      else
+        console.log(
+          `Exported ${result.candidateId} (${result.theme}), ${result.bytes} bytes, to ${result.output}`,
+        );
       return true;
     }
-    const { positionals, options } = parse(rest, { json: 'boolean' });
+    const { positionals, options } = parseOptions(rest, {
+      json: { type: 'boolean' },
+      'json-version': { type: 'string' },
+    });
     const [action, toneId] = positionals;
     if (
       !['list', 'show'].includes(action) ||
       (action === 'list' && positionals.length !== 1) ||
       (action === 'show' && positionals.length !== 2)
     )
-      throw new Error(help.tones);
+      throw argumentError(help.tones);
     const catalog = await loadToneCatalog();
     if (action === 'list') {
-      if (options.json)
+      if (versioned)
+        envelope('tones list', {
+          version: catalog.session.toneCollectionVersion,
+          tones: catalog.tones.map(({ context: _context, ...tone }) => tone),
+        });
+      else if (options.json)
         console.log(
           JSON.stringify(
             {
@@ -125,10 +126,11 @@ export async function runDataCommand(args) {
     } else {
       const tone = catalog.tones.find((item) => item.id === toneId);
       if (!tone)
-        throw new Error(
+        throw argumentError(
           `Unknown tone ${JSON.stringify(toneId)}. Run "zudo-diagram-gen tones list" to see available IDs.`,
         );
-      if (options.json) console.log(JSON.stringify(await resolveToneContext(toneId), null, 2));
+      if (versioned) envelope('tones show', await resolveToneContext(toneId));
+      else if (options.json) console.log(JSON.stringify(await resolveToneContext(toneId), null, 2));
       else {
         console.log(
           `${tone.name} (${tone.id})\nFamily: ${tone.family}\n\n${tone.summary}\n\nDrawing recipe:\n${tone.recipe.map((item) => `- ${item}`).join('\n')}\n\nGood for:\n${tone.goodFor.map((item) => `- ${item}`).join('\n')}\n\nAt small sizes:\n${tone.smallSizeNotes}\n\nExamples relative to the installed package's tones directory:\n- Light: ${tone.referenceFiles.light}\n- Dark: ${tone.referenceFiles.dark}\n\nUse --json to include both complete SVG examples.`,
@@ -141,8 +143,12 @@ export async function runDataCommand(args) {
     }
     return true;
   } catch (error) {
-    console.error(`zudo-diagram-gen: ${error.message}`);
-    process.exitCode = 1;
+    reportError(
+      command === 'tones' ? `tones ${rest[0] ?? ''}` : command,
+      error,
+      versioned || (command === 'export' && machine),
+      !versioned && !(command === 'export' && machine),
+    );
     return true;
   }
 }

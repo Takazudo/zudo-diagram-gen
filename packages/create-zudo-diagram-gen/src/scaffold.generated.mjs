@@ -119,9 +119,14 @@ export async function createProject(options = {}) {
         if ((await readFile(filename, 'utf8')) === content) await rm(filename);
       }),
     );
-    throw new Error(`Could not finish creating ${directory}: ${error.message}`);
+    throw Object.assign(
+      new Error(
+        `Could not finish creating ${directory}: ${error.message}. Preserve remaining files for diagnosis; resume existing content rather than retrying new.`,
+      ),
+      { code: error.code === 'EEXIST' ? 'OUTPUT_CONFLICT' : 'IO_ERROR' },
+    );
   }
-  if (options.install === true) await installDependencies(directory);
+  if (options.install === true) await installDependencies(directory, options.installOutput);
   return {
     directory,
     name: nameSlug,
@@ -148,7 +153,9 @@ async function assertEmptyDestination(directory) {
   while (true) {
     try {
       if ((await lstat(ancestor)).isSymbolicLink())
-        throw new Error(`Destination ancestor is a symbolic link: ${ancestor}.`);
+        throw Object.assign(new Error(`Destination ancestor is a symbolic link: ${ancestor}.`), {
+          code: 'RESOURCE_UNSAFE',
+        });
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
@@ -164,11 +171,20 @@ async function assertEmptyDestination(directory) {
     throw error;
   }
   if (entry.isSymbolicLink())
-    throw new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`);
-  if (!entry.isDirectory()) throw new Error(`Destination is not a directory: ${directory}.`);
+    throw Object.assign(
+      new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`),
+      { code: 'RESOURCE_UNSAFE' },
+    );
+  if (!entry.isDirectory())
+    throw Object.assign(new Error(`Destination is not a directory: ${directory}.`), {
+      code: 'OUTPUT_CONFLICT',
+    });
   if ((await readdir(directory)).length) {
-    throw new Error(
-      `Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`,
+    throw Object.assign(
+      new Error(
+        `Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`,
+      ),
+      { code: 'OUTPUT_CONFLICT' },
     );
   }
 }
@@ -355,11 +371,11 @@ Keep the selected SVG and its IDs stable once reviewed. Add refinements in later
 The initializer pins the engine version unless --engine-package supplied another dependency. A local file: tarball dependency must remain at its recorded path until installation completes. For an unpublished handoff, keep that tarball available when reinstalling, or initialize again with its new absolute path. Once the package is published, change that dependency to a published version when you intentionally upgrade.
 `;
 
-async function installDependencies(directory) {
+async function installDependencies(directory, output = 'inherit') {
   await new Promise((resolve, reject) => {
     const child = spawn('pnpm', ['install'], {
       cwd: directory,
-      stdio: 'inherit',
+      stdio: output === 'stderr' ? ['inherit', 2, 2] : 'inherit',
       shell: process.platform === 'win32',
     });
     child.once('error', (error) =>

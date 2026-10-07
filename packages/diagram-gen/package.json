@@ -19,7 +19,8 @@
       "default": "./client/mount.mjs"
     },
     "./client/app.css": "./client/app.css",
-    "./schemas/*": "./schemas/*"
+    "./schemas/*": "./schemas/*",
+    "./skills/diagram-gen/*": "./skills/diagram-gen/*"
   },
   "bin": {
     "zudo-diagram-gen": "./src/cli.mjs"
@@ -33,6 +34,7 @@
     "client",
     "tones",
     "schemas",
+    "skills",
     "README.md",
     "LICENSE"
   ],

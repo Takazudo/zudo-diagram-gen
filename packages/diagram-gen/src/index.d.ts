@@ -182,6 +182,7 @@ export function createProject(options?: {
   name?: string;
   enginePackage?: string;
   install?: boolean;
+  installOutput?: 'inherit' | 'stderr';
   project?: boolean;
   brief?: string;
   sessions?: Array<{
