@@ -1,0 +1,12 @@
+{
+  "correction": "correction-1",
+  "scope": "Added four common-palette surface (#FFFFFF) backing rectangles immediately before the A/B/C/D seat status labels in empty-seats.svg. No text, font, position, factual relationship, palette or existing geometry was altered.",
+  "preservedOriginals": true,
+  "otherFourFiles": "Copied byte-identically from the initial outputs.",
+  "checks": [
+    "All five files parse as XML.",
+    "Other four SVG files are byte-identical.",
+    "Empty-seats text content and all original non-rectangle elements are unchanged."
+  ],
+  "limitations": "Correction source checked; no rendered-output acceptance or user approval claimed."
+}

@@ -1,0 +1,57 @@
+{
+  "tone": "paper-layers",
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json"
+  ],
+  "deliberateDepartures": [
+    "Common light semantic palette replaces the warm example colors, as required by the common briefs.",
+    "Japanese labels use Noto Sans CJK JP, sans-serif; no decorative serif lettering is carried over.",
+    "Backing sheets use subtle rotations while foreground label text stays upright. Four repeating arches per row and two rows remain visible outside each label plane.",
+    "Small chair, clock, check and empty-box primitives omit repeated motifs to preserve recognition; their enclosing paper objects carry the layered construction.",
+    "Long担当 labels fit on a single clear foreground line at 18 CSS px instead of wrapping.",
+    "Each image uses the session target dimensions directly; outer placement-frame headings and margins belong to the supplied host context and are not duplicated."
+  ],
+  "fontVerification": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actuallyUsed": "Not confirmed by a target renderer. No fonts are embedded or distributed.",
+    "fallbackAndMissingGlyphUncertainty": "Host font availability and Japanese glyph coverage were not verified; fallback remains possible."
+  },
+  "checksPerformed": [
+    "All five SVGs parsed as XML.",
+    "Original light and dark example PNGs were actually viewed.",
+    "Authored at target dimensions with explicit viewBox, accessible title and description."
+  ],
+  "limitations": [
+    "No rendered target-size visual acceptance or user approval is claimed. Font selection and glyph coverage require host rendering."
+  ]
+}

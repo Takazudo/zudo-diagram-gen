@@ -1,0 +1,62 @@
+{
+  "tone": "pencil-notebook",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/kit.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "examplePNGsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "The common light semantic palette replaces the example and scheme palettes, as explicitly required.",
+    "All essential Japanese text is upright Noto Sans CJK JP, sans-serif rather than the Latin example’s handwritten family or rotated glyphs.",
+    "Target-sized layouts replace the reference composition. Sparse kit crosshatch fields, retraced contours and open pencil arrows retain the construction.",
+    "Notebook ruling is reduced to 0.15 opacity and masked behind all label planes.",
+    "Nonessential people and detailed pictograms are omitted. Empty-chair interiors and the empty return-box interior remain clear."
+  ],
+  "fontUse": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Not verified; SVG text remains editable and depends on the host font installation.",
+    "uncertainty": "No font is embedded. Fallback choice and missing Japanese glyphs cannot be confirmed without rendering in the eventual host."
+  },
+  "checks": [
+    "Parsed all five SVGs as XML.",
+    "Checked exact locked labels, including concatenated multiline担当 names.",
+    "Used explicit target-sized viewBoxes and accessible title/description."
+  ],
+  "limitations": [
+    "No browser or host-placement rendering performed in this independent run.",
+    "No evaluator feedback, visual acceptance, or user approval inferred."
+  ]
+}

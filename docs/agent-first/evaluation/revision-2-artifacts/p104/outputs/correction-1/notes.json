@@ -1,0 +1,16 @@
+{
+  "lineage": "correction-1",
+  "scope": "Only the D-seat selection-impossible annotation readability defect in empty-seats.svg.",
+  "change": "Inserted a white surface-role backing at x=258, y=203, width=62, height=18 immediately behind D-seat 選択不可. The backing separates the annotation from the lower crossed hatch field without moving text, clock, seat or contours.",
+  "preserved": "All five initial SVGs unchanged. Other four correction SVGs byte-identical to their initial versions. All labels, facts, palette, pending identity and construction preserved.",
+  "resourcesActuallyUsed": [
+    "correction-1-feedback.txt",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg"
+  ],
+  "checks": "All five correction SVGs parse as XML. Byte comparisons verify four unchanged copies and precisely one rect insertion in empty-seats.",
+  "limitations": "No captured empty-seats PNG was present at the inspected run/output top level; no generated visual inspection or acceptance claim. Actual font rendering remains unverified."
+}
