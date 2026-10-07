@@ -52,3 +52,5 @@ Overlapping translucent glass planes with selected luminous rim halos; crisp opa
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Both original variants are intrinsically dark. Remapping to a light surface requires independent contrast review; small slots lose halo character.
+
+The alternate light-surface evidence palette weakens the intrinsic dark luminous atmosphere; translucent overlaps and restrained edge highlights remain recognizable. Palette remapping is not a claim of identical character across appearances.

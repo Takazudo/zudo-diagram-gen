@@ -33,7 +33,7 @@
     },
     {
       "toneId": "isometric-solid",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "scheme": "isometric-solid/scheme.json",
       "kit": "isometric-solid/kit.svg",
       "recipeSummaryTemplates": [
@@ -73,7 +73,7 @@
     },
     {
       "toneId": "marker-workshop",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "scheme": "marker-workshop/scheme.json",
       "kit": "marker-workshop/kit.svg",
       "recipeSummaryTemplates": [

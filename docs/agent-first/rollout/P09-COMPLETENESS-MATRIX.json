@@ -26,7 +26,7 @@
         "light": "0a3a99538ab8215228b23eb8273447b5facd83b30b21be48dbf53eb44a5d8657",
         "dark": "2128248458bd51c0cb85d84e94df8e4d97bf1e0d0c8e020de378ce04046b25e2"
       },
-      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionTemplateHash": "14a7996bf9b9ac32de4d19ec0cc86e5cfcb623aad69094f416ae7692112bceb9",
       "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
       "sourceHash": "40985d62c15a75d9cd0136c5350544afeb5e0122fec54c1ceec11a40900f1a55",
       "recipeHash": "40af90ee8412c0bb625172000c370f8ef5eaf3db8a0fcb1a5f1c00efb44666a8",
@@ -55,7 +55,7 @@
       "evidenceRecords": [
         {
           "name": "fine-outline-composition-native-light",
-          "assetHash": "db9848e757287e9041afbdac876f58f60df286b7b90772719d7445cbf7f6a444",
+          "assetHash": "77d0ece8babcac55888c0fbc06548a314de1d65dc5fa74aa57b5e0d351860460",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -69,7 +69,7 @@
         },
         {
           "name": "fine-outline-composition-native-dark",
-          "assetHash": "c554decfee1a019ea163a59a10b7e5bc6a49e46c2ab57a899862762026f70630",
+          "assetHash": "8d74f118ec908be98935c3023a9eea1c0230f037cfdc69d48c6a4dff6a23229b",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -83,7 +83,7 @@
         },
         {
           "name": "fine-outline-composition-alternate-light",
-          "assetHash": "10309f39d222721a0aaba39a0c35e4f9bebaa3edc334dabf3a3ecc8f2b767023",
+          "assetHash": "61dba692faeee74aa4ad936cde5307c2c6ebc99947e800659f85390d6821913c",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -97,7 +97,7 @@
         },
         {
           "name": "fine-outline-composition-alternate-dark",
-          "assetHash": "2063a2f29ccc136d548d265244c010400e656ccdac5ae3171e89f3cb552c6f02",
+          "assetHash": "9cdb72847273916f8d3bfb7351ac0fb64981b29bb83e1c5f52175db03a9a7363",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -111,7 +111,76 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "fine-outline",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "fine-outline-composition-native-light.png",
+            "pngHash": "756dc6ace0030c5277e6df7fb9ef8a2a3ab09317237b928eb8344eb5e169ada9",
+            "assetHash": "db9848e757287e9041afbdac876f58f60df286b7b90772719d7445cbf7f6a444",
+            "viewedAt": "2026-10-07T23:51:41.112842+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "fine-outline-composition-native-dark.png",
+            "pngHash": "a9ca4c7bdbb46c86826efeaa056949046346484072735bc5e9ea36533b49bd0b",
+            "assetHash": "c554decfee1a019ea163a59a10b7e5bc6a49e46c2ab57a899862762026f70630",
+            "viewedAt": "2026-10-07T23:51:41.112867+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "fine-outline-composition-alternate-light.png",
+            "pngHash": "9e7712319633d1a3000c5031812f79cddbae449a8439beccbf7a7360f23e141c",
+            "assetHash": "10309f39d222721a0aaba39a0c35e4f9bebaa3edc334dabf3a3ecc8f2b767023",
+            "viewedAt": "2026-10-07T23:51:41.112874+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "fine-outline-composition-alternate-dark.png",
+            "pngHash": "b7c5c007f09d3423bd52b28cca360a633726072d68c1fd046eaf85e5babb40d1",
+            "assetHash": "2063a2f29ccc136d548d265244c010400e656ccdac5ae3171e89f3cb552c6f02",
+            "viewedAt": "2026-10-07T23:51:41.112879+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          }
+        ],
+        "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+        "revisedDecision": "pending actual recapture and inspection"
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -140,7 +209,7 @@
         "light": "6e3b0168c75081139d90454a7f60d33c1f7ecc288683e5c4bc3d2a5a5bce43e8",
         "dark": "62517a90f458cc7525a54f9e7de8ccd050497b864f7575db7c5ca796139d7820"
       },
-      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionTemplateHash": "14a7996bf9b9ac32de4d19ec0cc86e5cfcb623aad69094f416ae7692112bceb9",
       "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
       "sourceHash": "8bd36705a7460818f0bc2b7bed4a6296ed3b78a8c8ba7b0942b420a176e833b9",
       "recipeHash": "2a6c587e457cf72addf66748b0263a16f9258f9b14ad2982f74ff55bbd1c5e5e",
@@ -169,7 +238,7 @@
       "evidenceRecords": [
         {
           "name": "soft-fill-composition-native-light",
-          "assetHash": "c3fe38b63d1b3d61bcd3e072458fc17a9e06f28ad898d72c4e42a9e618077541",
+          "assetHash": "146599bc0c40878effd8632e19d075d95a079ab3dc05029b8e2091c5f85e5917",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -183,7 +252,7 @@
         },
         {
           "name": "soft-fill-composition-native-dark",
-          "assetHash": "bc0a325b625ca7d15eb248563b9ad771c9e284579caf08bd891fb27d2b66c4de",
+          "assetHash": "52a2301759700cef28cc5686479bb1b7f8aec18b263aa9f5d499f6b148429439",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -197,7 +266,7 @@
         },
         {
           "name": "soft-fill-composition-alternate-light",
-          "assetHash": "4583bdab4ed12efd59c83d5d5b513be186cf288cacb95cc3a67993f5b595df71",
+          "assetHash": "07c05a2dcfea6ddf921b3675859e16b068f49b45305f4a6a43f0894234e73aec",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -211,7 +280,7 @@
         },
         {
           "name": "soft-fill-composition-alternate-dark",
-          "assetHash": "d8b54e440e0ee24fcd0ac36287d0d94ab0cdfeae7fe04146c96f534255ab5698",
+          "assetHash": "bd99cad1ffab69b1aec3831744f22e776b0d1b2234c614c26e4b024074b57597",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -225,7 +294,76 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "soft-fill",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "soft-fill-composition-native-light.png",
+            "pngHash": "f9ce63c09f81e953e73d7573aba55f3cd4d34eea2b2d2311d2b7322d7687daa8",
+            "assetHash": "c3fe38b63d1b3d61bcd3e072458fc17a9e06f28ad898d72c4e42a9e618077541",
+            "viewedAt": "2026-10-07T23:51:41.112883+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "soft-fill-composition-native-dark.png",
+            "pngHash": "9ee6b59330b16d4af7ca91504d9a2b6c80852ba9c14a343ce2ff954dca9988f2",
+            "assetHash": "bc0a325b625ca7d15eb248563b9ad771c9e284579caf08bd891fb27d2b66c4de",
+            "viewedAt": "2026-10-07T23:51:41.112888+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "soft-fill-composition-alternate-light.png",
+            "pngHash": "58eaf321a858b1c02e673039f9ad5508e7e351dd3eeaef19df12958f8bb84222",
+            "assetHash": "4583bdab4ed12efd59c83d5d5b513be186cf288cacb95cc3a67993f5b595df71",
+            "viewedAt": "2026-10-07T23:51:41.112894+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "soft-fill-composition-alternate-dark.png",
+            "pngHash": "caef58340c30d1083176919c93dfb308ab6c3162a9b633f20a25ad3248924bbc",
+            "assetHash": "d8b54e440e0ee24fcd0ac36287d0d94ab0cdfeae7fe04146c96f534255ab5698",
+            "viewedAt": "2026-10-07T23:51:41.112899+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+            "contrast": null
+          }
+        ],
+        "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+        "revisedDecision": "pending actual recapture and inspection"
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -340,6 +478,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -454,6 +593,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -578,6 +718,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -692,6 +833,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -806,6 +948,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -930,6 +1073,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1044,6 +1188,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1168,14 +1313,15 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
     {
       "toneId": "isometric-solid",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+      "schemeHash": "40d251da05cd923c89c20f00c236dda88e32741ef2527cccaff34fb877011d8b",
       "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
       "bundledReferenceHashes": [
         {
@@ -1188,18 +1334,18 @@
         },
         {
           "id": "recipe",
-          "hash": "ea22827941f42be892cb98add352efa79f4893367611a23a4e36ea0dfffff5ca"
+          "hash": "8cf6f614de02f77c592aeb26e07fb17e0561e27450ed8be78829f6c4abd32f64"
         }
       ],
-      "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca",
+      "contextHash": "da9e80175dc5d647493222c1c798e5070ba108d7695c2aee000cc80cfb965f42",
       "originalReferenceHashes": {
         "light": "6796d2721eab23e6a8edec56425408e79369d1d6d26e818777b99d4e63915fb8",
         "dark": "ff32483632b40e99e049be74cc3e4a23b0652e36b3aff013e9f58d9422dd0514"
       },
-      "compositionTemplateHash": "67e17a146b556f4de687fbc4ecb66e26f2a98a95abd1448b5445ff12b47501da",
+      "compositionTemplateHash": "8848315e73ab6e58c174670492b62363343e72a1bca6201d19d2b11539925dc0",
       "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
       "sourceHash": "266d7d1ebc67afda7b8e9efd61f2be96dd156e35641f0ac0d7c4c340ac9c552f",
-      "recipeHash": "ea22827941f42be892cb98add352efa79f4893367611a23a4e36ea0dfffff5ca",
+      "recipeHash": "8cf6f614de02f77c592aeb26e07fb17e0561e27450ed8be78829f6c4abd32f64",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -1235,7 +1381,7 @@
       "evidenceRecords": [
         {
           "name": "isometric-solid-composition-native-light",
-          "assetHash": "3aeceecc9f0d908d607e5dc21063bcd92da93f1961e09d4c54f21d4f31ac9f02",
+          "assetHash": "120694c3598a9153db0d148dfb8404c3393425519092c9cce2e69fc7181029a1",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -1249,7 +1395,7 @@
         },
         {
           "name": "isometric-solid-composition-native-dark",
-          "assetHash": "e86d147abc0b044bb5999feb422cbca7a5542c485d63aea10a83599eb82cf557",
+          "assetHash": "c4f029d79336b88d9e8d14da17540b0e426fb788c7bad65902cd9fd23d913b7c",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -1263,7 +1409,7 @@
         },
         {
           "name": "isometric-solid-composition-alternate-light",
-          "assetHash": "73e12e085d0a22489a8b6a06ac67ad6f6b6dbd0839eccaa7f709d8f385bc40c0",
+          "assetHash": "a47c2db5189b7e0dc83d67ba0803aa95337ec796329f2b23da5b7dd1e91e3898",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1277,7 +1423,7 @@
         },
         {
           "name": "isometric-solid-composition-alternate-dark",
-          "assetHash": "229157108e501b594b9fbc05b187efe33156c8fc8c5959fc4ac5b6d7f5ce6f3e",
+          "assetHash": "25f85cf32527b869b2f26c45ad4b94bf2d167bd598dfa260ef20866437231d5d",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1291,7 +1437,43 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "isometric-solid",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-primary-texture-review.json",
+            "image": "isometric-solid-composition-alternate-light.png",
+            "pngHash": "e7fdbf3a21540c431799cf28940711b97ff4ee74ee12f4705c1f4cffe22bf018",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:47:05.455Z",
+            "readability": 2,
+            "character": 4,
+            "facts": {
+              "inventedFacts": 0,
+              "omissions": 0,
+              "reversedRelationships": 0,
+              "lockViolations": 0,
+              "checklist": [
+                "two-participants",
+                "one-shared-card",
+                "one-visibly-empty-seat",
+                "left-to-right-participant-card-seat-route",
+                "pending-clock-distinct-from-complete-check",
+                "warning-present",
+                "long-upright-label-two-lines"
+              ]
+            },
+            "notes": "Material contrast defect: card shadow crosses both long reservation-label lines; seat shadow crosses 空席. Dark glyphs on slate shadow lose contrast.",
+            "contrast": "Material defect"
+          }
+        ],
+        "correction": "Projected shadow footprints moved above long instruction and vacancy label, preserving native facets.",
+        "revisedDecision": "pending actual recapture and inspection",
+        "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten."
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1320,7 +1502,7 @@
         "light": "af6e4f698df9a870142ba9f770e06c5608ed29dffdb8a5bff90cc9bdcb2c18be",
         "dark": "77692c9c831bbf9c010a031aefde10e9bf709078c5d4016e93fe1413bc7557ef"
       },
-      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionTemplateHash": "14a7996bf9b9ac32de4d19ec0cc86e5cfcb623aad69094f416ae7692112bceb9",
       "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
       "sourceHash": "0a2bd1c654ce4541c440b75971802e6d3e966b66da5539bebb4eba73a937dc0b",
       "recipeHash": "f07882c249bfb4bd0141d985f780af46fa3eaafcfd62c554437b56a07757c164",
@@ -1361,7 +1543,7 @@
       "evidenceRecords": [
         {
           "name": "paper-layers-composition-native-light",
-          "assetHash": "fa2b754b30a0b9212e61ef568cb3e7a596bbae7eb76ad14abc2f1b41ce7fb09f",
+          "assetHash": "4675594f35e8a8ea7572e57c2a98d6df3d3e049dcfaed200e5730a8eb0f7cd82",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -1375,7 +1557,7 @@
         },
         {
           "name": "paper-layers-composition-native-dark",
-          "assetHash": "19da0b6f43de776af779140f75cbf04b6f9bdb0b5ad5847fa3f5e3685d84a592",
+          "assetHash": "de46717b97262ee52c4b489372a2bfd75d808c17af07f34342ce5a5d699b349e",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -1389,7 +1571,7 @@
         },
         {
           "name": "paper-layers-composition-alternate-light",
-          "assetHash": "666ed9745f98e81b6335651d8f7c164ccffa045df4210a433239923985466459",
+          "assetHash": "ace33a0196ed2976656179267c878d47f8be1e5ad71d0c56ad03219385b1b6f7",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1403,7 +1585,7 @@
         },
         {
           "name": "paper-layers-composition-alternate-dark",
-          "assetHash": "658ac294c7210aa6645ec81a8c4d6946fe5eef0fc61e1d81df65454ac5abdf29",
+          "assetHash": "126f8a63aae3525c1c43830eae84fa51a6a5576c73234592d9098ac0d661d65b",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1417,7 +1599,136 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "paper-layers",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "paper-layers-composition-native-light.png",
+            "pngHash": "56d3abd6d09afe1e306cebc988e754cd441c1ccb0499965ff0f76c03d7241caa",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:05.553Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+            "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "paper-layers-composition-native-dark.png",
+            "pngHash": "d280e8a2ed59dbaad238fc20a5eea026075684be6ed95938c66d05d1f03a0a41",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:06.349Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+            "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "paper-layers-composition-alternate-light.png",
+            "pngHash": "a9fa6a0cbb366afeef6853af6bf5b1fd55b064bc03a1af44471afd15aba62af9",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:07.144Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+            "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "paper-layers-composition-alternate-dark.png",
+            "pngHash": "a3086d2bb9343feb2be7f3477a39cc5a31e4f759a5f7b7e02e02afed9964477f",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:07.962Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+            "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "paper-layers-composition-native-light.png",
+            "pngHash": "56d3abd6d09afe1e306cebc988e754cd441c1ccb0499965ff0f76c03d7241caa",
+            "assetHash": "fa2b754b30a0b9212e61ef568cb3e7a596bbae7eb76ad14abc2f1b41ce7fb09f",
+            "viewedAt": "2026-10-07T23:52:06.798421+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "paper-layers-composition-native-dark.png",
+            "pngHash": "d280e8a2ed59dbaad238fc20a5eea026075684be6ed95938c66d05d1f03a0a41",
+            "assetHash": "19da0b6f43de776af779140f75cbf04b6f9bdb0b5ad5847fa3f5e3685d84a592",
+            "viewedAt": "2026-10-07T23:52:06.798439+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "paper-layers-composition-alternate-light.png",
+            "pngHash": "a9fa6a0cbb366afeef6853af6bf5b1fd55b064bc03a1af44471afd15aba62af9",
+            "assetHash": "666ed9745f98e81b6335651d8f7c164ccffa045df4210a433239923985466459",
+            "viewedAt": "2026-10-07T23:52:06.798445+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "paper-layers-composition-alternate-dark.png",
+            "pngHash": "a3086d2bb9343feb2be7f3477a39cc5a31e4f759a5f7b7e02e02afed9964477f",
+            "assetHash": "658ac294c7210aa6645ec81a8c4d6946fe5eef0fc61e1d81df65454ac5abdf29",
+            "viewedAt": "2026-10-07T23:52:06.798455+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          }
+        ],
+        "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+        "revisedDecision": "pending actual recapture and inspection"
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1446,7 +1757,7 @@
         "light": "9a53eef08f3eea27dfa87dff93e4fa009bc2fe6664583b793635933ca73c41e7",
         "dark": "57513bc3fca5696d727f0b83e3366ebcd8285d8218cac761409ff4ccb12c9a5e"
       },
-      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionTemplateHash": "14a7996bf9b9ac32de4d19ec0cc86e5cfcb623aad69094f416ae7692112bceb9",
       "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
       "sourceHash": "6e0f710d835da7154dbe9488fcb95be89378f003e58ec0fb24a58a7612655ed0",
       "recipeHash": "0a9603285a3381e5f198eac6efd6ec5383370b6222323c88532e3ed586f28d08",
@@ -1488,7 +1799,7 @@
       "evidenceRecords": [
         {
           "name": "pencil-notebook-composition-native-light",
-          "assetHash": "730cb3f36e3fbdaec91fee294c34022f9fe23d10bd0b6eaed6f354e8620c806d",
+          "assetHash": "26df7aa4196d43452abfd3f3db7ef24be2f415a0ae773754d5b37503bd4799ab",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -1502,7 +1813,7 @@
         },
         {
           "name": "pencil-notebook-composition-native-dark",
-          "assetHash": "652792b1d38c7cd81204de8e5d70b749d462dc236b8a45c529810621fd9c2051",
+          "assetHash": "1a7ded6b77f4ad4c67e6ca28c0550ff3df6238abe70e37fcf83a3d6b9e8df34d",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -1516,7 +1827,7 @@
         },
         {
           "name": "pencil-notebook-composition-alternate-light",
-          "assetHash": "7db7384f22763bda9083cd8797f43c76114d345af2b7dd2ef30cd3fdc181dde8",
+          "assetHash": "34b574010322534d41ea99b0ebfa5f7243672a30041dfc351e6badf71f6d741f",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1530,7 +1841,7 @@
         },
         {
           "name": "pencil-notebook-composition-alternate-dark",
-          "assetHash": "84569f02e4fb9a108347c173f793ef5a233c80335e716dbc56191ea74230e630",
+          "assetHash": "7324930de9b1ed707ef706a6aeda9c3cfa094c3d39710bbf55acb13dfcd8feab",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1544,15 +1855,144 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "pencil-notebook",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "pencil-notebook-composition-native-light.png",
+            "pngHash": "f9de53e383c77ed573b08754942e04c556df0cee823f7b88d7f07efef4e1cada",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:34.713Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+            "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "pencil-notebook-composition-native-dark.png",
+            "pngHash": "6ce16aad00285a7442ae45e95643476a2e50fcba8782ff4b006d589e820d6980",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:35.542Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+            "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "pencil-notebook-composition-alternate-light.png",
+            "pngHash": "80589ad3998990e136373bf02b6ce915491d28a3847dec56e948977a409eac9d",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:36.375Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+            "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "pencil-notebook-composition-alternate-dark.png",
+            "pngHash": "f51a6024187b9cabc9f32372e4373518cef73f993c91a9c5a0d693b3b2faeb90",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:49:37.211Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": 0
+            },
+            "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+            "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "pencil-notebook-composition-native-light.png",
+            "pngHash": "f9de53e383c77ed573b08754942e04c556df0cee823f7b88d7f07efef4e1cada",
+            "assetHash": "730cb3f36e3fbdaec91fee294c34022f9fe23d10bd0b6eaed6f354e8620c806d",
+            "viewedAt": "2026-10-07T23:52:06.798460+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "pencil-notebook-composition-native-dark.png",
+            "pngHash": "6ce16aad00285a7442ae45e95643476a2e50fcba8782ff4b006d589e820d6980",
+            "assetHash": "652792b1d38c7cd81204de8e5d70b749d462dc236b8a45c529810621fd9c2051",
+            "viewedAt": "2026-10-07T23:52:06.798464+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "pencil-notebook-composition-alternate-light.png",
+            "pngHash": "80589ad3998990e136373bf02b6ce915491d28a3847dec56e948977a409eac9d",
+            "assetHash": "7db7384f22763bda9083cd8797f43c76114d345af2b7dd2ef30cd3fdc181dde8",
+            "viewedAt": "2026-10-07T23:52:06.798469+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          },
+          {
+            "sourceReport": "p09-root-pilot-initial-inspection.json",
+            "image": "pencil-notebook-composition-alternate-dark.png",
+            "pngHash": "f51a6024187b9cabc9f32372e4373518cef73f993c91a9c5a0d693b3b2faeb90",
+            "assetHash": "84569f02e4fb9a108347c173f793ef5a233c80335e716dbc56191ea74230e630",
+            "viewedAt": "2026-10-07T23:52:06.798567+00:00",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 1,
+              "factualOmissions": null
+            },
+            "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+            "contrast": null
+          }
+        ],
+        "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+        "revisedDecision": "pending actual recapture and inspection"
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
     {
       "toneId": "marker-workshop",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+      "schemeHash": "9300b71121f98d9258150a584f55ba0f238d1541ea983e7320d90e11d937bd71",
       "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
       "bundledReferenceHashes": [
         {
@@ -1565,18 +2005,18 @@
         },
         {
           "id": "recipe",
-          "hash": "ee8a87a999491ff701e0329fef24896b7d85bf66ffa8b6fcb2e93426f3f84932"
+          "hash": "a84ad9c68cfb90bf0ad2c7c8087b697f93c515a63cc519ec4bd50bba8b0083d7"
         }
       ],
-      "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445",
+      "contextHash": "3c186995da5c49daf7908cdb24169ba9809de39e6de2c527172857940f32bf10",
       "originalReferenceHashes": {
         "light": "79e40458bb5ef44e9d33d57c86bf7191934b308eaea0d50a519f1a7cf4b6e61d",
         "dark": "9c82add3309956e2d2d956ef306176c4dc018c944788e8e8508a43daabc4b562"
       },
-      "compositionTemplateHash": "af7e5b6755821b4f005e327ed35255bfbefb0123a86ec9eec0fbaac96aa06759",
+      "compositionTemplateHash": "abe843b7193e74faa4a89c2639ac6238b02f23712f9d6e19485a2226a8a3c3b7",
       "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
       "sourceHash": "1eaa6489f88c5c411d045872f6ccba406d37a183d4dabc9977770450f2a50938",
-      "recipeHash": "ee8a87a999491ff701e0329fef24896b7d85bf66ffa8b6fcb2e93426f3f84932",
+      "recipeHash": "a84ad9c68cfb90bf0ad2c7c8087b697f93c515a63cc519ec4bd50bba8b0083d7",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -1612,7 +2052,7 @@
       "evidenceRecords": [
         {
           "name": "marker-workshop-composition-native-light",
-          "assetHash": "ba5a052dfcc97e900f52304acfb1265860108f8b2c335dc5985f0fcc496bf66f",
+          "assetHash": "a14193932b99251abbf1d494cf051792ea5708c67e542c4fdf7afb734595f75b",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -1626,7 +2066,7 @@
         },
         {
           "name": "marker-workshop-composition-native-dark",
-          "assetHash": "f58be1d3fd845be712e4471248a5b0a8b92849993393ee26297a2d267f9d9d65",
+          "assetHash": "fcff270a5154f7ffc7d97f08f68b0d5949e27b10c499508006f9544ff70d2249",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -1640,7 +2080,7 @@
         },
         {
           "name": "marker-workshop-composition-alternate-light",
-          "assetHash": "d32998d1b9e2ab33223a7aea5aa59ba5c2a0d510f45130ef186c2d72eb29947f",
+          "assetHash": "be2acbc6fa911348056a42f90b70683fecebc1e3ea195ff4cbcf969631c7d95a",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1654,7 +2094,7 @@
         },
         {
           "name": "marker-workshop-composition-alternate-dark",
-          "assetHash": "cd9502ecfc0c1b3cd5420e5ca25fb827aeb219e6281d31fd92f1c4059aefb7d3",
+          "assetHash": "3b72672ca0ae6a8c6d8efdeed9056faa0430e12c2f2639321c09fc9dd743c227",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -1668,7 +2108,57 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "initial-failed; revised-inspection-pending",
+      "visualHistory": {
+        "toneId": "marker-workshop",
+        "initialDecision": "failed; revise",
+        "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+        "failedInitialRecords": [
+          {
+            "sourceReport": "p09-primary-texture-review.json",
+            "image": "marker-workshop-composition-native-dark.png",
+            "pngHash": "3fd6eb110c9957f4be04050acb3c4ea884968a8410a722fdabf4ee2d4a13b2e6",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:48:32.001Z",
+            "readability": 2,
+            "character": 4,
+            "facts": {
+              "inventedFacts": 0,
+              "omissions": 0,
+              "reversedRelationships": 0,
+              "lockViolations": 0,
+              "checklist": [
+                "two-participants",
+                "one-shared-card",
+                "one-visibly-empty-seat",
+                "left-to-right-participant-card-seat-route",
+                "pending-clock-distinct-from-complete-check",
+                "warning-present",
+                "long-upright-label-two-lines"
+              ]
+            },
+            "notes": "Warning 予約変更に注意 is dark brown/orange against near-black olive background, materially low contrast.",
+            "contrast": "Material defect"
+          },
+          {
+            "sourceReport": "p09-independent-visual-review.json",
+            "image": "marker-workshop-composition-native-dark.png",
+            "pngHash": "3fd6eb110c9957f4be04050acb3c4ea884968a8410a722fdabf4ee2d4a13b2e6",
+            "assetHash": null,
+            "viewedAt": "2026-10-07T23:47:46.266Z",
+            "readability": 2,
+            "character": 3,
+            "facts": {
+              "factualErrors": 0,
+              "factualOmissions": 0
+            },
+            "notes": "Composition required counts, labels and state distinctions visually present.",
+            "contrast": "Warning 予約変更に注意 has inadequate visual contrast against charcoal; essential warning difficult to read."
+          }
+        ],
+        "correction": "Warning words use ink with a warning-role hand triangle and ink outline, preserving marker colors.",
+        "revisedDecision": "pending actual recapture and inspection"
+      },
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1676,7 +2166,7 @@
       "toneId": "chalkboard",
       "toneRevision": "rollout-1",
       "collectionVersion": "0.1.0",
-      "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+      "schemeHash": "1689213d7329282a1b480db544fe078e61607f05e3a030d6e9de585b971b29a7",
       "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
       "bundledReferenceHashes": [
         {
@@ -1689,10 +2179,10 @@
         },
         {
           "id": "recipe",
-          "hash": "5ebc86a16a3904db902a1119597db42c7c648cb2ec80a2720dc02f05beb1053c"
+          "hash": "490464fe97c473d6956c858e6d57dd5ad8884976d108bc0fc8f6bbaa71644e5c"
         }
       ],
-      "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa",
+      "contextHash": "144104d7ff2067fea8d4c6f1e3296cfbe89a6d7f650655c4a5493b65bc2ca0a0",
       "originalReferenceHashes": {
         "light": "c1dbbf605f80fdf881aa62a2a6f9acc779d8c16cf95e5ea9a1cc151f77838fa3",
         "dark": "1dd0379f31e2b439a5a9d581cc0d98b7fe3e9f39a761d2f29b486141ff9e5f56"
@@ -1700,7 +2190,7 @@
       "compositionTemplateHash": "7c9eac618b07076816e975ddf909b34fd45f6e0341d6b3b545c05c953e273c2c",
       "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
       "sourceHash": "9df7600d9152ca753dbe1b329db46e347ff3b395b2e2ae637df309f5dc85b8af",
-      "recipeHash": "5ebc86a16a3904db902a1119597db42c7c648cb2ec80a2720dc02f05beb1053c",
+      "recipeHash": "490464fe97c473d6956c858e6d57dd5ad8884976d108bc0fc8f6bbaa71644e5c",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -1793,6 +2283,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -1917,6 +2408,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2041,6 +2533,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2165,6 +2658,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2279,6 +2773,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2393,6 +2888,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2507,6 +3003,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2621,6 +3118,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2735,6 +3233,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     },
@@ -2755,10 +3254,10 @@
         },
         {
           "id": "recipe",
-          "hash": "ff165b31ac31777c0c6168f6e59a31338731587e69c015078733ba5a69d392f9"
+          "hash": "9b820f2c10e58891e7fac6e80956300d12f24c2df8208f9af83666c5cb473c50"
         }
       ],
-      "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f",
+      "contextHash": "5922180dc2b5d30821a5d39a6ac283dba35d0e51f1b262a52e685740a89789ed",
       "originalReferenceHashes": {
         "light": "8be407aa7deca88ff2e3693bc0282f039f0226b9d37a635c9650bc9185290fad",
         "dark": "87502f64dbd04370b894f6095dbb23763db8014472380e3444e83fea8d2fd990"
@@ -2766,7 +3265,7 @@
       "compositionTemplateHash": "0cadea895382d573fa267fda9176961c14839ba0f8dd57b9b36e94ca43b80c01",
       "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
       "sourceHash": "808bd77c9a5d107a50b6f9b7780899e5019f329dc9f4799228ca01ccf319e499",
-      "recipeHash": "ff165b31ac31777c0c6168f6e59a31338731587e69c015078733ba5a69d392f9",
+      "recipeHash": "9b820f2c10e58891e7fac6e80956300d12f24c2df8208f9af83666c5cb473c50",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -2859,6 +3358,7 @@
       ],
       "structuralValidation": "passed",
       "actualInspection": "pending",
+      "visualHistory": null,
       "independentSecondPass": "pending where textured/layered",
       "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
     }

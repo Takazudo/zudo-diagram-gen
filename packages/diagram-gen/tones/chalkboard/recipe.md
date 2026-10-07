@@ -50,6 +50,6 @@ Broken chalk contours with a faint second pass, sparse dust, warm accents and op
 - Texture frequency: {{scheme:texture.frequency}}; amplitude: {{scheme:texture.amplitude}}; seed: {{scheme:texture.seed}}.
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
-All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Both palettes retain an intrinsic dark ground; dashed chalk marks can vanish when downscaled.
+All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Both native light/dark palettes retain an intrinsic dark ground. An arbitrary light-surface remap changes the board atmosphere even when chalk echoes and dust remain recognizable; dashed chalk marks can vanish when downscaled.
 
 The head radius role is zero because this pack uses an authored organic head silhouette rather than a circle.

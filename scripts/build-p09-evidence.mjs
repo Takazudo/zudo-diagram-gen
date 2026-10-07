@@ -29,6 +29,28 @@ const escape = (s) =>
   String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 const pilots = new Set(['fine-outline', 'soft-fill', 'paper-layers', 'pencil-notebook']);
 
+export function pilotEvidenceComposition() {
+  const template =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><title>予約状況の確認</title><rect width="720" height="400" fill="{{palette:surface}}" data-palette-fill="surface"/><text x="24" y="45" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">予約状況の確認と次の手続き</text><text x="120" y="285" text-anchor="middle" data-for-instance="person-a person-b" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">利用者</text><text x="330" y="285" text-anchor="middle" data-for-instance="seat" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">空席</text><text x="600" y="285" text-anchor="middle" data-for-instance="pending" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">確認待ち</text></svg>';
+  const manifest = {
+    schemaVersion: 1,
+    width: 720,
+    height: 400,
+    title: '予約状況の確認',
+    description:
+      'Frozen pilot production recheck; two users, unoccupied seat, pending confirmation.',
+    instances: [
+      { id: 'person-a', primitive: 'person', x: 30, y: 95, width: 90, height: 135 },
+      { id: 'person-b', primitive: 'person', x: 120, y: 95, width: 90, height: 135 },
+      { id: 'seat', primitive: 'empty-seat', x: 270, y: 95, width: 120, height: 135 },
+      { id: 'pending', primitive: 'clock', x: 540, y: 95, width: 120, height: 135 },
+      { id: 'route-a', primitive: 'arrow', x: 215, y: 125, width: 50, height: 60 },
+      { id: 'route-b', primitive: 'arrow', x: 420, y: 125, width: 90, height: 60 },
+    ],
+  };
+  return { template, manifest };
+}
+
 /** Preparation only. Actual P05 capture and separate inspection must follow. */
 export async function buildP09Evidence({ output, toneRoot = toneRootDefault, tones } = {}) {
   if (!output) throw new Error('An explicit evidence output directory is required.');
@@ -48,24 +70,7 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
     let template, manifest;
     if (pilots.has(id)) {
       // Frozen accepted packs are rechecked through the production helper; do not edit them.
-      template =
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><title>予約状況の確認</title><rect width="720" height="400" fill="{{palette:surface}}" data-palette-fill="surface"/><text x="24" y="45" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">予約状況の確認と次の手続き</text><text x="40" y="285" font-family="{{font:label}}" font-size="{{scheme:typography.label.fontSize}}" fill="{{palette:ink}}" data-palette-fill="ink">利用者　　空席　　確認待ち</text></svg>';
-      manifest = {
-        schemaVersion: 1,
-        width: 720,
-        height: 400,
-        title: '予約状況の確認',
-        description:
-          'Frozen pilot production recheck; two users, unoccupied seat, pending confirmation.',
-        instances: [
-          { id: 'person-a', primitive: 'person', x: 30, y: 95, width: 90, height: 135 },
-          { id: 'person-b', primitive: 'person', x: 120, y: 95, width: 90, height: 135 },
-          { id: 'seat', primitive: 'empty-seat', x: 270, y: 95, width: 120, height: 135 },
-          { id: 'pending', primitive: 'clock', x: 540, y: 95, width: 120, height: 135 },
-          { id: 'route-a', primitive: 'arrow', x: 215, y: 125, width: 50, height: 60 },
-          { id: 'route-b', primitive: 'arrow', x: 420, y: 125, width: 90, height: 60 },
-        ],
-      };
+      ({ template, manifest } = pilotEvidenceComposition());
     } else {
       template = await fs.readFile(path.join(toneRoot, id, 'composition.template.svg'), 'utf8');
       manifest = JSON.parse(
@@ -252,6 +257,12 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
           });
         }
   }
+  const visualHistory = JSON.parse(
+    await fs.readFile(
+      new URL('../docs/agent-first/rollout/P09-VISUAL-REVISION-HISTORY.json', import.meta.url),
+      'utf8',
+    ),
+  );
   const matrix = selected.map((toneId) => {
     const tone = catalog.tones.find(({ id }) => id === toneId);
     const assets = records.filter((r) => r.toneId === toneId);
@@ -283,7 +294,10 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
         kind,
       })),
       structuralValidation: 'passed',
-      actualInspection: 'pending',
+      actualInspection: visualHistory.revisions.some((row) => row.toneId === toneId)
+        ? 'initial-failed; revised-inspection-pending'
+        : 'pending',
+      visualHistory: visualHistory.revisions.find((row) => row.toneId === toneId) ?? null,
       independentSecondPass: 'pending where textured/layered',
       limitations:
         'Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review.',

@@ -53,3 +53,7 @@ Broad rounded marker paths with imperfect corners, loose loops and flat highligh
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Bold marks overwhelm dense diagrams; simplify swipes before compressing the layout.
 
 The head radius role is zero because this pack uses an authored organic head silhouette rather than a circle.
+
+## Actual placement correction — rollout-2
+
+Use readable ink for warning words alongside a warning-role hand-drawn triangle with an ink outline. This retains the authored marker palette and explicit warning semantics while avoiding dark brown lettering on the dark charcoal surface. Actual corrected capture and inspection remain required; the failed initial evidence is retained.

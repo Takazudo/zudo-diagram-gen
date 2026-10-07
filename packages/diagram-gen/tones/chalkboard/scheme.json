@@ -124,7 +124,7 @@
       },
       {
         "id": "small-detail",
-        "description": "Both palettes retain an intrinsic dark ground; dashed chalk marks can vanish when downscaled."
+        "description": "Both native light/dark palettes retain an intrinsic dark ground. An arbitrary light-surface remap changes the board atmosphere even when chalk echoes and dust remain recognizable; dashed chalk marks can vanish when downscaled."
       }
     ]
   }

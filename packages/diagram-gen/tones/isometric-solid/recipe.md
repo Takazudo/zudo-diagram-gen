@@ -52,3 +52,7 @@ Opaque projected tiles with distinct top and side facets and hard cast shadows; 
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Facet depth can dominate a compact slot; essential labels stay outside projection.
+
+## Actual placement correction — rollout-2
+
+Keep projected shadow footprints within the picture region above the long reservation instruction and the vacancy label. Principal top/side facets and the cast-plane character remain visible; a palette change must not put shadows through the reading route. Actual corrected capture and inspection remain required; the failed initial evidence is retained.

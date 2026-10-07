@@ -11,7 +11,11 @@ import {
   buildRolloutKits,
   compileAuthoringTemplate,
 } from '../../../scripts/build-rollout-kits.mjs';
-import { buildP09Evidence } from '../../../scripts/build-p09-evidence.mjs';
+import {
+  buildP09Evidence,
+  pilotEvidenceComposition,
+} from '../../../scripts/build-p09-evidence.mjs';
+import { SaxesParser } from 'saxes';
 const root = fileURLToPath(new URL('../tones/', import.meta.url));
 const ids = [
   'technical-blueprint',
@@ -244,4 +248,29 @@ test('committed per-tone matrix tracks exact resource and authored composition i
       assert.equal(row.compositionInstancesHash, hashBytes(JSON.stringify(manifest)));
     }
   }
+});
+
+test('frozen pilot composition labels bind to actual seat and clock placements', async () => {
+  const { template, manifest } = pilotEvidenceComposition();
+  const scheme = JSON.parse(await fs.readFile(path.join(root, 'fine-outline/scheme.json'), 'utf8'));
+  const compiled = compileAuthoringTemplate(template, scheme);
+  const labels = new Map();
+  const parser = new SaxesParser({ xmlns: true });
+  parser.on('opentag', (tag) => {
+    if (tag.local !== 'text') return;
+    const attrs = Object.fromEntries(
+      Object.values(tag.attributes).map(({ name, value }) => [name, value]),
+    );
+    if (attrs['data-for-instance']) labels.set(attrs['data-for-instance'], attrs);
+  });
+  parser.write(compiled).close();
+  for (const id of ['seat', 'pending']) {
+    const instance = manifest.instances.find((i) => i.id === id);
+    const label = labels.get(id);
+    assert.equal(label['text-anchor'], 'middle');
+    assert.equal(Number(label.x), instance.x + instance.width / 2);
+    assert.ok(Number(label.y) > instance.y + instance.height);
+  }
+  assert.ok(compiled.includes('>空席</text>'));
+  assert.ok(compiled.includes('>確認待ち</text>'));
 });
