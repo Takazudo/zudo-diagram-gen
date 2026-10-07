@@ -2,6 +2,8 @@ import { readFile, realpath, lstat } from 'node:fs/promises';
 import { resolve, join, relative, isAbsolute, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSession } from './model.mjs';
+import { loadPlacement, portablePlacement } from './placement.mjs';
+import { canonicalHash } from './tone-context.mjs';
 
 const slugPattern = /^[a-z0-9](?:[a-z0-9._-]{0,126}[a-z0-9])?$/i;
 const slug = { test: (value) => typeof value === 'string' && slugPattern.test(value) };
@@ -182,25 +184,40 @@ export async function loadProject(directory, { strict = false, lastValid = new M
       if (entry.data.session.id !== item.id)
         throw new Error('Persisted session ID differs from project registration.');
       if (item.placement) {
-        const placement = await readJson(root, item.placement);
-        if (placement.schemaVersion !== 1) throw new Error('Placement schemaVersion must be 1.');
-        if (
-          placement.slot?.width !== entry.data.session.target.width ||
-          placement.slot?.height !== entry.data.session.target.height
-        )
-          throw new Error('Placement slot conflicts with session target dimensions.');
+        const loaded = await loadPlacement(root, entry.data.session.target, {
+          placement: item.placement,
+        });
+        // Registered project references use the stricter no-symlink-component rule.
+        for (const image of loaded.descriptor.images ?? []) {
+          const descriptorDirectory = item.placement.split('/').slice(0, -1).join('/');
+          await projectPath(
+            root,
+            descriptorDirectory ? `${descriptorDirectory}/${image.path}` : image.path,
+          );
+        }
+        Object.assign(entry.data, portablePlacement(loaded));
       }
       entry.observedHash = entry.data.contentHash;
       lastValid.set(item.id, { path: item.path, data: entry.data });
     } catch (error) {
       entry.diagnostics = (error.errors ?? [error.message]).map((message) =>
-        diagnostic('INCOMPLETE_PROJECT', message, item.path, item.id),
+        diagnostic(
+          error.code === 'RESOURCE_UNSAFE' ? 'RESOURCE_UNSAFE' : 'VALIDATION_FAILED',
+          message,
+          item.path,
+          item.id,
+        ),
       );
       entry.status = error.code === 'ENOENT' ? 'missing' : 'invalid';
       try {
         await lstat(join(root, item.path));
       } catch (missing) {
-        if (missing.code === 'ENOENT') entry.status = 'missing';
+        if (missing.code === 'ENOENT') {
+          entry.status = 'missing';
+          entry.diagnostics.forEach((item) => {
+            item.code = 'INCOMPLETE_PROJECT';
+          });
+        }
       }
       const previous = lastValid.get(item.id);
       entry.data = null;
@@ -243,12 +260,12 @@ export async function loadProject(directory, { strict = false, lastValid = new M
       if (scheme.schemaVersion !== 1 || palette.schemaVersion !== 1)
         throw new Error('Unsupported style constituent version.');
       if (
-        style.schemeHash !== canonicalHash(scheme) ||
-        style.paletteHash !== canonicalHash(palette) ||
+        style.schemeHash !== documentHash(scheme) ||
+        style.paletteHash !== documentHash(palette) ||
         style.kitHash !== kitHash
       )
         throw new Error('Style constituent hash mismatch.');
-      if (project.style.hash !== canonicalHash(style))
+      if (project.style.hash !== documentHash(style))
         throw new Error('Style reference hash mismatch.');
       // Full role/materialization and lock semantics are provided by P04. Until then
       // structural hashes alone cannot establish a fully validated style snapshot.
@@ -349,18 +366,8 @@ export async function validateProject(root) {
   }
 }
 
-function canonicalHash(value) {
-  const canonical = (item) => {
-    if (item === null || typeof item !== 'object') return item;
-    if (Array.isArray(item)) return item.map(canonical);
-    return Object.fromEntries(
-      Object.keys(item)
-        .sort()
-        .map((key) => [key, canonical(item[key])]),
-    );
-  };
-  // Derived top-level hash is omitted. Constituent hashes in style metadata remain inputs.
+function documentHash(value) {
   const stripped = { ...value };
   delete stripped.hash;
-  return hash(JSON.stringify(canonical(stripped)));
+  return canonicalHash(stripped);
 }

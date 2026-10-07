@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import { canonicalHash } from '../src/tone-context.mjs';
 import { createPageSource } from '../src/render.mjs';
 import { loadSession } from '../src/model.mjs';
 import { adoptGeneratedRoutes } from '../src/runner.mjs';
@@ -365,4 +366,155 @@ test('removed project metadata retains registered watcher scope and notices reco
   assert.notEqual(edited, missing);
   await writeFile(join(root, 'project.json'), original);
   assert.notEqual(await contentSignature(root, watcherState), edited);
+});
+
+const placementDescriptor = () => ({
+  schemaVersion: 1,
+  frame: { width: 400, height: 260, background: '#FFFFFF' },
+  slot: { x: 20, y: 30, width: 360, height: 200 },
+  fit: 'contain',
+  fonts: ['Noto Sans CJK JP'],
+  context: { title: 'Context', body: 'Original invented fixture' },
+});
+const png = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF9sAAAAASUVORK5CYII=',
+  'base64',
+);
+test('project placement uses shared loader, embeds safe refs, keeps fingerprints and avoids private filesystem paths', async () => {
+  const root = await fixture();
+  const before = await loadProject(root);
+  const descriptor = {
+    ...placementDescriptor(),
+    images: [{ path: 'context.png', x: 0, y: 0, width: 10, height: 10 }],
+  };
+  await json(join(root, 'sessions/s0/placement.json'), descriptor);
+  await writeFile(join(root, 'sessions/s0/context.png'), png);
+  await patch(root, (p) => {
+    p.sessions[0].placement = 'sessions/s0/placement.json';
+  });
+  const data = await loadProject(root);
+  assert.equal(data.ok, true);
+  assert.deepEqual(data.sessions[0].data.placement, descriptor);
+  assert.match(data.sessions[0].data.placementImages[0].url, /^data:image\/png;base64,/);
+  assert.equal(
+    data.sessions[0].data.candidates[0].fingerprint,
+    before.sessions[0].data.candidates[0].fingerprint,
+  );
+  assert.equal(data.sessions[0].data.contentHash, before.sessions[0].data.contentHash);
+  assert.equal(JSON.stringify(data).includes(root), false);
+  const oldHash = data.sessions[0].data.placementHash;
+  await writeFile(
+    join(root, 'sessions/s0/context.png'),
+    Buffer.concat([png, Buffer.from('changed')]),
+  );
+  assert.notEqual((await loadProject(root)).sessions[0].data.placementHash, oldHash);
+  await prepareProject(root, 3);
+  assert.match(
+    await readFile(join(root, 'pages/sessions/s0/index.tsx'), 'utf8'),
+    /placementImages/,
+  );
+});
+test('invalid and missing placement references preserve valid siblings and visibly stale prior placement', async () => {
+  const root = await fixture(),
+    state = createRunnerState();
+  await json(join(root, 'sessions/s0/placement.json'), placementDescriptor());
+  await patch(root, (p) => {
+    p.sessions[0].placement = 'sessions/s0/placement.json';
+  });
+  await prepareProject(root, 3, { state });
+  const descriptor = placementDescriptor();
+  descriptor.slot.width = 361;
+  await json(join(root, 'sessions/s0/placement.json'), descriptor);
+  let data = await prepareProject(root, 3, { state });
+  assert.equal(data.sessions[0].status, 'stale');
+  assert.equal(data.sessions[1].status, 'valid');
+  assert.equal(data.sessions[0].data.placement.slot.width, 360);
+  assert.match(await readFile(join(root, 'pages/sessions/s0/index.tsx'), 'utf8'), /STALE/);
+  await assert.rejects(prepareProject(root, 3, { strict: true }), /slot conflicts/);
+  await rm(join(root, 'sessions/s0/placement.json'));
+  assert.equal((await loadProject(root)).sessions[0].status, 'invalid');
+  await json(join(root, 'sessions/s0/placement.json'), placementDescriptor());
+  data = await prepareProject(root, 3, { state });
+  assert.equal(data.ok, true);
+  assert.equal(data.sessions[0].status, 'valid');
+});
+test('declared placement image symlink escapes and malformed raster bytes fail explicitly', async () => {
+  const root = await fixture();
+  const descriptor = {
+    ...placementDescriptor(),
+    images: [{ path: 'escape.png', x: 0, y: 0, width: 10, height: 10 }],
+  };
+  await json(join(root, 'sessions/s0/placement.json'), descriptor);
+  await symlink('/etc/passwd', join(root, 'sessions/s0/escape.png'));
+  await patch(root, (p) => {
+    p.sessions[0].placement = 'sessions/s0/placement.json';
+  });
+  let data = await loadProject(root);
+  assert.equal(data.ok, false);
+  assert.equal(data.sessions[0].diagnostics[0].code, 'RESOURCE_UNSAFE');
+  await rm(join(root, 'sessions/s0/escape.png'));
+  await writeFile(join(root, 'sessions/s0/escape.png'), 'not an image');
+  data = await loadProject(root);
+  assert.equal(data.ok, false);
+  assert.equal(data.sessions[1].status, 'valid');
+});
+test('project scaffold avoids advertising deferred project HTML and preserves single-session HTML workflow', async () => {
+  const root = await fixture();
+  assert.equal(
+    JSON.parse(await readFile(join(root, 'package.json'), 'utf8')).scripts['export:html'],
+    undefined,
+  );
+  assert.equal(
+    (await readFile(join(root, 'README.md'), 'utf8')).includes('- pnpm export:html creates'),
+    false,
+  );
+});
+
+test('initializer project CLI gives correct registered session path and stable project identity', async () => {
+  const parent = await mkdtemp(join(tmpdir(), 'diagram-initializer-project-'));
+  onTestFinished(() => rm(parent, { recursive: true, force: true }));
+  const root = join(parent, 'host');
+  const result = await exec(process.execPath, [
+    new URL('../../create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs', import.meta.url)
+      .pathname,
+    root,
+    '--project',
+  ]);
+  assert.match(result.stdout, /sessions\/diagram\/rounds\/r01/);
+  const project = await loadProject(root);
+  assert.equal(project.ok, true);
+  assert.equal(project.sessions.length, 1);
+  assert.equal(project.sessions[0].id, project.sessions[0].data.session.id);
+  await assert.rejects(stat(join(root, 'session.json')), /ENOENT/);
+});
+test('style canonical constituent hashes are verified without claiming unavailable lock semantics', async () => {
+  const root = await fixture();
+  await mkdir(join(root, 'styles/r1'), { recursive: true });
+  const scheme = { schemaVersion: 1, toneId: 'fine-outline', title: 'Style fixture' };
+  const palette = { schemaVersion: 1, light: { ink: '#334455' } };
+  const style = {
+    schemaVersion: 1,
+    revision: 'r1',
+    toneId: 'fine-outline',
+    schemeHash: canonicalHash(scheme),
+    kitHash: createHash('sha256').update(svg).digest('hex'),
+    paletteHash: canonicalHash(palette),
+  };
+  await json(join(root, 'styles/r1/style.json'), style);
+  await json(join(root, 'styles/r1/scheme.json'), scheme);
+  await json(join(root, 'styles/r1/palette.json'), palette);
+  await writeFile(join(root, 'styles/r1/kit.svg'), svg);
+  await patch(root, (p) => {
+    p.style = { revision: 'r1', path: 'styles/r1/style.json', hash: canonicalHash(style) };
+  });
+  let data = await loadProject(root);
+  assert.equal(data.ok, false);
+  assert.equal(data.diagnostics[0].code, 'INCOMPLETE_PROJECT');
+  assert.match(data.diagnostics[0].message, /Style hashes verified/);
+  await patch(root, (p) => {
+    p.style.hash = 'a'.repeat(64);
+  });
+  data = await loadProject(root);
+  assert.equal(data.diagnostics[0].code, 'VALIDATION_FAILED');
+  assert.match(data.diagnostics[0].message, /reference hash mismatch/);
 });

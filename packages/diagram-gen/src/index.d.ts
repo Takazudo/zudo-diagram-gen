@@ -42,6 +42,7 @@ export interface GalleryData {
   tones?: Tone[];
   contentHash: string;
   placement?: PlacementDescriptor;
+  placementHash?: string;
   placementImages?: Array<{ url: string; x: number; y: number; width: number; height: number }>;
 }
 export interface Tone {

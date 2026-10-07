@@ -79,6 +79,17 @@ export async function createProject(options = {}) {
       sessions: registrations,
       comparisonSets: [],
     });
+    const hostPackage = JSON.parse(files['package.json']);
+    delete hostPackage.scripts['export:html'];
+    files['package.json'] = json(hostPackage);
+    files['README.md'] = files['README.md'].replace(
+      '- pnpm export:html creates diagram-review.html with the current session and viewer embedded for offline review.\n',
+      '',
+    );
+    files['AGENTS.md'] = files['AGENTS.md'].replace(
+      '- pnpm export:html — create a single-file offline review at diagram-review.html.\n',
+      '',
+    );
     files['.gitignore'] += 'pages/sessions/\n';
     files['README.md'] +=
       '\nOne installed host serves every session registered in project.json. The overview is / and each session has /sessions/<session-id>/. Keep IDs stable; candidate IDs need only be unique within their session.\n';
