@@ -3,8 +3,9 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
+import { randomUUID } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 const root = resolve(process.argv[2] || '');
 if (!process.argv[2])
@@ -41,10 +42,11 @@ const wait = async (predicate) => {
   throw new Error('Browser convergence timeout\n' + logs);
 };
 let browser;
+let sessionFile, sessionBackup, candidateDirectory;
 const manifestFile = join(root, 'project.json');
 const original = await readFile(manifestFile, 'utf8');
 try {
-  await wait(async () => (await fetch(base)).ok);
+  await wait(async () => (await fetch(base, { signal: AbortSignal.timeout(1500) })).ok);
   browser = await playwright.chromium.launch(
     process.env.PROJECT_BROWSER_EXECUTABLE
       ? { executablePath: process.env.PROJECT_BROWSER_EXECUTABLE }
@@ -59,12 +61,19 @@ try {
     await page.locator('#diagram-app').waitFor();
     assert.match(
       await page.locator('body').innerText(),
-      new RegExp(session.id === 'reservation-flow' ? '予約' : '.'),
+      new RegExp(
+        JSON.parse(await readFile(join(root, session.path, 'session.json'), 'utf8')).title.replace(
+          /[.*+?^${}()|[\]\\]/g,
+          '\\$&',
+        ),
+      ),
     );
   }
   const first = project.sessions[0],
     filename = join(root, first.path, 'session.json');
   const sessionOriginal = await readFile(filename, 'utf8');
+  sessionFile = filename;
+  sessionBackup = sessionOriginal;
   await writeFile(filename, '{');
   await wait(async () => {
     await page.goto(`${base}/sessions/${first.id}/`);
@@ -77,8 +86,9 @@ try {
     await page.goto(`${base}/sessions/${first.id}/`);
     return !(await page.locator('body').innerText()).includes('STALE');
   });
-  const candidateRoot = join(root, first.path, 'rounds/r01/browser-test');
-  await mkdir(candidateRoot, { recursive: true });
+  const candidateRoot = join(root, first.path, `rounds/r01/browser-test-${randomUUID()}`);
+  await mkdir(candidateRoot);
+  candidateDirectory = candidateRoot;
   await writeFile(
     join(candidateRoot, 'diagram.svg'),
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320"><title>Watcher probe</title><desc>Original test fixture</desc><rect width="100" height="100" fill="#334455"/></svg>',
@@ -127,6 +137,8 @@ try {
   );
 } finally {
   await writeFile(manifestFile, original);
+  if (sessionFile) await writeFile(sessionFile, sessionBackup);
+  if (candidateDirectory) await rm(candidateDirectory, { recursive: true });
   await browser?.close();
   child.kill('SIGTERM');
   await new Promise((accept) => {

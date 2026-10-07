@@ -37,7 +37,19 @@ Optional style references use `{revision,path,hash}`. P06 checks contained snaps
 
 ## Files and watching
 
-The poller reads only project metadata, registered session content, declared placement files/images and the four referenced style snapshot files. It never scans unrelated sessions, dependencies or generated output. Add, remove and re-add registrations by editing project.json; keep retained IDs stable. Invalid-to-valid edits recover on subsequent polls. Generated routes are tracked by SHA-256 in `.generated/diagram-routes.json`: only unchanged owned routes are replaced or pruned. Hand-written routes and edited generated routes are preserved and reported as conflicts, even when they retain the generator comment. Keep the ledger with the generated host state; it is ignored in Git.
+The poller reads only project metadata, registered session content, declared placement files/images and the four referenced style snapshot files. It never scans unrelated sessions, dependencies or generated output. Add, remove and re-add registrations by editing project.json; keep retained IDs stable. Invalid-to-valid edits recover on subsequent polls. Generated routes are tracked by SHA-256 in `.generated/diagram-routes.json`: only unchanged owned routes are replaced or pruned. Hand-written routes and edited generated routes are preserved and reported as conflicts, even when they retain the generator comment. Keep the ledger with the generated host state; it is ignored in Git. When project.json is removed or partially written, the watcher retains only the previously authorized registrations so registered edits and metadata recreation still recover.
+
+### Upgrading a pre-ledger host
+
+An older generated pages/index.tsx has no hash ownership ledger. If it exactly matches the current generated source, preparation safely adopts it. If source content changed before the upgrade, preparation preserves the existing route and reports an actionable conflict. Review the route and record its exact SHA-256, then explicitly grant ownership:
+
+```bash
+sha256sum pages/index.tsx
+node --input-type=module -e 'import {adoptGeneratedRoutes} from "@takazudo/zudo-diagram-gen"; await adoptGeneratedRoutes(".",{expectedHashes:{"pages/index.tsx":"REPLACE_WITH_REVIEWED_SHA256"}})'
+pnpm dev
+```
+
+Adoption rejects missing files, non-generated routes, wrong hashes and changed bytes; it changes the ledger only. This explicit grant authorizes the next regeneration to replace those exact reviewed bytes. The generator comment alone never grants automatic ownership. Modified routes already protected by a ledger remain conflicts until explicitly reviewed and adopted.
 
 ## Five public inputs and evidence
 

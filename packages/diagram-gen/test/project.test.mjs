@@ -1,4 +1,8 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { createPageSource } from '../src/render.mjs';
+import { loadSession } from '../src/model.mjs';
+import { adoptGeneratedRoutes } from '../src/runner.mjs';
 import { mkdtemp, readFile, writeFile, mkdir, rm, symlink, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -323,4 +327,42 @@ test('route symlink and ownership-ledger symlink are refused without modifying t
   await symlink(join(root, 'project.json'), join(root, '.generated/diagram-routes.json'));
   await assert.rejects(prepareProject(root), /symbolic links/);
   assert.equal((await loadProject(root)).ok, true);
+});
+
+test('legacy pre-ledger hosts migrate using explicit reviewed hashes while default preparation preserves changed routes', async () => {
+  const parent = await mkdtemp(join(tmpdir(), 'diagram-legacy-'));
+  onTestFinished(() => rm(parent, { recursive: true, force: true }));
+  const root = join(parent, 'host');
+  await createProject({ destination: root });
+  await mkdir(join(root, 'pages'));
+  const filename = join(root, 'pages/index.tsx');
+  const original = await createPageSource(await loadSession(root), {}, 3);
+  await writeFile(filename, original);
+  await writeFile(join(root, 'brief.md'), 'Changed before first upgraded dev/build');
+  await assert.rejects(prepareProject(root, 3), /adoptGeneratedRoutes/);
+  assert.equal(await readFile(filename, 'utf8'), original);
+  await assert.rejects(
+    adoptGeneratedRoutes(root, { expectedHashes: { 'pages/index.tsx': 'a'.repeat(64) } }),
+    /Adoption conflict/,
+  );
+  const expected = createHash('sha256').update(original).digest('hex');
+  await adoptGeneratedRoutes(root, { expectedHashes: { 'pages/index.tsx': expected } });
+  await prepareProject(root, 3);
+  assert.match(await readFile(filename, 'utf8'), /Changed before first/);
+  await writeFile(filename, (await readFile(filename, 'utf8')) + '// user edit');
+  await assert.rejects(prepareProject(root, 3), /user-owned or modified/);
+});
+test('removed project metadata retains registered watcher scope and notices recovery', async () => {
+  const root = await fixture(),
+    watcherState = {};
+  const original = await readFile(join(root, 'project.json'), 'utf8');
+  const initial = await contentSignature(root, watcherState);
+  await rm(join(root, 'project.json'));
+  const missing = await contentSignature(root, watcherState);
+  assert.notEqual(missing, initial);
+  await writeFile(join(root, 'sessions/s0/brief.md'), 'Changed while manifest missing');
+  const edited = await contentSignature(root, watcherState);
+  assert.notEqual(edited, missing);
+  await writeFile(join(root, 'project.json'), original);
+  assert.notEqual(await contentSignature(root, watcherState), edited);
 });

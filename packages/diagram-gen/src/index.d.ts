@@ -177,3 +177,8 @@ export function createProject(options?: {
   installed: boolean;
   files: string[];
 }>;
+
+export function adoptGeneratedRoutes(
+  root: string,
+  options: { expectedHashes: Record<string, string> },
+): Promise<{ routes: string[] }>;
