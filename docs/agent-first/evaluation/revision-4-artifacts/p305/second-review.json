@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 1,
+  "runId": "p305",
+  "reviewType": "independent-visual-second-review",
+  "timestamp": "2026-10-07T21:57:17.526537+00:00",
+  "actuallyViewed": {
+    "referenceLight": true,
+    "referenceDark": true,
+    "reservation-flow": true,
+    "empty-seats": true,
+    "long-labels": true,
+    "pending-queue": true,
+    "return-items": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-light.png",
+      "sha256": "1be466d46c89db0b0a68a7fa13e7421794a2402320b535291ccb571866676895",
+      "dimensions": {
+        "width": 720,
+        "height": 400
+      },
+      "actuallyViewed": true
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-dark.png",
+      "sha256": "70f7bcaca10bafdd7dbadc3fdd4f46fe45852da244eeea6089ec54dcbbac1f18",
+      "dimensions": {
+        "width": 720,
+        "height": 400
+      },
+      "actuallyViewed": true
+    }
+  ],
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p305/captures/v0/reservation-flow.png",
+      "sha256": "915e72d2121070d1c69619761a260d4d5c622ad8f261f861856cdeee8219b798",
+      "dimensions": {
+        "width": 688,
+        "height": 416
+      },
+      "actuallyViewed": true,
+      "id": "reservation-flow",
+      "targetArtworkDimensions": {
+        "width": 640,
+        "height": 320
+      },
+      "observations": [
+        "Three large boxes read left to right as 申請 → 確認待ち → 確定; the middle clock and explicit まだ予約確定ではない distinguish waiting from completion.",
+        "The curved teal return arrow starts at the confirmed box and points into the waiting box. 日時を変更, 確定した予約のみ and the bottom note explicitly limit changes to confirmed reservations and rule out automatic approval.",
+        "Bold state names dominate the pale hatch bands; the heading and smaller explanatory notes remain legible at the stated 640 × 320 artwork size. No visible clipping or text/shape collision."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting state/branch qualifications are readable; bold node labels, smaller explanatory text and spacing produce clear hierarchy at the specified artwork size.",
+        "materialDefects": []
+      },
+      "exactLabels": [
+        {
+          "required": "申請",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "確認待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "確定",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "日時を変更",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "result": "pass",
+          "reason": "Order is visibly application, waiting, confirmed."
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "result": "pass",
+          "reason": "Waiting has its own clock, state and explicit unconfirmed note."
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "result": "pass",
+          "reason": "The confirmed-state return arrow ends at waiting and is qualified as confirmed reservations only."
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "result": "pass",
+          "reason": "The annotation explicitly rules out automatic approval; no fee appears."
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Retains faint horizontal notebook ruling and margin rule, slightly irregular/doubled pencil outlines, crosshatch strips, bold sans type and curved drawn arrows. Regular repeated boxes and uniform fine hatch reduce the originals’ loose, varied hand-drawn construction."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p305/captures/v0/empty-seats.png",
+      "sha256": "42c7e5032c6a6dd66755351644c5f06b321e273aeeeffa6cd9b5f09b200c24e3",
+      "dimensions": {
+        "width": 408,
+        "height": 336
+      },
+      "actuallyViewed": true,
+      "id": "empty-seats",
+      "targetArtworkDimensions": {
+        "width": 360,
+        "height": 240
+      },
+      "observations": [
+        "Exactly four seat cards form a compact two-by-two arrangement. A has a check, B and C have 選べる, and D has a clock and 選択不可.",
+        "The heading 選べる席は B席・C席 reinforces the eligible seats; D is explicitly pending rather than empty or reserved.",
+        "Card labels are readable within the 360 × 240 artwork. Distinct icons and selection text carry status in addition to color; the compact hierarchy is clear."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting state/branch qualifications are readable; bold node labels, smaller explanatory text and spacing produce clear hierarchy at the specified artwork size.",
+        "materialDefects": []
+      },
+      "exactLabels": [
+        {
+          "required": "A席：予約済み",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "B席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "C席：空席",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "D席：保留中",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "result": "pass",
+          "reason": "Four cards correspond to A, B, C and D only."
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "result": "pass",
+          "reason": "Only B and C show selectable wording, also named in the heading."
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "result": "pass",
+          "reason": "D has pending wording, a clock and selection-prohibited wording."
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "result": "pass",
+          "reason": "No invented time limit or person appears."
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Retains faint horizontal notebook ruling and margin rule, slightly irregular/doubled pencil outlines, crosshatch strips, bold sans type and curved drawn arrows. Regular repeated boxes and uniform fine hatch reduce the originals’ loose, varied hand-drawn construction."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p305/captures/v0/long-labels.png",
+      "sha256": "35d0f04195ce4e87e78c0c4d5116019faff31dd8afa05d6ba1214a90fd76df39",
+      "dimensions": {
+        "width": 528,
+        "height": 456
+      },
+      "actuallyViewed": true,
+      "id": "long-labels",
+      "targetArtworkDimensions": {
+        "width": 480,
+        "height": 360
+      },
+      "observations": [
+        "All three complete Japanese role names are retained with deliberate line breaks in the first two boxes.",
+        "The central downward arrow passes from preparation to checking. The orange left-side loop points back to preparation and is labeled 不足項目あり; the teal downward path to reception is labeled 確認完了.",
+        "Large centered role names and two contrasting branch captions establish a clear hierarchy at 480 × 360. The short return caption wraps across two lines but remains readable and sits clear of the return arrow."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting state/branch qualifications are readable; bold node labels, smaller explanatory text and spacing produce clear hierarchy at the specified artwork size.",
+        "materialDefects": []
+      },
+      "exactLabels": [
+        {
+          "required": "地域交流イベント開催準備担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "参加申込内容の確認・連絡担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "当日受付と案内の担当",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "不足項目あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "確認完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "result": "pass",
+          "reason": "All three role names are legible in full after joining line breaks."
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "result": "pass",
+          "reason": "The first downward arrow connects preparation to checking."
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "result": "pass",
+          "reason": "The orange return loop is qualified by the missing-items label."
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "result": "pass",
+          "reason": "The onward arrow to reception is qualified by the completed-check label."
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Retains faint horizontal notebook ruling and margin rule, slightly irregular/doubled pencil outlines, crosshatch strips, bold sans type and curved drawn arrows. Regular repeated boxes and uniform fine hatch reduce the originals’ loose, varied hand-drawn construction."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p305/captures/v0/pending-queue.png",
+      "sha256": "b30ca0cdcf046eeaa1e4829c729dd47a50aacd5ec33035e482e81518644d5fd8",
+      "dimensions": {
+        "width": 768,
+        "height": 336
+      },
+      "actuallyViewed": true,
+      "id": "pending-queue",
+      "targetArtworkDimensions": {
+        "width": 720,
+        "height": 240
+      },
+      "observations": [
+        "案内文 visibly splits into two parallel paths, one to 表記確認：完了 and one to 会場情報確認：結果待ち; a clock reinforces waiting without suggesting failure.",
+        "Both paths converge on the box containing 両方完了後に公開 and 公開済み：0. The note below explicitly states that the coordinator does not publish until both finish.",
+        "The wide 720 × 240 layout keeps the longer waiting label on one line, with clear branch separation and readable output conditions. No visible text overlap or cropping."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting state/branch qualifications are readable; bold node labels, smaller explanatory text and spacing produce clear hierarchy at the specified artwork size.",
+        "materialDefects": []
+      },
+      "exactLabels": [
+        {
+          "required": "案内文",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "表記確認：完了",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "会場情報確認：結果待ち",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "両方完了後に公開",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "公開済み：0",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "result": "pass",
+          "reason": "There are two parallel paths from the shared source."
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "result": "pass",
+          "reason": "Venue information is labeled waiting and marked with a clock."
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "result": "pass",
+          "reason": "Both-complete publication wording and explanatory note establish the gate."
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "result": "pass",
+          "reason": "The publication box explicitly shows zero published."
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Retains faint horizontal notebook ruling and margin rule, slightly irregular/doubled pencil outlines, crosshatch strips, bold sans type and curved drawn arrows. Regular repeated boxes and uniform fine hatch reduce the originals’ loose, varied hand-drawn construction."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p305/captures/v0/return-items.png",
+      "sha256": "bf0264be0aeb1cefde29717e93a446e89b310bcde0d8deced1603d08fd70cbe7",
+      "dimensions": {
+        "width": 368,
+        "height": 576
+      },
+      "actuallyViewed": true,
+      "id": "return-items",
+      "targetArtworkDimensions": {
+        "width": 320,
+        "height": 480
+      },
+      "observations": [
+        "入口 points down to 返却確認台. The teal 破損なし branch points down into 返却箱：空; the orange 破損あり branch points down into 相談窓口.",
+        "The empty box icon and 空でも返却に使える explicitly communicate an empty but usable destination. The consultation branch uses the warning role without adding a fine or refusal.",
+        "The 320 × 480 composition preserves readable large labels and distinguishes the two branch destinations. The bottom usability note is readable and contained within the artwork."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting state/branch qualifications are readable; bold node labels, smaller explanatory text and spacing produce clear hierarchy at the specified artwork size.",
+        "materialDefects": []
+      },
+      "exactLabels": [
+        {
+          "required": "入口",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "返却確認台",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "破損なし",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "返却箱：空",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "破損あり",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        },
+        {
+          "required": "相談窓口",
+          "visuallyPresent": true,
+          "complete": true,
+          "observation": "Full wording visible; line breaks and typographic spacing are accepted. Raster inspection cannot certify underlying Unicode code points."
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "result": "pass",
+          "reason": "The entry-to-check-table arrow points downward."
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "result": "pass",
+          "reason": "The undamaged branch terminates at the return box."
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "result": "pass",
+          "reason": "The damaged branch terminates at consultation."
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "result": "pass",
+          "reason": "An explicit note says the box can be used even when empty."
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "result": "pass",
+          "reason": "No fine or refusal is shown."
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Retains faint horizontal notebook ruling and margin rule, slightly irregular/doubled pencil outlines, crosshatch strips, bold sans type and curved drawn arrows. Regular repeated boxes and uniform fine hatch reduce the originals’ loose, varied hand-drawn construction."
+      }
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Notebook paper with horizontal rules and a vertical left margin rule.",
+    "Slightly skewed rectangles with uneven or doubled pencil-like edges.",
+    "Fine diagonal crosshatching creates tangible surface texture and patterned regions.",
+    "Bold sans lettering with marked size contrast, lightly irregular alignment and loose underline strokes.",
+    "Curved hand-drawn connectors, visible arrowheads and a folded-corner document silhouette.",
+    "The same construction remains recognizable in both light and dark references."
+  ],
+  "batch": {
+    "consistency": {
+      "score": 4,
+      "reason": "The same notebook scaffold, doubled outlines, hatch texture, bold Japanese labels and palette roles hold across horizontal, compact, stacked, wide and portrait ratios. Ratio-specific topology and chair/clock/box icons make each composition distinct while maintaining the visual family."
+    },
+    "character": {
+      "score": 3,
+      "reason": "The defining notebook geometry, heavy type/light texture contrast and pencil-like surface remain recognizable. Expression is restrained: the reference’s asymmetrical tilted lettering, loose underlines, varied hatch coverage and prominent paper-document construction are reduced to more regular repeated card patterns. The required Japanese font and role colors are valid overrides, not character defects."
+    },
+    "retainedTraits": [
+      "Notebook ruling and margin rule",
+      "Doubled/slightly skewed pencil outlines",
+      "Crosshatched areas",
+      "Bold type against fine texture",
+      "Curved connectors with drawn arrowheads"
+    ],
+    "losses": [
+      "Hatch coverage is largely standardized into strips instead of the reference’s varied, broad patterned regions.",
+      "Text and cards are more regularly aligned, reducing the reference’s loose pencil drawing rhythm.",
+      "Loose underline accents and the folded-page motif are not used; the motif is not a factual brief requirement."
+    ],
+    "paletteObservation": "Visible teal emphasizes completion/selectability and the usable undamaged path; orange warns on missing items or damage; waiting uses explicit wording and clocks. Exact hex values were not audited from source or pixel sampling.",
+    "factualSummary": "All required factual checks pass on visual evidence; no visible omissions, inventions or reversals."
+  },
+  "fontUncertainty": "The briefs prefer Noto Sans CJK JP. All Japanese glyphs appear readable with no visible missing-glyph boxes, but PNG-only review cannot establish the font actually rendered or whether fallback occurred.",
+  "scaleUncertainty": "PNG dimensions include larger placement frames. Images were opened at native raster dimensions; the apparent artwork region corresponds to the stated target sizes, with 48 extra horizontal and 96 extra vertical pixels in each capture. Placement metadata and browser device scale were outside permitted evidence, so exact CSS-to-raster mapping was not independently verified.",
+  "scope": "Only the dispatch, both reference PNGs, five capture PNGs, their common briefs/checklists and the common palette were read. No source, condition, prompt, run record, schemes/kits, coordinator scores or other runs were inspected."
+}

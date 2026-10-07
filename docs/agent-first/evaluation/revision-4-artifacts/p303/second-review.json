@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "runId": "p303",
+  "reviewType": "independent visual second review",
+  "timestampUtc": "2026-10-07T21:48:41.003514+00:00",
+  "actuallyViewed": {
+    "references": true,
+    "allFiveCaptures": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-light.png",
+      "sha256": "1be466d46c89db0b0a68a7fa13e7421794a2402320b535291ccb571866676895",
+      "dimensionsPixels": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-dark.png",
+      "sha256": "70f7bcaca10bafdd7dbadc3fdd4f46fe45852da244eeea6089ec54dcbbac1f18",
+      "dimensionsPixels": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Horizontal notebook ruling with a vertical margin line.",
+    "Subtly irregular paired pencil outlines and lightly wavering, curved arrows.",
+    "Prominent interlaced diagonal hatch texture inside panels.",
+    "Strong large type hierarchy and selective fine underline accents.",
+    "Same construction remains legible in both light and dark examples."
+  ],
+  "referenceContentInterpretation": "Literal Pattern/Text/MAKE/PNG wording is illustrative reference content, not required diagram content. Common Japanese typography and six-role palette override reference Latin type and colors.",
+  "images": [
+    {
+      "id": "reservation-flow",
+      "path": "/workspace/diagram-evidence/pilot-runs/p303/captures/v0/reservation-flow.png",
+      "sha256": "ff3a45306b4e068fd82c3fba0a12093016a472f19f77302e6a5e8936f7921fac",
+      "dimensionsPixels": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "targetArtworkDimensionsCssPixels": [
+        640,
+        320
+      ],
+      "observations": [
+        "Left-to-right application, pending and confirmed boxes have clear arrows. Confirmed alone leads to change; curved return arrow enters pending.",
+        "The pending disclaimer and bottom sentence explicitly preserve nonconfirmation and no automatic approval. Return label has ample space."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Clear title, primary labels and secondary explanatory captions form a readable hierarchy; no material clipping, collisions or omitted text visible at the supplied target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "申請",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "確認待ち",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "確定",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "日時を変更",
+          "visuallyPresent": true,
+          "complete": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteRoleAssessment": "Teal supports available/completed or positive continuation; orange supports shortage/damage exceptions where relevant; text and outline differences also communicate states. Exact pixel colors were not sampled.",
+      "character": {
+        "score": 2,
+        "reason": "Ruled notebook background, slightly irregular doubled outlines and short pencil hatches remain recognizable, but dense crosshatching and conspicuous hand-drawn texture are reduced to tiny corner accents. Typography is orderly and appropriate to the required Japanese font; font substitution itself is not penalized."
+      }
+    },
+    {
+      "id": "empty-seats",
+      "path": "/workspace/diagram-evidence/pilot-runs/p303/captures/v0/empty-seats.png",
+      "sha256": "c26608c5493df83f5e72908c8e09d6646450726174e2fa4e6ba00b54a53017ac",
+      "dimensionsPixels": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "targetArtworkDimensionsCssPixels": [
+        360,
+        240
+      ],
+      "observations": [
+        "Exactly four seats occupy a compact two-by-two grid. B and C have selectable captions and teal underlines; A and D say selection unavailable.",
+        "Dashed outline and pending label distinguish D from reserved A without relying solely on color. All seat labels fit."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Clear title, primary labels and secondary explanatory captions form a readable hierarchy; no material clipping, collisions or omitted text visible at the supplied target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "A席：予約済み",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "B席：空席",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "C席：空席",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "D席：保留中",
+          "visuallyPresent": true,
+          "complete": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteRoleAssessment": "Teal supports available/completed or positive continuation; orange supports shortage/damage exceptions where relevant; text and outline differences also communicate states. Exact pixel colors were not sampled.",
+      "character": {
+        "score": 2,
+        "reason": "Ruled notebook background, slightly irregular doubled outlines and short pencil hatches remain recognizable, but dense crosshatching and conspicuous hand-drawn texture are reduced to tiny corner accents. Typography is orderly and appropriate to the required Japanese font; font substitution itself is not penalized."
+      }
+    },
+    {
+      "id": "long-labels",
+      "path": "/workspace/diagram-evidence/pilot-runs/p303/captures/v0/long-labels.png",
+      "sha256": "6d3e8fdd89a2d65abce13fffd35b8db015abe4459c178d50d8cbb3610b170bb2",
+      "dimensionsPixels": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "targetArtworkDimensionsCssPixels": [
+        480,
+        360
+      ],
+      "observations": [
+        "All three full Japanese role names are readable on separate stacked cards without abbreviation.",
+        "Orange shortage loop returns from checking to preparation; teal completion arrow continues to reception. Labels avoid arrows and boxes."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Clear title, primary labels and secondary explanatory captions form a readable hierarchy; no material clipping, collisions or omitted text visible at the supplied target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "地域交流イベント開催準備担当",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "参加申込内容の確認・連絡担当",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "当日受付と案内の担当",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "不足項目あり",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "確認完了",
+          "visuallyPresent": true,
+          "complete": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteRoleAssessment": "Teal supports available/completed or positive continuation; orange supports shortage/damage exceptions where relevant; text and outline differences also communicate states. Exact pixel colors were not sampled.",
+      "character": {
+        "score": 2,
+        "reason": "Ruled notebook background, slightly irregular doubled outlines and short pencil hatches remain recognizable, but dense crosshatching and conspicuous hand-drawn texture are reduced to tiny corner accents. Typography is orderly and appropriate to the required Japanese font; font substitution itself is not penalized."
+      }
+    },
+    {
+      "id": "pending-queue",
+      "path": "/workspace/diagram-evidence/pilot-runs/p303/captures/v0/pending-queue.png",
+      "sha256": "c172e521bb3e2c734feea90a98c242d864ac044bd90cc8c391fb7cda9a979c87",
+      "dimensionsPixels": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "targetArtworkDimensionsCssPixels": [
+        720,
+        240
+      ],
+      "observations": [
+        "One source visibly forks to two separate checks. Completed and pending states are explicit; pending route is dashed.",
+        "The right box explicitly requires both complete, says not yet published, and emphasizes zero. Waiting is explicitly distinguished from failure."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Clear title, primary labels and secondary explanatory captions form a readable hierarchy; no material clipping, collisions or omitted text visible at the supplied target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "案内文",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "表記確認：完了",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "会場情報確認：結果待ち",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "両方完了後に公開",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "公開済み：0",
+          "visuallyPresent": true,
+          "complete": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteRoleAssessment": "Teal supports available/completed or positive continuation; orange supports shortage/damage exceptions where relevant; text and outline differences also communicate states. Exact pixel colors were not sampled.",
+      "character": {
+        "score": 2,
+        "reason": "Ruled notebook background, slightly irregular doubled outlines and short pencil hatches remain recognizable, but dense crosshatching and conspicuous hand-drawn texture are reduced to tiny corner accents. Typography is orderly and appropriate to the required Japanese font; font substitution itself is not penalized."
+      }
+    },
+    {
+      "id": "return-items",
+      "path": "/workspace/diagram-evidence/pilot-runs/p303/captures/v0/return-items.png",
+      "sha256": "c2e591829fd6fca799625ea074a4a70bac94ec4f9d5e78af68d31ff83aed7e54",
+      "dimensionsPixels": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "targetArtworkDimensionsCssPixels": [
+        320,
+        480
+      ],
+      "observations": [
+        "Entrance flows down to return inspection, then branches to an available empty return box and orange consultation desk.",
+        "Branch labels are positioned over respective arrows; the drawn empty box plus caption makes empty-but-usable clear. No fine or refusal appears."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "Clear title, primary labels and secondary explanatory captions form a readable hierarchy; no material clipping, collisions or omitted text visible at the supplied target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "入口",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "返却確認台",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "破損なし",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "返却箱：空",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "破損あり",
+          "visuallyPresent": true,
+          "complete": true
+        },
+        {
+          "required": "相談窓口",
+          "visuallyPresent": true,
+          "complete": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "judgment": "pass"
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "judgment": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "paletteRoleAssessment": "Teal supports available/completed or positive continuation; orange supports shortage/damage exceptions where relevant; text and outline differences also communicate states. Exact pixel colors were not sampled.",
+      "character": {
+        "score": 2,
+        "reason": "Ruled notebook background, slightly irregular doubled outlines and short pencil hatches remain recognizable, but dense crosshatching and conspicuous hand-drawn texture are reduced to tiny corner accents. Typography is orderly and appropriate to the required Japanese font; font substitution itself is not penalized."
+      }
+    }
+  ],
+  "batch": {
+    "readability": {
+      "score": 4,
+      "reason": "All five use clear hierarchy, spacing and complete labels across wide, compact, stacked and portrait arrangements."
+    },
+    "consistency": {
+      "score": 4,
+      "reason": "Coherent ruled background, paired irregular borders, corner hatches, Japanese type hierarchy and semantic color roles recur across the batch. Distinct topology is adapted usefully to each ratio: horizontal return loop, seat grid, stacked handoff, parallel wide fork and portrait routing."
+    },
+    "character": {
+      "score": 2,
+      "reason": "Recognizable notebook construction survives in ruling, outlines, arrows and light hatching. Its defining abundant crossed pencil texture is materially lost; the result reads more like clean diagram cards with restrained sketch accents. Variation in topology is useful but does not restore that texture."
+    },
+    "definingTraitsRetained": [
+      "Notebook ruling and margin line",
+      "Subtle irregular/doubled panel edges",
+      "Curved or bent thin connectors",
+      "Hierarchy and occasional underline accents"
+    ],
+    "definingTraitsLostOrReduced": [
+      "Dense interwoven crosshatching becomes a few isolated diagonal strokes",
+      "Pencil roughness is visually subdued in most connectors and panel interiors"
+    ],
+    "factualSummary": "All required facts and labels visually present; no omissions, inventions or reversals identified."
+  },
+  "uncertainty": {
+    "font": "Rendered Japanese glyphs appear complete and consistent. Raster inspection cannot establish the actual installed or selected font family, fallback chain or missing-glyph diagnostics; no missing glyph boxes are visible.",
+    "scale": "PNG dimensions include the larger placement frame and captions. Target dimensions are taken from the permitted briefs. Images were viewed at their native raster dimensions, with the artwork appearing at the specified CSS target size; placement metadata and device pixel ratio were not inspected. Minor glyph punctuation spacing is visually judged, not source-verified.",
+    "darkMode": "Both original reference modes were viewed; provided five captures are light. No claim about dark versions of the five diagrams."
+  },
+  "scope": "Only dispatch, permitted references, five captures, common palette and each common brief/checklist were read. No source, condition, prompt, run record, scores, other runs, browser, network or git inspected."
+}

@@ -1,0 +1,50 @@
+{
+  "deliberateDepartures": [
+    "The common light palette replaces the examples’ cream paper, graphite, and terracotta palette; white notebook paper and faint border-colored rules retain the construction tone.",
+    "Noto Sans CJK JP, sans-serif replaces the samples’ Latin handwriting fonts as required. Labels remain upright to protect Japanese readability.",
+    "Hatching is sparse and kept outside label areas; waiting panels use dashed contours and explicit status text rather than treating waiting as failure.",
+    "Outputs use the target slot dimensions directly; the enclosing placement-frame title and evaluation caption are not duplicated outside the SVG.",
+    "No dark outputs, external references, supplied example composition facts, or optional ornamental stages were added."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/pencil-notebook/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "localFontconfigMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "limitations": "Font files are not embedded. Local fontconfig matching does not prove the font or all glyphs rendered in a consuming host; fallback and missing-glyph behavior remain host-dependent."
+  },
+  "limitations": [
+    "Initial artifacts received no evaluator feedback. No visual acceptance or user approval is asserted.",
+    "Original light and dark example PNGs were viewed. Output structure, exact text labels, and dimensions were checked locally; output rasterization was not performed."
+  ]
+}
