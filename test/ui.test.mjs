@@ -501,3 +501,62 @@ test('saved provenance without an effective project style remains unknown', () =
   assert.match(app.query('[data-style-status]').textContent, /Saved style snapshot: unknown/);
   app.window.happyDOM.close();
 });
+
+test('restored selection snapshots discard malformed hashes and export valid reviews with legacy identity intact', async () => {
+  const { validateSessionReview } = await import('../packages/diagram-gen/client/review.mjs');
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  const id = data.candidates[0].id;
+  const first = mount(data);
+  first.click(`[data-action="inspect"][data-id="${id}"]`);
+  first.click('[data-action="shortlist-toggle"]');
+  first.click('[data-action="direction"]');
+  first.value('[data-note="keep"]', 'Keep original geometry');
+  const saved = first.save();
+  first.window.happyDOM.close();
+  for (const [key, value] of Object.entries(saved)) {
+    const envelope = JSON.parse(value);
+    const state = envelope.state;
+    state.direction.styleHash = 'malformed';
+    state.direction.captureHash = 123;
+    state.shortlist[id].placementHash = null;
+    saved[key] = JSON.stringify(envelope);
+  }
+  const second = mount(data, saved);
+  second.click('[data-action="download-review"]');
+  const exported = JSON.parse(await second.downloads.at(-1).blob.text());
+  assert.equal(validateSessionReview(exported, data), exported);
+  assert.equal(exported.chosenDirection.id, id);
+  assert.equal(exported.chosenDirection.fingerprint, data.candidates[0].fingerprint);
+  assert.equal(Object.hasOwn(exported.chosenDirection, 'styleHash'), false);
+  assert.equal(Object.hasOwn(exported.chosenDirection, 'captureHash'), false);
+  assert.equal(exported.chosenDirection.placementHash, data.placementHash);
+  assert.equal(Object.hasOwn(exported.shortlist[0], 'placementHash'), false);
+  assert.equal(exported.shortlist[0].styleHash, data.styleHash);
+  assert.equal(exported.records[0].keep, 'Keep original geometry');
+  second.window.happyDOM.close();
+});
+
+test('first note input updates provenance status without replacing the focused textarea or cursor', () => {
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  data.candidates[0].provenance = { styleHash: data.styleHash };
+  const app = mount(data);
+  app.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
+  assert.match(app.query('[data-style-status]').textContent, /Review style evidence: unknown/);
+  assert.match(app.query('[data-placement-status]').textContent, /unknown/);
+  const input = app.query('[data-note="keep"]');
+  input.focus();
+  input.value = 'Keep this geometry';
+  input.setSelectionRange(5, 5);
+  input.dispatchEvent(new app.window.Event('input', { bubbles: true }));
+  assert.match(app.query('[data-style-status]').textContent, /Review style evidence: current/);
+  assert.match(app.query('[data-placement-status]').textContent, /current/);
+  assert.equal(app.query('[data-note="keep"]'), input);
+  assert.equal(app.window.document.activeElement, input);
+  assert.equal(input.selectionStart, 5);
+  assert.equal(input.selectionEnd, 5);
+  app.window.happyDOM.close();
+});
