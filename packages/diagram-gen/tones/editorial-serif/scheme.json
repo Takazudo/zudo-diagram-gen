@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "toneId": "editorial-serif",
-  "toneRevision": "rollout-1",
+  "toneRevision": "rollout-2",
   "collectionVersion": "0.1.0",
   "coordinateSystem": {
     "viewBox": [0, 0, 720, 400],
@@ -56,7 +56,7 @@
   },
   "typography": {
     "label": {
-      "fontFamily": "'Noto Serif CJK JP', Georgia, serif",
+      "fontFamily": "'Noto Serif CJK JP', serif",
       "fontSize": 22,
       "minCssPx": 18,
       "fontWeight": 500
@@ -68,7 +68,7 @@
       "fontWeight": 400
     },
     "specimen": {
-      "fontFamily": "Georgia, serif",
+      "fontFamily": "'Noto Serif CJK JP', serif",
       "fontSize": 56,
       "minCssPx": 24,
       "fontWeight": 400

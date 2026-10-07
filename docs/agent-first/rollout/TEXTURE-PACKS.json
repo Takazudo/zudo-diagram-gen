@@ -23,7 +23,7 @@
     },
     {
       "toneId": "editorial-serif",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "scheme": "editorial-serif/scheme.json",
       "kit": "editorial-serif/kit.svg",
       "recipeSummaryTemplates": [

@@ -459,10 +459,10 @@
     },
     {
       "toneId": "editorial-serif",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "88a0fa19dbc80476955c5bbabef9d892019c700d1eb28a849f04b0a7089ec18e",
-      "kitHash": "5551abf940cbd129fadc4a85d6d70672ff9335e6cada5c67fa6fb62780827c66",
+      "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+      "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
       "bundledReferenceHashes": [
         {
           "id": "composition-meaning",
@@ -474,10 +474,10 @@
         },
         {
           "id": "recipe",
-          "hash": "cc3f469bc07d821419947d7798843e41da43bdc3f75622dcb9e53191a2a615db"
+          "hash": "a4aeea90e6fc412a57b3f57cddded3af4c78a8211df808d7f94097b3cc617186"
         }
       ],
-      "contextHash": "dd7ec7858b976fc0c8171b5ee018fe458991b56be7b3401c5b8aa29f5c4ca4a0",
+      "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626",
       "originalReferenceHashes": {
         "light": "b8bad0aa9b6868751813671613a0b5be9e42371e19643f40c385bf2e53654a01",
         "dark": "555209ac783b3d074f026f2dc92311f9843766c95cd2ad1c09af21a57dbd35ab"
@@ -485,12 +485,12 @@
       "compositionTemplateHash": "dfb59bb3cb0c8601c87129b597279a01a4f74486edca8de47abb1e8bd8b6973e",
       "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
       "sourceHash": "719de4d76ced49bbc43c1041c969626751ffd33a1312a4a3fbab7ae44aee36b4",
-      "recipeHash": "cc3f469bc07d821419947d7798843e41da43bdc3f75622dcb9e53191a2a615db",
+      "recipeHash": "a4aeea90e6fc412a57b3f57cddded3af4c78a8211df808d7f94097b3cc617186",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
         "label": {
-          "fontFamily": "'Noto Serif CJK JP', Georgia, serif",
+          "fontFamily": "'Noto Serif CJK JP', serif",
           "fontSize": 22,
           "minCssPx": 18,
           "fontWeight": 500
@@ -502,7 +502,7 @@
           "fontWeight": 400
         },
         "specimen": {
-          "fontFamily": "Georgia, serif",
+          "fontFamily": "'Noto Serif CJK JP', serif",
           "fontSize": 56,
           "minCssPx": 24,
           "fontWeight": 400
@@ -521,56 +521,56 @@
       "evidenceRecords": [
         {
           "name": "editorial-serif-composition-native-light",
-          "assetHash": "f1b346448bd6f32c32eeca3e989d4086e62b007c4ee86f07eab7e3ee3142cf68",
+          "assetHash": "083c26ddff01066e19b78f8e38b03f1ccb47eb606330be2d95bf46257b30e955",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
         },
         {
           "name": "editorial-serif-kit-native-light",
-          "assetHash": "b9e83e3a7d71840c3f903048520988eedde6751b832d19d7bce14e4624096c3a",
+          "assetHash": "48c950b476962ede7f3ffdb4c96697783b96deff28184a90f474b27a3484e9d8",
           "theme": "light",
           "paletteMode": "native",
           "kind": "kit"
         },
         {
           "name": "editorial-serif-composition-native-dark",
-          "assetHash": "24997ad2e42bd6715fed5c35978d1742239e8af5a4e4daf1bb2fc2a91845ff3c",
+          "assetHash": "8cd8461cfe0a5ff4529f863b113cb5a9e9a7505d8e811d51ca499cdcf5f24456",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
         },
         {
           "name": "editorial-serif-kit-native-dark",
-          "assetHash": "8f6aec815311a16ea1c96519acdf53c88fc1bcb6c24d7f343710d2c9bd312898",
+          "assetHash": "8a3536efbb2f6ea3c5b56810b0bebb6f8adb4b60e8bd5399289a0caa96b1ed1b",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "kit"
         },
         {
           "name": "editorial-serif-composition-alternate-light",
-          "assetHash": "dbc1bfadf7553ba4a85ec5519c3d7ada2f564ef14c15fd176c74835ea1d0c674",
+          "assetHash": "ae128200688e9912362401056b02cfebee56680c36bb4d5ab5fb72dc80cc5b81",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
         },
         {
           "name": "editorial-serif-kit-alternate-light",
-          "assetHash": "567ee1acffdb0d252cb2e629a77dc6490459edbadd9e58066f832b0af0160370",
+          "assetHash": "112a9f0c3c1a91da904129c3807cb5480ed0b3e00ba3d08784979b7a692aaf31",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "kit"
         },
         {
           "name": "editorial-serif-composition-alternate-dark",
-          "assetHash": "8fd1399dfa1b29842ba56964284e6c0c17e2412f09e94307dfc5f8893ed02c18",
+          "assetHash": "d74586c16ee8cca5b1a171dde097fb196839a6c02fbcd9be35a336c4ed4e3d27",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
         },
         {
           "name": "editorial-serif-kit-alternate-dark",
-          "assetHash": "1e01b2890964f008acf1ee3eae7f792cf88aedb611ee64847facd6ee0316f9ab",
+          "assetHash": "944958966fb27dbbabc5c658c36db7d0498495a63125d654c72bea98de038562",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "kit"

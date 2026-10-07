@@ -51,3 +51,7 @@ Large deliberate serif specimen lettering and restrained rules in open margins; 
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Installed serif fallback metrics and CJK glyph coverage require image inspection.
+
+## Portable serif typography — rollout-2
+
+The authored label and specimen roles use Noto Serif CJK JP with a generic serif fallback. The evidence placement explicitly requires Noto Serif CJK JP; capture must fail when it is unavailable rather than silently accepting another primary. This preserves upright Japanese serif labels and the deliberate Latin specimen character without requiring a proprietary font. Original reference artwork retains its original bytes. Actual font metrics, glyph coverage and long-label spacing still require image inspection.

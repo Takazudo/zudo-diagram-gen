@@ -8,7 +8,7 @@ All stable catalog IDs now have authored schemes, native kits, local meaning, sy
 | soft-fill | pilot-1 | `4ca231a8d827` / `c9fd4836fee0` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | ink-silhouette | rollout-1 | `cce629b396df` / `7572f4b0ab89` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | offset-blocks | rollout-1 | `85600ce2c79b` / `4192a18ee6bb` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
-| editorial-serif | rollout-1 | `88a0fa19dbc8` / `5551abf940cb` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
+| editorial-serif | rollout-2 | `3a46bc515d32` / `28899e063094` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | swiss-grid | rollout-1 | `92f95095e1b1` / `47afb28dc4e7` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | ui-miniature | rollout-1 | `0a4898e6e51c` / `f86dab2230c1` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | contour-wash | rollout-1 | `f559135cd0d7` / `978fb802db22` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
