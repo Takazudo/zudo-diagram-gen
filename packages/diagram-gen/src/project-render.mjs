@@ -4,9 +4,7 @@ export function projectOverview(data, route = (id) => `/sessions/${encodeURIComp
   return `<main style="font-family:system-ui;max-width:70rem;margin:2rem auto;padding:1rem"><h1>${escapeHtml(data.project.title)}</h1><p>Project ${escapeHtml(data.project.id)} · ${data.ok ? 'Current' : 'Incomplete or stale'}</p><ul>${data.sessions.map((entry) => `<li><a href="${escapeHtml(route(entry.id))}">${escapeHtml(entry.data?.session.title ?? entry.id)}</a> — <strong>${entry.status}</strong>${entry.status === 'stale' ? ' (retained last-valid content)' : ''}<ul>${entry.diagnostics.map((item) => `<li>${escapeHtml(item.message)}</li>`).join('')}</ul></li>`).join('')}</ul><h2>Diagnostics</h2><ul>${data.diagnostics.map((item) => `<li>${escapeHtml(item.sessionId ?? 'Project')}: ${escapeHtml(item.path)} — ${escapeHtml(item.message)}</li>`).join('')}</ul><p>Comparison sets: ${data.comparisonSets.length}. Individual session review preserves existing session storage and imports.</p></main>`;
 }
 export async function projectRoutes(data, zfbMajor) {
-  const pages = new Map([
-    ['pages/index.tsx', createDocumentPage(projectOverview(data), data.project.title, zfbMajor)],
-  ]);
+  const pages = new Map([['pages/index.tsx', await createPageSource(data, {}, zfbMajor)]]);
   for (const entry of data.sessions) {
     let source;
     if (entry.data) {

@@ -406,11 +406,20 @@ test('classic standalone script contains the current mount and shared placement 
     'utf8',
   );
   assert.ok(script.includes(placementSource.replaceAll('export function ', 'function ')));
+  const reviewSource = await readFile(
+    new URL('../packages/diagram-gen/client/review.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.ok(script.includes(reviewSource.replaceAll('export function ', 'function ')));
+  assert.ok(script.includes('function mountProjectApp'));
+  assert.ok(script.includes('function comparisonSlot'));
   assert.ok(
     script.includes(
       mountSource
-        .replace(/^import .*placement\.mjs';\n/m, '')
-        .replace('export function mountDiagramApp', 'function mountDiagramApp'),
+        .replace(/^import .*;\n/gm, '')
+        .replace(/^export \{.*\} from .*;\n/gm, '')
+        .replace('export function mountDiagramApp', 'function mountDiagramApp')
+        .trimEnd(),
     ),
   );
 });
