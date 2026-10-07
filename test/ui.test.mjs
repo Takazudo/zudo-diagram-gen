@@ -291,6 +291,15 @@ test('catalog exposes all 24 tones with concrete recipes', async () => {
     assert.equal(ui.window.document.querySelectorAll('.dg-card').length, 24);
     ui.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
     assert.ok(ui.window.document.body.textContent.includes(data.tones[0].recipe[0]));
+    assert.ok(
+      !ui.window.document.querySelector('.dg-tone-recipe').textContent.includes('{{scheme:'),
+    );
+    assert.equal(data.tones[0].recipe[0], data.tones[0].context.recipe[0]);
+    assert.ok(
+      data.tones[0].recipe[0].includes(
+        String(data.tones[0].context.scheme.geometry.strokeWidths.outline),
+      ),
+    );
   } finally {
     await ui.close();
   }
