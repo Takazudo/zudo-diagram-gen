@@ -11,4 +11,6 @@ Copy, download and import project review JSON with `type: "zudo-diagram-project-
 
 `export-html <session-or-project> --out <file>` now supports combined project snapshots. The output embeds the package viewer, validated SVGs and permitted placement images; comparison and ordinary session review work without a server. The project data budget is 64 MiB. Existing files require `--force`, and protected source paths or aliases are refused even with force. `--json` emits a version-one command envelope; existing single-session invocation forms and human success messages are retained.
 
+Standalone exports and generated review pages include an inline icon, keeping browser resource loading self-contained.
+
 Focused automated tests cover mappings, review isolation, hostile metadata, payload bounds, source protection and legacy workbench behavior. Browser, packed-consumer and detached-file acceptance must be run separately; DOM tests do not establish visual or clipboard behavior. Contributor reproduction steps are in `docs/agent-first/P07-ACCEPTANCE.md`.

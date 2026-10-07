@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// Manager/CI only: wrap every launch with heavy-guard and playwright-guard.
+// Manager/CI only: managed sessions require heavy-guard and playwright-guard.
 // Usage: <http-preview-url|detached.html> <evidence-directory> [--offline]
 import assert from 'node:assert/strict';
-import { mkdir, readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 const playwright = await import(process.env.PROJECT_PLAYWRIGHT_MODULE || 'playwright');
@@ -18,7 +18,8 @@ const browser = await playwright.chromium.launch(
     : {},
 );
 const errors = [],
-  requests = [];
+  requests = [],
+  failedResponses = [];
 try {
   const context = await browser.newContext({
     acceptDownloads: true,
@@ -27,7 +28,12 @@ try {
   const page = await context.newPage();
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(message.text());
+    if (message.type() === 'error')
+      errors.push({ message: message.text(), location: message.location() });
+  });
+  page.on('response', (response) => {
+    if (response.status() >= 400)
+      failedResponses.push({ url: response.url(), status: response.status() });
   });
   if (offline)
     await context.route(/^https?:/, (route) => {
@@ -234,6 +240,7 @@ try {
   assert.equal(lifecycle.empty, 0);
   assert.equal(lifecycle.theme, 'dark');
   assert.deepEqual(errors, []);
+  assert.deepEqual(failedResponses, []);
   assert.deepEqual(requests, []);
   console.log(
     JSON.stringify({
@@ -265,5 +272,9 @@ try {
     }),
   );
 } finally {
+  await writeFile(
+    join(evidence, 'browser-diagnostics.json'),
+    `${JSON.stringify({ errors, failedResponses, blockedRequests: requests }, null, 2)}\n`,
+  );
   await browser.close();
 }
