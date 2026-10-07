@@ -36,3 +36,5 @@ export {
   PALETTE_ROLES,
   KIT_PRIMITIVES,
 } from './tone-context.mjs';
+
+export { exportHtml } from './html-export.mjs';

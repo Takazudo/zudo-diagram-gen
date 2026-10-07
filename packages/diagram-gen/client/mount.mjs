@@ -1,4 +1,5 @@
 import { validatePlacement, renderPlacement } from './placement.mjs';
+import { validateSessionReview } from './review.mjs';
 /* Package-owned viewer. Session authors edit metadata and SVGs, not this file. */
 export function mountDiagramApp(root, data, options = {}) {
   if (!root || root.dataset.diagramReady === 'true') return () => {};
@@ -172,7 +173,7 @@ export function mountDiagramApp(root, data, options = {}) {
     }
   }
   try {
-    const parameters = new URLSearchParams(location.hash.slice(1));
+    const parameters = new URLSearchParams(options.history === false ? '' : location.hash.slice(1));
     const linkedId = parameters.get('candidate');
     if (byId.has(linkedId)) {
       state.activeId = linkedId;
@@ -512,7 +513,7 @@ export function mountDiagramApp(root, data, options = {}) {
   }
 
   function updateHash() {
-    if (embedded) return;
+    if (embedded || options.history === false) return;
     try {
       const parameters = new URLSearchParams();
       if (state.view !== 'grid' && state.activeId) {
@@ -860,81 +861,90 @@ export function mountDiagramApp(root, data, options = {}) {
       if (file.size > 2 * 1024 * 1024) throw new Error('Review files must be smaller than 2 MB.');
       const review = JSON.parse(await file.text());
       if (disposed) return;
-      if (review.schemaVersion !== 1 || review.type !== 'zudo-diagram-review')
-        throw new Error('This is not a supported diagram review JSON file.');
-      if (review.sessionId !== data.session.id)
-        throw new Error(`This review belongs to “${review.sessionId}”, not this session.`);
-      if (!Array.isArray(review.records) || !Array.isArray(review.shortlist))
-        throw new Error('The review is missing its candidate records or shortlist.');
-      const referenced = [
-        ...review.records,
-        ...review.shortlist,
-        ...(review.chosenDirection ? [review.chosenDirection] : []),
-        ...(review.reviewedCandidate ? [review.reviewedCandidate] : []),
-      ];
-      for (const record of referenced) {
-        if (!record || !byId.has(record.id))
-          throw new Error(
-            `Candidate “${record?.id || 'unknown'}” is missing from this session. Import the matching session content first.`,
-          );
-        if (typeof record.fingerprint !== 'string' || !record.fingerprint)
-          throw new Error(`Candidate “${record.id}” has no artwork fingerprint.`);
-      }
-      const importedNotes = Object.create(null);
-      for (const record of review.records) {
-        if (
-          typeof record.keep !== 'string' ||
-          typeof record.change !== 'string' ||
-          !validActions.has(record.action)
-        )
-          throw new Error(`Feedback for “${record.id}” is invalid.`);
-        importedNotes[record.id] = {
-          fingerprint: record.fingerprint,
-          keep: record.keep.slice(0, 20000),
-          change: record.change.slice(0, 20000),
-          action: record.action,
-          updatedAt: record.updatedAt || review.exportedAt || null,
-        };
-      }
-      if (
-        review.reviewedCandidate &&
-        review.feedback &&
-        !importedNotes[review.reviewedCandidate.id]
-      ) {
-        const feedback = review.feedback;
-        if (
-          typeof feedback.keep !== 'string' ||
-          typeof feedback.change !== 'string' ||
-          !validActions.has(feedback.action)
-        )
-          throw new Error('The selected candidate’s feedback is invalid.');
-        importedNotes[review.reviewedCandidate.id] = {
-          fingerprint: review.reviewedCandidate.fingerprint,
-          keep: feedback.keep.slice(0, 20000),
-          change: feedback.change.slice(0, 20000),
-          action: feedback.action,
-          updatedAt: review.exportedAt || null,
-        };
-      }
-      const importedShortlist = Object.create(null);
-      for (const record of review.shortlist)
-        importedShortlist[record.id] = { id: record.id, fingerprint: record.fingerprint };
-      state.notes = importedNotes;
-      state.shortlist = importedShortlist;
-      state.direction = review.chosenDirection
-        ? { id: review.chosenDirection.id, fingerprint: review.chosenDirection.fingerprint }
-        : null;
-      if (review.reviewedCandidate) {
-        state.activeId = review.reviewedCandidate.id;
-        state.roundId = byId.get(state.activeId).roundId;
-        state.view = 'inspect';
-      }
-      justImported = true;
-      render();
+      validateSessionReview(review, data);
+      applyReview(review);
     } catch (error) {
       if (!disposed) notify(`Import failed: ${error.message}`);
     }
   }
+
+  function applyReview(review) {
+    const importedNotes = Object.create(null);
+    for (const record of review.records) {
+      if (
+        typeof record.keep !== 'string' ||
+        typeof record.change !== 'string' ||
+        !validActions.has(record.action)
+      )
+        throw new Error(`Feedback for “${record.id}” is invalid.`);
+      importedNotes[record.id] = {
+        fingerprint: record.fingerprint,
+        keep: record.keep.slice(0, 20000),
+        change: record.change.slice(0, 20000),
+        action: record.action,
+        updatedAt: record.updatedAt || review.exportedAt || null,
+      };
+    }
+    if (
+      review.reviewedCandidate &&
+      review.feedback &&
+      !importedNotes[review.reviewedCandidate.id]
+    ) {
+      const feedback = review.feedback;
+      if (
+        typeof feedback.keep !== 'string' ||
+        typeof feedback.change !== 'string' ||
+        !validActions.has(feedback.action)
+      )
+        throw new Error('The selected candidate’s feedback is invalid.');
+      importedNotes[review.reviewedCandidate.id] = {
+        fingerprint: review.reviewedCandidate.fingerprint,
+        keep: feedback.keep.slice(0, 20000),
+        change: feedback.change.slice(0, 20000),
+        action: feedback.action,
+        updatedAt: review.exportedAt || null,
+      };
+    }
+    const importedShortlist = Object.create(null);
+    for (const record of review.shortlist)
+      importedShortlist[record.id] = { id: record.id, fingerprint: record.fingerprint };
+    state.notes = importedNotes;
+    state.shortlist = importedShortlist;
+    state.direction = review.chosenDirection
+      ? { id: review.chosenDirection.id, fingerprint: review.chosenDirection.fingerprint }
+      : null;
+    if (review.reviewedCandidate) {
+      state.activeId = review.reviewedCandidate.id;
+      state.roundId = byId.get(state.activeId).roundId;
+      state.view = 'inspect';
+    }
+    justImported = true;
+    render();
+  }
+
+  options.onReady?.({
+    getReview: reviewRecord,
+    importReview: (review) => {
+      if (disposed) throw new Error('Workbench has been disposed.');
+      validateSessionReview(review, data);
+      applyReview(review);
+    },
+    inspect: (id) => {
+      if (disposed) throw new Error('Workbench has been disposed.');
+      if (!byId.has(id)) throw new Error('Exact candidate is unavailable.');
+      state.activeId = id;
+      state.roundId = byId.get(id).roundId;
+      state.view = 'inspect';
+      render();
+    },
+    setDisplay: ({ theme, backdrop, uiTheme }) => {
+      if (disposed) throw new Error('Workbench has been disposed.');
+      if (['light', 'dark'].includes(theme)) state.theme = theme;
+      if (['auto', 'paper', 'ink', 'checker'].includes(backdrop)) state.backdrop = backdrop;
+      if (!embedded && ['light', 'dark'].includes(uiTheme)) state.uiTheme = uiTheme;
+      render();
+    },
+  });
 
   listen(root, 'click', async (event) => {
     const button = event.target.closest('[data-action]');
@@ -1203,3 +1213,5 @@ export function mountDiagramApp(root, data, options = {}) {
     delete root.dataset.backdrop;
   };
 }
+
+export { mountProjectApp } from './project.mjs';

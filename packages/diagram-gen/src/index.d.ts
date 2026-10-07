@@ -89,14 +89,17 @@ export function exportCandidate(
   bytes: number;
   fingerprint: string;
 }>;
-export function renderGallery(data: GalleryData, options?: Record<string, string>): Promise<string>;
+export function renderGallery(
+  data: GalleryData | ProjectData,
+  options?: Record<string, string | boolean>,
+): Promise<string>;
 export function renderZfbGallery(
-  data: GalleryData,
-  options?: Record<string, string>,
+  data: GalleryData | ProjectData,
+  options?: Record<string, string | boolean>,
 ): Promise<string>;
 export function createPageSource(
-  data: GalleryData,
-  options?: Record<string, string>,
+  data: GalleryData | ProjectData,
+  options?: Record<string, string | boolean>,
   zfbMajor?: 2 | 3,
 ): Promise<string>;
 
@@ -301,3 +304,50 @@ export function portablePlacement(loaded: Awaited<ReturnType<typeof loadPlacemen
   }>;
   placementHash: string;
 };
+
+export function exportHtml(
+  root: string,
+  options: { output: string; force?: boolean },
+): Promise<{
+  kind: string;
+  output: string;
+  bytes: number;
+  candidates: number;
+  ok: boolean;
+  diagnostics: ProjectDiagnostic[];
+}>;
+
+export interface ReviewCandidate {
+  id: string;
+  fingerprint: string;
+  roundId?: string;
+  title?: string;
+  toneId?: string;
+  sourcePath?: string;
+  currentFingerprint?: string;
+  stale?: boolean;
+}
+export interface ReviewFeedback {
+  keep: string;
+  change: string;
+  action: 'refine' | 'integrate' | 'explore';
+}
+export interface SessionReview {
+  schemaVersion: 1;
+  type: 'zudo-diagram-review';
+  sessionId: string;
+  sessionTitle?: string;
+  sessionContentHash?: string;
+  exportedAt?: string;
+  reviewedCandidate?: ReviewCandidate | null;
+  chosenDirection?: ReviewCandidate | null;
+  shortlist: ReviewCandidate[];
+  feedback?: ReviewFeedback | null;
+  records: Array<ReviewCandidate & ReviewFeedback & { updatedAt?: string | null }>;
+}
+export interface ProjectReview {
+  schemaVersion: 1;
+  type: 'zudo-diagram-project-review';
+  projectId: string;
+  sessions: SessionReview[];
+}

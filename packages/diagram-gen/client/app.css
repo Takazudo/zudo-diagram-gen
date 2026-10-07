@@ -2536,3 +2536,95 @@
 .dg-app[data-embedded='true'] [data-action='ui-theme'] {
   display: none;
 }
+
+/* Project comparison uses the same semantic tokens and isolated placement renderer. */
+.dg-project-main {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-block: var(--dg-vsp-xl);
+  padding-inline: var(--dg-hsp-xl);
+}
+.dg-project-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  column-gap: var(--dg-hsp-lg);
+  row-gap: var(--dg-vsp-md);
+  margin-block: var(--dg-vsp-xl);
+}
+.dg-project-controls label {
+  display: grid;
+  row-gap: var(--dg-vsp-xs);
+  min-width: 0;
+  max-width: 100%;
+}
+.dg-project-controls select {
+  max-width: 100%;
+}
+.dg-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  column-gap: var(--dg-hsp-xl);
+  row-gap: var(--dg-vsp-xl);
+}
+.dg-project-card {
+  min-width: 0;
+  padding-inline: var(--dg-hsp-lg);
+  padding-block: var(--dg-vsp-lg);
+  border: 1px solid var(--dg-line);
+  border-radius: var(--dg-radius);
+  background: var(--dg-panel);
+  overflow-wrap: anywhere;
+}
+.dg-project-frame-scroll {
+  overflow: auto;
+  max-width: 100%;
+  background: var(--dg-art-light-bg);
+}
+.dg-project[data-diagram-theme='dark'] .dg-project-frame-scroll {
+  background: var(--dg-art-dark-bg);
+}
+.dg-project[data-backdrop='paper'] .dg-project-frame-scroll {
+  background: var(--dg-art-paper-bg);
+}
+.dg-project[data-backdrop='ink'] .dg-project-frame-scroll {
+  background: var(--dg-art-ink-bg);
+}
+.dg-project[data-backdrop='checker'] .dg-project-frame-scroll {
+  background: repeating-conic-gradient(
+      var(--dg-art-checker-cell) 0% 25%,
+      var(--dg-art-checker-bg) 0% 50%
+    )
+    50% / 16px 16px;
+}
+.dg-project-fingerprint {
+  font-size: var(--dg-text-small);
+}
+.dg-project [hidden] {
+  display: none !important;
+}
+.dg-project > [data-project-session] > button,
+.dg-project > [data-project-session] > p,
+.dg-project > [data-project-status] {
+  margin-inline: var(--dg-hsp-lg);
+  margin-block: var(--dg-vsp-md);
+}
+.dg-project-main button,
+.dg-project-main select,
+.dg-project > [data-project-session] > button {
+  background: var(--dg-panel);
+  color: var(--dg-text);
+  border: 1px solid var(--dg-line-strong);
+  padding-inline: var(--dg-hsp-sm);
+  padding-block: var(--dg-vsp-sm);
+  border-radius: var(--dg-radius);
+}
+.dg-project :is(button, select, a):focus-visible {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 3px;
+}
+@media (max-width: 480px) {
+  .dg-project-main {
+    padding-inline: var(--dg-hsp-sm);
+  }
+}
