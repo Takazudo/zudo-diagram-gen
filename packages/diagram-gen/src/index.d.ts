@@ -1,3 +1,10 @@
+import type {
+  ToneResourceContext,
+  BundledReference,
+  RecipeNumericReference,
+  ToneContextOptions,
+} from './tone-context.js';
+export * from './tone-context.js';
 export interface Candidate {
   id: string;
   roundId: string;
@@ -45,6 +52,12 @@ export interface Tone {
   goodFor: string[];
   smallSizeNotes: string;
   referenceFiles: { light: string; dark: string };
+  toneRevision?: string;
+  scheme?: string;
+  kit?: string;
+  bundledReferences?: BundledReference[];
+  recipeNumericReferences?: RecipeNumericReference[];
+  context: ToneResourceContext;
   sourceReferences?: Array<{ title: string; url: string }>;
 }
 export interface ValidationSummary {
@@ -61,7 +74,7 @@ export function loadSession(root: string): Promise<GalleryData>;
 export function validateSession(
   root: string,
 ): Promise<{ ok: boolean; errors: string[]; warnings: string[]; summary: ValidationSummary }>;
-export function loadToneCatalog(): Promise<GalleryData>;
+export function loadToneCatalog(options?: ToneContextOptions): Promise<GalleryData>;
 export function exportCandidate(
   root: string,
   candidateId: string,
