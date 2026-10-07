@@ -40,7 +40,7 @@ These links explain broad visual construction principles. Reading them is option
 
 - [Rough.js — sketch contours and vector hatching](https://roughjs.com/)
 
-## Pilot scheme and kit — authored revision pilot-1
+## Pilot scheme and kit — authored revision pilot-2
 
 The scheme is the numeric authority for new pilot drawings; original example geometry stays unchanged. Read `scheme.json` and the seven symbols in `kit.svg` together. `kit.template.svg` is authoring source, checked in this repository by `node scripts/build-pilot-kits.mjs --check`; it is not a runtime materialization API. Palette-bearing marks carry semantic attributes and literal light defaults. Inline needed geometry for a self-contained candidate and use the common experiment palette; do not reference the kit as an external image.
 
@@ -48,29 +48,31 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 
 ### Required
 
-- **native-construction**: Use a decisive imperfect main contour with a lighter displaced secondary trace and sparse seeded hatching.
+- **native-construction**: Use imperfect major object contours with a visibly lighter displaced retrace, plus a crossed hatch field recognizable at actual placement. Sparse means airy individual strokes across a visible field; tiny parallel corner ticks alone do not carry the texture. Hatching never covers Japanese labels or implies extra factual objects.
 - **facts-and-labels**: Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement.
 - **palette-roles**: Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry.
-- **texture-control**: Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture.
+- **texture-control**: Use seeded-pencil-crosshatch with the fixed texture seed. Frequency is strokes per direction in the canonical patch, with two opposing directions. The seed controls stroke jitter only, never model generation. Keep a clear label plane; no random noise or distorted text.
 
 ### Preferred
 
 - **reading-hierarchy**: Notebook ruling stays subordinate to every label and essential route; remove ruling locally behind text.
 - **tone-emphasis**: Keep arrowheads unambiguous and text upright; express the hand through geometry rather than distorted Japanese glyphs.
+- **field-transfer**: Use crossed hatching on a meaningful object backing or edge region large enough to read as construction, with a clear foreground label plane. Do not confine all texture to miniature chair inserts. On empty objects, decorate the surrounding label/backing rather than the vacant interior.
 
 ### Flexible
 
 - **layout**: Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template.
 - **hand-geometry**: Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts.
 - **glyph-style**: Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable.
+- **texture-placement**: Choose field placement, extent and line breaks for the brief and aspect ratio. Fine individual strokes may be simplified for readability, but preserve the crossed construction rather than substituting only clean cards. Original Pattern/Text and PNG content is not required for other topics.
 
 ### Composition vocabulary
 
 - **arrows**: A gently imperfect ink path plus lighter retrace, ending in an open asymmetrical arrowhead.
 - **people**: An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.
-- **empty**: An irregular open chair with a visible vacant seat and explicit empty label; hatch only its back.
+- **empty**: An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.
 - **pending**: Use a retraced clock next to the waiting object and retain its pending label.
-- **emphasis**: Reserve the muted accent for a short underline or teaching mark; never hatch the label area.
+- **emphasis**: Use a meaningful crossed-hatch backing or edge field behind a clear surface-role label plane, with a muted underline where useful. Texture and connectors never cover the exact Japanese text.
 - **warning**: Use a handwritten-looking contour around an upright warning label; preserve the exact text.
 
 This pack is prepared for the frozen paired pilot, not accepted by a visual gate. Schemas, deterministic generation and nominal text size cannot establish tone character, factual accuracy or Japanese readability. No fixture is user approval.

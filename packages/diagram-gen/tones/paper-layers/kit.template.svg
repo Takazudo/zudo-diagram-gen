@@ -3,6 +3,15 @@
 <desc id="kit-description">Original tone-native primitive inventory. A symbol is an object mark, not an assertion about the brief or user approval.</desc>
 <defs>
 
+<symbol id="paper-cut-motif" viewBox="0 0 200 120">{{texture:cut-motif}}</symbol>
+<symbol id="paper-assembly" viewBox="0 0 200 120">
+<path d="M12 9L185 5L192 109L17 115Z" transform="translate({{scheme:geometry.layers.shadow.dx}} {{scheme:geometry.layers.shadow.dy}})" opacity="{{scheme:geometry.layers.shadow.opacity}}" data-palette-fill="border" fill="{{palette:border}}"/>
+<path d="M12 9L185 5L192 109L17 115Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<path d="M21 4L184 13L178 116L15 109Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<use href="#paper-cut-motif" x="25" y="13" width="148" height="94"/>
+<path d="M10 45L180 39L181 86L12 91Z" transform="translate({{scheme:geometry.layers.shadow.dx}} {{scheme:geometry.layers.shadow.dy}})" opacity="{{scheme:geometry.layers.shadow.opacity}}" data-palette-fill="border" fill="{{palette:border}}"/>
+<path d="M10 45L180 39L181 86L12 91Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+</symbol>
 <symbol id="person" viewBox="0 0 100 100">
 <g transform="translate({{scheme:geometry.layers.shadow.dx}} {{scheme:geometry.layers.shadow.dy}})" opacity="{{scheme:geometry.layers.shadow.opacity}}" data-palette-fill="border" fill="{{palette:border}}"><path d="M22 86L26 58L43 47H58L76 57L81 86Z"/><circle cx="50" cy="25" r="{{scheme:geometry.radii.head}}"/></g><path d="M21 85L25 57L42 46H59L76 57L80 85Z" data-palette-fill="surface" fill="{{palette:surface}}"/><path d="M34 55L67 51L70 86L30 86Z" data-palette-fill="deep" fill="{{palette:deep}}"/><circle cx="50" cy="25" r="{{scheme:geometry.radii.head}}" data-palette-fill="accent" fill="{{palette:accent}}"/>
 </symbol>
@@ -10,7 +19,7 @@
 <path d="M25 19L68 13L78 49L52 89L20 50Z" transform="translate({{scheme:geometry.layers.shadow.dx}} {{scheme:geometry.layers.shadow.dy}})" opacity="{{scheme:geometry.layers.shadow.opacity}}" data-palette-fill="border" fill="{{palette:border}}"/><path d="M25 19L68 13L78 49L52 89L20 50Z" data-palette-fill="accent" fill="{{palette:accent}}"/><path d="M38 27L61 25L63 44L37 46Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
 </symbol>
 <symbol id="slot-card" viewBox="0 0 100 100">
-<path d="M15 24L79 17L85 80L21 85Z" data-palette-fill="border" fill="{{palette:border}}"/><path d="M10 17L78 22L75 84L7 80Z" data-palette-fill="surface" fill="{{palette:surface}}"/><path d="M17 33L82 29L85 81L20 86Z" data-palette-fill="deep" fill="{{palette:deep}}"/><path d="M28 45L73 42L74 64L29 67Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<use href="#paper-assembly" x="1" y="12" width="98" height="80"/>
 </symbol>
 <symbol id="empty-seat" viewBox="0 0 100 100">
 <g transform="translate({{scheme:geometry.layers.shadow.dx}} {{scheme:geometry.layers.shadow.dy}})" opacity="{{scheme:geometry.layers.shadow.opacity}}" data-palette-fill="border" fill="{{palette:border}}"><path d="M28 18L70 14L74 47L30 50ZM20 59L77 54L80 68L22 73ZM28 72H36V87H28ZM69 69H77V84H69Z"/></g><path d="M28 18L70 14L74 47L30 50Z" data-palette-fill="surface" fill="{{palette:surface}}"/><path d="M20 59L77 54L80 68L22 73Z" data-palette-fill="deep" fill="{{palette:deep}}"/><path d="M28 72H36V87H28ZM69 69H77V84H69Z" data-palette-fill="ink" fill="{{palette:ink}}"/>
@@ -39,4 +48,6 @@
 <text x="204" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">check</text>
 <use href="#clock" x="378" y="210" width="100" height="100"/>
 <text x="378" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">clock</text>
+<use href="#paper-assembly" x="546" y="218" width="150" height="90"/>
+<text x="552" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">assembly</text>
 </svg>

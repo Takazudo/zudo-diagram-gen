@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "toneId": "pencil-notebook",
-  "toneRevision": "pilot-1",
+  "toneRevision": "pilot-2",
   "collectionVersion": "0.1.0",
   "coordinateSystem": {
     "viewBox": [0, 0, 720, 400],
@@ -11,7 +11,7 @@
     "strokeWidths": {
       "outline": 1.7,
       "connector": 1.9,
-      "detail": 0.8,
+      "detail": 1.1,
       "hatch": 1.1,
       "rule": 1
     },
@@ -26,15 +26,15 @@
     },
     "opacities": {
       "solid": 1,
-      "trace": 0.65,
+      "trace": 0.8,
       "hatch": 0.55,
       "rule": 0.35
     },
     "layers": {
       "trace": {
-        "dx": 1.4,
-        "dy": -1.2,
-        "opacity": 0.65
+        "dx": 2.4,
+        "dy": -1.8,
+        "opacity": 0.8
       }
     }
   },
@@ -71,7 +71,7 @@
     }
   },
   "texture": {
-    "kind": "seeded-pencil-hatch",
+    "kind": "seeded-pencil-crosshatch",
     "seed": 1307,
     "amplitude": 1.4,
     "frequency": 8
@@ -79,16 +79,16 @@
   "composition": {
     "arrows": "A gently imperfect ink path plus lighter retrace, ending in an open asymmetrical arrowhead.",
     "people": "An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.",
-    "empty": "An irregular open chair with a visible vacant seat and explicit empty label; hatch only its back.",
+    "empty": "An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.",
     "pending": "Use a retraced clock next to the waiting object and retain its pending label.",
-    "emphasis": "Reserve the muted accent for a short underline or teaching mark; never hatch the label area.",
+    "emphasis": "Use a meaningful crossed-hatch backing or edge field behind a clear surface-role label plane, with a muted underline where useful. Texture and connectors never cover the exact Japanese text.",
     "warning": "Use a handwritten-looking contour around an upright warning label; preserve the exact text."
   },
   "rules": {
     "required": [
       {
         "id": "native-construction",
-        "description": "Use a decisive imperfect main contour with a lighter displaced secondary trace and sparse seeded hatching."
+        "description": "Use imperfect major object contours with a visibly lighter displaced retrace, plus a crossed hatch field recognizable at actual placement. Sparse means airy individual strokes across a visible field; tiny parallel corner ticks alone do not carry the texture. Hatching never covers Japanese labels or implies extra factual objects."
       },
       {
         "id": "facts-and-labels",
@@ -100,7 +100,7 @@
       },
       {
         "id": "texture-control",
-        "description": "Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture."
+        "description": "Use seeded-pencil-crosshatch with the fixed texture seed. Frequency is strokes per direction in the canonical patch, with two opposing directions. The seed controls stroke jitter only, never model generation. Keep a clear label plane; no random noise or distorted text."
       }
     ],
     "preferred": [
@@ -111,6 +111,10 @@
       {
         "id": "tone-emphasis",
         "description": "Keep arrowheads unambiguous and text upright; express the hand through geometry rather than distorted Japanese glyphs."
+      },
+      {
+        "id": "field-transfer",
+        "description": "Use crossed hatching on a meaningful object backing or edge region large enough to read as construction, with a clear foreground label plane. Do not confine all texture to miniature chair inserts. On empty objects, decorate the surrounding label/backing rather than the vacant interior."
       }
     ],
     "flexible": [
@@ -125,6 +129,10 @@
       {
         "id": "glyph-style",
         "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      },
+      {
+        "id": "texture-placement",
+        "description": "Choose field placement, extent and line breaks for the brief and aspect ratio. Fine individual strokes may be simplified for readability, but preserve the crossed construction rather than substituting only clean cards. Original Pattern/Text and PNG content is not required for other topics."
       }
     ]
   }

@@ -20,6 +20,7 @@ import {
   authorPilotKit,
   buildPilotKits,
   pencilHatch,
+  paperCutMotif,
   PILOT_TONES,
 } from '../../../scripts/build-pilot-kits.mjs';
 const exec = promisify(execFile);
@@ -87,7 +88,10 @@ test('all 72 original SVG bytes and ordered stable tone identities remain unchan
     catalog.tones.map(({ id }) => id),
     references.toneIds,
   );
-  for (const [file, hash] of Object.entries(references.resources))
+  for (const [file, hash] of Object.entries({
+    ...references.resources,
+    ...references.unrevisedPacks,
+  }))
     assert.equal(hashBytes(await fs.readFile(path.join(tones, file))), hash, file);
 });
 
@@ -157,7 +161,16 @@ test('pencil hatch seed and amplitude deterministically control texture without 
     first,
   );
   assert.notEqual(pencilHatch({ ...scheme, texture: { ...scheme.texture, amplitude: 0 } }), first);
-  assert.equal((first.match(/<path /g) ?? []).length, scheme.texture.frequency);
+  assert.equal((first.match(/<path /g) ?? []).length, scheme.texture.frequency * 2);
+  const legacy = pencilHatch({
+    ...scheme,
+    texture: { ...scheme.texture, kind: 'seeded-pencil-hatch' },
+  });
+  assert.equal((legacy.match(/<path /g) ?? []).length, scheme.texture.frequency);
+  assert.equal(hashBytes(legacy), references.frozenPilot1PencilHatchHash);
+  const segments = [...first.matchAll(/d="M[^ ]+ ([^L]+)L[^ ]+ ([^"]+)"/g)];
+  assert.ok(segments.some((m) => Number(m[1]) > Number(m[2])));
+  assert.ok(segments.some((m) => Number(m[1]) < Number(m[2])));
   assert.throws(
     () => pencilHatch({ ...scheme, texture: { ...scheme.texture, frequency: 100000 } }),
     /at most 64/,
@@ -213,4 +226,25 @@ test('authoritative importer preserves scheme bindings, recipe placeholders and 
     await exec('python3', args);
     assert.equal(await read(futureScheme), opaque);
   }
+});
+
+test('paper repeat construction varies motif count deterministically and rejects unsupported noise', async () => {
+  const scheme = await json(path.join(tones, 'paper-layers/scheme.json'));
+  const first = paperCutMotif(scheme);
+  assert.equal(first, paperCutMotif(scheme));
+  assert.equal((first.match(/<g transform=/g) ?? []).length, scheme.texture.frequency * 2);
+  const fewer = { ...scheme, texture: { ...scheme.texture, frequency: 2 } };
+  assert.notEqual(paperCutMotif(fewer), first);
+  assert.equal((paperCutMotif(fewer).match(/<g transform=/g) ?? []).length, 4);
+  for (const changed of [{ frequency: 0 }, { frequency: 17 }, { seed: 1 }, { amplitude: 1 }])
+    assert.throws(
+      () => paperCutMotif({ ...scheme, texture: { ...scheme.texture, ...changed } }),
+      /motifs per row/,
+    );
+  const paper = await resolveToneContext('paper-layers');
+  for (const id of ['paper-cut-motif', 'paper-assembly'])
+    assert.ok(paper.kit.primitives.some((p) => p.id === id));
+  const pencil = await resolveToneContext('pencil-notebook');
+  for (const id of ['pencil-crosshatch', 'pencil-panel', 'notebook-ground'])
+    assert.ok(pencil.kit.primitives.some((p) => p.id === id));
 });

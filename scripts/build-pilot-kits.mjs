@@ -26,27 +26,57 @@ const xml = (text) =>
 export function pencilHatch(scheme) {
   const { seed, amplitude, frequency } = scheme.texture;
   if (
-    scheme.texture.kind !== 'seeded-pencil-hatch' ||
+    !['seeded-pencil-hatch', 'seeded-pencil-crosshatch'].includes(scheme.texture.kind) ||
     !Number.isInteger(frequency) ||
+    frequency < 0 ||
     frequency > 64
   )
     throw new Error('Pilot pencil hatching requires an integral frequency of at most 64.');
+  const directions = scheme.texture.kind === 'seeded-pencil-crosshatch' ? [1, -1] : [1];
   let state = seed >>> 0;
   const jitter = () => {
     state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
     return ((state / 4294967296) * 2 - 1) * amplitude;
   };
   const n = (value) => Number(value.toFixed(3));
-  return Array.from({ length: frequency }, (_, index) => {
-    const x = 4 + (index * 70) / Math.max(1, frequency - 1);
-    const d = `M${n(x + jitter())} ${n(63 + jitter())}L${n(x + 20 + jitter())} ${n(7 + jitter())}`;
-    return `<path d="${d}" fill="none" data-palette-stroke="deep" stroke="${scheme.palette.light.deep}" stroke-width="${scheme.geometry.strokeWidths.hatch}" opacity="${scheme.geometry.opacities.hatch}"/>`;
-  }).join('\n');
+  return directions
+    .flatMap((direction) =>
+      Array.from({ length: frequency }, (_, index) => {
+        const x = 4 + (index * 70) / Math.max(1, frequency - 1);
+        const fromY = direction === 1 ? 63 : 7;
+        const toY = direction === 1 ? 7 : 63;
+        const d = `M${n(x + jitter())} ${n(fromY + jitter())}L${n(x + 20 + jitter())} ${n(toY + jitter())}`;
+        return `<path d="${d}" fill="none" data-palette-stroke="deep" stroke="${scheme.palette.light.deep}" stroke-width="${scheme.geometry.strokeWidths.hatch}" opacity="${scheme.geometry.opacities.hatch}"/>`;
+      }),
+    )
+    .join('\n');
+}
+
+/** Original periodic cut geometry; frequency is motifs per row in this patch. */
+export function paperCutMotif(scheme) {
+  const { kind, frequency, seed, amplitude } = scheme.texture;
+  if (
+    kind !== 'cut-paper-repeat' ||
+    !Number.isInteger(frequency) ||
+    frequency < 1 ||
+    frequency > 16 ||
+    seed !== 0 ||
+    amplitude !== 0
+  )
+    throw new Error('Paper motifs require 1–16 motifs per row with zero seed/amplitude.');
+  return Array.from({ length: 2 }, (_, row) =>
+    Array.from({ length: frequency }, (_, column) => {
+      const x = (column * 200) / frequency;
+      const y = row * 60;
+      return `<g transform="translate(${x} ${y}) scale(${4 / frequency} 1)"><path d="M0 58V25C0 11 11 0 25 0S50 11 50 25V58H37V25C37 18 32 13 25 13S13 18 13 25V58Z" data-palette-fill="deep" fill="${scheme.palette.light.deep}"/><path d="M19 58V25C19 22 22 19 25 19S31 22 31 25V58Z" data-palette-fill="accent" fill="${scheme.palette.light.accent}"/></g>`;
+    }).join('\n'),
+  ).join('\n');
 }
 
 export function authorPilotKit(template, scheme) {
   validateToneScheme(scheme);
   let source = template.replaceAll('{{texture:hatch}}', () => pencilHatch(scheme));
+  source = source.replaceAll('{{texture:cut-motif}}', () => paperCutMotif(scheme));
   source = source.replace(/\{\{palette:([A-Za-z]+)\}\}/g, (_, role) => {
     if (!Object.hasOwn(scheme.palette.light, role))
       throw new Error(`Unknown palette role ${role}.`);

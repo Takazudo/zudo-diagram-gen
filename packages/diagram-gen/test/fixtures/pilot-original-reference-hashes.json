@@ -99,5 +99,17 @@
     "luminous-glass/source.svg": "808bd77c9a5d107a50b6f9b7780899e5019f329dc9f4799228ca01ccf319e499",
     "luminous-glass/light.svg": "8be407aa7deca88ff2e3693bc0282f039f0226b9d37a635c9650bc9185290fad",
     "luminous-glass/dark.svg": "87502f64dbd04370b894f6095dbb23763db8014472380e3444e83fea8d2fd990"
-  }
+  },
+  "frozenPilot1Commit": "8525083ee53c2d3377f5203c4b36d00cda00c575",
+  "unrevisedPacks": {
+    "fine-outline/scheme.json": "c6f7d8869fc1a07ecda3eb9fae125e69d22a53b1b423d4b8916fe8f760fe6592",
+    "fine-outline/kit.svg": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+    "fine-outline/kit.template.svg": "88420bdd8c0362a05782970bcfdd023a8e668b9f148e332c3d1366e8a97eb09d",
+    "fine-outline/recipe.md": "40af90ee8412c0bb625172000c370f8ef5eaf3db8a0fcb1a5f1c00efb44666a8",
+    "soft-fill/scheme.json": "465805af88d0ce95f60834b58aa2fcbe9ae856679d9b88b3169abe27dd4b9b0a",
+    "soft-fill/kit.svg": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+    "soft-fill/kit.template.svg": "84985be17b93bea592bb9581615b528fbcc9fe6e59a2dc6369684f3a485f4da4",
+    "soft-fill/recipe.md": "2a6c587e457cf72addf66748b0263a16f9258f9b14ad2982f74ff55bbd1c5e5e"
+  },
+  "frozenPilot1PencilHatchHash": "59818f471b60abe2822b74e136502659412eae403d9863a3fb8f7da81d6daa1b"
 }

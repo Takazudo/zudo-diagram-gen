@@ -608,7 +608,7 @@
       ],
       "scheme": "paper-layers/scheme.json",
       "kit": "paper-layers/kit.svg",
-      "toneRevision": "pilot-1"
+      "toneRevision": "pilot-2"
     },
     {
       "id": "pencil-notebook",
@@ -662,7 +662,7 @@
       ],
       "scheme": "pencil-notebook/scheme.json",
       "kit": "pencil-notebook/kit.svg",
-      "toneRevision": "pilot-1"
+      "toneRevision": "pilot-2"
     },
     {
       "id": "marker-workshop",
