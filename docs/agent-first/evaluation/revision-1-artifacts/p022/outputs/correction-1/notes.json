@@ -1,0 +1,22 @@
+{
+  "deliberateDepartures": [
+    "Correction 1 moves only the supplemental 予約は未確定 label from baseline y=197 to y=157 inside the 確認待ち card. The return connector and all facts, labels, palette and other geometry are preserved.",
+    "The other four SVGs are byte-exact copies of the retained initial outputs."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg",
+    "Parent-provided P05 capture feedback: return arrow crossed 予約は未確定."
+  ],
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "The four unchanged SVGs were compared byte-for-byte with the initial outputs.",
+    "The revised supplemental label baseline is y=157 inside the card ending at y=172; the return connector ends at y=176."
+  ],
+  "limitations": [
+    "No new raster capture or visual acceptance is claimed. Initial outputs are retained."
+  ]
+}

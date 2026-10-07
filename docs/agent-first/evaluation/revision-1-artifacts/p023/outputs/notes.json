@@ -1,0 +1,54 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    "Used the supplied common light palette and Noto Sans CJK JP, sans-serif instead of the example warm palette and serif typography.",
+    "Kept main labels level; small rotations apply to backing sheets so the Japanese labels remain readable at target CSS size.",
+    "Used paper tabs and status motifs rather than the example repeating arch pattern, which has no factual role in these five briefs.",
+    "Dashed warning connector in pending-queue represents the awaiting result path; the destination explicitly states the publication condition and current zero."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFamily": "Not determined: SVG text remains editable and font selection occurs in the host renderer.",
+    "uncertainty": "No font files bundled or embedded. Fallback and missing-glyph behavior depend on the host."
+  },
+  "checks": [
+    "Parsed all five outputs as XML; verified accessible title, explicit target viewBox, and all exact labels including multiline text.",
+    "Viewed both original example PNGs. Target dimensions are encoded directly, with all designed geometry kept inside them."
+  ],
+  "limitations": [
+    "No evaluator feedback or visual acceptance was obtained.",
+    "Final output rasterization and host font resolution were not performed in this initial generation turn."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "tone": "fine-outline",
+  "deliberateDepartures": [
+    "Used the required shared light palette and Japanese font declaration instead of the examples’ palette and Latin font.",
+    "Replaced the examples’ striped composition motif with open workflow and status shapes; stripes are not facts in these briefs.",
+    "Kept essential contours and connectors at 1.6 CSS pixels in target-sized viewBoxes for the compact diagrams.",
+    "Used accent and warning outlines together where needed to preserve the locked semantic roles; one small filled accent teaching point per diagram.",
+    "Wrapped the first two long担当 labels without abbreviation; omitted nonrequired icons and contextual frame text to retain space."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "common/palette.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/fine-outline/dark.svg",
+    "tone/fine-outline/light.svg",
+    "tone/fine-outline/recipe.md",
+    "tone/recipe.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Unverified; SVG text remains editable and fonts are not embedded.",
+    "uncertainty": "Viewer font availability determines substitution and missing-glyph behavior; no font asset was supplied."
+  },
+  "checks": [
+    "All five SVGs parsed as XML.",
+    "Target width, height and viewBox match supplied session slots.",
+    "Exact labels checked through concatenated SVG text.",
+    "Both original example PNGs viewed."
+  ],
+  "limitations": [
+    "No browser or output rasterization performed; target-size geometry and typography were reviewed from authored SVG coordinates.",
+    "No visual acceptance or user approval inferred."
+  ]
+}

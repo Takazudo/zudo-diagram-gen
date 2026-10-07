@@ -1,0 +1,74 @@
+{
+  "tone": "soft-fill",
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "detail": "Used the explicit common light palette instead of the example/scheme palette; pale fills are semantic-role colors with opacity over white."
+    },
+    {
+      "scope": "all",
+      "detail": "Adapted the example geometry and 24-unit corner radius to each supplied target. Omitted pattern texture and composition-example copy because they do not belong to these briefs."
+    },
+    {
+      "scope": "empty-seats",
+      "detail": "Accent appears on both B and C because both are selectable; retaining one accent destination would falsely distinguish equivalent available seats."
+    },
+    {
+      "scope": "pending-queue",
+      "detail": "The accent destination is a publication-condition panel with an explicit zero count, rather than an already published result."
+    },
+    {
+      "scope": "long-labels",
+      "detail": "Used 18px whole-line担当 labels rather than the scheme 32-unit label size to keep all exact names visible at 480px."
+    }
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/soft-fill/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/soft-fill/light.svg",
+    "tone/soft-fill/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "originalExamplePngsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "embedded": false,
+    "actualRenderedFont": "Not established; no output renderer or font-resolution inspection was performed.",
+    "uncertainty": "Noto Sans CJK JP is not distributed in the supplied snapshot. A consuming renderer may fall back to sans-serif; glyph coverage and metrics need validation in that renderer."
+  },
+  "checks": {
+    "xml": "All five parsed as XML.",
+    "labels": "Exact labels checked against supplied factual checklists.",
+    "dimensions": "Explicit width, height and viewBox match each CSS target.",
+    "limitations": "Output visual rendering at final CSS size was not performed. No visual acceptance, scoring, or user approval is claimed."
+  }
+}

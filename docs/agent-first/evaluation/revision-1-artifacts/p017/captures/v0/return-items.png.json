@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "return-items",
+  "candidateId": "p017-return-items-v0",
+  "fingerprint": "936cc17aaa4aad3fec6ed4b36e5df8825498f38beb9a03e2ee65930f0a57cecf",
+  "assetHash": "42491f31d362ce581937c7e8a29f70bd0fa37f2b6c4414fa5e0b990ec5492c37",
+  "styleHash": null,
+  "placementHash": "48f8222c431aef0ae9006dd3b446735c3894806b63e14ac0333f01565a91d53a",
+  "theme": "light",
+  "crop": "frame",
+  "frame": {
+    "width": 368,
+    "height": 576,
+    "background": "#FFFFFF"
+  },
+  "slot": {
+    "x": 24,
+    "y": 48,
+    "width": 320,
+    "height": 480
+  },
+  "dpr": 1,
+  "pixelDimensions": {
+    "width": 368,
+    "height": 576
+  },
+  "viewport": {
+    "width": 368,
+    "height": 576
+  },
+  "browser": {
+    "name": "chromium",
+    "version": "151.0.7922.173",
+    "systemExecutable": true
+  },
+  "environment": {
+    "os": "linux 6.18.44 x64",
+    "fonts": [
+      {
+        "family": "Noto Sans CJK JP",
+        "ready": true,
+        "generic": false
+      },
+      {
+        "family": "sans-serif",
+        "ready": true,
+        "generic": true
+      }
+    ]
+  },
+  "referenceImages": [],
+  "imageHash": "b128a4c3e2583de331d272af600d7f86098a6a536f29ba5eee4ed6b9f189056f",
+  "capturedAt": "2026-10-07T18:57:25.743Z",
+  "inspected": false,
+  "limitations": [
+    "Font readiness does not certify Japanese glyph coverage, text shaping, readable labels, SVG internal clipping or semantic correctness."
+  ],
+  "captureHash": "2f972f04ec308df5852dd445ca9f2036badfc52232ef81321df20ebef6a162b2"
+}

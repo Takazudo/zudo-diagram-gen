@@ -1,0 +1,32 @@
+{
+  "correction": 1,
+  "changes": [
+    {
+      "file": "return-items.svg",
+      "detail": "Rerouted the two branch connectors outside the label capsules at x=24 and x=296. Horizontal branch runs sit above the labels; lower runs sit below the capsules and curve back toward each destination. Labels, palette, facts, target size and other artwork are unchanged."
+    }
+  ],
+  "byteIdenticalCopies": [
+    "reservation-flow.svg",
+    "empty-seats.svg",
+    "long-labels.svg",
+    "pending-queue.svg"
+  ],
+  "initialArtifactsRetained": true,
+  "resourcesActuallyUsed": [
+    "outputs/return-items.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg"
+  ],
+  "verification": [
+    "The four unaffected SVGs match their initial files byte-for-byte.",
+    "Corrected SVG parses as XML and contains all required return-items labels.",
+    "Label capsules occupy x=36–132 and x=188–284 at y=227–257; vertical connector strokes occupy x=24 and x=296, and the lower connector runs occupy y=266."
+  ],
+  "limitations": [
+    "No output raster rendering or font-resolution check performed in this correction turn.",
+    "No visual acceptance, score or user approval inferred."
+  ]
+}

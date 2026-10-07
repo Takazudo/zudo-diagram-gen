@@ -1,0 +1,49 @@
+{
+  "tone": "pencil-notebook",
+  "deliberateDepartures": [
+    "共通のlight paletteを優先し、例のクリーム色紙と茶色鉛筆色を白地と指定色に置き換えた。",
+    "日本語の可読性を優先し、例の手書き欧文フォントと文字の傾斜を使用せず、Noto Sans CJK JP, sans-serifを指定した。",
+    "小さい配置ではハッチを短い装飾線に抑え、主要な矢印と文字のコントラストを高く保った。",
+    "長い担当名は省略せず2行に改行した。各SVGはslotのCSSサイズに合わせ、外側のplacement frameは含めていない。"
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/pencil-notebook/recipe.md",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actuallyRendered": "Not verified; no output rendering performed.",
+    "uncertainty": "Fonts are not embedded. Actual font, fallback use, and missing glyphs depend on the viewing environment."
+  },
+  "limitations": [
+    "Original example PNGs were viewed. Generated SVGs were structurally checked, but visual acceptance and user approval are not inferred."
+  ]
+}

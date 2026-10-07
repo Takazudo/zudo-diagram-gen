@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-labelledby="title desc"><title id="title">空席と保留中の席</title><desc id="desc">四席。A席は予約済み。B席とC席だけ選べる。D席は保留中で選択不可。</desc><style>text{font-family:"Noto Sans CJK JP",sans-serif}</style><defs>
+<symbol id="pencil-hatch" viewBox="0 0 100 70"><path d="M4.679 63.919L24.653 5.735" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M13.875 64.064L34.586 5.745" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M23.716 63.468L44.885 7.804" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M33.64 64.15L53.803 7.563" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M45.065 62.1L64.374 7.468" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M54.772 62.045L73.704 8.32" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M63.863 63.595L83.451 6.103" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M75.207 64.29L93.555 7.748" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/></symbol>
+<symbol id="person" viewBox="0 0 100 100">
+<path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="pin" viewBox="0 0 100 100">
+<path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="slot-card" viewBox="0 0 100 100">
+<path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="empty-seat" viewBox="0 0 100 100">
+<path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><use href="#pencil-hatch" x="32" y="22" width="32" height="22"/>
+</symbol>
+<symbol id="arrow" viewBox="0 0 100 100">
+<path d="M12 65Q48 69 48 45Q47 28 84 29M73 18L87 30L74 42" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 67Q45 72 46 46Q45 31 82 32M72 20L85 32L74 44" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" opacity="0.65"/>
+</symbol>
+<symbol id="check" viewBox="0 0 100 100">
+<path d="M19 52L40 76L81 25" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 52L40 76L81 25" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 83Q53 86 80 79" fill="none" data-palette-stroke="accent" stroke="#267D75" stroke-width="0.8"/>
+</symbol>
+<symbol id="clock" viewBox="0 0 100 100">
+<path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs><rect width="360" height="240" fill="#FFFFFF" data-palette-fill="surface"/>
+<path d="M0 24H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 48H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 72H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 96H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 120H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 144H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 168H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 192H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 216H360" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 0L13 240" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.22" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="9" width="326" height="27" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="24" y="29" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="start"><tspan x="24" dy="0">空席と保留中の席</tspan></text>
+<path d="M16 47L169 45L170 126L17 128Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 47L169 45L170 126L17 128Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#check" x="76" y="48" width="35" height="35"/>
+<text x="93" y="97" fill="#203040" data-palette-fill="ink" font-size="15" font-weight="600" text-anchor="middle"><tspan x="93" dy="0">A席：予約済み</tspan></text>
+<text x="93" y="118" fill="#203040" data-palette-fill="ink" font-size="13" font-weight="400" text-anchor="middle"><tspan x="93" dy="0">選択不可</tspan></text>
+<path d="M190 47L343 45L344 126L191 128Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M190 47L343 45L344 126L191 128Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#empty-seat" x="250" y="48" width="35" height="35"/>
+<text x="267" y="97" fill="#203040" data-palette-fill="ink" font-size="15" font-weight="600" text-anchor="middle"><tspan x="267" dy="0">B席：空席</tspan></text>
+<text x="267" y="118" fill="#203040" data-palette-fill="ink" font-size="13" font-weight="400" text-anchor="middle"><tspan x="267" dy="0">選択可</tspan></text>
+<path d="M238 122Q267 120 295 123" fill="none" stroke="#267D75" data-palette-stroke="accent" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 142L169 140L170 221L17 223Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 142L169 140L170 221L17 223Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#empty-seat" x="76" y="143" width="35" height="35"/>
+<text x="93" y="192" fill="#203040" data-palette-fill="ink" font-size="15" font-weight="600" text-anchor="middle"><tspan x="93" dy="0">C席：空席</tspan></text>
+<text x="93" y="213" fill="#203040" data-palette-fill="ink" font-size="13" font-weight="400" text-anchor="middle"><tspan x="93" dy="0">選択可</tspan></text>
+<path d="M64 217Q93 215 121 218" fill="none" stroke="#267D75" data-palette-stroke="accent" stroke-width="1.6" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M190 142L343 140L344 221L191 223Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M190 142L343 140L344 221L191 223Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#empty-seat" x="231" y="144" width="35" height="35"/>
+<use href="#clock" x="269" y="146" width="29" height="29"/>
+<text x="267" y="192" fill="#203040" data-palette-fill="ink" font-size="15" font-weight="600" text-anchor="middle"><tspan x="267" dy="0">D席：保留中</tspan></text>
+<text x="267" y="213" fill="#B85A18" data-palette-fill="warning" font-size="13" font-weight="400" text-anchor="middle"><tspan x="267" dy="0">選択不可</tspan></text>
+</svg>
