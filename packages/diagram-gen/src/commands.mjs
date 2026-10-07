@@ -1,4 +1,5 @@
 import { isProject, validateProject } from './project.mjs';
+import { resolveToneContext } from './tone-context.mjs';
 import { exportCandidate, loadToneCatalog, validateSession } from './model.mjs';
 
 const help = {
@@ -106,7 +107,10 @@ export async function runDataCommand(args) {
       if (options.json)
         console.log(
           JSON.stringify(
-            { version: catalog.session.toneCollectionVersion, tones: catalog.tones },
+            {
+              version: catalog.session.toneCollectionVersion,
+              tones: catalog.tones.map(({ context: _context, ...tone }) => tone),
+            },
             null,
             2,
           ),
@@ -122,9 +126,7 @@ export async function runDataCommand(args) {
         throw new Error(
           `Unknown tone ${JSON.stringify(toneId)}. Run "zudo-diagram-gen tones list" to see available IDs.`,
         );
-      const candidate = catalog.candidates.find((item) => item.toneId === toneId);
-      if (options.json)
-        console.log(JSON.stringify({ ...tone, examples: candidate.assets }, null, 2));
+      if (options.json) console.log(JSON.stringify(await resolveToneContext(toneId), null, 2));
       else {
         console.log(
           `${tone.name} (${tone.id})\nFamily: ${tone.family}\n\n${tone.summary}\n\nDrawing recipe:\n${tone.recipe.map((item) => `- ${item}`).join('\n')}\n\nGood for:\n${tone.goodFor.map((item) => `- ${item}`).join('\n')}\n\nAt small sizes:\n${tone.smallSizeNotes}\n\nExamples relative to the installed package's tones directory:\n- Light: ${tone.referenceFiles.light}\n- Dark: ${tone.referenceFiles.dark}\n\nUse --json to include both complete SVG examples.`,

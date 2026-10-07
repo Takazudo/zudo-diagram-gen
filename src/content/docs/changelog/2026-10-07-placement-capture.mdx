@@ -1,0 +1,9 @@
+---
+title: Candidate placement and capture
+description: Shared placement rendering and explicit optional browser capture.
+sidebar_position: 1
+---
+
+Added a shared placement renderer for workbench preview and candidate capture, including authoritative slot dimensions, contained artwork, explicit backgrounds and local reference images.
+
+The new `capture` command writes a PNG and provenance sidecar with actual browser, dimensions, DPR and input hashes. Browser support is an optional, explicitly installed Playwright capability. Capture protects source files and reports readiness failures; successful capture never records visual approval.

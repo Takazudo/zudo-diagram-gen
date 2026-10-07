@@ -161,8 +161,14 @@ test('compare maintains two different candidates and shared zoom survives switch
       assert.equal(stage.dataset.scale, '1.5');
     ui.click('[data-action="view"][data-view="inspect"]');
     assert.equal(ui.query('.dg-stage').dataset.scale, '1.5');
-    assert.equal(ui.query('.dg-context-art').style.width, `${source.session.target.width}px`);
-    assert.equal(ui.query('.dg-context-art').style.height, `${source.session.target.height}px`);
+    assert.equal(
+      ui.query('[data-placement-frame]').style.width,
+      `${source.session.target.width}px`,
+    );
+    assert.equal(
+      ui.query('[data-placement-frame]').style.height,
+      `${source.session.target.height}px`,
+    );
   } finally {
     await ui.close();
   }
@@ -394,10 +400,17 @@ test('embedded shortcuts ignore host focus and dispose supports a clean remount'
   }
 });
 
-test('classic standalone script contains the current mount implementation', () => {
+test('classic standalone script contains the current mount and shared placement implementation', async () => {
+  const placementSource = await readFile(
+    new URL('../packages/diagram-gen/client/placement.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.ok(script.includes(placementSource.replaceAll('export function ', 'function ')));
   assert.ok(
     script.includes(
-      mountSource.replace('export function mountDiagramApp', 'function mountDiagramApp'),
+      mountSource
+        .replace(/^import .*placement\.mjs';\n/m, '')
+        .replace('export function mountDiagramApp', 'function mountDiagramApp'),
     ),
   );
 });
