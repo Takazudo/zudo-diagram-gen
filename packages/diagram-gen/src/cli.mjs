@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
-import { resolve, dirname } from 'node:path';
-import { mkdir, writeFile } from 'node:fs/promises';
 import { runCaptureCommand } from './capture-command.mjs';
 import { runDataCommand } from './commands.mjs';
-import { loadSession } from './model.mjs';
-import { renderGallery } from './render.mjs';
+import { runHtmlExportCommand } from './html-export-command.mjs';
 import { runZfb } from './runner.mjs';
 
 const help = `zudo-diagram-gen 0.1.0
@@ -14,7 +11,7 @@ const help = `zudo-diagram-gen 0.1.0
   dev|build|preview [directory] [--host <host>] [--port <port>]
   export <candidate-id> --session <directory> --theme light|dark --out <file>
   capture <candidate-id> --session <directory> --out <png> [--placement <file>] [--json]
-  export-html [directory] --out <file>
+  export-html [session-or-project] --out <file> [--force] [--json]
   tones list [--json]
   tones show <id> [--json]
 
@@ -44,20 +41,8 @@ try {
     )
       throw new Error('--port must be between 1 and 65535.');
     process.exitCode = await runZfb(args[0], parsed.positionals[0] || '.', forwarded);
-  } else if (args[0] === 'export-html') {
-    const parsed = parseArgs({
-      args: args.slice(1),
-      allowPositionals: true,
-      options: { out: { type: 'string' } },
-    });
-    if (!parsed.values.out || parsed.positionals.length > 1)
-      throw new Error('Usage: export-html [directory] --out <file>');
-    const data = await loadSession(parsed.positionals[0] || '.');
-    const file = resolve(parsed.values.out);
-    if (!/\.html?$/i.test(file)) throw new Error('--out must end in .html or .htm.');
-    await mkdir(dirname(file), { recursive: true });
-    await writeFile(file, await renderGallery(data));
-    console.log(`Exported ${data.candidates.length} candidates to ${file}`);
+  } else if (await runHtmlExportCommand(args)) {
+    /* HTML export owns bounded project data and safe output diagnostics. */
   } else if (!(await runDataCommand(args)))
     throw new Error(`Unknown command: ${args[0]}. Run --help.`);
 } catch (error) {

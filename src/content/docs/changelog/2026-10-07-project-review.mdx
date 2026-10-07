@@ -1,0 +1,16 @@
+---
+title: Project comparison and portable review
+description: Exact deck-wide comparison mappings and combined offline project review.
+---
+
+Projects now open an ordered comparison overview. Choose an explicit named comparison set to inspect its exact session-qualified candidate IDs and expected fingerprints. Missing coverage, unknown IDs, stale mappings, invalid sessions and unavailable dark artwork remain visible. Multiple candidates with the same tone never cause an automatic substitution.
+
+Every available session retains its ordinary workbench for inspect/compare, zoom/pan, shortlist, chosen direction and feedback. Comparison sets, artwork theme, backdrop and host interface theme are independent controls. Browsing does not select a drawing or adopt a style reference. Embedded project controls use the host's existing semantic tokens.
+
+Copy, download and import project review JSON with `type: "zudo-diagram-project-review"`. Each nested session review keeps its existing version-one identity, fingerprint and browser storage key. Import validates all nested sessions before applying any feedback. Stale fingerprints remain stale.
+
+`export-html <session-or-project> --out <file>` now supports combined project snapshots. The output embeds the package viewer, validated SVGs and permitted placement images; comparison and ordinary session review work without a server. The project data budget is 64 MiB. Existing files require `--force`, and protected source paths or aliases are refused even with force. `--json` emits a version-one command envelope; existing single-session invocation forms and human success messages are retained.
+
+Standalone exports and generated review pages include an inline icon, keeping browser resource loading self-contained.
+
+Focused automated tests cover mappings, review isolation, hostile metadata, payload bounds, source protection and legacy workbench behavior. Browser, packed-consumer and detached-file acceptance must be run separately; DOM tests do not establish visual or clipboard behavior. Contributor reproduction steps are in `docs/agent-first/P07-ACCEPTANCE.md`.

@@ -1,3 +1,4 @@
+import { isProject, validateProject } from './project.mjs';
 import { resolveToneContext } from './tone-context.mjs';
 import { exportCandidate, loadToneCatalog, validateSession } from './model.mjs';
 
@@ -58,12 +59,19 @@ export async function runDataCommand(args) {
     if (command === 'check') {
       const { positionals, options } = parse(rest, { json: 'boolean' });
       if (positionals.length > 1) throw new Error(help.check);
-      const result = await validateSession(positionals[0] ?? process.cwd());
+      const directory = positionals[0] ?? process.cwd();
+      const project = await isProject(directory);
+      const result = project ? await validateProject(directory) : await validateSession(directory);
       if (options.json) console.log(JSON.stringify(result, null, 2));
       else {
-        console.log(
-          `${result.ok ? 'Valid session' : 'Invalid session'}: ${result.summary.rounds} round(s), ${result.summary.candidates} candidate(s), ${result.summary.lightAssets} light SVG(s), ${result.summary.darkAssets} dark SVG(s).`,
-        );
+        if (project)
+          console.log(
+            `${result.ok ? 'Valid' : 'Invalid'} project: ${result.summary.validSessions}/${result.summary.sessions} valid session(s).`,
+          );
+        else
+          console.log(
+            `${result.ok ? 'Valid session' : 'Invalid session'}: ${result.summary.rounds} round(s), ${result.summary.candidates} candidate(s), ${result.summary.lightAssets} light SVG(s), ${result.summary.darkAssets} dark SVG(s).`,
+          );
         for (const error of result.errors) console.log(`Error: ${error}`);
         for (const warning of result.warnings) console.log(`Warning: ${warning}`);
       }
