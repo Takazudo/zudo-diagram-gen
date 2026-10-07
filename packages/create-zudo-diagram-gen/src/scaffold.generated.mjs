@@ -203,40 +203,40 @@ async function assertEmptyDestination(directory) {
 }
 
 async function normalizeEnginePackage(input) {
+  const fail = (message, code = 'INVALID_ARGUMENT') => Object.assign(new Error(message), { code });
   if (typeof input !== 'string' || !input.trim() || /[\r\n\0]/.test(input)) {
-    throw new Error(
-      '--engine-package requires a nonempty package spec or an absolute tarball path.',
-    );
+    throw fail('--engine-package requires a nonempty package spec or an absolute tarball path.');
   }
   const value = input.trim();
   const tarball = value.startsWith('file:') ? value.slice(5) : value;
   if (path.isAbsolute(tarball) || value.startsWith('file:')) {
-    if (!path.isAbsolute(tarball))
-      throw new Error('Local engine tarballs must use an absolute path.');
+    if (!path.isAbsolute(tarball)) throw fail('Local engine tarballs must use an absolute path.');
     if (!/\.(tgz|tar\.gz)$/i.test(tarball))
-      throw new Error('Local engine package must be a .tgz or .tar.gz file.');
+      throw fail('Local engine package must be a .tgz or .tar.gz file.');
     let entry;
     try {
       entry = await stat(tarball);
     } catch (error) {
-      if (error.code === 'ENOENT') throw new Error(`Engine tarball does not exist: ${tarball}.`);
+      if (error.code === 'ENOENT')
+        throw fail(`Engine tarball does not exist: ${tarball}.`, 'IO_ERROR');
       throw error;
     }
-    if (!entry.isFile()) throw new Error(`Engine tarball is not a regular file: ${tarball}.`);
+    if (!entry.isFile())
+      throw fail(`Engine tarball is not a regular file: ${tarball}.`, 'RESOURCE_UNSAFE');
     return `file:${path.resolve(tarball)}`;
   }
   if (
     /^(\.|~|workspace:|link:)/.test(value) ||
     (/\.(tgz|tar\.gz)$/i.test(value) && !/^https?:\/\//.test(value))
   ) {
-    throw new Error(
+    throw fail(
       'Local engine tarballs must use an absolute path. Workspace and linked dependencies are not supported in a standalone session.',
     );
   }
   if (value === ENGINE_PACKAGE) return 'latest';
   if (value.startsWith(`${ENGINE_PACKAGE}@`))
     return value.slice(ENGINE_PACKAGE.length + 1) || 'latest';
-  if (value.startsWith('-')) throw new Error('Engine package spec must not begin with a dash.');
+  if (value.startsWith('-')) throw fail('Engine package spec must not begin with a dash.');
   return value;
 }
 

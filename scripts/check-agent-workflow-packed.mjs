@@ -182,6 +182,44 @@ command([
   '--json',
 ]);
 command(['project', 'adopt', project, '--revision', 'style-02', '--json']);
+const locked = command(['inspect', project, '--json']).data.style;
+assert.equal(locked.style.selectionPurpose, 'test');
+assert.deepEqual(locked.style.baselines, selection.baselines);
+const projectReview = {
+  schemaVersion: 1,
+  type: 'zudo-diagram-project-review',
+  projectId: manifest.id,
+  sessions: projectData.sessions.map((entry) => ({
+    schemaVersion: 1,
+    type: 'zudo-diagram-review',
+    sessionId: entry.id,
+    records: [
+      {
+        id: entry.data.candidates[0].id,
+        fingerprint: entry.data.candidates[0].fingerprint,
+        keep: `Facts for ${entry.id}`,
+        change: '',
+        action: 'explore',
+      },
+    ],
+    shortlist: [],
+  })),
+};
+const projectReviewPath = path.join(output, 'test-project-review.json');
+await json(projectReviewPath, projectReview);
+const transferred = command(['resume', project, '--review', projectReviewPath, '--json']);
+assert.equal(transferred.data.review.sessions.length, 5);
+assert.equal(new Set(transferred.data.reviewEvidence.map((entry) => entry.sessionId)).size, 5);
+const worker = path.join(project, projectData.sessions[4].path, 'rounds/r01/r01-c01');
+await rename(worker, path.join(path.dirname(worker), '.interrupted-worker'));
+const interrupted = command(['inspect', project, '--json'], 1);
+assert.equal(
+  interrupted.data.content.sessions[0].data.candidates[0].fingerprint,
+  projectData.sessions[0].data.candidates[0].fingerprint,
+);
+assert.ok(interrupted.errors.length);
+await rename(path.join(path.dirname(worker), '.interrupted-worker'), worker);
+command(['check', project, '--json-version', '1']);
 command([
   'export',
   baseline.id,

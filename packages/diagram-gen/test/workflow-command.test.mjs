@@ -225,3 +225,81 @@ test('inaccessible review reports actionable IO and retains loaded content', asy
   assert.equal(result.json.errors[0].code, 'IO_ERROR');
   assert.equal(result.json.data.content.session.id, created.json.data.sessionId);
 });
+
+test('export domain failures are validation failures while unsafe aliases remain resource errors', async () => {
+  const { root, out } = await workspace();
+  await cp(fixture, out, { recursive: true });
+  const candidate = run(['inspect', out, '--json']).json.data.content.candidates[0];
+  const destination = path.join(root, 'saved.svg');
+  const missing = run([
+    'export',
+    'absent',
+    '--session',
+    out,
+    '--theme',
+    'light',
+    '--out',
+    destination,
+    '--json',
+  ]);
+  assert.equal(missing.status, 1);
+  assert.equal(missing.json.errors[0].code, 'VALIDATION_FAILED');
+  const metadataPath = path.join(out, candidate.sourcePath);
+  const metadata = JSON.parse(await readFile(metadataPath));
+  delete metadata.assets.dark;
+  await writeFile(metadataPath, JSON.stringify(metadata));
+  const unavailable = run([
+    'export',
+    candidate.id,
+    '--session',
+    out,
+    '--theme',
+    'dark',
+    '--out',
+    destination,
+    '--json',
+  ]);
+  assert.equal(unavailable.status, 1);
+  assert.equal(unavailable.json.errors[0].code, 'VALIDATION_FAILED');
+  await symlink(metadataPath, destination);
+  const unsafe = run([
+    'export',
+    candidate.id,
+    '--session',
+    out,
+    '--theme',
+    'light',
+    '--out',
+    destination,
+    '--json',
+  ]);
+  assert.equal(unsafe.status, 4);
+  assert.equal(unsafe.json.errors[0].code, 'RESOURCE_UNSAFE');
+});
+test('relative engine archive is a usage failure and missing absolute archive is IO', async () => {
+  const { root, out, brief } = await workspace();
+  const usage = run([
+    'new',
+    '--out',
+    out,
+    '--brief',
+    brief,
+    '--engine-package',
+    './bad.tgz',
+    '--json',
+  ]);
+  assert.equal(usage.status, 2);
+  assert.equal(usage.json.errors[0].code, 'INVALID_ARGUMENT');
+  const missing = run([
+    'new',
+    '--out',
+    out,
+    '--brief',
+    brief,
+    '--engine-package',
+    path.join(root, 'missing.tgz'),
+    '--json',
+  ]);
+  assert.equal(missing.status, 4);
+  assert.equal(missing.json.errors[0].code, 'IO_ERROR');
+});
