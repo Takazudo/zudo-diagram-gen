@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://takazudo.github.io/zudo-diagram-gen/schemas/project.schema.json",
+  "title": "Diagram project",
+  "type": "object",
+  "required": ["schemaVersion", "id", "title", "sessions", "comparisonSets"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "$ref": "#/$defs/id" },
+    "title": { "type": "string", "minLength": 1 },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "order"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "path": { "type": "string", "pattern": "^sessions/[a-zA-Z0-9][a-zA-Z0-9._-]*$" },
+          "order": { "type": "integer", "minimum": 0 },
+          "placement": { "$ref": "#/$defs/path" }
+        }
+      }
+    },
+    "comparisonSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "toneId", "entries"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "title": { "type": "string", "minLength": 1 },
+          "toneId": { "$ref": "#/$defs/id" },
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["sessionId", "candidateId", "fingerprint"],
+              "properties": {
+                "sessionId": { "$ref": "#/$defs/id" },
+                "candidateId": { "$ref": "#/$defs/id" },
+                "fingerprint": { "$ref": "#/$defs/hash" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "required": ["revision", "path", "hash"],
+      "properties": {
+        "revision": { "$ref": "#/$defs/id" },
+        "path": { "$ref": "#/$defs/path" },
+        "hash": { "$ref": "#/$defs/hash" }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9._-]*[a-zA-Z0-9])?$"
+    },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "path": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\\\)(?!.*//)[^\\u0000]+$"
+    }
+  }
+}

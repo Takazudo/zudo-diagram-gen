@@ -81,3 +81,5 @@ node --test packages/create-zudo-diagram-gen/test/*.test.mjs
 ```
 
 Tests cover initialization in paths containing spaces and quotes, destination protection, symlinks, engine archive references, predictable package metadata with unique session identity, explicit installation, CLI errors, and a valid empty session scaffold. Root integration checks also exercise a packed engine consumer.
+
+Use `--project` to create one installed host with `project.json` and a starter session under `sessions/diagram/`. The public API accepts `createProject({destination,project:true,sessions:[{slug,id?,title?,target?}]})` for multiple sessions. Session IDs stay stable and candidate IDs need only be unique within an ordinary session. The generated scaffold comes from the engine's authoritative source; the standalone initializer bundles that source without depending on an unpublished engine registry version.
