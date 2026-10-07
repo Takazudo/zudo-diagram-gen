@@ -1,0 +1,2866 @@
+{
+  "schemaVersion": 1,
+  "tones": [
+    {
+      "toneId": "fine-outline",
+      "toneRevision": "pilot-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+      "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "40af90ee8412c0bb625172000c370f8ef5eaf3db8a0fcb1a5f1c00efb44666a8"
+        }
+      ],
+      "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f",
+      "originalReferenceHashes": {
+        "light": "0a3a99538ab8215228b23eb8273447b5facd83b30b21be48dbf53eb44a5d8657",
+        "dark": "2128248458bd51c0cb85d84e94df8e4d97bf1e0d0c8e020de378ce04046b25e2"
+      },
+      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
+      "sourceHash": "40985d62c15a75d9cd0136c5350544afeb5e0122fec54c1ceec11a40900f1a55",
+      "recipeHash": "40af90ee8412c0bb625172000c370f8ef5eaf3db8a0fcb1a5f1c00efb44666a8",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 32,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 28,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "fine-outline-composition-native-light",
+          "assetHash": "db9848e757287e9041afbdac876f58f60df286b7b90772719d7445cbf7f6a444",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "fine-outline-kit-native-light",
+          "assetHash": "92dce9d0be560bbd47b17940563db85e383206db54f9c567018c5d7522149d0a",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "fine-outline-composition-native-dark",
+          "assetHash": "c554decfee1a019ea163a59a10b7e5bc6a49e46c2ab57a899862762026f70630",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "fine-outline-kit-native-dark",
+          "assetHash": "1459f70048bfff36135de8b8568f2ea79f9fac7ab00b1840b30991c3f60a5e9a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "fine-outline-composition-alternate-light",
+          "assetHash": "10309f39d222721a0aaba39a0c35e4f9bebaa3edc334dabf3a3ecc8f2b767023",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "fine-outline-kit-alternate-light",
+          "assetHash": "6782a2a80ea89e8366302a9f4c6eb1398286fa221d011560639aade5f2ff3051",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "fine-outline-composition-alternate-dark",
+          "assetHash": "2063a2f29ccc136d548d265244c010400e656ccdac5ae3171e89f3cb552c6f02",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "fine-outline-kit-alternate-dark",
+          "assetHash": "8529654ce6929ea7ee25f0060b69806c45b7e9670d81a145a4ab58d2e9c4748f",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "soft-fill",
+      "toneRevision": "pilot-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+      "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "2a6c587e457cf72addf66748b0263a16f9258f9b14ad2982f74ff55bbd1c5e5e"
+        }
+      ],
+      "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b",
+      "originalReferenceHashes": {
+        "light": "6e3b0168c75081139d90454a7f60d33c1f7ecc288683e5c4bc3d2a5a5bce43e8",
+        "dark": "62517a90f458cc7525a54f9e7de8ccd050497b864f7575db7c5ca796139d7820"
+      },
+      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
+      "sourceHash": "8bd36705a7460818f0bc2b7bed4a6296ed3b78a8c8ba7b0942b420a176e833b9",
+      "recipeHash": "2a6c587e457cf72addf66748b0263a16f9258f9b14ad2982f74ff55bbd1c5e5e",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 32,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 28,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "soft-fill-composition-native-light",
+          "assetHash": "c3fe38b63d1b3d61bcd3e072458fc17a9e06f28ad898d72c4e42a9e618077541",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "soft-fill-kit-native-light",
+          "assetHash": "2a2e654f5ccc52b007ce46650ac1df33ed157c234781fa5702c9221c55b7368b",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "soft-fill-composition-native-dark",
+          "assetHash": "bc0a325b625ca7d15eb248563b9ad771c9e284579caf08bd891fb27d2b66c4de",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "soft-fill-kit-native-dark",
+          "assetHash": "b8dad75325df637209b0bd6f80fa4b3f8d7c89de677718506b167acc30f99bcc",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "soft-fill-composition-alternate-light",
+          "assetHash": "4583bdab4ed12efd59c83d5d5b513be186cf288cacb95cc3a67993f5b595df71",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "soft-fill-kit-alternate-light",
+          "assetHash": "6d7c3f4d930d8206a8fd0d21e1d093159745b05ff11b12b5e4a00105d0f66e93",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "soft-fill-composition-alternate-dark",
+          "assetHash": "d8b54e440e0ee24fcd0ac36287d0d94ab0cdfeae7fe04146c96f534255ab5698",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "soft-fill-kit-alternate-dark",
+          "assetHash": "4a9d61762ce9414e6e410c7cc73e11ac3200e667876d5b92150abc415979b594",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "ink-silhouette",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+      "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "ebb87184208a05a636996ad78bc53e071fc18ffcabcdf983dc2afc19851a846c"
+        }
+      ],
+      "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e",
+      "originalReferenceHashes": {
+        "light": "a3aa3d9bb9999354d96909c14b460502d412f8557723f2e3409a3e9113f4a8af",
+        "dark": "2430a53f243d982206dbbd3a59693327b5278b835a2d68d33dff04844045fefc"
+      },
+      "compositionTemplateHash": "67e3a1687529cdd9c6e995b1284466d5e19928d49a500e1cc173aa09911b97a1",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "cc5c4d2c4b520fa6569ce767a36f673eca9ce6f1404c3176fc8a7d10f7efad36",
+      "recipeHash": "ebb87184208a05a636996ad78bc53e071fc18ffcabcdf983dc2afc19851a846c",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "ink-silhouette-composition-native-light",
+          "assetHash": "64026eee94214b3c80428dc6fcb569a1206814fc28adc0c0bc55ff5d804f9505",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "ink-silhouette-kit-native-light",
+          "assetHash": "707c8c4a1a87a0bce28dcb3ca52b6e931c7562952bad2f9d86d2d1eaf96eb3c6",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "ink-silhouette-composition-native-dark",
+          "assetHash": "198849f0e52713c57bc02339765ad544c895b88659077e41327111f7d8c53c24",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "ink-silhouette-kit-native-dark",
+          "assetHash": "2829de8059cdc7bf39272368c4152ac654d356edd7413e8bdb26293bde026287",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "ink-silhouette-composition-alternate-light",
+          "assetHash": "7881df28c54b9023a078e4637d2feb371b645d2fa13ad7928164008a3e7d5cef",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "ink-silhouette-kit-alternate-light",
+          "assetHash": "887421d18cdaa01d640ddd01a5d9ab744f25c786e9e4fda5ee76088664cf857f",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "ink-silhouette-composition-alternate-dark",
+          "assetHash": "8b8e96d69aa5fa504a999272c15350496294f9271a758ea99f9548cef9047c9a",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "ink-silhouette-kit-alternate-dark",
+          "assetHash": "23dc741def9172f32faa9c923a32a8aee53c534b69c88869e987fa8e742e3c1d",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "offset-blocks",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "85600ce2c79becb49b0cd5870dc229bff1da20a86c4e06994365273e3e8b723c",
+      "kitHash": "4192a18ee6bb3435f33d3bfa37cb9768efe39aef04cf86e392fc5c0cb325ce9f",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "d3cc70fe7e17eeeb5a5b785c28142206a9b2baeb253fe8f1c4beb0c4363fbd34"
+        }
+      ],
+      "contextHash": "d2127df0db210f6dd54bea927097707b374ff6577ce377cf527611dc44d5467b",
+      "originalReferenceHashes": {
+        "light": "36b407b6da1ab52843fada9472b6b98fc5ff53786b12388a6f771bcb3beb36be",
+        "dark": "72cb660fff0855397409caa573a7bf0b3c48c0c8dcbeabd980651af7adcd83c3"
+      },
+      "compositionTemplateHash": "8aa223cf95cd9e653b197d926d81d56611f00e75db7b40bf2ceb2ef1f23bd0af",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "2e92be83fc6c5fe72b94dc87371dbc7ef9fe0b8bf01a0aadbdcf0262451bcf2f",
+      "recipeHash": "d3cc70fe7e17eeeb5a5b785c28142206a9b2baeb253fe8f1c4beb0c4363fbd34",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "offset-blocks-composition-native-light",
+          "assetHash": "2c83f26717f4c674dd204d1409568c1e138b2b5dd080c6b2c3f45618f5dbc9fb",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "offset-blocks-kit-native-light",
+          "assetHash": "58bde4ac50b3962039c12fcf16ae9f669ee856e8ba07b9b8c2ff377f398ede8d",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "offset-blocks-composition-native-dark",
+          "assetHash": "0ae574a5a1889252d30fb7cfcdf85bfa1c4baf8148a71e4c9faf8ab0ce6819d7",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "offset-blocks-kit-native-dark",
+          "assetHash": "52fc3b7cabe8cbbf91846925495af9445b26bc2717a8031b19db007c3ccbcc3b",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "offset-blocks-composition-alternate-light",
+          "assetHash": "31efe60723b65436c45591adc2d2d3ad2d0af8b52330eacd990e05a20594ff29",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "offset-blocks-kit-alternate-light",
+          "assetHash": "e1d922632fd5df4e76f564d56166f85337898585ccd360ef2c6ccf270b38a4dc",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "offset-blocks-composition-alternate-dark",
+          "assetHash": "016289ba42dd42409a9ef0b2dcc4ff4033a301b9ddd2b0dc362281e849ea06f4",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "offset-blocks-kit-alternate-dark",
+          "assetHash": "b1c3cba18821865a8e68f74d337c2f26c2040dadba76bd43de91cba6c2d0b1af",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "editorial-serif",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "88a0fa19dbc80476955c5bbabef9d892019c700d1eb28a849f04b0a7089ec18e",
+      "kitHash": "5551abf940cbd129fadc4a85d6d70672ff9335e6cada5c67fa6fb62780827c66",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "cc3f469bc07d821419947d7798843e41da43bdc3f75622dcb9e53191a2a615db"
+        }
+      ],
+      "contextHash": "dd7ec7858b976fc0c8171b5ee018fe458991b56be7b3401c5b8aa29f5c4ca4a0",
+      "originalReferenceHashes": {
+        "light": "b8bad0aa9b6868751813671613a0b5be9e42371e19643f40c385bf2e53654a01",
+        "dark": "555209ac783b3d074f026f2dc92311f9843766c95cd2ad1c09af21a57dbd35ab"
+      },
+      "compositionTemplateHash": "dfb59bb3cb0c8601c87129b597279a01a4f74486edca8de47abb1e8bd8b6973e",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "719de4d76ced49bbc43c1041c969626751ffd33a1312a4a3fbab7ae44aee36b4",
+      "recipeHash": "cc3f469bc07d821419947d7798843e41da43bdc3f75622dcb9e53191a2a615db",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Serif CJK JP', Georgia, serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 500
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "Georgia, serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "editorial-serif-composition-native-light",
+          "assetHash": "f1b346448bd6f32c32eeca3e989d4086e62b007c4ee86f07eab7e3ee3142cf68",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "editorial-serif-kit-native-light",
+          "assetHash": "b9e83e3a7d71840c3f903048520988eedde6751b832d19d7bce14e4624096c3a",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "editorial-serif-composition-native-dark",
+          "assetHash": "24997ad2e42bd6715fed5c35978d1742239e8af5a4e4daf1bb2fc2a91845ff3c",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "editorial-serif-kit-native-dark",
+          "assetHash": "8f6aec815311a16ea1c96519acdf53c88fc1bcb6c24d7f343710d2c9bd312898",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "editorial-serif-composition-alternate-light",
+          "assetHash": "dbc1bfadf7553ba4a85ec5519c3d7ada2f564ef14c15fd176c74835ea1d0c674",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "editorial-serif-kit-alternate-light",
+          "assetHash": "567ee1acffdb0d252cb2e629a77dc6490459edbadd9e58066f832b0af0160370",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "editorial-serif-composition-alternate-dark",
+          "assetHash": "8fd1399dfa1b29842ba56964284e6c0c17e2412f09e94307dfc5f8893ed02c18",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "editorial-serif-kit-alternate-dark",
+          "assetHash": "1e01b2890964f008acf1ee3eae7f792cf88aedb611ee64847facd6ee0316f9ab",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "swiss-grid",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+      "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "37ca86de9b233b5809e0d946c1425b0db58b3ffaba7bacb20f42657f0d21b74d"
+        }
+      ],
+      "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272",
+      "originalReferenceHashes": {
+        "light": "ec7afe9cb97cf3d68c30dc62c839dbb2d57af7314841e409747a711ff00fe796",
+        "dark": "68ebd6e025fc011331f8bae26983c18344a926eb170674dc3f701651504e7a11"
+      },
+      "compositionTemplateHash": "b86c79c0d64edfcc56e1ac5dc65ac14540b79214442db795f05252a413404e38",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "4354950b01ca263039f637af0e251665e545188fe10c6db8bbd570da9c56e66a",
+      "recipeHash": "37ca86de9b233b5809e0d946c1425b0db58b3ffaba7bacb20f42657f0d21b74d",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "swiss-grid-composition-native-light",
+          "assetHash": "d324e805f27c1fd3e44cb987c085b2c35417b5ee76d0598ed3e70c6b05113db7",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "swiss-grid-kit-native-light",
+          "assetHash": "c17952a68be7bf4e4e04c06063910a652863db4644d170f1d3c1042df50fc600",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "swiss-grid-composition-native-dark",
+          "assetHash": "d5d8dd7cd96c67a6d67d5670a0abed66171a01fd5f71228d7531169134e0bfd5",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "swiss-grid-kit-native-dark",
+          "assetHash": "3a36f9de5419dc820a17409b1ad16770273d1892687e8fd0bdf2f24a167cea2c",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "swiss-grid-composition-alternate-light",
+          "assetHash": "76e925f4225900adda00c092cd3b53560eace939f35fc3e7ba73b7f3246c979c",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "swiss-grid-kit-alternate-light",
+          "assetHash": "6d4b6b85296741d5d9df10080275a20ed673e201c962350c88afbf27844fbb34",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "swiss-grid-composition-alternate-dark",
+          "assetHash": "f1c141d1e2f95370eae6b4feec201aea5aca1cccd5afd3670fe7c00fc8aab3f9",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "swiss-grid-kit-alternate-dark",
+          "assetHash": "f98555959e6643f1983f473dce2eba3463e34701cb22a9c273c708f957da36d7",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "ui-miniature",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+      "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "2375243a7edb95d69ce547e692168b0ff065acc6c43c2b3a499aefc90cbd6355"
+        }
+      ],
+      "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba",
+      "originalReferenceHashes": {
+        "light": "e00af5783dd5467a971e7c0391d1e1af8832af5846a3583b7828dc7c4bc354f1",
+        "dark": "3fb8aa3478f847264610bccfbc3d4d2a5faf18d89943d6f8c2ccad8be6b87bbf"
+      },
+      "compositionTemplateHash": "65e242e45ab83ccd9b75d401400b4270e05661c5dd2c5c375f8594d548abde9c",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "29163cca2e7d0c5f9a0a2d96a70b047387d7d1c243003eb4114d2494f01361d1",
+      "recipeHash": "2375243a7edb95d69ce547e692168b0ff065acc6c43c2b3a499aefc90cbd6355",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "ui-miniature-composition-native-light",
+          "assetHash": "28fc622e99939e215995d34782572fdf1d29f5e21b53c8efac4e73f8b9386771",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "ui-miniature-kit-native-light",
+          "assetHash": "3b783068673a014e0aab6e68bc2338ff720779050c07ac74189cdabbc9dd14b1",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "ui-miniature-composition-native-dark",
+          "assetHash": "459f2fbc75149106a71de2ebe8445573fc226d6d6adbfc3c87e016077e3b4558",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "ui-miniature-kit-native-dark",
+          "assetHash": "b969ab7aa95c8ee568218765a33ef456a631cb79b5e5846f5fd91d1ab860368a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "ui-miniature-composition-alternate-light",
+          "assetHash": "e0bfb8463189fbd5500526d15a865df8065787fc5383e3fda7b1abe2d38da88e",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "ui-miniature-kit-alternate-light",
+          "assetHash": "0237c1991acb52bd698ae41be0820f1419ae4eed28605cf25b936df43bec3443",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "ui-miniature-composition-alternate-dark",
+          "assetHash": "7f38c63026bc3f3bfb18a6d655f5ba0046ce5b4c0df49694632a2bf990881628",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "ui-miniature-kit-alternate-dark",
+          "assetHash": "816c0f5d922201f51bb8f0b6703d51e832355be993f30f6f56345cd42d54e7c8",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "contour-wash",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+      "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "c4591c88bab6762c4aee72b2cecc44505e8fd9aa24220a4b3d15e1e073ed70d2"
+        }
+      ],
+      "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d",
+      "originalReferenceHashes": {
+        "light": "23812c8aa16c97c77fca1ca91973ea50162dd829ad08f1cc6ada83b7cd5ecba5",
+        "dark": "b142c3eb1adc2dc3091fabc747f43785538cb6042b68d9a5c3dfbe8bf46e104e"
+      },
+      "compositionTemplateHash": "007b6efd4b48e3888a76814720e5ddd4353cbcaf1c596707c90727602609e68e",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "187a5e891799da77f535fff043fc6a287063de2a4a18e70f8876c92854f14407",
+      "recipeHash": "c4591c88bab6762c4aee72b2cecc44505e8fd9aa24220a4b3d15e1e073ed70d2",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "contour-wash-composition-native-light",
+          "assetHash": "041800ecf1b99d72da7d0970a59ed798bfb0988c7d96cb60e306979a5a1c2f2b",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "contour-wash-kit-native-light",
+          "assetHash": "4a8bf995735e37f83f6c8c2a37d973e5bfff628854781e3cd4557e95aaed8d21",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "contour-wash-composition-native-dark",
+          "assetHash": "f49da41723f16a710b2e4003d31ff29b621867e99003c4e00f7320f1ce97423f",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "contour-wash-kit-native-dark",
+          "assetHash": "9e51a82652029c49b98666460a36d39ce59cca01dfbe38fde502d5b4e515635d",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "contour-wash-composition-alternate-light",
+          "assetHash": "5f61d6e7bef3d628ae4cda0bbb3ff3f87e0050a976c5d7f790e39f262f8fa775",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "contour-wash-kit-alternate-light",
+          "assetHash": "cce8252c1367c200944b90037a3c979070c52e7d6bec0995e5a0722c336cd037",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "contour-wash-composition-alternate-dark",
+          "assetHash": "22d23c2015b3ffc6e40220879e047e373917256c0b16a56b57e34d4134dfd8ab",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "contour-wash-kit-alternate-dark",
+          "assetHash": "0f97e6474ae1dd9e0319548e7cb35fb89512d30114ce9bd677f9a4e7471942de",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "technical-blueprint",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+      "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "bf108dcf8bbe8137c537d92654855d294f211b100a951148984f593f5d9c0b20"
+        }
+      ],
+      "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02",
+      "originalReferenceHashes": {
+        "light": "5d8c4f0bb6918b7047197ac9fac84529f53fffaffd6e0ca055ca6f2afff88cfb",
+        "dark": "1353d1ffd404302f5a4ae353a6afbaa50f497fe9fea8a7604280ed0cc3cfb87f"
+      },
+      "compositionTemplateHash": "35ac0e7ae96fe1f4814dd8a10406e75fd3f8a981af17ff223335b25d72688421",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "db653b5740e2ac79888c712288ce323a94c2d21cbaa5ed7c462c9fdde6ecb05c",
+      "recipeHash": "bf108dcf8bbe8137c537d92654855d294f211b100a951148984f593f5d9c0b20",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans Mono CJK JP', monospace",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans Mono CJK JP', monospace",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "technical-blueprint-composition-native-light",
+          "assetHash": "90a038ca65ccb131f1e291b76f9a3183ec2362d6403c6039a9ff5ca371545bb4",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "technical-blueprint-kit-native-light",
+          "assetHash": "e659f2313af355ec563b695e3d1c0e90adcaac3982f13012d86988287d306628",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "technical-blueprint-composition-native-dark",
+          "assetHash": "d7c3129835e2d5e8f8181a4f0f346f418eadb82d1255b75cf85665158f2c8434",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "technical-blueprint-kit-native-dark",
+          "assetHash": "6825f1c7340371cc59c0a2d8bb376a0fb27c2e5282c86bd8eb119f1c005262eb",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "technical-blueprint-composition-alternate-light",
+          "assetHash": "8806e5817d023bc5e0f8a10943dcfe010d2a249ad94bb46c16f8811aa69aa4d2",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "technical-blueprint-kit-alternate-light",
+          "assetHash": "a8ed503d6c1550489f30dbf9216081f0d26b5caa68db0468b2c72da5ee6d082c",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "technical-blueprint-composition-alternate-dark",
+          "assetHash": "3240f13a132bdd87bca321e07471be56e726255836be9767e4b2723d8df83c49",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "technical-blueprint-kit-alternate-dark",
+          "assetHash": "81c54efdb193417ceb8f1128e7431f46a86374d1923d9c7824476d251da48d9f",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "isometric-wire",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+      "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "31aae1be54396c39ce48dc16cc4689ef8cbb8f39f5e28abd5b906db06f4eba3e"
+        }
+      ],
+      "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e",
+      "originalReferenceHashes": {
+        "light": "35aa6434483e07865e7866a79395274b7c7bba8bc36d270d25f1b8eebdf8761e",
+        "dark": "ba0d0066f1b5dbbd484d0e52ece13cfa94e2ba852796cb1309194a7da2d202e2"
+      },
+      "compositionTemplateHash": "9cadfeb163d78f8bb9f5abdea090c1d3a4af75c7fda3e7d9489a5d99122be3db",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "220bd2a063912d1fb75badbff447f10358ca7d13a34be2f0d049c477f7c2358d",
+      "recipeHash": "31aae1be54396c39ce48dc16cc4689ef8cbb8f39f5e28abd5b906db06f4eba3e",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "isometric-wire-composition-native-light",
+          "assetHash": "2cdce91e68329105095e82deb455f09a9fc1083ca10b498393f90c3eb066aaa6",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-wire-kit-native-light",
+          "assetHash": "36218227d5526251abc48cf62bf545218c02d75519af7314c0280a9b31e3c75c",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-wire-composition-native-dark",
+          "assetHash": "7b6eaa3f4663326c6eac936cbb4e328da7aa35907a034673d56ebbf50a021678",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-wire-kit-native-dark",
+          "assetHash": "291c11884774c9150b5c686815a98da4c504471f043ae44d9ed5ea7630ae6881",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-wire-composition-alternate-light",
+          "assetHash": "14016a4e4093517249b14c8770400cc4ae321f07b5e1e5426d7ccbe3c3da3d31",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-wire-kit-alternate-light",
+          "assetHash": "6266ce815117456229e7354cf837c558eee1ab38d00f8549cd5826665cc5cb0a",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-wire-composition-alternate-dark",
+          "assetHash": "e3ed44ae671108c59c9ea20e8a9d0244d0a32d6e3204bd14d3c75807bf62363b",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-wire-kit-alternate-dark",
+          "assetHash": "1384c27b3889ea74a406c2ecb39e89e36a80f4baca8f3a5fb7e7749bf63f3b8b",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "isometric-solid",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+      "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "ea22827941f42be892cb98add352efa79f4893367611a23a4e36ea0dfffff5ca"
+        }
+      ],
+      "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca",
+      "originalReferenceHashes": {
+        "light": "6796d2721eab23e6a8edec56425408e79369d1d6d26e818777b99d4e63915fb8",
+        "dark": "ff32483632b40e99e049be74cc3e4a23b0652e36b3aff013e9f58d9422dd0514"
+      },
+      "compositionTemplateHash": "67e17a146b556f4de687fbc4ecb66e26f2a98a95abd1448b5445ff12b47501da",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "266d7d1ebc67afda7b8e9efd61f2be96dd156e35641f0ac0d7c4c340ac9c552f",
+      "recipeHash": "ea22827941f42be892cb98add352efa79f4893367611a23a4e36ea0dfffff5ca",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "isometric-solid-composition-native-light",
+          "assetHash": "3aeceecc9f0d908d607e5dc21063bcd92da93f1961e09d4c54f21d4f31ac9f02",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-solid-kit-native-light",
+          "assetHash": "4e058bcda843614e8e21602db8852400cf7d45ce5c8b302ffa79877871f3f4c6",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-solid-composition-native-dark",
+          "assetHash": "e86d147abc0b044bb5999feb422cbca7a5542c485d63aea10a83599eb82cf557",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-solid-kit-native-dark",
+          "assetHash": "2144c79e49a58eea1fc6ca5b5d96e26d42a98937f43ce16a22c6d0b91c53c9f3",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-solid-composition-alternate-light",
+          "assetHash": "73e12e085d0a22489a8b6a06ac67ad6f6b6dbd0839eccaa7f709d8f385bc40c0",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-solid-kit-alternate-light",
+          "assetHash": "5e83368888b685a3a0864328a2159780c1203a30e4d9eac514b9cc7a17d503eb",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "isometric-solid-composition-alternate-dark",
+          "assetHash": "229157108e501b594b9fbc05b187efe33156c8fc8c5959fc4ac5b6d7f5ce6f3e",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "isometric-solid-kit-alternate-dark",
+          "assetHash": "0f9bab174fb07f62f9984d50e288e0f82400451763a7e57494d0c9df08b14712",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "paper-layers",
+      "toneRevision": "pilot-3",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+      "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "f07882c249bfb4bd0141d985f780af46fa3eaafcfd62c554437b56a07757c164"
+        }
+      ],
+      "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e",
+      "originalReferenceHashes": {
+        "light": "af6e4f698df9a870142ba9f770e06c5608ed29dffdb8a5bff90cc9bdcb2c18be",
+        "dark": "77692c9c831bbf9c010a031aefde10e9bf709078c5d4016e93fe1413bc7557ef"
+      },
+      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
+      "sourceHash": "0a2bd1c654ce4541c440b75971802e6d3e966b66da5539bebb4eba73a937dc0b",
+      "recipeHash": "f07882c249bfb4bd0141d985f780af46fa3eaafcfd62c554437b56a07757c164",
+      "primitiveAlternatives": {},
+      "primitives": [
+        "paper-cut-motif",
+        "paper-assembly",
+        "paper-cut-field",
+        "paper-assembly-wide",
+        "person",
+        "pin",
+        "slot-card",
+        "empty-seat",
+        "arrow",
+        "check",
+        "clock"
+      ],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 32,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 28,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "paper-layers-composition-native-light",
+          "assetHash": "fa2b754b30a0b9212e61ef568cb3e7a596bbae7eb76ad14abc2f1b41ce7fb09f",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "paper-layers-kit-native-light",
+          "assetHash": "0121dc406622e9c4c2c66d1e8e64211279c3edd68db7caa3e51140ba13ad5d6c",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "paper-layers-composition-native-dark",
+          "assetHash": "19da0b6f43de776af779140f75cbf04b6f9bdb0b5ad5847fa3f5e3685d84a592",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "paper-layers-kit-native-dark",
+          "assetHash": "9d809ea0c0fa5c611ab48d2082da32ffbd6cbd19b1034f8ee102f50ef666371a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "paper-layers-composition-alternate-light",
+          "assetHash": "666ed9745f98e81b6335651d8f7c164ccffa045df4210a433239923985466459",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "paper-layers-kit-alternate-light",
+          "assetHash": "e7f255102b623717c26fe62a7aeea4c8502019270477b53dd50f6ff9b0e789ac",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "paper-layers-composition-alternate-dark",
+          "assetHash": "658ac294c7210aa6645ec81a8c4d6946fe5eef0fc61e1d81df65454ac5abdf29",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "paper-layers-kit-alternate-dark",
+          "assetHash": "285b53a46881fff5183098c881e586cb8f5cd57fc76967322ff2f7d5eafe0bdc",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "pencil-notebook",
+      "toneRevision": "pilot-4",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+      "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "0a9603285a3381e5f198eac6efd6ec5383370b6222323c88532e3ed586f28d08"
+        }
+      ],
+      "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7",
+      "originalReferenceHashes": {
+        "light": "9a53eef08f3eea27dfa87dff93e4fa009bc2fe6664583b793635933ca73c41e7",
+        "dark": "57513bc3fca5696d727f0b83e3366ebcd8285d8218cac761409ff4ccb12c9a5e"
+      },
+      "compositionTemplateHash": "fe97f3048593b089d428f20e4d48f7f9730ed2bcbd480165e60d868ff0c50e77",
+      "compositionInstancesHash": "2cebeb4b28b838100109d2efbeccaa30ec8211f673177c9fa05060bcbdd80898",
+      "sourceHash": "6e0f710d835da7154dbe9488fcb95be89378f003e58ec0fb24a58a7612655ed0",
+      "recipeHash": "0a9603285a3381e5f198eac6efd6ec5383370b6222323c88532e3ed586f28d08",
+      "primitiveAlternatives": {},
+      "primitives": [
+        "pencil-crosshatch",
+        "notebook-ground",
+        "pencil-panel",
+        "pencil-crosshatch-wide",
+        "pencil-panel-wide",
+        "person",
+        "pin",
+        "slot-card",
+        "empty-seat",
+        "arrow",
+        "check",
+        "clock"
+      ],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 32,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 28,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "pencil-notebook-composition-native-light",
+          "assetHash": "730cb3f36e3fbdaec91fee294c34022f9fe23d10bd0b6eaed6f354e8620c806d",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "pencil-notebook-kit-native-light",
+          "assetHash": "59f786849b656ea9b5acc7cf543c93abe2503f81a847161addc4676983294206",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "pencil-notebook-composition-native-dark",
+          "assetHash": "652792b1d38c7cd81204de8e5d70b749d462dc236b8a45c529810621fd9c2051",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "pencil-notebook-kit-native-dark",
+          "assetHash": "4f55d909af5939fec47b799b7e5ffa9cd8d2a955afd319187261332a74bb74e7",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "pencil-notebook-composition-alternate-light",
+          "assetHash": "7db7384f22763bda9083cd8797f43c76114d345af2b7dd2ef30cd3fdc181dde8",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "pencil-notebook-kit-alternate-light",
+          "assetHash": "4bc924f0603084aeac016cb631ca071c254d035108f50f4e200df5c9d4003205",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "pencil-notebook-composition-alternate-dark",
+          "assetHash": "84569f02e4fb9a108347c173f793ef5a233c80335e716dbc56191ea74230e630",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "pencil-notebook-kit-alternate-dark",
+          "assetHash": "1512ef636427d774a32c1a3db1e39cce1f1767b91c10e16ef9ccac800a67f057",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "marker-workshop",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+      "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "ee8a87a999491ff701e0329fef24896b7d85bf66ffa8b6fcb2e93426f3f84932"
+        }
+      ],
+      "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445",
+      "originalReferenceHashes": {
+        "light": "79e40458bb5ef44e9d33d57c86bf7191934b308eaea0d50a519f1a7cf4b6e61d",
+        "dark": "9c82add3309956e2d2d956ef306176c4dc018c944788e8e8508a43daabc4b562"
+      },
+      "compositionTemplateHash": "af7e5b6755821b4f005e327ed35255bfbefb0123a86ec9eec0fbaac96aa06759",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "1eaa6489f88c5c411d045872f6ccba406d37a183d4dabc9977770450f2a50938",
+      "recipeHash": "ee8a87a999491ff701e0329fef24896b7d85bf66ffa8b6fcb2e93426f3f84932",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "marker-workshop-composition-native-light",
+          "assetHash": "ba5a052dfcc97e900f52304acfb1265860108f8b2c335dc5985f0fcc496bf66f",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "marker-workshop-kit-native-light",
+          "assetHash": "41e56d746762667275fd4d6302b8c2ed1ce471161f4e96fe569ffe33c1954bbb",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "marker-workshop-composition-native-dark",
+          "assetHash": "f58be1d3fd845be712e4471248a5b0a8b92849993393ee26297a2d267f9d9d65",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "marker-workshop-kit-native-dark",
+          "assetHash": "0e82223c92eba08932d4b9e4e1cc9e43ca93828f6e83cff36b6358a668d6684c",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "marker-workshop-composition-alternate-light",
+          "assetHash": "d32998d1b9e2ab33223a7aea5aa59ba5c2a0d510f45130ef186c2d72eb29947f",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "marker-workshop-kit-alternate-light",
+          "assetHash": "e61da4725f225b5affc57d410df1197a5cf1dfe1257c6c0cb805c3b44419ad8b",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "marker-workshop-composition-alternate-dark",
+          "assetHash": "cd9502ecfc0c1b3cd5420e5ca25fb827aeb219e6281d31fd92f1c4059aefb7d3",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "marker-workshop-kit-alternate-dark",
+          "assetHash": "1727d7f8238e2278938f5c1a57037b663b2fe9017f6609ad9606607c5d2428c6",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "chalkboard",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+      "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "5ebc86a16a3904db902a1119597db42c7c648cb2ec80a2720dc02f05beb1053c"
+        }
+      ],
+      "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa",
+      "originalReferenceHashes": {
+        "light": "c1dbbf605f80fdf881aa62a2a6f9acc779d8c16cf95e5ea9a1cc151f77838fa3",
+        "dark": "1dd0379f31e2b439a5a9d581cc0d98b7fe3e9f39a761d2f29b486141ff9e5f56"
+      },
+      "compositionTemplateHash": "7c9eac618b07076816e975ddf909b34fd45f6e0341d6b3b545c05c953e273c2c",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "9df7600d9152ca753dbe1b329db46e347ff3b395b2e2ae637df309f5dc85b8af",
+      "recipeHash": "5ebc86a16a3904db902a1119597db42c7c648cb2ec80a2720dc02f05beb1053c",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "chalkboard-composition-native-light",
+          "assetHash": "7b797841b360b9c745bb121bccda93ac863d3f346c70e6a84beb65f5fe529ff1",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "chalkboard-kit-native-light",
+          "assetHash": "35b4ca5ec9ed48ba0f8c59f0ffea1f83389bd4686a001c0d408959ace57be301",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "chalkboard-composition-native-dark",
+          "assetHash": "ccdfe66ad58de9b0076c8361d91cfbd2979d248f5d250d1eb1101a987669ceda",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "chalkboard-kit-native-dark",
+          "assetHash": "fec98edf7deb2f23c370c20900f31df04597a5dd17314fca3bc766cdbdd67ed8",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "chalkboard-composition-alternate-light",
+          "assetHash": "2ca19e04a9310c06ff789452cd27876e5286cd28afddc0bec45be72d68a9be33",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "chalkboard-kit-alternate-light",
+          "assetHash": "cf8d62a35b7b046630b8afe9b3b1665bd4bd210bd3fdf605f6884015a34cfa18",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "chalkboard-composition-alternate-dark",
+          "assetHash": "7774e098458d341ea9b467a28c5acfd208ac1f14815ca60d8cefb765ebb58168",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "chalkboard-kit-alternate-dark",
+          "assetHash": "a9ba21387f2800307d79e5eded41973978bb4f345ab4efe63a621b6c35c3367c",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "risograph-duo",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+      "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "5d0490f2948900b9a691ca0b19573eb67c9ca11e277d6ebb0ada184ae3665cfa"
+        }
+      ],
+      "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4",
+      "originalReferenceHashes": {
+        "light": "4102fae24fa239536c54c8712915dc64d2b156f2a2b9b73128260548861e4830",
+        "dark": "1f1bf00f5c3bfba3d2e462f3c15f30d79e52e6a06d1fcf2e88d7ea1f0d1dc362"
+      },
+      "compositionTemplateHash": "1a3c655def6e000df959eaf0f9feae83b766336c957f4e9ba6279e6b1d4f8f51",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "8ac99874b68a90a0729d3712c3739cb23cda030e1a26207c41d2c4c6f435667f",
+      "recipeHash": "5d0490f2948900b9a691ca0b19573eb67c9ca11e277d6ebb0ada184ae3665cfa",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "risograph-duo-composition-native-light",
+          "assetHash": "fc7b3f94d96dadef6e2c33463def8ad1e6075254812dca86cc745058e84bd950",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "risograph-duo-kit-native-light",
+          "assetHash": "9cc34b7135f5a8a5373291f20a78e1397077200b7538ce88434f0ce7906f1eb7",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "risograph-duo-composition-native-dark",
+          "assetHash": "7221068d0f1a217993a3d6afff319c1c84214301db56606c9f2445266d30bcca",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "risograph-duo-kit-native-dark",
+          "assetHash": "7338969ab7a8a502d81e47e228a2229589cf27e444ce4d5d12f1beab5aa26e30",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "risograph-duo-composition-alternate-light",
+          "assetHash": "c9674acd45a1eea1362fdb62da5ef5566de2c7c9711c8af58cfca8454c414ee4",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "risograph-duo-kit-alternate-light",
+          "assetHash": "aa56fbd8be15bd09c19d2307c1da44b548556b1a4fc8607aa60c694cb1aa06a2",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "risograph-duo-composition-alternate-dark",
+          "assetHash": "d725628e60bdcf6d432f1ba768f3863177096ad2c8876d9d3c406cbabc5549c8",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "risograph-duo-kit-alternate-dark",
+          "assetHash": "c7be21821e083fc7c2c5bac7f4de15adbb05ec419ada8c87cb211a38561ad981",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "cut-paper",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+      "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "b9d7ba8dd4a9e132f7fd80be94ae758f2e34ec90201cea58e5fb55792db4088a"
+        }
+      ],
+      "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca",
+      "originalReferenceHashes": {
+        "light": "32a0e49db432e2d09c6c00f4283114951950175cd97f1e22b233f4ad4ec5d1e1",
+        "dark": "d26c6b8fde8e5441b8a471eb5b524a35c86f76201d88f64fffb8834341d56b58"
+      },
+      "compositionTemplateHash": "c636f96a67fd47d63f298efdbc8994169b001b03c6cd6cb5ff3bf29f687a8d64",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "40bc271f89d6de6bb7ca4d9e8b7b863416a30f58986b7b35070b3ee2f0b872fe",
+      "recipeHash": "b9d7ba8dd4a9e132f7fd80be94ae758f2e34ec90201cea58e5fb55792db4088a",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "cut-paper-composition-native-light",
+          "assetHash": "fd4da295b4b7f2bad4ba290ec5cc479711acde6e39d6abdf9ab0bed6004ae018",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "cut-paper-kit-native-light",
+          "assetHash": "f4d215b5beb440d93abd7e7d9b1c794f19bfa51d927ee7e77ce60eb377eab5e3",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "cut-paper-composition-native-dark",
+          "assetHash": "7f09f977d7d743d548d84eacced68f120672588bb55e3ad72d98e65ff7c844c2",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "cut-paper-kit-native-dark",
+          "assetHash": "6dd7f66677a145112768a047260f409b74cb97508c484f8c605a4a3390717cde",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "cut-paper-composition-alternate-light",
+          "assetHash": "ef4d9d03976e80d577fb6217c59c612a3dface7ef8e84385cd9d4198122e258b",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "cut-paper-kit-alternate-light",
+          "assetHash": "2de078c0b22ee0d40d87149408688938cc069cc9c38615d1c2889e900fbc7743",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "cut-paper-composition-alternate-dark",
+          "assetHash": "4f84c81f04f21cf85336ca28640de4101b85e4f1ea6aefcbf8bf888758805d3c",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "cut-paper-kit-alternate-dark",
+          "assetHash": "7b7ef4ef619a15bc49de76e623105b290588a5b86e5a112b09e9146b200f21c5",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "halftone-manual",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+      "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "098b19f15e2686d64843c55468e757313ee91d4586304384483218f0095299c9"
+        }
+      ],
+      "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d",
+      "originalReferenceHashes": {
+        "light": "73045f4d8328770e6a686b4cfcf0f1f0d6410f2ec140ea2c677f0162be987be5",
+        "dark": "ca1af3277e891780a6658ba289ca6e4d74f756179991e2c85753fc4a609f4dc9"
+      },
+      "compositionTemplateHash": "3d64709e875910c8ae5a03db9a24926e0778987965622f984aaeb8e06bd0df90",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "ea320160e87efb3e251b2f73656bec2e4e88967b714292dee43b3643136ebb60",
+      "recipeHash": "098b19f15e2686d64843c55468e757313ee91d4586304384483218f0095299c9",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "halftone-manual-composition-native-light",
+          "assetHash": "307a372b6fe2e923b1f33a82feec7ba52cae0e314ce8d109d6c2396a0c6a2885",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "halftone-manual-kit-native-light",
+          "assetHash": "1cdd8116b3f1b17f4e1bc7d4e48f1f49ac2c35e8bf5d582bde7c79c4408c3ff7",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "halftone-manual-composition-native-dark",
+          "assetHash": "517bb0307d24ba97163383ba4040380dba191bfd0a88ab9fff73c24c9622cac2",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "halftone-manual-kit-native-dark",
+          "assetHash": "2d46af504fb87d2d2def74cea71fb4221258123ff19a864cf2cb4b64499d3c63",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "halftone-manual-composition-alternate-light",
+          "assetHash": "b7f5236452aca72b1ad8e2d796cfa4d3fc282f4c2348cebcc08aba52a23fa4ec",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "halftone-manual-kit-alternate-light",
+          "assetHash": "b7b9c6c1d7702e6232b181572853100235b05967afd5a08e36808ee11b8b588c",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "halftone-manual-composition-alternate-dark",
+          "assetHash": "1d8ce727c9db17c345970cf1e5972ec1a2855238e7a08dfcdc4007abb9ee3fd3",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "halftone-manual-kit-alternate-dark",
+          "assetHash": "63825961927ed5ac5c5046f833de9a6bb12bb17c62907cb3ed281951c072d1e6",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "pixel-schematic",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "8c6341e7e618e982e67321b9950dbec579b81e7ba5be830201c5005b50b03446",
+      "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "e397f9fe43a517b13c599f2839dad6fc8c65f703391979a7af562066a673a8b2"
+        }
+      ],
+      "contextHash": "dc10df9ad27cc4e6a09afdabaa7198d16e10d5da2b04285f90f745f451d66b70",
+      "originalReferenceHashes": {
+        "light": "19e047dfffa9a35e367402b1fd737f3fe9ae2f45b4769969b7d5daeee434a850",
+        "dark": "24b18e66641ac2f3c4624cf806d4da06a3dfcbcdf4e10b723405e833f1aa4ff5"
+      },
+      "compositionTemplateHash": "bef4078e707001c8527a87ee595335680e138f67fa016f7f7f60f6c56ef81b6c",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "702f57a516e2fa76af12d93ffbcddb30d7e23824873b12a39ae162a669384177",
+      "recipeHash": "e397f9fe43a517b13c599f2839dad6fc8c65f703391979a7af562066a673a8b2",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "pixel-schematic-composition-native-light",
+          "assetHash": "62680513a691561ca8c118a139b640526b7c69a2bcfb50fc667083d1d7eacb8c",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "pixel-schematic-kit-native-light",
+          "assetHash": "2b01698060ae39d65c36c2b10925aaead952c87cf1ef3828b4416ad727acaa84",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "pixel-schematic-composition-native-dark",
+          "assetHash": "8e5a77a450d111e58eafdf229d7e608cc1a9fe436c68ca9888e1c8db5a4b3654",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "pixel-schematic-kit-native-dark",
+          "assetHash": "ff28a1c25cd6de5dfe13d7c4b23accfae7dfcea5f8d8eb59e3f9a15005fe0069",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "pixel-schematic-composition-alternate-light",
+          "assetHash": "4d4323c06f63658ee672467151a6fd633af129aedf064c595815c1358a3702e8",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "pixel-schematic-kit-alternate-light",
+          "assetHash": "8262aa540ca64a8e1bd124440477f3879ff99fa06dba4da9fb07c34948abea94",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "pixel-schematic-composition-alternate-dark",
+          "assetHash": "74d5175dae2f92eadb9957894e8a103fcbb8fd92393cd8eef7e1e47e02ed57a3",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "pixel-schematic-kit-alternate-dark",
+          "assetHash": "ae74475b00890bfd400f0657361db6722389daa0ae30d4d7bc7fa96da0ae80d8",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "terminal",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+      "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "6d1b4fc6368607a2317b26b2552c231309c03aa21b849a09563b840662e032c6"
+        }
+      ],
+      "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d",
+      "originalReferenceHashes": {
+        "light": "1f791daf70d366a4c561d9fbf231f0566e4d2f8aec17124fa40723062e1f3876",
+        "dark": "c84817d200d3c813af6096ca857a07a517997a4b20003e66a4d3d16b74ac6674"
+      },
+      "compositionTemplateHash": "68cc67150a2d7fc9b2a975bc77de92c6ee109b56e3e6da4f0e6c4608a05baef9",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "086515bac4ba344fb403907d37c93781eb3c7f7c53da629a992494fb084bd5de",
+      "recipeHash": "6d1b4fc6368607a2317b26b2552c231309c03aa21b849a09563b840662e032c6",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans Mono CJK JP', monospace",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans Mono CJK JP', monospace",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "terminal-composition-native-light",
+          "assetHash": "72b9254ae0f0ad6fa291684b6250975fea28a4ae1045bb1d11eb8f258ffcaf9d",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "terminal-kit-native-light",
+          "assetHash": "19fc5fbcec9524c37e85007953f7a6c03bdbb2bf507d23286a0c40d40eb4a28d",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "terminal-composition-native-dark",
+          "assetHash": "c71f163400b19e4fe79c48d7d9372e939a3ce50c03281abc4959bed320df01fc",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "terminal-kit-native-dark",
+          "assetHash": "b5e5f226b8e6cfc14eabcd5a5a4920eb14f642bce1fa6b761e8c56cf51218e0b",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "terminal-composition-alternate-light",
+          "assetHash": "cb190e25de10459ef16fb63e0a90ca765ba8d9f56e93903fbb26833272d91c86",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "terminal-kit-alternate-light",
+          "assetHash": "a52ab175ab8ba73bdadc80f705366bce435924863ab60c1bd468b3671ad97969",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "terminal-composition-alternate-dark",
+          "assetHash": "1b9e35cced1e97377eadd0844e575d116c9ef75e3fe2c452dc35165c7a674f35",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "terminal-kit-alternate-dark",
+          "assetHash": "53464cd66b83b985bf3647d542ae3eb9b563e2355e3ccb8eced09ca20d651da6",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "circuit-route",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "1eb1b072baf1ab59eb2c8b77cafcc24a0a447f485d9e0a878dcc540e14de1c2a",
+      "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "f717d6ec3f7fbb9cd82a66e0c2e224f2bc4dd8cd4fcdf94af9401d57f5467a2d"
+        }
+      ],
+      "contextHash": "78c57977da6d4febc69cd8d5f447b67a0a64ce920b970eda1743fc4ff3f9e8f7",
+      "originalReferenceHashes": {
+        "light": "b38b1d39a0387dbf6a803fd5c6b21e8b2d672db280d98d3f25af791c33714c97",
+        "dark": "c4be03b35b5e6c3e6c954fc511c9bdc45d878841b4463b000da0ac04781e2e6c"
+      },
+      "compositionTemplateHash": "b5b5cf4adf085ee22f2450d5dfc55f376bcdf11f227d0b8ee1f6678ecd072abe",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "bdd3ee3ded8719b72548bfca7de88db879fe8a928dcd0d6a2eea22d71689e5c6",
+      "recipeHash": "f717d6ec3f7fbb9cd82a66e0c2e224f2bc4dd8cd4fcdf94af9401d57f5467a2d",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "circuit-route-composition-native-light",
+          "assetHash": "efa8b52e4f7b7d8bca6fe3b0860ff43b776ad9d87e97d445637303d3d88e87a2",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "circuit-route-kit-native-light",
+          "assetHash": "78e09adeaac4f5fdf7738b20dd507b2c36e2d38cd99daef0eaefbe85072456ae",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "circuit-route-composition-native-dark",
+          "assetHash": "4311c9643189d3e29ce7ae465ce89263701cbf78b1b71ae67d1ff6806e77555f",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "circuit-route-kit-native-dark",
+          "assetHash": "f470a8fa430f6aa1c020ab426c1e7898c1266f356cefa63988c464a51934c57d",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "circuit-route-composition-alternate-light",
+          "assetHash": "5cf1964826279c0a6346aea227f79b2383dc10e05fa34484f33a9b419225802a",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "circuit-route-kit-alternate-light",
+          "assetHash": "4071286ed4b350949b3f2a23c74debf32c26e13ea8f257df448bee6c7981d6ef",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "circuit-route-composition-alternate-dark",
+          "assetHash": "f9497091523c612c5548a54423bc7968a310bb3737ce34cfdca604b4b7f44d9a",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "circuit-route-kit-alternate-dark",
+          "assetHash": "198a0a6de12698fcccdcd029db4c9b1b0097c063a7693bb2f4b8430743a9b1e9",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "transit-wayfinding",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+      "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "3efe70ceef32e402dc29a4930285c9b8199c75dcf42b50438da458b1fae0f13c"
+        }
+      ],
+      "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba",
+      "originalReferenceHashes": {
+        "light": "b9a0e7baa1c5e430db384590be43c887c46961f0187da2270193794da1f9bc03",
+        "dark": "00ae9309a3e053ba917c60980325e6186b936910552e082fdf9bfffe502967d4"
+      },
+      "compositionTemplateHash": "5cfc59dbae58b2a2ec2877c649918fbb7ac8f73a133d92d0431f9b05a7aa8c5a",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "32bebe49f7a19d1a9f8867f6fa6470f1019ad13a465079c8740f301b4258f16c",
+      "recipeHash": "3efe70ceef32e402dc29a4930285c9b8199c75dcf42b50438da458b1fae0f13c",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "transit-wayfinding-composition-native-light",
+          "assetHash": "d00565a44a9e2b60e6a1f99afa80a0fd4d87f327ebe09d96016c4b0c52901b43",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "transit-wayfinding-kit-native-light",
+          "assetHash": "08c7639f419a464a7a0e80154d7724e47a01b0aa3ec9fff8b026d295d9734636",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "transit-wayfinding-composition-native-dark",
+          "assetHash": "f79a5b0529dc95b1e656f0b6a9b79381ff034ef565265504498e18212636f22a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "transit-wayfinding-kit-native-dark",
+          "assetHash": "732c216a18c5585912ed8d4a1430de0a8d60a9f43c3b841b6a3d2467209be84a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "transit-wayfinding-composition-alternate-light",
+          "assetHash": "5e1371407be536f3d6f4d4aba25357872e857d72ea7bb2630ae78fc5753180ab",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "transit-wayfinding-kit-alternate-light",
+          "assetHash": "38effbee1eca0d912b77485ba9e62c8eabdace0b8c7455fae75d7dfdddd0f732",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "transit-wayfinding-composition-alternate-dark",
+          "assetHash": "e2520280170c06e0a13a43adec570086dd24792489b8ae6fc89a37369bcea454",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "transit-wayfinding-kit-alternate-dark",
+          "assetHash": "3f6dae27101f95846cf8f2f739599e033de11d09522a1ec0e7bd3c7d3734b88d",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "modular-geometric",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+      "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "a9789a4ed21cdec16e2c9eabfa8b9b185b2af04adc16db2f6832c8cc7845fe28"
+        }
+      ],
+      "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2",
+      "originalReferenceHashes": {
+        "light": "0e82aff9d9e5f0e43919511ec49ea3e27ac9721b72fdda5a37921fd232309c90",
+        "dark": "5d683f3390d9d7fe0d172cabdb6f2419133c0967e3c95f0af5de12edf24f2059"
+      },
+      "compositionTemplateHash": "22a4fcd944943445efa74a7bca0d05389c00cd5991a5006d1b4f94f6bea72c2b",
+      "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
+      "sourceHash": "50d6d886009b88ea6169b1e6b83f3f84ed4e3b26a4d21a56076f26cec61f7439",
+      "recipeHash": "a9789a4ed21cdec16e2c9eabfa8b9b185b2af04adc16db2f6832c8cc7845fe28",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 30,
+          "minCssPx": 12,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 26,
+          "minCssPx": 12,
+          "fontWeight": 400
+        }
+      },
+      "placements": [
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "modular-geometric-composition-native-light",
+          "assetHash": "9647f30be4f0d29a0b83d39ecfe99a52784a1897c0a4fccfa5e20a2bd3fbdea2",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "modular-geometric-kit-native-light",
+          "assetHash": "b6508e3d243119126ad23c29388a01e56715580d85a05b83edeb9955725027c7",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "modular-geometric-composition-native-dark",
+          "assetHash": "56068d908ae989abb4c51cd054b11ed99b4f46227a9973f10eb1a989d915e6b4",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "modular-geometric-kit-native-dark",
+          "assetHash": "db3a99b60ed650b718f039a0e9c09f1fe265f159d1043f2a9fa135b027d2cb89",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "modular-geometric-composition-alternate-light",
+          "assetHash": "cbc893e55efe0fcfd82c2be15e52b7c2c1dc70a9a5ac8088a608f9bbf517dfba",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "modular-geometric-kit-alternate-light",
+          "assetHash": "612776220333629e28390e734528d04ad574f818ef2dfa0a991f606b74d34214",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "modular-geometric-composition-alternate-dark",
+          "assetHash": "8eab86ea3b5a7142d84f22a58d6f2bd9d3bc3a4668dc62db8f3103982736f86f",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "modular-geometric-kit-alternate-dark",
+          "assetHash": "d28b2785549928acce1e3da998eef6932315b4affd75be282b155dbbc707327e",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    },
+    {
+      "toneId": "luminous-glass",
+      "toneRevision": "rollout-1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+      "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+      "bundledReferenceHashes": [
+        {
+          "id": "composition-meaning",
+          "hash": "43c2be1953aa54dbfb93a3f35f6fe1e75763c73ced24ec0426d642381dcfb073"
+        },
+        {
+          "id": "provenance",
+          "hash": "f4422d49ab9bc37f91c63635f7eafc35400907e5065d8885e39edbc968a3cb8c"
+        },
+        {
+          "id": "recipe",
+          "hash": "ff165b31ac31777c0c6168f6e59a31338731587e69c015078733ba5a69d392f9"
+        }
+      ],
+      "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f",
+      "originalReferenceHashes": {
+        "light": "8be407aa7deca88ff2e3693bc0282f039f0226b9d37a635c9650bc9185290fad",
+        "dark": "87502f64dbd04370b894f6095dbb23763db8014472380e3444e83fea8d2fd990"
+      },
+      "compositionTemplateHash": "0cadea895382d573fa267fda9176961c14839ba0f8dd57b9b36e94ca43b80c01",
+      "compositionInstancesHash": "1b341d804c4b5ff0bdd997149daa00c0bfa0e10a70aa3159abb07231fe717fda",
+      "sourceHash": "808bd77c9a5d107a50b6f9b7780899e5019f329dc9f4799228ca01ccf319e499",
+      "recipeHash": "ff165b31ac31777c0c6168f6e59a31338731587e69c015078733ba5a69d392f9",
+      "primitiveAlternatives": {},
+      "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
+      "fonts": {
+        "label": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 22,
+          "minCssPx": 18,
+          "fontWeight": 600
+        },
+        "detail": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 18,
+          "minCssPx": 16,
+          "fontWeight": 400
+        },
+        "specimen": {
+          "fontFamily": "'Noto Sans CJK JP', sans-serif",
+          "fontSize": 56,
+          "minCssPx": 24,
+          "fontWeight": 700
+        }
+      },
+      "placements": [
+        {
+          "width": 640,
+          "height": 360
+        },
+        {
+          "width": 720,
+          "height": 400
+        }
+      ],
+      "evidenceRecords": [
+        {
+          "name": "luminous-glass-composition-native-light",
+          "assetHash": "c53e59bff520a8f42d4065457b91ca937626b31f0620d6263e41f017cef6a8de",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "luminous-glass-kit-native-light",
+          "assetHash": "4b29e5bd52e40bd1125565daabd9678d1d093429c75769d86d43f6cfa22dddef",
+          "theme": "light",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "luminous-glass-composition-native-dark",
+          "assetHash": "092c6277cd7b67b602018fe082d3e5e58a78c91d56de023a4bafc063ce77b1cf",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "composition"
+        },
+        {
+          "name": "luminous-glass-kit-native-dark",
+          "assetHash": "d643cd5bd79c560eef094fed40c274d88371768267ed17b1ef494def45b6990a",
+          "theme": "dark",
+          "paletteMode": "native",
+          "kind": "kit"
+        },
+        {
+          "name": "luminous-glass-composition-alternate-light",
+          "assetHash": "8678c6ff8a809225533e4b9d87bd28f3073b5c0c4eaf740249cd8508090fae4d",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "luminous-glass-kit-alternate-light",
+          "assetHash": "a49202febf4b9751b7aca4d3d61ed29b1534ba4bcf06aecdbeab76fd0bae3f6b",
+          "theme": "light",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        },
+        {
+          "name": "luminous-glass-composition-alternate-dark",
+          "assetHash": "6ac59012fd5e1c3eb35a05ed4aa4a34ee694df3dff0bccd58957eac998da469a",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "composition"
+        },
+        {
+          "name": "luminous-glass-kit-alternate-dark",
+          "assetHash": "ab7886df962fd9a88b121eb4212e0b5d296ff2368b13fcd1192ace51a0b187a6",
+          "theme": "dark",
+          "paletteMode": "alternate",
+          "kind": "kit"
+        }
+      ],
+      "structuralValidation": "passed",
+      "actualInspection": "pending",
+      "independentSecondPass": "pending where textured/layered",
+      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+    }
+  ]
+}

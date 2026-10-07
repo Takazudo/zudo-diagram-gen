@@ -219,7 +219,9 @@
         "Separate sections with restrained rules and generous margins rather than full boxes around every object.",
         "Keep instructional labels short and distinguish them from decorative specimen text.",
         "Use a small palette with one warm accent and avoid ornament that weakens the reading order.",
-        "Check fallback font metrics and text fit in both the exported SVG and the intended application."
+        "Check fallback font metrics and text fit in both the exported SVG and the intended application.",
+        "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": ["Writing products and editorial feature introductions"],
       "smallSizeNotes": "Treat the serif typography as a deliberate family choice.",
@@ -252,7 +254,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "editorial-serif/scheme.json",
+      "kit": "editorial-serif/kit.svg"
     },
     {
       "id": "swiss-grid",
@@ -373,7 +378,9 @@
         "Place a few broad translucent fields behind or within the important shapes.",
         "Use overlap to add personality without creating unintended data or process relationships.",
         "Keep labels and connectors opaque enough to remain readable on every wash.",
-        "Inspect the flattened light and dark outputs because a wash's apparent contrast depends on its background."
+        "Inspect the flattened light and dark outputs because a wash's apparent contrast depends on its background.",
+        "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": ["Friendly help art with more personality than pure wireframes"],
       "smallSizeNotes": "Keep washes subordinate to the relationship being explained.",
@@ -410,7 +417,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "contour-wash/scheme.json",
+      "kit": "contour-wash/kit.svg"
     },
     {
       "id": "technical-blueprint",
@@ -478,7 +488,9 @@
         "Draw the planes as open contours with dashed construction lines where they clarify stacking.",
         "Use a contrasting registration edge to identify how independent inputs align.",
         "Place short labels outside the projected planes whenever text would become difficult to read.",
-        "Reduce wire grids and fine detail before shrinking the diagram for a help dialog."
+        "Reduce wire grids and fine detail before shrinking the diagram for a help dialog.",
+        "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Explaining layers",
@@ -516,7 +528,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "isometric-wire/scheme.json",
+      "kit": "isometric-wire/kit.svg"
     },
     {
       "id": "isometric-solid",
@@ -529,7 +544,9 @@
         "Assign distinct flat colors to top and side facets so depth reads without gradients.",
         "Separate the inputs and combined result with enough space to preserve their identities.",
         "Keep shadows hard and small enough that they do not resemble additional objects.",
-        "Use this visual weight deliberately; simplify volume and labels for compact placements."
+        "Use this visual weight deliberately; simplify volume and labels for compact placements.",
+        "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Product onboarding",
@@ -570,7 +587,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "isometric-solid/scheme.json",
+      "kit": "isometric-solid/kit.svg"
     },
     {
       "id": "paper-layers",
@@ -695,7 +715,9 @@
         "Place flat highlighter swipes behind key content, with enough contrast for the labels.",
         "Make each connector look deliberate even when its contour is informal.",
         "Use one or two emphatic colors and keep the surrounding canvas open.",
-        "Reduce stroke weight or decoration when this energetic tone overwhelms nearby help text."
+        "Reduce stroke weight or decoration when this energetic tone overwhelms nearby help text.",
+        "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Short onboarding moments",
@@ -733,7 +755,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "marker-workshop/scheme.json",
+      "kit": "marker-workshop/kit.svg"
     },
     {
       "id": "chalkboard",
@@ -746,7 +771,9 @@
         "Keep chalk dust sparse and away from labels and important junctions.",
         "Use secondary contours to suggest hand drawing without creating double meanings.",
         "Retain one clear path through the explanation and large plain labels.",
-        "Both supplied themes intentionally use a dark board; simplify grain at small sizes."
+        "Both supplied themes intentionally use a dark board; simplify grain at small sizes.",
+        "Broken chalk contours with a faint second pass, sparse dust, warm accents and open blackboard ground.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Learning-oriented explanations",
@@ -783,7 +810,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "chalkboard/scheme.json",
+      "kit": "chalkboard/kit.svg"
     },
     {
       "id": "risograph-duo",
@@ -796,7 +826,9 @@
         "Use a small consistent registration offset and visible overprint where shapes overlap.",
         "Apply sparse print grain to large image areas rather than instructional labels.",
         "Keep broad silhouettes and short text so the intentional imprecision remains readable.",
-        "Do not use registration error or blended color where the diagram depends on exact color discrimination."
+        "Do not use registration error or blended color where the diagram depends on exact color discrimination.",
+        "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Creative applications",
@@ -838,7 +870,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "risograph-duo/scheme.json",
+      "kit": "risograph-duo/kit.svg"
     },
     {
       "id": "cut-paper",
@@ -851,7 +886,9 @@
         "Use flat organic color fields, reserving sufficient negative space between pieces.",
         "Treat text as a pasted layer with a clean readable surface.",
         "Let connectors feel hand-cut while preserving explicit direction and attachment points.",
-        "Reduce the number of overlapping pieces for short, small help illustrations."
+        "Reduce the number of overlapping pieces for short, small help illustrations.",
+        "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": ["Friendly onboarding", "creative-tool tutorials", "warm editorial help pages"],
       "smallSizeNotes": "Organic edges suit short conceptual explanations; large dense technical graphs need a simpler companion tone.",
@@ -888,7 +925,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "cut-paper/scheme.json",
+      "kit": "cut-paper/kit.svg"
     },
     {
       "id": "halftone-manual",
@@ -901,7 +941,9 @@
         "Confine dots and diagonal hatching to meaningful picture areas.",
         "Keep labels and thin connectors clear of texture.",
         "Choose one consistent screen size and test it at the intended rendering scale.",
-        "Remove or enlarge the halftone texture when downscaling produces interference or visual noise."
+        "Remove or enlarge the halftone texture when downscaling produces interference or visual noise.",
+        "Firm monochrome keylines, picture-area dot screens and diagonal hatching; essential labels occupy clean knockout ground.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Manuals",
@@ -943,7 +985,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "halftone-manual/scheme.json",
+      "kit": "halftone-manual/kit.svg"
     },
     {
       "id": "pixel-schematic",
@@ -1230,7 +1275,9 @@
         "Restrict the glow to selected contours and keep labels crisp and opaque.",
         "Use restrained cyan-violet highlights against generous dark space.",
         "Preserve the identity of each input layer before showing their combined result.",
-        "Both supplied variants are intrinsically dark; simplify filters or choose a quieter tone for small help slots."
+        "Both supplied variants are intrinsically dark; simplify filters or choose a quieter tone for small help slots.",
+        "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
       ],
       "goodFor": [
         "Large documentation openers",
@@ -1271,7 +1318,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "toneRevision": "rollout-1",
+      "scheme": "luminous-glass/scheme.json",
+      "kit": "luminous-glass/kit.svg"
     }
   ]
 }

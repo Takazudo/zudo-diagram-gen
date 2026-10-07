@@ -265,6 +265,8 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
           .filter(([, svg]) => typeof svg === 'string')
           .map(([theme, svg]) => [theme, hashBytes(svg)]),
       ),
+      compositionTemplateHash: assets[0].compositionTemplateHash,
+      compositionInstancesHash: assets[0].compositionInstancesHash,
       sourceHash: tone.context.source.hash,
       recipeHash: tone.context.recipeDocument.hash,
       primitiveAlternatives: tone.context.scheme.primitiveAlternatives ?? {},

@@ -674,7 +674,10 @@ function stringList(value, label, errors) {
     errors.push(`${label}: expected an array of nonempty strings.`);
 }
 
-export async function loadToneCatalog({ toneRoot = PACKAGE_TONES, requireComplete = false } = {}) {
+export async function loadToneCatalog({
+  toneRoot = PACKAGE_TONES,
+  requireComplete = toneRoot === PACKAGE_TONES,
+} = {}) {
   const root = await fs.realpath(toneRoot);
   const errors = [];
   const warnings = [];
@@ -685,6 +688,8 @@ export async function loadToneCatalog({ toneRoot = PACKAGE_TONES, requireComplet
   string(catalog.version, 'tones/catalog.json version', errors);
   if (!Array.isArray(catalog.tones))
     throw new SessionValidationError([...errors, 'tones/catalog.json tones: expected an array.']);
+  if (toneRoot === PACKAGE_TONES && requireComplete && catalog.tones.length !== 24)
+    errors.push('tones/catalog.json: the bundled catalog requires all 24 stable tone entries.');
   const ids = new Set();
   const numbers = new Set();
   const tones = [];

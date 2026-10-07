@@ -55,13 +55,15 @@ test('evidence preparation uses repeated production instances and exact explicit
   onTestFinished(() => fs.rm(output, { recursive: true, force: true }));
   const records = await buildP09Evidence({
     output,
-    tones: ['technical-blueprint', 'offset-blocks'],
+    tones: ['technical-blueprint', 'offset-blocks', 'editorial-serif'],
   });
-  assert.equal(records.length, 16);
+  assert.equal(records.length, 24);
   for (const record of records) {
     assert.equal(record.inspected, false);
     assert.equal(record.capture, 'pending');
     assert.ok(record.instances.length >= 7);
+    if (record.toneId === 'editorial-serif' && record.kind === 'composition')
+      assert.deepEqual(record.target, { width: 640, height: 360 });
     if (record.kind === 'kit') assert.equal(record.instances.length, 14);
     const directory = path.join(output, record.name);
     const checked = await validateSession(directory);
@@ -90,7 +92,10 @@ test('evidence preparation uses repeated production instances and exact explicit
     );
   }
   const first = await fs.readFile(path.join(output, 'manifest.json'), 'utf8');
-  await buildP09Evidence({ output, tones: ['technical-blueprint', 'offset-blocks'] });
+  await buildP09Evidence({
+    output,
+    tones: ['technical-blueprint', 'offset-blocks', 'editorial-serif'],
+  });
   assert.equal(await fs.readFile(path.join(output, 'manifest.json'), 'utf8'), first);
 });
 
@@ -149,4 +154,94 @@ test('full resource gate rejects omitted packs, malformed schemes, recipe drift 
     loadToneCatalog({ toneRoot: directory, requireComplete: true }),
     /does not exist/,
   );
+});
+
+test('all twenty-four bundled contexts are complete and all rollout authoring sources reproduce', async () => {
+  const catalog = await loadToneCatalog();
+  assert.equal(catalog.tones.length, 24);
+  await buildRolloutKits({ check: true });
+  for (const tone of catalog.tones) {
+    assert.deepEqual(tone.context.capabilities, { scheme: true, kit: true });
+    assert.ok(
+      KIT_PRIMITIVES.every(
+        (primitive) =>
+          tone.context.kit.primitives.some(({ id }) => id === primitive) ||
+          tone.context.scheme.primitiveAlternatives?.[primitive],
+      ),
+    );
+    assert.equal(tone.toneRevision, tone.context.scheme.toneRevision);
+    assert.ok(tone.context.recipeDocument.text.trim());
+    assert.ok(tone.context.source.text.trim());
+    const candidate = catalog.candidates.find(({ toneId }) => toneId === tone.id);
+    assert.ok(candidate.assets.light && candidate.assets.dark);
+  }
+});
+
+test('complete catalog importer preserves original references, native authoring and all accepted pilot bytes', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-import-'));
+  onTestFinished(() => fs.rm(directory, { recursive: true, force: true }));
+  const { execFile } = await import('node:child_process');
+  const { promisify } = await import('node:util');
+  await promisify(execFile)('python3', [
+    fileURLToPath(new URL('../../../scripts/import-tones.py', import.meta.url)),
+    '--tones-only',
+    '--out',
+    directory,
+  ]);
+  const imported = path.join(directory, 'packages/diagram-gen/tones');
+  const catalog = await loadToneCatalog({ toneRoot: imported, requireComplete: true });
+  assert.equal(catalog.tones.length, 24);
+  await buildRolloutKits({ toneRoot: imported, check: true });
+  for (const tone of catalog.tones) {
+    const files = [
+      'scheme.json',
+      'kit.svg',
+      'kit.template.svg',
+      'recipe.md',
+      'source.svg',
+      'light.svg',
+      'dark.svg',
+    ];
+    if (!['fine-outline', 'soft-fill', 'paper-layers', 'pencil-notebook'].includes(tone.id))
+      files.push('composition.template.svg', 'composition.instances.json');
+    for (const file of files)
+      assert.equal(
+        hashBytes(await fs.readFile(path.join(imported, tone.id, file))),
+        hashBytes(await fs.readFile(path.join(root, tone.id, file))),
+        `${tone.id}/${file}`,
+      );
+  }
+});
+
+test('committed per-tone matrix tracks exact resource and authored composition identities', async () => {
+  const matrix = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-COMPLETENESS-MATRIX.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const catalog = await loadToneCatalog();
+  assert.deepEqual(
+    matrix.tones.map(({ toneId }) => toneId),
+    catalog.tones.map(({ id }) => id),
+  );
+  for (const row of matrix.tones) {
+    const tone = catalog.tones.find(({ id }) => id === row.toneId);
+    assert.equal(row.schemeHash, tone.context.hashes.schemeHash);
+    assert.equal(row.kitHash, tone.context.hashes.kitHash);
+    assert.equal(row.contextHash, tone.context.hashes.contextHash);
+    assert.equal(row.sourceHash, tone.context.source.hash);
+    assert.equal(row.recipeHash, tone.context.recipeDocument.hash);
+    assert.equal(row.evidenceRecords.length, 8);
+    if (!['fine-outline', 'soft-fill', 'paper-layers', 'pencil-notebook'].includes(row.toneId)) {
+      assert.equal(
+        row.compositionTemplateHash,
+        hashBytes(await fs.readFile(path.join(root, row.toneId, 'composition.template.svg'))),
+      );
+      const manifest = JSON.parse(
+        await fs.readFile(path.join(root, row.toneId, 'composition.instances.json'), 'utf8'),
+      );
+      assert.equal(row.compositionInstancesHash, hashBytes(JSON.stringify(manifest)));
+    }
+  }
 });
