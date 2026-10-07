@@ -28,8 +28,15 @@ The supplied artwork has a 720 × 400 viewBox. Most essential labels are at leas
 
 A pattern background and a text layer combine into a composition that can be exported as an image. The example uses PNG as its export label. The shapes and sample typography are invented teaching material, not screenshots. Optional image layers and saving are omitted.
 
-## References
+Read the bundled [composition meaning and glossary](../shared/composition-meaning.md) for the full input/output vocabulary and [provenance decisions](../shared/provenance.md) for reuse limits.
+
+## Reading this drawing
+
+Pattern and Text identify the two input layers. Aa is a lettering preview; MAKE SOMETHING is sample copy in their combined composition. PNG identifies the exported image. The connectors show that both inputs contribute to one result, not that text is transformed into a pattern.
+
+## Optional public inspiration
+
+These links explain broad visual construction principles. Reading them is optional; all example meaning is bundled locally.
 
 - [IBM Design Language — flat illustration principles](https://www.ibm.com/design/language/illustration/flat-style/design/)
 - [Atlassian Design — illustration purposes and formats](https://atlassian.design/foundations/illustrations)
-- [Example content — zudo-pattern-gen Composer manual](https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx)

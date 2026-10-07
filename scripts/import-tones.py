@@ -600,9 +600,27 @@ def good_for(text: str) -> list[str]:
     return [part.strip().rstrip(".") for part in re.split(r";\s*|,\s*", text) if part.strip()]
 
 
+def reading_guide(slug: str) -> str:
+    if slug == "swiss-grid":
+        return "Read 01 / Pattern and 02 / Text as the two inputs. Aa previews editable lettering. The combined destination is numbered 03 / PNG: the numbers order this explanation, not application commands. MAKE SOMETHING is sample lettering, not an operation label. The aligned grid organizes the same merge/export story."
+    if slug == "editorial-serif":
+        return "Pattern and Text name the two inputs; Aa is a lettering preview. Make something. is sample copy inside the resulting composition. PNG marks the output image format. Serif lettering changes the editorial treatment, not what the composition contains."
+    if slug in {"technical-blueprint", "isometric-wire", "isometric-solid", "paper-layers", "pencil-notebook", "marker-workshop", "chalkboard", "risograph-duo"}:
+        return "Pattern and Text identify the two contributing layers. MAKE is sample text shown in the text input and the composed result, not a second action or duplicate output. PNG identifies the exported image. Perspective, stacked edges, sketch marks or print offsets describe this tone's visual construction; they do not introduce extra data stages."
+    if slug in {"cut-paper", "halftone-manual", "pixel-schematic", "terminal", "circuit-route", "transit-wayfinding", "modular-geometric", "luminous-glass"}:
+        return "Pattern identifies the repeated background; MAKE previews the Text input. MAKE SOMETHING is sample lettering in the composed result, and PNG marks its image export. Routes, cells, panels and layered shapes connect inputs to output; they are explanatory marks rather than controls, circuits or a claim about the product's internal implementation."
+    return "Pattern and Text identify the two input layers. Aa is a lettering preview; MAKE SOMETHING is sample copy in their combined composition. PNG identifies the exported image. The connectors show that both inputs contribute to one result, not that text is transformed into a pattern."
+
+
 def build_tones(out: Path, atlas: Path | None) -> list[dict]:
     tones_root = out / "packages/diagram-gen/tones"
     bundled_root = ROOT / "packages/diagram-gen/tones"
+    for name in ("composition-meaning.md", "provenance.md"):
+        copy_asset(bundled_root / "shared" / name, tones_root / "shared" / name)
+    existing_catalog = tones_root / "catalog.json"
+    if not existing_catalog.is_file():
+        existing_catalog = bundled_root / "catalog.json"
+    previous = {tone["id"]: tone for tone in json.loads(existing_catalog.read_text())["tones"]} if existing_catalog.is_file() else {}
     catalog = []
     for tone in TONES:
         slug = tone["slug"]
@@ -624,8 +642,19 @@ def build_tones(out: Path, atlas: Path | None) -> list[dict]:
             "recipe": RECIPES[slug], "goodFor": good_for(tone["bestFor"]),
             "smallSizeNotes": small,
             "referenceFiles": {"light": slug + "/light.svg", "dark": slug + "/dark.svg"},
-            "sourceReferences": [REFERENCES[key] for key in TONE_REFERENCE_KEYS[slug] + ["content"]]
+            "sourceReferences": [REFERENCES[key] for key in TONE_REFERENCE_KEYS[slug]],
+            "bundledReferences": [
+                {"id": "recipe", "title": tone["name"] + " drawing and reading guide", "path": slug + "/recipe.md", "required": True},
+                {"id": "composition-meaning", "title": "Composition teaching example and glossary", "path": "shared/composition-meaning.md", "required": True},
+                {"id": "provenance", "title": "Original content and redistribution decisions", "path": "shared/provenance.md", "required": True}
+            ]
         }
+        for field in ("scheme", "kit", "toneRevision"):
+            if field in previous.get(slug, {}):
+                entry[field] = previous[slug][field]
+                if field in ("scheme", "kit") and isinstance(entry[field], str):
+                    source_root = tones_root if (tones_root / entry[field]).is_file() else bundled_root
+                    copy_asset(source_root / entry[field], tones_root / entry[field])
         catalog.append(entry)
         recipe = f"# {tone['id']} {tone['name']}\n\n{tone['description']}\n\n"
         recipe += "This profile describes an original exploratory drawing. The linked external references informed broad construction principles; this SVG is not a copied brand asset. Project facts and design rules take precedence over its sample palette.\n\n"
@@ -634,7 +663,9 @@ def build_tones(out: Path, atlas: Path | None) -> list[dict]:
         recipe += "The supplied artwork has a 720 × 400 viewBox. Most essential labels are at least 26 units tall; at 360px display width that is approximately 13px. Check the actual host slot, longer translations, and available fonts before integration.\n\n"
         recipe += "`light.svg` and `dark.svg` are self-contained literal-color exports intended for an image element. `source.svg` retains theme variables and is an editable reference; changing its root `data-theme` selects the palette when the SVG's CSS is supported. Both exports retain editable text and geometry.\n\n"
         recipe += "## Shared example meaning\n\nA pattern background and a text layer combine into a composition that can be exported as an image. The example uses PNG as its export label. The shapes and sample typography are invented teaching material, not screenshots. Optional image layers and saving are omitted.\n\n"
-        recipe += "## References\n\n" + "\n".join(f"- [{r['title']}]({r['url']})" for r in entry["sourceReferences"]) + "\n"
+        recipe += "Read the bundled [composition meaning and glossary](../shared/composition-meaning.md) for the full input/output vocabulary and [provenance decisions](../shared/provenance.md) for reuse limits.\n\n"
+        recipe += "## Reading this drawing\n\n" + reading_guide(slug) + "\n\n"
+        recipe += "## Optional public inspiration\n\nThese links explain broad visual construction principles. Reading them is optional; all example meaning is bundled locally.\n\n" + "\n".join(f"- [{r['title']}]({r['url']})" for r in entry["sourceReferences"]) + "\n"
         (target / "recipe.md").write_text(recipe)
     write_json(tones_root / "catalog.json", {"schemaVersion": 1, "version": VERSION, "tones": catalog})
     return catalog
@@ -769,10 +800,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--atlas-dir", type=Path, help="Optional original diagram-tone-work directory; imports previously flattened SVGs.")
     parser.add_argument("--out", type=Path, default=ROOT, help="Destination project root. Default: this repository.")
+    parser.add_argument("--tones-only", action="store_true", help="Rebuild tone metadata/recipes and copy their existing resources without changing session examples.")
     args = parser.parse_args()
     out = args.out.resolve()
     atlas = args.atlas_dir.resolve() if args.atlas_dir else None
     catalog = build_tones(out, atlas)
+    if args.tones_only:
+        print(f"Built {len(catalog)} self-contained tone profiles without changing session examples.")
+        return
     build_exploration(out, catalog)
     build_projects(out, atlas)
     print(f"Built {len(catalog)} tone profiles with 48 theme exports, a 10+1 candidate exploration, and 5 individual project sessions.")
