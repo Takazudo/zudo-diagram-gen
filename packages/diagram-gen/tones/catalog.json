@@ -15,10 +15,7 @@
         "Keep arrows and silhouettes readable at the target width; thicken essential connectors when reducing the drawing.",
         "Map ink, surface, border, and accent to the project's semantic palette before introducing a new color."
       ],
-      "goodFor": [
-        "Small help dialogs",
-        "quiet documentation"
-      ],
+      "goodFor": ["Small help dialogs", "quiet documentation"],
       "smallSizeNotes": "Thin strokes need checking at the final display size.",
       "referenceFiles": {
         "light": "fine-outline/light.svg",
@@ -32,10 +29,26 @@
         {
           "title": "IBM Design Language — technical diagrams",
           "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Fine outline drawing and reading guide",
+          "path": "fine-outline/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -52,9 +65,7 @@
         "Give the destination a single accent treatment; retain high-contrast upright labels.",
         "Adapt corner radii to the host project; choose another tone if a strict square interface would lose its identity."
       ],
-      "goodFor": [
-        "Approachable onboarding and consumer apps"
-      ],
+      "goodFor": ["Approachable onboarding and consumer apps"],
       "smallSizeNotes": "Large soft forms can feel out of place in square technical UIs.",
       "referenceFiles": {
         "light": "soft-fill/light.svg",
@@ -68,10 +79,26 @@
         {
           "title": "Atlassian Design — illustration purposes and formats",
           "url": "https://atlassian.design/foundations/illustrations"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Soft fill drawing and reading guide",
+          "path": "soft-fill/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -88,9 +115,7 @@
         "Reduce internal decoration before reducing label size.",
         "Judge the solid drawing beside its actual help text because the black mass carries substantial visual weight."
       ],
-      "goodFor": [
-        "Compact spots and monochrome documentation"
-      ],
+      "goodFor": ["Compact spots and monochrome documentation"],
       "smallSizeNotes": "High visual weight competes with dense explanatory copy.",
       "referenceFiles": {
         "light": "ink-silhouette/light.svg",
@@ -100,10 +125,26 @@
         {
           "title": "IBM Design Language — flat illustration principles",
           "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Ink silhouette drawing and reading guide",
+          "path": "ink-silhouette/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -120,10 +161,7 @@
         "Use direct chunky connectors and keep them clear of the displaced shadow edges.",
         "Omit the shadow treatment when the project's design contract disallows it."
       ],
-      "goodFor": [
-        "Expressive utilities",
-        "creative tool onboarding"
-      ],
+      "goodFor": ["Expressive utilities", "creative tool onboarding"],
       "smallSizeNotes": "Avoid shadows in projects whose design rules disallow them.",
       "referenceFiles": {
         "light": "offset-blocks/light.svg",
@@ -133,10 +171,26 @@
         {
           "title": "IBM Design Language — flat illustration principles",
           "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Offset blocks drawing and reading guide",
+          "path": "offset-blocks/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -153,9 +207,7 @@
         "Use a small palette with one warm accent and avoid ornament that weakens the reading order.",
         "Check fallback font metrics and text fit in both the exported SVG and the intended application."
       ],
-      "goodFor": [
-        "Writing products and editorial feature introductions"
-      ],
+      "goodFor": ["Writing products and editorial feature introductions"],
       "smallSizeNotes": "Treat the serif typography as a deliberate family choice.",
       "referenceFiles": {
         "light": "editorial-serif/light.svg",
@@ -165,10 +217,26 @@
         {
           "title": "Indeed Design — a scalable illustration system",
           "url": "https://indeed.design/article/building-a-scalable-illustration-system/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Editorial serif drawing and reading guide",
+          "path": "editorial-serif/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -185,9 +253,7 @@
         "Keep whitespace deliberate and repeat spacing rules across every panel.",
         "Reduce the size or intensity of accent areas when the drawing competes with surrounding controls."
       ],
-      "goodFor": [
-        "Instruction sequences and structured manuals"
-      ],
+      "goodFor": ["Instruction sequences and structured manuals"],
       "smallSizeNotes": "Expressive accent fields need discipline beside neutral UI.",
       "referenceFiles": {
         "light": "swiss-grid/light.svg",
@@ -201,10 +267,26 @@
         {
           "title": "GitLab Pajamas — illustration construction and sizes",
           "url": "https://design.gitlab.com/product-foundations/illustration/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Swiss grid drawing and reading guide",
+          "path": "swiss-grid/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -221,9 +303,7 @@
         "Keep labels outside tiny chrome where possible; use real product terminology.",
         "Describe the output as a conceptual miniature unless it is an exact screenshot or control map."
       ],
-      "goodFor": [
-        "In-app help closely tied to recognizable interface structure"
-      ],
+      "goodFor": ["In-app help closely tied to recognizable interface structure"],
       "smallSizeNotes": "A conceptual reconstruction; it is not a screenshot or exact control map.",
       "referenceFiles": {
         "light": "ui-miniature/light.svg",
@@ -237,10 +317,26 @@
         {
           "title": "GitLab Pajamas — illustration construction and sizes",
           "url": "https://design.gitlab.com/product-foundations/illustration/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "UI miniature drawing and reading guide",
+          "path": "ui-miniature/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -257,9 +353,7 @@
         "Keep labels and connectors opaque enough to remain readable on every wash.",
         "Inspect the flattened light and dark outputs because a wash's apparent contrast depends on its background."
       ],
-      "goodFor": [
-        "Friendly help art with more personality than pure wireframes"
-      ],
+      "goodFor": ["Friendly help art with more personality than pure wireframes"],
       "smallSizeNotes": "Keep washes subordinate to the relationship being explained.",
       "referenceFiles": {
         "light": "contour-wash/light.svg",
@@ -273,10 +367,26 @@
         {
           "title": "Atlassian Design — illustration purposes and formats",
           "url": "https://atlassian.design/foundations/illustrations"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Contour + wash drawing and reading guide",
+          "path": "contour-wash/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -308,10 +418,26 @@
         {
           "title": "IBM Design Language — technical diagrams",
           "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Technical blueprint drawing and reading guide",
+          "path": "technical-blueprint/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -343,10 +469,26 @@
         {
           "title": "IBM Design Language — isometric illustration principles",
           "url": "https://www.ibm.com/design/language/illustration/isometric-style/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Isometric wire drawing and reading guide",
+          "path": "isometric-wire/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -381,10 +523,26 @@
         {
           "title": "Stripe — Connect front-end design",
           "url": "https://stripe.com/blog/connect-front-end-experience"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Isometric solid drawing and reading guide",
+          "path": "isometric-solid/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -420,10 +578,26 @@
         {
           "title": "Atlassian Design — illustration purposes and formats",
           "url": "https://atlassian.design/foundations/illustrations"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Paper layers drawing and reading guide",
+          "path": "paper-layers/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -455,10 +629,26 @@
         {
           "title": "Rough.js — sketch contours and vector hatching",
           "url": "https://roughjs.com/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Pencil notebook drawing and reading guide",
+          "path": "pencil-notebook/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -490,10 +680,26 @@
         {
           "title": "Rough.js — sketch contours and vector hatching",
           "url": "https://roughjs.com/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Marker workshop drawing and reading guide",
+          "path": "marker-workshop/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -524,10 +730,26 @@
         {
           "title": "Rough.js — sketch contours and vector hatching",
           "url": "https://roughjs.com/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Chalkboard drawing and reading guide",
+          "path": "chalkboard/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -563,10 +785,26 @@
         {
           "title": "Indeed Design — a scalable illustration system",
           "url": "https://indeed.design/article/building-a-scalable-illustration-system/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Risograph duo drawing and reading guide",
+          "path": "risograph-duo/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -583,11 +821,7 @@
         "Let connectors feel hand-cut while preserving explicit direction and attachment points.",
         "Reduce the number of overlapping pieces for short, small help illustrations."
       ],
-      "goodFor": [
-        "Friendly onboarding",
-        "creative-tool tutorials",
-        "warm editorial help pages"
-      ],
+      "goodFor": ["Friendly onboarding", "creative-tool tutorials", "warm editorial help pages"],
       "smallSizeNotes": "Organic edges suit short conceptual explanations; large dense technical graphs need a simpler companion tone.",
       "referenceFiles": {
         "light": "cut-paper/light.svg",
@@ -601,10 +835,26 @@
         {
           "title": "Atlassian Design — illustration purposes and formats",
           "url": "https://atlassian.design/foundations/illustrations"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Cut paper drawing and reading guide",
+          "path": "cut-paper/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -640,10 +890,26 @@
         {
           "title": "Rough.js — sketch contours and vector hatching",
           "url": "https://roughjs.com/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Halftone manual drawing and reading guide",
+          "path": "halftone-manual/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -675,10 +941,26 @@
         {
           "title": "IBM Design Language — flat illustration principles",
           "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Pixel schematic drawing and reading guide",
+          "path": "pixel-schematic/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -710,10 +992,26 @@
         {
           "title": "IBM Design Language — technical diagrams",
           "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Terminal drawing and reading guide",
+          "path": "terminal/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -744,10 +1042,26 @@
         {
           "title": "IBM Design Language — technical diagrams",
           "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Circuit route drawing and reading guide",
+          "path": "circuit-route/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -779,10 +1093,26 @@
         {
           "title": "IBM Design Language — technical diagrams",
           "url": "https://www.ibm.com/design/language/infographics/technical-diagrams/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Transit wayfinding drawing and reading guide",
+          "path": "transit-wayfinding/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -814,10 +1144,26 @@
         {
           "title": "IBM Design Language — flat illustration principles",
           "url": "https://www.ibm.com/design/language/illustration/flat-style/design/"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Modular geometric drawing and reading guide",
+          "path": "modular-geometric/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     },
@@ -852,10 +1198,26 @@
         {
           "title": "Stripe — Connect front-end design",
           "url": "https://stripe.com/blog/connect-front-end-experience"
+        }
+      ],
+      "bundledReferences": [
+        {
+          "id": "recipe",
+          "title": "Luminous glass drawing and reading guide",
+          "path": "luminous-glass/recipe.md",
+          "required": true
         },
         {
-          "title": "Example content — zudo-pattern-gen Composer manual",
-          "url": "https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx"
+          "id": "composition-meaning",
+          "title": "Composition teaching example and glossary",
+          "path": "shared/composition-meaning.md",
+          "required": true
+        },
+        {
+          "id": "provenance",
+          "title": "Original content and redistribution decisions",
+          "path": "shared/provenance.md",
+          "required": true
         }
       ]
     }
