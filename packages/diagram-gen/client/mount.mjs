@@ -1,3 +1,4 @@
+import { validatePlacement, renderPlacement } from './placement.mjs';
 /* Package-owned viewer. Session authors edit metadata and SVGs, not this file. */
 export function mountDiagramApp(root, data, options = {}) {
   if (!root || root.dataset.diagramReady === 'true') return () => {};
@@ -441,7 +442,13 @@ export function mountDiagramApp(root, data, options = {}) {
     const body =
       data.session.context?.body ||
       'Check the visual hierarchy and label readability at the intended display size.';
-    return `<section class="dg-placement"><div class="dg-placement-heading"><h3>Placement preview</h3><span>${target.width} × ${target.height} px · actual size</span></div><div class="dg-placement-scroll"><div class="dg-context dg-surface" style="width:${target.width}px"><div class="dg-context-art" style="width:${target.width}px;height:${target.height}px">${url ? `<img src="${url}" width="${target.width}" height="${target.height}" alt="${escape(candidate.title)} at target size" draggable="false">` : assetUnavailable(candidate, true)}</div><h4>${escape(title)}</h4><p>${escape(body)}</p></div></div><p class="dg-placement-caption">${escape(data.session.target?.label || 'Intended diagram placement')}. The artwork stays at its target dimensions; scroll sideways on smaller screens.</p></section>`;
+    const descriptor = validatePlacement(data.placement, target, state.theme);
+    const artwork = renderPlacement(descriptor, {
+      svgUrl: url,
+      title: candidate.title,
+      images: data.placementImages || [],
+    });
+    return `<section class="dg-placement"><div class="dg-placement-heading"><h3>Placement preview</h3><span>${target.width} × ${target.height} px · actual size</span></div><div class="dg-placement-scroll"><div class="dg-context dg-surface" style="width:${descriptor.frame.width}px">${artwork}${descriptor.context ? '' : `<h4>${escape(title)}</h4><p>${escape(body)}</p>`}</div></div><p class="dg-placement-caption">${escape(data.session.target?.label || 'Intended diagram placement')}. The artwork stays at its target dimensions; scroll sideways on smaller screens.</p></section>`;
   }
 
   function toneRecipe(candidate) {
