@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "frame": {
+    "width": 768,
+    "height": 336,
+    "background": "#FFFFFF"
+  },
+  "slot": {
+    "x": 24,
+    "y": 48,
+    "width": 720,
+    "height": 240
+  },
+  "fit": "contain",
+  "fonts": ["Noto Sans CJK JP", "sans-serif"],
+  "context": {
+    "title": "結果未到着の並行作業",
+    "body": "架空の説明・評価用"
+  }
+}

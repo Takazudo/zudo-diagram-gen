@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "pending-queue",
+  "title": "結果未到着の並行作業",
+  "target": {
+    "width": 720,
+    "height": 240,
+    "label": "wide"
+  },
+  "toneCollectionVersion": "0.1.0"
+}

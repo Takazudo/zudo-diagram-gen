@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "empty-seats",
+  "title": "空席と保留中の席",
+  "target": {
+    "width": 360,
+    "height": 240,
+    "label": "compact"
+  },
+  "toneCollectionVersion": "0.1.0"
+}

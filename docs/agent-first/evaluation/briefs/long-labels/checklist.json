@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "long-labels",
+  "factualChecks": [
+    {
+      "id": "fact-01",
+      "assertion": "三担当の文字が完全に保存されている。",
+      "required": true
+    },
+    {
+      "id": "fact-02",
+      "assertion": "最初は準備から確認に渡す。",
+      "required": true
+    },
+    {
+      "id": "fact-03",
+      "assertion": "不足時だけ準備へ戻す。",
+      "required": true
+    },
+    {
+      "id": "fact-04",
+      "assertion": "完了時だけ受付へ渡す。",
+      "required": true
+    }
+  ],
+  "exactLabels": [
+    "地域交流イベント開催準備担当",
+    "参加申込内容の確認・連絡担当",
+    "当日受付と案内の担当",
+    "不足項目あり",
+    "確認完了"
+  ],
+  "visualChecks": [
+    "全ラベルを実際の配置サイズで読める。",
+    "文字と形が重ならず、枠で切れていない。",
+    "warningは警告、accentは強調を保つ。",
+    "空・待機・完了の意味を色だけに頼らず区別できる。"
+  ],
+  "provenance": "Original P00 invented scenario; no external asset."
+}
