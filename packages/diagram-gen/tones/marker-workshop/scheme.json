@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "marker-workshop",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 5.5,
+      "connector": 5.5,
+      "detail": 3
+    },
+    "radii": {
+      "card": 0,
+      "head": 0
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 0,
+        "dy": 0,
+        "opacity": 1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#282826",
+      "surface": "#FFF4E9",
+      "border": "#EADACE",
+      "accent": "#F28A63",
+      "deep": "#C9D96F",
+      "warning": "#F28A63"
+    },
+    "dark": {
+      "ink": "#F0ECE1",
+      "surface": "#252724",
+      "border": "#44483B",
+      "accent": "#80503B",
+      "deep": "#657843",
+      "warning": "#80503B"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "loop-and-highlighter",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 63
+  },
+  "composition": {
+    "arrows": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. Direction has one explicit terminal head.",
+    "people": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Bold marks overwhelm dense diagrams; simplify swipes before compressing the layout."
+      }
+    ]
+  }
+}

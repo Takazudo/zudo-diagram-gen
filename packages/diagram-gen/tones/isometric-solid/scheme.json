@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "isometric-solid",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 2.4,
+      "detail": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 19
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 8,
+        "dy": 8,
+        "opacity": 1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#173E3C",
+      "surface": "#F3EBDA",
+      "border": "#D7CFBB",
+      "accent": "#D85B37",
+      "deep": "#E7A641",
+      "warning": "#D85B37"
+    },
+    "dark": {
+      "ink": "#F1ECDD",
+      "surface": "#1C2C2A",
+      "border": "#142420",
+      "accent": "#F18557",
+      "deep": "#CFA54E",
+      "warning": "#F18557"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. Direction has one explicit terminal head.",
+    "people": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Facet depth can dominate a compact slot; essential labels stay outside projection."
+      }
+    ]
+  }
+}

@@ -20,7 +20,7 @@ Short onboarding moments, creative tools, workshop guides, and playful help illu
 
 Bold marks are intentionally loud; they can overwhelm formal documentation or closely spaced diagrams.
 
-The supplied artwork has a 720 × 400 viewBox. Most essential labels are at least 26 units tall; at 360px display width that is approximately 13px. Check the actual host slot, longer translations, and available fonts before integration.
+The preserved original artwork has a 720 × 400 viewBox. Its original text sizes describe that example, not the new kit authority. Check the actual host slot, longer translations, and available fonts before integration.
 
 `light.svg` and `dark.svg` are self-contained literal-color exports intended for an image element. `source.svg` retains theme variables and is an editable reference; changing its root `data-theme` selects the palette when the SVG's CSS is supported. Both exports retain editable text and geometry.
 
@@ -39,3 +39,17 @@ Pattern and Text identify the two contributing layers. MAKE is sample text shown
 These links explain broad visual construction principles. Reading them is optional; all example meaning is bundled locally.
 
 - [Rough.js — sketch contours and vector hatching](https://roughjs.com/)
+
+## Authoritative native pack
+
+Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes.
+
+- Outline stroke: {{scheme:geometry.strokeWidths.outline}}; connector stroke: {{scheme:geometry.strokeWidths.connector}}; detail stroke: {{scheme:geometry.strokeWidths.detail}}.
+- Card radius: {{scheme:geometry.radii.card}}; head radius role: {{scheme:geometry.radii.head}}.
+- Label font size: {{scheme:typography.label.fontSize}}; minimum CSS size: {{scheme:typography.label.minCssPx}}.
+- Texture frequency: {{scheme:texture.frequency}}; amplitude: {{scheme:texture.amplitude}}; seed: {{scheme:texture.seed}}.
+- Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
+
+All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Bold marks overwhelm dense diagrams; simplify swipes before compressing the layout.
+
+The head radius role is zero because this pack uses an authored organic head silhouette rather than a circle.
