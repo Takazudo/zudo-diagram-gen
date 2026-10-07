@@ -38,3 +38,19 @@ export {
 } from './tone-context.mjs';
 
 export { exportHtml } from './html-export.mjs';
+
+export {
+  resolvePalette,
+  materializeSvg,
+  materializeKit,
+  validateMaterializationKit,
+} from './materialize.mjs';
+export {
+  lockProjectStyle,
+  adoptProjectStyle,
+  readStyleRevision,
+  styleProvenance,
+  reviewCompatibility,
+  StyleError,
+} from './style.mjs';
+export { createRefinement } from './refinement.mjs';

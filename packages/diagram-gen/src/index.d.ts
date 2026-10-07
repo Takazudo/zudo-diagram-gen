@@ -16,6 +16,8 @@ export interface Candidate {
   sourcePath: string;
   assets: { light: string; dark?: string };
   fingerprint: string;
+  assetHashes?: { light: string; dark?: string };
+  provenance?: CandidateProvenance;
 }
 export interface GalleryData {
   schemaVersion: 1;
@@ -42,6 +44,7 @@ export interface GalleryData {
   tones?: Tone[];
   contentHash: string;
   placement?: PlacementDescriptor;
+  styleHash?: string;
   placementHash?: string;
   placementImages?: Array<{ url: string; x: number; y: number; width: number; height: number }>;
 }
@@ -81,7 +84,7 @@ export function loadToneCatalog(options?: ToneContextOptions): Promise<GalleryDa
 export function exportCandidate(
   root: string,
   candidateId: string,
-  options: { theme?: 'light' | 'dark'; output: string },
+  options: { theme?: 'light' | 'dark'; output: string; resourceRoot?: string },
 ): Promise<{
   candidateId: string;
   theme: 'light' | 'dark';
@@ -325,6 +328,10 @@ export interface ReviewCandidate {
   toneId?: string;
   sourcePath?: string;
   currentFingerprint?: string;
+  styleHash?: string;
+  placementHash?: string;
+  captureHash?: string;
+  compatibility?: ReturnType<typeof reviewCompatibility>;
   stale?: boolean;
 }
 export interface ReviewFeedback {
@@ -351,3 +358,131 @@ export interface ProjectReview {
   projectId: string;
   sessions: SessionReview[];
 }
+
+export interface CandidateProvenance {
+  styleRevision?: string;
+  styleHash?: string;
+  schemeHash?: string;
+  kitHash?: string;
+  paletteHash?: string;
+}
+export interface ExplicitSelection {
+  schemaVersion: 1;
+  kind: 'explicit-selection';
+  purpose: 'test' | 'user';
+  baselines: Array<{ sessionId: string; candidateId: string; fingerprint: string }>;
+}
+export interface StyleSnapshot {
+  schemaVersion: 1;
+  revision: string;
+  toneId: string;
+  toneRevision: string;
+  collectionVersion: string;
+  schemeHash: string;
+  kitHash: string;
+  paletteHash: string;
+  targets: Array<{ sessionId: string; width: number; height: number }>;
+  typography: import('./tone-context.js').ToneScheme['typography'];
+  baselines: ExplicitSelection['baselines'];
+  selectionPurpose: ExplicitSelection['purpose'];
+}
+export interface SavedStyle {
+  style: StyleSnapshot;
+  scheme: import('./tone-context.js').ToneScheme;
+  palette: import('./tone-context.js').Palette;
+  kit: string;
+  hash: string;
+}
+export class StyleError extends Error {
+  code: string;
+}
+export function resolvePalette(
+  scheme: import('./tone-context.js').ToneScheme,
+  override?: import('./tone-context.js').Palette,
+): import('./tone-context.js').Palette;
+export function materializeSvg(
+  svg: string,
+  options: { palette: import('./tone-context.js').Palette; theme: 'light' | 'dark' },
+): string;
+export interface KitInstance {
+  id: string;
+  primitive: string;
+  x?: number;
+  y?: number;
+  width: number;
+  height: number;
+}
+export function materializeKit(
+  kit: string,
+  options: {
+    scheme: import('./tone-context.js').ToneScheme;
+    palette?: import('./tone-context.js').Palette;
+    theme: 'light' | 'dark';
+    instances: KitInstance[];
+    svg: string;
+  },
+): string;
+export function validateMaterializationKit(
+  kit: string,
+  scheme: import('./tone-context.js').ToneScheme,
+): unknown;
+export function lockProjectStyle(
+  root: string,
+  options: {
+    toneId: string;
+    palette?: import('./tone-context.js').Palette;
+    selection: ExplicitSelection;
+    revision: string;
+    toneRoot?: string;
+  },
+): Promise<{
+  reference: NonNullable<ProjectManifest['style']>;
+  adopted: boolean;
+  selectionPurpose: 'test' | 'user';
+}>;
+export function adoptProjectStyle(
+  root: string,
+  options: { revision: string },
+): Promise<{
+  reference: NonNullable<ProjectManifest['style']>;
+  adopted: true;
+  selectionPurpose: 'test' | 'user';
+}>;
+export function readStyleRevision(
+  root: string,
+  revision: string,
+  options?: { expectedHash?: string; sessions?: ProjectSession[] },
+): Promise<SavedStyle>;
+export function styleProvenance(snapshot: SavedStyle): Required<CandidateProvenance>;
+export function reviewCompatibility(
+  candidate: Candidate,
+  previous?: {
+    fingerprint?: string;
+    styleHash?: string;
+    placementHash?: string;
+    captureHash?: string;
+  },
+  current?: { styleHash?: string; placementHash?: string; captureHash?: string },
+): {
+  artwork: 'unknown' | 'current' | 'stale';
+  style: 'unknown' | 'current' | 'stale';
+  placement: 'unknown' | 'current' | 'stale';
+  capture: 'unknown' | 'current' | 'stale';
+};
+export function createRefinement(
+  root: string,
+  options: {
+    baselineCandidateId: string;
+    fingerprint: string;
+    roundId: string;
+    candidateId: string;
+    title: string;
+    order?: number;
+    feedback?: { id: string; fingerprint: string; [key: string]: unknown };
+  },
+): Promise<{
+  candidateId: string;
+  parentCandidateId: string;
+  roundId: string;
+  assetHashes: Record<string, string>;
+}>;

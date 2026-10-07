@@ -83,11 +83,13 @@ export async function runDataCommand(args) {
         session: 'string',
         theme: 'string',
         out: 'string',
+        'resource-root': 'string',
       });
       if (positionals.length !== 1 || !options.out) throw new Error(help.export);
       const result = await exportCandidate(options.session ?? process.cwd(), positionals[0], {
         theme: options.theme ?? 'light',
         output: options.out,
+        resourceRoot: options['resource-root'],
       });
       console.log(
         `Exported ${result.candidateId} (${result.theme}), ${result.bytes} bytes, to ${result.output}`,

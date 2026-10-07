@@ -1,5 +1,5 @@
 import { validatePlacement, renderPlacement } from './placement.mjs';
-import { validateSessionReview } from './review.mjs';
+import { validateSessionReview, reviewCompatibility } from './review.mjs';
 /* Package-owned viewer. Session authors edit metadata and SVGs, not this file. */
 export function mountDiagramApp(root, data, options = {}) {
   if (!root || root.dataset.diagramReady === 'true') return () => {};
@@ -154,16 +154,30 @@ export function mountDiagramApp(root, data, options = {}) {
     state.onlyShortlist = !!saved.onlyShortlist;
     if (saved.shortlist && typeof saved.shortlist === 'object') {
       for (const [id, record] of Object.entries(saved.shortlist)) {
-        if (byId.has(id) && typeof record?.fingerprint === 'string') state.shortlist[id] = record;
+        if (byId.has(id) && typeof record?.fingerprint === 'string')
+          state.shortlist[id] = {
+            id,
+            fingerprint: record.fingerprint,
+            ...validReviewHashes(record),
+          };
       }
     }
     if (byId.has(saved.direction?.id) && typeof saved.direction.fingerprint === 'string')
-      state.direction = saved.direction;
+      state.direction = {
+        id: saved.direction.id,
+        fingerprint: saved.direction.fingerprint,
+        ...validReviewHashes(saved.direction),
+      };
     if (saved.notes && typeof saved.notes === 'object') {
       for (const [id, note] of Object.entries(saved.notes)) {
         if (byId.has(id) && typeof note?.fingerprint === 'string')
           state.notes[id] = {
             fingerprint: note.fingerprint,
+            ...Object.fromEntries(
+              ['styleHash', 'placementHash', 'captureHash']
+                .filter((key) => typeof note[key] === 'string' && /^[a-f0-9]{64}$/.test(note[key]))
+                .map((key) => [key, note[key]]),
+            ),
             keep: String(note.keep || '').slice(0, 20000),
             change: String(note.change || '').slice(0, 20000),
             action: validActions.has(note.action) ? note.action : 'refine',
@@ -171,6 +185,13 @@ export function mountDiagramApp(root, data, options = {}) {
           };
       }
     }
+  }
+  function validReviewHashes(record) {
+    return Object.fromEntries(
+      ['styleHash', 'placementHash', 'captureHash']
+        .filter((key) => typeof record[key] === 'string' && /^[a-f0-9]{64}$/.test(record[key]))
+        .map((key) => [key, record[key]]),
+    );
   }
   try {
     const parameters = new URLSearchParams(options.history === false ? '' : location.hash.slice(1));
@@ -245,7 +266,11 @@ export function mountDiagramApp(root, data, options = {}) {
         state.shortlist[candidate.id].fingerprint !== candidate.fingerprint) ||
       (state.direction?.id === candidate.id &&
         state.direction.fingerprint !== candidate.fingerprint));
-  const snapshot = (candidate) => ({ id: candidate.id, fingerprint: candidate.fingerprint });
+  const snapshot = (candidate) => ({
+    id: candidate.id,
+    fingerprint: candidate.fingerprint,
+    ...provenanceSnapshot(candidate),
+  });
 
   function persist(immediate = false) {
     cancel(saveTimer);
@@ -468,13 +493,45 @@ export function mountDiagramApp(root, data, options = {}) {
     }<code class="dg-tone-id">${escape(tone.id)}</code></div></details>`;
   }
 
+  const provenanceSnapshot = (candidate) => ({
+    ...(data.styleHash || candidate.provenance?.styleHash
+      ? { styleHash: data.styleHash ?? candidate.provenance.styleHash }
+      : {}),
+    ...(data.placementHash ? { placementHash: data.placementHash } : {}),
+  });
+  const compatibility = (candidate, previous) =>
+    reviewCompatibility(candidate, previous, {
+      styleHash: data.styleHash ?? candidate.provenance?.styleHash,
+      placementHash: data.placementHash,
+    });
+  function styleEvidenceText(candidate, note) {
+    const conformance = data.styleHash
+      ? reviewCompatibility(
+          candidate,
+          { styleHash: candidate.provenance?.styleHash },
+          { styleHash: data.styleHash },
+        ).style
+      : 'unknown';
+    return `Saved style snapshot: ${conformance}. Review style evidence: ${compatibility(candidate, note).style}.`;
+  }
+  function updateEvidenceStatus(element, candidate, note) {
+    const panel = element.closest('.dg-review-panel');
+    const style = panel?.querySelector('[data-style-status]');
+    const placement = panel?.querySelector('[data-placement-status]');
+    if (style) style.textContent = styleEvidenceText(candidate, note);
+    if (placement)
+      placement.textContent = `Review placement evidence: ${compatibility(candidate, note).placement}.`;
+  }
   function reviewPanel(candidate) {
     const note = state.notes[candidate.id] || { keep: '', change: '', action: 'refine' };
     const chosen = state.direction?.id === candidate.id;
     const stale = isStale(candidate);
+    const provenance = compatibility(candidate, note);
     return `<aside class="dg-review-panel" aria-label="Review ${escape(candidate.title)}"><div class="dg-review-title"><div><p class="dg-overline">${catalog ? 'Reference notes' : 'Your review'}</p><h2>${escape(candidate.title)}</h2></div><span class="dg-candidate-id">${escape(candidate.id)}</span></div>
         <div class="dg-review-selection"><button class="dg-button${state.shortlist[candidate.id] ? ' is-active dg-starred' : ''}" data-action="shortlist-toggle" data-id="${escape(candidate.id)}" data-focus-key="review-shortlist" aria-pressed="${checked(!!state.shortlist[candidate.id])}">${icon('star')}${state.shortlist[candidate.id] ? 'Shortlisted' : 'Shortlist'}</button><button class="dg-button${chosen ? ' dg-button--chosen' : ' dg-button--primary'}" data-action="direction" data-id="${escape(candidate.id)}" data-focus-key="direction" aria-pressed="${checked(chosen)}">${icon('check')}${chosen ? 'Chosen direction' : 'Choose direction'}</button></div>
         ${stale ? `<div class="dg-stale-notice" role="status"><strong>The artwork has changed</strong><p>Your earlier choice or feedback refers to a different file version. Review this artwork before carrying that feedback forward.</p><button class="dg-button dg-button--small" data-action="acknowledge" data-id="${escape(candidate.id)}">I’ve reviewed this version</button></div>` : ''}
+        ${data.styleHash || candidate.provenance ? `<p class="dg-review-storage" data-style-status>${escape(styleEvidenceText(candidate, note))}</p>` : ''}
+        ${data.placementHash ? `<p class="dg-review-storage" data-placement-status>Review placement evidence: ${escape(provenance.placement)}.</p>` : ''}
         ${candidate.parentCandidateId ? `<p class="dg-lineage">Refined from <button data-action="inspect" data-id="${escape(candidate.parentCandidateId)}">${escape(candidate.parentCandidateId)}${icon('right')}</button></p>` : ''}
         <div class="dg-note-fields"><label><span>Keep</span><textarea rows="3" maxlength="20000" data-note="keep" data-candidate="${escape(candidate.id)}" data-focus-key="note-keep" placeholder="Layout, labels, palette, visual treatment…">${escape(note.keep)}</textarea></label><label><span>Change</span><textarea rows="4" maxlength="20000" data-note="change" data-candidate="${escape(candidate.id)}" data-focus-key="note-change" placeholder="Describe what to adjust. You can refer to another candidate by ID.">${escape(note.change)}</textarea></label><label><span>Next action</span><select data-note="action" data-candidate="${escape(candidate.id)}" data-focus-key="note-action"><option value="refine"${selected(note.action === 'refine')}>Refine this direction</option><option value="explore"${selected(note.action === 'explore')}>Explore more alternatives</option><option value="integrate"${selected(note.action === 'integrate')}>Integrate this candidate</option></select></label></div>
         <div class="dg-feedback-actions"><button class="dg-button dg-button--primary" data-action="copy-feedback" data-focus-key="copy-feedback">${icon('copy')}Copy feedback</button><button class="dg-button" data-action="download-review" data-focus-key="download-review">${icon('down')}Review JSON</button></div><p class="dg-review-storage" data-storage-status>${storageAvailable ? 'Saved in this browser. Copy or download to share with your agent.' : 'Browser storage is unavailable. Download your review before closing this page.'}</p>
@@ -713,6 +770,7 @@ export function mountDiagramApp(root, data, options = {}) {
     if (!state.notes[candidate.id])
       state.notes[candidate.id] = {
         fingerprint: candidate.fingerprint,
+        ...provenanceSnapshot(candidate),
         keep: '',
         change: '',
         action: 'refine',
@@ -745,6 +803,12 @@ export function mountDiagramApp(root, data, options = {}) {
             title: candidate.title,
             toneId: candidate.toneId,
             fingerprint: note.fingerprint,
+            ...Object.fromEntries(
+              ['styleHash', 'placementHash', 'captureHash']
+                .filter((key) => typeof note[key] === 'string' && /^[a-f0-9]{64}$/.test(note[key]))
+                .map((key) => [key, note[key]]),
+            ),
+            compatibility: compatibility(candidate, note),
             currentFingerprint: candidate.fingerprint,
             sourcePath: candidate.sourcePath,
             stale: isStale(candidate),
@@ -879,6 +943,11 @@ export function mountDiagramApp(root, data, options = {}) {
         throw new Error(`Feedback for “${record.id}” is invalid.`);
       importedNotes[record.id] = {
         fingerprint: record.fingerprint,
+        ...Object.fromEntries(
+          ['styleHash', 'placementHash', 'captureHash']
+            .filter((key) => typeof record[key] === 'string' && /^[a-f0-9]{64}$/.test(record[key]))
+            .map((key) => [key, record[key]]),
+        ),
         keep: record.keep.slice(0, 20000),
         change: record.change.slice(0, 20000),
         action: record.action,
@@ -899,6 +968,11 @@ export function mountDiagramApp(root, data, options = {}) {
         throw new Error('The selected candidate’s feedback is invalid.');
       importedNotes[review.reviewedCandidate.id] = {
         fingerprint: review.reviewedCandidate.fingerprint,
+        ...Object.fromEntries(
+          ['styleHash', 'placementHash', 'captureHash']
+            .filter((key) => Object.hasOwn(review.reviewedCandidate, key))
+            .map((key) => [key, review.reviewedCandidate[key]]),
+        ),
         keep: feedback.keep.slice(0, 20000),
         change: feedback.change.slice(0, 20000),
         action: feedback.action,
@@ -907,11 +981,27 @@ export function mountDiagramApp(root, data, options = {}) {
     }
     const importedShortlist = Object.create(null);
     for (const record of review.shortlist)
-      importedShortlist[record.id] = { id: record.id, fingerprint: record.fingerprint };
+      importedShortlist[record.id] = {
+        id: record.id,
+        fingerprint: record.fingerprint,
+        ...Object.fromEntries(
+          ['styleHash', 'placementHash', 'captureHash']
+            .filter((key) => Object.hasOwn(record, key))
+            .map((key) => [key, record[key]]),
+        ),
+      };
     state.notes = importedNotes;
     state.shortlist = importedShortlist;
     state.direction = review.chosenDirection
-      ? { id: review.chosenDirection.id, fingerprint: review.chosenDirection.fingerprint }
+      ? {
+          id: review.chosenDirection.id,
+          fingerprint: review.chosenDirection.fingerprint,
+          ...Object.fromEntries(
+            ['styleHash', 'placementHash', 'captureHash']
+              .filter((key) => Object.hasOwn(review.chosenDirection, key))
+              .map((key) => [key, review.chosenDirection[key]]),
+          ),
+        }
       : null;
     if (review.reviewedCandidate) {
       state.activeId = review.reviewedCandidate.id;
@@ -1096,6 +1186,7 @@ export function mountDiagramApp(root, data, options = {}) {
       if (['keep', 'change'].includes(field)) note[field] = element.value;
       if (field === 'action' && validActions.has(element.value)) note.action = element.value;
       note.updatedAt = new Date().toISOString();
+      updateEvidenceStatus(element, candidate, note);
       persist();
     } else if (element.dataset.field === 'search') {
       state.search = element.value;
@@ -1138,7 +1229,9 @@ export function mountDiagramApp(root, data, options = {}) {
     if (element.dataset.note === 'action') {
       const candidate = byId.get(element.dataset.candidate);
       if (candidate && validActions.has(element.value)) {
-        noteFor(candidate).action = element.value;
+        const note = noteFor(candidate);
+        note.action = element.value;
+        updateEvidenceStatus(element, candidate, note);
         persist();
       }
     }

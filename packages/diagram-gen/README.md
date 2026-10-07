@@ -137,3 +137,7 @@ requests and reports redirects, rate limits, access denial with unknown visibili
 missing-or-unavailable results, timeouts and transient errors separately. A 404
 is not proof that a repository is private; these diagnostics never gate ordinary
 generation or PR checks.
+
+## Semantic authoring and saved project styles
+
+The package exports `resolvePalette`, `materializeSvg`, `materializeKit`, `lockProjectStyle`, `adoptProjectStyle`, `readStyleRevision`, `styleProvenance`, `reviewCompatibility` and `createRefinement`. `project lock` requires an explicit selection file and complete palette; later revisions require `project adopt`. Browser choices alone never lock project style. Locked schemes/kits stay local and immutable across catalog upgrades. Export copies the saved reviewed SVG; it does not regenerate artwork. See the repository's `docs/agent-first/STYLE.md` for full examples and failure/recovery behavior. The complete CLI/skill workflow is a later work package.

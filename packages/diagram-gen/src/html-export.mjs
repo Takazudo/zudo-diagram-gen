@@ -1,6 +1,7 @@
 import { lstat, realpath, mkdir, writeFile, rename, rm, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { assertSourceOutput } from './source-protection.mjs';
 import { loadContent } from './project.mjs';
 import { renderGallery } from './render.mjs';
 import { contained } from './placement.mjs';
@@ -38,6 +39,7 @@ export async function exportHtml(directory, { output, force = false } = {}) {
       'RESOURCE_UNSAFE',
       'HTML output overlaps protected source; use exports/ or a destination outside source.',
     );
+  await assertSourceOutput(root, resolved);
   try {
     const info = await lstat(destination);
     if (!info.isFile() || info.isSymbolicLink())
@@ -69,6 +71,7 @@ export async function exportHtml(directory, { output, force = false } = {}) {
   const temporary = path.join(path.dirname(destination), `.diagram-html-${randomUUID()}.tmp`);
   try {
     await writeFile(temporary, html, { flag: 'wx' });
+    await assertSourceOutput(root, resolved);
     if (force) {
       // Recheck aliases and file ownership after rendering, before publishing.
       try {

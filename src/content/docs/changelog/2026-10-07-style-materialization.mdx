@@ -1,0 +1,10 @@
+---
+title: Semantic SVG materialization and immutable project styles
+description: Explicit palette resolution, saved style revisions, and preserved refinement artwork.
+---
+
+The local engine now resolves semantic palette roles into complete light/dark SVGs and materializes repeated native kit symbols with isolated IDs and self-contained definitions. Custom SVG geometry can use the same explicit palette markers. These structural checks still require visual and factual review.
+
+Projects can lock a style from an explicit user or test selection, snapshot its scheme/palette/kit and create immutable revisions. The first lock adopts its snapshot; later revisions require explicit adoption. Catalog upgrades leave saved locks and artwork unchanged.
+
+Refinement helpers copy the named saved SVG into a new later-round child with its original feedback. Exact SVG export preserves saved bytes and now publishes atomically while rejecting unsafe source aliases and supplied hash mismatches. Artwork, style, placement and capture review states remain separate; compatible legacy notes stay available.

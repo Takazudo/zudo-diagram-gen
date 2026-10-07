@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { runProjectCommand } from './project-command.mjs';
 import { parseArgs } from 'node:util';
 import { runCaptureCommand } from './capture-command.mjs';
 import { runDataCommand } from './commands.mjs';
@@ -12,6 +13,8 @@ const help = `zudo-diagram-gen 0.1.0
   export <candidate-id> --session <directory> --theme light|dark --out <file>
   capture <candidate-id> --session <directory> --out <png> [--placement <file>] [--json]
   export-html [session-or-project] --out <file> [--force] [--json]
+  project lock <dir> --tone <id> --palette <file> --selection <file> --revision <id> [--json]
+  project adopt <dir> --revision <id> [--json]
   tones list [--json]
   tones show <id> [--json]
 
@@ -22,7 +25,9 @@ Feedback stays in the browser until copied or downloaded; no agent is auto-start
 try {
   const args = process.argv.slice(2);
   if (!args.length || args.includes('--help') || args[0] === '-h') console.log(help);
-  else if (await runCaptureCommand(args)) {
+  else if (await runProjectCommand(args)) {
+    /* Explicit immutable style operations. */
+  } else if (await runCaptureCommand(args)) {
     /* Capture owns its versioned diagnostics. */
   } else if (args[0] === '--version') console.log('0.1.0');
   else if (['dev', 'build', 'preview'].includes(args[0])) {

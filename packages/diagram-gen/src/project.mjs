@@ -3,7 +3,7 @@ import { resolve, join, relative, isAbsolute, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSession } from './model.mjs';
 import { loadPlacement, portablePlacement } from './placement.mjs';
-import { canonicalHash } from './tone-context.mjs';
+import { readStyleRevision } from './style.mjs';
 
 const slugPattern = /^[a-z0-9](?:[a-z0-9._-]{0,126}[a-z0-9])?$/i;
 const slug = { test: (value) => typeof value === 'string' && slugPattern.test(value) };
@@ -243,41 +243,19 @@ export async function loadProject(directory, { strict = false, lastValid = new M
     if (!sessions.some((item) => item.id === id)) lastValid.delete(id);
   if (project.style) {
     try {
-      const style = await readJson(root, project.style.path);
-      if (style.schemaVersion !== 1 || style.revision !== project.style.revision)
-        throw new Error('Style snapshot version/revision mismatch.');
-      const styleDirectory = project.style.path.slice(0, -'style.json'.length);
-      const scheme = await readJson(root, `${styleDirectory}scheme.json`);
-      const palette = await readJson(root, `${styleDirectory}palette.json`);
-      const kitFile = await projectPath(root, `${styleDirectory}kit.svg`);
-      const kitInfo = await lstat(kitFile);
-      if (!kitInfo.isFile() || kitInfo.size > 16 * 1024 * 1024)
-        throw new Error('Invalid style kit file.');
-      const kitBytes = await readFile(kitFile);
-      if (kitBytes.length > 16 * 1024 * 1024) throw new Error('Style kit grew beyond 16 MiB.');
-      new TextDecoder('utf-8', { fatal: true }).decode(kitBytes);
-      const kitHash = hash(kitBytes);
-      if (scheme.schemaVersion !== 1 || palette.schemaVersion !== 1)
-        throw new Error('Unsupported style constituent version.');
-      if (
-        style.schemeHash !== documentHash(scheme) ||
-        style.paletteHash !== documentHash(palette) ||
-        style.kitHash !== kitHash
-      )
-        throw new Error('Style constituent hash mismatch.');
-      if (project.style.hash !== documentHash(style))
-        throw new Error('Style reference hash mismatch.');
-      // Full role/materialization and lock semantics are provided by P04. Until then
-      // structural hashes alone cannot establish a fully validated style snapshot.
+      const snapshot = await readStyleRevision(root, project.style.revision, {
+        expectedHash: project.style.hash,
+        sessions,
+      });
+      for (const session of sessions) if (session.data) session.data.styleHash = snapshot.hash;
+    } catch (error) {
       diagnostics.push(
         diagnostic(
-          'INCOMPLETE_PROJECT',
-          'Style hashes verified; full style snapshot validation requires the style-lock implementation.',
+          error.code === 'STALE_INPUT' ? 'STALE_INPUT' : 'VALIDATION_FAILED',
+          error.message,
           project.style.path,
         ),
       );
-    } catch (error) {
-      diagnostics.push(diagnostic('VALIDATION_FAILED', error.message, project.style.path));
     }
   }
   const comparisonSets = project.comparisonSets.map((set) => {
@@ -364,10 +342,4 @@ export async function validateProject(root) {
       summary: { sessions: 0, validSessions: 0, comparisonSets: 0 },
     };
   }
-}
-
-function documentHash(value) {
-  const stripped = { ...value };
-  delete stripped.hash;
-  return canonicalHash(stripped);
 }

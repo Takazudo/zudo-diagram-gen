@@ -491,7 +491,7 @@ test('initializer project CLI gives correct registered session path and stable p
   assert.equal(project.sessions[0].id, project.sessions[0].data.session.id);
   await assert.rejects(stat(join(root, 'session.json')), /ENOENT/);
 });
-test('style canonical constituent hashes are verified without claiming unavailable lock semantics', async () => {
+test('matching constituent hashes cannot make a malformed style snapshot valid', async () => {
   const root = await fixture();
   await mkdir(join(root, 'styles/r1'), { recursive: true });
   const scheme = { schemaVersion: 1, toneId: 'fine-outline', title: 'Style fixture' };
@@ -513,8 +513,8 @@ test('style canonical constituent hashes are verified without claiming unavailab
   });
   let data = await loadProject(root);
   assert.equal(data.ok, false);
-  assert.equal(data.diagnostics[0].code, 'INCOMPLETE_PROJECT');
-  assert.match(data.diagnostics[0].message, /Style hashes verified/);
+  assert.equal(data.diagnostics[0].code, 'VALIDATION_FAILED');
+  assert.match(data.diagnostics[0].message, /required/);
   await patch(root, (p) => {
     p.style.hash = 'a'.repeat(64);
   });
