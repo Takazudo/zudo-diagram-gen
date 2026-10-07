@@ -1,21 +1,8 @@
-import { parseArgs } from 'node:util';
-import { readFile, lstat } from 'node:fs/promises';
+import { machineRequested, parseOptions, readInput } from './command-contract.mjs';
 import { lockProjectStyle, adoptProjectStyle } from './style.mjs';
-async function input(file) {
-  const info = await lstat(file);
-  if (!info.isFile() || info.isSymbolicLink() || info.size > 1024 * 1024)
-    throw Object.assign(
-      new Error('Selection/palette must be regular JSON files no larger than 1 MiB.'),
-      { code: 'RESOURCE_UNSAFE' },
-    );
-  const bytes = await readFile(file);
-  if (bytes.length > 1024 * 1024)
-    throw Object.assign(new Error('JSON input grew beyond 1 MiB.'), { code: 'RESOURCE_UNSAFE' });
-  return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes).replace(/^\uFEFF/, ''));
-}
 export async function runProjectCommand(args) {
   if (args[0] !== 'project') return false;
-  const json = args.includes('--json'),
+  const json = machineRequested(args),
     command = `project ${args[1] ?? ''}`;
   const exits = {
     INVALID_ARGUMENT: 2,
@@ -31,25 +18,16 @@ export async function runProjectCommand(args) {
       throw Object.assign(new Error('Expected project lock or project adopt.'), {
         code: 'INVALID_ARGUMENT',
       });
-    const parsed = parseArgs({
-      args: args.slice(2),
-      allowPositionals: true,
-      tokens: true,
-      options: {
-        revision: { type: 'string' },
-        json: { type: 'boolean' },
-        ...(args[1] === 'lock'
-          ? { tone: { type: 'string' }, palette: { type: 'string' }, selection: { type: 'string' } }
-          : {}),
-      },
+    const parsed = parseOptions(args.slice(2), {
+      revision: { type: 'string' },
+      json: { type: 'boolean' },
+      ...(args[1] === 'lock'
+        ? { tone: { type: 'string' }, palette: { type: 'string' }, selection: { type: 'string' } }
+        : {}),
     });
-    const names = parsed.tokens
-      .filter((token) => token.kind === 'option')
-      .map((token) => token.name);
-    const values = parsed.values;
+    const values = parsed.options;
     if (
       parsed.positionals.length !== 1 ||
-      new Set(names).size !== names.length ||
       !values.revision ||
       (args[1] === 'lock' && (!values.tone || !values.palette || !values.selection))
     )
@@ -65,8 +43,8 @@ export async function runProjectCommand(args) {
         ? await lockProjectStyle(root, {
             revision: values.revision,
             toneId: values.tone,
-            palette: await input(values.palette),
-            selection: await input(values.selection),
+            palette: await readInput(values.palette, { json: true }),
+            selection: await readInput(values.selection, { json: true }),
           })
         : await adoptProjectStyle(root, { revision: values.revision });
     if (json)

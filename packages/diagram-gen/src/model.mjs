@@ -623,23 +623,29 @@ export async function exportCandidate(
   candidateId,
   { theme = 'light', output, resourceRoot } = {},
 ) {
+  const fail = (code, message) => Object.assign(new Error(message), { code });
   if (!['light', 'dark'].includes(theme))
-    throw new Error(`Unsupported theme ${JSON.stringify(theme)}; choose light or dark.`);
+    throw fail(
+      'INVALID_ARGUMENT',
+      `Unsupported theme ${JSON.stringify(theme)}; choose light or dark.`,
+    );
   if (typeof output !== 'string' || !output.trim())
-    throw new Error('An output file path is required.');
+    throw fail('INVALID_ARGUMENT', 'An output file path is required.');
   const data = await loadSession(root);
   const candidate = data.candidates.find((item) => item.id === candidateId);
   if (!candidate)
-    throw new Error(
+    throw fail(
+      'VALIDATION_FAILED',
       `Candidate ${JSON.stringify(candidateId)} was not found in session ${data.session.id}.`,
     );
   if (!candidate.assets[theme])
-    throw new Error(
+    throw fail(
+      'VALIDATION_FAILED',
       `Candidate ${candidate.id} has no ${theme} SVG; provide that theme explicitly before exporting it.`,
     );
   const realRoot = await fs.realpath(path.resolve(root));
   if (resourceRoot && !contains(await fs.realpath(path.resolve(resourceRoot)), realRoot))
-    throw new Error('Session root must be contained in explicit resourceRoot.');
+    throw fail('RESOURCE_UNSAFE', 'Session root must be contained in explicit resourceRoot.');
   await projectPath(realRoot, candidate.sourcePath);
   const source = JSON.parse(
     (await safeRead(realRoot, candidate.sourcePath)).replace(/^\uFEFF/, ''),
@@ -657,7 +663,7 @@ export async function exportCandidate(
         candidate.provenance[key] !== undefined &&
         candidate.provenance[key] !== snapshot.style[key]
       )
-        throw new Error(`Candidate ${key} differs from saved style revision.`);
+        throw fail('VALIDATION_FAILED', `Candidate ${key} differs from saved style revision.`);
   }
   const destination = await atomicSvgExport(root, output, candidate.assets[theme], resourceRoot);
   return {

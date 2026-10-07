@@ -13,8 +13,11 @@ async function noLinks(filename) {
     try {
       const stat = await lstat(current);
       if (stat.isSymbolicLink() || (stat.isFile() && stat.nlink > 1))
-        throw new Error(
-          'Export destination overlaps session source files or unsafe symbolic links/hard-link aliases.',
+        throw Object.assign(
+          new Error(
+            'Export destination overlaps session source files or unsafe symbolic links/hard-link aliases.',
+          ),
+          { code: 'RESOURCE_UNSAFE' },
         );
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
@@ -27,7 +30,9 @@ export async function atomicSvgExport(root, output, bytes, resourceRoot = root) 
   await noLinks(destination);
   const protectedRoot = await realpath(resolve(resourceRoot));
   if (!contains(protectedRoot, root))
-    throw new Error('Session root must be contained in explicit resourceRoot.');
+    throw Object.assign(new Error('Session root must be contained in explicit resourceRoot.'), {
+      code: 'RESOURCE_UNSAFE',
+    });
   await assertSourceOutput(protectedRoot, destination, { sessionRoot: root });
   await mkdir(dirname(destination), { recursive: true });
   const temporary = join(dirname(destination), `.diagram-svg-${randomUUID()}.tmp`);

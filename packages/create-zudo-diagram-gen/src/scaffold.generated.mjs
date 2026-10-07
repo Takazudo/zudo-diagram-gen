@@ -119,17 +119,35 @@ export async function createProject(options = {}) {
         if ((await readFile(filename, 'utf8')) === content) await rm(filename);
       }),
     );
-    throw new Error(`Could not finish creating ${directory}: ${error.message}`);
+    throw Object.assign(
+      new Error(
+        `Could not finish creating ${directory}: ${error.message}. Preserve remaining files for diagnosis; resume existing content rather than retrying new.`,
+      ),
+      { code: error.code === 'EEXIST' ? 'OUTPUT_CONFLICT' : 'IO_ERROR' },
+    );
   }
-  if (options.install === true) await installDependencies(directory);
-  return {
+  const result = {
     directory,
     name: nameSlug,
     ...(options.project ? { projectId: id } : { sessionId: id }),
     title,
-    installed: options.install === true,
+    installed: false,
     files: Object.keys(files),
   };
+  if (options.install === true) {
+    try {
+      await installDependencies(directory, options.installOutput);
+      result.installed = true;
+    } catch (error) {
+      error.code = 'IO_ERROR';
+      error.data = {
+        ...result,
+        recovery: 'Run pnpm install in this directory, then resume it; do not rerun new.',
+      };
+      throw error;
+    }
+  }
+  return result;
 }
 
 function slug(value) {
@@ -148,7 +166,9 @@ async function assertEmptyDestination(directory) {
   while (true) {
     try {
       if ((await lstat(ancestor)).isSymbolicLink())
-        throw new Error(`Destination ancestor is a symbolic link: ${ancestor}.`);
+        throw Object.assign(new Error(`Destination ancestor is a symbolic link: ${ancestor}.`), {
+          code: 'RESOURCE_UNSAFE',
+        });
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
@@ -164,50 +184,59 @@ async function assertEmptyDestination(directory) {
     throw error;
   }
   if (entry.isSymbolicLink())
-    throw new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`);
-  if (!entry.isDirectory()) throw new Error(`Destination is not a directory: ${directory}.`);
+    throw Object.assign(
+      new Error(`Destination is a symbolic link: ${directory}. Choose a regular directory.`),
+      { code: 'RESOURCE_UNSAFE' },
+    );
+  if (!entry.isDirectory())
+    throw Object.assign(new Error(`Destination is not a directory: ${directory}.`), {
+      code: 'OUTPUT_CONFLICT',
+    });
   if ((await readdir(directory)).length) {
-    throw new Error(
-      `Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`,
+    throw Object.assign(
+      new Error(
+        `Destination is not empty: ${directory}. Choose a new or empty directory; no files were changed.`,
+      ),
+      { code: 'OUTPUT_CONFLICT' },
     );
   }
 }
 
 async function normalizeEnginePackage(input) {
+  const fail = (message, code = 'INVALID_ARGUMENT') => Object.assign(new Error(message), { code });
   if (typeof input !== 'string' || !input.trim() || /[\r\n\0]/.test(input)) {
-    throw new Error(
-      '--engine-package requires a nonempty package spec or an absolute tarball path.',
-    );
+    throw fail('--engine-package requires a nonempty package spec or an absolute tarball path.');
   }
   const value = input.trim();
   const tarball = value.startsWith('file:') ? value.slice(5) : value;
   if (path.isAbsolute(tarball) || value.startsWith('file:')) {
-    if (!path.isAbsolute(tarball))
-      throw new Error('Local engine tarballs must use an absolute path.');
+    if (!path.isAbsolute(tarball)) throw fail('Local engine tarballs must use an absolute path.');
     if (!/\.(tgz|tar\.gz)$/i.test(tarball))
-      throw new Error('Local engine package must be a .tgz or .tar.gz file.');
+      throw fail('Local engine package must be a .tgz or .tar.gz file.');
     let entry;
     try {
       entry = await stat(tarball);
     } catch (error) {
-      if (error.code === 'ENOENT') throw new Error(`Engine tarball does not exist: ${tarball}.`);
+      if (error.code === 'ENOENT')
+        throw fail(`Engine tarball does not exist: ${tarball}.`, 'IO_ERROR');
       throw error;
     }
-    if (!entry.isFile()) throw new Error(`Engine tarball is not a regular file: ${tarball}.`);
+    if (!entry.isFile())
+      throw fail(`Engine tarball is not a regular file: ${tarball}.`, 'RESOURCE_UNSAFE');
     return `file:${path.resolve(tarball)}`;
   }
   if (
     /^(\.|~|workspace:|link:)/.test(value) ||
     (/\.(tgz|tar\.gz)$/i.test(value) && !/^https?:\/\//.test(value))
   ) {
-    throw new Error(
+    throw fail(
       'Local engine tarballs must use an absolute path. Workspace and linked dependencies are not supported in a standalone session.',
     );
   }
   if (value === ENGINE_PACKAGE) return 'latest';
   if (value.startsWith(`${ENGINE_PACKAGE}@`))
     return value.slice(ENGINE_PACKAGE.length + 1) || 'latest';
-  if (value.startsWith('-')) throw new Error('Engine package spec must not begin with a dash.');
+  if (value.startsWith('-')) throw fail('Engine package spec must not begin with a dash.');
   return value;
 }
 
@@ -355,11 +384,11 @@ Keep the selected SVG and its IDs stable once reviewed. Add refinements in later
 The initializer pins the engine version unless --engine-package supplied another dependency. A local file: tarball dependency must remain at its recorded path until installation completes. For an unpublished handoff, keep that tarball available when reinstalling, or initialize again with its new absolute path. Once the package is published, change that dependency to a published version when you intentionally upgrade.
 `;
 
-async function installDependencies(directory) {
+async function installDependencies(directory, output = 'inherit') {
   await new Promise((resolve, reject) => {
     const child = spawn('pnpm', ['install'], {
       cwd: directory,
-      stdio: 'inherit',
+      stdio: output === 'stderr' ? ['inherit', 2, 2] : 'inherit',
       shell: process.platform === 'win32',
     });
     child.once('error', (error) =>
