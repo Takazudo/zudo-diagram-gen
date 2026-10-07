@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "empty-seats",
+  "factualChecks": [
+    {
+      "id": "fact-01",
+      "assertion": "四席で増減がない。",
+      "required": true
+    },
+    {
+      "id": "fact-02",
+      "assertion": "BとCだけが選択可能。",
+      "required": true
+    },
+    {
+      "id": "fact-03",
+      "assertion": "Dを空席や確定席と同一視していない。",
+      "required": true
+    },
+    {
+      "id": "fact-04",
+      "assertion": "存在しない残り時間・人物を足していない。",
+      "required": true
+    }
+  ],
+  "exactLabels": ["A席：予約済み", "B席：空席", "C席：空席", "D席：保留中"],
+  "visualChecks": [
+    "全ラベルを実際の配置サイズで読める。",
+    "文字と形が重ならず、枠で切れていない。",
+    "warningは警告、accentは強調を保つ。",
+    "空・待機・完了の意味を色だけに頼らず区別できる。"
+  ],
+  "provenance": "Original P00 invented scenario; no external asset."
+}

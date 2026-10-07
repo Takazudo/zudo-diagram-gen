@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "pending-queue",
+  "factualChecks": [
+    {
+      "id": "fact-01",
+      "assertion": "二つの並行経路が存在する。",
+      "required": true
+    },
+    {
+      "id": "fact-02",
+      "assertion": "会場確認の状態は待ちであり失敗ではない。",
+      "required": true
+    },
+    {
+      "id": "fact-03",
+      "assertion": "両方完了が公開条件。",
+      "required": true
+    },
+    {
+      "id": "fact-04",
+      "assertion": "今は公開ゼロ。",
+      "required": true
+    }
+  ],
+  "exactLabels": [
+    "案内文",
+    "表記確認：完了",
+    "会場情報確認：結果待ち",
+    "両方完了後に公開",
+    "公開済み：0"
+  ],
+  "visualChecks": [
+    "全ラベルを実際の配置サイズで読める。",
+    "文字と形が重ならず、枠で切れていない。",
+    "warningは警告、accentは強調を保つ。",
+    "空・待機・完了の意味を色だけに頼らず区別できる。"
+  ],
+  "provenance": "Original P00 invented scenario; no external asset."
+}

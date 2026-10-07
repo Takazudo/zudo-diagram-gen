@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 1,
+  "contractRevision": 1,
+  "note": "Inputs for future validators; P00 does not implement these APIs. Semantic cases require the specified sandbox context.",
+  "positive": {
+    "bundledReference": {
+      "id": "meaning",
+      "title": "Original fixture meaning",
+      "path": "shared/meaning.md",
+      "required": true
+    },
+    "scheme": {
+      "schemaVersion": 1,
+      "toneId": "fixture-outline",
+      "toneRevision": "fixture-r1",
+      "collectionVersion": "0.1.0",
+      "coordinateSystem": {
+        "viewBox": [0, 0, 640, 320],
+        "units": "svg-user-units"
+      },
+      "palette": {
+        "light": {
+          "ink": "#203040",
+          "surface": "#FFFFFF",
+          "border": "#708090",
+          "accent": "#267D75",
+          "deep": "#174C66",
+          "warning": "#B85A18"
+        },
+        "dark": {
+          "ink": "#F0F4F8",
+          "surface": "#15212D",
+          "border": "#91A4B5",
+          "accent": "#68C4AF",
+          "deep": "#85B9DF",
+          "warning": "#FFC078"
+        }
+      },
+      "geometry": {
+        "strokeWidths": {
+          "outline": 2
+        },
+        "radii": {
+          "card": 8
+        },
+        "fills": {
+          "card": "surface"
+        },
+        "opacities": {
+          "wash": 0.2
+        },
+        "layers": {
+          "shadow": {
+            "dx": 2,
+            "dy": 3,
+            "opacity": 0.15
+          }
+        }
+      },
+      "typography": {
+        "label": {
+          "fontFamily": "Noto Sans CJK JP, sans-serif",
+          "fontSize": 18,
+          "minCssPx": 14,
+          "fontWeight": 400
+        }
+      },
+      "texture": {
+        "kind": "none",
+        "seed": 0,
+        "amplitude": 0,
+        "frequency": 0
+      },
+      "composition": {
+        "arrows": "Show factual direction.",
+        "people": "Distinct people only when needed.",
+        "empty": "Outline plus explicit empty label.",
+        "pending": "Clock plus pending label.",
+        "emphasis": "Accent role; retain facts.",
+        "warning": "Warning role plus explicit words."
+      },
+      "rules": {
+        "required": [
+          {
+            "id": "literal-labels",
+            "description": "Preserve all locked labels."
+          }
+        ],
+        "preferred": [
+          {
+            "id": "light-strokes",
+            "description": "Prefer delicate outlines."
+          }
+        ],
+        "flexible": [
+          {
+            "id": "composition",
+            "description": "Layout may vary with target."
+          }
+        ]
+      }
+    },
+    "project": {
+      "schemaVersion": 1,
+      "id": "fixture-project",
+      "title": "Contract fixture",
+      "sessions": [
+        {
+          "id": "reservation-flow",
+          "path": "sessions/reservation-flow",
+          "order": 1
+        }
+      ],
+      "comparisonSets": [
+        {
+          "id": "fixture-outline",
+          "title": "Fixture outline",
+          "toneId": "fixture-outline",
+          "entries": [
+            {
+              "sessionId": "reservation-flow",
+              "candidateId": "r01-c01",
+              "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      ]
+    },
+    "placement": {
+      "schemaVersion": 1,
+      "frame": {
+        "width": 688,
+        "height": 416,
+        "background": "#FFFFFF"
+      },
+      "slot": {
+        "x": 24,
+        "y": 48,
+        "width": 640,
+        "height": 320
+      },
+      "fit": "contain"
+    },
+    "selection": {
+      "schemaVersion": 1,
+      "kind": "explicit-selection",
+      "purpose": "test",
+      "baselines": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r01-c01",
+          "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    "cliEnvelope": {
+      "schemaVersion": 1,
+      "command": "inspect",
+      "ok": true,
+      "data": {
+        "kind": "session"
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "style": {
+      "schemaVersion": 1,
+      "revision": "r1",
+      "toneId": "fixture-outline",
+      "toneRevision": "fixture-r1",
+      "collectionVersion": "0.1.0",
+      "schemeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "kitHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "paletteHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "targets": [
+        {
+          "sessionId": "reservation-flow",
+          "width": 640,
+          "height": 320
+        }
+      ],
+      "typography": {
+        "label": {
+          "fontFamily": "Noto Sans CJK JP, sans-serif",
+          "fontSize": 18,
+          "minCssPx": 14,
+          "fontWeight": 400
+        }
+      },
+      "baselines": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r01-c01",
+          "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    "captureProvenance": {
+      "schemaVersion": 1,
+      "sessionId": "reservation-flow",
+      "candidateId": "r01-c01",
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "assetHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "styleHash": null,
+      "placementHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "theme": "light",
+      "crop": "frame",
+      "frame": {
+        "width": 688,
+        "height": 416,
+        "background": "#FFFFFF"
+      },
+      "slot": {
+        "x": 24,
+        "y": 48,
+        "width": 640,
+        "height": 320
+      },
+      "dpr": 1,
+      "pixelDimensions": {
+        "width": 688,
+        "height": 416
+      },
+      "browser": {
+        "name": "chromium",
+        "version": "fixture-only"
+      },
+      "environment": {
+        "os": "fixture-only",
+        "fonts": ["Noto Sans CJK JP"]
+      },
+      "capturedAt": "2026-10-07T00:00:00Z",
+      "inspected": false
+    }
+  },
+  "negative": [
+    {
+      "id": "reference-traversal",
+      "kind": "bundledReference",
+      "input": {
+        "id": "meaning",
+        "title": "Original fixture meaning",
+        "path": "../private.md",
+        "required": true
+      },
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "reference-absolute",
+      "kind": "bundledReference",
+      "input": {
+        "id": "meaning",
+        "title": "Original fixture meaning",
+        "path": "/tmp/file.md",
+        "required": true
+      },
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "reference-not-required-boolean",
+      "kind": "bundledReference",
+      "input": {
+        "id": "meaning",
+        "title": "Original fixture meaning",
+        "path": "shared/meaning.md",
+        "required": "yes"
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "scheme-unknown-version",
+      "kind": "scheme",
+      "input": {
+        "schemaVersion": 99,
+        "toneId": "fixture-outline",
+        "toneRevision": "fixture-r1",
+        "collectionVersion": "0.1.0",
+        "coordinateSystem": {
+          "viewBox": [0, 0, 640, 320],
+          "units": "svg-user-units"
+        },
+        "palette": {
+          "light": {
+            "ink": "#203040",
+            "surface": "#FFFFFF",
+            "border": "#708090",
+            "accent": "#267D75",
+            "deep": "#174C66",
+            "warning": "#B85A18"
+          },
+          "dark": {
+            "ink": "#F0F4F8",
+            "surface": "#15212D",
+            "border": "#91A4B5",
+            "accent": "#68C4AF",
+            "deep": "#85B9DF",
+            "warning": "#FFC078"
+          }
+        },
+        "geometry": {
+          "strokeWidths": {
+            "outline": 2
+          },
+          "radii": {
+            "card": 8
+          },
+          "fills": {
+            "card": "surface"
+          },
+          "opacities": {
+            "wash": 0.2
+          },
+          "layers": {
+            "shadow": {
+              "dx": 2,
+              "dy": 3,
+              "opacity": 0.15
+            }
+          }
+        },
+        "typography": {
+          "label": {
+            "fontFamily": "Noto Sans CJK JP, sans-serif",
+            "fontSize": 18,
+            "minCssPx": 14,
+            "fontWeight": 400
+          }
+        },
+        "texture": {
+          "kind": "none",
+          "seed": 0,
+          "amplitude": 0,
+          "frequency": 0
+        },
+        "composition": {
+          "arrows": "Show factual direction.",
+          "people": "Distinct people only when needed.",
+          "empty": "Outline plus explicit empty label.",
+          "pending": "Clock plus pending label.",
+          "emphasis": "Accent role; retain facts.",
+          "warning": "Warning role plus explicit words."
+        },
+        "rules": {
+          "required": [
+            {
+              "id": "literal-labels",
+              "description": "Preserve all locked labels."
+            }
+          ],
+          "preferred": [
+            {
+              "id": "light-strokes",
+              "description": "Prefer delicate outlines."
+            }
+          ],
+          "flexible": [
+            {
+              "id": "composition",
+              "description": "Layout may vary with target."
+            }
+          ]
+        }
+      },
+      "expectedCode": "UNSUPPORTED_VERSION"
+    },
+    {
+      "id": "scheme-wrong-tone",
+      "kind": "scheme",
+      "input": {
+        "schemaVersion": 1,
+        "toneId": "different-tone",
+        "toneRevision": "fixture-r1",
+        "collectionVersion": "0.1.0",
+        "coordinateSystem": {
+          "viewBox": [0, 0, 640, 320],
+          "units": "svg-user-units"
+        },
+        "palette": {
+          "light": {
+            "ink": "#203040",
+            "surface": "#FFFFFF",
+            "border": "#708090",
+            "accent": "#267D75",
+            "deep": "#174C66",
+            "warning": "#B85A18"
+          },
+          "dark": {
+            "ink": "#F0F4F8",
+            "surface": "#15212D",
+            "border": "#91A4B5",
+            "accent": "#68C4AF",
+            "deep": "#85B9DF",
+            "warning": "#FFC078"
+          }
+        },
+        "geometry": {
+          "strokeWidths": {
+            "outline": 2
+          },
+          "radii": {
+            "card": 8
+          },
+          "fills": {
+            "card": "surface"
+          },
+          "opacities": {
+            "wash": 0.2
+          },
+          "layers": {
+            "shadow": {
+              "dx": 2,
+              "dy": 3,
+              "opacity": 0.15
+            }
+          }
+        },
+        "typography": {
+          "label": {
+            "fontFamily": "Noto Sans CJK JP, sans-serif",
+            "fontSize": 18,
+            "minCssPx": 14,
+            "fontWeight": 400
+          }
+        },
+        "texture": {
+          "kind": "none",
+          "seed": 0,
+          "amplitude": 0,
+          "frequency": 0
+        },
+        "composition": {
+          "arrows": "Show factual direction.",
+          "people": "Distinct people only when needed.",
+          "empty": "Outline plus explicit empty label.",
+          "pending": "Clock plus pending label.",
+          "emphasis": "Accent role; retain facts.",
+          "warning": "Warning role plus explicit words."
+        },
+        "rules": {
+          "required": [
+            {
+              "id": "literal-labels",
+              "description": "Preserve all locked labels."
+            }
+          ],
+          "preferred": [
+            {
+              "id": "light-strokes",
+              "description": "Prefer delicate outlines."
+            }
+          ],
+          "flexible": [
+            {
+              "id": "composition",
+              "description": "Layout may vary with target."
+            }
+          ]
+        }
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "project-session-escape",
+      "kind": "project",
+      "input": {
+        "schemaVersion": 1,
+        "id": "fixture-project",
+        "title": "Contract fixture",
+        "sessions": [
+          {
+            "id": "reservation-flow",
+            "path": "../elsewhere",
+            "order": 1
+          }
+        ],
+        "comparisonSets": [
+          {
+            "id": "fixture-outline",
+            "title": "Fixture outline",
+            "toneId": "fixture-outline",
+            "entries": [
+              {
+                "sessionId": "reservation-flow",
+                "candidateId": "r01-c01",
+                "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            ]
+          }
+        ]
+      },
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "placement-unsupported-fit",
+      "kind": "placement",
+      "input": {
+        "schemaVersion": 1,
+        "frame": {
+          "width": 688,
+          "height": 416,
+          "background": "#FFFFFF"
+        },
+        "slot": {
+          "x": 24,
+          "y": 48,
+          "width": 640,
+          "height": 320
+        },
+        "fit": "cover"
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "selection-not-explicit",
+      "kind": "selection",
+      "input": {
+        "schemaVersion": 1,
+        "kind": "preview-choice",
+        "purpose": "test",
+        "baselines": [
+          {
+            "sessionId": "reservation-flow",
+            "candidateId": "r01-c01",
+            "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ]
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "scheme-missing-role",
+      "kind": "scheme",
+      "input": {
+        "schemaVersion": 1,
+        "toneId": "fixture-outline",
+        "toneRevision": "fixture-r1",
+        "collectionVersion": "0.1.0",
+        "coordinateSystem": {
+          "viewBox": [0, 0, 640, 320],
+          "units": "svg-user-units"
+        },
+        "palette": {
+          "light": {
+            "ink": "#203040",
+            "surface": "#FFFFFF",
+            "border": "#708090",
+            "accent": "#267D75",
+            "deep": "#174C66",
+            "warning": "#B85A18"
+          },
+          "dark": {
+            "ink": "#F0F4F8",
+            "surface": "#15212D",
+            "border": "#91A4B5",
+            "accent": "#68C4AF",
+            "deep": "#85B9DF"
+          }
+        },
+        "geometry": {
+          "strokeWidths": {
+            "outline": 2
+          },
+          "radii": {
+            "card": 8
+          },
+          "fills": {
+            "card": "surface"
+          },
+          "opacities": {
+            "wash": 0.2
+          },
+          "layers": {
+            "shadow": {
+              "dx": 2,
+              "dy": 3,
+              "opacity": 0.15
+            }
+          }
+        },
+        "typography": {
+          "label": {
+            "fontFamily": "Noto Sans CJK JP, sans-serif",
+            "fontSize": 18,
+            "minCssPx": 14,
+            "fontWeight": 400
+          }
+        },
+        "texture": {
+          "kind": "none",
+          "seed": 0,
+          "amplitude": 0,
+          "frequency": 0
+        },
+        "composition": {
+          "arrows": "Show factual direction.",
+          "people": "Distinct people only when needed.",
+          "empty": "Outline plus explicit empty label.",
+          "pending": "Clock plus pending label.",
+          "emphasis": "Accent role; retain facts.",
+          "warning": "Warning role plus explicit words."
+        },
+        "rules": {
+          "required": [
+            {
+              "id": "literal-labels",
+              "description": "Preserve all locked labels."
+            }
+          ],
+          "preferred": [
+            {
+              "id": "light-strokes",
+              "description": "Prefer delicate outlines."
+            }
+          ],
+          "flexible": [
+            {
+              "id": "composition",
+              "description": "Layout may vary with target."
+            }
+          ]
+        }
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "placement-conflicts-target",
+      "kind": "placement",
+      "input": {
+        "schemaVersion": 1,
+        "frame": {
+          "width": 688,
+          "height": 416,
+          "background": "#FFFFFF"
+        },
+        "slot": {
+          "x": 24,
+          "y": 48,
+          "width": 639,
+          "height": 320
+        },
+        "fit": "contain"
+      },
+      "context": {
+        "target": {
+          "width": 640,
+          "height": 320
+        }
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "duplicate-session-id",
+      "kind": "project",
+      "input": {
+        "schemaVersion": 1,
+        "id": "fixture-project",
+        "title": "Contract fixture",
+        "sessions": [
+          {
+            "id": "reservation-flow",
+            "path": "sessions/reservation-flow",
+            "order": 1
+          },
+          {
+            "id": "reservation-flow",
+            "path": "sessions/reservation-flow",
+            "order": 1
+          }
+        ],
+        "comparisonSets": [
+          {
+            "id": "fixture-outline",
+            "title": "Fixture outline",
+            "toneId": "fixture-outline",
+            "entries": [
+              {
+                "sessionId": "reservation-flow",
+                "candidateId": "r01-c01",
+                "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            ]
+          }
+        ]
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "source-reference-local-path",
+      "kind": "sourceReference",
+      "input": {
+        "title": "Invalid local URL",
+        "url": "shared/meaning.md"
+      },
+      "expectedCode": "VALIDATION_FAILED"
+    }
+  ],
+  "contextCases": [
+    {
+      "id": "required-reference-missing",
+      "kind": "bundledReference",
+      "input": {
+        "id": "meaning",
+        "title": "Original fixture meaning",
+        "path": "shared/meaning.md",
+        "required": true
+      },
+      "setup": "Do not create shared/meaning.md.",
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "reference-symlink-escape",
+      "kind": "bundledReference",
+      "input": {
+        "id": "meaning",
+        "title": "Original fixture meaning",
+        "path": "shared/meaning.md",
+        "required": true
+      },
+      "setup": "Create shared/meaning.md as a symlink to a file outside resource root.",
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "stale-comparison",
+      "kind": "project",
+      "input": {
+        "schemaVersion": 1,
+        "id": "fixture-project",
+        "title": "Contract fixture",
+        "sessions": [
+          {
+            "id": "reservation-flow",
+            "path": "sessions/reservation-flow",
+            "order": 1
+          }
+        ],
+        "comparisonSets": [
+          {
+            "id": "fixture-outline",
+            "title": "Fixture outline",
+            "toneId": "fixture-outline",
+            "entries": [
+              {
+                "sessionId": "reservation-flow",
+                "candidateId": "r01-c01",
+                "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": "Create candidate r01-c01 with valid saved SVG and a current fingerprint different from the expected a×64.",
+      "expectedState": "stale",
+      "strictOk": false
+    },
+    {
+      "id": "additive-provenance-review",
+      "kind": "review",
+      "setup": "Load unchanged saved candidate, export ordinary v1 review, add provenance only and reload/import.",
+      "expected": "Identical legacy fingerprint, retained review; style-conformance unknown until verified."
+    },
+    {
+      "id": "changed-svg-review",
+      "kind": "review",
+      "setup": "Load saved candidate/export review; modify one SVG byte and reload/import.",
+      "expected": "Artwork fingerprint differs; notes remain visibly stale; no silent approval."
+    },
+    {
+      "id": "missing-browser",
+      "kind": "capture",
+      "setup": "Run capture in installed consumer with neither playwright nor Chromium.",
+      "expectedCode": "CAPTURE_UNAVAILABLE",
+      "exitCode": 3
+    },
+    {
+      "id": "unsafe-output",
+      "kind": "capture",
+      "setup": "Use output path resolving through symlink to session.json or original SVG.",
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "repeat-capture-output",
+      "kind": "capture",
+      "setup": "Capture to an existing PNG/sidecar without --force.",
+      "expectedCode": "OUTPUT_CONFLICT"
+    },
+    {
+      "id": "immutable-revision",
+      "kind": "style",
+      "setup": "Create styles/r1 and attempt to write r1 again with different palette.",
+      "expectedCode": "OUTPUT_CONFLICT"
+    },
+    {
+      "id": "kit-unresolved-role",
+      "kind": "kit",
+      "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\"><path data-palette-fill=\"unknown\" d=\"M0 0h10v10z\"/></svg>",
+      "expectedCode": "VALIDATION_FAILED"
+    },
+    {
+      "id": "kit-external-reference",
+      "kind": "kit",
+      "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\"><use href=\"https://example.com/kit.svg#person\"/></svg>",
+      "expectedCode": "RESOURCE_UNSAFE"
+    },
+    {
+      "id": "kit-repeated-instance",
+      "kind": "kit",
+      "setup": "Instantiate the same symbol with local gradient/clip/aria references twice under different namespaces.",
+      "expected": "Distinct rewritten IDs, no dangling references and complete literal palette values."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "frame": {
+    "width": 408,
+    "height": 336,
+    "background": "#FFFFFF"
+  },
+  "slot": {
+    "x": 24,
+    "y": 48,
+    "width": 360,
+    "height": 240
+  },
+  "fit": "contain",
+  "fonts": ["Noto Sans CJK JP", "sans-serif"],
+  "context": {
+    "title": "空席と保留中の席",
+    "body": "架空の説明・評価用"
+  }
+}

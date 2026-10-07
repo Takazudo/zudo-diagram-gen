@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "protocolRevision": 1,
+  "runId": null,
+  "toneId": null,
+  "condition": null,
+  "repetition": null,
+  "sourceCommit": null,
+  "model": {
+    "identifier": null,
+    "version": null,
+    "reasoning": null,
+    "unavailableReason": null
+  },
+  "inputHashes": {},
+  "promptPath": null,
+  "resources": [],
+  "budget": {
+    "initialTurns": 1,
+    "correctionTurnsMaximum": 2,
+    "initialOutputTokenCeiling": 8000,
+    "correctionOutputTokenCeiling": 2000,
+    "ceilingEnforced": null
+  },
+  "measurements": {
+    "inputTokens": null,
+    "outputTokens": null,
+    "promptUtf8Bytes": null,
+    "resourceBytes": null,
+    "outputBytes": null,
+    "elapsedSeconds": null,
+    "unavailableReasons": []
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "fonts": []
+  },
+  "outputs": [],
+  "batchScores": {
+    "consistency": null,
+    "character": null,
+    "definingTraits": []
+  },
+  "inspection": {
+    "completed": false,
+    "evaluator": null,
+    "secondEvaluator": null,
+    "notes": []
+  },
+  "decision": {
+    "status": "not-run",
+    "reason": "Template only; no generation/capture/inspection performed."
+  }
+}

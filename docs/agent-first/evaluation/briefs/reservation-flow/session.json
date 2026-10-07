@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "reservation-flow",
+  "title": "予約の確定と変更",
+  "target": {
+    "width": 640,
+    "height": 320,
+    "label": "horizontal"
+  },
+  "toneCollectionVersion": "0.1.0"
+}
