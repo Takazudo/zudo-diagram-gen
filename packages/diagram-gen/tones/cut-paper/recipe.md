@@ -52,3 +52,5 @@ Irregular hand-cut silhouettes with offset pasted edges and flat organic color f
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Too many overlapping cuts suggest extra objects; retain clear factual object counts.
+
+The head radius role is zero because this pack uses an authored organic head silhouette rather than a circle.

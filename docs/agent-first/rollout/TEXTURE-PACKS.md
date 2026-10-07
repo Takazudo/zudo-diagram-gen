@@ -33,7 +33,7 @@ Each composition is 640 × 360 CSS pixels, with two participants, one reservatio
 
 `composition.template.svg` owns native surrounding geometry and labels. `composition.instances.json` supplies instances appended by the shared P09 evidence generator through production `materializeKit`. The manager prepares composition and kit-grid captures in native and alternate palettes, both themes: eight assets per tone. Any visual corrections must update the authoritative scheme/template then regenerate the kit; original reference artwork remains untouched.
 
-Focused `rollout-texture.test.mjs` checks each ten-tone pack’s schema, seven symbols, deterministic regeneration, numeric recipe drift, offline complete resolution, repeated IDs/local references, both-theme non-default palette materialization and composition inputs. It also compares all thirty original SVG reference files against the shared seed byte-for-byte. Geometry remains invariant between light/dark role remaps.
+Focused `rollout-texture.test.mjs` checks each ten-tone pack’s schema, seven symbols, deterministic regeneration, numeric recipe drift, offline complete resolution, repeated IDs/local references, both-theme non-default palette materialization and composition inputs. It also compares SHA-256 hashes of all thirty original SVG reference files against a frozen map captured from the shared seed, without requiring Git history in shallow CI. Geometry remains invariant between light/dark role remaps.
 
 ## Authored resource hashes
 
@@ -41,13 +41,13 @@ The following hashes identify helper resources before actual manager image inspe
 
 | Tone | Revision | Scheme bytes SHA-256 | Kit bytes SHA-256 |
 | --- | --- | --- | --- |
-| contour-wash | rollout-1 | `6c96eae04d5a9d2961f0e29e16fa6e431e21e30f40b73bc6d0ba5014351c2380` | `f30968ee9a15b06227e6979ab93c02c43c05933bff73ca5bf49430840dd8fa23` |
-| luminous-glass | rollout-1 | `4460618c0f3ce1da192e68912cb0a043d12bf738079f67920d53a6d4a9e90c09` | `b57487720bdf4f12098a456f34718843e8a3763d7472ac153f7f940aa4f2489e` |
-| editorial-serif | rollout-1 | `d565f9c35daf5c3e30db4439c0f252c7c285edb870c8c3d3ac8e61e3dfcd0c79` | `f7990795bf460907ab63f3b0efcd9e9cf37c8a565abde5ddc2a9bd149226af3f` |
-| isometric-solid | rollout-1 | `1b2ec2798599fe5454b45f1377217b9ebedbcf61df4c1fa645b84a6fa451e1db` | `310ffdd663dcd75968d195538798005cef3e684890892b8787051fe58a94f8bf` |
-| isometric-wire | rollout-1 | `d1d98d4fcd80f8da60fd1c3487843d25a2d90194b1759330a516c7760b668e19` | `084c3dcc8c9f7ac7f22d1e3ec9db61f69e4e7eeff3819f3763dacd19809e7ff2` |
-| risograph-duo | rollout-1 | `fa6fb80814b5bf42bf7652a51e37dbe9b68243c353e8c63623c17e7fa7d914cc` | `0cf86d4255d7e8ec25a689899638bf2b0fd8f7027bbabadbc00952cd18172dc4` |
-| halftone-manual | rollout-1 | `e5fd403dbbf29f1810f1c6008f001d138274314827c26c1ebc2a6a0d485acc68` | `59c4bfda905474b79fe971bf3db8f92837c6603d0eedc1f0cfbd42a144d24a17` |
-| marker-workshop | rollout-1 | `e42b92233798e31f5cf53606b6ea3f9541183995978170606d8f21e236242597` | `2071c6bab9b82282478da798c83611a205568d04cf573b58bb92fca1dcc12327` |
-| chalkboard | rollout-1 | `9c57c6b96d58cf1a1a5fcf8a10121ff8b7f94cef9c826da745a83db413143b65` | `606a944190e5d3892fd5968a1b39763759ef73fa4fef5b99df2c751ca0874c17` |
-| cut-paper | rollout-1 | `59d2bc0f06792c7b4f536b93c9c731dd8dc86b13c9eac1e7cbdafb5382c12723` | `18ab90ad529fe0f0642e1a19a0095fe58f1a7702c8d2d3ba7b751f18137dbfad` |
+| contour-wash | rollout-1 | `0dc8c6ebc1fed331014bf075ed2dc9ea43f0fbecb794fc654b31edb23bd199c4` | `978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78` |
+| luminous-glass | rollout-1 | `5c27c80e7555afc89b101bb18d800c850250cfd538ec556e3249c9da3a96c5e7` | `17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484` |
+| editorial-serif | rollout-1 | `ee9a449cd6c6f29da07e8dc7e8f28b581f778b69e5a63ec918fb77638b11afa5` | `5551abf940cbd129fadc4a85d6d70672ff9335e6cada5c67fa6fb62780827c66` |
+| isometric-solid | rollout-1 | `39fa7080155cbba236d226c69ce771316d7b2753a5342b2b9f7f00269635796a` | `2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c` |
+| isometric-wire | rollout-1 | `8842d4d09f931f329301a698b9150c300bde9c7b778ad2bc2a96ad0dfcccd403` | `577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356` |
+| risograph-duo | rollout-1 | `8dcc34bb1c3a74f47cb08a70ef563953a0405311067202bcc803f1964a630368` | `f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066` |
+| halftone-manual | rollout-1 | `e7941ae7382954d91e0dd0d540eaee7748fca3cbc7fa1212cae97e08fae46993` | `5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2` |
+| marker-workshop | rollout-1 | `7a8fc6fa04cee590cc65b6e4fe4244b8ac8557dfa6e6021c700497e51535a4cb` | `a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0` |
+| chalkboard | rollout-1 | `62ebc7f42c9226ff34fff764985ad224c25abe25db34b3e036b5b012cd24efa2` | `a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af` |
+| cut-paper | rollout-1 | `596da97529da5df0e668d0afa584c41056166a5d991d4cf83d63b69badd6e67b` | `9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e` |

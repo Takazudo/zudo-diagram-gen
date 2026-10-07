@@ -51,3 +51,5 @@ Broken chalk contours with a faint second pass, sparse dust, warm accents and op
 - Authored offset: {{scheme:geometry.layers.offset.dx}}, {{scheme:geometry.layers.offset.dy}}; secondary opacity: {{scheme:geometry.opacities.secondary}}.
 
 All seven semantics are implemented: participant, location, card, unoccupied chair, directional connector, completion and pending clock. Decorative registration, facets, backing cuts or second chalk passes are parts of one logical object. Both palettes retain an intrinsic dark ground; dashed chalk marks can vanish when downscaled.
+
+The head radius role is zero because this pack uses an authored organic head silhouette rather than a circle.

@@ -15,7 +15,7 @@
     },
     "radii": {
       "card": 0,
-      "head": 14
+      "head": 0
     },
     "fills": {
       "body": "surface",
@@ -30,9 +30,9 @@
     },
     "layers": {
       "offset": {
-        "dx": 7,
-        "dy": 6,
-        "opacity": 0.7
+        "dx": 0,
+        "dy": 0,
+        "opacity": 1
       }
     }
   },
