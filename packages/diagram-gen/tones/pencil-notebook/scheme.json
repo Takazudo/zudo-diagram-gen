@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "toneId": "pencil-notebook",
-  "toneRevision": "pilot-2",
+  "toneRevision": "pilot-3",
   "collectionVersion": "0.1.0",
   "coordinateSystem": {
     "viewBox": [0, 0, 720, 400],
@@ -71,7 +71,7 @@
     }
   },
   "texture": {
-    "kind": "seeded-pencil-crosshatch",
+    "kind": "seeded-pencil-field",
     "seed": 1307,
     "amplitude": 1.4,
     "frequency": 8
@@ -81,14 +81,14 @@
     "people": "An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.",
     "empty": "An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.",
     "pending": "Use a retraced clock next to the waiting object and retain its pending label.",
-    "emphasis": "Use a meaningful crossed-hatch backing or edge field behind a clear surface-role label plane, with a muted underline where useful. Texture and connectors never cover the exact Japanese text.",
+    "emphasis": "Reserve a contiguous crossed-pencil field beside or around the clear label plane. Keep neighboring diagonal strokes visibly intersecting; labels must not mask every crossing or leave only tips. A muted loose underline may support emphasis.",
     "warning": "Use a handwritten-looking contour around an upright warning label; preserve the exact text."
   },
   "rules": {
     "required": [
       {
         "id": "native-construction",
-        "description": "Use imperfect major object contours with a visibly lighter displaced retrace, plus a crossed hatch field recognizable at actual placement. Sparse means airy individual strokes across a visible field; tiny parallel corner ticks alone do not carry the texture. Hatching never covers Japanese labels or implies extra factual objects."
+        "description": "Use imperfect major contours with a lighter displaced retrace and an exposed distributed crossed-pencil region recognizable at actual placement. Neighboring diagonal strokes form real interior crossings, not isolated X glyphs or zigzag tips. This required scheme supersedes conflicting sparse/removable-texture advice in legacy recipe guidance: keep fine airy strokes, but do not remove the principal field. Preserve exact Japanese text and vacant interiors; move or resize the backing/label planes when necessary."
       },
       {
         "id": "facts-and-labels",
@@ -100,7 +100,7 @@
       },
       {
         "id": "texture-control",
-        "description": "Use seeded-pencil-crosshatch with the fixed texture seed. Frequency is strokes per direction in the canonical patch, with two opposing directions. The seed controls stroke jitter only, never model generation. Keep a clear label plane; no random noise or distorted text."
+        "description": "Use seeded-pencil-field with fixed seed controlling line-position jitter, never model generation. Frequency is diagonal intervals per canonical 100-unit span; repeat opposing families across the authored field dimensions without fitting one finite patch into a wide viewport. Keep crossings exposed and text clear. Legacy seeded-pencil-hatch and seeded-pencil-crosshatch algorithms remain unchanged for prior reproduction."
       }
     ],
     "preferred": [
@@ -114,7 +114,7 @@
       },
       {
         "id": "field-transfer",
-        "description": "Use crossed hatching on a meaningful object backing or edge region large enough to read as construction, with a clear foreground label plane. Do not confine all texture to miniature chair inserts. On empty objects, decorate the surrounding label/backing rather than the vacant interior."
+        "description": "Use a contiguous field with neighboring crossings on a meaningful backing region. At short wide sizes expose it laterally or in a region with enough depth to show intersections, rather than hiding the entire center under a full-width label. Ruled ground stays subordinate. Empty objects keep their vacant interior clear; decorate surrounding construction."
       }
     ],
     "flexible": [
@@ -132,7 +132,7 @@
       },
       {
         "id": "texture-placement",
-        "description": "Choose field placement, extent and line breaks for the brief and aspect ratio. Fine individual strokes may be simplified for readability, but preserve the crossed construction rather than substituting only clean cards. Original Pattern/Text and PNG content is not required for other topics."
+        "description": "Choose field location, extent, cell spacing, contour variation and wrapping for the brief. Fine strokes may be simplified locally, but keep a distributed crossing region; no fixed stroke count, motif or coverage percentage is a visual gate. Original Pattern/Text and PNG content is not required."
       }
     ]
   }

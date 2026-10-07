@@ -41,15 +41,17 @@ These links explain broad visual construction principles. Reading them is option
 - [IBM Design Language — flat illustration principles](https://www.ibm.com/design/language/illustration/flat-style/design/)
 - [Atlassian Design — illustration purposes and formats](https://atlassian.design/foundations/illustrations)
 
-## Pilot scheme and kit — authored revision pilot-2
+## Pilot scheme and kit — authored revision pilot-3
 
-The scheme is the numeric authority for new pilot drawings; original example geometry stays unchanged. Read `scheme.json` and the seven symbols in `kit.svg` together. `kit.template.svg` is authoring source, checked in this repository by `node scripts/build-pilot-kits.mjs --check`; it is not a runtime materialization API. Palette-bearing marks carry semantic attributes and literal light defaults. Inline needed geometry for a self-contained candidate and use the common experiment palette; do not reference the kit as an external image.
+The scheme is the numeric authority for new drawings. Required scheme guidance takes precedence over conflicting sparse/removable-texture advice in legacy recipe guidance: retain a visible construction region while keeping labels clear.
 
-Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. These expressions resolve from the scheme; do not copy their values into an independent recipe.
+Read the seven semantic primitives and fuller/short-wide support symbols in `kit.svg`. `kit.template.svg` and `scripts/build-pilot-kits.mjs` are deterministic authoring sources, not a production materializer. Inline needed geometry and apply semantic palette roles to make self-contained candidates. The supports are examples, not a fixed diagram layout. Keep filled paper planes or a contiguous pencil crossing field exposed after placing the actual Japanese labels; never add factual objects just to demonstrate style.
+
+Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. Values resolve from the scheme; no independent numeric recipe copy.
 
 ### Required
 
-- **native-construction**: Use a visibly layered cut-paper assembly for the principal explanatory object: exposed backing and a separate foreground label plane, with a repeated cut-motif field visible outside the label plane. Backing, label strip and decoration are parts of one logical object, never extra factual stages, people or seats.
+- **native-construction**: Use visibly overlapping cut-paper planes with a substantial filled decorative region still exposed after labels are placed. A separate readable label sheet belongs to the same logical object. Pale hollow outlines, edge tips, shadow alone or generic boxed strips do not carry the construction. Exact motif family and exposed-area percentage are not requirements; keep factual counts and Japanese labels intact.
 - **facts-and-labels**: Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement.
 - **palette-roles**: Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry.
 - **texture-control**: Use the scheme cut-paper-repeat construction. Frequency is motifs per row in the canonical support patch; the patch has two authored rows. Seed and amplitude are zero because the cut motif is periodic, not randomly perturbed. No photographic or procedural noise.
@@ -60,13 +62,14 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 - **tone-emphasis**: Retain editorial spacing and optional serif sample lettering; required Japanese labels remain upright in the declared readable font.
 - **clear-label-plane**: Keep essential labels ink on a clear surface-role plane, with no connector crossing the text. A shadow or top rule alone does not carry the layered construction.
 - **construction-transfer**: State diagrams may use layered state objects; seat diagrams decorate enclosing label/backing planes while retaining exact chair counts and vacancies. Long labels occupy a clear foreground sheet. Parallel checks keep their distinct branches; return guidance keeps the empty container empty. These are construction options, not a fixed diagram layout.
+- **wide-construction**: For short wide or label-heavy objects, expose an offset lateral motif sheet or another contiguous filled region, rather than stretching a fixed motif patch behind a full-width label. Wrap or shift the clear label sheet to preserve both text and material construction. Use purposeful asymmetry; do not repeat one boxed strip for every object.
 
 ### Flexible
 
 - **layout**: Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template.
 - **hand-geometry**: Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts.
 - **glyph-style**: Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable.
-- **motif-family**: The repeated cut motif may be arches, scallops, bands or another clearly decorative cut shape. Original Pattern/Text labels, poster merge and PNG output are example facts, not required content for another brief. Small primitives may omit motifs to preserve recognition; the principal object still carries the layered construction.
+- **motif-family**: Arches, scallops, bands or other cut shapes may vary freely if filled decorative mass, contrasting pieces and separate overlapping planes remain visible. Original Pattern/Text labels, poster merge and PNG output are example facts, never required content. Small primitives may omit motifs; the principal construction still carries the tone.
 
 ### Composition vocabulary
 
@@ -74,7 +77,7 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 - **people**: Separate cut-paper head, shoulders and torso overlap; a backing silhouette exposes the paper depth.
 - **empty**: A cut chair from separate back, seat and legs, with visible vacancy; label the seat explicitly.
 - **pending**: Place a cut clock disk and pointer alongside the waiting sheet; retain the pending label.
-- **emphasis**: Overlap a clear foreground label sheet over a visible repeated cut-motif backing; expose offset depth without obscuring the factual source/destination relationship. Do not replace the assembly with only a narrow top rule.
+- **emphasis**: Overlap a separately cut clear label sheet with a substantial filled motif backing. Reserve a contiguous exposed motif region beside or around the label, retaining filled shapes and contrasting inset pieces rather than pale hollow edge fragments.
 - **warning**: Use a distinct labeled paper tab rather than an alarming shadow or extra data layer.
 
-This pack is prepared for the frozen paired pilot, not accepted by a visual gate. Schemas, deterministic generation and nominal text size cannot establish tone character, factual accuracy or Japanese readability. No fixture is user approval.
+Preparation, structural checks and deterministic generation do not establish visual gate acceptance. Layout, exact motifs and percentages are not imposed; actual independent pilot images still need unchanged factual/readability/character review.

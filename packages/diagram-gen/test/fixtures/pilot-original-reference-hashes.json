@@ -111,5 +111,8 @@
     "soft-fill/kit.template.svg": "84985be17b93bea592bb9581615b528fbcc9fe6e59a2dc6369684f3a485f4da4",
     "soft-fill/recipe.md": "2a6c587e457cf72addf66748b0263a16f9258f9b14ad2982f74ff55bbd1c5e5e"
   },
-  "frozenPilot1PencilHatchHash": "59818f471b60abe2822b74e136502659412eae403d9863a3fb8f7da81d6daa1b"
+  "frozenPilot1PencilHatchHash": "59818f471b60abe2822b74e136502659412eae403d9863a3fb8f7da81d6daa1b",
+  "frozenPilot2Commit": "094c60cd900c1b7986dd647467c48443d45d3813",
+  "frozenPilot2PencilHatchHash": "ae06fd96ce4166c003b2c597b5d7bbdd486984f66f6ea76fedd86a5131ec71f9",
+  "frozenPilot2PaperCutMotifHash": "54f0dac78d96e2bd48dec60730c0f2cac988910077b47b804c01073c5239da5a"
 }

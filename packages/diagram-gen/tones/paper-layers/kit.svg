@@ -17,8 +17,17 @@
 <path d="M12 9L185 5L192 109L17 115Z" data-palette-fill="surface" fill="#FFFCF4"/>
 <path d="M21 4L184 13L178 116L15 109Z" data-palette-fill="surface" fill="#FFFCF4"/>
 <use href="#paper-cut-motif" x="25" y="13" width="148" height="94"/>
-<path d="M10 45L180 39L181 86L12 91Z" transform="translate(7 7)" opacity="0.65" data-palette-fill="border" fill="#D8D0C2"/>
-<path d="M10 45L180 39L181 86L12 91Z" data-palette-fill="surface" fill="#FFFCF4"/>
+<path d="M79 25L184 21L185 96L77 100Z" transform="translate(7 7)" opacity="0.65" data-palette-fill="border" fill="#D8D0C2"/>
+<path d="M79 25L184 21L185 96L77 100Z" data-palette-fill="surface" fill="#FFFCF4"/>
+</symbol>
+<symbol id="paper-cut-field" viewBox="0 0 300 100"><use href="#paper-cut-motif" width="200" height="120"/><use href="#paper-cut-motif" x="200" width="200" height="120"/></symbol>
+<symbol id="paper-assembly-wide" viewBox="0 0 300 100">
+<path d="M12 8L285 4L290 91L17 96Z" transform="translate(7 7)" opacity="0.65" data-palette-fill="border" fill="#D8D0C2"/>
+<path d="M12 8L285 4L290 91L17 96Z" data-palette-fill="surface" fill="#FFFCF4"/>
+<path d="M21 3L283 12L279 94L15 87Z" data-palette-fill="surface" fill="#FFFCF4"/>
+<use href="#paper-cut-field" x="21" y="9" width="264" height="88"/>
+<path d="M94 22L287 18L285 80L92 85Z" transform="translate(7 7)" opacity="0.65" data-palette-fill="border" fill="#D8D0C2"/>
+<path d="M94 22L287 18L285 80L92 85Z" data-palette-fill="surface" fill="#FFFCF4"/>
 </symbol>
 <symbol id="person" viewBox="0 0 100 100">
 <g transform="translate(7 7)" opacity="0.65" data-palette-fill="border" fill="#D8D0C2"><path d="M22 86L26 58L43 47H58L76 57L81 86Z"/><circle cx="50" cy="25" r="12"/></g><path d="M21 85L25 57L42 46H59L76 57L80 85Z" data-palette-fill="surface" fill="#FFFCF4"/><path d="M34 55L67 51L70 86L30 86Z" data-palette-fill="deep" fill="#769D9A"/><circle cx="50" cy="25" r="12" data-palette-fill="accent" fill="#CC754E"/>

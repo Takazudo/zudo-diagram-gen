@@ -20,9 +20,11 @@ import {
   authorPilotKit,
   buildPilotKits,
   pencilHatch,
+  pencilField,
   paperCutMotif,
   PILOT_TONES,
 } from '../../../scripts/build-pilot-kits.mjs';
+import { preparePilotSupports } from '../../../scripts/prepare-pilot-supports.mjs';
 const exec = promisify(execFile);
 const repo = fileURLToPath(new URL('../../../', import.meta.url));
 const tones = path.join(repo, 'packages/diagram-gen/tones');
@@ -115,6 +117,11 @@ test('kits reproduce exactly, declare every literal palette mark and retain loca
         assert.ok(attrs.href.startsWith('#'));
         targets.push(attrs.href.slice(1));
       }
+      if (attrs['clip-path']) {
+        const target = attrs['clip-path'].match(/^url\(#([\w-]+)\)$/)?.[1];
+        assert.ok(target, `${tone}: clip must be a local ID`);
+        targets.push(target);
+      }
       for (const kind of ['fill', 'stroke']) {
         if (/^#/.test(attrs[kind] ?? '')) {
           const role = attrs[`data-palette-${kind}`];
@@ -153,9 +160,11 @@ test('palette edits change defaults without geometry; scheme edits require regen
 });
 
 test('pencil hatch seed and amplitude deterministically control texture without random output', async () => {
-  const scheme = await json(path.join(tones, 'pencil-notebook/scheme.json'));
+  const current = await json(path.join(tones, 'pencil-notebook/scheme.json'));
+  const scheme = { ...current, texture: { ...current.texture, kind: 'seeded-pencil-crosshatch' } };
   const first = pencilHatch(scheme);
   assert.equal(pencilHatch(scheme), first);
+  assert.equal(hashBytes(first), references.frozenPilot2PencilHatchHash);
   assert.notEqual(
     pencilHatch({ ...scheme, texture: { ...scheme.texture, seed: scheme.texture.seed + 1 } }),
     first,
@@ -176,7 +185,7 @@ test('pencil hatch seed and amplitude deterministically control texture without 
     /at most 64/,
   );
   const template = await read(path.join(tones, 'pencil-notebook/kit.template.svg'));
-  assert.throws(() => authorPilotKit(`${template}{{unknown:role}}`, scheme), /Unresolved/);
+  assert.throws(() => authorPilotKit(`${template}{{unknown:role}}`, current), /Unresolved/);
 });
 
 test('authoritative importer preserves scheme bindings, recipe placeholders and complete pack resources', async () => {
@@ -232,6 +241,7 @@ test('paper repeat construction varies motif count deterministically and rejects
   const scheme = await json(path.join(tones, 'paper-layers/scheme.json'));
   const first = paperCutMotif(scheme);
   assert.equal(first, paperCutMotif(scheme));
+  assert.equal(hashBytes(first), references.frozenPilot2PaperCutMotifHash);
   assert.equal((first.match(/<g transform=/g) ?? []).length, scheme.texture.frequency * 2);
   const fewer = { ...scheme, texture: { ...scheme.texture, frequency: 2 } };
   assert.notEqual(paperCutMotif(fewer), first);
@@ -242,9 +252,112 @@ test('paper repeat construction varies motif count deterministically and rejects
       /motifs per row/,
     );
   const paper = await resolveToneContext('paper-layers');
-  for (const id of ['paper-cut-motif', 'paper-assembly'])
+  for (const id of ['paper-cut-motif', 'paper-assembly', 'paper-cut-field', 'paper-assembly-wide'])
     assert.ok(paper.kit.primitives.some((p) => p.id === id));
   const pencil = await resolveToneContext('pencil-notebook');
-  for (const id of ['pencil-crosshatch', 'pencil-panel', 'notebook-ground'])
+  for (const id of [
+    'pencil-crosshatch',
+    'pencil-panel',
+    'pencil-crosshatch-wide',
+    'pencil-panel-wide',
+    'notebook-ground',
+  ])
     assert.ok(pencil.kit.primitives.some((p) => p.id === id));
+});
+
+// Protect actual authored crossing geometry, not an aesthetic character threshold.
+test('pilot-3 pencil fields retain neighboring interior crossings in a label-free lateral region', async () => {
+  const scheme = await json(path.join(tones, 'pencil-notebook/scheme.json'));
+  const field = pencilField(scheme, 300, 100);
+  assert.equal(field, pencilField(scheme, 300, 100));
+  assert.notEqual(
+    field,
+    pencilField({ ...scheme, texture: { ...scheme.texture, seed: 1308 } }, 300, 100),
+  );
+  const points = [
+    ...field.matchAll(/d="M([\d.-]+) ([\d.-]+)L([\d.-]+) ([\d.-]+)L([\d.-]+) ([\d.-]+)"/g),
+  ].map((m) => [
+    [Number(m[1]), Number(m[2])],
+    [Number(m[3]), Number(m[4])],
+    [Number(m[5]), Number(m[6])],
+  ]);
+  const segments = points.flatMap(([a, b, c]) => [
+    [a, b],
+    [b, c],
+  ]);
+  const cross = ([x, y], [u, v]) => x * v - y * u;
+  const sub = ([x, y], [u, v]) => [x - u, y - v];
+  const intersections = [];
+  for (let i = 0; i < segments.length; i++)
+    for (let j = i + 1; j < segments.length; j++) {
+      const [a, b] = segments[i];
+      const [c, d] = segments[j];
+      const ab = sub(b, a),
+        cd = sub(d, c),
+        ac = sub(c, a);
+      const det = cross(ab, cd);
+      if (Math.abs(det) < 0.01) continue;
+      const t = cross(ac, cd) / det,
+        u = cross(ac, ab) / det;
+      if (t <= 0 || t >= 1 || u <= 0 || u >= 1) continue;
+      const x = a[0] + t * ab[0],
+        y = a[1] + t * ab[1];
+      if (x > 10 && x < 65 && y > 10 && y < 80) intersections.push([x, y]);
+    }
+  assert.ok(
+    intersections.length > 12,
+    'repeated families must cross within the exposed lateral field',
+  );
+  assert.ok(
+    Math.max(...intersections.map(([x]) => x)) - Math.min(...intersections.map(([x]) => x)) > 30,
+  );
+  assert.ok(
+    Math.max(...intersections.map(([, y]) => y)) - Math.min(...intersections.map(([, y]) => y)) >
+      40,
+  );
+  for (const dimensions of [
+    [0, 100],
+    [300, 1001],
+  ])
+    assert.throws(() => pencilField(scheme, ...dimensions), /dimensions/);
+  assert.throws(
+    () => pencilField({ ...scheme, texture: { ...scheme.texture, frequency: 1 } }, 300, 100),
+    /intervals/,
+  );
+});
+
+test('preparation uses all five authoritative slots and both palette themes without claiming inspection', async () => {
+  const directory = await temporary();
+  const records = await preparePilotSupports(directory);
+  const palette = await json(path.join(repo, 'docs/agent-first/evaluation/palette.json'));
+  assert.equal(records.length, 40);
+  const manifest = await read(path.join(directory, 'manifest.json'));
+  for (const record of records) {
+    assert.equal(record.actuallyInspected, false);
+    const placement = await json(
+      path.join(repo, 'docs/agent-first/evaluation/briefs', record.brief, 'placement.json'),
+    );
+    assert.deepEqual([record.width, record.height], [placement.slot.width, placement.slot.height]);
+    const svg = await read(path.join(directory, record.svg));
+    assert.equal(hashBytes(svg), record.svgSha256);
+    const parser = new SaxesParser({ xmlns: true });
+    parser.on('opentag', (tag) => {
+      const attrs = Object.fromEntries(
+        Object.values(tag.attributes).map(({ name, value }) => [name, value]),
+      );
+      for (const kind of ['fill', 'stroke'])
+        if (/^#/.test(attrs[kind] ?? ''))
+          assert.ok(
+            Object.values(palette[record.theme]).includes(attrs[kind]),
+            'all marks use common theme roles',
+          );
+    });
+    parser.write(svg).close();
+    assert.ok(
+      svg.includes('確認待ち') ||
+        (svg.includes('参加申込内容の') && svg.includes('確認・連絡担当')),
+    );
+  }
+  await preparePilotSupports(directory);
+  assert.equal(await read(path.join(directory, 'manifest.json')), manifest);
 });

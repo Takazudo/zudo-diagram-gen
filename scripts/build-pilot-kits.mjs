@@ -24,6 +24,7 @@ const xml = (text) =>
 // Fixed LCG, reduced to unsigned 32 bits; geometry is serialized to three decimals.
 // Texture seed controls hatch endpoints only. It is not a generation/model seed.
 export function pencilHatch(scheme) {
+  if (scheme.texture.kind === 'seeded-pencil-field') return pencilField(scheme, 100, 70);
   const { seed, amplitude, frequency } = scheme.texture;
   if (
     !['seeded-pencil-hatch', 'seeded-pencil-crosshatch'].includes(scheme.texture.kind) ||
@@ -52,6 +53,56 @@ export function pencilHatch(scheme) {
     .join('\n');
 }
 
+/** Repeated opposing families, authored for a field rather than fitted as a finite patch. */
+export function pencilField(scheme, width, height) {
+  const { kind, seed, amplitude, frequency } = scheme.texture;
+  if (
+    kind !== 'seeded-pencil-field' ||
+    !Number.isInteger(frequency) ||
+    frequency < 2 ||
+    frequency > 32
+  )
+    throw new Error('Pencil fields require 2–32 intervals per canonical span.');
+  if (![width, height].every((value) => Number.isFinite(value) && value > 0 && value <= 1000))
+    throw new Error('Pencil field dimensions must be positive and at most 1000.');
+  let state = seed >>> 0;
+  const jitter = () => {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    return ((state / 4294967296) * 2 - 1) * amplitude;
+  };
+  const n = (value) => Number(value.toFixed(3));
+  const paths = [];
+  const spacing = 100 / frequency;
+  for (const direction of [1, -1]) {
+    for (
+      let intercept = direction === 1 ? -height : 0;
+      intercept <= width + height;
+      intercept += spacing
+    ) {
+      const a = intercept + jitter();
+      const x0 = Math.max(0, direction === 1 ? a : a - height);
+      const x1 = Math.min(width, direction === 1 ? height + a : a);
+      if (x1 <= x0) continue;
+      const y0 = direction === 1 ? x0 - a : a - x0;
+      const y1 = direction === 1 ? x1 - a : a - x1;
+      // A small bend keeps each family imperfect while retaining neighboring crossings.
+      const mx = (x0 + x1) / 2;
+      const my = (y0 + y1) / 2 + jitter();
+      paths.push(
+        `<path d="M${n(x0)} ${n(y0)}L${n(mx)} ${n(my)}L${n(x1)} ${n(y1)}" fill="none" data-palette-stroke="deep" stroke="${scheme.palette.light.deep}" stroke-width="${scheme.geometry.strokeWidths.hatch}" opacity="${scheme.geometry.opacities.hatch}"/>`,
+      );
+    }
+  }
+  return paths.join('\n');
+}
+
+/** Full-size cut pieces repeated without stretching their cell aspect ratio. */
+export function paperCutField(scheme) {
+  // Validate the unchanged pilot-2 algorithm and reuse its exact canonical tile.
+  paperCutMotif(scheme);
+  return '<use href="#paper-cut-motif" width="200" height="120"/><use href="#paper-cut-motif" x="200" width="200" height="120"/>';
+}
+
 /** Original periodic cut geometry; frequency is motifs per row in this patch. */
 export function paperCutMotif(scheme) {
   const { kind, frequency, seed, amplitude } = scheme.texture;
@@ -76,7 +127,9 @@ export function paperCutMotif(scheme) {
 export function authorPilotKit(template, scheme) {
   validateToneScheme(scheme);
   let source = template.replaceAll('{{texture:hatch}}', () => pencilHatch(scheme));
+  source = source.replaceAll('{{texture:hatch-wide}}', () => pencilField(scheme, 300, 100));
   source = source.replaceAll('{{texture:cut-motif}}', () => paperCutMotif(scheme));
+  source = source.replaceAll('{{texture:cut-field}}', () => paperCutField(scheme));
   source = source.replace(/\{\{palette:([A-Za-z]+)\}\}/g, (_, role) => {
     if (!Object.hasOwn(scheme.palette.light, role))
       throw new Error(`Unknown palette role ${role}.`);

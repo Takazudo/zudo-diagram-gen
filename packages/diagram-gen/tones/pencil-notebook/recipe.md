@@ -40,31 +40,33 @@ These links explain broad visual construction principles. Reading them is option
 
 - [Rough.js — sketch contours and vector hatching](https://roughjs.com/)
 
-## Pilot scheme and kit — authored revision pilot-2
+## Pilot scheme and kit — authored revision pilot-3
 
-The scheme is the numeric authority for new pilot drawings; original example geometry stays unchanged. Read `scheme.json` and the seven symbols in `kit.svg` together. `kit.template.svg` is authoring source, checked in this repository by `node scripts/build-pilot-kits.mjs --check`; it is not a runtime materialization API. Palette-bearing marks carry semantic attributes and literal light defaults. Inline needed geometry for a self-contained candidate and use the common experiment palette; do not reference the kit as an external image.
+The scheme is the numeric authority for new drawings. Required scheme guidance takes precedence over conflicting sparse/removable-texture advice in legacy recipe guidance: retain a visible construction region while keeping labels clear.
 
-Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. These expressions resolve from the scheme; do not copy their values into an independent recipe.
+Read the seven semantic primitives and fuller/short-wide support symbols in `kit.svg`. `kit.template.svg` and `scripts/build-pilot-kits.mjs` are deterministic authoring sources, not a production materializer. Inline needed geometry and apply semantic palette roles to make self-contained candidates. The supports are examples, not a fixed diagram layout. Keep filled paper planes or a contiguous pencil crossing field exposed after placing the actual Japanese labels; never add factual objects just to demonstrate style.
+
+Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. Values resolve from the scheme; no independent numeric recipe copy.
 
 ### Required
 
-- **native-construction**: Use imperfect major object contours with a visibly lighter displaced retrace, plus a crossed hatch field recognizable at actual placement. Sparse means airy individual strokes across a visible field; tiny parallel corner ticks alone do not carry the texture. Hatching never covers Japanese labels or implies extra factual objects.
+- **native-construction**: Use imperfect major contours with a lighter displaced retrace and an exposed distributed crossed-pencil region recognizable at actual placement. Neighboring diagonal strokes form real interior crossings, not isolated X glyphs or zigzag tips. This required scheme supersedes conflicting sparse/removable-texture advice in legacy recipe guidance: keep fine airy strokes, but do not remove the principal field. Preserve exact Japanese text and vacant interiors; move or resize the backing/label planes when necessary.
 - **facts-and-labels**: Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement.
 - **palette-roles**: Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry.
-- **texture-control**: Use seeded-pencil-crosshatch with the fixed texture seed. Frequency is strokes per direction in the canonical patch, with two opposing directions. The seed controls stroke jitter only, never model generation. Keep a clear label plane; no random noise or distorted text.
+- **texture-control**: Use seeded-pencil-field with fixed seed controlling line-position jitter, never model generation. Frequency is diagonal intervals per canonical 100-unit span; repeat opposing families across the authored field dimensions without fitting one finite patch into a wide viewport. Keep crossings exposed and text clear. Legacy seeded-pencil-hatch and seeded-pencil-crosshatch algorithms remain unchanged for prior reproduction.
 
 ### Preferred
 
 - **reading-hierarchy**: Notebook ruling stays subordinate to every label and essential route; remove ruling locally behind text.
 - **tone-emphasis**: Keep arrowheads unambiguous and text upright; express the hand through geometry rather than distorted Japanese glyphs.
-- **field-transfer**: Use crossed hatching on a meaningful object backing or edge region large enough to read as construction, with a clear foreground label plane. Do not confine all texture to miniature chair inserts. On empty objects, decorate the surrounding label/backing rather than the vacant interior.
+- **field-transfer**: Use a contiguous field with neighboring crossings on a meaningful backing region. At short wide sizes expose it laterally or in a region with enough depth to show intersections, rather than hiding the entire center under a full-width label. Ruled ground stays subordinate. Empty objects keep their vacant interior clear; decorate surrounding construction.
 
 ### Flexible
 
 - **layout**: Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template.
 - **hand-geometry**: Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts.
 - **glyph-style**: Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable.
-- **texture-placement**: Choose field placement, extent and line breaks for the brief and aspect ratio. Fine individual strokes may be simplified for readability, but preserve the crossed construction rather than substituting only clean cards. Original Pattern/Text and PNG content is not required for other topics.
+- **texture-placement**: Choose field location, extent, cell spacing, contour variation and wrapping for the brief. Fine strokes may be simplified locally, but keep a distributed crossing region; no fixed stroke count, motif or coverage percentage is a visual gate. Original Pattern/Text and PNG content is not required.
 
 ### Composition vocabulary
 
@@ -72,7 +74,7 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 - **people**: An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.
 - **empty**: An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.
 - **pending**: Use a retraced clock next to the waiting object and retain its pending label.
-- **emphasis**: Use a meaningful crossed-hatch backing or edge field behind a clear surface-role label plane, with a muted underline where useful. Texture and connectors never cover the exact Japanese text.
+- **emphasis**: Reserve a contiguous crossed-pencil field beside or around the clear label plane. Keep neighboring diagonal strokes visibly intersecting; labels must not mask every crossing or leave only tips. A muted loose underline may support emphasis.
 - **warning**: Use a handwritten-looking contour around an upright warning label; preserve the exact text.
 
-This pack is prepared for the frozen paired pilot, not accepted by a visual gate. Schemas, deterministic generation and nominal text size cannot establish tone character, factual accuracy or Japanese readability. No fixture is user approval.
+Preparation, structural checks and deterministic generation do not establish visual gate acceptance. Layout, exact motifs and percentages are not imposed; actual independent pilot images still need unchanged factual/readability/character review.

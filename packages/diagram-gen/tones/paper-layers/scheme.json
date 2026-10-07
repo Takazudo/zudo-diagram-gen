@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "toneId": "paper-layers",
-  "toneRevision": "pilot-2",
+  "toneRevision": "pilot-3",
   "collectionVersion": "0.1.0",
   "coordinateSystem": {
     "viewBox": [0, 0, 720, 400],
@@ -77,14 +77,14 @@
     "people": "Separate cut-paper head, shoulders and torso overlap; a backing silhouette exposes the paper depth.",
     "empty": "A cut chair from separate back, seat and legs, with visible vacancy; label the seat explicitly.",
     "pending": "Place a cut clock disk and pointer alongside the waiting sheet; retain the pending label.",
-    "emphasis": "Overlap a clear foreground label sheet over a visible repeated cut-motif backing; expose offset depth without obscuring the factual source/destination relationship. Do not replace the assembly with only a narrow top rule.",
+    "emphasis": "Overlap a separately cut clear label sheet with a substantial filled motif backing. Reserve a contiguous exposed motif region beside or around the label, retaining filled shapes and contrasting inset pieces rather than pale hollow edge fragments.",
     "warning": "Use a distinct labeled paper tab rather than an alarming shadow or extra data layer."
   },
   "rules": {
     "required": [
       {
         "id": "native-construction",
-        "description": "Use a visibly layered cut-paper assembly for the principal explanatory object: exposed backing and a separate foreground label plane, with a repeated cut-motif field visible outside the label plane. Backing, label strip and decoration are parts of one logical object, never extra factual stages, people or seats."
+        "description": "Use visibly overlapping cut-paper planes with a substantial filled decorative region still exposed after labels are placed. A separate readable label sheet belongs to the same logical object. Pale hollow outlines, edge tips, shadow alone or generic boxed strips do not carry the construction. Exact motif family and exposed-area percentage are not requirements; keep factual counts and Japanese labels intact."
       },
       {
         "id": "facts-and-labels",
@@ -115,6 +115,10 @@
       {
         "id": "construction-transfer",
         "description": "State diagrams may use layered state objects; seat diagrams decorate enclosing label/backing planes while retaining exact chair counts and vacancies. Long labels occupy a clear foreground sheet. Parallel checks keep their distinct branches; return guidance keeps the empty container empty. These are construction options, not a fixed diagram layout."
+      },
+      {
+        "id": "wide-construction",
+        "description": "For short wide or label-heavy objects, expose an offset lateral motif sheet or another contiguous filled region, rather than stretching a fixed motif patch behind a full-width label. Wrap or shift the clear label sheet to preserve both text and material construction. Use purposeful asymmetry; do not repeat one boxed strip for every object."
       }
     ],
     "flexible": [
@@ -132,7 +136,7 @@
       },
       {
         "id": "motif-family",
-        "description": "The repeated cut motif may be arches, scallops, bands or another clearly decorative cut shape. Original Pattern/Text labels, poster merge and PNG output are example facts, not required content for another brief. Small primitives may omit motifs to preserve recognition; the principal object still carries the layered construction."
+        "description": "Arches, scallops, bands or other cut shapes may vary freely if filled decorative mass, contrasting pieces and separate overlapping planes remain visible. Original Pattern/Text labels, poster merge and PNG output are example facts, never required content. Small primitives may omit motifs; the principal construction still carries the tone."
       }
     ]
   }
