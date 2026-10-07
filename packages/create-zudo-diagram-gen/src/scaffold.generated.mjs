@@ -268,13 +268,13 @@ function scaffold({ id, nameSlug, title, engine }) {
 
 const agentInstructions = `# Diagram session instructions
 
-This directory is content for the package-owned zudo-diagram-gen viewer.
+This directory is content for the package-owned zudo-diagram-gen viewer. A project host registers sessions under sessions/<slug>/ in project.json; the working files below are relative to each registered session. Keep project registrations and session IDs stable.
 
 ## Working files
 
 - The coordinator owns session.json, brief.md, and each rounds/<round>/round.json.
 - A candidate worker owns one rounds/<round>/<candidate>/ directory containing candidate.json and its SVG assets.
-- pages/index.tsx and .generated/ are engine-generated. The engine regenerates the page when dev/build runs; edit session content to change the gallery.
+- pages/index.tsx, pages/sessions/<session-id>/index.tsx and .generated/ are engine-generated. The engine regenerates the page when dev/build runs; edit session content to change the gallery.
 - The core workflow accepts this directory as its destination. Personal wrapper skills choose directories and personal defaults outside this workspace.
 - session.json has a unique persisted ID so same-named sessions have separate browser review state. Keep that ID when continuing this session; initialize a new session when starting independent work.
 
@@ -282,7 +282,7 @@ This directory is content for the package-owned zudo-diagram-gen viewer.
 
 1. Read the actual feature and write a shared brief before drawing. Record real labels, relationships, source references, placement, and target size.
 2. Read the tone catalog with pnpm exec zudo-diagram-gen tones list. Read chosen recipes with pnpm exec zudo-diagram-gen tones show <tone-id>.
-3. Give each candidate a globally unique stable slug ID. Add one candidate directory at a time; the viewer discovers additions during dev.
+3. Give each candidate a stable slug ID unique within its session. Add one candidate directory at a time; the viewer discovers additions during dev.
 4. Run pnpm check, then inspect every candidate visually at its intended size. Validation cannot determine whether the drawing describes the feature correctly.
 5. User selection establishes a refinement baseline. Copy the selected SVG into a new candidate in a later round and record parentCandidateId. Preserve reviewed candidates and change only the requested aspects.
 6. A shortlist does not authorize integration. A clear request to use a candidate in the project does. Browser feedback is browser state; Copy feedback and downloaded review JSON do not write files into this directory.
