@@ -206,7 +206,7 @@
       ],
       "scheme": "offset-blocks/scheme.json",
       "kit": "offset-blocks/kit.svg",
-      "toneRevision": "rollout-1"
+      "toneRevision": "rollout-2"
     },
     {
       "id": "editorial-serif",
@@ -1043,7 +1043,7 @@
       ],
       "scheme": "pixel-schematic/scheme.json",
       "kit": "pixel-schematic/kit.svg",
-      "toneRevision": "rollout-1"
+      "toneRevision": "rollout-2"
     },
     {
       "id": "terminal",
@@ -1152,7 +1152,7 @@
       ],
       "scheme": "circuit-route/scheme.json",
       "kit": "circuit-route/kit.svg",
-      "toneRevision": "rollout-1"
+      "toneRevision": "rollout-2"
     },
     {
       "id": "transit-wayfinding",

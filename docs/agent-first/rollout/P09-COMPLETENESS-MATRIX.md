@@ -7,7 +7,7 @@ All stable catalog IDs now have authored schemes, native kits, local meaning, sy
 | fine-outline | pilot-1 | `64711ed2bde2` / `134d5a7a18f3` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | soft-fill | pilot-1 | `4ca231a8d827` / `c9fd4836fee0` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | ink-silhouette | rollout-1 | `cce629b396df` / `7572f4b0ab89` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
-| offset-blocks | rollout-1 | `85600ce2c79b` / `4192a18ee6bb` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
+| offset-blocks | rollout-2 | `da7ab47c790f` / `94dba1a76099` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | editorial-serif | rollout-2 | `3a46bc515d32` / `28899e063094` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | swiss-grid | rollout-1 | `92f95095e1b1` / `47afb28dc4e7` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | ui-miniature | rollout-1 | `0a4898e6e51c` / `f86dab2230c1` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
@@ -22,9 +22,9 @@ All stable catalog IDs now have authored schemes, native kits, local meaning, sy
 | risograph-duo | rollout-1 | `c29ab7c26e53` / `f8fc7294be16` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | cut-paper | rollout-1 | `dbea17f47dbe` / `9bda21b9c1a6` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | halftone-manual | rollout-1 | `26e2f81aa497` / `5fa9816a7284` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |
-| pixel-schematic | rollout-1 | `8c6341e7e618` / `66b128e099ee` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
+| pixel-schematic | rollout-2 | `5e3082bd99c8` / `66b128e099ee` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | terminal | rollout-1 | `3a43b8f401de` / `2cbecdab00e1` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
-| circuit-route | rollout-1 | `1eb1b072baf1` / `178d4489ed41` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
+| circuit-route | rollout-2 | `ee5a249bdeb3` / `178d4489ed41` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | transit-wayfinding | rollout-1 | `7bacaf24fe51` / `65571269457c` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | modular-geometric | rollout-1 | `b9ed32e55af0` / `ada95132ec76` | 720 × 400 | 7 native; no alternatives needed | Pending manager exact-asset review |
 | luminous-glass | rollout-1 | `ddf20c9bd085` / `17c0baaadbbb` | 640 × 360 | 7 native; no alternatives needed | Pending manager exact-asset review |

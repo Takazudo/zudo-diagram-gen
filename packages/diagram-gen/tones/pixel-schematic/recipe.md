@@ -59,3 +59,7 @@ Authored from this tone’s local original construction: discrete eight-unit gri
 
 - **layout**: Change panel count, spacing, connectors and line breaks for the actual brief; this evidence composition is not a mandatory page template.
 - **native-variation**: Author new silhouettes using this construction; explain intentional preferred-rule departures.
+
+## Label clearance — rollout-2
+
+Keep the authored outer frame and decorative substrate paths separate from Japanese warning/footer glyphs and the literal vacancy label. Construction marks must never cross the reading route. These clearance fixes preserve the stepped or right-angle native picture construction and factual labels; actual image review remains required.

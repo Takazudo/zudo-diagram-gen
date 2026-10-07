@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "toneId": "offset-blocks",
-  "toneRevision": "rollout-1",
+  "toneRevision": "rollout-2",
   "collectionVersion": "0.1.0",
   "coordinateSystem": {
     "viewBox": [0, 0, 720, 400],
@@ -11,7 +11,8 @@
     "strokeWidths": {
       "outline": 3,
       "connector": 4,
-      "detail": 3
+      "detail": 3,
+      "check": 5
     },
     "radii": {
       "card": 0,

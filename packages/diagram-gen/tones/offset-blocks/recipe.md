@@ -58,3 +58,9 @@ Authored from this tone’s local original construction: square keylines; flat d
 
 - **layout**: Change panel count, spacing, connectors and line breaks for the actual brief; this evidence composition is not a mandatory page template.
 - **native-variation**: Author new silhouettes using this construction; explain intentional preferred-rule departures.
+
+## Contrast and label clearance — rollout-2
+
+The completed check is a surface-role cutout with an ink keyline on its accent block, preserving square geometry and the hard offset while separating it from both native and remapped backdrops. Place frame and displaced shadow edges clear of warning labels and their marks. Actual palette contrast and label clearance remain visual review obligations.
+
+Its under-keyline width is {{scheme:geometry.strokeWidths.check}} user units; the central surface stroke retains the outline role. The keyline protects the pale native surface against its mustard accent while the cutout separates the check in remapped dark and teal palettes. Both strokes follow the exact same path.

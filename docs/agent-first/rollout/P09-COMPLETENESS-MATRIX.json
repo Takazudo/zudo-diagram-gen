@@ -345,10 +345,10 @@
     },
     {
       "toneId": "offset-blocks",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "85600ce2c79becb49b0cd5870dc229bff1da20a86c4e06994365273e3e8b723c",
-      "kitHash": "4192a18ee6bb3435f33d3bfa37cb9768efe39aef04cf86e392fc5c0cb325ce9f",
+      "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+      "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
       "bundledReferenceHashes": [
         {
           "id": "composition-meaning",
@@ -360,18 +360,18 @@
         },
         {
           "id": "recipe",
-          "hash": "d3cc70fe7e17eeeb5a5b785c28142206a9b2baeb253fe8f1c4beb0c4363fbd34"
+          "hash": "f9f80e1ac644eb83e6f682e81e25708ccbf7f0f84e95ca547160cf73446f1393"
         }
       ],
-      "contextHash": "d2127df0db210f6dd54bea927097707b374ff6577ce377cf527611dc44d5467b",
+      "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631",
       "originalReferenceHashes": {
         "light": "36b407b6da1ab52843fada9472b6b98fc5ff53786b12388a6f771bcb3beb36be",
         "dark": "72cb660fff0855397409caa573a7bf0b3c48c0c8dcbeabd980651af7adcd83c3"
       },
-      "compositionTemplateHash": "8aa223cf95cd9e653b197d926d81d56611f00e75db7b40bf2ceb2ef1f23bd0af",
+      "compositionTemplateHash": "984276b38a00d008028226ae96b30c4efde8fded86fbd781b88c53725202c75b",
       "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
       "sourceHash": "2e92be83fc6c5fe72b94dc87371dbc7ef9fe0b8bf01a0aadbdcf0262451bcf2f",
-      "recipeHash": "d3cc70fe7e17eeeb5a5b785c28142206a9b2baeb253fe8f1c4beb0c4363fbd34",
+      "recipeHash": "f9f80e1ac644eb83e6f682e81e25708ccbf7f0f84e95ca547160cf73446f1393",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -397,56 +397,56 @@
       "evidenceRecords": [
         {
           "name": "offset-blocks-composition-native-light",
-          "assetHash": "2c83f26717f4c674dd204d1409568c1e138b2b5dd080c6b2c3f45618f5dbc9fb",
+          "assetHash": "b0db1209f44a8a6aa0a80fa12d78a384d2fbac5b280c2d30d41116e76a7f1071",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
         },
         {
           "name": "offset-blocks-kit-native-light",
-          "assetHash": "58bde4ac50b3962039c12fcf16ae9f669ee856e8ba07b9b8c2ff377f398ede8d",
+          "assetHash": "849329a6d1e4129b02f5277cbb207582f1453a55112695668356478df750face",
           "theme": "light",
           "paletteMode": "native",
           "kind": "kit"
         },
         {
           "name": "offset-blocks-composition-native-dark",
-          "assetHash": "0ae574a5a1889252d30fb7cfcdf85bfa1c4baf8148a71e4c9faf8ab0ce6819d7",
+          "assetHash": "b332ed5e048a5f06e6184b464a01db96e385ba512024caf4e8c38c3492de8ca9",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
         },
         {
           "name": "offset-blocks-kit-native-dark",
-          "assetHash": "52fc3b7cabe8cbbf91846925495af9445b26bc2717a8031b19db007c3ccbcc3b",
+          "assetHash": "023a575dd1a3d8617d398845441d872d3787f6fe49370662fa2c5fcf7259b746",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "kit"
         },
         {
           "name": "offset-blocks-composition-alternate-light",
-          "assetHash": "31efe60723b65436c45591adc2d2d3ad2d0af8b52330eacd990e05a20594ff29",
+          "assetHash": "4c0d4879382b336640fca76c6c5098056b83b6112600e71c4a25346260e1d312",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
         },
         {
           "name": "offset-blocks-kit-alternate-light",
-          "assetHash": "e1d922632fd5df4e76f564d56166f85337898585ccd360ef2c6ccf270b38a4dc",
+          "assetHash": "e60d23d75699e1fc8ac8a7f4d2382f7748f35a7ff9cc4d7811f0df1855b422fd",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "kit"
         },
         {
           "name": "offset-blocks-composition-alternate-dark",
-          "assetHash": "016289ba42dd42409a9ef0b2dcc4ff4033a301b9ddd2b0dc362281e849ea06f4",
+          "assetHash": "3c98be9b20f6b593b5bbb4896c54f43aabcd6de6085c41df59a466ecb7b4540c",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
         },
         {
           "name": "offset-blocks-kit-alternate-dark",
-          "assetHash": "b1c3cba18821865a8e68f74d337c2f26c2040dadba76bd43de91cba6c2d0b1af",
+          "assetHash": "53ce127c42be646d9ab5d8f675dd19c72b40da2ed04f01e869d4b7726eeb59e7",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "kit"
@@ -2170,9 +2170,9 @@
     },
     {
       "toneId": "pixel-schematic",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "8c6341e7e618e982e67321b9950dbec579b81e7ba5be830201c5005b50b03446",
+      "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
       "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
       "bundledReferenceHashes": [
         {
@@ -2185,18 +2185,18 @@
         },
         {
           "id": "recipe",
-          "hash": "e397f9fe43a517b13c599f2839dad6fc8c65f703391979a7af562066a673a8b2"
+          "hash": "2b6a704f28db5ca3eecd268461cbdf794376c8d472b4eeb5a165c840e81ef8fc"
         }
       ],
-      "contextHash": "dc10df9ad27cc4e6a09afdabaa7198d16e10d5da2b04285f90f745f451d66b70",
+      "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb",
       "originalReferenceHashes": {
         "light": "19e047dfffa9a35e367402b1fd737f3fe9ae2f45b4769969b7d5daeee434a850",
         "dark": "24b18e66641ac2f3c4624cf806d4da06a3dfcbcdf4e10b723405e833f1aa4ff5"
       },
-      "compositionTemplateHash": "bef4078e707001c8527a87ee595335680e138f67fa016f7f7f60f6c56ef81b6c",
+      "compositionTemplateHash": "65c6e146b75f48808fbc2b99a261ae50e0d41978ae86b244afff0c9167967a65",
       "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
       "sourceHash": "702f57a516e2fa76af12d93ffbcddb30d7e23824873b12a39ae162a669384177",
-      "recipeHash": "e397f9fe43a517b13c599f2839dad6fc8c65f703391979a7af562066a673a8b2",
+      "recipeHash": "2b6a704f28db5ca3eecd268461cbdf794376c8d472b4eeb5a165c840e81ef8fc",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -2222,7 +2222,7 @@
       "evidenceRecords": [
         {
           "name": "pixel-schematic-composition-native-light",
-          "assetHash": "62680513a691561ca8c118a139b640526b7c69a2bcfb50fc667083d1d7eacb8c",
+          "assetHash": "40ae5e940cf0fe37a03dc19f915ffaf45c637fba06054df3df192f6b9dd50ee8",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -2236,7 +2236,7 @@
         },
         {
           "name": "pixel-schematic-composition-native-dark",
-          "assetHash": "8e5a77a450d111e58eafdf229d7e608cc1a9fe436c68ca9888e1c8db5a4b3654",
+          "assetHash": "51d15b40703c6d8162ae487ea8abca1ecc5bbd920a13b3e20cb2839797f36821",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -2250,7 +2250,7 @@
         },
         {
           "name": "pixel-schematic-composition-alternate-light",
-          "assetHash": "4d4323c06f63658ee672467151a6fd633af129aedf064c595815c1358a3702e8",
+          "assetHash": "b4ad9459415c66508c89097136fe449cfccfd4c928210fa2111ffe63bb06564f",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -2264,7 +2264,7 @@
         },
         {
           "name": "pixel-schematic-composition-alternate-dark",
-          "assetHash": "74d5175dae2f92eadb9957894e8a103fcbb8fd92393cd8eef7e1e47e02ed57a3",
+          "assetHash": "f2b6e91c923324f7a8f0586d2ec32072b270a75ad6ff16c4870bd6aa366fe95f",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -2398,9 +2398,9 @@
     },
     {
       "toneId": "circuit-route",
-      "toneRevision": "rollout-1",
+      "toneRevision": "rollout-2",
       "collectionVersion": "0.1.0",
-      "schemeHash": "1eb1b072baf1ab59eb2c8b77cafcc24a0a447f485d9e0a878dcc540e14de1c2a",
+      "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
       "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
       "bundledReferenceHashes": [
         {
@@ -2413,18 +2413,18 @@
         },
         {
           "id": "recipe",
-          "hash": "f717d6ec3f7fbb9cd82a66e0c2e224f2bc4dd8cd4fcdf94af9401d57f5467a2d"
+          "hash": "97ce44fd47cf7d174c368516c8f1f4d7395a03735548cad53cbbb8aaa94f05e0"
         }
       ],
-      "contextHash": "78c57977da6d4febc69cd8d5f447b67a0a64ce920b970eda1743fc4ff3f9e8f7",
+      "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7",
       "originalReferenceHashes": {
         "light": "b38b1d39a0387dbf6a803fd5c6b21e8b2d672db280d98d3f25af791c33714c97",
         "dark": "c4be03b35b5e6c3e6c954fc511c9bdc45d878841b4463b000da0ac04781e2e6c"
       },
-      "compositionTemplateHash": "b5b5cf4adf085ee22f2450d5dfc55f376bcdf11f227d0b8ee1f6678ecd072abe",
+      "compositionTemplateHash": "cc1aaf50abd78d19f1b41bcf9de4b6d31325eb07083716f526b45b5980e434d1",
       "compositionInstancesHash": "18c3dc53270a8b9f0f8072e02b6151ef444a4190d3dee95b4bb3cc4e5b5cdbcc",
       "sourceHash": "bdd3ee3ded8719b72548bfca7de88db879fe8a928dcd0d6a2eea22d71689e5c6",
-      "recipeHash": "f717d6ec3f7fbb9cd82a66e0c2e224f2bc4dd8cd4fcdf94af9401d57f5467a2d",
+      "recipeHash": "97ce44fd47cf7d174c368516c8f1f4d7395a03735548cad53cbbb8aaa94f05e0",
       "primitiveAlternatives": {},
       "primitives": ["person", "pin", "slot-card", "empty-seat", "arrow", "check", "clock"],
       "fonts": {
@@ -2450,7 +2450,7 @@
       "evidenceRecords": [
         {
           "name": "circuit-route-composition-native-light",
-          "assetHash": "efa8b52e4f7b7d8bca6fe3b0860ff43b776ad9d87e97d445637303d3d88e87a2",
+          "assetHash": "c04636962cf339041397aada15b61d25b4b883cbf9635ca8b8b89b63b8d489c1",
           "theme": "light",
           "paletteMode": "native",
           "kind": "composition"
@@ -2464,7 +2464,7 @@
         },
         {
           "name": "circuit-route-composition-native-dark",
-          "assetHash": "4311c9643189d3e29ce7ae465ce89263701cbf78b1b71ae67d1ff6806e77555f",
+          "assetHash": "ebec0ac04c61a53a63ccf89e6314fb5f49a2343b99bef887b3a4bbc8dac50ad5",
           "theme": "dark",
           "paletteMode": "native",
           "kind": "composition"
@@ -2478,7 +2478,7 @@
         },
         {
           "name": "circuit-route-composition-alternate-light",
-          "assetHash": "5cf1964826279c0a6346aea227f79b2383dc10e05fa34484f33a9b419225802a",
+          "assetHash": "763b74729dbc954949d254f754fffe6e4f287ab607b1f8141e1a5c568d3b7e1c",
           "theme": "light",
           "paletteMode": "alternate",
           "kind": "composition"
@@ -2492,7 +2492,7 @@
         },
         {
           "name": "circuit-route-composition-alternate-dark",
-          "assetHash": "f9497091523c612c5548a54423bc7968a310bb3737ce34cfdca604b4b7f44d9a",
+          "assetHash": "6ec290d38c7e6cb54c5f3e952cf36917cbb4b9327b67bca3e3ab67bbe01d6511",
           "theme": "dark",
           "paletteMode": "alternate",
           "kind": "composition"
