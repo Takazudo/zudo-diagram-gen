@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "toneId": "pixel-schematic",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 8,
+      "detail": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "quiet": 0.35
+    },
+    "layers": {
+      "offset": {
+        "dx": 0,
+        "dy": 0,
+        "opacity": 1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#292E36",
+      "surface": "#F4F0E5",
+      "border": "#B5D4A9",
+      "accent": "#6978DF",
+      "deep": "#B5D4A9",
+      "warning": "#A64D35"
+    },
+    "dark": {
+      "ink": "#FBF1D9",
+      "surface": "#20252F",
+      "border": "#93C0AB",
+      "accent": "#929EF9",
+      "deep": "#93C0AB",
+      "warning": "#EAAA83"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 30,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 26,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "discrete eight-unit grid; filled stepped silhouettes and hard raster edges; preserve actual directions and supported joins.",
+    "people": "The authored person mark follows discrete eight-unit grid; filled stepped silhouettes and hard raster edges; no face or gender cues.",
+    "empty": "An unoccupied chair with explicit empty label; no body in its negative space.",
+    "pending": "Use the authored clock beside an explicit pending label; never infer completed status.",
+    "emphasis": "Accent identifies the teaching point; decorative structure never introduces facts.",
+    "warning": "Warning role accompanies literal warning text and a distinct mark, never color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Construct related objects with discrete eight-unit grid; filled stepped silhouettes and hard raster edges. Preserve this geometry when remapping palette."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Keep exact brief facts, counts and directions; separate empty, pending and complete. Inspect upright Japanese labels at actual placement."
+      },
+      {
+        "id": "semantic-palette",
+        "description": "Declare palette roles on every color-bearing mark. Ink carries readable content; surface is backing; border construction; accent emphasis; deep subordinate planes; warning explicitly labeled risk."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Keep labels outside small marks; use sparse subordinate geometry and generous negative space."
+      },
+      {
+        "id": "integer-scaling",
+        "description": "Prefer integer display scaling and inspect interpolation; keep actual text instead of microscopic pixel lettering."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Change panel count, spacing, connectors and line breaks for the actual brief; this evidence composition is not a mandatory page template."
+      },
+      {
+        "id": "native-variation",
+        "description": "Author new silhouettes using this construction; explain intentional preferred-rule departures."
+      }
+    ]
+  }
+}

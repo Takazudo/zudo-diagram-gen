@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><title>technical-blueprint native primitives</title><defs>
+<symbol id="person" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><circle cx="32" cy="19" r="10"/><path d="M12 56V43H52V56M6 6H16M11 1V11M48 6H58M53 1V11"/></g></symbol>
+<symbol id="pin" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><path d="M20 8H44V32L32 52 20 32Z"/><circle cx="32" cy="22" r="5"/><path d="M8 52H56M8 48V56M56 48V56"/></g></symbol>
+<symbol id="slot-card" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><rect x="8" y="12" width="48" height="40"/><path d="M12 8V4M52 8V4M12 6H52M16 25H48M16 38H36"/></g></symbol>
+<symbol id="empty-seat" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><path d="M16 8V38H50V48M16 38V54M46 48V54M20 28H48V38"/><path d="M6 58H58"/></g></symbol>
+<symbol id="arrow" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><path d="M4 44H24V20H57M48 12L57 20 48 28M24 16V24M20 20H28"/></g></symbol>
+<symbol id="check" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><path d="M10 32L25 47 54 15M8 8H18M13 3V13"/></g></symbol>
+<symbol id="clock" viewBox="0 0 64 64"><g fill="none" stroke="{{palette:ink}}" data-palette-stroke="ink" stroke-width="{{scheme:geometry.strokeWidths.outline}}"><circle cx="32" cy="32" r="23"/><path d="M32 12V32H46M8 6H56M8 3V9M56 3V9"/></g></symbol>
+</defs></svg>

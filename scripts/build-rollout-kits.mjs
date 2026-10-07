@@ -16,7 +16,7 @@ const xml = (value) =>
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;');
 
-export function compileRolloutKit(template, scheme) {
+export function compileAuthoringTemplate(template, scheme) {
   validateToneScheme(scheme);
   let result = template.replace(/\{\{palette:([A-Za-z]+)\}\}/g, (_, role) => {
     if (!Object.hasOwn(scheme.palette.light, role))
@@ -30,6 +30,11 @@ export function compileRolloutKit(template, scheme) {
   });
   result = renderSchemeRecipe(result, scheme);
   if (/\{\{|\}\}/.test(result)) throw new Error('Unresolved rollout authoring placeholder.');
+  return result;
+}
+
+export function compileRolloutKit(template, scheme) {
+  const result = compileAuthoringTemplate(template, scheme);
   validateMaterializationKit(result, scheme);
   return result.replace(
     '<svg ',

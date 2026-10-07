@@ -119,7 +119,8 @@
         "Reverse labels or details out of the solid forms only where contrast remains strong.",
         "Use the same contour logic for all inputs and outputs; keep the composition visually balanced.",
         "Reduce internal decoration before reducing label size.",
-        "Judge the solid drawing beside its actual help text because the black mass carries substantial visual weight."
+        "Judge the solid drawing beside its actual help text because the black mass carries substantial visual weight.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": ["Compact spots and monochrome documentation"],
       "smallSizeNotes": "High visual weight competes with dense explanatory copy.",
@@ -152,7 +153,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "ink-silhouette/scheme.json",
+      "kit": "ink-silhouette/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "offset-blocks",
@@ -165,7 +169,8 @@
         "Keep shadows flat and geometrically related to the objects; avoid soft ambient blur.",
         "Reserve the strongest accent for the result or active teaching point.",
         "Use direct chunky connectors and keep them clear of the displaced shadow edges.",
-        "Omit the shadow treatment when the project's design contract disallows it."
+        "Omit the shadow treatment when the project's design contract disallows it.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": ["Expressive utilities", "creative tool onboarding"],
       "smallSizeNotes": "Avoid shadows in projects whose design rules disallow them.",
@@ -198,7 +203,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "offset-blocks/scheme.json",
+      "kit": "offset-blocks/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "editorial-serif",
@@ -257,7 +265,8 @@
         "Use plain typography, a clear hierarchy, and a small number of bold accent fields.",
         "Use numerical labels only when the content actually has an order.",
         "Keep whitespace deliberate and repeat spacing rules across every panel.",
-        "Reduce the size or intensity of accent areas when the drawing competes with surrounding controls."
+        "Reduce the size or intensity of accent areas when the drawing competes with surrounding controls.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": ["Instruction sequences and structured manuals"],
       "smallSizeNotes": "Expressive accent fields need discipline beside neutral UI.",
@@ -294,7 +303,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "swiss-grid/scheme.json",
+      "kit": "swiss-grid/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "ui-miniature",
@@ -307,7 +319,8 @@
         "Represent controls and layers with a few legible rows or shapes; emphasize one meaningful state or action.",
         "Use project colors and corner rules for surfaces, dividers, and the active item.",
         "Keep labels outside tiny chrome where possible; use real product terminology.",
-        "Describe the output as a conceptual miniature unless it is an exact screenshot or control map."
+        "Describe the output as a conceptual miniature unless it is an exact screenshot or control map.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": ["In-app help closely tied to recognizable interface structure"],
       "smallSizeNotes": "A conceptual reconstruction; it is not a screenshot or exact control map.",
@@ -344,7 +357,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "ui-miniature/scheme.json",
+      "kit": "ui-miniature/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "contour-wash",
@@ -407,7 +423,8 @@
         "Use measurement leaders only for real dimensions; decorative drafting marks must not invent product specifications.",
         "Separate strong explanatory lines from low-contrast construction lines.",
         "Keep labels upright and sparse, reserving the bright accent for the main connection or result.",
-        "Retain the intentionally dark blueprint surface when using this reference; both appearance variants are dark."
+        "Retain the intentionally dark blueprint surface when using this reference; both appearance variants are dark.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Layer relationships",
@@ -445,7 +462,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "technical-blueprint/scheme.json",
+      "kit": "technical-blueprint/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "isometric-wire",
@@ -936,7 +956,8 @@
         "Use stepped corners, hard edges, and chunky directional glyphs.",
         "Keep instructional text large and real rather than simulating unreadably tiny pixel lettering.",
         "Use a few strongly separated colors and preserve gaps between adjacent forms.",
-        "Prefer integer scaling when possible, and inspect browser interpolation at the target width."
+        "Prefer integer scaling when possible, and inspect browser interpolation at the target width.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Playful utilities",
@@ -974,7 +995,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "pixel-schematic/scheme.json",
+      "kit": "pixel-schematic/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "terminal",
@@ -987,7 +1011,8 @@
         "Limit bright phosphor colors to important entities and paths.",
         "Use actual SVG shapes for the diagram while retaining terminal character in typography and framing.",
         "Keep the dark canvas open and avoid dense simulated terminal output around the explanation.",
-        "Both supplied appearance variants retain the intrinsic dark terminal identity."
+        "Both supplied appearance variants retain the intrinsic dark terminal identity.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Developer utilities",
@@ -1025,7 +1050,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "terminal/scheme.json",
+      "kit": "terminal/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "circuit-route",
@@ -1038,7 +1066,8 @@
         "Distinguish actual explanatory connections from decorative substrate details.",
         "Keep route colors meaningful and stable across the documentation set.",
         "Use a restrained substrate palette and high-contrast short labels.",
-        "For real signal diagrams preserve the application's audio, CV, gate, or other semantic color assignments."
+        "For real signal diagrams preserve the application's audio, CV, gate, or other semantic color assignments.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Hardware-related tools",
@@ -1075,7 +1104,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "circuit-route/scheme.json",
+      "kit": "circuit-route/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "transit-wayfinding",
@@ -1088,7 +1120,8 @@
         "Assign route colors to meaningful input or process categories and retain those meanings.",
         "Place bold labels beside stations and keep them clear of branches.",
         "Show only the branches and destinations that the product actually supports.",
-        "Reduce station detail and route complexity for small diagrams without changing the explanation."
+        "Reduce station detail and route complexity for small diagrams without changing the explanation.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Multi-step product help",
@@ -1126,7 +1159,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "transit-wayfinding/scheme.json",
+      "kit": "transit-wayfinding/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "modular-geometric",
@@ -1139,7 +1175,8 @@
         "Use deliberate open space and a limited balanced palette.",
         "Keep explanatory connectors simple enough to read separately from decorative geometry.",
         "Repeat motifs only when their relationship to the source and assembled result stays understandable.",
-        "Use a separate control reference when the reader needs to locate an exact interface element."
+        "Use a separate control reference when the reader needs to locate an exact interface element.",
+        "Native pack: outline {{scheme:geometry.strokeWidths.outline}}, connector {{scheme:geometry.strokeWidths.connector}} user units; label {{scheme:typography.label.fontSize}} with minimum {{scheme:typography.label.minCssPx}} CSS pixels. Read scheme and kit together; actual placement inspection remains required."
       ],
       "goodFor": [
         "Creative tools",
@@ -1177,7 +1214,10 @@
           "path": "shared/provenance.md",
           "required": true
         }
-      ]
+      ],
+      "scheme": "modular-geometric/scheme.json",
+      "kit": "modular-geometric/kit.svg",
+      "toneRevision": "rollout-1"
     },
     {
       "id": "luminous-glass",

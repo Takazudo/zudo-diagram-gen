@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "width": 720,
+  "height": 400,
+  "title": "予約状況の確認",
+  "description": "Two users, an explicitly unoccupied seat, and pending confirmation remain distinct; completion occurs only after confirmation. Public invented preparation, not a user decision.",
+  "instances": [
+    {
+      "id": "person-a",
+      "primitive": "person",
+      "x": 58,
+      "y": 112,
+      "width": 72,
+      "height": 96
+    },
+    {
+      "id": "person-b",
+      "primitive": "person",
+      "x": 134,
+      "y": 112,
+      "width": 72,
+      "height": 96
+    },
+    {
+      "id": "vacancy",
+      "primitive": "empty-seat",
+      "x": 285,
+      "y": 112,
+      "width": 96,
+      "height": 96
+    },
+    {
+      "id": "pending",
+      "primitive": "clock",
+      "x": 536,
+      "y": 112,
+      "width": 96,
+      "height": 96
+    },
+    {
+      "id": "route-a",
+      "primitive": "arrow",
+      "x": 214,
+      "y": 132,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "id": "route-b",
+      "primitive": "arrow",
+      "x": 426,
+      "y": 132,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "id": "complete",
+      "primitive": "check",
+      "x": 590,
+      "y": 270,
+      "width": 48,
+      "height": 48
+    }
+  ]
+}
