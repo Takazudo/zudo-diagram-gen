@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "pencil-notebook",
+  "toneRevision": "pilot-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1.7,
+      "connector": 1.9,
+      "detail": 0.8,
+      "hatch": 1.1,
+      "rule": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "trace": 0.65,
+      "hatch": 0.55,
+      "rule": 0.35
+    },
+    "layers": {
+      "trace": {
+        "dx": 1.4,
+        "dy": -1.2,
+        "opacity": 0.65
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#4B4943",
+      "surface": "#FAF6EE",
+      "border": "#DDDCD1",
+      "accent": "#A76955",
+      "deep": "#A79C86",
+      "warning": "#AA624F"
+    },
+    "dark": {
+      "ink": "#E0DFD2",
+      "surface": "#303430",
+      "border": "#454B44",
+      "accent": "#D2937B",
+      "deep": "#969D8E",
+      "warning": "#EABBA8"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "seeded-pencil-hatch",
+    "seed": 1307,
+    "amplitude": 1.4,
+    "frequency": 8
+  },
+  "composition": {
+    "arrows": "A gently imperfect ink path plus lighter retrace, ending in an open asymmetrical arrowhead.",
+    "people": "An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.",
+    "empty": "An irregular open chair with a visible vacant seat and explicit empty label; hatch only its back.",
+    "pending": "Use a retraced clock next to the waiting object and retain its pending label.",
+    "emphasis": "Reserve the muted accent for a short underline or teaching mark; never hatch the label area.",
+    "warning": "Use a handwritten-looking contour around an upright warning label; preserve the exact text."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Use a decisive imperfect main contour with a lighter displaced secondary trace and sparse seeded hatching."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Notebook ruling stays subordinate to every label and essential route; remove ruling locally behind text."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Keep arrowheads unambiguous and text upright; express the hand through geometry rather than distorted Japanese glyphs."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      }
+    ]
+  }
+}

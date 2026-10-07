@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "toneId": "paper-layers",
+  "toneRevision": "pilot-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 2.1,
+      "detail": 1.5
+    },
+    "radii": {
+      "card": 0,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "shadow": 0.65
+    },
+    "layers": {
+      "shadow": {
+        "dx": 7,
+        "dy": 7,
+        "opacity": 0.65
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#35494C",
+      "surface": "#FFFCF4",
+      "border": "#D8D0C2",
+      "accent": "#CC754E",
+      "deep": "#769D9A",
+      "warning": "#A9513C"
+    },
+    "dark": {
+      "ink": "#E8ECE5",
+      "surface": "#394545",
+      "border": "#182121",
+      "accent": "#C78360",
+      "deep": "#739D99",
+      "warning": "#EAB69B"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "A slim curved ink route joins sheets; a cut triangular tip indicates direction without becoming another sheet.",
+    "people": "Separate cut-paper head, shoulders and torso overlap; a backing silhouette exposes the paper depth.",
+    "empty": "A cut chair from separate back, seat and legs, with visible vacancy; label the seat explicitly.",
+    "pending": "Place a cut clock disk and pointer alongside the waiting sheet; retain the pending label.",
+    "emphasis": "Overlap an accent cutout on a quiet sheet without obscuring the source/destination relationship.",
+    "warning": "Use a distinct labeled paper tab rather than an alarming shadow or extra data layer."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Build cut-paper silhouettes from overlapping planar pieces with visible cut edges and one offset shadow direction."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Keep paper edges visible around labels; shadows and rotations must never imply extra factual objects."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Retain editorial spacing and optional serif sample lettering; required Japanese labels remain upright in the declared readable font."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      }
+    ]
+  }
+}

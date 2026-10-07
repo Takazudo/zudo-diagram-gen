@@ -612,6 +612,18 @@ def reading_guide(slug: str) -> str:
     return "Pattern and Text identify the two input layers. Aa is a lettering preview; MAKE SOMETHING is sample copy in their combined composition. PNG identifies the exported image. The connectors show that both inputs contribute to one result, not that text is transformed into a pattern."
 
 
+def drawing_recipe(entry: dict) -> str:
+    rows = []
+    for index, row in enumerate(entry["recipe"]):
+        bindings = "".join(
+            f" <!-- scheme:{binding['path']}={binding['value']} -->"
+            for binding in entry.get("recipeNumericReferences", [])
+            if binding["recipeIndex"] == index
+        )
+        rows.append("- " + row + bindings)
+    return "\n".join(rows)
+
+
 def build_tones(out: Path, atlas: Path | None) -> list[dict]:
     tones_root = out / "packages/diagram-gen/tones"
     bundled_root = ROOT / "packages/diagram-gen/tones"
@@ -649,23 +661,51 @@ def build_tones(out: Path, atlas: Path | None) -> list[dict]:
                 {"id": "provenance", "title": "Original content and redistribution decisions", "path": "shared/provenance.md", "required": True}
             ]
         }
-        for field in ("scheme", "kit", "toneRevision"):
+        for field in ("scheme", "kit", "toneRevision", "recipeNumericReferences"):
             if field in previous.get(slug, {}):
                 entry[field] = previous[slug][field]
                 if field in ("scheme", "kit") and isinstance(entry[field], str):
                     source_root = tones_root if (tones_root / entry[field]).is_file() else bundled_root
                     copy_asset(source_root / entry[field], tones_root / entry[field])
+        if "scheme" in entry:
+            # Authored recipe templates and checked numeric references must survive
+            # regeneration; RECIPES is only the legacy, nonscheme source.
+            entry["recipe"] = previous[slug]["recipe"]
+            template_path = Path(slug) / "kit.template.svg"
+            source_root = tones_root if (tones_root / template_path).is_file() else bundled_root
+            if (source_root / template_path).is_file():
+                copy_asset(source_root / template_path, tones_root / template_path)
         catalog.append(entry)
         recipe = f"# {tone['id']} {tone['name']}\n\n{tone['description']}\n\n"
         recipe += "This profile describes an original exploratory drawing. The linked external references informed broad construction principles; this SVG is not a copied brand asset. Project facts and design rules take precedence over its sample palette.\n\n"
-        recipe += "## Drawing recipe\n\n" + "\n".join("- " + row for row in RECIPES[slug]) + "\n\n"
+        recipe += "## Drawing recipe\n\n" + drawing_recipe(entry) + "\n\n"
         recipe += "## Useful placements\n\n" + tone["bestFor"] + "\n\n## Size and theme notes\n\n" + small + "\n\n"
-        recipe += "The supplied artwork has a 720 × 400 viewBox. Most essential labels are at least 26 units tall; at 360px display width that is approximately 13px. Check the actual host slot, longer translations, and available fonts before integration.\n\n"
+        if "scheme" in entry:
+            recipe += "The original example is preserved. The pilot canvas uses {{scheme:coordinateSystem.viewBox.2}} × {{scheme:coordinateSystem.viewBox.3}} user units. Essential pilot labels use fontSize {{scheme:typography.label.fontSize}}, with minimum {{scheme:typography.label.minCssPx}}px after contain placement. Check actual line breaks, Japanese glyphs, transformations and overlap; nominal size is not readability evidence.\n\n"
+        else:
+            recipe += "The supplied artwork has a 720 × 400 viewBox. Most essential labels are at least 26 units tall; at 360px display width that is approximately 13px. Check the actual host slot, longer translations, and available fonts before integration.\n\n"
         recipe += "`light.svg` and `dark.svg` are self-contained literal-color exports intended for an image element. `source.svg` retains theme variables and is an editable reference; changing its root `data-theme` selects the palette when the SVG's CSS is supported. Both exports retain editable text and geometry.\n\n"
         recipe += "## Shared example meaning\n\nA pattern background and a text layer combine into a composition that can be exported as an image. The example uses PNG as its export label. The shapes and sample typography are invented teaching material, not screenshots. Optional image layers and saving are omitted.\n\n"
         recipe += "Read the bundled [composition meaning and glossary](../shared/composition-meaning.md) for the full input/output vocabulary and [provenance decisions](../shared/provenance.md) for reuse limits.\n\n"
         recipe += "## Reading this drawing\n\n" + reading_guide(slug) + "\n\n"
         recipe += "## Optional public inspiration\n\nThese links explain broad visual construction principles. Reading them is optional; all example meaning is bundled locally.\n\n" + "\n".join(f"- [{r['title']}]({r['url']})" for r in entry["sourceReferences"]) + "\n"
+        if "scheme" in entry:
+            try:
+                scheme = json.loads((tones_root / entry["scheme"]).read_text())
+            except json.JSONDecodeError:
+                scheme = None
+            # Unknown future scheme formats are copied opaquely; runtime validation
+            # remains responsible for rejecting unsupported or malformed resources.
+            if isinstance(scheme, dict) and scheme.get("schemaVersion") == 1:
+                recipe += "\n## Pilot scheme and kit — authored revision " + scheme["toneRevision"] + "\n\n"
+                recipe += "The scheme is the numeric authority for new pilot drawings; original example geometry stays unchanged. Read `scheme.json` and the seven symbols in `kit.svg` together. `kit.template.svg` is authoring source, checked in this repository by `node scripts/build-pilot-kits.mjs --check`; it is not a runtime materialization API. Palette-bearing marks carry semantic attributes and literal light defaults. Inline needed geometry for a self-contained candidate and use the common experiment palette; do not reference the kit as an external image.\n\n"
+                recipe += "Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. These expressions resolve from the scheme; do not copy their values into an independent recipe.\n\n"
+                for group in ("required", "preferred", "flexible"):
+                    recipe += "### " + group.capitalize() + "\n\n"
+                    recipe += "\n".join("- **" + rule["id"] + "**: " + rule["description"] for rule in scheme["rules"][group]) + "\n\n"
+                recipe += "### Composition vocabulary\n\n"
+                recipe += "\n".join("- **" + role + "**: " + description for role, description in scheme["composition"].items()) + "\n\n"
+                recipe += "This pack is prepared for the frozen paired pilot, not accepted by a visual gate. Schemas, deterministic generation and nominal text size cannot establish tone character, factual accuracy or Japanese readability. No fixture is user approval.\n"
         (target / "recipe.md").write_text(recipe)
     write_json(tones_root / "catalog.json", {"schemaVersion": 1, "version": VERSION, "tones": catalog})
     return catalog
