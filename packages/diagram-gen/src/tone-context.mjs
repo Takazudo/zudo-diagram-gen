@@ -196,12 +196,14 @@ export function validatePalette(palette) {
   canonicalJson(palette);
   return palette;
 }
-export function validateToneScheme(scheme, { toneId, collectionVersion } = {}) {
+export function validateToneScheme(scheme, { toneId, toneRevision, collectionVersion } = {}) {
   const errors = schemaErrors(scheme, schemeSchema, 'scheme');
   if (toneId !== undefined && scheme?.toneId !== toneId)
     errors.push(`scheme.toneId: must match catalog identity ${toneId}.`);
   if (collectionVersion !== undefined && scheme?.collectionVersion !== collectionVersion)
     errors.push(`scheme.collectionVersion: must match catalog version ${collectionVersion}.`);
+  if (toneRevision !== undefined && scheme?.toneRevision !== toneRevision)
+    errors.push(`scheme.toneRevision: must match catalog revision ${toneRevision}.`);
   const ids = new Set();
   for (const group of ['required', 'preferred', 'flexible'])
     for (const rule of Array.isArray(scheme?.rules?.[group]) ? scheme.rules[group] : []) {
@@ -429,6 +431,11 @@ export async function resolveToneResources(
   { requireComplete = false } = {},
 ) {
   const { safeRead, validateSvg } = await import('./model.mjs');
+  if (
+    tone.toneRevision !== undefined &&
+    (typeof tone.toneRevision !== 'string' || !tone.toneRevision.trim())
+  )
+    throw new Error(`${tone.id}: toneRevision must be a nonempty authored revision.`);
   const diagnostics = [];
   const bundledReferences = [];
   const descriptorIds = new Set();
@@ -449,15 +456,23 @@ export async function resolveToneResources(
     if (descriptorIds.has(descriptor.id))
       throw new Error(`${tone.id}: duplicate bundled reference ${descriptor.id}.`);
     descriptorIds.add(descriptor.id);
-    if (typeof descriptor.path !== 'string' || !/\.(?:md|json)$/i.test(descriptor.path))
-      throw new Error(`${tone.id}: bundled references must be Markdown or JSON paths.`);
+    if (typeof descriptor.path !== 'string' || !/\.(?:md|json|svg)$/i.test(descriptor.path))
+      throw new Error(`${tone.id}: bundled references must be Markdown, JSON or SVG paths.`);
     // safeRead validates the path even if optional; distinguish ENOENT with a
     // separate lstat only after a policy-safe read attempt has failed.
     try {
-      const content = await safeRead(root, descriptor.path);
+      const isSvg = /\.svg$/i.test(descriptor.path);
+      const content = await safeRead(root, descriptor.path, {
+        limit: (isSvg ? 16 : 1) * 1024 * 1024,
+      });
       if (!content.trim())
         throw new Error(`${descriptor.path}: bundled explanation must be nonempty.`);
       if (/\.json$/i.test(descriptor.path)) parseJson(content, descriptor.path);
+      if (isSvg) {
+        const errors = [];
+        validateSvg(content, descriptor.path, errors, []);
+        if (errors.length) throw new Error(errors.join('\n'));
+      }
       bundledReferences.push({
         ...descriptor,
         status: 'resolved',
@@ -489,6 +504,7 @@ export async function resolveToneResources(
       throw new Error(`${tone.id}: scheme must be ${tone.id}/scheme.json.`);
     scheme = validateToneScheme(parseJson(await safeRead(root, tone.scheme), tone.scheme), {
       toneId: tone.id,
+      toneRevision: tone.toneRevision,
       collectionVersion,
     });
   } else
@@ -542,7 +558,7 @@ export async function resolveToneResources(
     .sort((a, b) => compare(a.id, b.id));
   const contextHash = canonicalHash({
     toneId: tone.id,
-    toneRevision: scheme?.toneRevision ?? null,
+    toneRevision: scheme?.toneRevision ?? tone.toneRevision ?? null,
     collectionVersion,
     schemeHash,
     kitHash,

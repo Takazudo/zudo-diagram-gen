@@ -8,6 +8,7 @@ import { promisify } from 'node:util';
 import { test, onTestFinished } from 'vitest';
 import fixtureScheme from './fixtures/tone-scheme.json' with { type: 'json' };
 import schemeSchema from '../schemas/tone-scheme.schema.json' with { type: 'json' };
+import catalogSchema from '../schemas/tone-catalog.schema.json' with { type: 'json' };
 import { loadToneCatalog } from '../src/model.mjs';
 import {
   canonicalHash,
@@ -293,6 +294,69 @@ test('legacy transition is explicit and cannot pass completeness gate', async ()
   );
   const production = await resolveToneContext('fine-outline');
   assert.equal(production.contextVersion, 1);
+});
+
+test('bundled explanatory SVG follows published extension policy and exact-byte 16 MiB resource validation', async () => {
+  const { root, options, tone, catalog } = await fixture();
+  tone.bundledReferences.push({
+    id: 'explanatory-svg',
+    title: 'Visual meaning',
+    path: 'shared/meaning.svg',
+    required: true,
+  });
+  await write(root, 'catalog.json', catalog);
+  const pattern =
+    catalogSchema.properties.tones.items.properties.bundledReferences.items.properties.path.pattern;
+  assert.equal(new RegExp(pattern, 'u').test('shared/meaning.svg'), true);
+  assert.equal(new RegExp(pattern, 'u').test('../meaning.svg'), false);
+  // An SVG larger than the Markdown/JSON budget is still a permitted SVG.
+  const largeSvg = '\uFEFF' + SVG.replace('</svg>', `<!--${'x'.repeat(1024 * 1024)}--></svg>`);
+  await write(root, 'shared/meaning.svg', largeSvg);
+  const resolved = await resolveToneContext('fixture-tone', options);
+  assert.equal(resolved.bundledReferences[1].content, largeSvg);
+  assert.equal(resolved.bundledReferences[1].hash, hashBytes(largeSvg));
+  for (const [content, error] of [
+    ['<svg', /invalid XML/],
+    [
+      SVG.replace('</svg>', '<image href="https://example.com/remote.svg"/></svg>'),
+      /external or unsupported/,
+    ],
+    [SVG.replace('</svg>', '<script>alert(1)</script></svg>'), /not supported/],
+    ['x'.repeat(16 * 1024 * 1024 + 1), /16 MiB/],
+  ]) {
+    await write(root, 'shared/meaning.svg', content);
+    await assert.rejects(resolveToneContext('fixture-tone', options), error);
+  }
+});
+
+test('declared catalog toneRevision is preserved and must match the authored scheme revision', async () => {
+  const { root, options, tone, catalog } = await fixture();
+  tone.toneRevision = 'r1';
+  await write(root, 'catalog.json', catalog);
+  assert.equal((await resolveToneContext('fixture-tone', options)).toneRevision, 'r1');
+  assert.equal((await loadToneCatalog(options)).tones[0].toneRevision, 'r1');
+  tone.toneRevision = 'r2';
+  await write(root, 'catalog.json', catalog);
+  await assert.rejects(
+    resolveToneContext('fixture-tone', options),
+    /must match catalog revision r2/,
+  );
+  tone.toneRevision = ' ';
+  await write(root, 'catalog.json', catalog);
+  await assert.rejects(
+    resolveToneContext('fixture-tone', options),
+    /toneRevision must be a nonempty/,
+  );
+  delete tone.scheme;
+  tone.recipe = ['Legacy recipe'];
+  await write(root, 'fixture-tone/recipe.md', 'Legacy recipe');
+  for (const revision of ['r1', 'r2']) {
+    tone.toneRevision = revision;
+    await write(root, 'catalog.json', catalog);
+    const context = await resolveToneContext('fixture-tone', options);
+    assert.equal(context.capabilities.scheme, false);
+    assert.equal(context.toneRevision, revision);
+  }
 });
 
 test('required missing and malformed resources fail; optional missing returns explicit diagnostic', async () => {

@@ -103,7 +103,7 @@
                 },
                 "path": {
                   "type": "string",
-                  "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)(?!.*[\\\\\\u0000])[^/]+(?:/[^/]+)*\\.(?:[mM][dD]|[jJ][sS][oO][nN])$"
+                  "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)(?!.*[\\\\\\u0000])[^/]+(?:/[^/]+)*\\.(?:[mM][dD]|[jJ][sS][oO][nN]|[sS][vV][gG])$"
                 },
                 "required": {
                   "type": "boolean"
@@ -132,6 +132,9 @@
                 }
               }
             }
+          },
+          "toneRevision": {
+            "$ref": "common.schema.json#/$defs/nonemptyString"
           }
         }
       }

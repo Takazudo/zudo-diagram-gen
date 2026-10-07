@@ -53,6 +53,10 @@ explanation content, source SVG, recipe document, scheme, kit inventory, hashes
 and diagnostics. `tones list --json` retains its collection shape and tone fields;
 it omits resolved bulk content. Resources resolve from the installed package,
 without network access or a dependency on the caller's working directory.
+Bundled explanation descriptors accept Markdown, JSON (1 MiB maximum) and SVG
+(16 MiB maximum). Explanatory SVGs follow the same standalone validation and
+resource containment policy as example SVGs. A declared catalog `toneRevision`
+must be nonempty and match the authored scheme revision when a scheme exists.
 
 Legacy entries report `capabilities: { scheme: false, kit: false }` and null
 resources. They still load. A declared missing or malformed resource fails.

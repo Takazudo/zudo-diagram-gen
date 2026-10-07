@@ -87,7 +87,7 @@ export function canonicalHash(value: unknown): string;
 export function hashBytes(value: string | Uint8Array): string;
 export function validateToneScheme(
   scheme: unknown,
-  identity?: { toneId?: string; collectionVersion?: string },
+  identity?: { toneId?: string; toneRevision?: string; collectionVersion?: string },
 ): ToneScheme;
 export function validatePalette(palette: unknown): Palette;
 export function renderSchemeRecipe(template: string, scheme: ToneScheme): string;

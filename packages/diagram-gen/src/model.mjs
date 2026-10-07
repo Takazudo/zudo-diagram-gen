@@ -717,7 +717,13 @@ export async function loadToneCatalog({ toneRoot = PACKAGE_TONES, requireComplet
       referenceFiles: raw.referenceFiles,
       ...(references.length ? { sourceReferences: references } : {}),
     };
-    for (const key of ['scheme', 'kit', 'bundledReferences', 'recipeNumericReferences'])
+    for (const key of [
+      'scheme',
+      'kit',
+      'toneRevision',
+      'bundledReferences',
+      'recipeNumericReferences',
+    ])
       if (raw[key] !== undefined) tone[key] = raw[key];
     try {
       tone.context = await resolveToneResources(root, tone, catalog.version, { requireComplete });

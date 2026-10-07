@@ -52,6 +52,7 @@ export interface Tone {
   goodFor: string[];
   smallSizeNotes: string;
   referenceFiles: { light: string; dark: string };
+  toneRevision?: string;
   scheme?: string;
   kit?: string;
   bundledReferences?: BundledReference[];
