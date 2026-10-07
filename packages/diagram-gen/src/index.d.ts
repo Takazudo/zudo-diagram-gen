@@ -42,6 +42,7 @@ export interface GalleryData {
   tones?: Tone[];
   contentHash: string;
   placement?: PlacementDescriptor;
+  placementHash?: string;
   placementImages?: Array<{ url: string; x: number; y: number; width: number; height: number }>;
 }
 export interface Tone {
@@ -98,6 +99,105 @@ export function createPageSource(
   options?: Record<string, string>,
   zfbMajor?: 2 | 3,
 ): Promise<string>;
+
+export interface ProjectDiagnostic {
+  code: string;
+  message: string;
+  path: string;
+  sessionId?: string;
+}
+export interface ProjectManifest {
+  schemaVersion: 1;
+  id: string;
+  title: string;
+  sessions: Array<{ id: string; path: string; order: number; placement?: string }>;
+  comparisonSets: Array<{
+    id: string;
+    title: string;
+    toneId: string;
+    entries: Array<{ sessionId: string; candidateId: string; fingerprint: string }>;
+  }>;
+  style?: { revision: string; path: string; hash: string };
+}
+export interface ProjectSession {
+  id: string;
+  path: string;
+  status: 'valid' | 'invalid' | 'missing' | 'stale';
+  data: GalleryData | null;
+  diagnostics: ProjectDiagnostic[];
+  observedHash?: string;
+}
+export interface ProjectData {
+  kind: 'project';
+  schemaVersion: 1;
+  project: ProjectManifest;
+  sessions: ProjectSession[];
+  comparisonSets: Array<
+    ProjectManifest['comparisonSets'][number] & {
+      entries: Array<
+        ProjectManifest['comparisonSets'][number]['entries'][number] & {
+          status: 'valid' | 'invalid' | 'stale';
+          availableThemes: string[];
+        }
+      >;
+      ok: boolean;
+      diagnostics: ProjectDiagnostic[];
+    }
+  >;
+  diagnostics: ProjectDiagnostic[];
+  ok: boolean;
+  contentHash: string;
+}
+export class ProjectValidationError extends Error {
+  diagnostics: ProjectDiagnostic[];
+  errors: string[];
+}
+export function loadProject(
+  root: string,
+  options?: {
+    strict?: boolean;
+    lastValid?: Map<string, { path: string; data: GalleryData }>;
+  },
+): Promise<ProjectData>;
+export function loadContent(
+  root: string,
+  options?: Parameters<typeof loadProject>[1],
+): Promise<GalleryData | ProjectData>;
+export function validateProject(root: string): Promise<{
+  ok: boolean;
+  errors: string[];
+  warnings: string[];
+  diagnostics: ProjectDiagnostic[];
+  summary: { sessions: number; validSessions: number; comparisonSets: number };
+}>;
+export function createProject(options?: {
+  destination?: string;
+  cwd?: string;
+  name?: string;
+  enginePackage?: string;
+  install?: boolean;
+  project?: boolean;
+  brief?: string;
+  sessions?: Array<{
+    slug: string;
+    id?: string;
+    title?: string;
+    target?: GalleryData['session']['target'];
+  }>;
+}): Promise<{
+  directory: string;
+  name: string;
+  sessionId?: string;
+  projectId?: string;
+  title: string;
+  installed: boolean;
+  files: string[];
+}>;
+
+export function adoptGeneratedRoutes(
+  root: string,
+  options: { expectedHashes: Record<string, string> },
+): Promise<{ routes: string[] }>;
 
 export interface PlacementDescriptor {
   schemaVersion: 1;

@@ -15,7 +15,11 @@ try {
     process.stdout.write(`  cd ${shellQuote(result.directory)}\n`);
     if (!result.installed) process.stdout.write('  pnpm install\n');
     process.stdout.write('  pnpm dev\n\n');
-    process.stdout.write('Read AGENTS.md, then add candidates to rounds/r01/.\n');
+    process.stdout.write(
+      result.projectId
+        ? 'Read AGENTS.md, then add candidates to sessions/diagram/rounds/r01/ and register additional sessions in project.json.\n'
+        : 'Read AGENTS.md, then add candidates to rounds/r01/.\n',
+    );
   }
 } catch (error) {
   process.stderr.write(`create-zudo-diagram-gen: ${error.message}\n`);
