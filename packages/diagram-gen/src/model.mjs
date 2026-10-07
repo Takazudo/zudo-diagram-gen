@@ -4,7 +4,9 @@ import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SaxesParser } from 'saxes';
-import { resolveToneResources } from './tone-context.mjs';
+import { resolveToneResources, hashBytes } from './tone-context.mjs';
+import { validateCandidateProvenance, readStyleRevision } from './style.mjs';
+import { atomicSvgExport } from './svg-export.mjs';
 
 const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 const SLUG = /^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?$/;
@@ -492,7 +494,32 @@ async function inspectSession(root) {
         sourcePath,
         assets,
       };
-      candidates.push({ ...normalized, fingerprint: hash(JSON.stringify(normalized)) });
+      let provenance;
+      if (candidate.provenance !== undefined) {
+        try {
+          provenance = validateCandidateProvenance(candidate.provenance);
+        } catch (error) {
+          errors.push(`${sourcePath}: ${error.message}`);
+        }
+      }
+      const assetHashes = Object.fromEntries(
+        Object.entries(assets).map(([theme, text]) => [theme, hashBytes(text)]),
+      );
+      if (
+        candidate.assetHashes !== undefined &&
+        (!record(candidate.assetHashes) ||
+          Object.keys(candidate.assetHashes).some((theme) => !Object.hasOwn(assetHashes, theme)) ||
+          Object.keys(assetHashes).some(
+            (theme) => candidate.assetHashes[theme] !== assetHashes[theme],
+          ))
+      )
+        errors.push(`${sourcePath}: saved asset hash mismatch.`);
+      candidates.push({
+        ...normalized,
+        fingerprint: hash(JSON.stringify(normalized)),
+        assetHashes,
+        ...(provenance ? { provenance } : {}),
+      });
     }
   }
   const byId = new Map(candidates.map((candidate) => [candidate.id, candidate]));
@@ -590,7 +617,11 @@ export async function validateSession(root) {
   };
 }
 
-export async function exportCandidate(root, candidateId, { theme = 'light', output } = {}) {
+export async function exportCandidate(
+  root,
+  candidateId,
+  { theme = 'light', output, resourceRoot } = {},
+) {
   if (!['light', 'dark'].includes(theme))
     throw new Error(`Unsupported theme ${JSON.stringify(theme)}; choose light or dark.`);
   if (typeof output !== 'string' || !output.trim())
@@ -605,39 +636,18 @@ export async function exportCandidate(root, candidateId, { theme = 'light', outp
     throw new Error(
       `Candidate ${candidate.id} has no ${theme} SVG; provide that theme explicitly before exporting it.`,
     );
-  const destination = path.resolve(output);
-  // A typo in --out must never destroy session metadata or original artwork.
-  const realRoot = await fs.realpath(path.resolve(root));
-  let resolvedDestination;
-  try {
-    resolvedDestination = await fs.realpath(destination);
-  } catch (error) {
-    if (error.code !== 'ENOENT') throw error;
-    let parent = path.dirname(destination);
-    const segments = [path.basename(destination)];
-    while (true) {
-      try {
-        resolvedDestination = path.join(await fs.realpath(parent), ...segments);
-        break;
-      } catch (parentError) {
-        if (parentError.code !== 'ENOENT') throw parentError;
-        const next = path.dirname(parent);
-        if (next === parent) throw parentError;
-        segments.unshift(path.basename(parent));
-        parent = next;
-      }
-    }
+  if (candidate.provenance?.styleRevision && resourceRoot) {
+    const snapshot = await readStyleRevision(resourceRoot, candidate.provenance.styleRevision, {
+      expectedHash: candidate.provenance.styleHash,
+    });
+    for (const key of ['schemeHash', 'paletteHash', 'kitHash'])
+      if (
+        candidate.provenance[key] !== undefined &&
+        candidate.provenance[key] !== snapshot.style[key]
+      )
+        throw new Error(`Candidate ${key} differs from saved style revision.`);
   }
-  if (
-    contains(path.join(realRoot, 'rounds'), resolvedDestination) ||
-    ['session.json', 'brief.md'].some((file) => resolvedDestination === path.join(realRoot, file))
-  ) {
-    throw new Error(
-      'Export destination overlaps session source files; choose an exports directory or a file outside the session.',
-    );
-  }
-  await fs.mkdir(path.dirname(destination), { recursive: true });
-  await fs.writeFile(destination, candidate.assets[theme], 'utf8');
+  const destination = await atomicSvgExport(root, output, candidate.assets[theme], resourceRoot);
   return {
     candidateId: candidate.id,
     theme,

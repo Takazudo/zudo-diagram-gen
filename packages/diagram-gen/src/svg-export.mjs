@@ -1,0 +1,46 @@
+import { lstat, realpath, mkdir, writeFile, rename, rm } from 'node:fs/promises';
+import { resolve, dirname, join, parse, relative, isAbsolute } from 'node:path';
+import { randomUUID } from 'node:crypto';
+const contains = (root, file) => {
+  const rel = relative(root, file);
+  return rel === '' || (!rel.startsWith('..') && !isAbsolute(rel));
+};
+async function noLinks(filename) {
+  let current = parse(filename).root;
+  for (const part of filename.slice(current.length).split('/').filter(Boolean)) {
+    current = join(current, part);
+    try {
+      const stat = await lstat(current);
+      if (stat.isSymbolicLink() || (stat.isFile() && stat.nlink > 1))
+        throw new Error('SVG export refuses symbolic links and hard-link aliases.');
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
+  }
+}
+export async function atomicSvgExport(root, output, bytes, resourceRoot = root) {
+  root = await realpath(resolve(root));
+  const destination = resolve(output);
+  await noLinks(destination);
+  const protectedRoot = await realpath(resolve(resourceRoot));
+  if (!contains(protectedRoot, root))
+    throw new Error('Session root must be contained in explicit resourceRoot.');
+  if (
+    contains(protectedRoot, destination) &&
+    !contains(join(protectedRoot, 'exports'), destination) &&
+    !contains(join(root, 'exports'), destination)
+  )
+    throw new Error(
+      'Export destination overlaps session/project source files; use exports/ or a file outside source.',
+    );
+  await mkdir(dirname(destination), { recursive: true });
+  const temporary = join(dirname(destination), `.diagram-svg-${randomUUID()}.tmp`);
+  try {
+    await writeFile(temporary, bytes, { flag: 'wx' });
+    await noLinks(destination);
+    await rename(temporary, destination);
+  } finally {
+    await rm(temporary, { force: true });
+  }
+  return destination;
+}
