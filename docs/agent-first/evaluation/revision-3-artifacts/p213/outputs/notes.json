@@ -1,0 +1,74 @@
+{
+  "tone": "paper-layers",
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "detail": "Used the explicit common light palette instead of the example warm palette. Japanese text stays upright on independent surface sheets; only backing sheets and blank label planes are slightly rotated. Shadows are reduced to 4px and 0.22–0.28 opacity for the small target slots."
+    },
+    {
+      "scope": "all",
+      "detail": "Rebuilt the kit’s four-across, two-row filled arch motif with common deep/accent roles. Motif sheets are nonsemantic backing planes, not additional seats, workflow steps or contents."
+    },
+    {
+      "scope": "long-labels, pending-queue",
+      "detail": "Exposed lateral motif regions beside broad foreground label sheets to preserve both the long labels and the paper construction."
+    },
+    {
+      "scope": "empty-seats",
+      "detail": "Used exactly four compact cut chairs on clear backing planes and lower two-line state labels without invented people. The upper-right motif region stays exposed beside each chair."
+    },
+    {
+      "scope": "pending-queue",
+      "detail": "Dashed waiting branch identifies a result that has not arrived; it is not a failure signal."
+    }
+  ],
+  "resourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/common/palette.json",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/example-light.png",
+    "inputs/tone/kit.svg",
+    "inputs/tone/paper-layers/dark.svg",
+    "inputs/tone/paper-layers/light.svg",
+    "inputs/tone/paper-layers/recipe.md",
+    "inputs/tone/recipe.json",
+    "inputs/tone/scheme.json",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md"
+  ],
+  "fonts": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "uncertainty": "Font is not embedded; actual viewer substitution and glyph rendering depend on the host. Bold weights may be synthesized. No visual acceptance or user approval is inferred."
+  },
+  "limitations": [
+    "Placement frames were interpreted as host context; each SVG viewBox equals its slot target, for contain placement at 1:1 CSS size.",
+    "No external assets, network, browser, evaluator feedback, repository reads or other runs were used.",
+    "Inkscape rendered all five at their target pixel sizes. It emitted Pango wrapper and unwritable font cache warnings despite exit 0; Japanese labels were visible in the local renders. Cross-host font rendering remains unverified."
+  ],
+  "ownChecks": [
+    "XML parse and exact-label checks for all five SVGs.",
+    "Viewed both original example PNGs.",
+    "Rendered and inspected all five output SVGs locally at target pixel sizes; adjusted motif scaling and chair planes during this initial authoring turn."
+  ]
+}

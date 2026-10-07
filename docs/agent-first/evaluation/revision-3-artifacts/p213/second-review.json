@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "runId": "p213",
+  "reviewType": "independent visual second review",
+  "timestamp": "2026-10-07T21:07:06.082516+00:00",
+  "actuallyViewed": {
+    "originalLightReference": true,
+    "originalDarkReference": true,
+    "allFiveRunImages": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-light.png",
+      "sha256": "a642eaf4d14e272f053d7bb804f02459b9d59e21241b38a8e3cbdede057073b1",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-dark.png",
+      "sha256": "f0f16609851d5157007d4c4cb3ed32c3a2087f8a27ef23c5eae444969d841623",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Repeated rounded arch motifs with contrasting inner arches create a recognizable patterned paper surface.",
+    "Offset backing sheets and shadows, overlapping paper labels, and slightly rotated sheets suggest assembled paper layers.",
+    "Thin directional connectors include expressive curves; large centered text has a strong hierarchy.",
+    "Light and dark examples preserve the same geometry and composition."
+  ],
+  "overridesAcknowledged": {
+    "palette": "Six-role palette from inputs/common/palette.json overrides reference colors.",
+    "font": "Noto Sans CJK JP / sans-serif overrides reference Latin serif lettering.",
+    "literalReferenceContent": "Pattern, Text, MAKE and PNG are reference content, not required brief labels."
+  },
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p213/captures/v0/reservation-flow.png",
+      "sha256": "df77007794bbaa4926adadd065a2294c934b140198635bb2d6294146ba55e0ba",
+      "dimensions": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "id": "reservation-flow",
+      "targetArtworkDimensions": [
+        640,
+        320
+      ],
+      "readabilityScore": 4,
+      "observations": [
+        "Left-to-right arrows clearly show 申請 → 確認待ち → 確定.",
+        "Clock and orange 予約は未確定 distinguish pending from confirmed; confirmed card carries a check.",
+        "日時を変更 is reached from 確定, then a return arrow points into 確認待ち. Supporting text explicitly says changes return to pending and there is no automatic approval.",
+        "Large centered state labels dominate; small supporting text remains legible. The return path does not collide with the primary progression."
+      ],
+      "exactLabels": {
+        "required": [
+          "申請",
+          "確認待ち",
+          "確定",
+          "日時を変更"
+        ],
+        "visiblyPresent": [
+          "申請",
+          "確認待ち",
+          "確定",
+          "日時を変更"
+        ],
+        "missing": [],
+        "assessment": "Complete visible wording; permitted line breaks normalized. See raster codepoint uncertainty."
+      },
+      "factualChecks": [
+        {
+          "assessment": "Correct stage order",
+          "result": "pass"
+        },
+        {
+          "assessment": "Pending is not confirmed",
+          "result": "pass"
+        },
+        {
+          "assessment": "Change returns from confirmed to pending",
+          "result": "pass"
+        },
+        {
+          "assessment": "No automatic approval or invented fees",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p213/captures/v0/empty-seats.png",
+      "sha256": "38067bdb50e7272841a785e232ab26cbd87122033d63e982a30bf17173b88856",
+      "dimensions": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "id": "empty-seats",
+      "targetArtworkDimensions": [
+        360,
+        240
+      ],
+      "readabilityScore": 3,
+      "observations": [
+        "Exactly four separate cards appear in a two-by-two grid.",
+        "A is reserved and explicitly 選択不可; B and C are empty and explicitly 選択可; D is pending with clock and orange 選択不可.",
+        "Seat icons, words and clock support distinctions beyond color.",
+        "All labels fit; compact primary labels and selection annotations are readable, with modest size contrast between them."
+      ],
+      "exactLabels": {
+        "required": [
+          "A席：予約済み",
+          "B席：空席",
+          "C席：空席",
+          "D席：保留中"
+        ],
+        "visiblyPresent": [
+          "A席：予約済み",
+          "B席：空席",
+          "C席：空席",
+          "D席：保留中"
+        ],
+        "missing": [],
+        "assessment": "Complete visible wording; permitted line breaks normalized. See raster codepoint uncertainty."
+      },
+      "factualChecks": [
+        {
+          "assessment": "Exactly four seats",
+          "result": "pass"
+        },
+        {
+          "assessment": "Only B and C selectable",
+          "result": "pass"
+        },
+        {
+          "assessment": "D distinguished from empty and reserved",
+          "result": "pass"
+        },
+        {
+          "assessment": "No invented people or remaining time",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p213/captures/v0/long-labels.png",
+      "sha256": "1c845525a13811d55ba3cf4472958229021f23d56fa4697a38a7deb4d900cfe5",
+      "dimensions": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "id": "long-labels",
+      "targetArtworkDimensions": [
+        480,
+        360
+      ],
+      "readabilityScore": 4,
+      "observations": [
+        "Three full role names are preserved; first two wrap naturally over two lines.",
+        "Downward 資料 arrow runs from preparation to checking. Orange 不足項目あり route returns from checking to preparation, with arrowhead at the preparation card.",
+        "確認完了 labels the downward route from checking to reception.",
+        "Long names are large and clear; condition labels occupy their own small paper strips without interfering with arrows."
+      ],
+      "exactLabels": {
+        "required": [
+          "地域交流イベント開催準備担当",
+          "参加申込内容の確認・連絡担当",
+          "当日受付と案内の担当",
+          "不足項目あり",
+          "確認完了"
+        ],
+        "visiblyPresent": [
+          "地域交流イベント開催準備担当",
+          "参加申込内容の確認・連絡担当",
+          "当日受付と案内の担当",
+          "不足項目あり",
+          "確認完了"
+        ],
+        "missing": [],
+        "assessment": "Complete visible wording; permitted line breaks normalized. See raster codepoint uncertainty."
+      },
+      "factualChecks": [
+        {
+          "assessment": "All three names complete",
+          "result": "pass"
+        },
+        {
+          "assessment": "Preparation hands to checking",
+          "result": "pass"
+        },
+        {
+          "assessment": "Missing-items branch returns to preparation",
+          "result": "pass"
+        },
+        {
+          "assessment": "Completion branch proceeds to reception",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p213/captures/v0/pending-queue.png",
+      "sha256": "32a535a2c9621fd8fbc5369c9d88f355e2dc6ee97a6857df2d37b7c5ff8bdb0d",
+      "dimensions": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "id": "pending-queue",
+      "targetArtworkDimensions": [
+        720,
+        240
+      ],
+      "readabilityScore": 4,
+      "observations": [
+        "Common 案内文 visibly forks into two parallel review cards.",
+        "Upper branch is completed with check; lower branch is awaiting a result with clock. It is not labeled as failure.",
+        "Both paths join toward the publication card; pending path is dashed, and the target explicitly requires both completed.",
+        "公開済み：0 and 両方が完了するまで待機 make the current nonpublication state explicit.",
+        "Required labels are readable; dense lower-branch text fits within its strip and the publication condition and count remain clear."
+      ],
+      "exactLabels": {
+        "required": [
+          "案内文",
+          "表記確認：完了",
+          "会場情報確認：結果待ち",
+          "両方完了後に公開",
+          "公開済み：0"
+        ],
+        "visiblyPresent": [
+          "案内文",
+          "表記確認：完了",
+          "会場情報確認：結果待ち",
+          "両方完了後に公開",
+          "公開済み：0"
+        ],
+        "missing": [],
+        "assessment": "Complete visible wording; permitted line breaks normalized. See raster codepoint uncertainty."
+      },
+      "factualChecks": [
+        {
+          "assessment": "Two parallel routes",
+          "result": "pass"
+        },
+        {
+          "assessment": "Venue information is pending rather than failed",
+          "result": "pass"
+        },
+        {
+          "assessment": "Both completed required for publication",
+          "result": "pass"
+        },
+        {
+          "assessment": "Current publication count zero",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p213/captures/v0/return-items.png",
+      "sha256": "b4340a2892c94d58d7e0cbe2b956bbf196b37528d95d2ee729f14f415e320b1e",
+      "dimensions": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "id": "return-items",
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "readabilityScore": 4,
+      "observations": [
+        "入口 leads downward into 返却確認台.",
+        "Left 破損なし route points to 返却箱：空; right orange 破損あり route points to 相談窓口.",
+        "A box illustration and 空でも返却に使える explicitly establish that an empty box remains usable.",
+        "Orange warning is confined to the damage/consultation branch, with no fine or refusal wording.",
+        "Primary labels, branch labels and bottom supporting statements are readable in the narrow portrait arrangement."
+      ],
+      "exactLabels": {
+        "required": [
+          "入口",
+          "返却確認台",
+          "破損なし",
+          "返却箱：空",
+          "破損あり",
+          "相談窓口"
+        ],
+        "visiblyPresent": [
+          "入口",
+          "返却確認台",
+          "破損なし",
+          "返却箱：空",
+          "破損あり",
+          "相談窓口"
+        ],
+        "missing": [],
+        "assessment": "Complete visible wording; permitted line breaks normalized. See raster codepoint uncertainty."
+      },
+      "factualChecks": [
+        {
+          "assessment": "Entry leads to checking counter",
+          "result": "pass"
+        },
+        {
+          "assessment": "Undamaged route goes to return box",
+          "result": "pass"
+        },
+        {
+          "assessment": "Damaged route goes to consultation",
+          "result": "pass"
+        },
+        {
+          "assessment": "Empty box is usable",
+          "result": "pass"
+        },
+        {
+          "assessment": "No invented fines or refusal",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": []
+    }
+  ],
+  "batch": {
+    "readabilityScore": 4,
+    "readabilityReason": "Required labels are legible, with strong primary card labels and smaller conditions/supporting explanations. No material clipping or overlap is visible. Compact seats have less hierarchical range but remain readable.",
+    "consistencyScore": 4,
+    "consistencyReason": "The same deep outer arches, accent inner arches, white label sheets, offset backing edges and thin connectors form a coherent family. Four-seat grid, horizontal progression, vertical handoff, wide parallel branches and portrait decision tree remain distinct and appropriate to their ratios.",
+    "characterScore": 3,
+    "characterReason": "Defining arch geometry, overlapping label strips, offset paper stacks and flat patterned construction are retained across every diagram. Losses are mostly level rectangular papers instead of the references’ independently tilted sheets, and mainly angular connectors instead of flowing merge curves. These reduce the loose assembled-paper character without erasing it.",
+    "retainedTraits": [
+      "Repeated outer/inner arch pattern",
+      "Pattern visible above and below overlapping white text strips",
+      "Offset gray backing sheets and edges",
+      "Thin directional connectors",
+      "Strong centered primary labels"
+    ],
+    "losses": [
+      "Much less sheet rotation and irregular overlap",
+      "Mostly orthogonal or straight connector routing; fewer expressive curves",
+      "No dark rendition among the five allowed captures, so dark adaptation cannot be assessed"
+    ],
+    "factualOmissions": [],
+    "factualInventions": [],
+    "factualReversals": []
+  },
+  "uncertainty": {
+    "font": "Raster appearance is compatible with the requested Japanese sans-serif and no missing glyph boxes are visible. Actual font family, fallback and font loading cannot be proved from PNGs; no font/source files were inspected.",
+    "scale": "Captures are larger placement frames. Evaluation used original PNG pixels and the stated target artwork sizes (640x320, 360x240, 480x360, 720x240, 320x480); apparent artwork scale is compatible with a 1:1 inset, but CSS/device-pixel ratio and browser zoom were not independently verified.",
+    "exactLabelCodepoints": "Required Japanese wording is visibly complete. Raster images cannot prove Unicode identity of visually equivalent colon glyphs or whitespace; line breaks and visual padding were normalized for label assessment."
+  }
+}

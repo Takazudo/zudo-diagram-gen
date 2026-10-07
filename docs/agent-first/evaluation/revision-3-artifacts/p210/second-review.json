@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "runId": "p210",
+  "reviewType": "independent visual second review",
+  "timestamp": "2026-10-07T21:08:51.016894+00:00",
+  "actuallyViewed": {
+    "example-light": true,
+    "example-dark": true,
+    "reservation-flow": true,
+    "empty-seats": true,
+    "long-labels": true,
+    "pending-queue": true,
+    "return-items": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-light.png",
+      "sha256": "1be466d46c89db0b0a68a7fa13e7421794a2402320b535291ccb571866676895",
+      "dimensions": {
+        "width": 720,
+        "height": 400
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-dark.png",
+      "sha256": "70f7bcaca10bafdd7dbadc3fdd4f46fe45852da244eeea6089ec54dcbbac1f18",
+      "dimensions": {
+        "width": 720,
+        "height": 400
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions"
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Horizontal notebook ruling and a left vertical margin line on a restrained paper field.",
+    "Slightly irregular, doubled or offset pencil outlines around rectangles and a folded-corner document.",
+    "Fine diagonal crosshatching used as visible texture within panels.",
+    "Organic bowed arrows with sketch-like parallel marks and clear arrowheads.",
+    "Bold annotation typography, oversized central MAKE, modest rotation, and a drawn underline create a handmade hierarchy.",
+    "Light and dark versions preserve the same construction while changing contrast."
+  ],
+  "allowedOverrides": "Common six-role palette and Japanese Noto Sans CJK JP priority override the reference colors and Latin font. Literal Pattern/Text/MAKE/PNG objects are reference content rather than brief requirements.",
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p210/captures/v0/reservation-flow.png",
+      "sha256": "4ccfec592a76bf6484f1c90b6eeac04639004e410086bf82b2e816ee6bcf5baf",
+      "dimensions": {
+        "width": 688,
+        "height": 416
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions",
+      "id": "reservation-flow",
+      "targetArtworkDimensions": {
+        "width": 640,
+        "height": 320
+      },
+      "targetSizeAssessment": {
+        "readability": 4,
+        "reason": "All required labels and explanatory text are readable at the displayed original pixel scale; bold headings and primary labels create clear hierarchy. No material text/shape collisions or clipping observed.",
+        "scaleBasis": "Larger capture frame displayed at original pixel dimensions. Artwork appears inset 24 pixels horizontally and 48 pixels from the top, matching the supplied target dimensions; no placement file was read."
+      },
+      "observations": [
+        "Three separate boxes run left to right: 申請 → 確認待ち → 確定. A clock distinguishes waiting and the hatched teal final box distinguishes confirmation.",
+        "The teal return path starts under 確定, carries 日時を変更, and ends with an upward arrow into 確認待ち. The subtitle says waiting is not confirmation; the bottom note says changes also need confirmation and there is no automatic approval.",
+        "Large bold state labels establish hierarchy over smaller explanatory notes. All text fits; the return-path label has a white interruption in the line and remains clear."
+      ],
+      "exactLabels": [
+        {
+          "expected": "申請",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "確認待ち",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "確定",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "日時を変更",
+          "visuallyPresent": true
+        }
+      ],
+      "exactLabelUncertainty": "Full wording and punctuation are visually preserved. Image inspection cannot certify source Unicode or invisible whitespace.",
+      "factualAssessment": {
+        "result": "pass",
+        "checks": [
+          "fact-01: application, waiting, confirmed sequence preserved",
+          "fact-02: waiting explicitly not confirmed",
+          "fact-03: change returns from confirmed to waiting",
+          "fact-04: no invented automatic approval or fees"
+        ],
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook ground, margin line, offset outlines, crosshatching, and hand-drawn arrow cues remain recognizable. Outline irregularity is subdued and typography is upright and comparatively uniform."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p210/captures/v0/empty-seats.png",
+      "sha256": "29201bfb869957f2301fd8bda8152cab5baa538718dca89df700eee264848957",
+      "dimensions": {
+        "width": 408,
+        "height": 336
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions",
+      "id": "empty-seats",
+      "targetArtworkDimensions": {
+        "width": 360,
+        "height": 240
+      },
+      "targetSizeAssessment": {
+        "readability": 4,
+        "reason": "All required labels and explanatory text are readable at the displayed original pixel scale; bold headings and primary labels create clear hierarchy. No material text/shape collisions or clipping observed.",
+        "scaleBasis": "Larger capture frame displayed at original pixel dimensions. Artwork appears inset 24 pixels horizontally and 48 pixels from the top, matching the supplied target dimensions; no placement file was read."
+      },
+      "observations": [
+        "Exactly four panels form a compact two-by-two layout. A is reserved and unselectable; B and C are empty and selectable; D is pending and unselectable.",
+        "The title explicitly identifies B and C as the selectable seats. B/C have teal text and hatching, A has a chair and unselectable text, and D has a clock and pending text; the status distinction does not depend on color.",
+        "The required labels and secondary selection labels fit at the compact size without clipping or collisions. Uniform panel geometry makes this the most repetitive construction of the batch."
+      ],
+      "exactLabels": [
+        {
+          "expected": "A席：予約済み",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "B席：空席",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "C席：空席",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "D席：保留中",
+          "visuallyPresent": true
+        }
+      ],
+      "exactLabelUncertainty": "Full wording and punctuation are visually preserved. Image inspection cannot certify source Unicode or invisible whitespace.",
+      "factualAssessment": {
+        "result": "pass",
+        "checks": [
+          "fact-01: exactly four seats",
+          "fact-02: only B/C selectable, explicit in title and panels",
+          "fact-03: D is pending, clock-marked, and unselectable",
+          "fact-04: no invented people or waiting duration"
+        ],
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook ground, margin line, offset outlines, crosshatching, and hand-drawn arrow cues remain recognizable. Outline irregularity is subdued and typography is upright and comparatively uniform."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p210/captures/v0/long-labels.png",
+      "sha256": "902e4fe7aaaad895df772bf64c4fe20f3969a3faa2c0d6719c00cb4686031e35",
+      "dimensions": {
+        "width": 528,
+        "height": 456
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions",
+      "id": "long-labels",
+      "targetArtworkDimensions": {
+        "width": 480,
+        "height": 360
+      },
+      "targetSizeAssessment": {
+        "readability": 4,
+        "reason": "All required labels and explanatory text are readable at the displayed original pixel scale; bold headings and primary labels create clear hierarchy. No material text/shape collisions or clipping observed.",
+        "scaleBasis": "Larger capture frame displayed at original pixel dimensions. Artwork appears inset 24 pixels horizontally and 48 pixels from the top, matching the supplied target dimensions; no placement file was read."
+      },
+      "observations": [
+        "Three full role names remain visible, one line each, in stacked boxes. A downward 資料 arrow connects preparation to checking; a teal 確認完了 arrow connects checking to reception.",
+        "An orange left-side return path labeled 不足項目あり points back into the preparation box. Its direction and conditional meaning are readable.",
+        "The long names fit with modest side padding. Role text is prominent; smaller connector text is subordinate but readable. The short return-label sits outside the role boxes without overlap."
+      ],
+      "exactLabels": [
+        {
+          "expected": "地域交流イベント開催準備担当",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "参加申込内容の確認・連絡担当",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "当日受付と案内の担当",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "不足項目あり",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "確認完了",
+          "visuallyPresent": true
+        }
+      ],
+      "exactLabelUncertainty": "Full wording and punctuation are visually preserved. Image inspection cannot certify source Unicode or invisible whitespace.",
+      "factualAssessment": {
+        "result": "pass",
+        "checks": [
+          "fact-01: all three full role names visually preserved",
+          "fact-02: preparation sends materials to checking",
+          "fact-03: missing-items return points to preparation",
+          "fact-04: confirmed completion leads to reception"
+        ],
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook ground, margin line, offset outlines, crosshatching, and hand-drawn arrow cues remain recognizable. Outline irregularity is subdued and typography is upright and comparatively uniform."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p210/captures/v0/pending-queue.png",
+      "sha256": "16772db1f46bb9127a0d58b7a5ac9d78dcb1478cede9a77186d8328cc0ae91fd",
+      "dimensions": {
+        "width": 768,
+        "height": 336
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions",
+      "id": "pending-queue",
+      "targetArtworkDimensions": {
+        "width": 720,
+        "height": 240
+      },
+      "targetSizeAssessment": {
+        "readability": 4,
+        "reason": "All required labels and explanatory text are readable at the displayed original pixel scale; bold headings and primary labels create clear hierarchy. No material text/shape collisions or clipping observed.",
+        "scaleBasis": "Larger capture frame displayed at original pixel dimensions. Artwork appears inset 24 pixels horizontally and 48 pixels from the top, matching the supplied target dimensions; no placement file was read."
+      },
+      "observations": [
+        "案内文 visibly branches into two parallel checks. 表記確認：完了 is teal; 会場情報確認：結果待ち has a clock and a dashed continuation toward the merge.",
+        "The destination contains 両方完了後に公開 and 公開済み：0. A bottom note explicitly distinguishes waiting from failure, and the title reinforces waiting for both checks.",
+        "The wide layout separates branch labels clearly, with a smaller but readable waiting explanation. Hatching in the future publication box decorates a destination that is still explicitly gated and currently zero; it does not reverse the stated facts."
+      ],
+      "exactLabels": [
+        {
+          "expected": "案内文",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "表記確認：完了",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "会場情報確認：結果待ち",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "両方完了後に公開",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "公開済み：0",
+          "visuallyPresent": true
+        }
+      ],
+      "exactLabelUncertainty": "Full wording and punctuation are visually preserved. Image inspection cannot certify source Unicode or invisible whitespace.",
+      "factualAssessment": {
+        "result": "pass",
+        "checks": [
+          "fact-01: two parallel branches visible",
+          "fact-02: venue result is waiting, explicitly not failure",
+          "fact-03: both completion required before publication",
+          "fact-04: published count explicitly zero"
+        ],
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook ground, margin line, offset outlines, crosshatching, and hand-drawn arrow cues remain recognizable. Outline irregularity is subdued and typography is upright and comparatively uniform."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p210/captures/v0/return-items.png",
+      "sha256": "167c2756f530295e728fc0b9746874e73980008ee5de0b9e29077e12379b2c02",
+      "dimensions": {
+        "width": 368,
+        "height": 576
+      },
+      "actuallyViewed": true,
+      "viewMethod": "view_image, original pixel dimensions",
+      "id": "return-items",
+      "targetArtworkDimensions": {
+        "width": 320,
+        "height": 480
+      },
+      "targetSizeAssessment": {
+        "readability": 4,
+        "reason": "All required labels and explanatory text are readable at the displayed original pixel scale; bold headings and primary labels create clear hierarchy. No material text/shape collisions or clipping observed.",
+        "scaleBasis": "Larger capture frame displayed at original pixel dimensions. Artwork appears inset 24 pixels horizontally and 48 pixels from the top, matching the supplied target dimensions; no placement file was read."
+      },
+      "observations": [
+        "入口 flows downward into 返却確認台, then splits left under teal 破損なし to 返却箱：空 and right under orange 破損あり to 相談窓口.",
+        "The empty box has a simple outlined box drawing and the explicit note 返却に使えます. The consultation destination and damaged-item branch use orange warning treatment without a penalty or refusal claim.",
+        "The narrow portrait layout uses vertical progression and two distinct bottom destinations. Labels have sufficient room and the hierarchy remains clear; the consultation box adds a nested label rectangle and hatch texture."
+      ],
+      "exactLabels": [
+        {
+          "expected": "入口",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "返却確認台",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "破損なし",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "返却箱：空",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "破損あり",
+          "visuallyPresent": true
+        },
+        {
+          "expected": "相談窓口",
+          "visuallyPresent": true
+        }
+      ],
+      "exactLabelUncertainty": "Full wording and punctuation are visually preserved. Image inspection cannot certify source Unicode or invisible whitespace.",
+      "factualAssessment": {
+        "result": "pass",
+        "checks": [
+          "fact-01: entrance leads to return-check desk",
+          "fact-02: undamaged path leads to return box",
+          "fact-03: damaged path leads to consultation",
+          "fact-04: empty box explicitly usable",
+          "fact-05: no invented fine or refusal"
+        ],
+        "omissions": [],
+        "inventions": [],
+        "reversals": []
+      },
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook ground, margin line, offset outlines, crosshatching, and hand-drawn arrow cues remain recognizable. Outline irregularity is subdued and typography is upright and comparatively uniform."
+      }
+    }
+  ],
+  "batch": {
+    "readability": 4,
+    "readabilityReason": "All five compositions have clearly differentiated headings, primary labels, and subordinate notes at their supplied target sizes.",
+    "consistency": 4,
+    "consistencyReason": "The five ratios share notebook rules, left margin, thin offset ink outlines, hatch panels, and bold Japanese labels. Horizontal sequence, four-seat grid, stacked handoff, wide parallel split, and portrait return fork each respond clearly to their different content and proportions.",
+    "character": 3,
+    "characterReason": "The defining notebook geometry and hatch texture survive across the batch, with clock/chair/box drawings and route-specific layout variation. Pencil irregularity, double-stroked organic arrow construction, rotated oversized type, and underline gestures from the originals are reduced. The result is recognizably notebook-like but more orderly and less expressive than the originals.",
+    "definingTraitsRetained": [
+      "Ruled notebook field and vertical margin",
+      "Offset/double rectangular outlines",
+      "Fine diagonal hatch texture",
+      "Bold primary-label hierarchy",
+      "Mildly bowed hand-drawn paths and simple outlined pictograms"
+    ],
+    "definingTraitsLostOrReduced": [
+      "Substantial wobbly/asymmetric rectangle contours",
+      "Sketch-like parallel-stroked organic arrows",
+      "Rotated oversized display lettering and loose hand-drawn underlines"
+    ],
+    "factualResult": "All supplied checklist facts and required visible label wording pass. No omissions, inventions, or reversals observed."
+  },
+  "fontUncertainty": "Japanese glyphs render visibly without missing-glyph boxes. PNGs alone do not establish the actual font family, installed font resolution, fallback usage, or whether Noto Sans CJK JP was used. No font files, SVG source, or rendering records were inspected.",
+  "scaleUncertainty": "Assessment uses the original-size capture images and supplied target dimensions. Capture padding appears to account for the extra 48 pixels in width and 96 pixels in height. Exact CSS placement/device-pixel-ratio metadata and alternate display scaling were not available within the permitted inspection scope.",
+  "scope": "Read only the dispatch, two original reference PNGs, five capture PNGs, five briefs/checklists, and common palette. No conditions, prompts, run records, source SVG, coordinator judgments, other runs, browser, network, git, or descendants used. Only second-review.json written.",
+  "remainingBlockers": []
+}

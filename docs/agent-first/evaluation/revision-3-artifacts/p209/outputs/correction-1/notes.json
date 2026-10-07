@@ -1,0 +1,21 @@
+{
+  "correction": "Added one clear surface-role rectangle behind まだ公開しない in pending-queue.svg. Text, font, coordinates and existing geometry are unchanged.",
+  "originalsPreserved": true,
+  "otherFourByteIdentical": true,
+  "resourcesActuallyUsed": [
+    "correction-1-feedback.txt",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg"
+  ],
+  "checks": [
+    "All five corrected copies parse as XML.",
+    "Removing the single added backing yields the original pending-queue source exactly.",
+    "The other four SVGs are byte-identical to their originals."
+  ],
+  "limitations": [
+    "No renderer or browser used; no acceptance claim."
+  ]
+}

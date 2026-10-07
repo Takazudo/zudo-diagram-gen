@@ -1,0 +1,13 @@
+{
+  "correction": "Added two opaque palette surface backings beneath the unchanged 破損なし and 破損あり labels, masking the vertical connectors at the label positions.",
+  "preserved": "Original five SVGs untouched. Four other correction SVGs are byte-identical copies. Return-items retains all original text, typography, branch paths, facts, palette, and other geometry.",
+  "checks": "All five corrected SVGs parsed as XML. Byte identity verified for the four unchanged SVGs. No browser render or visual acceptance claimed.",
+  "resources_used": [
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg",
+    "correction-1-feedback.txt"
+  ]
+}

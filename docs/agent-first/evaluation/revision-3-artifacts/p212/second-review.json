@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "run": "p212",
+  "reviewType": "independent-visual-second-review",
+  "timestamp": "2026-10-07T21:16:23.050084+00:00",
+  "actuallyViewed": {
+    "bothReferences": true,
+    "allFiveCaptures": true
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-light.png",
+      "sha256": "1be466d46c89db0b0a68a7fa13e7421794a2402320b535291ccb571866676895",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/pencil-notebook/example-dark.png",
+      "sha256": "70f7bcaca10bafdd7dbadc3fdd4f46fe45852da244eeea6089ec54dcbbac1f18",
+      "dimensions": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image"
+    }
+  ],
+  "palettePath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/palette.json",
+  "referenceDefiningTraits": [
+    "Notebook horizontal ruling with a left vertical margin line.",
+    "Slightly skewed, doubled pencil-like rectangle and document outlines.",
+    "Diagonal crosshatching in dedicated regions around large readable central text.",
+    "Bold type hierarchy, understated underlines and organically curved arrow paths.",
+    "Light and dark examples preserve the same construction with adapted contrast."
+  ],
+  "retainedTraits": [
+    "Notebook ruling and margin, lightly irregular double outlines, hatch-filled panels with clear label fields, bold primary labels and drawn arrowheads recur across the five captures.",
+    "Curves, straight steps and dashed progress lines are used for the respective flow meanings."
+  ],
+  "losses": [
+    "Pencil texture is more regular and faint, and shape alignment is more orderly than the references; the rough hand-made quality is reduced.",
+    "The folded PNG document motif is absent; this is a compositional difference, not a missing brief requirement."
+  ],
+  "overrideAssessment": "Common palette and Japanese sans-serif requirements supersede the reference colors and Latin lettering. Pattern, Text, MAKE and PNG are reference content rather than required labels. The dark reference was inspected, but this batch provides only light artwork, so a dark batch adaptation is not evaluated.",
+  "images": [
+    {
+      "id": "reservation-flow",
+      "path": "/workspace/diagram-evidence/pilot-runs/p212/captures/v0/reservation-flow.png",
+      "sha256": "04f719ba6fd15332dff38cb05ade171b5719a8fdd98d3060f1db7a7a70f4bb93",
+      "dimensions": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "targetArtworkDimensions": [
+        640,
+        320
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/reservation-flow/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/reservation-flow/checklist.json",
+      "observations": [
+        "Three large boxes read left to right as 申請 → 確認待ち → 確定. A clock and explicit reservation-not-yet-confirmed note separate the middle state from completion.",
+        "The teal return path starts at 確定, carries 日時を変更, and points back into 確認待ち. The accompanying sentence says confirmed reservations only and no automatic approval.",
+        "Bold state labels, restrained supporting text and ample arrow spacing create clear hierarchy. Hatching sits above and below label fields without obscuring text."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels are visually readable, unclipped and separated from shape strokes; bold primary labels and smaller explanatory text provide clear hierarchy at the displayed target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "申請",
+          "observed": "申請",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "確認待ち",
+          "observed": "確認待ち",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "確定",
+          "observed": "確定",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "日時を変更",
+          "observed": "日時を変更",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "passes": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "passes": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "passes": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook background, inset diagonal crosshatching, slightly irregular double outlines, bold uncluttered type and hand-drawn arrow contours retain the reference construction. Very pale regular hatch lines and cleaner alignment reduce its rough pencil spontaneity."
+      }
+    },
+    {
+      "id": "empty-seats",
+      "path": "/workspace/diagram-evidence/pilot-runs/p212/captures/v0/empty-seats.png",
+      "sha256": "19cc81bb8c1614d4f0e1f355de48f3bdb4b9d3c241b1636e4ed248de1a83eecf",
+      "dimensions": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "targetArtworkDimensions": [
+        360,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/empty-seats/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/empty-seats/checklist.json",
+      "observations": [
+        "Exactly four seat cards form a compact two-by-two grid. A is reserved, B and C are empty and explicitly selectable, D is pending and explicitly not selectable.",
+        "Checkmark, clock and text support the status distinctions without dependence on color. Matching chairs distinguish this diagram from the process diagrams.",
+        "The seat labels and smaller selection labels remain readable; chair and hatch marks do not collide with them."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels are visually readable, unclipped and separated from shape strokes; bold primary labels and smaller explanatory text provide clear hierarchy at the displayed target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "A席：予約済み",
+          "observed": "A席：予約済み",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "B席：空席",
+          "observed": "B席：空席",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "C席：空席",
+          "observed": "C席：空席",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "D席：保留中",
+          "observed": "D席：保留中",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "passes": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "passes": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "passes": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook background, inset diagonal crosshatching, slightly irregular double outlines, bold uncluttered type and hand-drawn arrow contours retain the reference construction. Very pale regular hatch lines and cleaner alignment reduce its rough pencil spontaneity."
+      }
+    },
+    {
+      "id": "long-labels",
+      "path": "/workspace/diagram-evidence/pilot-runs/p212/captures/v0/long-labels.png",
+      "sha256": "1fd19a9ba7037d73eea098dfecfe6ae7f8ada6fb60da106c2e56450725bc4ff0",
+      "dimensions": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "targetArtworkDimensions": [
+        480,
+        360
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/long-labels/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/long-labels/checklist.json",
+      "observations": [
+        "The complete preparation and checking names occupy two lines each, and the reception name occupies one line; none is abbreviated.",
+        "A downward 資料 arrow takes preparation to checking, an orange 不足項目あり return arrow takes checking to preparation, and a teal 確認完了 arrow takes checking to reception.",
+        "Wide label fields and separate arrow-label corridors preserve clear hierarchy. The left-side return path is longer but its direction and condition remain clear."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels are visually readable, unclipped and separated from shape strokes; bold primary labels and smaller explanatory text provide clear hierarchy at the displayed target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "地域交流イベント開催準備担当",
+          "observed": "地域交流イベント開催準備担当",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "参加申込内容の確認・連絡担当",
+          "observed": "参加申込内容の確認・連絡担当",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "当日受付と案内の担当",
+          "observed": "当日受付と案内の担当",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "不足項目あり",
+          "observed": "不足項目あり",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "確認完了",
+          "observed": "確認完了",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "passes": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "passes": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "passes": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook background, inset diagonal crosshatching, slightly irregular double outlines, bold uncluttered type and hand-drawn arrow contours retain the reference construction. Very pale regular hatch lines and cleaner alignment reduce its rough pencil spontaneity."
+      }
+    },
+    {
+      "id": "pending-queue",
+      "path": "/workspace/diagram-evidence/pilot-runs/p212/captures/v0/pending-queue.png",
+      "sha256": "b90fc25693d2c735972f44bf3cc6a6ace04fd2a30c551bdf50ea7728b0c81f5f",
+      "dimensions": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "targetArtworkDimensions": [
+        720,
+        240
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/pending-queue/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/pending-queue/checklist.json",
+      "observations": [
+        "案内文 splits into two parallel checking paths. The upper path is complete with a checkmark; the lower is awaiting results with a clock.",
+        "Both paths meet the summary card, which states 両方完了後に公開 and 公開済み：0; 今は公開しない explicitly resolves current publication status.",
+        "The dashed lower connector suggests unfinished progress without introducing failure. Bold state labels and smaller summary-role text remain readable at the supplied artwork size."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels are visually readable, unclipped and separated from shape strokes; bold primary labels and smaller explanatory text provide clear hierarchy at the displayed target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "案内文",
+          "observed": "案内文",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "表記確認：完了",
+          "observed": "表記確認：完了",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "会場情報確認：結果待ち",
+          "observed": "会場情報確認：結果待ち",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "両方完了後に公開",
+          "observed": "両方完了後に公開",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "公開済み：0",
+          "observed": "公開済み：0",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "passes": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "passes": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "passes": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook background, inset diagonal crosshatching, slightly irregular double outlines, bold uncluttered type and hand-drawn arrow contours retain the reference construction. Very pale regular hatch lines and cleaner alignment reduce its rough pencil spontaneity."
+      }
+    },
+    {
+      "id": "return-items",
+      "path": "/workspace/diagram-evidence/pilot-runs/p212/captures/v0/return-items.png",
+      "sha256": "138fd3927d4263c18bd086f49a6d1f5dae0536a92cc68c83b227121e72215f45",
+      "dimensions": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image",
+      "targetArtworkDimensions": [
+        320,
+        480
+      ],
+      "briefPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/return-items/brief.md",
+      "checklistPath": "/workspace/diagram-evidence/pilot-runs/p212/inputs/common/briefs/return-items/checklist.json",
+      "observations": [
+        "入口 leads down to 返却確認台. The left 破損なし branch reaches 返却箱：空 and the right orange 破損あり branch reaches 相談窓口.",
+        "The box drawing plus 返却に使える explicitly conveys that the empty return box remains usable. The consultation branch includes no fine or refusal.",
+        "The tall layout has a clear vertical reading sequence, generous branch separation and readable labels. An underline gives the consultation label modest additional emphasis."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels are visually readable, unclipped and separated from shape strokes; bold primary labels and smaller explanatory text provide clear hierarchy at the displayed target artwork scale."
+      },
+      "exactLabels": [
+        {
+          "required": "入口",
+          "observed": "入口",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "返却確認台",
+          "observed": "返却確認台",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "破損なし",
+          "observed": "破損なし",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "返却箱：空",
+          "observed": "返却箱：空",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "破損あり",
+          "observed": "破損あり",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        },
+        {
+          "required": "相談窓口",
+          "observed": "相談窓口",
+          "present": true,
+          "complete": true,
+          "lineBreaksAllowed": true
+        }
+      ],
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "passes": true
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "passes": true
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "passes": true
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "passes": true
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "passes": true
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 3,
+        "reason": "Ruled notebook background, inset diagonal crosshatching, slightly irregular double outlines, bold uncluttered type and hand-drawn arrow contours retain the reference construction. Very pale regular hatch lines and cleaner alignment reduce its rough pencil spontaneity."
+      }
+    }
+  ],
+  "batch": {
+    "consistency": {
+      "score": 4,
+      "reason": "The same faint notebook ruling, hatch vocabulary, doubled outlines, type hierarchy and palette roles remain coherent across horizontal, compact, stacked, wide and portrait layouts. Chairs, clock/check marks, box drawing, return loops and parallel branch routing give useful diagram-specific distinctions."
+    },
+    "character": {
+      "score": 3,
+      "reason": "The defining notebook geometry, bold type and hatch texture remain recognizable in all ratios. Cleaner construction and lower hatch prominence limit the expressive pencil character relative to the originals."
+    },
+    "factualCorrectness": "All checklist facts and complete required labels are visible. No material omissions, inventions or reversals observed."
+  },
+  "uncertainties": {
+    "font": "Raster inspection cannot establish the actually resolved font family or fallback. Japanese glyphs appear intact; no visible tofu or missing-glyph boxes. Noto Sans CJK JP use is unverified.",
+    "scale": "Capture dimensions exceed each target by 48 pixels horizontally and 96 vertically, consistent with placement framing. I inspected all captures via view_image at their displayed native dimensions and judged the target artwork inside the frame; placement metadata and source were not read. No separate browser/device rendering was verified.",
+    "palette": "Role usage is visually consistent: teal highlights/completion or available paths, orange conditional warning branches, dark ink and subdued borders. Exact sampled color compliance was not tested."
+  },
+  "scope": "Only dispatched references, five capture PNGs, corresponding brief.md/checklist.json files and common palette.json were read. No source SVG, prompt, condition, run-record, schemes/kits, coordinator scores or other runs were inspected. No browser/network/git or descendants used."
+}

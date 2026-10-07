@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-labelledby="title desc"><title id="title">空席と保留中の席</title><desc id="desc">四席。A席は予約済み。B席とC席は空席で選択可能。D席は保留中で選択不可。</desc>
+<style>text{font-family:"Noto Sans CJK JP",sans-serif;fill:#203040}path{stroke-linecap:round;stroke-linejoin:round}</style>
+<rect x="0" y="0" width="360" height="240" fill="#FFFFFF" data-role="surface"/>
+<path d="M0 22 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 46 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 70 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 94 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 118 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 142 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 166 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 190 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 214 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 238 H360" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M12 0 L14 240" fill="none" stroke="#267D75" stroke-width="0.8" opacity="0.25" data-role="accent" />
+<rect x="76.0" y="9" width="208" height="24" fill="#FFFFFF" data-role="surface"/>
+<text x="180" y="27" text-anchor="middle" font-size="18" font-weight="600" style="fill:#203040" data-role="ink">選べるのは B席・C席</text>
+<path d="M20 49 L170 48 L171 125 L21 126 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M22.4 47.2 L172 49.2 L169.8 127.2 L19.3 125" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<text x="95" y="73" text-anchor="middle" font-size="15" font-weight="600" style="fill:#203040" data-role="ink">A席：予約済み</text>
+<path d="M37 101 L38 85 L61 86 L62 101 M35 101 L64 102 M38 103 L37 112 M61 103 L63 112" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<path d="M39 84 L63 87 L64 100 M36 103 L63 104" fill="none" stroke="#708090" stroke-width="0.7" opacity="1" data-role="border" />
+<text x="119" y="102" text-anchor="middle" font-size="14" font-weight="600" style="fill:#203040" data-role="ink">選択不可</text>
+<path d="M188 49 L338 48 L339 125 L189 126 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M190.4 47.2 L340 49.2 L337.8 127.2 L187.3 125" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<defs><clipPath id="field24"><rect x="193" y="53" width="141" height="67"/></clipPath></defs><g clip-path="url(#field24)">
+<path d="M101.21 52 L168.76 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M114.34 52 L180.97 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M125.80 52 L193.33 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M137.25 52 L203.87 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M151.94 52 L219.77 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M163.31 52 L231.57 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M175.95 52 L242.17 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M187.21 52 L252.97 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M202.03 52 L268.34 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M212.91 52 L281.20 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M225.49 52 L291.88 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M239.70 52 L305.50 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M250.28 52 L318.17 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M263.96 52 L329.98 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M277.01 52 L342.90 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M288.81 52 L356.27 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M302.18 52 L368.37 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M312.51 52 L380.18 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M326.92 52 L393.28 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M338.38 52 L406.59 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M350.39 52 L418.04 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M362.75 52 L430.37 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M375.54 52 L441.51 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M388.55 52 L456.60 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M400.70 52 L467.29 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M414.12 52 L480.29 121" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M102.39 52 L34.53 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M113.76 52 L45.77 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M125.67 52 L58.48 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M138.14 52 L71.51 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M151.44 52 L85.11 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M162.12 52 L93.85 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M174.71 52 L106.79 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M187.33 52 L118.93 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M202.18 52 L135.28 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M213.34 52 L147.69 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M225.58 52 L159.07 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M239.77 52 L172.37 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M251.29 52 L184.92 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M262.26 52 L195.51 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M275.49 52 L208.27 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M287.76 52 L221.00 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M302.40 52 L234.84 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M313.21 52 L245.24 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M327.26 52 L258.89 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M337.29 52 L270.94 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M350.73 52 L283.66 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M364.50 52 L297.49 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M377.07 52 L309.35 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M387.63 52 L321.56 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M400.38 52 L332.70 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M414.36 52 L347.87 121" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+</g>
+<rect x="194" y="56" width="139" height="22" fill="#FFFFFF" data-role="surface"/>
+<rect x="197" y="80" width="40" height="40" fill="#FFFFFF" data-role="surface"/>
+<rect x="241" y="83" width="88" height="24" fill="#FFFFFF" data-role="surface"/>
+<text x="263" y="73" text-anchor="middle" font-size="15" font-weight="600" style="fill:#203040" data-role="ink">B席：空席</text>
+<path d="M205 101 L206 85 L229 86 L230 101 M203 101 L232 102 M206 103 L205 112 M229 103 L231 112" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<path d="M207 84 L231 87 L232 100 M204 103 L231 104" fill="none" stroke="#708090" stroke-width="0.7" opacity="1" data-role="border" />
+<text x="287" y="102" text-anchor="middle" font-size="14" font-weight="600" style="fill:#267D75" data-role="accent">選択可</text>
+<path d="M20 144 L170 143 L171 220 L21 221 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M22.4 142.2 L172 144.2 L169.8 222.2 L19.3 220" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<defs><clipPath id="field87"><rect x="25" y="148" width="141" height="67"/></clipPath></defs><g clip-path="url(#field87)">
+<path d="M-66.79 147 L0.76 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-53.66 147 L12.97 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-42.20 147 L25.33 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-30.75 147 L35.87 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-16.06 147 L51.77 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-4.69 147 L63.57 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M7.95 147 L74.17 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M19.21 147 L84.97 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M34.03 147 L100.34 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M44.91 147 L113.20 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M57.49 147 L123.88 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M71.70 147 L137.50 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M82.28 147 L150.17 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M95.96 147 L161.98 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M109.01 147 L174.90 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M120.81 147 L188.27 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M134.18 147 L200.37 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M144.51 147 L212.18 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M158.92 147 L225.28 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M170.38 147 L238.59 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M182.39 147 L250.04 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M194.75 147 L262.37 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M207.54 147 L273.51 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M220.55 147 L288.60 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M232.70 147 L299.29 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M246.12 147 L312.29 216" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M-65.61 147 L-133.47 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M-54.24 147 L-122.23 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M-42.33 147 L-109.52 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M-29.86 147 L-96.49 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M-16.56 147 L-82.89 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M-5.88 147 L-74.15 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M6.71 147 L-61.21 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M19.33 147 L-49.07 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M34.18 147 L-32.72 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M45.34 147 L-20.31 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M57.58 147 L-8.93 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M71.77 147 L4.37 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M83.29 147 L16.92 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M94.26 147 L27.51 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M107.49 147 L40.27 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M119.76 147 L53.00 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M134.40 147 L66.84 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M145.21 147 L77.24 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M159.26 147 L90.89 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M169.29 147 L102.94 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M182.73 147 L115.66 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M196.50 147 L129.49 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M209.07 147 L141.35 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M219.63 147 L153.56 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M232.38 147 L164.70 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M246.36 147 L179.87 216" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+</g>
+<rect x="26" y="151" width="139" height="22" fill="#FFFFFF" data-role="surface"/>
+<rect x="29" y="175" width="40" height="40" fill="#FFFFFF" data-role="surface"/>
+<rect x="73" y="178" width="88" height="24" fill="#FFFFFF" data-role="surface"/>
+<text x="95" y="168" text-anchor="middle" font-size="15" font-weight="600" style="fill:#203040" data-role="ink">C席：空席</text>
+<path d="M37 196 L38 180 L61 181 L62 196 M35 196 L64 197 M38 198 L37 207 M61 198 L63 207" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<path d="M39 179 L63 182 L64 195 M36 198 L63 199" fill="none" stroke="#708090" stroke-width="0.7" opacity="1" data-role="border" />
+<text x="119" y="197" text-anchor="middle" font-size="14" font-weight="600" style="fill:#267D75" data-role="accent">選択可</text>
+<path d="M188 144 L338 143 L339 220 L189 221 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M190.4 142.2 L340 144.2 L337.8 222.2 L187.3 220" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<text x="263" y="168" text-anchor="middle" font-size="15" font-weight="600" style="fill:#203040" data-role="ink">D席：保留中</text>
+<path d="M227 194 C228 217 205 216 207 194 C206 171 228 172 227 194" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<path d="M228 193 C229 215 207 217 208 194" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.8" data-role="border" />
+<path d="M217 188 V194 L222 197" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<text x="287" y="197" text-anchor="middle" font-size="14" font-weight="600" style="fill:#203040" data-role="ink">選択不可</text>
+</svg>
