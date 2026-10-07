@@ -108,16 +108,34 @@ try {
     await page.goto(`${base}/sessions/${first.id}/`);
     return (await page.locator('body').innerText()).includes('Browser watcher probe');
   });
+  // Titles can be translated; persisted identity is carried by the route link.
+  const registrationLink = page.locator(
+    `main a[href="/sessions/${encodeURIComponent(first.id)}/"]`,
+  );
+  await page.goto(base);
+  assert.equal(
+    await registrationLink.count(),
+    1,
+    'Registered session link must exist before removal.',
+  );
   const shorter = { ...project, sessions: project.sessions.slice(1) };
   await writeFile(manifestFile, JSON.stringify(shorter));
   await wait(async () => {
     await page.goto(base);
-    return !(await page.locator('main').innerText()).includes(first.id);
+    await page.locator('main').waitFor();
+    return (
+      (await registrationLink.count()) === 0 &&
+      (await page.locator('main a[href^="/sessions/"]').count()) === project.sessions.length - 1
+    );
   });
   await writeFile(manifestFile, original);
   await wait(async () => {
     await page.goto(base);
-    return (await page.locator('main').innerText()).includes(first.id);
+    await page.locator('main').waitFor();
+    return (
+      (await registrationLink.count()) === 1 &&
+      (await page.locator('main a[href^="/sessions/"]').count()) === project.sessions.length
+    );
   });
   console.log(
     JSON.stringify({

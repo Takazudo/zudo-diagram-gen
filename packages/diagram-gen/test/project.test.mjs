@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { Window } from 'happy-dom';
 import { createHash } from 'node:crypto';
 import { canonicalHash } from '../src/tone-context.mjs';
 import { createPageSource } from '../src/render.mjs';
@@ -244,6 +245,9 @@ test('real polling recovers partial metadata, invalid→valid edits, remove and 
   await until(() => state.project.sessions.length === 1);
   await writeFile(join(root, 'project.json'), original);
   await until(() => state.project.sessions.length === 2);
+  // State is published just before the asynchronous callback increments updates.
+  // Allow the final pending callback to finish, then check a second quiet window.
+  await new Promise((accept) => setTimeout(accept, 70));
   const settled = updates;
   await new Promise((accept) => setTimeout(accept, 70));
   assert.equal(updates, settled);
@@ -517,4 +521,69 @@ test('style canonical constituent hashes are verified without claiming unavailab
   data = await loadProject(root);
   assert.equal(data.diagnostics[0].code, 'VALIDATION_FAILED');
   assert.match(data.diagnostics[0].message, /reference hash mismatch/);
+});
+
+test('translated project titles retain route identity through observed registration removal and re-add', async () => {
+  const root = await fixture(),
+    state = createRunnerState();
+  const metadataPath = join(root, 'sessions/s0/session.json');
+  const metadata = JSON.parse(await readFile(metadataPath, 'utf8'));
+  metadata.title = '予約の確定と変更';
+  await json(metadataPath, metadata);
+  await prepareProject(root, 3, { state });
+  const original = await readFile(join(root, 'project.json'), 'utf8');
+  const window = new Window({ url: 'http://diagram.test/' });
+  onTestFinished(() => window.happyDOM.close());
+  const renderedDocument = async () => {
+    const source = await readFile(join(root, 'pages/index.tsx'), 'utf8');
+    const body = JSON.parse(source.match(/const body = (.*);\n/)[1]);
+    window.document.body.innerHTML = body;
+    return window.document;
+  };
+  const selector = 'main a[href="/sessions/s0/"]';
+  let document = await renderedDocument();
+  assert.equal(document.querySelectorAll(selector).length, 1);
+  assert.equal(document.querySelector(selector).textContent, metadata.title);
+  assert.equal(document.querySelector(selector).textContent.includes('s0'), false);
+  let updates = 0;
+  const errors = [];
+  const stop = await watchContent(
+    root,
+    async () => {
+      await prepareProject(root, 3, { state });
+      updates++;
+    },
+    { intervalMs: 15, onError: (error) => errors.push(error) },
+  );
+  onTestFinished(stop);
+  const until = async (predicate) => {
+    for (let index = 0; index < 100; index++) {
+      if (await predicate()) return;
+      await new Promise((accept) => setTimeout(accept, 15));
+    }
+    throw new Error('Rendered registration did not converge.');
+  };
+  await patch(root, (project) => {
+    project.sessions.shift();
+  });
+  await until(
+    async () =>
+      state.project.sessions.length === 1 &&
+      updates >= 1 &&
+      (await renderedDocument()).querySelectorAll(selector).length === 0,
+  );
+  assert.equal(state.project.sessions.length, 1);
+  await assert.rejects(stat(join(root, 'pages/sessions/s0/index.tsx')), /ENOENT/);
+  await writeFile(join(root, 'project.json'), original);
+  await until(
+    async () =>
+      state.project.sessions.length === 2 &&
+      updates >= 2 &&
+      (await renderedDocument()).querySelectorAll(selector).length === 1,
+  );
+  assert.equal(state.project.sessions.length, 2);
+  await stat(join(root, 'pages/sessions/s0/index.tsx'));
+  assert.equal(updates, 2);
+  assert.deepEqual(errors, []);
+  await stop();
 });
