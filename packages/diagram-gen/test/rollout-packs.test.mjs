@@ -86,3 +86,60 @@ test('evidence preparation uses repeated production instances and exact explicit
   await buildP09Evidence({ output, tones: ['technical-blueprint', 'offset-blocks'] });
   assert.equal(await fs.readFile(path.join(output, 'manifest.json'), 'utf8'), first);
 });
+
+test('full resource gate rejects omitted packs, malformed schemes, recipe drift and dangling kit references', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-gate-'));
+  onTestFinished(() => fs.rm(directory, { recursive: true, force: true }));
+  const catalog = JSON.parse(await fs.readFile(path.join(root, 'catalog.json'), 'utf8'));
+  catalog.tones = catalog.tones.filter(({ id }) => id === 'technical-blueprint');
+  await fs.cp(path.join(root, 'technical-blueprint'), path.join(directory, 'technical-blueprint'), {
+    recursive: true,
+  });
+  await fs.cp(path.join(root, 'shared'), path.join(directory, 'shared'), { recursive: true });
+  const writeCatalog = () =>
+    fs.writeFile(path.join(directory, 'catalog.json'), JSON.stringify(catalog));
+  await writeCatalog();
+  await loadToneCatalog({ toneRoot: directory, requireComplete: true });
+  const tone = catalog.tones[0];
+  delete tone.scheme;
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /incomplete/,
+  );
+  assert.equal(
+    (await loadToneCatalog({ toneRoot: directory })).tones[0].context.capabilities.scheme,
+    false,
+  );
+  tone.scheme = 'technical-blueprint/scheme.json';
+  const schemeFile = path.join(directory, tone.scheme);
+  const schemeText = await fs.readFile(schemeFile, 'utf8');
+  await fs.writeFile(schemeFile, '{malformed');
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /invalid JSON/,
+  );
+  await fs.writeFile(schemeFile, schemeText);
+  tone.recipe.push('Use stroke 999 units for contours.');
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /Unbound recipe/,
+  );
+  tone.recipe.pop();
+  await writeCatalog();
+  const kitFile = path.join(directory, tone.kit);
+  const kitText = await fs.readFile(kitFile, 'utf8');
+  await fs.writeFile(kitFile, kitText.replace('</defs>', '<use href="#missing"/></defs>'));
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /[Dd]angling|[Uu]nknown.*reference|missing/,
+  );
+  await fs.writeFile(kitFile, kitText);
+  await fs.rm(path.join(directory, 'technical-blueprint/dark.svg'));
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /does not exist/,
+  );
+});

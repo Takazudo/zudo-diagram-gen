@@ -82,6 +82,18 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
     )
       throw new Error(`${id}: malformed composition manifest.`);
     const canvas = compileAuthoringTemplate(template, scheme);
+    const viewBox = canvas
+      .match(/<svg\b[^>]*\bviewBox=["']([^"']+)["']/)?.[1]
+      ?.trim()
+      .split(/[\s,]+/)
+      .map(Number);
+    if (
+      !viewBox ||
+      viewBox.length !== 4 ||
+      viewBox[2] !== manifest.width ||
+      viewBox[3] !== manifest.height
+    )
+      throw new Error(`${id}: composition dimensions disagree with viewBox.`);
     const gridInstances = KIT_PRIMITIVES.filter((p) =>
       kit.primitives.some(({ id }) => id === p),
     ).flatMap((primitive, index) =>
@@ -144,7 +156,7 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
           );
           await fs.writeFile(
             path.join(directory, 'brief.md'),
-            '# Public P09 preparation\n\nTwo users, empty seat, pending confirmation. Completion only after confirmation; exact upright Japanese labels. Kit inventory repeats primitives twice. Native authored construction and role remapping must be inspected at declared native dimensions. No user approval.\n',
+            `# Public P09 preparation\n\n${manifest.description}\n\nExact authored labels and facts must be inspected at declared native dimensions. Kit inventory repeats primitives twice. Native construction and palette remapping require actual inspection. No user approval.\n`,
           );
           await fs.writeFile(
             path.join(directory, 'rounds/r01/round.json'),
@@ -231,6 +243,45 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
           });
         }
   }
+  const matrix = selected.map((toneId) => {
+    const tone = catalog.tones.find(({ id }) => id === toneId);
+    const assets = records.filter((r) => r.toneId === toneId);
+    return {
+      toneId,
+      toneRevision: tone.context.scheme.toneRevision,
+      collectionVersion: tone.context.scheme.collectionVersion,
+      ...tone.context.hashes,
+      originalReferenceHashes: Object.fromEntries(
+        Object.entries(catalog.candidates.find((c) => c.toneId === toneId).assets)
+          .filter(([, svg]) => typeof svg === 'string')
+          .map(([theme, svg]) => [theme, hashBytes(svg)]),
+      ),
+      sourceHash: tone.context.source.hash,
+      recipeHash: tone.context.recipeDocument.hash,
+      primitiveAlternatives: tone.context.scheme.primitiveAlternatives ?? {},
+      primitives: tone.context.kit.primitives.map(({ id }) => id),
+      fonts: tone.context.scheme.typography,
+      placements: [
+        ...new Map(assets.map(({ target }) => [JSON.stringify(target), target])).values(),
+      ],
+      evidenceRecords: assets.map(({ name, assetHash, theme, paletteMode, kind }) => ({
+        name,
+        assetHash,
+        theme,
+        paletteMode,
+        kind,
+      })),
+      structuralValidation: 'passed',
+      actualInspection: 'pending',
+      independentSecondPass: 'pending where textured/layered',
+      limitations:
+        'Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review.',
+    };
+  });
+  await fs.writeFile(
+    path.join(output, 'matrix.json'),
+    JSON.stringify({ schemaVersion: 1, tones: matrix }, null, 2),
+  );
   await fs.writeFile(
     path.join(output, 'manifest.json'),
     JSON.stringify({ schemaVersion: 1, records }, null, 2),

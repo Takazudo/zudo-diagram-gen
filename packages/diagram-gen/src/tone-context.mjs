@@ -528,6 +528,10 @@ export async function resolveToneResources(
     throw new Error(
       `${tone.id}: incomplete tone context; scheme, kit and a required bundled explanation are mandatory.`,
     );
+  if (requireComplete) {
+    const { validateMaterializationKit } = await import('./materialize.mjs');
+    validateMaterializationKit(kit.text, scheme);
+  }
   const recipePath = `${tone.id}/recipe.md`;
   const sourcePath = `${tone.id}/source.svg`;
   const recipeText = await safeRead(root, recipePath);
