@@ -1,33 +1,23 @@
-import { parseArgs } from 'node:util';
+import { machineRequested, parseOptions } from './command-contract.mjs';
 import { exportHtml } from './html-export.mjs';
 
 export async function runHtmlExportCommand(args) {
   if (args[0] !== 'export-html') return false;
-  const machine = args.includes('--json');
+  const machine = machineRequested(args);
   try {
-    const seen = new Set();
-    for (const arg of args.slice(1).filter((s) => s.startsWith('--'))) {
-      const flag = arg.split('=')[0];
-      if (seen.has(flag)) {
-        const error = new Error(`Duplicate option ${flag}.`);
-        error.code = 'INVALID_ARGUMENT';
-        throw error;
-      }
-      seen.add(flag);
-    }
-    const parsed = parseArgs({
-      args: args.slice(1),
-      allowPositionals: true,
-      options: { out: { type: 'string' }, force: { type: 'boolean' }, json: { type: 'boolean' } },
+    const parsed = parseOptions(args.slice(1), {
+      out: { type: 'string' },
+      force: { type: 'boolean' },
+      json: { type: 'boolean' },
     });
-    if (!parsed.values.out || parsed.positionals.length > 1) {
+    if (!parsed.options.out || parsed.positionals.length > 1) {
       const error = new Error('Usage: export-html [directory] --out <file> [--force] [--json]');
       error.code = 'INVALID_ARGUMENT';
       throw error;
     }
     const result = await exportHtml(parsed.positionals[0] || '.', {
-      output: parsed.values.out,
-      force: parsed.values.force ?? false,
+      output: parsed.options.out,
+      force: parsed.options.force ?? false,
     });
     if (machine)
       console.log(
