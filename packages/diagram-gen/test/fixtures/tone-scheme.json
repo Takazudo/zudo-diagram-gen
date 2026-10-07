@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "toneId": "fixture-tone",
+  "toneRevision": "r1",
+  "collectionVersion": "test-1",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 2
+    },
+    "radii": {
+      "card": 8
+    },
+    "fills": {
+      "card": "surface"
+    },
+    "opacities": {
+      "wash": 0.2
+    },
+    "layers": {
+      "shadow": {
+        "dx": 2,
+        "dy": 3,
+        "opacity": 0.1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#111111",
+      "surface": "#ffffff",
+      "border": "#777777",
+      "accent": "#3377cc",
+      "deep": "#222244",
+      "warning": "#cc6600"
+    },
+    "dark": {
+      "ink": "#111111",
+      "surface": "#ffffff",
+      "border": "#777777",
+      "accent": "#3377cc",
+      "deep": "#222244",
+      "warning": "#cc6600"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "Noto Sans",
+      "fontSize": 24,
+      "minCssPx": 12,
+      "fontWeight": 500
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Tone-native composition; inspect the example.",
+    "people": "Tone-native composition; inspect the example.",
+    "empty": "Tone-native composition; inspect the example.",
+    "pending": "Tone-native composition; inspect the example.",
+    "emphasis": "Tone-native composition; inspect the example.",
+    "warning": "Tone-native composition; inspect the example."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "no-distortion",
+        "description": "Preserve aspect ratio."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "short-labels",
+        "description": "Prefer short labels."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "palette-remapping",
+        "description": "Use project semantic colors."
+      }
+    ]
+  }
+}

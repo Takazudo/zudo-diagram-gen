@@ -1,0 +1,9 @@
+---
+title: Versioned tone context and scheme validation
+---
+
+Tone inspection now includes installed explanation content, the recipe and source SVG, validated schemes and kit inventories, and deterministic context hashes. Existing tone fields and complete example SVGs remain available through `tones show --json` and the new `resolveToneContext` API. Tone lists keep their existing concise shape.
+
+Schemes provide authoritative geometry, typography, semantic palette and texture values with separate format, authored revision and collection identities. Numeric recipe templates and checked role references detect drift. A nominal contain-scale check reports label minima while keeping visual inspection explicit.
+
+Legacy tones continue loading with explicit missing-scheme and missing-kit capabilities. Declared malformed or unsafe resources fail; callers can request complete tone context. Production scheme and kit authoring remains a later work package. Context changes preserve saved artwork fingerprints and existing review lineage.
