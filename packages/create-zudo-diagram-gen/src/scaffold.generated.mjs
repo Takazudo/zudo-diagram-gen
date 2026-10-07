@@ -274,7 +274,7 @@ This directory is content for the package-owned zudo-diagram-gen viewer. A proje
 
 - The coordinator owns session.json, brief.md, and each rounds/<round>/round.json.
 - A candidate worker owns one rounds/<round>/<candidate>/ directory containing candidate.json and its SVG assets.
-- pages/index.tsx, pages/sessions/<session-id>/index.tsx and .generated/ are engine-generated. The engine regenerates the page when dev/build runs; edit session content to change the gallery.
+- pages/index.tsx and .generated/ are engine-generated. Project routes under pages/sessions/<session-id>/ are generated too. The engine regenerates the page when dev/build runs; edit session content to change the gallery.
 - The core workflow accepts this directory as its destination. Personal wrapper skills choose directories and personal defaults outside this workspace.
 - session.json has a unique persisted ID so same-named sessions have separate browser review state. Keep that ID when continuing this session; initialize a new session when starting independent work.
 
