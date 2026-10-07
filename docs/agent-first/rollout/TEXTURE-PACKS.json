@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "tones": [
+    {
+      "toneId": "contour-wash",
+      "toneRevision": "rollout-1",
+      "scheme": "contour-wash/scheme.json",
+      "kit": "contour-wash/kit.svg",
+      "recipeSummaryTemplates": [
+        "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "luminous-glass",
+      "toneRevision": "rollout-1",
+      "scheme": "luminous-glass/scheme.json",
+      "kit": "luminous-glass/kit.svg",
+      "recipeSummaryTemplates": [
+        "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "editorial-serif",
+      "toneRevision": "rollout-1",
+      "scheme": "editorial-serif/scheme.json",
+      "kit": "editorial-serif/kit.svg",
+      "recipeSummaryTemplates": [
+        "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "isometric-solid",
+      "toneRevision": "rollout-1",
+      "scheme": "isometric-solid/scheme.json",
+      "kit": "isometric-solid/kit.svg",
+      "recipeSummaryTemplates": [
+        "Opaque projected tiles with distinct top and side facets and hard cast shadows; circles become tangible medallions.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "isometric-wire",
+      "toneRevision": "rollout-1",
+      "scheme": "isometric-wire/scheme.json",
+      "kit": "isometric-wire/kit.svg",
+      "recipeSummaryTemplates": [
+        "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "risograph-duo",
+      "toneRevision": "rollout-1",
+      "scheme": "risograph-duo/scheme.json",
+      "kit": "risograph-duo/kit.svg",
+      "recipeSummaryTemplates": [
+        "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "halftone-manual",
+      "toneRevision": "rollout-1",
+      "scheme": "halftone-manual/scheme.json",
+      "kit": "halftone-manual/kit.svg",
+      "recipeSummaryTemplates": [
+        "Firm monochrome keylines, picture-area dot screens and diagonal hatching; essential labels occupy clean knockout ground.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "marker-workshop",
+      "toneRevision": "rollout-1",
+      "scheme": "marker-workshop/scheme.json",
+      "kit": "marker-workshop/kit.svg",
+      "recipeSummaryTemplates": [
+        "Broad rounded marker paths with imperfect corners, loose loops and flat highlighter swipes.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "chalkboard",
+      "toneRevision": "rollout-1",
+      "scheme": "chalkboard/scheme.json",
+      "kit": "chalkboard/kit.svg",
+      "recipeSummaryTemplates": [
+        "Broken chalk contours with a faint second pass, sparse dust, warm accents and open blackboard ground.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    },
+    {
+      "toneId": "cut-paper",
+      "toneRevision": "rollout-1",
+      "scheme": "cut-paper/scheme.json",
+      "kit": "cut-paper/kit.svg",
+      "recipeSummaryTemplates": [
+        "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean.",
+        "Outline stroke {{scheme:geometry.strokeWidths.outline}}; label font size {{scheme:typography.label.fontSize}}; texture frequency {{scheme:texture.frequency}}."
+      ]
+    }
+  ]
+}

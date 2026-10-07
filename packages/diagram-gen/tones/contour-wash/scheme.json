@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "contour-wash",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1.8,
+      "connector": 1.8,
+      "detail": 1
+    },
+    "radii": {
+      "card": 12,
+      "head": 14
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 7,
+        "dy": 6,
+        "opacity": 0.7
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#46354d",
+      "surface": "#faf6fc",
+      "border": "#c4b4cc",
+      "accent": "#86569f",
+      "deep": "#d4b6df",
+      "warning": "#86569f"
+    },
+    "dark": {
+      "ink": "#eadff0",
+      "surface": "#2b2134",
+      "border": "#725b80",
+      "accent": "#c79add",
+      "deep": "#6e4c7f",
+      "warning": "#c79add"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "broad-translucent-fields",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. Direction has one explicit terminal head.",
+    "people": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Precise open contours over broad translucent washes. Wash overlap is decoration, never an additional relation."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Wash contrast varies with backdrop; inspect both themes after remapping."
+      }
+    ]
+  }
+}

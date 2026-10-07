@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "isometric-wire",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 2,
+      "connector": 2,
+      "detail": 1.2
+    },
+    "radii": {
+      "card": 0,
+      "head": 14
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 7,
+        "dy": 6,
+        "opacity": 0.7
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#244D82",
+      "surface": "#F8F8F2",
+      "border": "#DCE4EA",
+      "accent": "#D86838",
+      "deep": "#8EACCB",
+      "warning": "#D86838"
+    },
+    "dark": {
+      "ink": "#C6D9F5",
+      "surface": "#132234",
+      "border": "#293E56",
+      "accent": "#FFA47E",
+      "deep": "#7695B8",
+      "warning": "#FFA47E"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "projected-wire-grid",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 22
+  },
+  "composition": {
+    "arrows": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. Direction has one explicit terminal head.",
+    "people": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Open projected contours, dashed construction edges and accent registration edges, without solid extrusions."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Thin grid and dashed geometry need simplification in narrow slots."
+      }
+    ]
+  }
+}

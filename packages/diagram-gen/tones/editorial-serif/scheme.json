@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "editorial-serif",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1,
+      "connector": 1.2,
+      "detail": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 14
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 7,
+        "dy": 6,
+        "opacity": 0.7
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#47372c",
+      "surface": "#f7f1e9",
+      "border": "#c3b6a6",
+      "accent": "#a7523c",
+      "deep": "#cc9f85",
+      "warning": "#a7523c"
+    },
+    "dark": {
+      "ink": "#efe2d2",
+      "surface": "#29201c",
+      "border": "#76604e",
+      "accent": "#e1a07e",
+      "deep": "#82604a",
+      "warning": "#e1a07e"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Serif CJK JP', Georgia, serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 500
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "Georgia, serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. Direction has one explicit terminal head.",
+    "people": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Large deliberate serif specimen lettering and restrained rules in open margins; instructional labels have their own upright Japanese serif role."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Installed serif fallback metrics and CJK glyph coverage require image inspection."
+      }
+    ]
+  }
+}

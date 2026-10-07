@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "cut-paper",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 0,
+      "connector": 0,
+      "detail": 2
+    },
+    "radii": {
+      "card": 0,
+      "head": 14
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 7,
+        "dy": 6,
+        "opacity": 0.7
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#27383D",
+      "surface": "#F5F0E6",
+      "border": "#DFD8CA",
+      "accent": "#DC735C",
+      "deep": "#5DACA2",
+      "warning": "#DC735C"
+    },
+    "dark": {
+      "ink": "#F4EDD9",
+      "surface": "#1D292B",
+      "border": "#3B4B4D",
+      "accent": "#DE816D",
+      "deep": "#73B8AC",
+      "warning": "#DE816D"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "irregular-cut-silhouettes",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. Direction has one explicit terminal head.",
+    "people": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Irregular hand-cut silhouettes with offset pasted edges and flat organic color fields; label planes remain clean."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Too many overlapping cuts suggest extra objects; retain clear factual object counts."
+      }
+    ]
+  }
+}
