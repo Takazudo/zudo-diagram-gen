@@ -1,0 +1,10 @@
+---
+title: Offline tone reference material
+description: Every tone now includes local meaning and terminology, with an offline resource audit.
+---
+
+All 24 tone references now include bundled explanation, terminology and a reading guide for their original pattern + text → composition → image-export example. The 48 private repository links previously present in the catalog and recipes have been replaced with required local descriptors. Public inspiration remains optional.
+
+The original SVG artwork, tone IDs, saved sessions, review fingerprints and legacy CLI shapes are preserved. The teaching example is invented content and does not fully specify the private product that motivated it. Bundled provenance records what is original, what is omitted and what is not redistributed.
+
+`pnpm check:examples` and package prepack now audit required local resources without a network request. The checks reject missing files, invalid UTF-8, unsupported types, unsafe paths and symlink escapes, package exclusions and known private dependencies. Optional live-link diagnostics require the separate `node scripts/audit-tone-references.mjs --external` command; redirects, rate limits and unknown visibility remain distinct from missing or unavailable URLs.

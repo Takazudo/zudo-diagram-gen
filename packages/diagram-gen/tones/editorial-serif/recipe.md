@@ -28,7 +28,14 @@ The supplied artwork has a 720 × 400 viewBox. Most essential labels are at leas
 
 A pattern background and a text layer combine into a composition that can be exported as an image. The example uses PNG as its export label. The shapes and sample typography are invented teaching material, not screenshots. Optional image layers and saving are omitted.
 
-## References
+Read the bundled [composition meaning and glossary](../shared/composition-meaning.md) for the full input/output vocabulary and [provenance decisions](../shared/provenance.md) for reuse limits.
+
+## Reading this drawing
+
+Pattern and Text name the two inputs; Aa is a lettering preview. Make something. is sample copy inside the resulting composition. PNG marks the output image format. Serif lettering changes the editorial treatment, not what the composition contains.
+
+## Optional public inspiration
+
+These links explain broad visual construction principles. Reading them is optional; all example meaning is bundled locally.
 
 - [Indeed Design — a scalable illustration system](https://indeed.design/article/building-a-scalable-illustration-system/)
-- [Example content — zudo-pattern-gen Composer manual](https://github.com/zudolab/zudo-pattern-gen/blob/develop/manual/src/content/docs/composer/index.mdx)
