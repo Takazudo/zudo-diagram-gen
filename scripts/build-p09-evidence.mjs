@@ -210,7 +210,16 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
                   height: kind === 'composition' ? manifest.height : 400,
                 },
                 fit: 'contain',
-                fonts: [...new Set(Object.values(scheme.typography).map((r) => r.fontFamily))],
+                fonts: [
+                  ...new Set(
+                    Object.values(scheme.typography).map((r) =>
+                      r.fontFamily
+                        .split(',')[0]
+                        .trim()
+                        .replace(/^['"]|['"]$/g, ''),
+                    ),
+                  ),
+                ],
               },
               null,
               2,

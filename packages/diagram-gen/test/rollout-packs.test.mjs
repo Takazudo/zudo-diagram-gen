@@ -5,6 +5,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { test, onTestFinished } from 'vitest';
 import { loadToneCatalog, validateSession } from '../src/model.mjs';
+import { validatePlacement } from '../src/placement.mjs';
 import { hashBytes, KIT_PRIMITIVES } from '../src/tone-context.mjs';
 import {
   buildRolloutKits,
@@ -65,6 +66,12 @@ test('evidence preparation uses repeated production instances and exact explicit
     const directory = path.join(output, record.name);
     const checked = await validateSession(directory);
     assert.equal(checked.ok, true, checked.errors.join('\n'));
+    const placement = JSON.parse(await fs.readFile(path.join(directory, 'placement.json'), 'utf8'));
+    assert.deepEqual(
+      validatePlacement(placement, record.target, record.theme).slot,
+      placement.slot,
+    );
+    assert.ok(placement.fonts.every((family) => !/[,'"]/.test(family)));
     const svg = await fs.readFile(
       path.join(directory, `rounds/r01/c01/${record.theme}.svg`),
       'utf8',
