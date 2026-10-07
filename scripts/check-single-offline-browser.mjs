@@ -32,10 +32,12 @@ try {
   await app.locator('[data-action="inspect"]').first().click();
   await app.locator('[data-note="keep"]').fill('Detached ordinary session feedback');
   await app.locator('[data-action="theme"][data-value="dark"]').click();
-  const pending = page.waitForEvent('download');
-  await app.locator('[data-action="download-review"]').click();
-  const file = await pending,
-    filename = join(evidence, file.suggestedFilename());
+  // Both the topbar and feedback panel offer review downloads.
+  const [file] = await Promise.all([
+    page.waitForEvent('download'),
+    app.locator('.dg-topbar [data-action="download-review"]').click(),
+  ]);
+  const filename = join(evidence, file.suggestedFilename());
   await file.saveAs(filename);
   await app.locator('[data-import-review]').setInputFiles(filename);
   await app
@@ -46,9 +48,10 @@ try {
     await app.locator('[data-note="keep"]').inputValue(),
     'Detached ordinary session feedback',
   );
-  const svgPending = page.waitForEvent('download');
-  await app.locator('[data-action="download-svg"]').click();
-  const svg = await svgPending;
+  const [svg] = await Promise.all([
+    page.waitForEvent('download'),
+    app.locator('[data-action="download-svg"]').first().click(),
+  ]);
   await svg.saveAs(join(evidence, svg.suggestedFilename()));
   await page.screenshot({ path: join(evidence, 'single-offline.png'), fullPage: true });
   assert.deepEqual(requests, []);

@@ -41,9 +41,10 @@ try {
   assert.equal(data.comparisonSets.length, 8);
   const app = page.locator('#diagram-app');
   const reviewDownloads = async () => {
-    const pending = page.waitForEvent('download');
-    await app.locator('[data-project-action="download"]').click();
-    const downloaded = await pending;
+    const [downloaded] = await Promise.all([
+      page.waitForEvent('download'),
+      app.locator('[data-project-action="download"]').click(),
+    ]);
     const filename = join(evidence, downloaded.suggestedFilename());
     await downloaded.saveAs(filename);
     return JSON.parse(await readFile(filename, 'utf8'));
@@ -125,13 +126,16 @@ try {
   await session.locator('[data-action="view"][data-view="compare"]').click();
   assert.equal(await session.locator('.dg-compare-cell').count(), 2);
   await session.locator('[data-action="copy-feedback"]').click();
-  const svgDownload = page.waitForEvent('download');
-  await session.locator('[data-action="download-svg"]').first().click();
-  const svg = await svgDownload;
+  const [svg] = await Promise.all([
+    page.waitForEvent('download'),
+    session.locator('[data-action="download-svg"]').first().click(),
+  ]);
   await svg.saveAs(join(evidence, svg.suggestedFilename()));
-  const singleDownload = page.waitForEvent('download');
-  await session.locator('[data-action="download-review"]').click();
-  const single = await singleDownload;
+  // Both the topbar and feedback panel offer review downloads.
+  const [single] = await Promise.all([
+    page.waitForEvent('download'),
+    session.locator('.dg-topbar [data-action="download-review"]').click(),
+  ]);
   const singleFile = join(evidence, single.suggestedFilename());
   await single.saveAs(singleFile);
   await session.locator('[data-import-review]').setInputFiles(singleFile);
