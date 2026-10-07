@@ -19,7 +19,7 @@ node "$PROJECT_CHECK_OUT/initializer/node_modules/create-zudo-diagram-gen/bin/cr
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" install
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" check
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" build
-node -e 'const fs=require("node:fs");const root=process.env.PROJECT_CHECK_OUT+"/single";const p=JSON.parse(fs.readFileSync(root+"/package.json"));p.dependencies["@takazudo/zfb"]="2.21.1";p.dependencies["@takazudo/zfb-runtime"]="2.21.1";p.dependencies.preact="10.29.2";fs.writeFileSync(root+"/package.json",JSON.stringify(p));const ts=JSON.parse(fs.readFileSync(root+"/tsconfig.json"));ts.compilerOptions.jsxImportSource="preact";fs.writeFileSync(root+"/tsconfig.json",JSON.stringify(ts))'
+node -e 'const fs=require("node:fs");const root=process.env.PROJECT_CHECK_OUT+"/single";const p=JSON.parse(fs.readFileSync(root+"/package.json"));p.dependencies["@takazudo/zfb"]="2.21.1";p.dependencies["@takazudo/zfb-runtime"]="2.21.1";p.dependencies.preact="10.29.2";p.dependencies["preact-render-to-string"]="6.6.6";fs.writeFileSync(root+"/package.json",JSON.stringify(p));const ts=JSON.parse(fs.readFileSync(root+"/tsconfig.json"));ts.compilerOptions.jsxImportSource="preact";fs.writeFileSync(root+"/tsconfig.json",JSON.stringify(ts))'
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" install
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" check
 corepack pnpm --dir "$PROJECT_CHECK_OUT/single" build
