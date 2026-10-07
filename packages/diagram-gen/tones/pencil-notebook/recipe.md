@@ -40,7 +40,7 @@ These links explain broad visual construction principles. Reading them is option
 
 - [Rough.js — sketch contours and vector hatching](https://roughjs.com/)
 
-## Pilot scheme and kit — authored revision pilot-3
+## Pilot scheme and kit — authored revision pilot-4
 
 The scheme is the numeric authority for new drawings. Required scheme guidance takes precedence over conflicting sparse/removable-texture advice in legacy recipe guidance: retain a visible construction region while keeping labels clear.
 
@@ -48,9 +48,13 @@ Read the seven semantic primitives and fuller/short-wide support symbols in `kit
 
 Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typography.detail.fontSize}} user units. Connector stroke: {{scheme:geometry.strokeWidths.connector}} user units. Texture seed/amplitude/frequency: {{scheme:texture.seed}} / {{scheme:texture.amplitude}} / {{scheme:texture.frequency}}. Values resolve from the scheme; no independent numeric recipe copy.
 
+Label/detail weights: {{scheme:typography.label.fontWeight}} / {{scheme:typography.detail.fontWeight}}. Visible retrace dx/dy/opacity: {{scheme:geometry.layers.trace.dx}} / {{scheme:geometry.layers.trace.dy}} / {{scheme:geometry.layers.trace.opacity}}. These remain scheme authority; responsive placement does not require nominal user-unit sizes as fixed CSS pixels.
+
+The existing full/short-wide panels attach crossing fields to principal backing, and the open arrow symbol shows pencil route construction. Treat these as drawing examples, not a fixed layout: connect meaningful objects without replacing their material construction with a detached page hatch band.
+
 ### Required
 
-- **native-construction**: Use imperfect major contours with a lighter displaced retrace and an exposed distributed crossed-pencil region recognizable at actual placement. Neighboring diagonal strokes form real interior crossings, not isolated X glyphs or zigzag tips. This required scheme supersedes conflicting sparse/removable-texture advice in legacy recipe guidance: keep fine airy strokes, but do not remove the principal field. Preserve exact Japanese text and vacant interiors; move or resize the backing/label planes when necessary.
+- **native-construction**: Principal explanatory objects and their meaningful backing visibly carry pencil construction: imperfect major contours with a lighter displaced retrace plus an exposed distributed crossed region. A detached page-header/footer hatch alone does not carry this construction. Neighboring diagonals form real interior crossings, not isolated X glyphs or tips. This scheme supersedes conflicting sparse/removable-texture legacy recipe advice. Keep Japanese labels upright and exact, vacant interiors clear, and counts intact; move or resize backing/label planes as needed.
 - **facts-and-labels**: Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement.
 - **palette-roles**: Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry.
 - **texture-control**: Use seeded-pencil-field with fixed seed controlling line-position jitter, never model generation. Frequency is diagonal intervals per canonical 100-unit span; repeat opposing families across the authored field dimensions without fitting one finite patch into a wide viewport. Keep crossings exposed and text clear. Legacy seeded-pencil-hatch and seeded-pencil-crosshatch algorithms remain unchanged for prior reproduction.
@@ -58,8 +62,9 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 ### Preferred
 
 - **reading-hierarchy**: Notebook ruling stays subordinate to every label and essential route; remove ruling locally behind text.
-- **tone-emphasis**: Keep arrowheads unambiguous and text upright; express the hand through geometry rather than distorted Japanese glyphs.
-- **field-transfer**: Use a contiguous field with neighboring crossings on a meaningful backing region. At short wide sizes expose it laterally or in a region with enough depth to show intersections, rather than hiding the entire center under a full-width label. Ruled ground stays subordinate. Empty objects keep their vacant interior clear; decorate surrounding construction.
+- **tone-emphasis**: Use readable label/detail emphasis from the declared typography roles. Font weight and scale distinguish principal labels from supporting notes; uniform weight may flatten emphasis even when text is readable. Keep Japanese upright and arrowheads unambiguous. Express the hand in object/route geometry, not distorted glyphs.
+- **field-transfer**: Attach a contiguous crossing field to meaningful principal-object backing, not only to detached page decoration. At short wide sizes expose a lateral or other region with enough depth for neighboring crossings. Notebook ruling remains subordinate; empty objects retain clear vacant interiors. Exact field shape, cell count and area share stay flexible.
+- **route-construction**: Keep the displaced lighter retrace visible on major contours and meaningful routes at actual placement. Use gentle bends or uneven open drawing where they clarify the route. Straight segments and orthogonal turns may remain; this is neither an all-curved-routing mandate nor a numeric skew quota.
 
 ### Flexible
 
@@ -70,11 +75,11 @@ Nominal label/detail sizes: {{scheme:typography.label.fontSize}} / {{scheme:typo
 
 ### Composition vocabulary
 
-- **arrows**: A gently imperfect ink path plus lighter retrace, ending in an open asymmetrical arrowhead.
+- **arrows**: Principal routes visibly belong to the pencil construction: an imperfect open direction mark and lighter displaced retrace remain clear at placement size. Gently bowed or locally irregular segments can express the hand; straight and orthogonal segments remain valid when the brief needs them. No route may cross exact Japanese labels or reverse a factual relation.
 - **people**: An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.
 - **empty**: An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.
 - **pending**: Use a retraced clock next to the waiting object and retain its pending label.
-- **emphasis**: Reserve a contiguous crossed-pencil field beside or around the clear label plane. Keep neighboring diagonal strokes visibly intersecting; labels must not mask every crossing or leave only tips. A muted loose underline may support emphasis.
+- **emphasis**: Principal explanatory objects carry the pencil material through imperfect retraced contours and a visible crossed region attached to their meaningful backing. A detached notebook header/footer hatch alone is insufficient. Keep a clear label plane and readable label/detail emphasis; a loose underline is optional.
 - **warning**: Use a handwritten-looking contour around an upright warning label; preserve the exact text.
 
 Preparation, structural checks and deterministic generation do not establish visual gate acceptance. Layout, exact motifs and percentages are not imposed; actual independent pilot images still need unchanged factual/readability/character review.

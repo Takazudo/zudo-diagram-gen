@@ -27,15 +27,21 @@ function applyRoles(svg, colors) {
     return tag;
   });
 }
-export async function preparePilotSupports(out) {
+export async function preparePilotSupports(out, { tone: selectedTone } = {}) {
+  if (selectedTone && !Object.hasOwn(SUPPORT_LAYOUTS, selectedTone))
+    throw new Error(`Unknown preparation tone ${selectedTone}.`);
   await fs.mkdir(out, { recursive: true });
   const inputs = JSON.parse(await fs.readFile(path.join(evaluation, 'inputs.json'), 'utf8'));
   const palette = JSON.parse(await fs.readFile(path.join(evaluation, inputs.palette), 'utf8'));
   const records = [];
   for (const [tone, layouts] of Object.entries(SUPPORT_LAYOUTS)) {
+    if (selectedTone && tone !== selectedTone) continue;
     const kit = await fs.readFile(
       path.join(repo, 'packages/diagram-gen/tones', tone, 'kit.svg'),
       'utf8',
+    );
+    const scheme = JSON.parse(
+      await fs.readFile(path.join(repo, 'packages/diagram-gen/tones', tone, 'scheme.json'), 'utf8'),
     );
     const defs = kit.match(/<defs>([\s\S]*?)<\/defs>/)?.[1];
     if (!defs) throw new Error(`${tone}: missing authored definitions.`);
@@ -66,6 +72,7 @@ export async function preparePilotSupports(out) {
           await fs.writeFile(path.join(out, file), svg);
           records.push({
             tone,
+            toneRevision: scheme.toneRevision,
             theme,
             brief: brief.id,
             labelCase,
@@ -83,7 +90,7 @@ export async function preparePilotSupports(out) {
   await fs.writeFile(
     path.join(out, 'manifest.json'),
     JSON.stringify(
-      { purpose: 'pilot-3 preparation only; no pilot or visual gate acceptance', records },
+      { purpose: 'support preparation only; no pilot or visual gate acceptance', records },
       null,
       2,
     ) + '\n',
@@ -91,9 +98,25 @@ export async function preparePilotSupports(out) {
   return records;
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  if (process.argv.length !== 4 || process.argv[2] !== '--out')
-    throw new Error('Usage: node scripts/prepare-pilot-supports.mjs --out DIRECTORY');
-  const records = await preparePilotSupports(path.resolve(process.argv[3]));
+  const args = process.argv.slice(2);
+  const options = new Map();
+  for (let i = 0; i < args.length; i += 2) {
+    if (
+      !['--out', '--tone'].includes(args[i]) ||
+      !args[i + 1] ||
+      args[i + 1].startsWith('--') ||
+      options.has(args[i])
+    )
+      throw new Error(
+        'Usage: node scripts/prepare-pilot-supports.mjs --out DIRECTORY [--tone TONE]',
+      );
+    options.set(args[i], args[i + 1]);
+  }
+  if (!options.has('--out'))
+    throw new Error('Usage: node scripts/prepare-pilot-supports.mjs --out DIRECTORY [--tone TONE]');
+  const records = await preparePilotSupports(path.resolve(options.get('--out')), {
+    tone: options.get('--tone'),
+  });
   console.log(
     `${records.length} preparation SVGs authored; coordinator capture and inspection required.`,
   );

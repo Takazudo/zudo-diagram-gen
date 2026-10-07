@@ -93,6 +93,7 @@ test('all 72 original SVG bytes and ordered stable tone identities remain unchan
   for (const [file, hash] of Object.entries({
     ...references.resources,
     ...references.unrevisedPacks,
+    ...references.revision3PaperPack,
   }))
     assert.equal(hashBytes(await fs.readFile(path.join(tones, file))), hash, file);
 });
@@ -360,4 +361,41 @@ test('preparation uses all five authoritative slots and both palette themes with
   }
   await preparePilotSupports(directory);
   assert.equal(await read(path.join(directory, 'manifest.json')), manifest);
+});
+
+test('pencil-only preparation preserves the full helper output and rejects unknown tone selection', async () => {
+  const allDirectory = await temporary();
+  const pencilDirectory = await temporary();
+  const all = await preparePilotSupports(allDirectory);
+  const pencil = await preparePilotSupports(pencilDirectory, { tone: 'pencil-notebook' });
+  assert.equal(pencil.length, 20);
+  for (const record of pencil) {
+    assert.equal(record.tone, 'pencil-notebook');
+    assert.equal(record.toneRevision, 'pilot-4');
+    assert.deepEqual(
+      record,
+      all.find(({ svg }) => svg === record.svg),
+    );
+    assert.equal(
+      await read(path.join(pencilDirectory, record.svg)),
+      await read(path.join(allDirectory, record.svg)),
+    );
+  }
+  assert.ok(
+    all
+      .filter(({ tone }) => tone === 'paper-layers')
+      .every(({ toneRevision }) => toneRevision === 'pilot-3'),
+  );
+  await assert.rejects(
+    preparePilotSupports(pencilDirectory, { tone: 'unknown' }),
+    /Unknown preparation tone/,
+  );
+  await assert.rejects(
+    exec(process.execPath, [
+      path.join(repo, 'scripts/prepare-pilot-supports.mjs'),
+      '--out',
+      '--tone',
+    ]),
+    /Usage:/,
+  );
 });

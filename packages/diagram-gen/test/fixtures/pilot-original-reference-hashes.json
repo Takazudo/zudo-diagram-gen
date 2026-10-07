@@ -114,5 +114,12 @@
   "frozenPilot1PencilHatchHash": "59818f471b60abe2822b74e136502659412eae403d9863a3fb8f7da81d6daa1b",
   "frozenPilot2Commit": "094c60cd900c1b7986dd647467c48443d45d3813",
   "frozenPilot2PencilHatchHash": "ae06fd96ce4166c003b2c597b5d7bbdd486984f66f6ea76fedd86a5131ec71f9",
-  "frozenPilot2PaperCutMotifHash": "54f0dac78d96e2bd48dec60730c0f2cac988910077b47b804c01073c5239da5a"
+  "frozenPilot2PaperCutMotifHash": "54f0dac78d96e2bd48dec60730c0f2cac988910077b47b804c01073c5239da5a",
+  "frozenPilot3Commit": "578dd452df8e0a1cfdfe95cc1680cbd31140f73a",
+  "revision3PaperPack": {
+    "paper-layers/scheme.json": "514be92e9157c89ec23e3ea7268946dbbd762e696686d59027e8f91c69eef723",
+    "paper-layers/kit.svg": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+    "paper-layers/kit.template.svg": "c9a24288928b4351baf08403553ac22b57b324339ddfe44b7b20a85a14cdaa99",
+    "paper-layers/recipe.md": "f07882c249bfb4bd0141d985f780af46fa3eaafcfd62c554437b56a07757c164"
+  }
 }
