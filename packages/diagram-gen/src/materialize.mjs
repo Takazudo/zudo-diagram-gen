@@ -34,6 +34,7 @@ function tree(text) {
   parser.on('opentag', (tag) => {
     const node = {
       name: tag.name,
+      local: tag.local,
       attrs: Object.fromEntries(Object.values(tag.attributes).map((a) => [a.name, a.value])),
       children: [],
     };
@@ -47,8 +48,8 @@ function tree(text) {
   parser.write(text).close();
   walk(root, (node) => {
     if (
-      ['style', 'animate', 'animateMotion', 'animateTransform', 'set', 'discard'].includes(
-        node.name,
+      ['style', 'animate', 'animatemotion', 'animatetransform', 'set', 'discard'].includes(
+        node.local.toLowerCase(),
       )
     )
       throw new Error(
@@ -64,7 +65,7 @@ function tree(text) {
       const replaced = value.replace(urlPattern, '');
       if (/url\s*\(/i.test(replaced))
         throw new Error(`Unsupported local reference syntax in ${key}.`);
-      if (['href', 'xlink:href'].includes(key) && !/^#[^\s]+$/.test(value))
+      if (/^(?:[^:]+:)?href$/.test(key) && !/^#[^\s]+$/.test(value))
         throw new Error(
           `External or unsupported ${key}; materialization requires local #id resources.`,
         );
@@ -113,7 +114,7 @@ function namespace(root, prefix) {
         return ids.get(id);
       };
       if (key === 'id') node.attrs[key] = lookup(value);
-      else if (['href', 'xlink:href'].includes(key)) node.attrs[key] = `#${lookup(value.slice(1))}`;
+      else if (/^(?:[^:]+:)?href$/.test(key)) node.attrs[key] = `#${lookup(value.slice(1))}`;
       else if (['aria-labelledby', 'aria-describedby'].includes(key))
         node.attrs[key] = value.trim().split(/\s+/).map(lookup).join(' ');
       else
@@ -130,7 +131,7 @@ export function validateMaterializationKit(kit, scheme) {
   const root = tree(kit),
     symbols = new Map();
   walk(root, (node) => {
-    if (node.name !== 'symbol') return;
+    if (node.local !== 'symbol') return;
     const box = node.attrs.viewBox
       ?.trim()
       .split(/[\s,]+/)
@@ -173,7 +174,12 @@ export function materializeKit(
   if (!Array.isArray(instances)) throw new Error('instances must be an ordered array.');
   const seen = new Set();
   for (const instance of instances) {
-    if (!instance || !slug.test(instance.id ?? '') || seen.has(instance.id))
+    if (
+      !instance ||
+      typeof instance.id !== 'string' ||
+      !slug.test(instance.id) ||
+      seen.has(instance.id)
+    )
       throw new Error('Instance IDs must be unique URL-safe slugs.');
     seen.add(instance.id);
     if (!symbols.has(instance.primitive))
@@ -192,7 +198,7 @@ export function materializeKit(
     namespace(cloned, `kit-${instance.id}`);
     let selected;
     walk(cloned, (node) => {
-      if (node.name === 'symbol' && node.attrs.id === `kit-${instance.id}-${instance.primitive}`)
+      if (node.local === 'symbol' && node.attrs.id === `kit-${instance.id}-${instance.primitive}`)
         selected = node;
     });
     // Definitions stay local to this instance. Root inherited presentation values survive.
@@ -210,6 +216,10 @@ export function materializeKit(
           ].includes(key),
       ),
     );
+    const box = selected.attrs.viewBox
+      .trim()
+      .split(/[\s,]+/)
+      .map(Number);
     output.children.push({
       name: 'g',
       attrs: inherited,
@@ -221,14 +231,14 @@ export function materializeKit(
         },
         {
           name: 'svg',
-          attrs: { ...attrs, viewBox: selected.attrs.viewBox },
+          attrs: { ...attrs, viewBox: `0 0 ${box[2]} ${box[3]}` },
           children: [
             {
               name: 'use',
               attrs: {
                 href: `#${selected.attrs.id}`,
-                width: String(selected.attrs.viewBox.split(/[\s,]+/)[2]),
-                height: String(selected.attrs.viewBox.split(/[\s,]+/)[3]),
+                width: String(box[2]),
+                height: String(box[3]),
               },
               children: [],
             },

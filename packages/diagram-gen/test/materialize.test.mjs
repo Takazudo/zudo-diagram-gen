@@ -134,3 +134,39 @@ test('duplicate/dangling IDs, external resources, dynamic CSS, script/animation 
     /conflicts/,
   );
 });
+
+test('namespace aliases cannot bypass static resource restrictions', async () => {
+  const scheme = await synthetic();
+  for (const element of [
+    'animate',
+    'animateMotion',
+    'animateTransform',
+    'set',
+    'discard',
+    'style',
+  ]) {
+    const changed = kit.replace(
+      '</svg>',
+      `<svg:${element} xmlns:svg="http://www.w3.org/2000/svg"/></svg>`,
+    );
+    assert.throws(
+      () => materializeKit(changed, { scheme, theme: 'light', instances, svg: canvas }),
+      /Unsupported materialization element/,
+    );
+  }
+});
+test('nonzero viewBox origins are applied once and valid prefixed symbols instantiate', async () => {
+  const scheme = await synthetic();
+  const changed = kit
+    .replace('id="person" viewBox="0 0 100 100"', 'id="person" viewBox="10,20,100,100"')
+    .replace('<symbol id="person"', '<s:symbol xmlns:s="http://www.w3.org/2000/svg" id="person"')
+    .replace('</symbol>', '</s:symbol>');
+  const result = materializeKit(changed, {
+    scheme,
+    theme: 'light',
+    instances: [instances[0]],
+    svg: canvas,
+  });
+  assert.match(result, /<svg x="0" y="5" width="90" height="90" viewBox="0 0 100 100">/);
+  assert.match(result, /viewBox="10,20,100,100"/);
+});

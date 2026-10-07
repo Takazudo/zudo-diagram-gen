@@ -432,3 +432,72 @@ test('classic standalone script contains the current mount and shared placement 
     ),
   );
 });
+
+test('style and placement staleness keep legacy artwork feedback and provenance across storage and review transfer', async () => {
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  data.candidates[0].provenance = { styleHash: data.styleHash };
+  const id = data.candidates[0].id;
+  const first = mount(data);
+  first.click(`[data-action="inspect"][data-id="${id}"]`);
+  first.value('[data-note="keep"]', 'Keep accepted geometry and labels');
+  first.click('[data-action="download-review"]');
+  const review = JSON.parse(await first.downloads.at(-1).blob.text());
+  assert.equal(review.records[0].styleHash, data.styleHash);
+  assert.equal(review.records[0].placementHash, data.placementHash);
+  const saved = first.save();
+  first.window.happyDOM.close();
+  data.styleHash = 'c'.repeat(64);
+  data.placementHash = 'd'.repeat(64);
+  const second = mount(data, saved);
+  assert.match(
+    second.query('[data-style-status]').textContent,
+    /Saved style snapshot: stale.*Review style evidence: stale/,
+  );
+  assert.match(second.query('[data-placement-status]').textContent, /stale/);
+  assert.equal(second.query('[data-note="keep"]').value, 'Keep accepted geometry and labels');
+  assert.equal(second.window.document.querySelector('[data-action="acknowledge"]'), null);
+  await second.importRecord(review);
+  second.click('[data-action="download-review"]');
+  const exported = JSON.parse(await second.downloads.at(-1).blob.text());
+  assert.equal(exported.reviewedCandidate.compatibility.artwork, 'current');
+  assert.equal(exported.reviewedCandidate.compatibility.style, 'stale');
+  assert.equal(exported.reviewedCandidate.compatibility.placement, 'stale');
+  assert.equal(exported.records[0].fingerprint, data.candidates[0].fingerprint);
+  assert.equal(exported.records[0].styleHash, 'a'.repeat(64));
+  second.window.happyDOM.close();
+});
+
+test('review import rejects malformed supplied provenance hashes while legacy absence remains valid', async () => {
+  const { validateSessionReview } = await import('../packages/diagram-gen/client/review.mjs');
+  const id = source.candidates[0].id,
+    fingerprint = source.candidates[0].fingerprint;
+  const legacy = {
+    schemaVersion: 1,
+    type: 'zudo-diagram-review',
+    sessionId: source.session.id,
+    records: [{ id, fingerprint, keep: 'Preserve', change: '', action: 'refine' }],
+    shortlist: [],
+  };
+  assert.equal(validateSessionReview(legacy, source), legacy);
+  for (const key of ['styleHash', 'placementHash', 'captureHash']) {
+    for (const value of ['invalid', '', null, 123]) {
+      const bad = structuredClone(legacy);
+      bad.records[0][key] = value;
+      assert.throws(() => validateSessionReview(bad, source), /invalid/);
+    }
+    const current = structuredClone(legacy);
+    current.records[0][key] = 'a'.repeat(64);
+    assert.equal(validateSessionReview(current, source), current);
+  }
+});
+
+test('saved provenance without an effective project style remains unknown', () => {
+  const data = structuredClone(source);
+  data.candidates[0].provenance = { styleHash: 'a'.repeat(64) };
+  const app = mount(data);
+  app.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
+  assert.match(app.query('[data-style-status]').textContent, /Saved style snapshot: unknown/);
+  app.window.happyDOM.close();
+});

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Immutable project style snapshot",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "revision",
+    "toneId",
+    "toneRevision",
+    "collectionVersion",
+    "schemeHash",
+    "kitHash",
+    "paletteHash",
+    "targets",
+    "typography",
+    "baselines",
+    "selectionPurpose"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,126}[a-zA-Z0-9])?$"
+    },
+    "toneId": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,126}[a-zA-Z0-9])?$"
+    },
+    "toneRevision": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "collectionVersion": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "schemeHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "kitHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "paletteHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sessionId", "width", "height"],
+        "properties": {
+          "sessionId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,126}[a-zA-Z0-9])?$"
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 20000
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 20000
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "typography": {
+      "type": "object"
+    },
+    "baselines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sessionId", "candidateId", "fingerprint"],
+        "properties": {
+          "sessionId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,126}[a-zA-Z0-9])?$"
+          },
+          "candidateId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,126}[a-zA-Z0-9])?$"
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selectionPurpose": {
+      "enum": ["test", "user"]
+    }
+  },
+  "additionalProperties": false
+}

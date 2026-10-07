@@ -83,7 +83,7 @@ export async function runProjectCommand(args) {
       ? error.code
       : error.code?.startsWith('ERR_PARSE_ARGS')
         ? 'INVALID_ARGUMENT'
-        : error instanceof SyntaxError || error.errors
+        : error.code === undefined || error instanceof SyntaxError || error.errors
           ? 'VALIDATION_FAILED'
           : 'IO_ERROR';
     if (json)

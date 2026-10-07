@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir, rename, rm, lstat, realpath } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { randomUUID } from 'node:crypto';
+import styleSchema from '../schemas/style.schema.json' with { type: 'json' };
 import { projectPath, loadProject } from './project.mjs';
 import { safeRead } from './model.mjs';
 import {
@@ -9,6 +10,7 @@ import {
   validatePalette,
   validateToneScheme,
   resolveToneContext,
+  schemaErrors,
 } from './tone-context.mjs';
 import { validateMaterializationKit, resolvePalette } from './materialize.mjs';
 
@@ -37,7 +39,10 @@ export function validateCandidateProvenance(value) {
   if (Object.keys(value).some((key) => !allowed.includes(key)))
     throw new Error('Unknown candidate provenance property.');
   for (const [key, item] of Object.entries(value))
-    if (!(key === 'styleRevision' ? slug.test(item) : hashPattern.test(item)))
+    if (
+      typeof item !== 'string' ||
+      !(key === 'styleRevision' ? slug.test(item) : hashPattern.test(item))
+    )
       throw new Error(`Invalid candidate provenance ${key}.`);
   return structuredClone(value);
 }
@@ -45,20 +50,8 @@ export function styleProvenance(snapshot) {
   const { revision: styleRevision, schemeHash, kitHash, paletteHash } = snapshot.style;
   return { styleRevision, styleHash: snapshot.hash, schemeHash, kitHash, paletteHash };
 }
-export function reviewCompatibility(
-  candidate,
-  previous = {},
-  { styleHash, placementHash, captureHash } = {},
-) {
-  const status = (saved, current) =>
-    saved == null || current == null ? 'unknown' : saved === current ? 'current' : 'stale';
-  return {
-    artwork: status(previous.fingerprint, candidate.fingerprint),
-    style: status(previous.styleHash, styleHash ?? candidate.provenance?.styleHash),
-    placement: status(previous.placementHash, placementHash),
-    capture: status(previous.captureHash, captureHash),
-  };
-}
+export { reviewCompatibility } from '../client/review.mjs';
+
 function selectionEntries(selection) {
   if (
     !selection ||
@@ -119,7 +112,8 @@ function validateBaselines(style, sessions) {
 }
 /** Read only saved constituents: installed catalog upgrades never participate. */
 export async function readStyleRevision(root, revision, { expectedHash, sessions } = {}) {
-  if (!slug.test(revision ?? '')) fail('INVALID_ARGUMENT', 'Revision must be a URL-safe slug.');
+  if (typeof revision !== 'string' || !slug.test(revision))
+    fail('INVALID_ARGUMENT', 'Revision must be a URL-safe slug.');
   const directory = `styles/${revision}`;
   for (const file of ['style.json', 'scheme.json', 'palette.json', 'kit.svg'])
     await projectPath(root, `${directory}/${file}`);
@@ -147,6 +141,8 @@ export async function readStyleRevision(root, revision, { expectedHash, sessions
   const hash = documentHash(style);
   if (expectedHash !== undefined && expectedHash !== hash)
     fail('VALIDATION_FAILED', 'Style reference hash mismatch.');
+  const structuralErrors = schemaErrors(style, styleSchema, 'style');
+  if (structuralErrors.length) fail('VALIDATION_FAILED', structuralErrors.join('\n'));
   validateToneScheme(scheme, {
     toneId: style.toneId,
     toneRevision: style.toneRevision,
@@ -201,6 +197,14 @@ export async function readStyleRevision(root, revision, { expectedHash, sessions
   if (sessions) validateBaselines(style, sessions);
   return { style, scheme, palette, kit, hash };
 }
+async function loadStyleProject(root) {
+  const data = await loadProject(root);
+  const errors = data.diagnostics.filter(
+    (item) => !(item.code === 'STALE_INPUT' && item.path === data.project.style?.path),
+  );
+  if (errors.length) fail('VALIDATION_FAILED', errors.map((item) => item.message).join('\n'));
+  return data;
+}
 async function operation(root, action) {
   root = await realpath(resolve(root));
   const lock = await projectPath(root, '.style-operation');
@@ -239,9 +243,10 @@ export async function lockProjectStyle(
   { toneId, palette, selection, revision, toneRoot } = {},
 ) {
   return operation(root, async (root) => {
-    if (!slug.test(revision ?? '')) fail('INVALID_ARGUMENT', 'Revision must be a URL-safe slug.');
+    if (typeof revision !== 'string' || !slug.test(revision))
+      fail('INVALID_ARGUMENT', 'Revision must be a URL-safe slug.');
     const before = await readFile(await projectPath(root, 'project.json'));
-    const data = await loadProject(root, { strict: true });
+    const data = await loadStyleProject(root);
     const baselines = selectionEntries(selection);
     const context = await resolveToneContext(toneId, { toneRoot });
     if (!context.scheme || !context.kit)
@@ -292,6 +297,13 @@ export async function lockProjectStyle(
       await writeFile(join(staged, name), content, { flag: 'wx' });
     if (!(await readFile(await projectPath(root, 'project.json'))).equals(before))
       fail('OUTPUT_CONFLICT', 'Project manifest changed during style operation.');
+    try {
+      await mkdir(final);
+    } catch (error) {
+      if (error.code === 'EEXIST')
+        fail('OUTPUT_CONFLICT', 'Style revision already exists; never overwrite it.');
+      throw error;
+    }
     await rename(staged, final);
     const reference = {
       revision,
@@ -306,7 +318,7 @@ export async function lockProjectStyle(
 export async function adoptProjectStyle(root, { revision } = {}) {
   return operation(root, async (root) => {
     const before = await readFile(await projectPath(root, 'project.json'));
-    const data = await loadProject(root, { strict: true });
+    const data = await loadStyleProject(root);
     const snapshot = await readStyleRevision(root, revision, { sessions: data.sessions });
     const reference = { revision, path: `styles/${revision}/style.json`, hash: snapshot.hash };
     await updateManifest(root, before, { ...data.project, style: reference });

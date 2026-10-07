@@ -18,6 +18,12 @@ export function validateSessionReview(review, data) {
       throw new Error(`Candidate “${record?.id || 'unknown'}” is missing from this session.`);
     if (typeof record.fingerprint !== 'string' || !record.fingerprint)
       throw new Error(`Candidate “${record.id}” has no artwork fingerprint.`);
+    for (const key of ['styleHash', 'placementHash', 'captureHash'])
+      if (
+        Object.hasOwn(record, key) &&
+        (typeof record[key] !== 'string' || !/^[a-f0-9]{64}$/.test(record[key]))
+      )
+        throw new Error(`Candidate “${record.id}” has an invalid ${key}.`);
   }
   const seen = new Set();
   for (const record of review.records) {
@@ -58,4 +64,19 @@ export function validateProjectReview(review, data) {
     validateSessionReview(record, entry.data);
   }
   return review;
+}
+
+export function reviewCompatibility(
+  candidate,
+  previous = {},
+  { styleHash, placementHash, captureHash } = {},
+) {
+  const status = (saved, current) =>
+    saved == null || current == null ? 'unknown' : saved === current ? 'current' : 'stale';
+  return {
+    artwork: status(previous.fingerprint, candidate.fingerprint),
+    style: status(previous.styleHash, styleHash ?? candidate.provenance?.styleHash),
+    placement: status(previous.placementHash, placementHash),
+    capture: status(previous.captureHash, captureHash),
+  };
 }

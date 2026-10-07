@@ -1,4 +1,4 @@
-import { writeFile, mkdir, rename, rm, realpath } from 'node:fs/promises';
+import { writeFile, mkdir, rename, rm, rmdir, realpath } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { loadSession, safeRead } from './model.mjs';
@@ -17,7 +17,9 @@ export async function createRefinement(
   if (!baseline || baseline.fingerprint !== fingerprint)
     throw new Error('Name the current saved baseline ID and exact fingerprint.');
   if (
-    !/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$/.test(candidateId ?? '') ||
+    typeof candidateId !== 'string' ||
+    candidateId.length > 128 ||
+    !/^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?$/.test(candidateId) ||
     data.candidates.some((item) => item.id === candidateId)
   )
     throw new Error('Refinement requires a new unique candidate ID.');
@@ -34,6 +36,12 @@ export async function createRefinement(
     (!feedback || feedback.id !== baseline.id || feedback.fingerprint !== fingerprint)
   )
     throw new Error('Feedback must identify the actual saved baseline fingerprint.');
+  await projectPath(root, baseline.sourcePath);
+  const baselineMetadata = JSON.parse(
+    (await safeRead(root, baseline.sourcePath)).replace(/^\uFEFF/, ''),
+  );
+  for (const asset of Object.values(baselineMetadata.assets))
+    await projectPath(root, `${baseline.sourcePath.split('/').slice(0, -1).join('/')}/${asset}`);
   const roundPath =
     data.candidates
       .find((item) => item.roundId === roundId)
@@ -44,10 +52,11 @@ export async function createRefinement(
   const { readdir } = await import('node:fs/promises');
   let actualRound;
   for (const entry of await readdir(join(root, 'rounds'), { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
+    if (entry.name.startsWith('.') || !entry.isDirectory()) continue;
     const path = `rounds/${entry.name}/round.json`;
     await projectPath(root, path);
-    if (JSON.parse(await safeRead(root, path)).id === roundId) actualRound = `rounds/${entry.name}`;
+    if (JSON.parse((await safeRead(root, path)).replace(/^\uFEFF/, '')).id === roundId)
+      actualRound = `rounds/${entry.name}`;
   }
   if (!actualRound) throw new Error(`Round ${roundPath} was removed.`);
   const final = await projectPath(root, `${actualRound}/${candidateId}`);
@@ -77,12 +86,21 @@ export async function createRefinement(
     await writeFile(join(staged, 'candidate.json'), JSON.stringify(candidate, null, 2) + '\n', {
       flag: 'wx',
     });
+    const current = await loadSession(root);
+    const currentRound = current.rounds.find((item) => item.id === roundId);
+    if (
+      current.candidates.find((item) => item.id === baseline.id)?.fingerprint !== fingerprint ||
+      !currentRound ||
+      currentRound.order <= current.rounds.find((item) => item.id === baseline.roundId)?.order ||
+      (currentRound.baselineCandidateId && currentRound.baselineCandidateId !== baseline.id)
+    )
+      throw new Error('Baseline or round changed during refinement creation.');
     // Refuse existing or interrupted destination; concurrent cooperating writers reserve it exclusively.
     await mkdir(final);
     try {
       await rename(staged, final);
     } catch (error) {
-      await rm(final);
+      await rmdir(final).catch(() => {});
       throw error;
     }
     return {

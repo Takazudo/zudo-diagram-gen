@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { SaxesParser } from 'saxes';
 import { resolveToneResources, hashBytes } from './tone-context.mjs';
 import { validateCandidateProvenance, readStyleRevision } from './style.mjs';
+import { projectPath } from './project.mjs';
 import { atomicSvgExport } from './svg-export.mjs';
 
 const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
@@ -636,6 +637,17 @@ export async function exportCandidate(
     throw new Error(
       `Candidate ${candidate.id} has no ${theme} SVG; provide that theme explicitly before exporting it.`,
     );
+  const realRoot = await fs.realpath(path.resolve(root));
+  if (resourceRoot && !contains(await fs.realpath(path.resolve(resourceRoot)), realRoot))
+    throw new Error('Session root must be contained in explicit resourceRoot.');
+  await projectPath(realRoot, candidate.sourcePath);
+  const source = JSON.parse(
+    (await safeRead(realRoot, candidate.sourcePath)).replace(/^\uFEFF/, ''),
+  );
+  await projectPath(
+    realRoot,
+    `${path.posix.dirname(candidate.sourcePath)}/${source.assets[theme]}`,
+  );
   if (candidate.provenance?.styleRevision && resourceRoot) {
     const snapshot = await readStyleRevision(resourceRoot, candidate.provenance.styleRevision, {
       expectedHash: candidate.provenance.styleHash,
