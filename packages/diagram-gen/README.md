@@ -45,6 +45,10 @@ Embedded mode uses the host `<html data-theme="light|dark">` appearance (or its 
 
 The engine supports zfb `^2.21.1 || ^3.2.0`. Existing v2 hosts keep their Preact dependencies; the optional Preact peer avoids adding Preact to new v3 hosts. `createPageSource(data, options, zfbMajor)` keeps its v2 default for existing programmatic callers; the CLI selects the major from the destination’s installed zfb.
 
+## Optional candidate capture
+
+Install `playwright@1.59.1` explicitly and run `pnpm exec playwright install chromium`, then use `zudo-diagram-gen capture <candidate-id> --session <dir> --out <png> --json`. `--placement`, `--dpr`, `--crop`, `--theme`, `--timeout-ms`, `--browser-executable`, `--resource-root` and `--force` are supported. Capture and ordinary preview share one renderer. The PNG sidecar records input hashes and `inspected:false`; visual inspection remains a separate step. Source files are protected even with force. Inside a source/resource root, write captures to `exports/`. Ordinary checks, tone reading and exact SVG export do not need browser setup. See contributor `docs/agent-first/CAPTURE.md` for descriptor, API and acceptance details.
+
 ## Resolved tone context
 
 `resolveToneContext(id)` and `tones show <id> --json` include the existing tone

@@ -74,6 +74,7 @@ try {
   for (const route of routes) {
     const response = await page.goto(origin + route);
     assert.equal(response.status(), 200, route);
+    if (route === '/docs/workbench/') await page.locator('.dg-card').first().waitFor();
     await page.screenshot({
       path: `test-output/doc-combine-${route === '/' ? 'home' : route.split('/').filter(Boolean).at(-1)}.png`,
       fullPage: route === '/',
@@ -135,10 +136,13 @@ try {
   await page.locator('[data-action="shortlist-toggle"][data-id="r01-c01"]').click();
   await page.locator('[data-action="zoom-actual"]').click();
   assert.equal(await page.locator('.dg-stage').getAttribute('data-scale'), '1');
-  const placement = await page.locator('.dg-context-art').evaluate((element) => ({
-    width: element.getBoundingClientRect().width,
-    height: element.getBoundingClientRect().height,
-  }));
+  const placement = await page.locator('[data-placement-diagram]').evaluate((element) => {
+    if (!element.complete || !element.naturalWidth) throw new Error('Placement SVG did not load');
+    return {
+      width: element.getBoundingClientRect().width,
+      height: element.getBoundingClientRect().height,
+    };
+  });
   assert.deepEqual(placement, { width: 360, height: 200 });
   await page.locator('[data-field="zoom"]').evaluate((element) => {
     element.value = '150';
