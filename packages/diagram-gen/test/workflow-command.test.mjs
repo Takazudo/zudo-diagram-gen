@@ -75,6 +75,9 @@ test('interrupted opt-in install preserves resumable files and keeps child logs 
   });
   assert.equal(result.status, 4);
   assert.equal(result.json.errors[0].code, 'IO_ERROR');
+  assert.equal(result.json.data.directory, out);
+  assert.equal(result.json.data.installed, false);
+  assert.match(result.json.data.recovery, /pnpm install/);
   assert.match(result.stderr, /child-install-stdout/);
   assert.match(result.stderr, /child-install-stderr/);
   assert.match(result.json.errors[0].message, /Files are preserved|Workspace created/);
@@ -106,6 +109,9 @@ for (const args of [
   ['project', 'adopt', 'x', '--revision', 'r1', '--revision', 'r2', '--json'],
   ['export-html', 'x', '--out', 'x', '--force', '--force', '--json'],
   ['nonsense', '--json'],
+  ['new', '--out=', '--brief', 'x', '--json'],
+  ['resume', 'x', '--review=', '--json'],
+  ['check', '--json-version=', '--json'],
 ])
   test(`argument errors have one parseable envelope: ${args.join(' ')}`, () => {
     const result = run(args);
@@ -209,4 +215,13 @@ test('exact saved export has an envelope and missing themes are explicit failure
   ]);
   assert.notEqual(failure.status, 0);
   assert.equal(await readFile(output, 'utf8'), candidate.assets.light);
+});
+
+test('inaccessible review reports actionable IO and retains loaded content', async () => {
+  const { out, brief, root } = await workspace();
+  const created = run(['new', '--out', out, '--brief', brief, '--json']);
+  const result = run(['resume', out, '--review', path.join(root, 'missing-review.json'), '--json']);
+  assert.equal(result.status, 4);
+  assert.equal(result.json.errors[0].code, 'IO_ERROR');
+  assert.equal(result.json.data.content.session.id, created.json.data.sessionId);
 });

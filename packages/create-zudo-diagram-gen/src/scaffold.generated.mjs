@@ -126,15 +126,28 @@ export async function createProject(options = {}) {
       { code: error.code === 'EEXIST' ? 'OUTPUT_CONFLICT' : 'IO_ERROR' },
     );
   }
-  if (options.install === true) await installDependencies(directory, options.installOutput);
-  return {
+  const result = {
     directory,
     name: nameSlug,
     ...(options.project ? { projectId: id } : { sessionId: id }),
     title,
-    installed: options.install === true,
+    installed: false,
     files: Object.keys(files),
   };
+  if (options.install === true) {
+    try {
+      await installDependencies(directory, options.installOutput);
+      result.installed = true;
+    } catch (error) {
+      error.code = 'IO_ERROR';
+      error.data = {
+        ...result,
+        recovery: 'Run pnpm install in this directory, then resume it; do not rerun new.',
+      };
+      throw error;
+    }
+  }
+  return result;
 }
 
 function slug(value) {

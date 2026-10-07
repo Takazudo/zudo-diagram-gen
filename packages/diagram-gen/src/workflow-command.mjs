@@ -12,6 +12,7 @@ import { captureSetup } from './capture-runtime.mjs';
 import {
   argumentError,
   envelope,
+  errorCode,
   machineRequested,
   parseOptions,
   readInput,
@@ -118,8 +119,13 @@ export async function runWorkflowCommand(args) {
           expectedHash: content.project.style.hash,
           sessions: content.sessions,
         });
-      } catch {
-        /* loadProject already reported missing/stale immutable style diagnostics. */
+      } catch (error) {
+        if (!errors.some((item) => item.path === content.project.style.path))
+          errors.push({
+            code: errorCode(error),
+            message: error.message,
+            path: content.project.style.path,
+          });
       }
     }
     if (options.review) {
@@ -168,7 +174,7 @@ export async function runWorkflowCommand(args) {
       process.exitCode = errors.length ? 1 : 0;
     }
   } catch (error) {
-    reportError(command, error, machine, false, recovery);
+    reportError(command, error, machine, false, error.data ?? recovery);
   }
   return true;
 }
