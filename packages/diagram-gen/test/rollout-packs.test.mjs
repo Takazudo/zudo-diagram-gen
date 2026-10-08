@@ -1,0 +1,390 @@
+import assert from 'node:assert/strict';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import { fileURLToPath } from 'node:url';
+import { test, onTestFinished } from 'vitest';
+import { loadToneCatalog, validateSession } from '../src/model.mjs';
+import { validatePlacement, loadPlacement } from '../src/placement.mjs';
+import { hashBytes, KIT_PRIMITIVES } from '../src/tone-context.mjs';
+import {
+  buildRolloutKits,
+  compileAuthoringTemplate,
+} from '../../../scripts/build-rollout-kits.mjs';
+import {
+  buildP09Evidence,
+  pilotEvidenceComposition,
+  evaluateVisualAcceptance,
+} from '../../../scripts/build-p09-evidence.mjs';
+import { SaxesParser } from 'saxes';
+const root = fileURLToPath(new URL('../tones/', import.meta.url));
+const ids = [
+  'technical-blueprint',
+  'swiss-grid',
+  'transit-wayfinding',
+  'ui-miniature',
+  'modular-geometric',
+  'terminal',
+  'pixel-schematic',
+  'circuit-route',
+  'offset-blocks',
+  'ink-silhouette',
+];
+
+test('authored rollout packs are reproducible, numerically bound and geometrically distinct', async () => {
+  const catalog = await loadToneCatalog();
+  await buildRolloutKits({ tones: ids, check: true });
+  const geometries = new Set();
+  for (const id of ids) {
+    const { context } = catalog.tones.find((t) => t.id === id);
+    assert.deepEqual(context.capabilities, { scheme: true, kit: true });
+    assert.deepEqual(
+      context.kit.primitives.map(({ id }) => id),
+      KIT_PRIMITIVES,
+    );
+    assert.ok(!context.recipeDocument.text.includes('{{'));
+    const template = await fs.readFile(path.join(root, id, 'kit.template.svg'), 'utf8');
+    geometries.add(hashBytes(template.replaceAll(id, '').replace(/#[a-f0-9]{6}/gi, '#COLOR')));
+    const changed = structuredClone(context.scheme);
+    changed.geometry.strokeWidths.outline += 0.5;
+    assert.notEqual(
+      compileAuthoringTemplate(template, changed),
+      compileAuthoringTemplate(template, context.scheme),
+    );
+  }
+  assert.equal(geometries.size, ids.length);
+});
+
+test('evidence preparation uses repeated production instances and exact explicit themes without claiming inspection', async () => {
+  const output = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-evidence-'));
+  onTestFinished(() => fs.rm(output, { recursive: true, force: true }));
+  const records = await buildP09Evidence({
+    output,
+    tones: ['technical-blueprint', 'offset-blocks', 'editorial-serif'],
+  });
+  assert.equal(records.length, 24);
+  for (const record of records) {
+    assert.equal(record.inspected, false);
+    assert.equal(record.capture, 'pending');
+    assert.ok(record.instances.length >= 7);
+    if (record.toneId === 'editorial-serif' && record.kind === 'composition')
+      assert.deepEqual(record.target, { width: 640, height: 360 });
+    if (record.kind === 'kit') assert.equal(record.instances.length, 14);
+    const directory = path.join(output, record.name);
+    const checked = await validateSession(directory);
+    assert.equal(checked.ok, true, checked.errors.join('\n'));
+    const placement = JSON.parse(await fs.readFile(path.join(directory, 'placement.json'), 'utf8'));
+    assert.deepEqual(
+      validatePlacement(placement, record.target, record.theme).slot,
+      placement.slot,
+    );
+    assert.ok(placement.fonts.every((family) => !/[,'"]/.test(family)));
+    const svg = await fs.readFile(
+      path.join(directory, `rounds/r01/c01/${record.theme}.svg`),
+      'utf8',
+    );
+    assert.equal(hashBytes(svg), record.assetHash);
+    assert.ok(svg.includes('基本形') || svg.includes('予約状況'));
+    assert.ok(!svg.includes('data-palette-'));
+    assert.ok(!svg.includes('{{'));
+    const candidate = JSON.parse(
+      await fs.readFile(path.join(directory, 'rounds/r01/c01/candidate.json'), 'utf8'),
+    );
+    assert.deepEqual(Object.keys(candidate.assets), ['light', 'dark']);
+    assert.notEqual(
+      await fs.readFile(path.join(directory, 'rounds/r01/c01/light.svg'), 'utf8'),
+      await fs.readFile(path.join(directory, 'rounds/r01/c01/dark.svg'), 'utf8'),
+    );
+  }
+  const first = await fs.readFile(path.join(output, 'manifest.json'), 'utf8');
+  await buildP09Evidence({
+    output,
+    tones: ['technical-blueprint', 'offset-blocks', 'editorial-serif'],
+  });
+  assert.equal(await fs.readFile(path.join(output, 'manifest.json'), 'utf8'), first);
+});
+
+test('full resource gate rejects omitted packs, malformed schemes, recipe drift and dangling kit references', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-gate-'));
+  onTestFinished(() => fs.rm(directory, { recursive: true, force: true }));
+  const catalog = JSON.parse(await fs.readFile(path.join(root, 'catalog.json'), 'utf8'));
+  catalog.tones = catalog.tones.filter(({ id }) => id === 'technical-blueprint');
+  await fs.cp(path.join(root, 'technical-blueprint'), path.join(directory, 'technical-blueprint'), {
+    recursive: true,
+  });
+  await fs.cp(path.join(root, 'shared'), path.join(directory, 'shared'), { recursive: true });
+  const writeCatalog = () =>
+    fs.writeFile(path.join(directory, 'catalog.json'), JSON.stringify(catalog));
+  await writeCatalog();
+  await loadToneCatalog({ toneRoot: directory, requireComplete: true });
+  const tone = catalog.tones[0];
+  delete tone.scheme;
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /incomplete/,
+  );
+  assert.equal(
+    (await loadToneCatalog({ toneRoot: directory })).tones[0].context.capabilities.scheme,
+    false,
+  );
+  tone.scheme = 'technical-blueprint/scheme.json';
+  const schemeFile = path.join(directory, tone.scheme);
+  const schemeText = await fs.readFile(schemeFile, 'utf8');
+  await fs.writeFile(schemeFile, '{malformed');
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /invalid JSON/,
+  );
+  await fs.writeFile(schemeFile, schemeText);
+  tone.recipe.push('Use stroke 999 units for contours.');
+  await writeCatalog();
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /Unbound recipe/,
+  );
+  tone.recipe.pop();
+  await writeCatalog();
+  const kitFile = path.join(directory, tone.kit);
+  const kitText = await fs.readFile(kitFile, 'utf8');
+  await fs.writeFile(kitFile, kitText.replace('</defs>', '<use href="#missing"/></defs>'));
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /[Dd]angling|[Uu]nknown.*reference|missing/,
+  );
+  await fs.writeFile(kitFile, kitText);
+  await fs.rm(path.join(directory, 'technical-blueprint/dark.svg'));
+  await assert.rejects(
+    loadToneCatalog({ toneRoot: directory, requireComplete: true }),
+    /does not exist/,
+  );
+});
+
+test('all twenty-four bundled contexts are complete and all rollout authoring sources reproduce', async () => {
+  const catalog = await loadToneCatalog();
+  assert.equal(catalog.tones.length, 24);
+  await buildRolloutKits({ check: true });
+  for (const tone of catalog.tones) {
+    assert.deepEqual(tone.context.capabilities, { scheme: true, kit: true });
+    assert.ok(
+      KIT_PRIMITIVES.every(
+        (primitive) =>
+          tone.context.kit.primitives.some(({ id }) => id === primitive) ||
+          tone.context.scheme.primitiveAlternatives?.[primitive],
+      ),
+    );
+    assert.equal(tone.toneRevision, tone.context.scheme.toneRevision);
+    assert.ok(tone.context.recipeDocument.text.trim());
+    assert.ok(tone.context.source.text.trim());
+    const candidate = catalog.candidates.find(({ toneId }) => toneId === tone.id);
+    assert.ok(candidate.assets.light && candidate.assets.dark);
+  }
+});
+
+test('complete catalog importer preserves original references, native authoring and all accepted pilot bytes', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-import-'));
+  onTestFinished(() => fs.rm(directory, { recursive: true, force: true }));
+  const { execFile } = await import('node:child_process');
+  const { promisify } = await import('node:util');
+  await promisify(execFile)('python3', [
+    fileURLToPath(new URL('../../../scripts/import-tones.py', import.meta.url)),
+    '--tones-only',
+    '--out',
+    directory,
+  ]);
+  const imported = path.join(directory, 'packages/diagram-gen/tones');
+  const catalog = await loadToneCatalog({ toneRoot: imported, requireComplete: true });
+  assert.equal(catalog.tones.length, 24);
+  await buildRolloutKits({ toneRoot: imported, check: true });
+  for (const tone of catalog.tones) {
+    const files = [
+      'scheme.json',
+      'kit.svg',
+      'kit.template.svg',
+      'recipe.md',
+      'source.svg',
+      'light.svg',
+      'dark.svg',
+    ];
+    if (!['fine-outline', 'soft-fill', 'paper-layers', 'pencil-notebook'].includes(tone.id))
+      files.push('composition.template.svg', 'composition.instances.json');
+    for (const file of files)
+      assert.equal(
+        hashBytes(await fs.readFile(path.join(imported, tone.id, file))),
+        hashBytes(await fs.readFile(path.join(root, tone.id, file))),
+        `${tone.id}/${file}`,
+      );
+  }
+});
+
+test('committed per-tone matrix tracks exact resource and authored composition identities', async () => {
+  const matrix = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-COMPLETENESS-MATRIX.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const catalog = await loadToneCatalog();
+  assert.deepEqual(
+    matrix.tones.map(({ toneId }) => toneId),
+    catalog.tones.map(({ id }) => id),
+  );
+  for (const row of matrix.tones) {
+    const tone = catalog.tones.find(({ id }) => id === row.toneId);
+    assert.equal(row.schemeHash, tone.context.hashes.schemeHash);
+    assert.equal(row.kitHash, tone.context.hashes.kitHash);
+    assert.equal(row.contextHash, tone.context.hashes.contextHash);
+    assert.equal(row.sourceHash, tone.context.source.hash);
+    assert.equal(row.recipeHash, tone.context.recipeDocument.hash);
+    assert.equal(row.evidenceRecords.length, 8);
+    if (!['fine-outline', 'soft-fill', 'paper-layers', 'pencil-notebook'].includes(row.toneId)) {
+      assert.equal(
+        row.compositionTemplateHash,
+        hashBytes(await fs.readFile(path.join(root, row.toneId, 'composition.template.svg'))),
+      );
+      const manifest = JSON.parse(
+        await fs.readFile(path.join(root, row.toneId, 'composition.instances.json'), 'utf8'),
+      );
+      assert.equal(row.compositionInstancesHash, hashBytes(JSON.stringify(manifest)));
+    }
+  }
+});
+
+test('frozen pilot composition labels bind to actual seat and clock placements', async () => {
+  const { template, manifest } = pilotEvidenceComposition();
+  const scheme = JSON.parse(await fs.readFile(path.join(root, 'fine-outline/scheme.json'), 'utf8'));
+  const compiled = compileAuthoringTemplate(template, scheme);
+  const labels = new Map();
+  const parser = new SaxesParser({ xmlns: true });
+  parser.on('opentag', (tag) => {
+    if (tag.local !== 'text') return;
+    const attrs = Object.fromEntries(
+      Object.values(tag.attributes).map(({ name, value }) => [name, value]),
+    );
+    if (attrs['data-for-instance']) labels.set(attrs['data-for-instance'], attrs);
+  });
+  parser.write(compiled).close();
+  for (const id of ['seat', 'pending']) {
+    const instance = manifest.instances.find((i) => i.id === id);
+    const label = labels.get(id);
+    assert.equal(label['text-anchor'], 'middle');
+    assert.equal(Number(label.x), instance.x + instance.width / 2);
+    assert.ok(Number(label.y) > instance.y + instance.height);
+  }
+  assert.ok(compiled.includes('>空席</text>'));
+  assert.ok(compiled.includes('>確認待ち</text>'));
+});
+
+test('visual acceptance requires current SVG/PNG identity and every required second review', async () => {
+  const evidence = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const matrix = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-COMPLETENESS-MATRIX.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  for (const row of matrix.tones) {
+    const assets = row.evidenceRecords.map((record) => ({
+      ...record,
+      toneId: row.toneId,
+      toneRevision: row.toneRevision,
+      schemeHash: row.schemeHash,
+      kitHash: row.kitHash,
+      contextHash: row.contextHash,
+      target: evidence.captures.find((capture) => capture.name === record.name).target,
+    }));
+    assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, true, row.toneId);
+    assert.equal(row.visualEvidence.accepted, true);
+    assert.deepEqual(
+      row.visualEvidence.records,
+      evaluateVisualAcceptance(assets, evidence).records,
+    );
+    assert.equal(
+      row.visualEvidence.hash,
+      hashBytes(
+        await fs.readFile(
+          new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+        ),
+      ),
+    );
+    const changed = structuredClone(assets);
+    changed[0].assetHash = '0'.repeat(64);
+    assert.equal(
+      evaluateVisualAcceptance(changed, evidence).accepted,
+      false,
+      `${row.toneId}: changed SVG`,
+    );
+    const unknownPlacement = structuredClone(assets);
+    unknownPlacement[0].placementHash = '0'.repeat(64);
+    assert.equal(
+      evaluateVisualAcceptance(unknownPlacement, evidence).accepted,
+      false,
+      `${row.toneId}: unknown placement identity`,
+    );
+    const changedTarget = structuredClone(assets);
+    changedTarget[0].target.width += 1;
+    assert.equal(
+      evaluateVisualAcceptance(changedTarget, evidence).accepted,
+      false,
+      `${row.toneId}: changed placement`,
+    );
+  }
+  const row = matrix.tones.find((row) => row.toneId === 'paper-layers');
+  const assets = row.evidenceRecords.map((record) => ({
+    ...record,
+    toneId: row.toneId,
+    target: evidence.captures.find((capture) => capture.name === record.name).target,
+  }));
+  assert.equal(evaluateVisualAcceptance(assets, { ...evidence, schemaVersion: 2 }).accepted, false);
+  const missingSecond = structuredClone(evidence);
+  missingSecond.independentSecondPass = missingSecond.independentSecondPass.filter(
+    (review) => !review.path.endsWith(`${assets[0].name}.png`),
+  );
+  assert.equal(evaluateVisualAcceptance(assets, missingSecond).accepted, false);
+  const wrongPng = structuredClone(evidence);
+  wrongPng.primary.find((review) => review.name === assets[0].name).pngHash = '0'.repeat(64);
+  assert.equal(evaluateVisualAcceptance(assets, wrongPng).accepted, false);
+  const failedReview = structuredClone(evidence);
+  failedReview.primary.find((review) => review.name === assets[0].name).readability = 2;
+  assert.equal(evaluateVisualAcceptance(assets, failedReview).accepted, false);
+});
+
+test('same-size placement descriptor change invalidates current visual acceptance', async () => {
+  const output = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-placement-stale-'));
+  onTestFinished(() => fs.rm(output, { recursive: true, force: true }));
+  const assets = await buildP09Evidence({ output, tones: ['fine-outline'] });
+  const evidence = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, true);
+  const asset = assets[0];
+  const directory = path.join(output, asset.name);
+  const filename = path.join(directory, 'placement.json');
+  const descriptor = JSON.parse(await fs.readFile(filename, 'utf8'));
+  const before = await loadPlacement(directory, asset.target, {
+    placement: 'placement.json',
+    theme: asset.theme,
+  });
+  assert.equal(asset.placementHash, before.placementHash);
+  descriptor.frame.background = descriptor.frame.background === '#000000' ? '#FFFFFF' : '#000000';
+  await fs.writeFile(filename, JSON.stringify(descriptor));
+  const after = await loadPlacement(directory, asset.target, {
+    placement: 'placement.json',
+    theme: asset.theme,
+  });
+  assert.deepEqual(after.descriptor.slot, before.descriptor.slot);
+  assert.equal(after.descriptor.frame.width, before.descriptor.frame.width);
+  assert.equal(after.descriptor.frame.height, before.descriptor.frame.height);
+  assert.notEqual(after.placementHash, before.placementHash);
+  assets[0] = { ...asset, placementHash: after.placementHash };
+  assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, false);
+});

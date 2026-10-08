@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "risograph-duo",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 2,
+      "connector": 2.6,
+      "detail": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 19
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.32,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 3,
+        "dy": 2,
+        "opacity": 0.88
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#3256A2",
+      "surface": "#F8F0DF",
+      "border": "#3256A2",
+      "accent": "#DB624C",
+      "deep": "#3256A2",
+      "warning": "#DB624C"
+    },
+    "dark": {
+      "ink": "#8EADF2",
+      "surface": "#242B38",
+      "border": "#8EADF2",
+      "accent": "#F19179",
+      "deep": "#8EADF2",
+      "warning": "#F19179"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "two-spot-sparse-grain",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 61
+  },
+  "composition": {
+    "arrows": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. Direction has one explicit terminal head.",
+    "people": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Two offset spot passes with broad overlapping circles and sparse print grain. Labels are single-pass to preserve Japanese legibility."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Overprint is approximated by layered opacity, not a calibrated print blend. Warning uses the second spot plus explicit wording."
+      }
+    ]
+  }
+}

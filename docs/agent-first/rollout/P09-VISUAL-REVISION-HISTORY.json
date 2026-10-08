@@ -1,0 +1,586 @@
+{
+  "schemaVersion": 1,
+  "reports": [
+    {
+      "file": "p09-primary-texture-review.json",
+      "sha256": "e75609c518b520395d90d44329bbad85bfd8a8f01189bf45dfa91e22d4451560"
+    },
+    {
+      "file": "p09-independent-visual-review.json",
+      "sha256": "d156cb593a881f8f9105137dcba21b5a52db5a3b9abeec4ba270b904fb427c45"
+    },
+    {
+      "file": "p09-root-pilot-initial-inspection.json",
+      "sha256": "54e8162fa7bf2246306c9446cf3380134d2908e42a56800386383fc79d2db66e"
+    }
+  ],
+  "revisions": [
+    {
+      "toneId": "fine-outline",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "fine-outline-composition-native-light.png",
+          "pngHash": "756dc6ace0030c5277e6df7fb9ef8a2a3ab09317237b928eb8344eb5e169ada9",
+          "assetHash": "db9848e757287e9041afbdac876f58f60df286b7b90772719d7445cbf7f6a444",
+          "viewedAt": "2026-10-07T23:51:41.112842+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "fine-outline-composition-native-dark.png",
+          "pngHash": "a9ca4c7bdbb46c86826efeaa056949046346484072735bc5e9ea36533b49bd0b",
+          "assetHash": "c554decfee1a019ea163a59a10b7e5bc6a49e46c2ab57a899862762026f70630",
+          "viewedAt": "2026-10-07T23:51:41.112867+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "fine-outline-composition-alternate-light.png",
+          "pngHash": "9e7712319633d1a3000c5031812f79cddbae449a8439beccbf7a7360f23e141c",
+          "assetHash": "10309f39d222721a0aaba39a0c35e4f9bebaa3edc334dabf3a3ecc8f2b767023",
+          "viewedAt": "2026-10-07T23:51:41.112874+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "fine-outline-composition-alternate-dark.png",
+          "pngHash": "b7c5c007f09d3423bd52b28cca360a633726072d68c1fd046eaf85e5babb40d1",
+          "assetHash": "2063a2f29ccc136d548d265244c010400e656ccdac5ae3171e89f3cb552c6f02",
+          "viewedAt": "2026-10-07T23:51:41.112879+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        }
+      ],
+      "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "fine-outline-composition-native-light",
+          "fine-outline-kit-native-light",
+          "fine-outline-composition-native-dark",
+          "fine-outline-kit-native-dark",
+          "fine-outline-composition-alternate-light",
+          "fine-outline-kit-alternate-light",
+          "fine-outline-composition-alternate-dark",
+          "fine-outline-kit-alternate-dark"
+        ]
+      }
+    },
+    {
+      "toneId": "soft-fill",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "soft-fill-composition-native-light.png",
+          "pngHash": "f9ce63c09f81e953e73d7573aba55f3cd4d34eea2b2d2311d2b7322d7687daa8",
+          "assetHash": "c3fe38b63d1b3d61bcd3e072458fc17a9e06f28ad898d72c4e42a9e618077541",
+          "viewedAt": "2026-10-07T23:51:41.112883+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "soft-fill-composition-native-dark.png",
+          "pngHash": "9ee6b59330b16d4af7ca91504d9a2b6c80852ba9c14a343ce2ff954dca9988f2",
+          "assetHash": "bc0a325b625ca7d15eb248563b9ad771c9e284579caf08bd891fb27d2b66c4de",
+          "viewedAt": "2026-10-07T23:51:41.112888+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "soft-fill-composition-alternate-light.png",
+          "pngHash": "58eaf321a858b1c02e673039f9ad5508e7e351dd3eeaef19df12958f8bb84222",
+          "assetHash": "4583bdab4ed12efd59c83d5d5b513be186cf288cacb95cc3a67993f5b595df71",
+          "viewedAt": "2026-10-07T23:51:41.112894+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "soft-fill-composition-alternate-dark.png",
+          "pngHash": "caef58340c30d1083176919c93dfb308ab6c3162a9b633f20a25ad3248924bbc",
+          "assetHash": "d8b54e440e0ee24fcd0ac36287d0d94ab0cdfeae7fe04146c96f534255ab5698",
+          "viewedAt": "2026-10-07T23:51:41.112899+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
+          "contrast": null
+        }
+      ],
+      "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "soft-fill-composition-native-light",
+          "soft-fill-kit-native-light",
+          "soft-fill-composition-native-dark",
+          "soft-fill-kit-native-dark",
+          "soft-fill-composition-alternate-light",
+          "soft-fill-kit-alternate-light",
+          "soft-fill-composition-alternate-dark",
+          "soft-fill-kit-alternate-dark"
+        ]
+      }
+    },
+    {
+      "toneId": "paper-layers",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "paper-layers-composition-native-light.png",
+          "pngHash": "56d3abd6d09afe1e306cebc988e754cd441c1ccb0499965ff0f76c03d7241caa",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:05.553Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "paper-layers-composition-native-dark.png",
+          "pngHash": "d280e8a2ed59dbaad238fc20a5eea026075684be6ed95938c66d05d1f03a0a41",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:06.349Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "paper-layers-composition-alternate-light.png",
+          "pngHash": "a9fa6a0cbb366afeef6853af6bf5b1fd55b064bc03a1af44471afd15aba62af9",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:07.144Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "paper-layers-composition-alternate-dark.png",
+          "pngHash": "a3086d2bb9343feb2be7f3477a39cc5a31e4f759a5f7b7e02e02afed9964477f",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:07.962Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "paper-layers-composition-native-light.png",
+          "pngHash": "56d3abd6d09afe1e306cebc988e754cd441c1ccb0499965ff0f76c03d7241caa",
+          "assetHash": "fa2b754b30a0b9212e61ef568cb3e7a596bbae7eb76ad14abc2f1b41ce7fb09f",
+          "viewedAt": "2026-10-07T23:52:06.798421+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "paper-layers-composition-native-dark.png",
+          "pngHash": "d280e8a2ed59dbaad238fc20a5eea026075684be6ed95938c66d05d1f03a0a41",
+          "assetHash": "19da0b6f43de776af779140f75cbf04b6f9bdb0b5ad5847fa3f5e3685d84a592",
+          "viewedAt": "2026-10-07T23:52:06.798439+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "paper-layers-composition-alternate-light.png",
+          "pngHash": "a9fa6a0cbb366afeef6853af6bf5b1fd55b064bc03a1af44471afd15aba62af9",
+          "assetHash": "666ed9745f98e81b6335651d8f7c164ccffa045df4210a433239923985466459",
+          "viewedAt": "2026-10-07T23:52:06.798445+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "paper-layers-composition-alternate-dark.png",
+          "pngHash": "a3086d2bb9343feb2be7f3477a39cc5a31e4f759a5f7b7e02e02afed9964477f",
+          "assetHash": "658ac294c7210aa6645ec81a8c4d6946fe5eef0fc61e1d81df65454ac5abdf29",
+          "viewedAt": "2026-10-07T23:52:06.798455+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        }
+      ],
+      "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "paper-layers-composition-native-light",
+          "paper-layers-kit-native-light",
+          "paper-layers-composition-native-dark",
+          "paper-layers-kit-native-dark",
+          "paper-layers-composition-alternate-light",
+          "paper-layers-kit-alternate-light",
+          "paper-layers-composition-alternate-dark",
+          "paper-layers-kit-alternate-dark"
+        ]
+      }
+    },
+    {
+      "toneId": "pencil-notebook",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "pencil-notebook-composition-native-light.png",
+          "pngHash": "f9de53e383c77ed573b08754942e04c556df0cee823f7b88d7f07efef4e1cada",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:34.713Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+          "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "pencil-notebook-composition-native-dark.png",
+          "pngHash": "6ce16aad00285a7442ae45e95643476a2e50fcba8782ff4b006d589e820d6980",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:35.542Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+          "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "pencil-notebook-composition-alternate-light.png",
+          "pngHash": "80589ad3998990e136373bf02b6ce915491d28a3847dec56e948977a409eac9d",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:36.375Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+          "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "pencil-notebook-composition-alternate-dark.png",
+          "pngHash": "f51a6024187b9cabc9f32372e4373518cef73f993c91a9c5a0d693b3b2faeb90",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:49:37.211Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": 0
+          },
+          "notes": "Misassociated pending label beneath chair; empty-seat label beneath route; far-right clock not adjacent to pending label.",
+          "contrast": "Essential labels readable; Crossing texture is fine and subdued under alternate palettes; retains connection to chair surface. Composition labels displaced identically to paper-layers."
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "pencil-notebook-composition-native-light.png",
+          "pngHash": "f9de53e383c77ed573b08754942e04c556df0cee823f7b88d7f07efef4e1cada",
+          "assetHash": "730cb3f36e3fbdaec91fee294c34022f9fe23d10bd0b6eaed6f354e8620c806d",
+          "viewedAt": "2026-10-07T23:52:06.798460+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "pencil-notebook-composition-native-dark.png",
+          "pngHash": "6ce16aad00285a7442ae45e95643476a2e50fcba8782ff4b006d589e820d6980",
+          "assetHash": "652792b1d38c7cd81204de8e5d70b749d462dc236b8a45c529810621fd9c2051",
+          "viewedAt": "2026-10-07T23:52:06.798464+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "pencil-notebook-composition-alternate-light.png",
+          "pngHash": "80589ad3998990e136373bf02b6ce915491d28a3847dec56e948977a409eac9d",
+          "assetHash": "7db7384f22763bda9083cd8797f43c76114d345af2b7dd2ef30cd3fdc181dde8",
+          "viewedAt": "2026-10-07T23:52:06.798469+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        },
+        {
+          "sourceReport": "p09-root-pilot-initial-inspection.json",
+          "image": "pencil-notebook-composition-alternate-dark.png",
+          "pngHash": "f51a6024187b9cabc9f32372e4373518cef73f993c91a9c5a0d693b3b2faeb90",
+          "assetHash": "84569f02e4fb9a108347c173f793ef5a233c80335e716dbc56191ea74230e630",
+          "viewedAt": "2026-10-07T23:52:06.798567+00:00",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 1,
+            "factualOmissions": null
+          },
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "contrast": null
+        }
+      ],
+      "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "pencil-notebook-composition-native-light",
+          "pencil-notebook-kit-native-light",
+          "pencil-notebook-composition-native-dark",
+          "pencil-notebook-kit-native-dark",
+          "pencil-notebook-composition-alternate-light",
+          "pencil-notebook-kit-alternate-light",
+          "pencil-notebook-composition-alternate-dark",
+          "pencil-notebook-kit-alternate-dark"
+        ]
+      }
+    },
+    {
+      "toneId": "isometric-solid",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-primary-texture-review.json",
+          "image": "isometric-solid-composition-alternate-light.png",
+          "pngHash": "e7fdbf3a21540c431799cf28940711b97ff4ee74ee12f4705c1f4cffe22bf018",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:47:05.455Z",
+          "readability": 2,
+          "character": 4,
+          "facts": {
+            "inventedFacts": 0,
+            "omissions": 0,
+            "reversedRelationships": 0,
+            "lockViolations": 0,
+            "checklist": [
+              "two-participants",
+              "one-shared-card",
+              "one-visibly-empty-seat",
+              "left-to-right-participant-card-seat-route",
+              "pending-clock-distinct-from-complete-check",
+              "warning-present",
+              "long-upright-label-two-lines"
+            ]
+          },
+          "notes": "Material contrast defect: card shadow crosses both long reservation-label lines; seat shadow crosses \u7a7a\u5e2d. Dark glyphs on slate shadow lose contrast.",
+          "contrast": "Material defect"
+        }
+      ],
+      "correction": "Projected shadow footprints moved above long instruction and vacancy label, preserving native facets.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten.",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "isometric-solid-composition-native-light",
+          "isometric-solid-kit-native-light",
+          "isometric-solid-composition-native-dark",
+          "isometric-solid-kit-native-dark",
+          "isometric-solid-composition-alternate-light",
+          "isometric-solid-kit-alternate-light",
+          "isometric-solid-composition-alternate-dark",
+          "isometric-solid-kit-alternate-dark"
+        ]
+      }
+    },
+    {
+      "toneId": "marker-workshop",
+      "initialDecision": "failed; revise",
+      "initialCommit": "37ff760f812324a29f1ac1b4903002f8cf78af76",
+      "failedInitialRecords": [
+        {
+          "sourceReport": "p09-primary-texture-review.json",
+          "image": "marker-workshop-composition-native-dark.png",
+          "pngHash": "3fd6eb110c9957f4be04050acb3c4ea884968a8410a722fdabf4ee2d4a13b2e6",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:48:32.001Z",
+          "readability": 2,
+          "character": 4,
+          "facts": {
+            "inventedFacts": 0,
+            "omissions": 0,
+            "reversedRelationships": 0,
+            "lockViolations": 0,
+            "checklist": [
+              "two-participants",
+              "one-shared-card",
+              "one-visibly-empty-seat",
+              "left-to-right-participant-card-seat-route",
+              "pending-clock-distinct-from-complete-check",
+              "warning-present",
+              "long-upright-label-two-lines"
+            ]
+          },
+          "notes": "Warning \u4e88\u7d04\u5909\u66f4\u306b\u6ce8\u610f is dark brown/orange against near-black olive background, materially low contrast.",
+          "contrast": "Material defect"
+        },
+        {
+          "sourceReport": "p09-independent-visual-review.json",
+          "image": "marker-workshop-composition-native-dark.png",
+          "pngHash": "3fd6eb110c9957f4be04050acb3c4ea884968a8410a722fdabf4ee2d4a13b2e6",
+          "assetHash": null,
+          "viewedAt": "2026-10-07T23:47:46.266Z",
+          "readability": 2,
+          "character": 3,
+          "facts": {
+            "factualErrors": 0,
+            "factualOmissions": 0
+          },
+          "notes": "Composition required counts, labels and state distinctions visually present.",
+          "contrast": "Warning \u4e88\u7d04\u5909\u66f4\u306b\u6ce8\u610f has inadequate visual contrast against charcoal; essential warning difficult to read."
+        }
+      ],
+      "correction": "Warning words use ink with a warning-role hand triangle and ink outline, preserving marker colors.",
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "marker-workshop-composition-native-light",
+          "marker-workshop-kit-native-light",
+          "marker-workshop-composition-native-dark",
+          "marker-workshop-kit-native-dark",
+          "marker-workshop-composition-alternate-light",
+          "marker-workshop-kit-alternate-light",
+          "marker-workshop-composition-alternate-dark",
+          "marker-workshop-kit-alternate-dark"
+        ]
+      }
+    }
+  ],
+  "limitations": "Historical evaluator records are retained without averaging or rescoring. Structural correction/preparation does not establish a passing final visual gate."
+}

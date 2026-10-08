@@ -11,7 +11,7 @@ for (const entry of entries) {
   if (!result.ok) failed = true;
 }
 try {
-  const data = await loadToneCatalog();
+  const data = await loadToneCatalog({ requireComplete: true });
   console.log(`PASS tone catalog (${data.candidates.length} tones)`);
 } catch (error) {
   failed = true;

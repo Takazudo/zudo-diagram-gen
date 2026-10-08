@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "width": 640,
+  "height": 360,
+  "title": "担当者2名が予約状況を確認",
+  "description": "Two participants → one shared reservation card → one empty seat; separate pending/complete legend. Long Japanese label remains upright outside projected/texture geometry.",
+  "instances": [
+    {
+      "id": "participant-a",
+      "primitive": "person",
+      "x": 25,
+      "y": 118,
+      "width": 74,
+      "height": 90
+    },
+    {
+      "id": "participant-b",
+      "primitive": "person",
+      "x": 102,
+      "y": 118,
+      "width": 74,
+      "height": 90
+    },
+    {
+      "id": "to-card",
+      "primitive": "arrow",
+      "x": 168,
+      "y": 138,
+      "width": 62,
+      "height": 45
+    },
+    {
+      "id": "reservation",
+      "primitive": "slot-card",
+      "x": 218,
+      "y": 109,
+      "width": 204,
+      "height": 122
+    },
+    {
+      "id": "to-seat",
+      "primitive": "arrow",
+      "x": 432,
+      "y": 138,
+      "width": 70,
+      "height": 45
+    },
+    {
+      "id": "vacancy",
+      "primitive": "empty-seat",
+      "x": 508,
+      "y": 111,
+      "width": 83,
+      "height": 102
+    },
+    {
+      "id": "pending",
+      "primitive": "clock",
+      "x": 262,
+      "y": 299,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "complete",
+      "primitive": "check",
+      "x": 441,
+      "y": 299,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "location",
+      "primitive": "pin",
+      "x": 590,
+      "y": 87,
+      "width": 33,
+      "height": 40
+    }
+  ]
+}

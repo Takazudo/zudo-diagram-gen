@@ -671,10 +671,11 @@ def build_tones(out: Path, atlas: Path | None) -> list[dict]:
             # Authored recipe templates and checked numeric references must survive
             # regeneration; RECIPES is only the legacy, nonscheme source.
             entry["recipe"] = previous[slug]["recipe"]
-            template_path = Path(slug) / "kit.template.svg"
-            source_root = tones_root if (tones_root / template_path).is_file() else bundled_root
-            if (source_root / template_path).is_file():
-                copy_asset(source_root / template_path, tones_root / template_path)
+            for resource_name in ("kit.template.svg", "composition.template.svg", "composition.instances.json"):
+                template_path = Path(slug) / resource_name
+                source_root = tones_root if (tones_root / template_path).is_file() else bundled_root
+                if (source_root / template_path).is_file():
+                    copy_asset(source_root / template_path, tones_root / template_path)
         catalog.append(entry)
         recipe = f"# {tone['id']} {tone['name']}\n\n{tone['description']}\n\n"
         recipe += "This profile describes an original exploratory drawing. The linked external references informed broad construction principles; this SVG is not a copied brand asset. Project facts and design rules take precedence over its sample palette.\n\n"
@@ -706,7 +707,12 @@ def build_tones(out: Path, atlas: Path | None) -> list[dict]:
                 recipe += "### Composition vocabulary\n\n"
                 recipe += "\n".join("- **" + role + "**: " + description for role, description in scheme["composition"].items()) + "\n\n"
                 recipe += "This pack is prepared for the frozen paired pilot, not accepted by a visual gate. Schemas, deterministic generation and nominal text size cannot establish tone character, factual accuracy or Japanese readability. No fixture is user approval.\n"
-        (target / "recipe.md").write_text(recipe)
+        authored_recipe = Path(slug) / "recipe.md"
+        authored_root = tones_root if (tones_root / authored_recipe).is_file() else bundled_root
+        if "scheme" in entry and (authored_root / authored_recipe).is_file():
+            copy_asset(authored_root / authored_recipe, tones_root / authored_recipe)
+        else:
+            (target / "recipe.md").write_text(recipe)
     write_json(tones_root / "catalog.json", {"schemaVersion": 1, "version": VERSION, "tones": catalog})
     return catalog
 
