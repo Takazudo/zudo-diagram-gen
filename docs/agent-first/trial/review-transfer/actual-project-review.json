@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "type": "zudo-diagram-project-review",
+  "projectId": "public-five-session-diagram-trial-29608e4e-1c7d-4cfe-856c-103200e4bd71",
+  "sessions": [
+    {
+      "schemaVersion": 1,
+      "type": "zudo-diagram-review",
+      "sessionId": "reservation-flow",
+      "sessionTitle": "予約の確定と変更",
+      "sessionContentHash": "0b651563c6231374aecb19b086245686107c7cb91d8bacf77a43c742b1e6100b",
+      "exportedAt": "2026-10-08T01:56:41.595Z",
+      "reviewedCandidate": {
+        "id": "r02-fine-outline",
+        "roundId": "r02",
+        "title": "開いた輪郭とまとまりの流れ",
+        "toneId": "fine-outline",
+        "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+        "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+        "compatibility": {
+          "artwork": "current",
+          "style": "unknown",
+          "placement": "current",
+          "capture": "unknown"
+        },
+        "currentFingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+        "sourcePath": "rounds/r02/r02-fine-outline/candidate.json",
+        "stale": false
+      },
+      "chosenDirection": {
+        "id": "r02-fine-outline",
+        "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+        "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+        "stale": false
+      },
+      "shortlist": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+          "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+          "stale": false
+        }
+      ],
+      "feedback": {
+        "keep": "日本語の配置と申請 → 確認待ち → 確定を保つ",
+        "change": "文字の間隔を調整し、意味と保存した形を維持する",
+        "action": "refine"
+      },
+      "records": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+          "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+          "keep": "日本語の配置と申請 → 確認待ち → 確定を保つ",
+          "change": "文字の間隔を調整し、意味と保存した形を維持する",
+          "action": "refine",
+          "updatedAt": "2026-10-08T01:56:38.457Z"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "zudo-diagram-review",
+      "sessionId": "empty-seats",
+      "sessionTitle": "空席と保留中の席",
+      "sessionContentHash": "0dc5e46ddfaab9baf0fe1b7d49862560d932c00d6795cb733604350f9b9e2d50",
+      "exportedAt": "2026-10-08T01:56:41.595Z",
+      "reviewedCandidate": {
+        "id": "r02-fine-outline",
+        "roundId": "r02",
+        "title": "開いた輪郭とまとまりの流れ",
+        "toneId": "fine-outline",
+        "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+        "placementHash": "9cbaaf8e4e1a1d3f264ec7ad8ac2878eaaafdabdda08913b284fa24a44006226",
+        "compatibility": {
+          "artwork": "current",
+          "style": "unknown",
+          "placement": "current",
+          "capture": "unknown"
+        },
+        "currentFingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+        "sourcePath": "rounds/r02/r02-fine-outline/candidate.json",
+        "stale": false
+      },
+      "chosenDirection": {
+        "id": "r02-fine-outline",
+        "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+        "placementHash": "9cbaaf8e4e1a1d3f264ec7ad8ac2878eaaafdabdda08913b284fa24a44006226",
+        "stale": false
+      },
+      "shortlist": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+          "placementHash": "9cbaaf8e4e1a1d3f264ec7ad8ac2878eaaafdabdda08913b284fa24a44006226",
+          "stale": false
+        }
+      ],
+      "feedback": {
+        "keep": "席は A・B・C・D の四つ。A は予約済み、B と C は空席、D は確認待ちで選択できない状態を保つ。",
+        "change": "「空席」の文字間隔を少し広げる。席の状態と配置は変えない。",
+        "action": "refine"
+      },
+      "records": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+          "placementHash": "9cbaaf8e4e1a1d3f264ec7ad8ac2878eaaafdabdda08913b284fa24a44006226",
+          "keep": "席は A・B・C・D の四つ。A は予約済み、B と C は空席、D は確認待ちで選択できない状態を保つ。",
+          "change": "「空席」の文字間隔を少し広げる。席の状態と配置は変えない。",
+          "action": "refine",
+          "updatedAt": "2026-10-08T01:56:40.317Z"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "zudo-diagram-review",
+      "sessionId": "long-labels",
+      "sessionTitle": "長いラベルの担当引継ぎ",
+      "sessionContentHash": "91dc71485cdbdc9981dcb28f655d6d8f895390212ad7133f0202644aa72b3740",
+      "exportedAt": "2026-10-08T01:56:41.595Z",
+      "reviewedCandidate": {
+        "id": "r02-fine-outline",
+        "roundId": "r02",
+        "title": "開いた輪郭とまとまりの流れ",
+        "toneId": "fine-outline",
+        "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e",
+        "placementHash": "2ab26c53a00c7fca6acbddaa835beacd2b769eec848b1e713f0c01197daef690",
+        "compatibility": {
+          "artwork": "current",
+          "style": "unknown",
+          "placement": "current",
+          "capture": "unknown"
+        },
+        "currentFingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e",
+        "sourcePath": "rounds/r02/r02-fine-outline/candidate.json",
+        "stale": false
+      },
+      "chosenDirection": {
+        "id": "r02-fine-outline",
+        "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e",
+        "placementHash": "2ab26c53a00c7fca6acbddaa835beacd2b769eec848b1e713f0c01197daef690",
+        "stale": false
+      },
+      "shortlist": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e",
+          "placementHash": "2ab26c53a00c7fca6acbddaa835beacd2b769eec848b1e713f0c01197daef690",
+          "stale": false
+        }
+      ],
+      "feedback": {
+        "keep": "三つの日本語の役割名を省略せず、準備から確認へ進み、不備は準備へ戻り、完了は受付へ進む流れを保つ。",
+        "change": "完全な役割名と現在の配置を維持する。",
+        "action": "refine"
+      },
+      "records": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e",
+          "placementHash": "2ab26c53a00c7fca6acbddaa835beacd2b769eec848b1e713f0c01197daef690",
+          "keep": "三つの日本語の役割名を省略せず、準備から確認へ進み、不備は準備へ戻り、完了は受付へ進む流れを保つ。",
+          "change": "完全な役割名と現在の配置を維持する。",
+          "action": "refine",
+          "updatedAt": "2026-10-08T01:56:40.671Z"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "zudo-diagram-review",
+      "sessionId": "pending-queue",
+      "sessionTitle": "結果未到着の並行作業",
+      "sessionContentHash": "51e076e32bbd5635155e7d75b4a329e3c2ec9301f4c1df6ab4bcbf68af90da74",
+      "exportedAt": "2026-10-08T01:56:41.595Z",
+      "reviewedCandidate": {
+        "id": "r02-fine-outline",
+        "roundId": "r02",
+        "title": "開いた輪郭とまとまりの流れ",
+        "toneId": "fine-outline",
+        "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c",
+        "placementHash": "0868945aef228061be771b82ba1062759252299476b1e8293115b73dcb4ddb99",
+        "compatibility": {
+          "artwork": "current",
+          "style": "unknown",
+          "placement": "current",
+          "capture": "unknown"
+        },
+        "currentFingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c",
+        "sourcePath": "rounds/r02/r02-fine-outline/candidate.json",
+        "stale": false
+      },
+      "chosenDirection": {
+        "id": "r02-fine-outline",
+        "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c",
+        "placementHash": "0868945aef228061be771b82ba1062759252299476b1e8293115b73dcb4ddb99",
+        "stale": false
+      },
+      "shortlist": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c",
+          "placementHash": "0868945aef228061be771b82ba1062759252299476b1e8293115b73dcb4ddb99",
+          "stale": false
+        }
+      ],
+      "feedback": {
+        "keep": "二つの確認を並行して行い、一方は完了、他方は結果待ち。両方の完了後だけ公開し、公開済み件数はゼロのまま保つ。",
+        "change": "並行した確認と公開条件が読み取れる現在の配置を維持する。",
+        "action": "refine"
+      },
+      "records": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c",
+          "placementHash": "0868945aef228061be771b82ba1062759252299476b1e8293115b73dcb4ddb99",
+          "keep": "二つの確認を並行して行い、一方は完了、他方は結果待ち。両方の完了後だけ公開し、公開済み件数はゼロのまま保つ。",
+          "change": "並行した確認と公開条件が読み取れる現在の配置を維持する。",
+          "action": "refine",
+          "updatedAt": "2026-10-08T01:56:41.037Z"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "zudo-diagram-review",
+      "sessionId": "return-items",
+      "sessionTitle": "返却場所への案内",
+      "sessionContentHash": "9661c17b5857d2b6927c6be625f916bcc29f0441526f6470ad5db79180400885",
+      "exportedAt": "2026-10-08T01:56:41.595Z",
+      "reviewedCandidate": {
+        "id": "r02-fine-outline",
+        "roundId": "r02",
+        "title": "開いた輪郭とまとまりの流れ",
+        "toneId": "fine-outline",
+        "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430",
+        "placementHash": "48f8222c431aef0ae9006dd3b446735c3894806b63e14ac0333f01565a91d53a",
+        "compatibility": {
+          "artwork": "current",
+          "style": "unknown",
+          "placement": "current",
+          "capture": "unknown"
+        },
+        "currentFingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430",
+        "sourcePath": "rounds/r02/r02-fine-outline/candidate.json",
+        "stale": false
+      },
+      "chosenDirection": {
+        "id": "r02-fine-outline",
+        "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430",
+        "placementHash": "48f8222c431aef0ae9006dd3b446735c3894806b63e14ac0333f01565a91d53a",
+        "stale": false
+      },
+      "shortlist": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430",
+          "placementHash": "48f8222c431aef0ae9006dd3b446735c3894806b63e14ac0333f01565a91d53a",
+          "stale": false
+        }
+      ],
+      "feedback": {
+        "keep": "入口から確認へ進み、破損なしは現在空の使用可能な返却箱へ、破損ありは相談へ進む。罰金や返却拒否を加えない。",
+        "change": "空の返却箱と相談への経路を維持する。",
+        "action": "refine"
+      },
+      "records": [
+        {
+          "id": "r02-fine-outline",
+          "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430",
+          "placementHash": "48f8222c431aef0ae9006dd3b446735c3894806b63e14ac0333f01565a91d53a",
+          "keep": "入口から確認へ進み、破損なしは現在空の使用可能な返却箱へ、破損ありは相談へ進む。罰金や返却拒否を加えない。",
+          "change": "空の返却箱と相談への経路を維持する。",
+          "action": "refine",
+          "updatedAt": "2026-10-08T01:56:41.404Z"
+        }
+      ]
+    }
+  ]
+}

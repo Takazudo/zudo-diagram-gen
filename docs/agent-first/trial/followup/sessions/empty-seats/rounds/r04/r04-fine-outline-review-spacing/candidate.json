@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "r04-fine-outline-review-spacing",
+  "title": "レビューに基づく文字間隔の調整",
+  "toneId": "fine-outline",
+  "description": "Actual transferred review refinement: add literal 0.6-unit letter spacing to the two 空席 words only; retain exact four seat states, text, positions, geometry and fine-outline tone.",
+  "order": 0,
+  "parentCandidateId": "r02-fine-outline",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "5c3f1e2b0ef849b3ade38e6dafcb309ba93b4689167a4da67425bec35fdf244e",
+    "dark": "da484796bdbe70862783ae6aff6d9e10b3e952c87ed14c6a86cafc7c1940a480"
+  },
+  "baselineFeedback": {
+    "id": "r02-fine-outline",
+    "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d",
+    "placementHash": "9cbaaf8e4e1a1d3f264ec7ad8ac2878eaaafdabdda08913b284fa24a44006226",
+    "keep": "席は A・B・C・D の四つ。A は予約済み、B と C は空席、D は確認待ちで選択できない状態を保つ。",
+    "change": "「空席」の文字間隔を少し広げる。席の状態と配置は変えない。",
+    "action": "refine",
+    "updatedAt": "2026-10-08T01:56:40.317Z"
+  }
+}

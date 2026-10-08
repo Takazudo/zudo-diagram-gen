@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "frame": {
+    "width": 528,
+    "height": 336,
+    "background": "#FFFFFF"
+  },
+  "slot": {
+    "x": 24,
+    "y": 48,
+    "width": 480,
+    "height": 240
+  },
+  "fit": "contain",
+  "fonts": [
+    "Noto Sans CJK JP",
+    "sans-serif"
+  ],
+  "context": {
+    "title": "受付で案内カードを受け取る",
+    "body": "保存したスタイルによる後続の架空図"
+  }
+}

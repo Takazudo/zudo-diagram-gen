@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "r04-fine-outline-review-spacing",
+  "title": "レビューに基づく文字間隔の調整",
+  "toneId": "fine-outline",
+  "description": "Actual transferred review refinement: add literal 0.35-unit label letter spacing; retain exact Japanese text, positions, facts, geometry and fine-outline tone.",
+  "order": 0,
+  "parentCandidateId": "r02-fine-outline",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "a0704de3cdb20149fe5fa672aed0fdd71114d513d7d5da3332f6f6b3159782a8",
+    "dark": "65e6dc62b05a4fc083ee35aca797cc297858246743429f10609c05d1f2d6942b"
+  },
+  "baselineFeedback": {
+    "id": "r02-fine-outline",
+    "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7",
+    "placementHash": "9be7c28336b8ba1c9487fe5cf66f09d12d4fc49c05f4e9149d033428dfe5fe40",
+    "keep": "日本語の配置と申請 → 確認待ち → 確定を保つ",
+    "change": "文字の間隔を調整し、意味と保存した形を維持する",
+    "action": "refine",
+    "updatedAt": "2026-10-08T01:56:38.457Z"
+  }
+}

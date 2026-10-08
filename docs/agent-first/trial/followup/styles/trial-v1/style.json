@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "revision": "trial-v1",
+  "toneId": "fine-outline",
+  "toneRevision": "pilot-1",
+  "collectionVersion": "0.1.0",
+  "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+  "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+  "paletteHash": "39cf4124d933fd97e98759496dcd5bbd4ed6684acd9ada76c770d99dc2b928ef",
+  "targets": [
+    {
+      "sessionId": "reservation-flow",
+      "width": 640,
+      "height": 320
+    },
+    {
+      "sessionId": "empty-seats",
+      "width": 360,
+      "height": 240
+    },
+    {
+      "sessionId": "long-labels",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "sessionId": "pending-queue",
+      "width": 720,
+      "height": 240
+    },
+    {
+      "sessionId": "return-items",
+      "width": 320,
+      "height": 480
+    }
+  ],
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "baselines": [
+    {
+      "sessionId": "reservation-flow",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7"
+    },
+    {
+      "sessionId": "empty-seats",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d"
+    },
+    {
+      "sessionId": "long-labels",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e"
+    },
+    {
+      "sessionId": "pending-queue",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c"
+    },
+    {
+      "sessionId": "return-items",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430"
+    }
+  ],
+  "selectionPurpose": "test"
+}

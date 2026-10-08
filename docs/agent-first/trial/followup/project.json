@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "public-five-session-diagram-trial-29608e4e-1c7d-4cfe-856c-103200e4bd71",
+  "title": "Public five-session diagram trial",
+  "sessions": [
+    {
+      "id": "reservation-flow",
+      "path": "sessions/reservation-flow",
+      "order": 0,
+      "placement": "sessions/reservation-flow/placement.json"
+    },
+    {
+      "id": "empty-seats",
+      "path": "sessions/empty-seats",
+      "order": 1,
+      "placement": "sessions/empty-seats/placement.json"
+    },
+    {
+      "id": "long-labels",
+      "path": "sessions/long-labels",
+      "order": 2,
+      "placement": "sessions/long-labels/placement.json"
+    },
+    {
+      "id": "pending-queue",
+      "path": "sessions/pending-queue",
+      "order": 3,
+      "placement": "sessions/pending-queue/placement.json"
+    },
+    {
+      "id": "return-items",
+      "path": "sessions/return-items",
+      "order": 4,
+      "placement": "sessions/return-items/placement.json"
+    },
+    {
+      "id": "reception-flow",
+      "path": "sessions/reception-flow",
+      "order": 5,
+      "placement": "sessions/reception-flow/placement.json"
+    }
+  ],
+  "comparisonSets": [
+    {
+      "id": "locked-fine-outline",
+      "title": "Explicit saved fine-outline across six diagrams",
+      "toneId": "fine-outline",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r04-fine-outline-review-spacing",
+          "fingerprint": "d43951a80e14efa605735a62bed56cbe6cf371ca1704e2aa50afcafe6c68231e"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r04-fine-outline-review-spacing",
+          "fingerprint": "0fb46253d9de250ca1f98efeb0bf792eb20ebade4caa21fbe0b9cb85cc593d53"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430"
+        },
+        {
+          "sessionId": "reception-flow",
+          "candidateId": "r01-fine-outline-saved-kit",
+          "fingerprint": "41018c42d7ee9510822b3d3ffb8a235163da696e677e81db1fd158bc58a80554"
+        }
+      ]
+    }
+  ],
+  "style": {
+    "revision": "trial-v2-six-targets",
+    "path": "styles/trial-v2-six-targets/style.json",
+    "hash": "4d26f98377169fbebe10d6b9c821b564df4aea754e34c3ec61fa717bde1ad087"
+  }
+}

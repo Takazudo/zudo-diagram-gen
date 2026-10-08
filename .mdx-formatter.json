@@ -5,6 +5,7 @@
     "worktrees/**",
     "__inbox/**",
     "test-output/**",
-    "docs/agent-first/trial/sources/**"
+    "docs/agent-first/trial/sources/**",
+    "docs/agent-first/trial/followup/**"
   ]
 }

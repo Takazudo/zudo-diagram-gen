@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "runtimeBaseSha": "c1935b83d4722397c1260a8684d24d84f58ad858",
+  "purpose": "Actual saved review refinements and later immutable-kit diagram overlay onto sources",
+  "sessions": 6,
+  "candidates": 64,
+  "comparisonSets": 1,
+  "initialStyle": "trial-v1",
+  "adoptedStyle": "trial-v2-six-targets",
+  "actualThemeViews": 128,
+  "userApproval": false,
+  "files": [
+    {
+      "path": "project.json",
+      "sha256": "9ef77f626ab6de2498a6df08b5642ff133dc5dc63a748877518f695eff889e5f"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r04/r04-fine-outline-review-spacing/candidate.json",
+      "sha256": "e2cbca4854cd2984e9669947a2a8378c30aa3ae4c10e42d1ded7ee154ea1f743"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r04/r04-fine-outline-review-spacing/dark.svg",
+      "sha256": "da484796bdbe70862783ae6aff6d9e10b3e952c87ed14c6a86cafc7c1940a480"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r04/r04-fine-outline-review-spacing/light.svg",
+      "sha256": "5c3f1e2b0ef849b3ade38e6dafcb309ba93b4689167a4da67425bec35fdf244e"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r04/round.json",
+      "sha256": "68f57379c62eb8f323134f4061c217288ce5e68fccf7155e8eee84246890ffd4"
+    },
+    {
+      "path": "sessions/reception-flow/brief.md",
+      "sha256": "420100dfa3a6788dc0816170cfb51c2775473e8b6e14084c406addac5f79b3ce"
+    },
+    {
+      "path": "sessions/reception-flow/placement.json",
+      "sha256": "f52717869162516f7e5d886f5cde622ff81f86ff0a8d34861bcdf865c0698114"
+    },
+    {
+      "path": "sessions/reception-flow/rounds/r01/r01-fine-outline-saved-kit/candidate.json",
+      "sha256": "1132506fb7558ca3b3877f4e4632dd377e9f944e7711c7167f3ff4923bb60509"
+    },
+    {
+      "path": "sessions/reception-flow/rounds/r01/r01-fine-outline-saved-kit/dark.svg",
+      "sha256": "ed0b5891ad1b23656d80a8b090eeae288246ed1270a76b2afbc960ed4bdd8b92"
+    },
+    {
+      "path": "sessions/reception-flow/rounds/r01/r01-fine-outline-saved-kit/light.svg",
+      "sha256": "ab9a7234a6945b46f2b56c933e538bc6ab81de4e8f2ab1af9a9ec0a4d9438c87"
+    },
+    {
+      "path": "sessions/reception-flow/rounds/r01/round.json",
+      "sha256": "247088e55e3878b00f9c09d0cc35e479b11253cfb06f450bc07efcf6d40bebd9"
+    },
+    {
+      "path": "sessions/reception-flow/session.json",
+      "sha256": "50ff42c4669b112c0412db78b27571ac5e64382909eff7c12111e6d2c9ea2f18"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r04/r04-fine-outline-review-spacing/candidate.json",
+      "sha256": "90fa835ba04a609ae6fac0488292a3568040ca5c321fd234902f48a7a75e1d39"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r04/r04-fine-outline-review-spacing/dark.svg",
+      "sha256": "65e6dc62b05a4fc083ee35aca797cc297858246743429f10609c05d1f2d6942b"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r04/r04-fine-outline-review-spacing/light.svg",
+      "sha256": "a0704de3cdb20149fe5fa672aed0fdd71114d513d7d5da3332f6f6b3159782a8"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r04/round.json",
+      "sha256": "68f57379c62eb8f323134f4061c217288ce5e68fccf7155e8eee84246890ffd4"
+    },
+    {
+      "path": "styles/trial-v1/kit.svg",
+      "sha256": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2"
+    },
+    {
+      "path": "styles/trial-v1/palette.json",
+      "sha256": "db152bf64c6971055d3818735cd438d56e1604dc95c8414eea100dcbd1887953"
+    },
+    {
+      "path": "styles/trial-v1/scheme.json",
+      "sha256": "7a6e07d2f8b689c4bd4d562faa48a173b3f84a54132932087d11987fbf442b59"
+    },
+    {
+      "path": "styles/trial-v1/style.json",
+      "sha256": "028af0af6ef40ae41e6b6cc882f203c3f6baf9f3e234a366ae7fe10db7f7074e"
+    },
+    {
+      "path": "styles/trial-v2-six-targets/kit.svg",
+      "sha256": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2"
+    },
+    {
+      "path": "styles/trial-v2-six-targets/palette.json",
+      "sha256": "db152bf64c6971055d3818735cd438d56e1604dc95c8414eea100dcbd1887953"
+    },
+    {
+      "path": "styles/trial-v2-six-targets/scheme.json",
+      "sha256": "7a6e07d2f8b689c4bd4d562faa48a173b3f84a54132932087d11987fbf442b59"
+    },
+    {
+      "path": "styles/trial-v2-six-targets/style.json",
+      "sha256": "b35ce272eed1c1465b29442f88ed065d1b4e8758607c19b96de62610170c8fae"
+    }
+  ]
+}

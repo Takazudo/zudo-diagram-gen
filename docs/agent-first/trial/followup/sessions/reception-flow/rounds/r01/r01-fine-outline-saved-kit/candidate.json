@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-fine-outline-saved-kit",
+  "title": "保存した細い輪郭で受付を案内",
+  "toneId": "fine-outline",
+  "description": "Later ordinary diagram using actual immutable trial-v1 scheme, palette and inline materialized pin/person/slot-card primitives. Entry → reception → receive guide card; original three-step facts with no payment or approval condition.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "ab9a7234a6945b46f2b56c933e538bc6ab81de4e8f2ab1af9a9ec0a4d9438c87",
+    "dark": "ed0b5891ad1b23656d80a8b090eeae288246ed1270a76b2afbc960ed4bdd8b92"
+  },
+  "provenance": {
+    "styleRevision": "trial-v1",
+    "styleHash": "95a05f2fe0eab868a5f10de8536cfdc3746aa1d8a13b3a0338b56943951b2ddf",
+    "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+    "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+    "paletteHash": "39cf4124d933fd97e98759496dcd5bbd4ed6684acd9ada76c770d99dc2b928ef"
+  }
+}

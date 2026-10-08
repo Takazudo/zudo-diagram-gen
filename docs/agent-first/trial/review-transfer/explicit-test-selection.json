@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "kind": "explicit-selection",
+  "purpose": "test",
+  "baselines": [
+    {
+      "sessionId": "reservation-flow",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7"
+    },
+    {
+      "sessionId": "empty-seats",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d"
+    },
+    {
+      "sessionId": "long-labels",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e"
+    },
+    {
+      "sessionId": "pending-queue",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c"
+    },
+    {
+      "sessionId": "return-items",
+      "candidateId": "r02-fine-outline",
+      "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430"
+    }
+  ]
+}
