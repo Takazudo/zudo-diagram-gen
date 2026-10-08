@@ -466,11 +466,22 @@ const exportScript = JSON.parse(await readFile(path.join(consumer, 'package.json
   'export:html'
 ];
 const legacyExportRequiresMigration = !exportScript.includes('--out exports/');
-if (legacyExportRequiresMigration) assert.match(exportScript, /--out diagram-review\.html(?:\s|$)/);
-run('generated-session-html-script', 'pnpm export:html', {
-  cwd: consumer,
-  expected: legacyExportRequiresMigration ? 1 : 0,
-});
+assert.equal(
+  legacyExportRequiresMigration,
+  false,
+  'Fresh hosts must use the safe export directory.',
+);
+for (const [kind, root] of [
+  ['session', consumer],
+  ['project', project],
+]) {
+  const script = JSON.parse(await readFile(path.join(root, 'package.json'))).scripts['export:html'];
+  assert.match(script, /--out exports\/diagram-review\.html(?:\s|$)/);
+  run(`generated-${kind}-html-script`, 'pnpm export:html', { cwd: root });
+  assert.ok(
+    (await readFile(path.join(root, 'exports/diagram-review.html'), 'utf8')).includes('<html'),
+  );
+}
 for (const filename of [
   'session',
   'round',
@@ -507,6 +518,6 @@ await json(path.join(output, 'reader-evidence.json'), {
   passed:
     'Public initialize/skill-copy/materialize/project/refinement fences; installed CLI, legacy/versioned JSON, all24 contexts, lock/adopt, partial/stale/errors/outputs/initializer/schema exports.',
   pending:
-    'Manager guarded dev/build/preview/capture/actual image opening/browser downloaded review/detached HTML and explicit agent prompt transcript.',
+    'Manager current combined-archive browser/detached export regression and guarded aggregate/CI; earlier actual prompt/manual captures retain their own archive provenance.',
 });
 console.log(`Public installed reader commands passed: ${output}; consumer ${consumer}`);
