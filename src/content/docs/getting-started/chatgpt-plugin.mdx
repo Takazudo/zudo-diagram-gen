@@ -1,0 +1,64 @@
+---
+title: ChatGPT plugin workflow
+description: Use the skills-only package to create and refine SVGs with bundled tones and host file tools.
+sidebar_position: 3
+---
+
+The `zudo-diagram-gen` skills-only plugin guides an agent through drawing, reviewing, and refining SVGs in a capable ChatGPT or Codex host. It bundles all 24 tone references, including schemes, kits, source examples, light/dark examples, and local explanation. This route does not need this repository, Node, pnpm, the CLI, or a local review server. The plugin supplies instructions and reference files; your host must supply file creation, rendering, and image-viewing capabilities for saved, inspected, downloadable results.
+
+## Get the assembled package
+
+**Source layout:** `plugins/zudo-diagram-gen/` is authoring source. Its `skills/diagram-gen/tones/` directory is populated from the canonical engine tones only when the package is assembled. Installing or copying that source directory alone leaves tone references missing.
+
+**Distribution status:** use the assembled ZIP containing one `zudo-diagram-gen/` folder with `plugin.json`, `skills/diagram-gen/SKILL.md`, relative references, and `skills/diagram-gen/tones/`. A GitHub source page or downloaded source archive is not evidence of installation. This repository does not claim registry publication, public-directory listing, or a tested installation in your account.
+
+**Current documented host route:** OpenAI's [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) documents a portable root `plugin.json` and `skills/` layout, and a local marketplace that points at an extracted plugin folder. After obtaining the assembled ZIP, extract it to a location the ChatGPT desktop app can read. Add a local marketplace entry whose `source.path` points to that **assembled** `zudo-diagram-gen` folder, restart the app, then install the plugin from that marketplace in the Plugins Directory. Follow the exact marketplace JSON and location steps in the official guide for your host. OpenAI's [testing guide](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-the-complete-plugin) says to test a skills-only plugin from a local source in a new conversation. This route is documented by OpenAI; installation and operation of this specific ZIP in a ChatGPT account remain **unverified here** until a host test records them. Account or workspace policy may affect availability.
+
+There is no automatic slash-command discovery implied by merely viewing source files. Once installed and enabled, ask in ordinary language for the skill. For example:
+
+```text
+Use the zudo-diagram-gen diagram-gen skill to draw one SVG explaining
+how Pattern and Text become a composition that can be exported as PNG.
+Keep those labels and that relationship exact. Target 360 × 200 CSS pixels.
+Choose a suitable bundled tone, save the SVG, render and inspect it if your
+tools allow, and attach the saved SVG plus a PNG preview when available.
+Tell me which checks you actually completed.
+```
+
+The example facts are teaching material from the bundled tone references, not a specification for another product. Supply your own source facts and exact labels for real work. A request for one diagram yields one candidate; open-ended exploration defaults to at most four.
+
+## Review the saved drawing
+
+Inspect the actual attachment at its intended size. Tell the agent which candidate to use and write **Keep** and **Change** notes:
+
+```text
+Use saved candidate r01-c01 as the baseline. Keep the labels, reading order,
+and open outline style. Increase arrow contrast and keep the original SVG.
+Save a new revision with a parent pointer to r01-c01, inspect its preview,
+and attach the exact new SVG.
+```
+
+The agent should read the selected saved SVG, create a new ID, preserve the original bytes, and apply the requested changes. Delivering the final drawing means attaching that exact saved SVG, not redrawing it from a recipe. Choosing a drawing does not approve a project-wide style.
+
+In a new conversation, attach the exact saved SVG along with its ID, intended size, and Keep/Change notes. Earlier conversation files and browser storage may be unavailable. A screenshot can inspire a new drawing but cannot establish exact-file lineage.
+
+## Understand verification limits
+
+The host skill separates four claims: SVG syntax checked, image rendered, image actually opened and visually inspected, and user approval. Rendering alone cannot certify factual accuracy, glyph coverage, contrast, or layout. If file tools are absent, the agent can provide clearly labeled SVG source text, but that is not a downloadable artifact. If render or image-viewing tools are absent, visual inspection remains pending. The plugin does not embed the repository's browser review workbench.
+
+## Host acceptance scenarios
+
+These are prompts to run **after actual installation** in a capable host. Record the saved files, tool outcomes, visible image observations, and failures. They are acceptance scenarios, not evidence that installation or inspection has already happened here.
+
+| Scenario | What to verify |
+| --- | --- |
+| Direct request | Ask for one 360 × 200 SVG with locked labels; receive one saved SVG and an actual preview when tools allow. |
+| Tone exploration | Ask for three treatments of the same facts; confirm three stable IDs and that each selected tone's bundled rules and images were read. |
+| Follow-up refinement | Choose one ID and give Keep/Change notes; confirm the original file bytes remain, a new ID points to that parent, and the new attachment contains the requested change. |
+| New chat | Attach the saved SVG and notes; confirm the agent resumes from that file. Without the attachment, it should request the exact baseline rather than claim access to it. |
+| Missing capability | Remove render or file access; confirm the answer names the unavailable check or delivers labeled source text without claiming an inspected/downloadable image. |
+| Out-of-scope request | Ask for a non-diagram task; confirm the plugin does not take over unrelated work. |
+
+Also try a missing font and a stale or altered baseline. The agent should select an available font and reinspect text, or ask for the exact saved baseline before claiming faithful lineage. A reviewer should check semantic accuracy and actual readability separately from syntax or rendering.
+
+For a local session with the CLI, workbench, optional capture, and project style revisions, follow [Ask for your first diagram](/docs/getting-started/first-session/) instead. That is a separate engine workflow with its own installation and checks.
