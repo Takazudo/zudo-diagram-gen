@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-ui-miniature",
+  "title": "状態を読むミニ画面",
+  "toneId": "ui-miniature",
+  "description": "Original conceptual miniature UI: reduced window chrome, readable state rows, semantic marks and one emphasized teaching point; not an exact screenshot.",
+  "order": 7,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "f1bb3bc5f88687cfe1b1fa2d75f3dfecfd16a413a3a24e35a2c76ebd8160c7ef",
+    "dark": "180f8b385a6a0fae76b01e15b035449e4b5558138747eff09beec5a1045c5b5c"
+  }
+}

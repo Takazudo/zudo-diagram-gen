@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-labelledby="title desc"><title id="title">空席と保留中の席</title><desc id="desc">Object-led open contours with generous routes. Original P00 facts; fresh variant, no selection or refinement.</desc>
+<metadata>{&quot;ink&quot;: &quot;#F0F4F8&quot;, &quot;surface&quot;: &quot;#15212D&quot;, &quot;border&quot;: &quot;#91A4B5&quot;, &quot;accent&quot;: &quot;#68C4AF&quot;, &quot;deep&quot;: &quot;#85B9DF&quot;, &quot;warning&quot;: &quot;#FFC078&quot;}</metadata>
+<rect width="360" height="240" fill="#15212D"/>
+<path d="M74 51V24H108V51M68 56H114V67H68ZM74 67V84M108 67V84" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M77 34L105 49M105 34L77 49" fill="none" stroke="#91A4B5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="91" y="105" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="91" dy="0">A席：予約済み</tspan></text>
+<path d="M250 51V24H284V51M244 56H290V67H244ZM250 67V84M284 67V84" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="267" y="105" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="267" dy="0">B席：空席</tspan></text>
+<text x="324" y="59" font-family="Noto Sans CJK JP, sans-serif" font-size="12" font-weight="400" fill="#68C4AF" text-anchor="middle"><tspan x="324" dy="0">選択可</tspan></text>
+<path d="M74 163V136H108V163M68 168H114V179H68ZM74 179V196M108 179V196" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="91" y="217" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="91" dy="0">C席：空席</tspan></text>
+<text x="148" y="171" font-family="Noto Sans CJK JP, sans-serif" font-size="12" font-weight="400" fill="#68C4AF" text-anchor="middle"><tspan x="148" dy="0">選択可</tspan></text>
+<path d="M250 163V136H284V163M244 168H290V179H244ZM250 179V196M284 179V196" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="267" y="217" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="267" dy="0">D席：保留中</tspan></text>
+<circle cx="318" cy="155" r="12" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M318 147.8V155L323.4 158.6" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="321" y="178" font-family="Noto Sans CJK JP, sans-serif" font-size="12" font-weight="400" fill="#91A4B5" text-anchor="middle"><tspan x="321" dy="0">選択不可</tspan></text>
+<circle cx="174" cy="119" r="4" fill="#68C4AF" stroke="#68C4AF" stroke-width="0"/>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-swiss-grid",
+  "title": "罫線とアクセント帯の台帳",
+  "toneId": "swiss-grid",
+  "description": "Swiss-grid native square fields and shared baselines; open editorial ledger bands with compact accent rails. Fresh independent variant; exact P00 facts; no user selection.",
+  "order": 6,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "c85325604cf458b7078db1417fc6c8d361c38bc09799dfb4c29c924cc82f4591",
+    "dark": "6d6e95365e92587f5501c9860a75c319992d439f2a1d27fd043fcb977e6da8cf"
+  }
+}

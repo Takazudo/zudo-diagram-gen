@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-swiss-grid-return-labels",
+  "title": "分岐条件を接続線の上の整列欄へ",
+  "toneId": "swiss-grid",
+  "description": "Saved r01 Swiss-grid refinement: only observed label placement corrected; facts, geometry, colors and type retained. Manager visual recapture required.",
+  "order": 6,
+  "parentCandidateId": "r01-swiss-grid",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "916bcb07329ad6b727e049fc60695f6b0d7d212604fcbc779e69b23d5b27c3b7",
+    "dark": "1196674398cfac9f4e368c6964e0df25868433219f72606446b74b50b76bd821"
+  },
+  "baselineFeedback": {
+    "id": "r01-swiss-grid",
+    "fingerprint": "0e5f4a12e8c93f5a1fa0afcf1e51c75193cc56a57a6d92525b3bab3787eacc54",
+    "keep": "Keep exact facts, Swiss square grid geometry, all routes, colors and typography.",
+    "change": "Move damage branch condition labels away from vertical connectors.",
+    "action": "refine"
+  }
+}

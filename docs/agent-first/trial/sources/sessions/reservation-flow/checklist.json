@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "reservation-flow",
+  "factualChecks": [
+    {
+      "id": "fact-01",
+      "assertion": "順序が申請・確認待ち・確定である。",
+      "required": true
+    },
+    {
+      "id": "fact-02",
+      "assertion": "確認待ちを確定と表示していない。",
+      "required": true
+    },
+    {
+      "id": "fact-03",
+      "assertion": "変更は確定から確認待ちへ戻る。",
+      "required": true
+    },
+    {
+      "id": "fact-04",
+      "assertion": "自動承認や料金を追加していない。",
+      "required": true
+    }
+  ],
+  "exactLabels": ["申請", "確認待ち", "確定", "日時を変更"],
+  "visualChecks": [
+    "全ラベルを実際の配置サイズで読める。",
+    "文字と形が重ならず、枠で切れていない。",
+    "warningは警告、accentは強調を保つ。",
+    "空・待機・完了の意味を色だけに頼らず区別できる。"
+  ],
+  "provenance": "Original P00 invented scenario; no external asset."
+}

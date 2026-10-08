@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK JP',sans-serif"><title id="title">結果未到着の並行作業 — Contour + wash</title><desc id="desc">共通の案内文を並行に確認。会場情報の結果を待ち、両方完了まで公開しない。</desc><rect width="720" height="240" fill="#15212D"/>
+<circle cx="80.65" cy="113.72" r="45.6" fill="#85B9DF" opacity=".32"/>
+<rect x="35" y="78" width="83" height="76" rx="12" fill="none" stroke="#F0F4F8" stroke-width="1.8"/>
+<path d="M47 96H106M47 110H106M47 124H96" fill="none" stroke="#91A4B5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="186" fill="#F0F4F8" font-size="22" font-weight="600" text-anchor="middle"><tspan x="77" dy="0">案内文</tspan></text>
+<path d="M132 113H161Q180 113 180 93V62H219" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M212 56L219 62L212 68" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M132 127H161Q180 127 180 150V177H219" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M212 171L219 177L212 183" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="439" cy="60" r="35" fill="#68C4AF" opacity=".32"/>
+<rect x="225" y="25" width="276" height="74" rx="12" fill="none" stroke="#F0F4F8" stroke-width="1.8"/>
+<circle cx="252" cy="61" r="27" fill="#68C4AF" opacity=".32"/>
+<path d="M243 61l6 6l12.75 -14.25" fill="none" stroke="#68C4AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="285" y="68" fill="#F0F4F8" font-size="18" font-weight="600" text-anchor="start"><tspan x="285" dy="0">表記確認：完了</tspan></text>
+<circle cx="444" cy="178" r="35" fill="#FFC078" opacity=".32"/>
+<rect x="225" y="141" width="276" height="74" rx="12" fill="none" stroke="#F0F4F8" stroke-width="1.8"/>
+<circle cx="248" cy="180" r="26" fill="#FFC078" opacity=".32"/>
+<circle cx="252" cy="178" r="14" fill="#15212D" fill-opacity=".5" stroke="#F0F4F8" stroke-width="1.8"/>
+<path d="M252 171V178L262 185" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="281" y="185" fill="#F0F4F8" font-size="18" font-weight="600" text-anchor="start"><tspan x="281" dy="0">会場情報確認：結果待ち</tspan></text>
+<path d="M501 62H518V120H501M501 178H518V120" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M518 120H553" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M546 114L553 120L546 126" fill="none" stroke="#F0F4F8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="628" cy="92" r="52" fill="#85B9DF" opacity=".32"/>
+<rect x="559" y="49" width="143" height="149" rx="12" fill="none" stroke="#F0F4F8" stroke-width="1.8"/>
+<rect x="565" y="105" width="131" height="82" fill="#15212D"/>
+<text x="630" y="126" fill="#F0F4F8" font-size="18" font-weight="600" text-anchor="middle"><tspan x="630" dy="0">両方完了後に</tspan><tspan x="630" dy="22">公開</tspan></text>
+<text x="630" y="178" fill="#FFC078" font-size="18" font-weight="600" text-anchor="middle"><tspan x="630" dy="0">公開済み：0</tspan></text>
+<path d="M609 83H651" fill="none" stroke="#91A4B5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M629 73V92" fill="none" stroke="#91A4B5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

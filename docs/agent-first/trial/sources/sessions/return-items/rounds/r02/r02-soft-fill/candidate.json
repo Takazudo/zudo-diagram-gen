@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-soft-fill",
+  "title": "Soft shared lanes",
+  "toneId": "soft-fill",
+  "description": "Fresh shared-lane variation: larger capsule surfaces, different grouping and route placement; no selected refinement baseline.",
+  "order": 2,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "963276ee15dafab521d29b25d0e708d893c149b21d048b2547e74b7db11e95c7",
+    "dark": "bf29bd1b2f377e99747a826cfdad34ad9235fda524f54c13e7964972dba9d658"
+  }
+}

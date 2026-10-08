@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc"><title id="title">長いラベルの担当引継ぎ</title><desc id="desc">Grouped open contours with a reorganized explanatory route. Original P00 facts; fresh variant, no selection or refinement.</desc>
+<metadata>{&quot;ink&quot;: &quot;#F0F4F8&quot;, &quot;surface&quot;: &quot;#15212D&quot;, &quot;border&quot;: &quot;#91A4B5&quot;, &quot;accent&quot;: &quot;#68C4AF&quot;, &quot;deep&quot;: &quot;#85B9DF&quot;, &quot;warning&quot;: &quot;#FFC078&quot;}</metadata>
+<rect width="480" height="360" fill="#15212D"/>
+<rect x="132" y="18" width="305" height="75" rx="4" fill="none" stroke="#91A4B5" stroke-width="1.6"/>
+<text x="283" y="43" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="283" dy="0">地域交流イベント</tspan><tspan x="283" dy="25.2">開催準備担当</tspan></text>
+<rect x="132" y="135" width="305" height="75" rx="4" fill="none" stroke="#91A4B5" stroke-width="1.6"/>
+<text x="283" y="160" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="283" dy="0">参加申込内容の</tspan><tspan x="283" dy="25.2">確認・連絡担当</tspan></text>
+<rect x="132" y="266" width="305" height="75" rx="4" fill="none" stroke="#91A4B5" stroke-width="1.6"/>
+<text x="283" y="291" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="283" dy="0">当日受付と案内の担当</tspan></text>
+<path d="M283 98V126" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M277 119L283 126L289 119" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M283 217V262" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M277 255L283 262L289 255" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="360" y="243" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#68C4AF" text-anchor="middle"><tspan x="360" dy="0">確認完了</tspan></text>
+<path d="M124 173H64V55H124" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M117 49L124 55L117 61" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="67" y="247" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#FFC078" text-anchor="middle"><tspan x="67" dy="0">不足項目</tspan><tspan x="67" dy="22.4">あり</tspan></text>
+<path d="M67 205V219" fill="none" stroke="#FFC078" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="64" cy="55" r="4" fill="#68C4AF" stroke="#68C4AF" stroke-width="0"/>
+</svg>
