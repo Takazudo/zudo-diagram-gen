@@ -33,3 +33,7 @@ Fresh installed archive verification reads all packs offline and exercises repea
 ## Explicit font readiness
 
 SVG roles retain their authored font stacks, while placement descriptors name every explicit primary family without quotes or generic fallbacks. Capture must check those families and fail when unavailable. Current packs use Noto Sans CJK JP, Noto Sans Mono CJK JP and Noto Serif CJK JP. Editorial rollout-2 uses Noto Serif CJK JP for both labels and the serif specimen, avoiding an unavailable Georgia primary while preserving native serif construction. Fonts are environment dependencies; no proprietary font installation or silent readiness suppression is implied. Font readiness remains separate from actual glyph/readability inspection.
+
+## Reviewed rollout evidence
+
+[P09 acceptance](./P09-ACCEPTANCE.md) and [portable per-image evidence](./P09-VISUAL-EVIDENCE.json) record the final declared-placement review. The generator computes matrix acceptance by joining current SVG hashes and targets to captures, then matching captured PNG hashes to passing primary and required independent reviews. It rejects stale artwork, altered placements, missing reviews and failed factual/readability/character scores. Capture inputs can retain their historical context metadata when the exact SVG and PNG are unchanged; current resource identities remain in the matrix. New preparation sessions still have `inspected:false`: linked evaluator evidence supplies the acceptance, and the generator never claims to have opened a new image.

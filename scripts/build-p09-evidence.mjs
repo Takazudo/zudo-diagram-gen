@@ -51,6 +51,138 @@ export function pilotEvidenceComposition() {
   return { template, manifest };
 }
 
+const independentTones = new Set([
+  'contour-wash',
+  'luminous-glass',
+  'editorial-serif',
+  'isometric-solid',
+  'isometric-wire',
+  'risograph-duo',
+  'halftone-manual',
+  'marker-workshop',
+  'chalkboard',
+  'cut-paper',
+  'paper-layers',
+  'pencil-notebook',
+  'offset-blocks',
+]);
+const sha256 = (value) => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
+const imageHash = (review) => review.pngHash ?? review.imageHash ?? review.sha256;
+const reviewName = (review) => review.name ?? path.basename(review.path ?? '', '.png');
+const zeroFacts = (review) => {
+  const counts = review.facts
+    ? ['inventedFacts', 'omissions', 'reversedRelationships', 'lockViolations'].map(
+        (key) => review.facts[key],
+      )
+    : [review.factualErrors ?? review.factsErrors];
+  return (
+    counts.every((count) => count === 0) &&
+    ['factualOmissions', 'inventedFacts'].every(
+      (key) => review[key] === undefined || review[key] === 0,
+    )
+  );
+};
+const passingReview = (review, independent) => {
+  const decision = review.decision ?? review.verdict;
+  const passed = independent
+    ? decision === 'pass'
+    : (decision === undefined && review.gatePass === true) ||
+      decision === 'pass' ||
+      decision === 'pass for shown placement/palette only';
+  const opened = independent
+    ? review.actualOpened === true
+    : review.actuallyOpened === true ||
+      review.reviewer === 'root-primary' ||
+      (typeof review.method === 'string' && review.method.length > 0);
+  return (
+    passed &&
+    opened &&
+    zeroFacts(review) &&
+    review.readability >= 3 &&
+    review.character >= 3 &&
+    (independent || (review.consistency ?? review.withinToneConsistency) >= 3) &&
+    typeof (review.viewedAt ?? review.inspectedAt ?? review.inspectionCompletedAt) === 'string'
+  );
+};
+
+/** Link evaluator records to exact current SVG bytes and their captured PNG, never a tone-wide pass flag. */
+export function evaluateVisualAcceptance(assets, evidence) {
+  const requiresIndependent = independentTones.has(assets[0]?.toneId);
+  const matches = assets.map((asset) => {
+    const captures = (evidence.captures ?? []).filter((row) => row.name === asset.name);
+    const primary = (evidence.primary ?? []).filter((row) => reviewName(row) === asset.name);
+    const secondary = (evidence.independentSecondPass ?? []).filter(
+      (row) => reviewName(row) === asset.name,
+    );
+    const capture = captures[0];
+    const exactCapture =
+      captures.length === 1 &&
+      capture.assetHash === asset.assetHash &&
+      capture.toneId === asset.toneId &&
+      capture.theme === asset.theme &&
+      capture.paletteMode === asset.paletteMode &&
+      capture.kind === asset.kind &&
+      capture.target?.width === asset.target.width &&
+      capture.target?.height === asset.target.height &&
+      ['pngHash', 'placementHash', 'captureHash'].every((key) => sha256(capture[key])) &&
+      capture.captureFonts?.length > 0 &&
+      capture.captureFonts.every((font) => font.ready === true);
+    const exactReview = (rows, independent) =>
+      exactCapture &&
+      rows.length === 1 &&
+      imageHash(rows[0]) === capture.pngHash &&
+      (rows[0].assetHash === asset.assetHash ||
+        (!rows[0].assetHash && (independent || rows[0].captureManifestHashMatched === true))) &&
+      passingReview(rows[0], independent);
+    const primaryPass = exactReview(primary, false);
+    const independentPass = requiresIndependent ? exactReview(secondary, true) : null;
+    return {
+      name: asset.name,
+      assetHash: asset.assetHash,
+      pngHash: exactCapture ? capture.pngHash : null,
+      capturePackProvenance: exactCapture
+        ? Object.fromEntries(
+            ['toneRevision', 'schemeHash', 'kitHash', 'contextHash'].map((key) => [
+              key,
+              capture[key],
+            ]),
+          )
+        : null,
+      currentPackProvenanceMatchesCapture:
+        exactCapture &&
+        ['toneRevision', 'schemeHash', 'kitHash', 'contextHash'].every(
+          (key) => capture[key] === asset[key],
+        ),
+      primary: primaryPass ? 'accepted' : 'pending or stale',
+      independent: requiresIndependent
+        ? independentPass
+          ? 'accepted'
+          : 'pending or stale'
+        : 'not required',
+    };
+  });
+  const complete =
+    assets.length === 8 &&
+    new Set(assets.map(({ name }) => name)).size === 8 &&
+    ['composition', 'kit'].every((kind) =>
+      ['native', 'alternate'].every((paletteMode) =>
+        ['light', 'dark'].every((theme) =>
+          assets.some(
+            (row) => row.kind === kind && row.paletteMode === paletteMode && row.theme === theme,
+          ),
+        ),
+      ),
+    );
+  return {
+    accepted:
+      evidence.schemaVersion === 1 &&
+      complete &&
+      matches.every((row) => row.primary === 'accepted' && row.independent !== 'pending or stale'),
+    independentRequired: requiresIndependent,
+    records: matches,
+  };
+}
+
 /** Preparation only. Actual P05 capture and separate inspection must follow. */
 export async function buildP09Evidence({ output, toneRoot = toneRootDefault, tones } = {}) {
   if (!output) throw new Error('An explicit evidence output directory is required.');
@@ -263,9 +395,14 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
       'utf8',
     ),
   );
+  const visualEvidenceBytes = await fs.readFile(
+    new URL('../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+  );
+  const visualEvidence = JSON.parse(visualEvidenceBytes);
   const matrix = selected.map((toneId) => {
     const tone = catalog.tones.find(({ id }) => id === toneId);
     const assets = records.filter((r) => r.toneId === toneId);
+    const acceptance = evaluateVisualAcceptance(assets, visualEvidence);
     return {
       toneId,
       toneRevision: tone.context.scheme.toneRevision,
@@ -294,13 +431,25 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
         kind,
       })),
       structuralValidation: 'passed',
-      actualInspection: visualHistory.revisions.some((row) => row.toneId === toneId)
-        ? 'initial-failed; revised-inspection-pending'
-        : 'pending',
+      actualInspection: acceptance.accepted
+        ? 'accepted for exact assets and declared placements'
+        : 'pending or stale evidence',
+      visualEvidence: {
+        file: 'P09-VISUAL-EVIDENCE.json',
+        hash: hashBytes(visualEvidenceBytes),
+        artifactHead: visualEvidence.artifactHead,
+        scope:
+          'Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.',
+        ...acceptance,
+      },
       visualHistory: visualHistory.revisions.find((row) => row.toneId === toneId) ?? null,
-      independentSecondPass: 'pending where textured/layered',
+      independentSecondPass: acceptance.independentRequired
+        ? acceptance.accepted
+          ? 'accepted for exact assets'
+          : 'pending or stale evidence'
+        : 'not required',
       limitations:
-        'Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review.',
+        'Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented.',
     };
   });
   await fs.writeFile(

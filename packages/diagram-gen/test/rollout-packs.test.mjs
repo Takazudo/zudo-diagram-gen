@@ -14,6 +14,7 @@ import {
 import {
   buildP09Evidence,
   pilotEvidenceComposition,
+  evaluateVisualAcceptance,
 } from '../../../scripts/build-p09-evidence.mjs';
 import { SaxesParser } from 'saxes';
 const root = fileURLToPath(new URL('../tones/', import.meta.url));
@@ -273,4 +274,76 @@ test('frozen pilot composition labels bind to actual seat and clock placements',
   }
   assert.ok(compiled.includes('>空席</text>'));
   assert.ok(compiled.includes('>確認待ち</text>'));
+});
+
+test('visual acceptance requires current SVG/PNG identity and every required second review', async () => {
+  const evidence = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const matrix = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-COMPLETENESS-MATRIX.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  for (const row of matrix.tones) {
+    const assets = row.evidenceRecords.map((record) => ({
+      ...record,
+      toneId: row.toneId,
+      toneRevision: row.toneRevision,
+      schemeHash: row.schemeHash,
+      kitHash: row.kitHash,
+      contextHash: row.contextHash,
+      target: evidence.captures.find((capture) => capture.name === record.name).target,
+    }));
+    assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, true, row.toneId);
+    assert.equal(row.visualEvidence.accepted, true);
+    assert.deepEqual(
+      row.visualEvidence.records,
+      evaluateVisualAcceptance(assets, evidence).records,
+    );
+    assert.equal(
+      row.visualEvidence.hash,
+      hashBytes(
+        await fs.readFile(
+          new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+        ),
+      ),
+    );
+    const changed = structuredClone(assets);
+    changed[0].assetHash = '0'.repeat(64);
+    assert.equal(
+      evaluateVisualAcceptance(changed, evidence).accepted,
+      false,
+      `${row.toneId}: changed SVG`,
+    );
+    const changedTarget = structuredClone(assets);
+    changedTarget[0].target.width += 1;
+    assert.equal(
+      evaluateVisualAcceptance(changedTarget, evidence).accepted,
+      false,
+      `${row.toneId}: changed placement`,
+    );
+  }
+  const row = matrix.tones.find((row) => row.toneId === 'paper-layers');
+  const assets = row.evidenceRecords.map((record) => ({
+    ...record,
+    toneId: row.toneId,
+    target: evidence.captures.find((capture) => capture.name === record.name).target,
+  }));
+  assert.equal(evaluateVisualAcceptance(assets, { ...evidence, schemaVersion: 2 }).accepted, false);
+  const missingSecond = structuredClone(evidence);
+  missingSecond.independentSecondPass = missingSecond.independentSecondPass.filter(
+    (review) => !review.path.endsWith(`${assets[0].name}.png`),
+  );
+  assert.equal(evaluateVisualAcceptance(assets, missingSecond).accepted, false);
+  const wrongPng = structuredClone(evidence);
+  wrongPng.primary.find((review) => review.name === assets[0].name).pngHash = '0'.repeat(64);
+  assert.equal(evaluateVisualAcceptance(assets, wrongPng).accepted, false);
+  const failedReview = structuredClone(evidence);
+  failedReview.primary.find((review) => review.name === assets[0].name).readability = 2;
+  assert.equal(evaluateVisualAcceptance(assets, failedReview).accepted, false);
 });

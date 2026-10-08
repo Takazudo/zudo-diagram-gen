@@ -37,7 +37,7 @@ Focused `rollout-texture.test.mjs` checks each ten-tone pack’s schema, seven s
 
 ## Authored resource hashes
 
-The following hashes identify current helper resources, including font and visual corrections. SHA-256 of original UTF-8 bytes; scheme context hashing is independently computed by the production resolver. The complete matrix and visual history retain actual review status; corrected compositions remain pending recapture.
+The following hashes identify current helper resources, including font and visual corrections. SHA-256 of original UTF-8 bytes; scheme context hashing is independently computed by the production resolver. The complete matrix and visual history retain actual review status; corrected compositions passed exact-asset recapture and review, as linked in [P09 acceptance](./P09-ACCEPTANCE.md).
 
 | Tone | Revision | Scheme bytes SHA-256 | Kit bytes SHA-256 |
 | --- | --- | --- | --- |

@@ -111,7 +111,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "fine-outline-composition-native-light",
+            "assetHash": "77d0ece8babcac55888c0fbc06548a314de1d65dc5fa74aa57b5e0d351860460",
+            "pngHash": "78ab64a63a01c9ccbea113333ba63fef3034d51e58b9ac981dc689d9720566a3",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-kit-native-light",
+            "assetHash": "92dce9d0be560bbd47b17940563db85e383206db54f9c567018c5d7522149d0a",
+            "pngHash": "568934690684ac32152861cf7297a0548fbf0d12a44d5dd6253e4dce58872431",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-composition-native-dark",
+            "assetHash": "8d74f118ec908be98935c3023a9eea1c0230f037cfdc69d48c6a4dff6a23229b",
+            "pngHash": "e3cc4217c3bbd0343880b2bc197a43564d833b4904dba82e3a0f2acd47b7e97d",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-kit-native-dark",
+            "assetHash": "1459f70048bfff36135de8b8568f2ea79f9fac7ab00b1840b30991c3f60a5e9a",
+            "pngHash": "21dd9b59504913ba7eadf8cf2e6e1e14d22d5aae4ae3bb2fad1ae7c3d065e915",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-composition-alternate-light",
+            "assetHash": "61dba692faeee74aa4ad936cde5307c2c6ebc99947e800659f85390d6821913c",
+            "pngHash": "19d1779be7e45795938fb2ef0ec14408ff3e457384fa714ba30bdaf3eec37812",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-kit-alternate-light",
+            "assetHash": "6782a2a80ea89e8366302a9f4c6eb1398286fa221d011560639aade5f2ff3051",
+            "pngHash": "edd40e00b5cb25070c90289b62738450255f0288fd88ee38b200ac9b7e8741ae",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-composition-alternate-dark",
+            "assetHash": "9cdb72847273916f8d3bfb7351ac0fb64981b29bb83e1c5f52175db03a9a7363",
+            "pngHash": "ffc8e24635a3fe3cc2d32e7dc60ff54ba04ab9b9d03c958fbd9b079fca0bd4b4",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "fine-outline-kit-alternate-dark",
+            "assetHash": "8529654ce6929ea7ee25f0060b69806c45b7e9670d81a145a4ab58d2e9c4748f",
+            "pngHash": "742bd3d6d6c57885904e9eba9913111c2c0184723b799a3dbfc2f10cae1cfb08",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "64711ed2bde2f0a0a52ca7565879a8cb45c304a9a9d5f95d50b95b9188896011",
+              "kitHash": "134d5a7a18f3094079f5990b805d7b90e015e550fcb8a2434353649ee889b0b2",
+              "contextHash": "765ff65b20dee1ff7b3e2ec2bf8c2e7679b8ac801406c751ea9d4800f485bf7f"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "fine-outline",
         "initialDecision": "failed; revise",
@@ -179,10 +301,24 @@
           }
         ],
         "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-        "revisedDecision": "pending actual recapture and inspection"
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "fine-outline-composition-native-light",
+            "fine-outline-kit-native-light",
+            "fine-outline-composition-native-dark",
+            "fine-outline-kit-native-dark",
+            "fine-outline-composition-alternate-light",
+            "fine-outline-kit-alternate-light",
+            "fine-outline-composition-alternate-dark",
+            "fine-outline-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "soft-fill",
@@ -294,7 +430,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "soft-fill-composition-native-light",
+            "assetHash": "146599bc0c40878effd8632e19d075d95a079ab3dc05029b8e2091c5f85e5917",
+            "pngHash": "6996de5f4e2319a9ab0839dcd81fe6eed2a638fde3dbd90a9b1b52b951447681",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-kit-native-light",
+            "assetHash": "2a2e654f5ccc52b007ce46650ac1df33ed157c234781fa5702c9221c55b7368b",
+            "pngHash": "1e6ba1f5ebc0d7207daf1567d494bd03d15d9d007fe9e8bec0160d359ffec337",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-composition-native-dark",
+            "assetHash": "52a2301759700cef28cc5686479bb1b7f8aec18b263aa9f5d499f6b148429439",
+            "pngHash": "79a1be05e62057c465704beca0e62e88b185f25eae1b754682a0b5e36ee13282",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-kit-native-dark",
+            "assetHash": "b8dad75325df637209b0bd6f80fa4b3f8d7c89de677718506b167acc30f99bcc",
+            "pngHash": "9d57265df56e742d1f3a0772430490a51b30d81b34fb20aba64a30f057aedf33",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-composition-alternate-light",
+            "assetHash": "07c05a2dcfea6ddf921b3675859e16b068f49b45305f4a6a43f0894234e73aec",
+            "pngHash": "0f5b3876b89d5f0ddf9c87bd3ada757f86e5309cdf3d0943d3e70ccea8a540be",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-kit-alternate-light",
+            "assetHash": "6d7c3f4d930d8206a8fd0d21e1d093159745b05ff11b12b5e4a00105d0f66e93",
+            "pngHash": "0ae7a42c740e7c84757a1b28bda5d2fb7a8bcb38cce9209fffae2be3631133ad",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-composition-alternate-dark",
+            "assetHash": "bd99cad1ffab69b1aec3831744f22e776b0d1b2234c614c26e4b024074b57597",
+            "pngHash": "2f2cc37c16af23ef1e1712e86f04332f5f1ef739bcc64d8d16251015192c5d1f",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "soft-fill-kit-alternate-dark",
+            "assetHash": "4a9d61762ce9414e6e410c7cc73e11ac3200e667876d5b92150abc415979b594",
+            "pngHash": "ba7b2b78f42de61248880d8e9ecc8c09bbf4e6c055ead4ba2388b0c71f194975",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-1",
+              "schemeHash": "4ca231a8d82755952de85ae410afc85cc377b7168ca90eb0cc260866403c9626",
+              "kitHash": "c9fd4836fee0ec2c74f7b8b71a60b91806889f48edc6a8298a3b1ee324127bed",
+              "contextHash": "99ab3004bb94872bda1a0f3a84f54379d8303c25771cfb1ed4e67454d0e0fb7b"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "soft-fill",
         "initialDecision": "failed; revise",
@@ -362,10 +620,24 @@
           }
         ],
         "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-        "revisedDecision": "pending actual recapture and inspection"
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "soft-fill-composition-native-light",
+            "soft-fill-kit-native-light",
+            "soft-fill-composition-native-dark",
+            "soft-fill-kit-native-dark",
+            "soft-fill-composition-alternate-light",
+            "soft-fill-kit-alternate-light",
+            "soft-fill-composition-alternate-dark",
+            "soft-fill-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "ink-silhouette",
@@ -477,10 +749,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "ink-silhouette-composition-native-light",
+            "assetHash": "64026eee94214b3c80428dc6fcb569a1206814fc28adc0c0bc55ff5d804f9505",
+            "pngHash": "0736e3cd96f994dcef3afb04bc0a5b3cb8776b01bfcc43a788ceaea8bb81f655",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-kit-native-light",
+            "assetHash": "707c8c4a1a87a0bce28dcb3ca52b6e931c7562952bad2f9d86d2d1eaf96eb3c6",
+            "pngHash": "6d87b93bb29c1cecb605326584e935f4ba04d21637d7ba446c37ee9973cef74f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-composition-native-dark",
+            "assetHash": "198849f0e52713c57bc02339765ad544c895b88659077e41327111f7d8c53c24",
+            "pngHash": "af53ae87f3e2e7f1dba7a87891c996ea2e451d78428aef1c723b973cccda7700",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-kit-native-dark",
+            "assetHash": "2829de8059cdc7bf39272368c4152ac654d356edd7413e8bdb26293bde026287",
+            "pngHash": "d10936cc7e0ff05c4274962e0c5ebe3c6601f3650590b1a62d3d778d7a38e785",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-composition-alternate-light",
+            "assetHash": "7881df28c54b9023a078e4637d2feb371b645d2fa13ad7928164008a3e7d5cef",
+            "pngHash": "7ad202ca876e7e4ee5d66e5e170e582e6b0513481661090d0476ced86c147bf0",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-kit-alternate-light",
+            "assetHash": "887421d18cdaa01d640ddd01a5d9ab744f25c786e9e4fda5ee76088664cf857f",
+            "pngHash": "a9dcf05a8a7bce7074411870e6791c58bac5e66dce5571d113dc801c425f96d2",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-composition-alternate-dark",
+            "assetHash": "8b8e96d69aa5fa504a999272c15350496294f9271a758ea99f9548cef9047c9a",
+            "pngHash": "f0795d1b96f269c1e2d263c9d97e32b100eafd2358ae8b4be8304f6454b947ac",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ink-silhouette-kit-alternate-dark",
+            "assetHash": "23dc741def9172f32faa9c923a32a8aee53c534b69c88869e987fa8e742e3c1d",
+            "pngHash": "d3abafedc6ea9175e0a5cefc556c5afea9a4c9246ca61fbfae74ddfb273ad066",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "cce629b396dfa88ef000efacfdfbe0e0aedf9966a7d234278c665225de7ed1de",
+              "kitHash": "7572f4b0ab89b71a2183db05f48537b6ada5efd0e138cff9ab980a8522a9c9df",
+              "contextHash": "61901f25a3731f7f0c40aefa4163f026742a9ab7b26acd9549fde3b58e31766e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "offset-blocks",
@@ -592,10 +986,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "offset-blocks-composition-native-light",
+            "assetHash": "b0db1209f44a8a6aa0a80fa12d78a384d2fbac5b280c2d30d41116e76a7f1071",
+            "pngHash": "aefbb56a51b6af84ab8d50f26b0dd22b3d5fc7430abdb99f020ca2790db4d7c1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-kit-native-light",
+            "assetHash": "849329a6d1e4129b02f5277cbb207582f1453a55112695668356478df750face",
+            "pngHash": "1ea7750b9ac8351bc52782f400358da023341e53d829d90675eedc956eaa0f98",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-composition-native-dark",
+            "assetHash": "b332ed5e048a5f06e6184b464a01db96e385ba512024caf4e8c38c3492de8ca9",
+            "pngHash": "239a7933af9855a947500a0a1f2b954165fdd19e59829b6d402ef7db659a8a90",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-kit-native-dark",
+            "assetHash": "023a575dd1a3d8617d398845441d872d3787f6fe49370662fa2c5fcf7259b746",
+            "pngHash": "3572a0de37824a761ea4b9e81a191c17fa9385e1657e753086821957c3fe46fa",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-composition-alternate-light",
+            "assetHash": "4c0d4879382b336640fca76c6c5098056b83b6112600e71c4a25346260e1d312",
+            "pngHash": "c896b5d86bd181e93c487b7d4c7376436114909b45891bf81830c9802ec8033f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-kit-alternate-light",
+            "assetHash": "e60d23d75699e1fc8ac8a7f4d2382f7748f35a7ff9cc4d7811f0df1855b422fd",
+            "pngHash": "152bc82fa207ccf958cb8a542d7141d37e2abcaaa41be1b70a54ae6eed8ab3ff",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-composition-alternate-dark",
+            "assetHash": "3c98be9b20f6b593b5bbb4896c54f43aabcd6de6085c41df59a466ecb7b4540c",
+            "pngHash": "9ca9b52250e9dc5efcec3e638fc9d46f3ad8c8e1036fa8c7ba3d057347bb77f1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "offset-blocks-kit-alternate-dark",
+            "assetHash": "53ce127c42be646d9ab5d8f675dd19c72b40da2ed04f01e869d4b7726eeb59e7",
+            "pngHash": "44f5e1c11ee79840edcc064f34cea3212c1e538d12f3aa9b53202ab729da5a8f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "da7ab47c790f758dff8e7970b89503aef04040d83f13a18a2df60fb38cac2f63",
+              "kitHash": "94dba1a76099c73706e770971b6bb0d4df8e578818c68b490f4fec0c737d4bea",
+              "contextHash": "c5b9e3a5a5e7809b89b09d7f36a40217d727532cbfaaf09a5c7c46846fc51631"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "editorial-serif",
@@ -717,10 +1233,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "editorial-serif-composition-native-light",
+            "assetHash": "083c26ddff01066e19b78f8e38b03f1ccb47eb606330be2d95bf46257b30e955",
+            "pngHash": "5ee4553484f371187b264f074ffc08a0fe781a71b1dfec393a8679fba1f9e1c9",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-kit-native-light",
+            "assetHash": "48c950b476962ede7f3ffdb4c96697783b96deff28184a90f474b27a3484e9d8",
+            "pngHash": "b979d653850c4fc8f0b8357fe7574d5dc15aa831951327ebcea9984f7484037e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-composition-native-dark",
+            "assetHash": "8cd8461cfe0a5ff4529f863b113cb5a9e9a7505d8e811d51ca499cdcf5f24456",
+            "pngHash": "03cde0c1ee585272725f09ac02de89816e7aa9d73d6cac84b2be432bf947e639",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-kit-native-dark",
+            "assetHash": "8a3536efbb2f6ea3c5b56810b0bebb6f8adb4b60e8bd5399289a0caa96b1ed1b",
+            "pngHash": "60becdabc49ad65e12a8e4ac540c4ae4fb86f854882f72f976ac1dba39dda51c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-composition-alternate-light",
+            "assetHash": "ae128200688e9912362401056b02cfebee56680c36bb4d5ab5fb72dc80cc5b81",
+            "pngHash": "6bbfec73be68a61a0034d0c3c7e8d946caed8f21d1fac18a93f3d835ca8a2998",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-kit-alternate-light",
+            "assetHash": "112a9f0c3c1a91da904129c3807cb5480ed0b3e00ba3d08784979b7a692aaf31",
+            "pngHash": "03d03e2cc1ee295c9eb4edb8350f092193f139fd263957f2bcf9dd8710ae21ed",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-composition-alternate-dark",
+            "assetHash": "d74586c16ee8cca5b1a171dde097fb196839a6c02fbcd9be35a336c4ed4e3d27",
+            "pngHash": "e5d7168e8978063fb13286e6af78783bc56e174d151298f3539a0b026ee61dd3",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "editorial-serif-kit-alternate-dark",
+            "assetHash": "944958966fb27dbbabc5c658c36db7d0498495a63125d654c72bea98de038562",
+            "pngHash": "f356e478f59ea68450eafc1085a2a4bb8d211ab5f887f55fdb12408cd9d8919b",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "3a46bc515d3233422c065aece110c39b114357279be1d66addfd925e738e0eab",
+              "kitHash": "28899e0630942c08e9606c5f45ca6409cbcc8c184a76d642d2b5ca266244255d",
+              "contextHash": "d2c85d4c728bbd5b218fc4b8a2f4530cc3f15eb1681162137de0f452c2669626"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "swiss-grid",
@@ -832,10 +1470,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "swiss-grid-composition-native-light",
+            "assetHash": "d324e805f27c1fd3e44cb987c085b2c35417b5ee76d0598ed3e70c6b05113db7",
+            "pngHash": "c8d4592eec1818c1e082b9a17bf5b68f4592fd41146d6c2f46c793785c714b97",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-kit-native-light",
+            "assetHash": "c17952a68be7bf4e4e04c06063910a652863db4644d170f1d3c1042df50fc600",
+            "pngHash": "9f5df4534886cb517c47a4207a721ff9daeab25abc18690e474ab894b12ce71e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-composition-native-dark",
+            "assetHash": "d5d8dd7cd96c67a6d67d5670a0abed66171a01fd5f71228d7531169134e0bfd5",
+            "pngHash": "e78133e88565b77207947be0316b7f2444f5e8ea7a86c1e178337009440ffe64",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-kit-native-dark",
+            "assetHash": "3a36f9de5419dc820a17409b1ad16770273d1892687e8fd0bdf2f24a167cea2c",
+            "pngHash": "d5d0b58843e2502d86d739ff1290ccb4c5cad2de5af73a4e2d3f540b234f8ec6",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-composition-alternate-light",
+            "assetHash": "76e925f4225900adda00c092cd3b53560eace939f35fc3e7ba73b7f3246c979c",
+            "pngHash": "e9541a788384645899260d401322a0821afc539ba9fff74779dc7ec15f3ec828",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-kit-alternate-light",
+            "assetHash": "6d4b6b85296741d5d9df10080275a20ed673e201c962350c88afbf27844fbb34",
+            "pngHash": "188ef401b6722c42de356d86d56ca7bfc21cde46cc578dfaa79a69f32ca82ab7",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-composition-alternate-dark",
+            "assetHash": "f1c141d1e2f95370eae6b4feec201aea5aca1cccd5afd3670fe7c00fc8aab3f9",
+            "pngHash": "e1fd52c5595f82b64f30f7db55b1759c2a81808a38bb84af613e02c4ce1322f5",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "swiss-grid-kit-alternate-dark",
+            "assetHash": "f98555959e6643f1983f473dce2eba3463e34701cb22a9c273c708f957da36d7",
+            "pngHash": "802bf2d961c3b40df3b475b52fcd863ef1c829778f76a91a722b05d16b6d1c5a",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "92f95095e1b12918d1a4113081a3d62b91dc7a119b5187b1c83ab7276027a262",
+              "kitHash": "47afb28dc4e75bf67448a636d8272a39757706d6c92d465899f7ea63a73730d7",
+              "contextHash": "8ad5cb1106273c09de9aeda324bd14684ae7a94b712fa1a408444e5bf1bd5272"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "ui-miniature",
@@ -947,10 +1707,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "ui-miniature-composition-native-light",
+            "assetHash": "28fc622e99939e215995d34782572fdf1d29f5e21b53c8efac4e73f8b9386771",
+            "pngHash": "f35d19f299d7198fb2781cb2d4313220f6868fe7acd9670f4801319d174d4ecf",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-kit-native-light",
+            "assetHash": "3b783068673a014e0aab6e68bc2338ff720779050c07ac74189cdabbc9dd14b1",
+            "pngHash": "5040212c6d14df9e7434a64e3252082e0fc524261f4dd3592694e590b6cdb99b",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-composition-native-dark",
+            "assetHash": "459f2fbc75149106a71de2ebe8445573fc226d6d6adbfc3c87e016077e3b4558",
+            "pngHash": "3631122ba6a46a62b6d50645838516736efd0da6010f19b523964112bde07abe",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-kit-native-dark",
+            "assetHash": "b969ab7aa95c8ee568218765a33ef456a631cb79b5e5846f5fd91d1ab860368a",
+            "pngHash": "01c4893a981405bb75aee264b73819666bcdc5268617738b700fa9f36ef44b95",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-composition-alternate-light",
+            "assetHash": "e0bfb8463189fbd5500526d15a865df8065787fc5383e3fda7b1abe2d38da88e",
+            "pngHash": "30e11419c3a8d71d17373a0cf499ab8a11ece91c7846ae1feb823d7645363ef9",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-kit-alternate-light",
+            "assetHash": "0237c1991acb52bd698ae41be0820f1419ae4eed28605cf25b936df43bec3443",
+            "pngHash": "7f97f758702b30c20cbb9978401fc2a9634d102d479977ab6e41c8f39fe964da",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-composition-alternate-dark",
+            "assetHash": "7f38c63026bc3f3bfb18a6d655f5ba0046ce5b4c0df49694632a2bf990881628",
+            "pngHash": "ca1f4d49853a2752b22eb9ccf0ef337d1631da31dbfe52c28611741b2223bd7b",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "ui-miniature-kit-alternate-dark",
+            "assetHash": "816c0f5d922201f51bb8f0b6703d51e832355be993f30f6f56345cd42d54e7c8",
+            "pngHash": "d952ffec4a52b4e1bfa54581dbb04f6cae3116bb0eeef8567541fc2c7b329ac4",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "0a4898e6e51c358bdb8be223bbcedd4c5e07b20334d28f696419f8167bdb4809",
+              "kitHash": "f86dab2230c1426e14d9afab292512a9b1cafa46cfd34e55c2fb8a4d1f9dece4",
+              "contextHash": "91e8d0707d4f9e7d54cb9292b6859c5f107568649341576e06d166b7b7e802ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "contour-wash",
@@ -1072,10 +1954,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "contour-wash-composition-native-light",
+            "assetHash": "041800ecf1b99d72da7d0970a59ed798bfb0988c7d96cb60e306979a5a1c2f2b",
+            "pngHash": "7c2ffbb64f5cc7009e8168761943373cf87c8c14f4c9980e82b77712f630c23e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-kit-native-light",
+            "assetHash": "4a8bf995735e37f83f6c8c2a37d973e5bfff628854781e3cd4557e95aaed8d21",
+            "pngHash": "0d4432af53a238f106d0875b8d1fe1f0f22e348505ac3bfdae5012de77e05724",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-composition-native-dark",
+            "assetHash": "f49da41723f16a710b2e4003d31ff29b621867e99003c4e00f7320f1ce97423f",
+            "pngHash": "f83a8f47c8129f27055dedca18a0df362e3dae4f10a07ec82a0fd627af70602d",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-kit-native-dark",
+            "assetHash": "9e51a82652029c49b98666460a36d39ce59cca01dfbe38fde502d5b4e515635d",
+            "pngHash": "18b97b77be62bf6fa81ff2af40f444c620b6b87e21407d446e814cd7ef6aae8e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-composition-alternate-light",
+            "assetHash": "5f61d6e7bef3d628ae4cda0bbb3ff3f87e0050a976c5d7f790e39f262f8fa775",
+            "pngHash": "810229dc97fee54aa9f1b134d75c871347b716ebcdf4c39e5b532fdd24a2914c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-kit-alternate-light",
+            "assetHash": "cce8252c1367c200944b90037a3c979070c52e7d6bec0995e5a0722c336cd037",
+            "pngHash": "5b453ba1e74a049d86c5debe9f88dff7f505e1584976ce18c428d3d62d55bd2d",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-composition-alternate-dark",
+            "assetHash": "22d23c2015b3ffc6e40220879e047e373917256c0b16a56b57e34d4134dfd8ab",
+            "pngHash": "e81dbc6f47b3cececf683453f55596a5d05a543105d106f6324b5494e9298aa1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "contour-wash-kit-alternate-dark",
+            "assetHash": "0f97e6474ae1dd9e0319548e7cb35fb89512d30114ce9bd677f9a4e7471942de",
+            "pngHash": "f02bb5e1c29941494a4a7d24a3ae8b457ca0afd28ba12690f163607a938dd645",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "f559135cd0d7597d5af3b5098c2ef89224dea099e1899a0675cc1a8091bfdf11",
+              "kitHash": "978fb802db22dab9f88fc6c8b76cf9b8e966b10d18f59d0009b5e99b1bbcac78",
+              "contextHash": "3bc5e32777ed3121f7117136e65fedf601bb8edc87a7d98370cadd44710a3d6d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "technical-blueprint",
@@ -1187,10 +2191,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "technical-blueprint-composition-native-light",
+            "assetHash": "90a038ca65ccb131f1e291b76f9a3183ec2362d6403c6039a9ff5ca371545bb4",
+            "pngHash": "3ec2642a203648143698af2686642d34670cbc42d99db7cdec0fcf101492167e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-kit-native-light",
+            "assetHash": "e659f2313af355ec563b695e3d1c0e90adcaac3982f13012d86988287d306628",
+            "pngHash": "c6e775c67a14fef83da0f08a43601a021e3b13d409d856bbc79e233f565008ff",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-composition-native-dark",
+            "assetHash": "d7c3129835e2d5e8f8181a4f0f346f418eadb82d1255b75cf85665158f2c8434",
+            "pngHash": "ba8c893da4585d78fe589d9cf9faa323ce72898e5aa59781c05d6ba1265fd8ab",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-kit-native-dark",
+            "assetHash": "6825f1c7340371cc59c0a2d8bb376a0fb27c2e5282c86bd8eb119f1c005262eb",
+            "pngHash": "5bc0f16faba5159dd3de34606c868962afd82860e80a78397604dfd6f2c6eeff",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-composition-alternate-light",
+            "assetHash": "8806e5817d023bc5e0f8a10943dcfe010d2a249ad94bb46c16f8811aa69aa4d2",
+            "pngHash": "29229b38b6d3744d894ee50127d7ed3698377234948b211e84a4eff25b57cf81",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-kit-alternate-light",
+            "assetHash": "a8ed503d6c1550489f30dbf9216081f0d26b5caa68db0468b2c72da5ee6d082c",
+            "pngHash": "1f671512ed9bccf2cb1c580a20345b82f869884c434a533eca0d726b0658a9a7",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-composition-alternate-dark",
+            "assetHash": "3240f13a132bdd87bca321e07471be56e726255836be9767e4b2723d8df83c49",
+            "pngHash": "a92e4457a5e341deb7bd8fa10223dc803aefa34df47efcf6a90854b28bf0cad5",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "technical-blueprint-kit-alternate-dark",
+            "assetHash": "81c54efdb193417ceb8f1128e7431f46a86374d1923d9c7824476d251da48d9f",
+            "pngHash": "332f53707c15f8fd4e51bbff89212dcd19f19fe2945c2e4347e55205abeffa41",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "63def2a429de4a53399810169f42514334c6aa640996bcff8e5e9e6c3f375e75",
+              "kitHash": "d144218f069aef89ed47fc0a11f0e7264e4dfb82023c82e3f698a4c2d73546b4",
+              "contextHash": "dd37ec00471134d07889ac82de51bd0243cc53ac02fcfd751eaeb58756022f02"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "isometric-wire",
@@ -1312,10 +2438,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "isometric-wire-composition-native-light",
+            "assetHash": "2cdce91e68329105095e82deb455f09a9fc1083ca10b498393f90c3eb066aaa6",
+            "pngHash": "8eb327866db9d59ea14bc05639d559f2c462f6ae2d02b64d7691a19b6c4607bb",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-kit-native-light",
+            "assetHash": "36218227d5526251abc48cf62bf545218c02d75519af7314c0280a9b31e3c75c",
+            "pngHash": "ff81515064562d5a80c7c7f8273cad5d3c57e172645979afdbb7cb6f49c5e804",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-composition-native-dark",
+            "assetHash": "7b6eaa3f4663326c6eac936cbb4e328da7aa35907a034673d56ebbf50a021678",
+            "pngHash": "e23f8f276acb6e876b3bc7e98aadcbc790d39d1e43b21ee668d08bde43602ca2",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-kit-native-dark",
+            "assetHash": "291c11884774c9150b5c686815a98da4c504471f043ae44d9ed5ea7630ae6881",
+            "pngHash": "6a3a4e9790400181945dec52b0741b426d925fc07315f10a6863c825548eaae8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-composition-alternate-light",
+            "assetHash": "14016a4e4093517249b14c8770400cc4ae321f07b5e1e5426d7ccbe3c3da3d31",
+            "pngHash": "cd846d6345623ae9c9070a36a6f43a3cf43fb71956cc9fec19a784dd717f1366",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-kit-alternate-light",
+            "assetHash": "6266ce815117456229e7354cf837c558eee1ab38d00f8549cd5826665cc5cb0a",
+            "pngHash": "b67d19bef846af3a4523b8573143e23ba0351ac344a4a513371d58f106053999",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-composition-alternate-dark",
+            "assetHash": "e3ed44ae671108c59c9ea20e8a9d0244d0a32d6e3204bd14d3c75807bf62363b",
+            "pngHash": "876467ca0cf17547ef5daa963f24f46aa9ece65bd669cd19a7691607c9a7ff65",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-wire-kit-alternate-dark",
+            "assetHash": "1384c27b3889ea74a406c2ecb39e89e36a80f4baca8f3a5fb7e7749bf63f3b8b",
+            "pngHash": "8cd5b24caa97e531fe268377fa72d4920d1a272662df9d888aa6caf1e2768bcb",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "863635fccec8a9ab3140b1a36c7b80623cfe26e295477ef93fee06a8d1823614",
+              "kitHash": "577da26987c071cafdb1c5957d5f751a41271a1c712577cba12eea1660953356",
+              "contextHash": "b831221aeb656e685804899714b51caed052b69a6a3cb756cd633b5c2d0e1a2e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "isometric-solid",
@@ -1437,7 +2685,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "isometric-solid-composition-native-light",
+            "assetHash": "120694c3598a9153db0d148dfb8404c3393425519092c9cce2e69fc7181029a1",
+            "pngHash": "0bf091d18d5913ca285bc6290c98c85332408fabe80fc78798fee4e5a6d05a5a",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "40d251da05cd923c89c20f00c236dda88e32741ef2527cccaff34fb877011d8b",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "da9e80175dc5d647493222c1c798e5070ba108d7695c2aee000cc80cfb965f42"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-kit-native-light",
+            "assetHash": "4e058bcda843614e8e21602db8852400cf7d45ce5c8b302ffa79877871f3f4c6",
+            "pngHash": "651b954781cdd1e1c1c89b33b2781bf6bf153b3cf23b33ae1c16a1b166c92eaa",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-composition-native-dark",
+            "assetHash": "c4f029d79336b88d9e8d14da17540b0e426fb788c7bad65902cd9fd23d913b7c",
+            "pngHash": "693074b428e365ec3d46912b4bbe452ab100a4b46c7704a65c5f1777ff6212ec",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "40d251da05cd923c89c20f00c236dda88e32741ef2527cccaff34fb877011d8b",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "da9e80175dc5d647493222c1c798e5070ba108d7695c2aee000cc80cfb965f42"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-kit-native-dark",
+            "assetHash": "2144c79e49a58eea1fc6ca5b5d96e26d42a98937f43ce16a22c6d0b91c53c9f3",
+            "pngHash": "4f1ee57f15d74f6521ee3263f69a50f519118feb6f6f11bdc32fd72c5b4c9093",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-composition-alternate-light",
+            "assetHash": "a47c2db5189b7e0dc83d67ba0803aa95337ec796329f2b23da5b7dd1e91e3898",
+            "pngHash": "d7e55940826a5af75932a3fe5a7a96ddecf45c7cf8c752cea5ec971a24a41483",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "40d251da05cd923c89c20f00c236dda88e32741ef2527cccaff34fb877011d8b",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "da9e80175dc5d647493222c1c798e5070ba108d7695c2aee000cc80cfb965f42"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-kit-alternate-light",
+            "assetHash": "5e83368888b685a3a0864328a2159780c1203a30e4d9eac514b9cc7a17d503eb",
+            "pngHash": "db017196529ba131845f0dfca5fbaf9cd1af5c7b73e9e7f467cc17b8271569b1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-composition-alternate-dark",
+            "assetHash": "25f85cf32527b869b2f26c45ad4b94bf2d167bd598dfa260ef20866437231d5d",
+            "pngHash": "9091dd61f93b4eca1a887af3c0779c7af2d3956948382073e6edfb7552572d38",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "40d251da05cd923c89c20f00c236dda88e32741ef2527cccaff34fb877011d8b",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "da9e80175dc5d647493222c1c798e5070ba108d7695c2aee000cc80cfb965f42"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "isometric-solid-kit-alternate-dark",
+            "assetHash": "0f9bab174fb07f62f9984d50e288e0f82400451763a7e57494d0c9df08b14712",
+            "pngHash": "93964727e24d2d4b2f960ef012f1d12ce40936c7896bf0ed05217e69ba10e201",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "79c2c83ee0a3be7422d155ea6748aea067dc5cdbf2f4a35964eeed79a9122e19",
+              "kitHash": "2842e5ede454f1e2bcb97623f94ce3325ce27bf03165a072a3d8def71f7fd27c",
+              "contextHash": "7b28c404c924843951fbca7af2ea9e4915dde63ec7bf12f69205241346d527ca"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "isometric-solid",
         "initialDecision": "failed; revise",
@@ -1471,11 +2841,25 @@
           }
         ],
         "correction": "Projected shadow footprints moved above long instruction and vacancy label, preserving native facets.",
-        "revisedDecision": "pending actual recapture and inspection",
-        "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten."
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten.",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "isometric-solid-composition-native-light",
+            "isometric-solid-kit-native-light",
+            "isometric-solid-composition-native-dark",
+            "isometric-solid-kit-native-dark",
+            "isometric-solid-composition-alternate-light",
+            "isometric-solid-kit-alternate-light",
+            "isometric-solid-composition-alternate-dark",
+            "isometric-solid-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "paper-layers",
@@ -1599,7 +2983,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "paper-layers-composition-native-light",
+            "assetHash": "4675594f35e8a8ea7572e57c2a98d6df3d3e049dcfaed200e5730a8eb0f7cd82",
+            "pngHash": "64016df50ba72933116ecea1eb351d7aa86be36724b3753507eccb004608978c",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-kit-native-light",
+            "assetHash": "0121dc406622e9c4c2c66d1e8e64211279c3edd68db7caa3e51140ba13ad5d6c",
+            "pngHash": "b48d1c04b973457473b9d5c1f66a89f494764fbeef52a7ff2b6410b20ecd76cf",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-composition-native-dark",
+            "assetHash": "de46717b97262ee52c4b489372a2bfd75d808c17af07f34342ce5a5d699b349e",
+            "pngHash": "2de1aa5c4839dd76236deb55d4d110889fe866b90e04b546cc9aad8a7c0240f7",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-kit-native-dark",
+            "assetHash": "9d809ea0c0fa5c611ab48d2082da32ffbd6cbd19b1034f8ee102f50ef666371a",
+            "pngHash": "3b6413eda28792c764815b8808701f05feb97d137f83b3266e8fe411dd9bc20b",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-composition-alternate-light",
+            "assetHash": "ace33a0196ed2976656179267c878d47f8be1e5ad71d0c56ad03219385b1b6f7",
+            "pngHash": "c71e315f27324929a7ea2a6f9cf5c1b1f7d2f3e7217566b7088aebc595c22d6a",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-kit-alternate-light",
+            "assetHash": "e7f255102b623717c26fe62a7aeea4c8502019270477b53dd50f6ff9b0e789ac",
+            "pngHash": "0126ec80563bcbafa2feb430bda4348a5c90914c39af34d0321b3678d7ff9311",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-composition-alternate-dark",
+            "assetHash": "126f8a63aae3525c1c43830eae84fa51a6a5576c73234592d9098ac0d661d65b",
+            "pngHash": "c40f81c0ccf5b92d31cc896f8438792d732f403fc212768f47d6edd795f75bc4",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "paper-layers-kit-alternate-dark",
+            "assetHash": "285b53a46881fff5183098c881e586cb8f5cd57fc76967322ff2f7d5eafe0bdc",
+            "pngHash": "ca3e40488ab0ceb8f867d91350b9edb6b5b46e65fce1f72d018289b3f059c13b",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-3",
+              "schemeHash": "ae8027faabca3cda08eedc1acb60981404d2b5c12e615ebc873faa5599345d9f",
+              "kitHash": "e5d39b53e73a658a25d3dc336cf36e18b6aa2aab7b8f41193fc3e119ba6153b5",
+              "contextHash": "0b3605991c019ecd76fe41be3d2e629f5ead4778c44ef3fc6001684bb781414e"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "paper-layers",
         "initialDecision": "failed; revise",
@@ -1727,10 +3233,24 @@
           }
         ],
         "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-        "revisedDecision": "pending actual recapture and inspection"
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "paper-layers-composition-native-light",
+            "paper-layers-kit-native-light",
+            "paper-layers-composition-native-dark",
+            "paper-layers-kit-native-dark",
+            "paper-layers-composition-alternate-light",
+            "paper-layers-kit-alternate-light",
+            "paper-layers-composition-alternate-dark",
+            "paper-layers-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "pencil-notebook",
@@ -1855,7 +3375,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "pencil-notebook-composition-native-light",
+            "assetHash": "26df7aa4196d43452abfd3f3db7ef24be2f415a0ae773754d5b37503bd4799ab",
+            "pngHash": "199dc44559d37c974b25304a80fd780443f43ce924007a6cc901e8333eb86e12",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-kit-native-light",
+            "assetHash": "59f786849b656ea9b5acc7cf543c93abe2503f81a847161addc4676983294206",
+            "pngHash": "125dc2a3c8342496d37b8f7473e020ccaf1f6995f8009baac8d254942f9347e9",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-composition-native-dark",
+            "assetHash": "1a7ded6b77f4ad4c67e6ca28c0550ff3df6238abe70e37fcf83a3d6b9e8df34d",
+            "pngHash": "db5103a3d13327f75e13f4137905e8920d1571f3902bdeed95d2aa5cd02b7b2c",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-kit-native-dark",
+            "assetHash": "4f55d909af5939fec47b799b7e5ffa9cd8d2a955afd319187261332a74bb74e7",
+            "pngHash": "2cbb0506892cddcfc218630ba77f7a562e72bd678b7a9a90d58f9de4493ae87d",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-composition-alternate-light",
+            "assetHash": "34b574010322534d41ea99b0ebfa5f7243672a30041dfc351e6badf71f6d741f",
+            "pngHash": "e08213e227ca489c0161c3c7e32006e359fe4bcf35503875480fe4bc68c6d8d9",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-kit-alternate-light",
+            "assetHash": "4bc924f0603084aeac016cb631ca071c254d035108f50f4e200df5c9d4003205",
+            "pngHash": "6ac8b8e8c451c52735761232861336d890d34c680c9925f36945894726f4cae3",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-composition-alternate-dark",
+            "assetHash": "7324930de9b1ed707ef706a6aeda9c3cfa094c3d39710bbf55acb13dfcd8feab",
+            "pngHash": "7a2101620d1795386f564260bdb07b2ec05a2644d6084637e809d67d759fb99a",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "pencil-notebook-kit-alternate-dark",
+            "assetHash": "1512ef636427d774a32c1a3db1e39cce1f1767b91c10e16ef9ccac800a67f057",
+            "pngHash": "ce813af63a24333ebb04df100744e280ca8281866fe4b22a93c797a59c974f36",
+            "capturePackProvenance": {
+              "toneRevision": "pilot-4",
+              "schemeHash": "80f5528a09cf2fe6a99b7e4fd85f75f3af25bad1bb7ba1a1c0019bf7f1b21960",
+              "kitHash": "39ca1fe341eda581eebbcb15660123bd5bc19f6200c195aea08d6a3cdd32f00e",
+              "contextHash": "b0b24fa2b55ab6cd6438e71a75248201d0fc8632d4481699303f07f8eac001f7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "pencil-notebook",
         "initialDecision": "failed; revise",
@@ -1983,10 +3625,24 @@
           }
         ],
         "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-        "revisedDecision": "pending actual recapture and inspection"
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "pencil-notebook-composition-native-light",
+            "pencil-notebook-kit-native-light",
+            "pencil-notebook-composition-native-dark",
+            "pencil-notebook-kit-native-dark",
+            "pencil-notebook-composition-alternate-light",
+            "pencil-notebook-kit-alternate-light",
+            "pencil-notebook-composition-alternate-dark",
+            "pencil-notebook-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "marker-workshop",
@@ -2108,7 +3764,129 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "initial-failed; revised-inspection-pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "marker-workshop-composition-native-light",
+            "assetHash": "a14193932b99251abbf1d494cf051792ea5708c67e542c4fdf7afb734595f75b",
+            "pngHash": "9023b58546357934b891cd72a37525a49c5d0c80aaac063c57f2d30c17df3347",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "9300b71121f98d9258150a584f55ba0f238d1541ea983e7320d90e11d937bd71",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "3c186995da5c49daf7908cdb24169ba9809de39e6de2c527172857940f32bf10"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-kit-native-light",
+            "assetHash": "41e56d746762667275fd4d6302b8c2ed1ce471161f4e96fe569ffe33c1954bbb",
+            "pngHash": "18951f182fff3779fa80bcaca6823addf94d9c59303774b1eb5b2c14366b85c6",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-composition-native-dark",
+            "assetHash": "fcff270a5154f7ffc7d97f08f68b0d5949e27b10c499508006f9544ff70d2249",
+            "pngHash": "4af2ac237fef0d6dd558e0ebca06afe93a87c366899cfc06a3811239e64664dd",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "9300b71121f98d9258150a584f55ba0f238d1541ea983e7320d90e11d937bd71",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "3c186995da5c49daf7908cdb24169ba9809de39e6de2c527172857940f32bf10"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-kit-native-dark",
+            "assetHash": "0e82223c92eba08932d4b9e4e1cc9e43ca93828f6e83cff36b6358a668d6684c",
+            "pngHash": "3fdbd50ce370732d870bfe00766d6004defc6d52fc1a3787d7db673a1f418a78",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-composition-alternate-light",
+            "assetHash": "be2acbc6fa911348056a42f90b70683fecebc1e3ea195ff4cbcf969631c7d95a",
+            "pngHash": "626651f61fc9e0256c1d6ce8125638786715031e5cf26a9e53f45996f160c8bd",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "9300b71121f98d9258150a584f55ba0f238d1541ea983e7320d90e11d937bd71",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "3c186995da5c49daf7908cdb24169ba9809de39e6de2c527172857940f32bf10"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-kit-alternate-light",
+            "assetHash": "e61da4725f225b5affc57d410df1197a5cf1dfe1257c6c0cb805c3b44419ad8b",
+            "pngHash": "1477aa2a79ce865acf6761864fe2c7cfbcb8eac10bdbc03565c0017e44f27dd8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-composition-alternate-dark",
+            "assetHash": "3b72672ca0ae6a8c6d8efdeed9056faa0430e12c2f2639321c09fc9dd743c227",
+            "pngHash": "a92c577bffa6d7704475bdba86a207c45ab60cab87570394cbd67b8674e1f1ec",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "9300b71121f98d9258150a584f55ba0f238d1541ea983e7320d90e11d937bd71",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "3c186995da5c49daf7908cdb24169ba9809de39e6de2c527172857940f32bf10"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "marker-workshop-kit-alternate-dark",
+            "assetHash": "1727d7f8238e2278938f5c1a57037b663b2fe9017f6609ad9606607c5d2428c6",
+            "pngHash": "2591abca0cff75090971e0f91e4a1c41da788db472228df60e4c128c2424531e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "617b37c39aca6e425ca9f96e15f6f589f453a130e057a4e9bb7737353bba342d",
+              "kitHash": "a8870e6db66be7f2c3434ebd5b12c884fd73244d6ed8d0017b253145c66320b0",
+              "contextHash": "82eebba5583b45a258524bd97b91575a279e1c61665862c8af587df140646445"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": {
         "toneId": "marker-workshop",
         "initialDecision": "failed; revise",
@@ -2157,10 +3935,24 @@
           }
         ],
         "correction": "Warning words use ink with a warning-role hand triangle and ink outline, preserving marker colors.",
-        "revisedDecision": "pending actual recapture and inspection"
+        "revisedDecision": "accepted for exact corrected assets and declared placements",
+        "acceptedEvidence": {
+          "file": "P09-VISUAL-EVIDENCE.json",
+          "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+          "recordNames": [
+            "marker-workshop-composition-native-light",
+            "marker-workshop-kit-native-light",
+            "marker-workshop-composition-native-dark",
+            "marker-workshop-kit-native-dark",
+            "marker-workshop-composition-alternate-light",
+            "marker-workshop-kit-alternate-light",
+            "marker-workshop-composition-alternate-dark",
+            "marker-workshop-kit-alternate-dark"
+          ]
+        }
       },
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "chalkboard",
@@ -2282,10 +4074,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "chalkboard-composition-native-light",
+            "assetHash": "7b797841b360b9c745bb121bccda93ac863d3f346c70e6a84beb65f5fe529ff1",
+            "pngHash": "19f3ed28cc4880bfa2bf602f94ef15ccab486f008d67e095213ef36f3ecf97ea",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-kit-native-light",
+            "assetHash": "35b4ca5ec9ed48ba0f8c59f0ffea1f83389bd4686a001c0d408959ace57be301",
+            "pngHash": "043f46e0c9c905b9bb0ef022af9d3ae738f460118e2d3e5f4e26fecfe86fd30b",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-composition-native-dark",
+            "assetHash": "ccdfe66ad58de9b0076c8361d91cfbd2979d248f5d250d1eb1101a987669ceda",
+            "pngHash": "9e58d83785b9a36de3e800ca0fdc05841cf546989df7f1ae2de5086d6336d2e3",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-kit-native-dark",
+            "assetHash": "fec98edf7deb2f23c370c20900f31df04597a5dd17314fca3bc766cdbdd67ed8",
+            "pngHash": "18cac19c825d206a3c77c715cc0ddc6dc4880c248d9efb37aab6e8f8d81fd755",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-composition-alternate-light",
+            "assetHash": "2ca19e04a9310c06ff789452cd27876e5286cd28afddc0bec45be72d68a9be33",
+            "pngHash": "190045fffa91c781d177889718f88d4db7aacd986b4dac1c73c934b1457ad2bf",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-kit-alternate-light",
+            "assetHash": "cf8d62a35b7b046630b8afe9b3b1665bd4bd210bd3fdf605f6884015a34cfa18",
+            "pngHash": "40b4659b10dcb64a80e12394e62cd5edc8e6da799a0d04ff4e907f6cb2252fd9",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-composition-alternate-dark",
+            "assetHash": "7774e098458d341ea9b467a28c5acfd208ac1f14815ca60d8cefb765ebb58168",
+            "pngHash": "9290f4b4c0a66e57535dff0ab7361a59841df844670cf5b7e929e428030808da",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "chalkboard-kit-alternate-dark",
+            "assetHash": "a9ba21387f2800307d79e5eded41973978bb4f345ab4efe63a621b6c35c3367c",
+            "pngHash": "e2ef18d3df8d31e2fff5283b43038fb36e58c32933024971cb7b85d9afa604d8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "56ba473cada670ef56d1b17459437b96966e5bac758da1c239481a0e93000f59",
+              "kitHash": "a9ac56e1c172c8f8b548154d62a2dd7233223a6d0eaeae6489649d368294d1af",
+              "contextHash": "3052c0de8f2b3ed52dcba52d7a25af5854ae8c5ddc822b17f70423a3858f15fa"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "risograph-duo",
@@ -2407,10 +4321,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "risograph-duo-composition-native-light",
+            "assetHash": "fc7b3f94d96dadef6e2c33463def8ad1e6075254812dca86cc745058e84bd950",
+            "pngHash": "a5694cc693239b594e1a95862acc7dc27345b34d8a0899399b0dd803f8bfe753",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-kit-native-light",
+            "assetHash": "9cc34b7135f5a8a5373291f20a78e1397077200b7538ce88434f0ce7906f1eb7",
+            "pngHash": "daf90ac5c8e099c887845ec61aa84476315997a2ee071a9b29dfa431d54c5740",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-composition-native-dark",
+            "assetHash": "7221068d0f1a217993a3d6afff319c1c84214301db56606c9f2445266d30bcca",
+            "pngHash": "b1ff137ce7bf7fe70a2eb9a639b4f2972016d7e3c3ddf2657e22e4a4fc0e1ed1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-kit-native-dark",
+            "assetHash": "7338969ab7a8a502d81e47e228a2229589cf27e444ce4d5d12f1beab5aa26e30",
+            "pngHash": "ee54b433a49c72d2ff18ed653ae7395b1215da6407e90d6ac1e5463abfd06d66",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-composition-alternate-light",
+            "assetHash": "c9674acd45a1eea1362fdb62da5ef5566de2c7c9711c8af58cfca8454c414ee4",
+            "pngHash": "394db7990283a5def0320ff19ed234867b1123949adaa50f8f2ce166efc5d3be",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-kit-alternate-light",
+            "assetHash": "aa56fbd8be15bd09c19d2307c1da44b548556b1a4fc8607aa60c694cb1aa06a2",
+            "pngHash": "e0b6ba4696aab747503ba75b14be5f40b8b697ac809ff7c8f79ac3e448723e51",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-composition-alternate-dark",
+            "assetHash": "d725628e60bdcf6d432f1ba768f3863177096ad2c8876d9d3c406cbabc5549c8",
+            "pngHash": "1efbb3900623f1f44b424cb20bf939684c2267805746952a7cc06ea8f73f024c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "risograph-duo-kit-alternate-dark",
+            "assetHash": "c7be21821e083fc7c2c5bac7f4de15adbb05ec419ada8c87cb211a38561ad981",
+            "pngHash": "15f900550c43aaf18bae90c73229f9892df18d249862f4c0473ee28d48a529f8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "c29ab7c26e537715b5840c86ac662fc1ba6919b223a2c79a184810b6a7e59655",
+              "kitHash": "f8fc7294be16ced0c077fd189fa6d4d426eb0ea83086721a9c358eb426c78066",
+              "contextHash": "2c125ab464390c4e5df9451dd00405180c808b2626d58bb77f9cbbc8306ab2b4"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "cut-paper",
@@ -2532,10 +4568,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "cut-paper-composition-native-light",
+            "assetHash": "fd4da295b4b7f2bad4ba290ec5cc479711acde6e39d6abdf9ab0bed6004ae018",
+            "pngHash": "af6d5df1b6037914739e82dc43364a7adc395d4dbf48379136756517272b3ee8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-kit-native-light",
+            "assetHash": "f4d215b5beb440d93abd7e7d9b1c794f19bfa51d927ee7e77ce60eb377eab5e3",
+            "pngHash": "f969dbf64f1b5c18d01c5abe0e42fd1b8310cd2adc39f6acd48b4520f7972191",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-composition-native-dark",
+            "assetHash": "7f09f977d7d743d548d84eacced68f120672588bb55e3ad72d98e65ff7c844c2",
+            "pngHash": "d30ebbd363b0d561290895be9586bc2c632d1d93d45d1661354a699a485b49fb",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-kit-native-dark",
+            "assetHash": "6dd7f66677a145112768a047260f409b74cb97508c484f8c605a4a3390717cde",
+            "pngHash": "7dc18c7302f688e531eece4732d7c0bbe40402c4bbf7b3d0f7a99c1c9c985301",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-composition-alternate-light",
+            "assetHash": "ef4d9d03976e80d577fb6217c59c612a3dface7ef8e84385cd9d4198122e258b",
+            "pngHash": "59067020571b2b6c99b99e8639711dc4ff68ceb0744fc2a8b68f830a1d1db31f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-kit-alternate-light",
+            "assetHash": "2de078c0b22ee0d40d87149408688938cc069cc9c38615d1c2889e900fbc7743",
+            "pngHash": "b9a432481e32bed3dc86daf8ff0344724ec7e13731af6e46b3de9ce0cf630757",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-composition-alternate-dark",
+            "assetHash": "4f84c81f04f21cf85336ca28640de4101b85e4f1ea6aefcbf8bf888758805d3c",
+            "pngHash": "a59068d5b88f1e05b06f3fd94e4c82bf5fbcb83e8114d340a0f03c62d7a290d3",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "cut-paper-kit-alternate-dark",
+            "assetHash": "7b7ef4ef619a15bc49de76e623105b290588a5b86e5a112b09e9146b200f21c5",
+            "pngHash": "8b1b21042398ee93faa369e54ba1ed16bbe1bc234135575bcd5556d6fbc4cbc8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "dbea17f47dbe452b9cec0ca96f9dfc4f24bb4c7f08c204140b7668cf4a6ecbbb",
+              "kitHash": "9bda21b9c1a6e1b1612e8a1ba309f7f14315c06e0c0055d48c5d34b4d7ff0e9e",
+              "contextHash": "be67e78aec62212f54f5b10bfd82f752b0a7797525c823ff9f7fa3ec40d5a8ca"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "halftone-manual",
@@ -2657,10 +4815,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "halftone-manual-composition-native-light",
+            "assetHash": "307a372b6fe2e923b1f33a82feec7ba52cae0e314ce8d109d6c2396a0c6a2885",
+            "pngHash": "438d98132e0f23b912eabad67b259eb7a6fe9b0dc0a7f490c680bf0ee389953e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-kit-native-light",
+            "assetHash": "1cdd8116b3f1b17f4e1bc7d4e48f1f49ac2c35e8bf5d582bde7c79c4408c3ff7",
+            "pngHash": "38fe2250614ce600e8dadf52f0268ffffcc396fe9640f44c82263c4a172d90d1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-composition-native-dark",
+            "assetHash": "517bb0307d24ba97163383ba4040380dba191bfd0a88ab9fff73c24c9622cac2",
+            "pngHash": "cb9da9959c63893e5165bb02da3e9c48e0965a754480d3d0fbf3c77a47fb53b1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-kit-native-dark",
+            "assetHash": "2d46af504fb87d2d2def74cea71fb4221258123ff19a864cf2cb4b64499d3c63",
+            "pngHash": "ddcb23d98f536dee760a3ee3a2329e56719ae5565e338fe16b0ed25203a11b0f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-composition-alternate-light",
+            "assetHash": "b7f5236452aca72b1ad8e2d796cfa4d3fc282f4c2348cebcc08aba52a23fa4ec",
+            "pngHash": "39279634a54f3fc86c5a3e24cfca8d06d54d7d7abda24c108a8cc4742320737e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-kit-alternate-light",
+            "assetHash": "b7b9c6c1d7702e6232b181572853100235b05967afd5a08e36808ee11b8b588c",
+            "pngHash": "68e99fc86cdfa1686a5763bcc5e374841f0a1452909123f62abcc604f5179e21",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-composition-alternate-dark",
+            "assetHash": "1d8ce727c9db17c345970cf1e5972ec1a2855238e7a08dfcdc4007abb9ee3fd3",
+            "pngHash": "362b0fa7d42bf38fd420ef7e0b93cb17239053d2d645aab31edf223641782244",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "halftone-manual-kit-alternate-dark",
+            "assetHash": "63825961927ed5ac5c5046f833de9a6bb12bb17c62907cb3ed281951c072d1e6",
+            "pngHash": "9b73a789edeabc260a5c268f950f74931ca13862215b7d0b9d88c398197965dc",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "26e2f81aa497b21b280ead394cb1a459a3cb9b07e093497228d359b9bdd36ebb",
+              "kitHash": "5fa9816a72849e4053f3bbab760eb2e746bafb1f95eeb866cddbdd07799d3db2",
+              "contextHash": "0a3edd9ffb684f8e965a3c12a3215be44db382a6237da34edabec554d47c127d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "pixel-schematic",
@@ -2772,10 +5052,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "pixel-schematic-composition-native-light",
+            "assetHash": "40ae5e940cf0fe37a03dc19f915ffaf45c637fba06054df3df192f6b9dd50ee8",
+            "pngHash": "7f2f8a973126394a3497c39c0c164e43cf6c9e19a841c69ff8a2199d14ff4fd1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-kit-native-light",
+            "assetHash": "2b01698060ae39d65c36c2b10925aaead952c87cf1ef3828b4416ad727acaa84",
+            "pngHash": "ce9cbe509c6e21816c5608b737d56ec3b35e8a2b2acabda2d54eeb2f9cb997b8",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-composition-native-dark",
+            "assetHash": "51d15b40703c6d8162ae487ea8abca1ecc5bbd920a13b3e20cb2839797f36821",
+            "pngHash": "b9221e7ce8cd47b39460402c31e5a1d71e63d5e1ba3fb7084bf929d426040b6c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-kit-native-dark",
+            "assetHash": "ff28a1c25cd6de5dfe13d7c4b23accfae7dfcea5f8d8eb59e3f9a15005fe0069",
+            "pngHash": "40fb264236e89e0f94ead9fba42b7b33834d375f3bdaadf992ed83d4d56c8686",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-composition-alternate-light",
+            "assetHash": "b4ad9459415c66508c89097136fe449cfccfd4c928210fa2111ffe63bb06564f",
+            "pngHash": "efac9e369530c15e24f0a19765a07992cc9e85cf3863fd8cb93e0ed539290da6",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-kit-alternate-light",
+            "assetHash": "8262aa540ca64a8e1bd124440477f3879ff99fa06dba4da9fb07c34948abea94",
+            "pngHash": "98d9af1b0f71e8d34bb89d41bccfca0ee5d7d2569f7df5ee4ea0071ebc300c29",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-composition-alternate-dark",
+            "assetHash": "f2b6e91c923324f7a8f0586d2ec32072b270a75ad6ff16c4870bd6aa366fe95f",
+            "pngHash": "da7da69ddde8cbbecc4821f41d8c76c3844c3fe17767c1c76bab966cde54405f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "pixel-schematic-kit-alternate-dark",
+            "assetHash": "ae74475b00890bfd400f0657361db6722389daa0ae30d4d7bc7fa96da0ae80d8",
+            "pngHash": "489a056d4c598e5999091064cbdc5fb098b0cd6b541679b3f46511605e6101e1",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "5e3082bd99c8f9d760863ac7f9f2aecb308c163ca0e74366604805207045da38",
+              "kitHash": "66b128e099eea59d7c986dba0cd1137ace84eb7aff6858aa45619c95c405e81b",
+              "contextHash": "61fe025a1792f3d0edf42169e4b7d3f9b3da6370e6eded242733f0ae3d431ebb"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "terminal",
@@ -2887,10 +5289,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "terminal-composition-native-light",
+            "assetHash": "72b9254ae0f0ad6fa291684b6250975fea28a4ae1045bb1d11eb8f258ffcaf9d",
+            "pngHash": "2b1deefde9ba00fa5bfa036fd9c10e11243ff436d9f1a0ca46e98248c808e760",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-kit-native-light",
+            "assetHash": "19fc5fbcec9524c37e85007953f7a6c03bdbb2bf507d23286a0c40d40eb4a28d",
+            "pngHash": "918b43aed7e645359142dea6f3f7c6935c8ca63d24841e928ae5de27d13f117f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-composition-native-dark",
+            "assetHash": "c71f163400b19e4fe79c48d7d9372e939a3ce50c03281abc4959bed320df01fc",
+            "pngHash": "f0891a0ac60f69d8b5f469ac35bc42ad637adc9c9d4782eb5e735efe45781a57",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-kit-native-dark",
+            "assetHash": "b5e5f226b8e6cfc14eabcd5a5a4920eb14f642bce1fa6b761e8c56cf51218e0b",
+            "pngHash": "cc0320d7790fa9910381bcd899a3021ebfb96f17774e875f3bf527dbc4d9bc5a",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-composition-alternate-light",
+            "assetHash": "cb190e25de10459ef16fb63e0a90ca765ba8d9f56e93903fbb26833272d91c86",
+            "pngHash": "67b07bf849d9385e02c4af66e75948e7c36d694905d26d473664368d4459d778",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-kit-alternate-light",
+            "assetHash": "a52ab175ab8ba73bdadc80f705366bce435924863ab60c1bd468b3671ad97969",
+            "pngHash": "ec1d68fa2060040ed95445ac8036c4faeb8fd716aaeb0b1f9d7648aaca5bd97e",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-composition-alternate-dark",
+            "assetHash": "1b9e35cced1e97377eadd0844e575d116c9ef75e3fe2c452dc35165c7a674f35",
+            "pngHash": "aa21523df1932e3ce8aaaa990be70c9758a3b987c95d80fa3d617c7c3b443259",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "terminal-kit-alternate-dark",
+            "assetHash": "53464cd66b83b985bf3647d542ae3eb9b563e2355e3ccb8eced09ca20d651da6",
+            "pngHash": "15bcdd858df0d619c3d7f28f4ad79ae6309df53d6ea8f70a3a5429db47389332",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "3a43b8f401de9e1878f5146bffcc90f3db8d6ac6c870a76e9ea9c795a85dc4bc",
+              "kitHash": "2cbecdab00e14e5534dd4a68f717ca571ccb1eb4472024e8d56d4b52f7f1f147",
+              "contextHash": "68e97b694025dd77d15da6e43df056930354da5bbcd2d9da1d9b1b9b5d48ea3d"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "circuit-route",
@@ -3002,10 +5526,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "circuit-route-composition-native-light",
+            "assetHash": "c04636962cf339041397aada15b61d25b4b883cbf9635ca8b8b89b63b8d489c1",
+            "pngHash": "869c7fb23007bafaaee7b8728b7ff497e01578e8fc7fc315edd8d4aa9015b5b0",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-kit-native-light",
+            "assetHash": "78e09adeaac4f5fdf7738b20dd507b2c36e2d38cd99daef0eaefbe85072456ae",
+            "pngHash": "03844b1aba227cbfd935db18c8ff35e379d2d8cb84f7ce6b0bcb3f488174302b",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-composition-native-dark",
+            "assetHash": "ebec0ac04c61a53a63ccf89e6314fb5f49a2343b99bef887b3a4bbc8dac50ad5",
+            "pngHash": "f5cef32156a97088a180da186ed068680eb8698243ae2e13f27f9c5bfa3280e6",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-kit-native-dark",
+            "assetHash": "f470a8fa430f6aa1c020ab426c1e7898c1266f356cefa63988c464a51934c57d",
+            "pngHash": "e0e9d605f3899bce47b70c66338aa661f39cb81e5e874f25951b62ed365ebffe",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-composition-alternate-light",
+            "assetHash": "763b74729dbc954949d254f754fffe6e4f287ab607b1f8141e1a5c568d3b7e1c",
+            "pngHash": "7fd7f82a12043089edd4979e218c51b310c67c9e94bf5e5a227310e61cd8ff65",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-kit-alternate-light",
+            "assetHash": "4071286ed4b350949b3f2a23c74debf32c26e13ea8f257df448bee6c7981d6ef",
+            "pngHash": "69a531232b642183ef2067a434206160ef8754d7e7ec1fcfbd5f0935126b2a6f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-composition-alternate-dark",
+            "assetHash": "6ec290d38c7e6cb54c5f3e952cf36917cbb4b9327b67bca3e3ab67bbe01d6511",
+            "pngHash": "45fa9af36cd95c63d6a1ce207bce68cf9134424c82b79a463412bcc01f3d2092",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "circuit-route-kit-alternate-dark",
+            "assetHash": "198a0a6de12698fcccdcd029db4c9b1b0097c063a7693bb2f4b8430743a9b1e9",
+            "pngHash": "97a903ae368bd8dc58e05dab03ea415c17cba565af4fde7789d2ad677b6fcf83",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-2",
+              "schemeHash": "ee5a249bdeb3e94764c5d4f05c1c539f0bb23886527f071d35e582462434e1de",
+              "kitHash": "178d4489ed41f955bb2e1acbcb667a0e0ccc4c79253aa9121414f3396774896d",
+              "contextHash": "6c4fedd5ddd6c0b64a4c56b22fc25da592413347a55d40389bb22ff4c68f8ee7"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "transit-wayfinding",
@@ -3117,10 +5763,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "transit-wayfinding-composition-native-light",
+            "assetHash": "d00565a44a9e2b60e6a1f99afa80a0fd4d87f327ebe09d96016c4b0c52901b43",
+            "pngHash": "8aa55e77bd5bdd281095abe3ce949e89f6261b43d21cbaa0f1bf87b7f8f29904",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-kit-native-light",
+            "assetHash": "08c7639f419a464a7a0e80154d7724e47a01b0aa3ec9fff8b026d295d9734636",
+            "pngHash": "f61f05d1bdfd0ac68a7a3ac90a07285471a864e8391e153de12f0e7b10896cb9",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-composition-native-dark",
+            "assetHash": "f79a5b0529dc95b1e656f0b6a9b79381ff034ef565265504498e18212636f22a",
+            "pngHash": "214371eb168b24dfe9f84ffc32893539ec87405904f93f0b11b0052be9bee927",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-kit-native-dark",
+            "assetHash": "732c216a18c5585912ed8d4a1430de0a8d60a9f43c3b841b6a3d2467209be84a",
+            "pngHash": "a805974ebba6f970cdf7ca03c416d15d30423a26e3c4956b265aaa19c0efda52",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-composition-alternate-light",
+            "assetHash": "5e1371407be536f3d6f4d4aba25357872e857d72ea7bb2630ae78fc5753180ab",
+            "pngHash": "5a3938055398937e704ea7e10cca8ce8296c4f609d9c304dec794504a8137ddf",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-kit-alternate-light",
+            "assetHash": "38effbee1eca0d912b77485ba9e62c8eabdace0b8c7455fae75d7dfdddd0f732",
+            "pngHash": "ad64c5cdb94950e5a870207909f5f856731c95cfe1c03ba032d5d9300558a6c3",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-composition-alternate-dark",
+            "assetHash": "e2520280170c06e0a13a43adec570086dd24792489b8ae6fc89a37369bcea454",
+            "pngHash": "93e889e193e3e3349a6c2f425fbed00cca690ba572d073bfed615aff0199f3b3",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "transit-wayfinding-kit-alternate-dark",
+            "assetHash": "3f6dae27101f95846cf8f2f739599e033de11d09522a1ec0e7bd3c7d3734b88d",
+            "pngHash": "2878d588a8438f13e87b62bcb4654876b5b6722a34032f82215e69f56db30993",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "7bacaf24fe51d53cda813670dd2a760f569965a3c3170549ec10d878b056cbff",
+              "kitHash": "65571269457c0ea62034c523ea7853c787c484e55f043659dc93d626e77e04e5",
+              "contextHash": "a5f66eb7b2e21446fd3c0635b1054757277597d278f64c53884f44e8d67823ba"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "modular-geometric",
@@ -3232,10 +6000,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": false,
+        "records": [
+          {
+            "name": "modular-geometric-composition-native-light",
+            "assetHash": "9647f30be4f0d29a0b83d39ecfe99a52784a1897c0a4fccfa5e20a2bd3fbdea2",
+            "pngHash": "eb95f265f7cb07cf32689f6f1a4f74bbaaa90f685ca2cdb0678ca5d178ecbd30",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-kit-native-light",
+            "assetHash": "b6508e3d243119126ad23c29388a01e56715580d85a05b83edeb9955725027c7",
+            "pngHash": "3adb14a142aa2afcbee3858c44aa03142c096555503795a80ba3621d8a4a3400",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-composition-native-dark",
+            "assetHash": "56068d908ae989abb4c51cd054b11ed99b4f46227a9973f10eb1a989d915e6b4",
+            "pngHash": "68c4393fad4671f7a1bc1702740693bc70c48cb9f8fdbd685c4ef6da5b1d2e24",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-kit-native-dark",
+            "assetHash": "db3a99b60ed650b718f039a0e9c09f1fe265f159d1043f2a9fa135b027d2cb89",
+            "pngHash": "6461f4aff3ebdaf23221c8c2fc0d18d3914ed28a140438f85ba7b71b551f4666",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-composition-alternate-light",
+            "assetHash": "cbc893e55efe0fcfd82c2be15e52b7c2c1dc70a9a5ac8088a608f9bbf517dfba",
+            "pngHash": "7d8ad34094ce6c3cea1c5c44d62b4d091a299d923761ca28cc770c32474bdc0d",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-kit-alternate-light",
+            "assetHash": "612776220333629e28390e734528d04ad574f818ef2dfa0a991f606b74d34214",
+            "pngHash": "e41cf1c77eb649cc562fe7059f9f971ee1298ed658d76ee22810516358f51493",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-composition-alternate-dark",
+            "assetHash": "8eab86ea3b5a7142d84f22a58d6f2bd9d3bc3a4668dc62db8f3103982736f86f",
+            "pngHash": "e0899f5b9929c31727e3f79ef364bd7c93f48621aa53b129bc5159caef8fea91",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          },
+          {
+            "name": "modular-geometric-kit-alternate-dark",
+            "assetHash": "d28b2785549928acce1e3da998eef6932315b4affd75be282b155dbbc707327e",
+            "pngHash": "76c78ccb355612f1c10cbc38e69296b878d3619b0785f705ef7f529a11be0d0d",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "b9ed32e55af01e73a42b085ef6c967fa78c5842b2011a1feef889d8fa484f8f2",
+              "kitHash": "ada95132ec76fadbc89865c0941c3c95bec4a703091798e7700bbefd4372d79d",
+              "contextHash": "280ddfa4337cace949a27b445b32eaa1fed663237f3d787f24eba7c56cd431f2"
+            },
+            "currentPackProvenanceMatchesCapture": true,
+            "primary": "accepted",
+            "independent": "not required"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "not required",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     },
     {
       "toneId": "luminous-glass",
@@ -3357,10 +6247,132 @@
         }
       ],
       "structuralValidation": "passed",
-      "actualInspection": "pending",
+      "actualInspection": "accepted for exact assets and declared placements",
+      "visualEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "hash": "cefb99e5df62c77e898205b102e40a6dc143daccd2eb7d7fa0e9b68c2f355f33",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "scope": "Exact rendered SVG/PNG assets and declared placements. Historical capture pack provenance is retained separately; current pack metadata is structurally validated, not visually recertified by hash reuse.",
+        "accepted": true,
+        "independentRequired": true,
+        "records": [
+          {
+            "name": "luminous-glass-composition-native-light",
+            "assetHash": "c53e59bff520a8f42d4065457b91ca937626b31f0620d6263e41f017cef6a8de",
+            "pngHash": "28ef2ee18f3454370a54d893e095d00076df73c96b4f0615a03ca668827ee82c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-kit-native-light",
+            "assetHash": "4b29e5bd52e40bd1125565daabd9678d1d093429c75769d86d43f6cfa22dddef",
+            "pngHash": "73101d41169afb9c24dbe982a73655abb1eae98a61209f5dae5d576e1a7d2af0",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-composition-native-dark",
+            "assetHash": "092c6277cd7b67b602018fe082d3e5e58a78c91d56de023a4bafc063ce77b1cf",
+            "pngHash": "531d277912abff5f13abdd56ed4e8d01f23379904d386b33186955ca0b10eae7",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-kit-native-dark",
+            "assetHash": "d643cd5bd79c560eef094fed40c274d88371768267ed17b1ef494def45b6990a",
+            "pngHash": "8938c53d684ccaff4426eaa23511dd43ec5c6a2a56e8089f54b23c4e4964ba5f",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-composition-alternate-light",
+            "assetHash": "8678c6ff8a809225533e4b9d87bd28f3073b5c0c4eaf740249cd8508090fae4d",
+            "pngHash": "3d3c835b4f6026146539894af3855c2c4d1e7c81f1b81af419d326f69684429c",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-kit-alternate-light",
+            "assetHash": "a49202febf4b9751b7aca4d3d61ed29b1534ba4bcf06aecdbeab76fd0bae3f6b",
+            "pngHash": "1ee1223122eb3b48561121d67ba546b7b4381e6f78afff06c0dc49e9c65668f9",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-composition-alternate-dark",
+            "assetHash": "6ac59012fd5e1c3eb35a05ed4aa4a34ee694df3dff0bccd58957eac998da469a",
+            "pngHash": "1b26bceba21411afedbd142c85f15c5e8d72db183aead231b69eeba0a0b6ceaf",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          },
+          {
+            "name": "luminous-glass-kit-alternate-dark",
+            "assetHash": "ab7886df962fd9a88b121eb4212e0b5d296ff2368b13fcd1192ace51a0b187a6",
+            "pngHash": "0d34783583bb2233db7e749e42935b11da39a3fe91f08f585331cc5013b0a5ec",
+            "capturePackProvenance": {
+              "toneRevision": "rollout-1",
+              "schemeHash": "ddf20c9bd085b7c04c26080892839bc77e8c3ffb81480cfd603088975c6fcab8",
+              "kitHash": "17c0baaadbbb40e5ff41cba694bb74592d32787debe05387e3a42e1a39351484",
+              "contextHash": "b4d3d3fe3f26693412793c5b4e0ebea53ebab4e87cad8ed801aa6de42a178c1f"
+            },
+            "currentPackProvenanceMatchesCapture": false,
+            "primary": "accepted",
+            "independent": "accepted"
+          }
+        ]
+      },
       "visualHistory": null,
-      "independentSecondPass": "pending where textured/layered",
-      "limitations": "Native placement preparation only; actual P05 capture and per-image P03 rubric evaluation required. Smaller host slots need separate readability review."
+      "independentSecondPass": "accepted for exact assets",
+      "limitations": "Acceptance is limited to exact SVG/PNG evidence and declared placements; smaller slots or changed artwork need new review. Original failures and palette atmosphere limitations remain documented."
     }
   ]
 }

@@ -32,7 +32,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -47,7 +47,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -62,7 +62,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -77,12 +77,26 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         }
       ],
       "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-      "revisedDecision": "pending actual recapture and inspection"
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "fine-outline-composition-native-light",
+          "fine-outline-kit-native-light",
+          "fine-outline-composition-native-dark",
+          "fine-outline-kit-native-dark",
+          "fine-outline-composition-alternate-light",
+          "fine-outline-kit-alternate-light",
+          "fine-outline-composition-alternate-dark",
+          "fine-outline-kit-alternate-dark"
+        ]
+      }
     },
     {
       "toneId": "soft-fill",
@@ -101,7 +115,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -116,7 +130,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -131,7 +145,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         },
         {
@@ -146,12 +160,26 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Text itself legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Text itself legible.",
           "contrast": null
         }
       ],
       "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-      "revisedDecision": "pending actual recapture and inspection"
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "soft-fill-composition-native-light",
+          "soft-fill-kit-native-light",
+          "soft-fill-composition-native-dark",
+          "soft-fill-kit-native-dark",
+          "soft-fill-composition-alternate-light",
+          "soft-fill-kit-alternate-light",
+          "soft-fill-composition-alternate-dark",
+          "soft-fill-kit-alternate-dark"
+        ]
+      }
     },
     {
       "toneId": "paper-layers",
@@ -171,7 +199,7 @@
             "factualOmissions": 0
           },
           "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
-          "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
         },
         {
           "sourceReport": "p09-independent-visual-review.json",
@@ -186,7 +214,7 @@
             "factualOmissions": 0
           },
           "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
-          "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
         },
         {
           "sourceReport": "p09-independent-visual-review.json",
@@ -201,7 +229,7 @@
             "factualOmissions": 0
           },
           "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
-          "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
         },
         {
           "sourceReport": "p09-independent-visual-review.json",
@@ -216,7 +244,7 @@
             "factualOmissions": 0
           },
           "notes": "Misassociated label: pending label lies beneath chair rather than far-right clock; empty-seat label beneath route.",
-          "contrast": "Essential labels readable; Composition labels displaced: 空席 beneath first arrow, 確認待ち directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
+          "contrast": "Essential labels readable; Composition labels displaced: \u7a7a\u5e2d beneath first arrow, \u78ba\u8a8d\u5f85\u3061 directly beneath chair, far-right clock unlabeled. Legible glyphs do not establish correct state association."
         },
         {
           "sourceReport": "p09-root-pilot-initial-inspection.json",
@@ -230,7 +258,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -245,7 +273,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -260,7 +288,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -275,12 +303,26 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         }
       ],
       "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-      "revisedDecision": "pending actual recapture and inspection"
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "paper-layers-composition-native-light",
+          "paper-layers-kit-native-light",
+          "paper-layers-composition-native-dark",
+          "paper-layers-kit-native-dark",
+          "paper-layers-composition-alternate-light",
+          "paper-layers-kit-alternate-light",
+          "paper-layers-composition-alternate-dark",
+          "paper-layers-kit-alternate-dark"
+        ]
+      }
     },
     {
       "toneId": "pencil-notebook",
@@ -359,7 +401,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -374,7 +416,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -389,7 +431,7 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         },
         {
@@ -404,12 +446,26 @@
             "factualErrors": 1,
             "factualOmissions": null
           },
-          "notes": "Misassociated labels: 空席 under route, 確認待ち under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
+          "notes": "Misassociated labels: \u7a7a\u5e2d under route, \u78ba\u8a8d\u5f85\u3061 under chair, clock unlabeled. Layered silhouettes/patterned card or retraced hatch-filled objects retain tone character; glyphs legible.",
           "contrast": null
         }
       ],
       "correction": "Separate centered labels bind users, empty seat and pending clock to their actual placed symbols; frozen pack bytes stay unchanged.",
-      "revisedDecision": "pending actual recapture and inspection"
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "pencil-notebook-composition-native-light",
+          "pencil-notebook-kit-native-light",
+          "pencil-notebook-composition-native-dark",
+          "pencil-notebook-kit-native-dark",
+          "pencil-notebook-composition-alternate-light",
+          "pencil-notebook-kit-alternate-light",
+          "pencil-notebook-composition-alternate-dark",
+          "pencil-notebook-kit-alternate-dark"
+        ]
+      }
     },
     {
       "toneId": "isometric-solid",
@@ -439,13 +495,27 @@
               "long-upright-label-two-lines"
             ]
           },
-          "notes": "Material contrast defect: card shadow crosses both long reservation-label lines; seat shadow crosses 空席. Dark glyphs on slate shadow lose contrast.",
+          "notes": "Material contrast defect: card shadow crosses both long reservation-label lines; seat shadow crosses \u7a7a\u5e2d. Dark glyphs on slate shadow lose contrast.",
           "contrast": "Material defect"
         }
       ],
       "correction": "Projected shadow footprints moved above long instruction and vacancy label, preserving native facets.",
-      "revisedDecision": "pending actual recapture and inspection",
-      "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten."
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "additionalObservation": "Primary coordinator additionally found the alternate-dark shadow crossing labels; its earlier evaluator score is preserved rather than rewritten.",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "isometric-solid-composition-native-light",
+          "isometric-solid-kit-native-light",
+          "isometric-solid-composition-native-dark",
+          "isometric-solid-kit-native-dark",
+          "isometric-solid-composition-alternate-light",
+          "isometric-solid-kit-alternate-light",
+          "isometric-solid-composition-alternate-dark",
+          "isometric-solid-kit-alternate-dark"
+        ]
+      }
     },
     {
       "toneId": "marker-workshop",
@@ -475,7 +545,7 @@
               "long-upright-label-two-lines"
             ]
           },
-          "notes": "Warning 予約変更に注意 is dark brown/orange against near-black olive background, materially low contrast.",
+          "notes": "Warning \u4e88\u7d04\u5909\u66f4\u306b\u6ce8\u610f is dark brown/orange against near-black olive background, materially low contrast.",
           "contrast": "Material defect"
         },
         {
@@ -491,11 +561,25 @@
             "factualOmissions": 0
           },
           "notes": "Composition required counts, labels and state distinctions visually present.",
-          "contrast": "Warning 予約変更に注意 has inadequate visual contrast against charcoal; essential warning difficult to read."
+          "contrast": "Warning \u4e88\u7d04\u5909\u66f4\u306b\u6ce8\u610f has inadequate visual contrast against charcoal; essential warning difficult to read."
         }
       ],
       "correction": "Warning words use ink with a warning-role hand triangle and ink outline, preserving marker colors.",
-      "revisedDecision": "pending actual recapture and inspection"
+      "revisedDecision": "accepted for exact corrected assets and declared placements",
+      "acceptedEvidence": {
+        "file": "P09-VISUAL-EVIDENCE.json",
+        "artifactHead": "d700a7b600ad42c131103ce85d45198cc5b961e6",
+        "recordNames": [
+          "marker-workshop-composition-native-light",
+          "marker-workshop-kit-native-light",
+          "marker-workshop-composition-native-dark",
+          "marker-workshop-kit-native-dark",
+          "marker-workshop-composition-alternate-light",
+          "marker-workshop-kit-alternate-light",
+          "marker-workshop-composition-alternate-dark",
+          "marker-workshop-kit-alternate-dark"
+        ]
+      }
     }
   ],
   "limitations": "Historical evaluator records are retained without averaging or rescoring. Structural correction/preparation does not establish a passing final visual gate."
