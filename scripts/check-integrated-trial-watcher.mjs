@@ -92,8 +92,10 @@ try {
   const page = await browser.newPage();
   record = diagnostics(page);
   const app = page.locator('#diagram-app');
+  await page.goto(base);
+  // Observe zfb's actual live reload; repeated navigation can abort its requests.
+  // A host that does not update the DOM must time out rather than pass via reload.
   const current = async () => {
-    await page.goto(base);
     await app.locator('[data-project-slot]').first().waitFor();
     return JSON.parse(await page.locator('#diagram-data').textContent());
   };
