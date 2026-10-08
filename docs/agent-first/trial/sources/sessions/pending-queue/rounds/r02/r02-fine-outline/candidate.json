@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-fine-outline",
+  "title": "開いた輪郭とまとまりの流れ",
+  "toneId": "fine-outline",
+  "description": "Grouped open contours with a reorganized explanatory route. Original P00 facts; fresh variant, no selection or refinement.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "cb08bf1132149c8dc0b82f39e6cbead5cc0769d8cfa2a2161ab4396f4d11b836",
+    "dark": "37e16ca2bade525af19511648b5aa29e1e8be2a696c162264e0b4a94d124b720"
+  }
+}

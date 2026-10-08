@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK JP',sans-serif"><title id="title">空席と保留中の席 — Contour + wash</title><desc id="desc">A席は予約済み、B席とC席だけ選択可、D席は保留中で選択不可。</desc><rect width="360" height="240" fill="#FFFFFF"/>
+<circle cx="90" cy="46" r="30" fill="#174C66" opacity=".32"/>
+<path d="M73 23H107V51H73ZM68 52H112V59H68ZM74 59V71M106 59V71" fill="none" stroke="#174C66" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80 38l7 7l14 -14" fill="none" stroke="#203040" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="95" fill="#203040" font-size="18" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">A席：予約済み</tspan></text>
+<text x="90" y="119" fill="#708090" font-size="16" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">選択不可</tspan></text>
+<circle cx="270" cy="46" r="30" fill="#267D75" opacity=".32"/>
+<path d="M253 23H287V51H253ZM248 52H292V59H248ZM254 59V71M286 59V71" fill="none" stroke="#267D75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="270" y="95" fill="#203040" font-size="18" font-weight="600" text-anchor="middle"><tspan x="270" dy="0">B席：空席</tspan></text>
+<text x="270" y="119" fill="#708090" font-size="16" font-weight="600" text-anchor="middle"><tspan x="270" dy="0">選択可</tspan></text>
+<circle cx="90" cy="161" r="30" fill="#267D75" opacity=".32"/>
+<path d="M73 138H107V166H73ZM68 167H112V174H68ZM74 174V186M106 174V186" fill="none" stroke="#267D75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="210" fill="#203040" font-size="18" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">C席：空席</tspan></text>
+<text x="90" y="234" fill="#708090" font-size="16" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">選択可</tspan></text>
+<circle cx="270" cy="161" r="30" fill="#B85A18" opacity=".32"/>
+<path d="M253 138H287V166H253ZM248 167H292V174H248ZM254 174V186M286 174V186" fill="none" stroke="#B85A18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="300" cy="150" r="22" fill="#B85A18" opacity=".32"/>
+<circle cx="304" cy="148" r="10" fill="#FFFFFF" fill-opacity=".5" stroke="#203040" stroke-width="1.8"/>
+<path d="M304 145V148L314 155" fill="none" stroke="#203040" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="270" y="210" fill="#203040" font-size="18" font-weight="600" text-anchor="middle"><tspan x="270" dy="0">D席：保留中</tspan></text>
+<text x="270" y="234" fill="#B85A18" font-size="16" font-weight="600" text-anchor="middle"><tspan x="270" dy="0">選択不可</tspan></text>
+</svg>

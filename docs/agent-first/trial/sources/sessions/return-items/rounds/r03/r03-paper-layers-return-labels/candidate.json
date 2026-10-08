@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-paper-layers-return-labels",
+  "title": "返却箱の注記を紙面の内側へ",
+  "toneId": "paper-layers",
+  "description": "Filled repeating cut-paper backing sheets stay exposed beside upright clear label sheets; routes, clocks, check marks and vacant objects preserve this session’s exact facts. Observed correction: the empty-box label and usable-return note occupy a taller clear foreground paper sheet with edge clearance.",
+  "order": 0,
+  "parentCandidateId": "r02-paper-layers",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "14c5dd40cd9bfe18c6a8e5fcad42aebc043dcdafac67a5c9d5543aaa45487530",
+    "dark": "2791e91b93857ce6f2d069368843e83a96c550bdd40e6808bf94fdb468c0a84b"
+  },
+  "baselineFeedback": {
+    "id": "r02-paper-layers",
+    "fingerprint": "a9e631a47da26e124bf359b1dcda14bea66753f96af62d3dbf2c78269ca63809",
+    "keep": [
+      "All facts, arrow routes, container emptiness, cut-paper motif planes and theme palettes"
+    ],
+    "change": [
+      "Manager opened both return-items r02 images and observed bottom note 返却に使える crossing the bottom sheet shadow/border. Give both labels a taller clear foreground sheet and move the note inside it, leaving visible edge clearance."
+    ],
+    "action": "refine",
+    "purpose": "observed-placement-correction"
+  }
+}

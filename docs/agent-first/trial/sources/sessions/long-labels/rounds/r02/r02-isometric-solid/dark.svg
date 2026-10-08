@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-labelledby="title desc"><title id="title">long-labels — Isometric solid</title><desc id="desc">Original P00 fictional explanation. Solid volumes, hard shadows and upright Japanese labels; no added approval, fees or failure.</desc><rect width="480" height="360" fill="#15212D"/><polygon points="70,79 128,79 142,67 146,77 131,87 70,87" fill="#91A4B5"/>
+<polygon points="64,25 78,13 136,13 122,25" fill="#85B9DF"/>
+<polygon points="122,25 136,13 136,61 122,73" fill="#68C4AF"/>
+<rect x="64" y="25" width="58" height="48" fill="#15212D"/>
+<circle cx="96" cy="53" r="13" fill="#85B9DF"/><circle cx="91" cy="48" r="13" fill="#68C4AF"/>
+<text x="152" y="45" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="start"><tspan x="152" dy="0">地域交流イベント</tspan><tspan x="152" dy="27">開催準備担当</tspan></text>
+<polygon points="70,201 128,201 142,189 146,199 131,209 70,209" fill="#91A4B5"/>
+<polygon points="64,147 78,135 136,135 122,147" fill="#85B9DF"/>
+<polygon points="122,147 136,135 136,183 122,195" fill="#FFC078"/>
+<rect x="64" y="147" width="58" height="48" fill="#15212D"/>
+<circle cx="97" cy="174" r="16" fill="#85B9DF"/><circle cx="92" cy="169" r="16" fill="#FFC078"/>
+<circle cx="92" cy="169" r="11" fill="#15212D"/>
+<path d="M92 161V169L99 174" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="152" y="162" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="start"><tspan x="152" dy="0">参加申込内容の</tspan><tspan x="152" dy="27">確認・連絡担当</tspan></text>
+<polygon points="70,334 128,334 142,322 146,332 131,342 70,342" fill="#91A4B5"/>
+<polygon points="64,280 78,268 136,268 122,280" fill="#85B9DF"/>
+<polygon points="122,280 136,268 136,316 122,328" fill="#68C4AF"/>
+<rect x="64" y="280" width="58" height="48" fill="#15212D"/>
+<circle cx="97" cy="308" r="16" fill="#85B9DF"/><circle cx="92" cy="303" r="16" fill="#68C4AF"/>
+<path d="M84 303L90 309L101 296" fill="none" stroke="#15212D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="152" y="299" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="start"><tspan x="152" dy="0">当日受付と案内の担当</tspan></text>
+<path d="M300 88V131" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="295,123 300,131 305,123" fill="#F0F4F8"/>
+<path d="M300 205V264" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="295,256 300,264 305,256" fill="#F0F4F8"/>
+<text x="333" y="241" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="start"><tspan x="333" dy="0">確認完了</tspan></text>
+<path d="M56 171H20V49H56" fill="none" stroke="#FFC078" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="48,44 56,49 48,54" fill="#FFC078"/>
+<text x="38" y="119" fill="#FFC078" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="start"><tspan x="38" dy="0">不足項目あり</tspan></text></svg>

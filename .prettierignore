@@ -13,3 +13,8 @@ docs/agent-first/evaluation/revision-1-artifacts/
 docs/agent-first/evaluation/revision-2-artifacts/
 docs/agent-first/evaluation/revision-3-artifacts/
 docs/agent-first/evaluation/revision-4-artifacts/
+
+# Actual reviewed trial source bytes are bound by source-provenance.json.
+docs/agent-first/trial/sources/
+docs/agent-first/trial/followup/
+docs/agent-first/trial/review-transfer/

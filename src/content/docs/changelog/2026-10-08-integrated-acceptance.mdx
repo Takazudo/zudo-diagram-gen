@@ -1,0 +1,22 @@
+---
+title: Integrated acceptance evidence checks
+description: Deterministic validation of recorded public trial artifacts and installed consumer probes.
+---
+
+P11 adds a deterministic acceptance checker for the public five-session trial. It binds saved
+candidate identities, exact comparison mappings, source SVGs, captures, separate image inspections
+and required execution gates through hashes. Missing, stale, duplicate or deferred required
+evidence prevents a full pass. Capture remains separate from image inspection, and test selections
+remain separate from user approval.
+
+Fresh installed-consumer probes preserve command logs for missing-browser behavior and for an
+actual changed catalog in a separate installation. Saved style snapshots and reviewed exports must
+remain byte-identical. These checks launch no browser and call no model.
+
+The actual trial preserves 64 candidates and 128 separately opened theme views, including failed
+originals, passing corrections, saved-review refinements and a later locked-kit diagram. Real
+browser review, watcher recovery and pinned-CI detached exports have been exercised. See the
+[contributor acceptance record](https://github.com/Takazudo/zudo-diagram-gen/blob/base/agent-first-diagrams/docs/agent-first/ACCEPTANCE.md) for scope and reproduction.
+
+The [PR completion record](https://github.com/Takazudo/zudo-diagram-gen/pull/94) binds final acceptance
+to the exact reviewed head; prior runs never substitute for required final checks.

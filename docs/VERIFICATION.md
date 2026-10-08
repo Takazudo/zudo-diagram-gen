@@ -119,3 +119,52 @@ The [site-polish root PR](https://github.com/Takazudo/zudo-diagram-gen/pull/56) 
 Against `https://zudo-diagram-gen.zudolab.dev/`, `pnpm smoke:cloudflare` passed all seven HTML routes, the workbench JSON, CSS, SVG, and JavaScript assets, and the expected missing-page 404. `pnpm smoke:cloudflare --redirects` passed all nine same-host short-path redirects, including query preservation.
 
 The read-only Cloudflare `GET /accounts/{account_id}/workers/domains?service=zudo-diagram-gen` response reported one production custom domain for this Worker: `zudo-diagram-gen.zudolab.dev`. The retired `zudo-diagram-gen-doc.zudolab.dev` was absent. Direct DNS queries to the zone's authoritative nameservers, `joselyn.ns.cloudflare.com` and `rohin.ns.cloudflare.com`, returned `ENOTFOUND` for the retired hostname and A records for the canonical hostname. This confirms the old hostname is no longer attached or published in authoritative DNS; a browser with a cached old 301 may still attempt to visit it until that cache expires.
+
+## P11 deterministic acceptance checks — 2026-10-08
+
+The P11 worker at integration base `c1935b83d4722397c1260a8684d24d84f58ad858` implemented hashed
+trial/evidence validation and explicit installed distribution probes. Thirteen focused validator
+tests passed under pnpm 10.30.3. Their synthetic records test missing/stale/duplicate/deferred
+rejection; they are not the public author trial, browser execution, image inspection or user
+approval. The tests exposed host `NODE_PATH` injection of global Playwright; isolated probe child
+commands explicitly clear and record that variable. Full current-base acceptance remains pending
+actual manager-owned trial, browser, heavy and CI evidence. See
+[ACCEPTANCE.md](agent-first/ACCEPTANCE.md); all earlier records remain historical.
+
+### P11 actual trial and review-fix verification
+
+The completed installed trial preserves 64 candidates and 128 actually opened light/dark views:
+55 originals, six correction children, two saved-review refinements and one later immutable-kit
+diagram. Twelve original views failed readability and remain preserved; their correction children
+passed. All accepted views have no factual violations and readability/character scores of at least
+three. These are unblinded agent evaluations and explicit test selections, not user approval.
+
+At `e4bd89ab9b9b9c7353ca72c1b8eb23b1e4726571`, all eight guarded aggregate steps passed:
+259 tests across 23 files, format/lint/types/examples, 57 built pages and 2,697 valid local links.
+Independent review passed 18 focused tests after fixing exact-head binding, selected refinement
+parents, actual upgraded-engine reexports and temporary-output filename containment. Actual local
+browser review transferred all five sessions unchanged into installed resume; 37 real watcher
+transitions passed. The six-session followup passed exact-source browser checks after explicit
+style revision adoption. Fresh engine/initializer, supported zfb 3/legacy zfb 2, all 24 offline tone
+packs, no-browser capability errors, six exact SVG exports, two HTML exports and a separately
+installed changed-catalog export probe passed their recorded checks.
+
+Pinned [CI at the earlier reviewed head](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/37716183858)
+passed actual single/project detached files in Chromium 147.0.7727.15 with the source moved away,
+server stopped and HTTP requests blocked. Local file transport remains blocked by platform policy;
+those failed attempts are retained and never described as local passes. The definitive final-head
+manifest and CI result are recorded on [PR 94](https://github.com/Takazudo/zudo-diagram-gen/pull/94)
+after this documentation commit. [ACCEPTANCE.md](agent-first/ACCEPTANCE.md) defines that exact-head
+boundary and links committed sources, review transfer and image/hash evidence. Earlier pending
+records above describe their original checkpoints and are not the current trial status.
+
+### P11 shallow-checkout regression
+
+Final-head CI at `3359edda7bdc3350b13e47593e0fd0295144ffb2`
+([run 37717931679](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/37717931679))
+failed one of 259 tests: the runtime-equivalence test depended on historical integration commit
+`c1935b8`, which is absent from GitHub's shallow checkout. This is a test portability defect,
+not a passing or deferred check. The corrected test creates its own temporary Git history,
+checks unchanged runtime files across distinct commits and rejects an actual committed runtime
+change, while retaining command and archive-hash negative checks. The production validator and
+checkout policy remain unchanged. PR 94 records the subsequent final-head rerun and acceptance.

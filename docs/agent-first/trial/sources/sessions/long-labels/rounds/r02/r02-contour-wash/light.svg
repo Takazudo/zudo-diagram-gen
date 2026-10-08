@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK JP',sans-serif"><title id="title">長いラベルの担当引継ぎ — Contour + wash</title><desc id="desc">準備から確認へ資料を渡し、不足時だけ準備へ戻し、確認完了時に受付へ渡す。</desc><rect width="480" height="360" fill="#FFFFFF"/>
+<circle cx="383" cy="49" r="44" fill="#174C66" opacity=".32"/>
+<rect x="150" y="20" width="306" height="74" rx="12" fill="none" stroke="#203040" stroke-width="1.8"/>
+<rect x="165" y="28" width="273" height="56" rx="6" fill="#FFFFFF"/>
+<text x="303" y="49" fill="#203040" font-size="22" font-weight="600" text-anchor="middle"><tspan x="303" dy="0">地域交流イベント</tspan><tspan x="303" dy="26">開催準備担当</tspan></text>
+<circle cx="383" cy="172" r="44" fill="#174C66" opacity=".32"/>
+<rect x="150" y="143" width="306" height="74" rx="12" fill="none" stroke="#203040" stroke-width="1.8"/>
+<rect x="165" y="151" width="273" height="56" rx="6" fill="#FFFFFF"/>
+<text x="303" y="172" fill="#203040" font-size="22" font-weight="600" text-anchor="middle"><tspan x="303" dy="0">参加申込内容の</tspan><tspan x="303" dy="26">確認・連絡担当</tspan></text>
+<circle cx="383" cy="309" r="44" fill="#267D75" opacity=".32"/>
+<rect x="150" y="280" width="306" height="62" rx="12" fill="none" stroke="#203040" stroke-width="1.8"/>
+<rect x="165" y="288" width="273" height="45" rx="6" fill="#FFFFFF"/>
+<text x="303" y="318" fill="#203040" font-size="22" font-weight="600" text-anchor="middle"><tspan x="303" dy="0">当日受付と案内の担当</tspan></text>
+<path d="M303 97V139" fill="none" stroke="#203040" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M297 132L303 139L309 132" fill="none" stroke="#203040" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M303 220V276" fill="none" stroke="#267D75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M297 269L303 276L309 269" fill="none" stroke="#267D75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="374" y="249" fill="#267D75" font-size="18" font-weight="600" text-anchor="middle"><tspan x="374" dy="0">確認完了</tspan></text>
+<path d="M150 180H124Q114 180 114 170V66Q114 57 124 57H146" fill="none" stroke="#B85A18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139 51L146 57L139 63" fill="none" stroke="#B85A18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="115" fill="#B85A18" font-size="18" font-weight="600" text-anchor="middle"><tspan x="60" dy="0">不足項目</tspan><tspan x="60" dy="22">あり</tspan></text>
+<path d="M166 330H438" fill="none" stroke="#708090" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

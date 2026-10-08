@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 480" width="320" height="480" role="img" aria-labelledby="title desc"><title id="title">return-items — Isometric solid</title><desc id="desc">Original P00 fictional explanation. Solid volumes, hard shadows and upright Japanese labels; no added approval, fees or failure.</desc><rect width="320" height="480" fill="#15212D"/><polygon points="116,84 198,84 212,72 216,82 201,92 116,92" fill="#91A4B5"/>
+<polygon points="110,36 124,24 206,24 192,36" fill="#85B9DF"/>
+<polygon points="192,36 206,24 206,66 192,78" fill="#68C4AF"/>
+<rect x="110" y="36" width="82" height="42" fill="#15212D"/>
+<polygon points="137,46 151,38 170,46 156,55" fill="#68C4AF"/>
+<text x="151" y="111" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="151" dy="0">入口</tspan></text>
+<path d="M151 122V163" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="146,155 151,163 156,155" fill="#F0F4F8"/>
+<polygon points="107,230 207,230 221,218 225,228 210,238 107,238" fill="#91A4B5"/>
+<polygon points="101,184 115,172 215,172 201,184" fill="#85B9DF"/>
+<polygon points="201,184 215,172 215,212 201,224" fill="#68C4AF"/>
+<rect x="101" y="184" width="100" height="40" fill="#15212D"/>
+<text x="151" y="259" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="151" dy="0">返却確認台</tspan></text>
+<path d="M151 274V294H75V344" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="70,336 75,344 80,336" fill="#F0F4F8"/>
+<path d="M151 294H244V344" fill="none" stroke="#FFC078" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="239,336 244,344 249,336" fill="#FFC078"/>
+<text x="40" y="315" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="40" dy="0">破損</tspan><tspan x="40" dy="23">なし</tspan></text>
+<text x="281" y="315" fill="#FFC078" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="281" dy="0">破損</tspan><tspan x="281" dy="23">あり</tspan></text>
+<polygon points="27,405 79,381 126,404 80,430" fill="#91A4B5"/>
+<polygon points="27,368 74,347 120,367 74,391" fill="#85B9DF"/>
+<polygon points="37,368 74,353 109,368 74,383" fill="#15212D"/>
+<polygon points="27,368 27,402 74,425 74,391" fill="#68C4AF"/>
+<polygon points="74,391 120,367 120,401 74,425" fill="#85B9DF"/>
+<text x="77" y="454" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="77" dy="0">返却箱：空</tspan></text>
+<text x="77" y="475" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="600" text-anchor="middle"><tspan x="77" dy="0">空でも返却可</tspan></text>
+<polygon points="208,415 269,415 283,403 287,413 272,423 208,423" fill="#91A4B5"/>
+<polygon points="202,361 216,349 277,349 263,361" fill="#85B9DF"/>
+<polygon points="263,361 277,349 277,397 263,409" fill="#FFC078"/>
+<rect x="202" y="361" width="61" height="48" fill="#15212D"/>
+<path d="M213 380H251M213 391H241" fill="none" stroke="#FFC078" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="244" y="454" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="244" dy="0">相談窓口</tspan></text></svg>

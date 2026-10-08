@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc"><title id="title">結果未到着の並行作業</title><desc id="desc">Object-led open contours with generous routes. Original P00 facts; fresh variant, no selection or refinement.</desc>
+<metadata>{&quot;ink&quot;: &quot;#F0F4F8&quot;, &quot;surface&quot;: &quot;#15212D&quot;, &quot;border&quot;: &quot;#91A4B5&quot;, &quot;accent&quot;: &quot;#68C4AF&quot;, &quot;deep&quot;: &quot;#85B9DF&quot;, &quot;warning&quot;: &quot;#FFC078&quot;}</metadata>
+<rect width="720" height="240" fill="#15212D"/>
+<text x="76" y="95" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="76" dy="0">案内文</tspan></text>
+<rect x="54" y="110" width="44" height="54" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M63 124H89M63 134H89M63 144H81" fill="none" stroke="#91A4B5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 136H144V54H224" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M217 48L224 54L217 60" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M144 136V179H224" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M217 173L224 179L217 185" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M238 52L247 61L265 39" fill="none" stroke="#68C4AF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365" y="58" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="365" dy="0">表記確認：完了</tspan></text>
+<circle cx="250" cy="176" r="16" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M250 166.4V176L257.2 180.8" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="383" y="183" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="383" dy="0">会場情報確認：結果待ち</tspan></text>
+<path d="M470 54H510V179H492" fill="none" stroke="#91A4B5" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="510" cy="117" r="4" fill="#68C4AF" stroke="#68C4AF" stroke-width="0"/>
+<text x="610" y="72" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="610" dy="0">両方完了後に公開</tspan></text>
+<rect x="548" y="95" width="125" height="78" rx="4" fill="none" stroke="#91A4B5" stroke-width="1.6"/>
+<text x="610" y="141" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="610" dy="0">公開済み：0</tspan></text>
+<text x="610" y="204" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" fill="#91A4B5" text-anchor="middle"><tspan x="610" dy="0">両方の結果を待つ</tspan></text>
+</svg>

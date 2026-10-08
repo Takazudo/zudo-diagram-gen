@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-swiss-grid-reservation-labels",
+  "title": "予約の注意書きを下端の整列欄へ",
+  "toneId": "swiss-grid",
+  "description": "Saved r01 Swiss-grid refinement: only observed label placement corrected; facts, geometry, colors and type retained. Manager visual recapture required.",
+  "order": 6,
+  "parentCandidateId": "r01-swiss-grid",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "27e8e1734007cddbb2fa28a20c853c381a90479e80e8be30c9a20ed5b51d56d2",
+    "dark": "3c60f630c20c309cbf1bb5f648a09db130399a89670c195985ee06bb728d1d72"
+  },
+  "baselineFeedback": {
+    "id": "r01-swiss-grid",
+    "fingerprint": "919aad729ce690be076cdf8cde2209a7ff4f64fa08df68b973ed9e9053255045",
+    "keep": "Keep exact facts, Swiss square grid geometry, all routes, colors and typography.",
+    "change": "Move reservation-not-confirmed caveat away from the return arrow.",
+    "action": "refine"
+  }
+}

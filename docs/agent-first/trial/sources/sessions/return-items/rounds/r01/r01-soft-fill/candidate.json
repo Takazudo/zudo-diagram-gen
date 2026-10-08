@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-soft-fill",
+  "title": "Rounded islands",
+  "toneId": "soft-fill",
+  "description": "Broad rounded islands with separate semantic objects and clear routed relationships.",
+  "order": 2,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "ae8252035383fa23c7dc4cf889b11690c31868664ffdc6b6255a15cdfe6cfa2c",
+    "dark": "46fbe51aa65261839f25e51ef013a2bab5603f8a8db30c072a473e4490b818c0"
+  }
+}

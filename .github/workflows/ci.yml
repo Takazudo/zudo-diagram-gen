@@ -122,6 +122,54 @@ jobs:
           mv "$review_root/project" "$review_root/project-away"
           node scripts/check-project-review-browser.mjs "$review_root/detached/combined.html" test-output/p07-offline --offline
           node scripts/check-single-offline-browser.mjs "$review_root/detached/single.html" test-output/p07-single-offline
+      - name: Verify the frozen actual P11 trial source
+        run: node scripts/check-integrated-trial-fixture.mjs > test-output/p11-fixture.json
+      - name: Build the packed actual P11 trial
+        shell: bash
+        run: |
+          set -euo pipefail
+          export ENGINE_TGZ="$GITHUB_WORKSPACE/artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz"
+          export INITIALIZER_TGZ="$GITHUB_WORKSPACE/artifacts/create-zudo-diagram-gen-0.1.0.tgz"
+          export INTEGRATED_TRIAL_OUT="$RUNNER_TEMP/zudo-diagram-integrated-trial"
+          bash scripts/check-integrated-trial-packed.sh | tee test-output/p11-packed.log
+      - name: Check actual P11 review, watcher and detached files in Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          trial_root="$RUNNER_TEMP/zudo-diagram-integrated-trial"
+          export INTEGRATED_SHA="$GITHUB_SHA"
+          export PROJECT_PLAYWRIGHT_MODULE="$GITHUB_WORKSPACE/node_modules/playwright/index.mjs"
+          node "$trial_root/project/node_modules/@takazudo/zudo-diagram-gen/src/cli.mjs" preview \
+            "$trial_root/project" --host 127.0.0.1 --port 4799 > test-output/p11-preview.log 2>&1 &
+          trial_pid=$!
+          cleanup() {
+            kill "$trial_pid" 2>/dev/null || true
+            wait "$trial_pid" 2>/dev/null || true
+            if [[ -d "$trial_root/project-away" ]]; then
+              mv "$trial_root/project-away" "$trial_root/project"
+            fi
+          }
+          trap cleanup EXIT
+          for _ in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4799/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4799/ > /dev/null || { cat test-output/p11-preview.log; exit 1; }
+          node scripts/check-integrated-trial-browser.mjs "$trial_root/project" http://127.0.0.1:4799 test-output/p11-browser
+          node scripts/check-integrated-trial-watcher.mjs "$trial_root/project" "$RUNNER_TEMP/p11-watcher" --port=4798
+          cp "$RUNNER_TEMP/p11-watcher/watcher-result.json" test-output/p11-watcher-result.json
+          cp "$RUNNER_TEMP/p11-watcher/watcher-diagnostics.json" test-output/p11-watcher-diagnostics.json
+          kill "$trial_pid"
+          wait "$trial_pid" || true
+          if curl --fail --silent --max-time 2 http://127.0.0.1:4799/ > /dev/null; then
+            echo 'Trial server remains available; detached gate refused' >&2
+            exit 1
+          fi
+          mv "$trial_root/project" "$trial_root/project-away"
+          test ! -e "$trial_root/project"
+          printf '{"sourceAway":true,"serverStopped":true,"transport":"file","network":"blocked by browser helpers"}\n' > test-output/p11-detached-orchestration.json
+          node scripts/check-integrated-trial-browser.mjs "$trial_root/project-away" "$trial_root/detached/combined.html" test-output/p11-offline --offline
+          node scripts/check-integrated-single-offline.mjs "$trial_root/project-away" "$trial_root/detached/single.html" test-output/p11-single-offline reservation-flow r02-fine-outline
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
@@ -131,5 +179,8 @@ jobs:
             test-output/doc-combine-*.png
             test-output/p07-*/
             test-output/p07-*.log
+            test-output/p11-*/
+            test-output/p11-*.json
+            test-output/p11-*.log
           if-no-files-found: ignore
           retention-days: 3

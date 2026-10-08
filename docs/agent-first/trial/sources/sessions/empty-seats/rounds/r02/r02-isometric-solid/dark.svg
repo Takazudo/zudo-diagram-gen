@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240" role="img" aria-labelledby="title desc"><title id="title">empty-seats — Isometric solid</title><desc id="desc">Original P00 fictional explanation. Solid volumes, hard shadows and upright Japanese labels; no added approval, fees or failure.</desc><rect width="360" height="240" fill="#15212D"/><g transform="translate(58 9)">
+<polygon points="5,57 41,40 65,53 30,72" fill="#91A4B5"/>
+<polygon points="14,9 32,0 51,9 33,18" fill="#85B9DF"/>
+<polygon points="14,9 14,37 33,46 33,18" fill="#85B9DF"/>
+<polygon points="33,18 51,9 51,37 33,46" fill="#85B9DF"/>
+<polygon points="7,41 30,30 57,43 33,55" fill="#85B9DF"/>
+<polygon points="7,41 7,48 33,61 33,55" fill="#85B9DF"/>
+<polygon points="33,55 57,43 57,50 33,61" fill="#85B9DF"/>
+<polygon points="12,50 18,53 18,69 12,66" fill="#F0F4F8"/>
+<polygon points="48,54 54,51 54,66 48,69" fill="#F0F4F8"/>
+</g>
+<circle cx="138" cy="40" r="11" fill="#85B9DF"/><circle cx="133" cy="35" r="11" fill="#68C4AF"/>
+<path d="M125 35L131 41L142 28" fill="none" stroke="#15212D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="97" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">A席：予約済み</tspan></text>
+<text x="90" y="117" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">選択不可</tspan></text>
+<g transform="translate(232 9)">
+<polygon points="5,57 41,40 65,53 30,72" fill="#91A4B5"/>
+<polygon points="14,9 32,0 51,9 33,18" fill="#68C4AF"/>
+<polygon points="14,9 14,37 33,46 33,18" fill="#85B9DF"/>
+<polygon points="33,18 51,9 51,37 33,46" fill="#68C4AF"/>
+<polygon points="7,41 30,30 57,43 33,55" fill="#68C4AF"/>
+<polygon points="7,41 7,48 33,61 33,55" fill="#85B9DF"/>
+<polygon points="33,55 57,43 57,50 33,61" fill="#68C4AF"/>
+<polygon points="12,50 18,53 18,69 12,66" fill="#F0F4F8"/>
+<polygon points="48,54 54,51 54,66 48,69" fill="#F0F4F8"/>
+</g>
+<text x="264" y="97" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="264" dy="0">B席：空席</tspan></text>
+<text x="264" y="117" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="600" text-anchor="middle"><tspan x="264" dy="0">選択可</tspan></text>
+<g transform="translate(58 125)">
+<polygon points="5,57 41,40 65,53 30,72" fill="#91A4B5"/>
+<polygon points="14,9 32,0 51,9 33,18" fill="#68C4AF"/>
+<polygon points="14,9 14,37 33,46 33,18" fill="#85B9DF"/>
+<polygon points="33,18 51,9 51,37 33,46" fill="#68C4AF"/>
+<polygon points="7,41 30,30 57,43 33,55" fill="#68C4AF"/>
+<polygon points="7,41 7,48 33,61 33,55" fill="#85B9DF"/>
+<polygon points="33,55 57,43 57,50 33,61" fill="#68C4AF"/>
+<polygon points="12,50 18,53 18,69 12,66" fill="#F0F4F8"/>
+<polygon points="48,54 54,51 54,66 48,69" fill="#F0F4F8"/>
+</g>
+<text x="90" y="213" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">C席：空席</tspan></text>
+<text x="90" y="233" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="600" text-anchor="middle"><tspan x="90" dy="0">選択可</tspan></text>
+<g transform="translate(232 125)">
+<polygon points="5,57 41,40 65,53 30,72" fill="#91A4B5"/>
+<polygon points="14,9 32,0 51,9 33,18" fill="#FFC078"/>
+<polygon points="14,9 14,37 33,46 33,18" fill="#85B9DF"/>
+<polygon points="33,18 51,9 51,37 33,46" fill="#FFC078"/>
+<polygon points="7,41 30,30 57,43 33,55" fill="#FFC078"/>
+<polygon points="7,41 7,48 33,61 33,55" fill="#85B9DF"/>
+<polygon points="33,55 57,43 57,50 33,61" fill="#FFC078"/>
+<polygon points="12,50 18,53 18,69 12,66" fill="#F0F4F8"/>
+<polygon points="48,54 54,51 54,66 48,69" fill="#F0F4F8"/>
+</g>
+<circle cx="312" cy="156" r="11" fill="#85B9DF"/><circle cx="307" cy="151" r="11" fill="#FFC078"/>
+<circle cx="307" cy="151" r="6" fill="#15212D"/>
+<path d="M307 148V151L314 156" fill="none" stroke="#F0F4F8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="264" y="213" fill="#F0F4F8" font-family="'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="600" text-anchor="middle"><tspan x="264" dy="0">D席：保留中</tspan></text>
+<text x="264" y="233" fill="#FFC078" font-family="'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="600" text-anchor="middle"><tspan x="264" dy="0">選択不可</tspan></text></svg>
