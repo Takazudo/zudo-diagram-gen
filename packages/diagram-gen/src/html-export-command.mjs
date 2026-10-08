@@ -1,4 +1,4 @@
-import { machineRequested, parseOptions } from './command-contract.mjs';
+import { machineRequested, parseOptions, envelope, reportError } from './command-contract.mjs';
 import { exportHtml } from './html-export.mjs';
 
 export async function runHtmlExportCommand(args) {
@@ -19,53 +19,13 @@ export async function runHtmlExportCommand(args) {
       output: parsed.options.out,
       force: parsed.options.force ?? false,
     });
-    if (machine)
-      console.log(
-        JSON.stringify({
-          schemaVersion: 1,
-          command: 'export-html',
-          ok: result.ok,
-          data: result,
-          errors: result.diagnostics,
-          warnings: [],
-        }),
-      );
-    else console.log(`Exported ${result.candidates} candidates to ${result.output}`);
-    if (!result.ok) process.exitCode = 1;
+    if (machine) envelope('export-html', result, { errors: result.diagnostics });
+    else {
+      console.log(`Exported ${result.candidates} candidates to ${result.output}`);
+      if (!result.ok) process.exitCode = 1;
+    }
   } catch (error) {
-    const code = error.code?.startsWith('ERR_PARSE_ARGS')
-      ? 'INVALID_ARGUMENT'
-      : [
-            'INVALID_ARGUMENT',
-            'VALIDATION_FAILED',
-            'INCOMPLETE_PROJECT',
-            'STALE_INPUT',
-            'RESOURCE_UNSAFE',
-            'OUTPUT_CONFLICT',
-            'IO_ERROR',
-            'UNSUPPORTED_VERSION',
-          ].includes(error.code)
-        ? error.code
-        : error.diagnostics || error.name === 'SessionValidationError'
-          ? 'VALIDATION_FAILED'
-          : 'IO_ERROR';
-    if (machine)
-      console.log(
-        JSON.stringify({
-          schemaVersion: 1,
-          command: 'export-html',
-          ok: false,
-          data: null,
-          errors: [{ code, message: error.message }],
-          warnings: [],
-        }),
-      );
-    else console.error(`diagram-gen: ${error.message}`);
-    process.exitCode = machine
-      ? ({ INVALID_ARGUMENT: 2, VALIDATION_FAILED: 1, INCOMPLETE_PROJECT: 1, STALE_INPUT: 1 }[
-          code
-        ] ?? 4)
-      : 1;
+    reportError('export-html', error, machine, !machine);
   }
   return true;
 }

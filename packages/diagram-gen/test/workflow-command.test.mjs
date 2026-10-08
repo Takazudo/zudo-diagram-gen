@@ -303,3 +303,129 @@ test('relative engine archive is a usage failure and missing absolute archive is
   assert.equal(missing.status, 4);
   assert.equal(missing.json.errors[0].code, 'IO_ERROR');
 });
+
+test('versioned project commands preserve fatal diagnostic codes, paths and exit classes', async () => {
+  const { out } = await workspace();
+  await mkdir(out);
+  const cases = [
+    { schemaVersion: 2, sessions: [], code: 'UNSUPPORTED_VERSION', exit: 2 },
+    {
+      schemaVersion: 1,
+      sessions: [{ id: 'unsafe', path: '../outside', order: 0 }],
+      code: 'RESOURCE_UNSAFE',
+      exit: 4,
+    },
+  ];
+  for (const item of cases) {
+    await writeFile(
+      path.join(out, 'project.json'),
+      JSON.stringify({
+        schemaVersion: item.schemaVersion,
+        id: 'project',
+        title: 'Project',
+        sessions: item.sessions,
+        comparisonSets: [],
+      }),
+    );
+    for (const args of [
+      ['check', out, '--json-version', '1'],
+      ['inspect', out, '--json'],
+      ['resume', out, '--json'],
+      ['export-html', out, '--out', path.join(out, 'exports/fatal.html'), '--json'],
+    ]) {
+      const result = run(args);
+      assert.equal(result.status, item.exit, args[0]);
+      assert.equal(result.json.ok, false);
+      assert.equal(result.stderr, '');
+      assert.ok(result.json.errors.some((error) => error.code === item.code));
+      assert.ok(result.json.errors.every((error) => typeof error.path === 'string'));
+    }
+    const legacy = run(['check', out, '--json']);
+    assert.equal(legacy.status, 1);
+    assert.equal(legacy.json.schemaVersion, undefined);
+    assert.ok(Array.isArray(legacy.json.errors));
+    const legacyHtml = spawnSync(
+      process.execPath,
+      [cli, 'export-html', out, '--out', path.join(out, 'exports/fatal.html')],
+      { encoding: 'utf8' },
+    );
+    assert.equal(legacyHtml.status, 1);
+  }
+});
+
+test('partial project resource errors keep healthy HTML content and override earlier incomplete diagnostics', async () => {
+  const { root, out } = await workspace();
+  await mkdir(path.join(out, 'sessions'), { recursive: true });
+  await cp(fixture, path.join(out, 'sessions/healthy'), { recursive: true });
+  await cp(fixture, path.join(out, 'sessions/unsafe'), { recursive: true });
+  for (const id of ['healthy', 'unsafe']) {
+    const file = path.join(out, `sessions/${id}/session.json`);
+    const metadata = JSON.parse(await readFile(file));
+    await writeFile(file, JSON.stringify({ ...metadata, id }));
+  }
+  await mkdir(path.join(out, 'placements'));
+  await writeFile(path.join(root, 'outside.png'), 'outside resource');
+  const metadata = JSON.parse(await readFile(path.join(out, 'sessions/unsafe/session.json')));
+  const { width, height } = metadata.target;
+  await symlink(path.join(root, 'outside.png'), path.join(out, 'placements/escape.png'));
+  await writeFile(
+    path.join(out, 'placements/unsafe.json'),
+    JSON.stringify({
+      schemaVersion: 1,
+      frame: { width, height, background: 'transparent' },
+      slot: { x: 0, y: 0, width, height },
+      fit: 'contain',
+      images: [{ path: 'escape.png', x: 0, y: 0, width: 1, height: 1 }],
+    }),
+  );
+  await writeFile(
+    path.join(out, 'project.json'),
+    JSON.stringify({
+      schemaVersion: 1,
+      id: 'project',
+      title: 'Project',
+      sessions: [
+        { id: 'healthy', path: 'sessions/healthy', order: 0 },
+        { id: 'missing', path: 'sessions/missing', order: 1 },
+        { id: 'unsafe', path: 'sessions/unsafe', order: 2, placement: 'placements/unsafe.json' },
+      ],
+      comparisonSets: [],
+    }),
+  );
+  for (const args of [
+    ['inspect', out, '--json'],
+    ['resume', out, '--json'],
+    ['check', out, '--json-version', '1'],
+  ]) {
+    const result = run(args);
+    assert.equal(result.status, 4, args[0]);
+    assert.equal(result.json.errors[0].code, 'INCOMPLETE_PROJECT');
+    assert.ok(
+      result.json.errors.some(
+        (error) => error.code === 'RESOURCE_UNSAFE' && error.path === 'sessions/unsafe',
+      ),
+    );
+  }
+  const html = path.join(root, 'partial.html');
+  const exported = run(['export-html', out, '--out', html, '--json']);
+  assert.equal(exported.status, 4);
+  assert.equal(exported.json.ok, false);
+  assert.equal(exported.json.data.kind, 'project');
+  assert.ok(exported.json.data.candidates > 0);
+  assert.equal(exported.json.errors[0].code, 'INCOMPLETE_PROJECT');
+  assert.ok(exported.json.errors.some((error) => error.code === 'RESOURCE_UNSAFE'));
+  const content = await readFile(html, 'utf8');
+  assert.ok(content.includes('"id":"healthy"'));
+  assert.ok(content.includes('"status":"missing"'));
+  assert.ok(content.includes('"status":"invalid"'));
+  assert.equal(run(['check', out, '--json']).status, 1);
+  const human = spawnSync(
+    process.execPath,
+    [cli, 'export-html', out, '--out', path.join(root, 'legacy-partial.html')],
+    { encoding: 'utf8' },
+  );
+  assert.equal(human.status, 1);
+  assert.ok(
+    (await readFile(path.join(root, 'legacy-partial.html'), 'utf8')).includes('"id":"healthy"'),
+  );
+});

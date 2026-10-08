@@ -36,9 +36,29 @@ export function parseOptions(args, options) {
     });
   return { positionals: parsed.positionals, options: parsed.values };
 }
+/** Resource and usage failures must not be hidden behind an earlier partial-acceptance diagnostic. */
+export function diagnosticExitCode(errors) {
+  const codes = errors.map((error) => EXIT_CODES[error.code] ?? 1);
+  return [130, 4, 2, 3, 1].find((code) => codes.includes(code)) ?? 0;
+}
+export function errorDiagnostics(error) {
+  return Array.isArray(error.diagnostics) && error.diagnostics.length
+    ? error.diagnostics.map(({ code, message, path }) => ({
+        code,
+        message,
+        ...(path !== undefined ? { path } : {}),
+      }))
+    : [{ code: errorCode(error), message: error.message }];
+}
 export function errorCode(error) {
   if (Object.hasOwn(EXIT_CODES, error.code)) return error.code;
   if (error.code?.startsWith('ERR_PARSE_ARGS')) return 'INVALID_ARGUMENT';
+  if (Array.isArray(error.diagnostics) && error.diagnostics.length) {
+    const exit = diagnosticExitCode(error.diagnostics);
+    return (
+      error.diagnostics.find((item) => EXIT_CODES[item.code] === exit)?.code ?? 'VALIDATION_FAILED'
+    );
+  }
   if (
     error.errors ||
     error.diagnostics ||
@@ -51,14 +71,14 @@ export function errorCode(error) {
 export function envelope(command, data, { errors = [], warnings = [] } = {}) {
   const result = { schemaVersion: 1, command, ok: errors.length === 0, data, errors, warnings };
   console.log(JSON.stringify(result));
-  process.exitCode = errors.length ? (EXIT_CODES[errors[0].code] ?? 1) : 0;
+  process.exitCode = diagnosticExitCode(errors);
   return result;
 }
 export function reportError(command, error, machine, legacy = false, data = null) {
-  const code = errorCode(error);
-  if (machine) envelope(command, data, { errors: [{ code, message: error.message }] });
+  const errors = errorDiagnostics(error);
+  if (machine) envelope(command, data, { errors });
   else console.error(`diagram-gen: ${error.message}`);
-  process.exitCode = legacy ? 1 : EXIT_CODES[code];
+  process.exitCode = legacy ? 1 : diagnosticExitCode(errors);
 }
 /** Read explicit caller inputs before mutating anything; refuse aliases and oversized resources. */
 export async function readInput(file, { json = false } = {}) {

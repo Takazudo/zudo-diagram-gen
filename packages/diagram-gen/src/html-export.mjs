@@ -39,6 +39,7 @@ export async function exportHtml(directory, { output, force = false } = {}) {
       'RESOURCE_UNSAFE',
       'HTML output overlaps protected source; use exports/ or a destination outside source.',
     );
+  const data = await loadContent(root);
   await assertSourceOutput(root, resolved);
   try {
     const info = await lstat(destination);
@@ -49,7 +50,6 @@ export async function exportHtml(directory, { output, force = false } = {}) {
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  const data = await loadContent(root);
   // System I/O diagnostics may include native source paths. Preserve actionable
   // project-relative identity without exposing the private export machine root.
   const portable = JSON.parse(JSON.stringify(data), (key, value) =>

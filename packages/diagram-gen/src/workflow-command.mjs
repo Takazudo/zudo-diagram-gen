@@ -12,6 +12,7 @@ import { captureSetup } from './capture-runtime.mjs';
 import {
   argumentError,
   envelope,
+  diagnosticExitCode,
   errorCode,
   machineRequested,
   parseOptions,
@@ -171,7 +172,7 @@ export async function runWorkflowCommand(args) {
       console.log(
         'Run check, capture and actual image inspection before review/export. Supply --review to transfer browser feedback.',
       );
-      process.exitCode = errors.length ? 1 : 0;
+      process.exitCode = diagnosticExitCode(errors);
     }
   } catch (error) {
     reportError(command, error, machine, false, error.data ?? recovery);
