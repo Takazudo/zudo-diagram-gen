@@ -41,12 +41,14 @@ export async function runDataCommand(args) {
         envelope(command, result, {
           errors: result.ok
             ? []
-            : [
-                {
-                  code: project ? 'INCOMPLETE_PROJECT' : 'VALIDATION_FAILED',
-                  message: result.errors.join('\n'),
-                },
-              ],
+            : project
+              ? result.diagnostics
+              : [
+                  {
+                    code: 'VALIDATION_FAILED',
+                    message: result.errors.join('\n'),
+                  },
+                ],
           warnings: result.warnings.map((message) => ({ code: 'VALIDATION_WARNING', message })),
         });
       else if (options.json) console.log(JSON.stringify(result, null, 2));
@@ -62,7 +64,7 @@ export async function runDataCommand(args) {
         for (const error of result.errors) console.log(`Error: ${error}`);
         for (const warning of result.warnings) console.log(`Warning: ${warning}`);
       }
-      if (!result.ok) process.exitCode = 1;
+      if (!result.ok && !versioned) process.exitCode = 1;
       return true;
     }
     if (command === 'export') {
