@@ -690,12 +690,44 @@ test('upgrade validator invokes export API and rejects copied evidence differing
 
 test('runtime equivalence binds actual git diff and archived package hashes', () =>
   fixture(async ({ manifest, ref, root }) => {
-    const checkoutRoot = path.resolve('.');
-    const checkoutSha = spawnSync('git', ['rev-parse', 'HEAD'], {
-      cwd: checkoutRoot,
-      encoding: 'utf8',
-    }).stdout.trim();
-    manifest.integratedSha = 'c1935b83d4722397c1260a8684d24d84f58ad858';
+    const checkoutRoot = path.join(root, 'git-fixture');
+    await mkdir(path.join(checkoutRoot, 'packages/diagram-gen'), { recursive: true });
+    await mkdir(path.join(checkoutRoot, 'packages/create-zudo-diagram-gen'), { recursive: true });
+    const git = (args) => {
+      const result = spawnSync('git', args, {
+        cwd: checkoutRoot,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          GIT_CONFIG_GLOBAL: '/dev/null',
+          GIT_CONFIG_NOSYSTEM: '1',
+          GIT_AUTHOR_NAME: 'Acceptance fixture',
+          GIT_AUTHOR_EMAIL: 'fixture@example.invalid',
+          GIT_COMMITTER_NAME: 'Acceptance fixture',
+          GIT_COMMITTER_EMAIL: 'fixture@example.invalid',
+          GIT_AUTHOR_DATE: '2000-01-01T00:00:00Z',
+          GIT_COMMITTER_DATE: '2000-01-01T00:00:00Z',
+        },
+      });
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+      return result.stdout.trim();
+    };
+    git(['init', '--quiet', '--initial-branch=main']);
+    await writeFile(path.join(checkoutRoot, 'packages/diagram-gen/runtime.txt'), 'engine base\n');
+    await writeFile(
+      path.join(checkoutRoot, 'packages/create-zudo-diagram-gen/runtime.txt'),
+      'initializer base\n',
+    );
+    await writeFile(path.join(checkoutRoot, 'pnpm-lock.yaml'), 'lockfileVersion: 9\n');
+    await writeFile(path.join(checkoutRoot, 'README.md'), 'base documentation\n');
+    git(['add', '.']);
+    git(['commit', '--quiet', '-m', 'Runtime base']);
+    manifest.integratedSha = git(['rev-parse', 'HEAD']);
+    await writeFile(path.join(checkoutRoot, 'README.md'), 'updated documentation\n');
+    git(['add', 'README.md']);
+    git(['commit', '--quiet', '-m', 'Documentation only']);
+    let checkoutSha = git(['rev-parse', 'HEAD']);
+    assert.notEqual(manifest.integratedSha, checkoutSha);
     manifest.validatedHeadSha = checkoutSha;
     const equivalence = {
       schemaVersion: 1,
@@ -728,6 +760,22 @@ test('runtime equivalence binds actual git diff and archived package hashes', ()
     await assert.rejects(
       validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }),
       /archive payload/,
+    );
+    equivalence.engineArchive = manifest.provenance.engineArchive;
+    await writeFile(
+      path.join(checkoutRoot, 'packages/diagram-gen/runtime.txt'),
+      'changed engine\n',
+    );
+    git(['add', 'packages/diagram-gen/runtime.txt']);
+    git(['commit', '--quiet', '-m', 'Runtime changed']);
+    checkoutSha = git(['rev-parse', 'HEAD']);
+    manifest.validatedHeadSha = checkoutSha;
+    equivalence.validatedHeadSha = checkoutSha;
+    equivalence.command[4] = checkoutSha;
+    manifest.runtimeEquivalence = await ref(equivalence);
+    await assert.rejects(
+      validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }),
+      /Runtime packages or lock changed/,
     );
   }));
 
