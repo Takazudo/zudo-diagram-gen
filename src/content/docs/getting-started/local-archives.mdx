@@ -15,7 +15,8 @@ pnpm pack:local
 
 Packing prints absolute engine and initializer archive paths. For version 0.1.0, from the checkout root:
 
-<!-- reader:initialize -->
+{/* reader:initialize */}
+
 ```bash
 diagram_engine_archive="$(pwd)/artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz"
 diagram_session="$(mktemp -d)/diagram-session"
@@ -34,7 +35,8 @@ The independent initializer archive can also be installed in an explicitly chose
 
 Run this in the installed consumer. It resolves the **installed** exported skill, copies the whole directory and refuses to replace an existing copy:
 
-<!-- reader:skill-copy -->
+{/* reader:skill-copy */}
+
 ```bash
 node --input-type=module <<'NODE'
 import { createRequire } from 'node:module';

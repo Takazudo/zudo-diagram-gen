@@ -44,7 +44,8 @@ The initializer sets `target.width` to `360` and `target.height` to `200` in `se
 
 In the session directory, create the first candidate folder:
 
-<!-- reader:manual-candidate -->
+{/* reader:manual-candidate */}
+
 ```bash
 mkdir -p rounds/r01/c01
 ```
@@ -110,7 +111,8 @@ The asset path is relative to `candidate.json`. Light artwork is required. Decla
 
 From the session directory:
 
-<!-- reader:manual-check -->
+{/* reader:manual-check */}
+
 ```bash
 pnpm check
 ```
@@ -133,7 +135,8 @@ When requesting a refinement, preserve `r01-c01` and create a later-round candid
 
 To export this tutorial's light asset, run in the session directory:
 
-<!-- reader:manual-export -->
+{/* reader:manual-export */}
+
 ```bash
 pnpm exec zudo-diagram-gen export r01-c01 \
   --session . \
@@ -145,7 +148,8 @@ Use the revised candidate's ID when that is the result you selected. The export 
 
 To keep an offline snapshot of the whole review session:
 
-<!-- reader:manual-html -->
+{/* reader:manual-html */}
+
 ```bash
 pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json
 ```

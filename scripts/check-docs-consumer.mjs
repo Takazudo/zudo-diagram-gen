@@ -43,7 +43,8 @@ async function fence(file, id, packageDocument = false) {
     path.join(checkout, ...(packageDocument ? [] : ['src/content/docs']), file),
     'utf8',
   );
-  const index = text.indexOf(`<!-- reader:${id} -->`);
+  const marker = file.endsWith('.mdx') ? `{/* reader:${id} */}` : `<!-- reader:${id} -->`;
+  const index = text.indexOf(marker);
   assert.ok(index >= 0, `Missing public reader fence ${id}`);
   const match = text.slice(index).match(/```bash\n([\s\S]*?)```/);
   assert.ok(match, `Missing executable fence ${id}`);

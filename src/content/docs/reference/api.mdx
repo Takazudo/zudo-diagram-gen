@@ -24,7 +24,8 @@ Read installed `src/index.d.ts` for full public types. Root functions include lo
 
 Run in a fresh installed consumer. This example creates **test artwork**, not semantic or user approval; inspect its final images separately. It writes new files exclusively.
 
-<!-- reader:materialize -->
+{/* reader:materialize */}
+
 ```bash
 node --input-type=module <<'NODE'
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -50,7 +51,8 @@ Custom geometry uses `materializeSvg(svg,{palette,theme})` with explicit palette
 
 Run from an installed consumer after setting `ENGINE_TGZ` to its existing absolute engine archive and `PROJECT_OUT` to a new external directory. This produces empty sessions, not generated diagrams:
 
-<!-- reader:project-api -->
+{/* reader:project-api */}
+
 ```bash
 node --input-type=module <<'NODE'
 import { createProject, loadProject } from '@takazudo/zudo-diagram-gen';
@@ -76,7 +78,8 @@ Install within the created host before using its own CLI. `loadSession(root)` re
 
 Run in the public [manual tutorial](/docs/getting-started/manual-session/) workspace after `r01-c01` exists and actual review JSON has been downloaded as `review.json`. The example rejects another session, a missing chosen record or stale fingerprint. A downloaded choice is input, not an inference from browser storage.
 
-<!-- reader:refine -->
+{/* reader:refine */}
+
 ```bash
 node --input-type=module <<'NODE'
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
