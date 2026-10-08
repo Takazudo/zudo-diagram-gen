@@ -31,7 +31,7 @@ Partial inspect/dev/export identifies missing/invalid/stale/theme-unavailable sl
 
 P08 supplies actual commands/core files; its historical acceptance document identifies original gate ownership. P09 accepted all 192 primary and 104 required independent images after correcting failures, preserving the revision trail and original 72 reference assets. Read [rollout/P09-ACCEPTANCE.md](agent-first/rollout/P09-ACCEPTANCE.md) for browser/font/hash provenance and bounded conclusions. Test selections are not user approval; new captures still say inspected:false until separately evaluated.
 
-P10 consolidates public docs and tests exact displayed commands in fresh archive consumers outside source. Its reader evidence must distinguish explicit skill-file invocation from native discovery, synthetic decisions from actual downloaded review, capture from opened image and local archive from registry publication. P11 then runs integrated current-base acceptance and records any remaining limits. No package publishing, deployment or personal installation is incidental to that work.
+P10 consolidates public docs and tests exact displayed commands in fresh archive consumers outside source; [P10-ACCEPTANCE.md](agent-first/P10-ACCEPTANCE.md) separates executable reader evidence, actual downloaded review and image inspection from final integration gates. Its reader evidence must distinguish explicit skill-file invocation from native discovery, synthetic decisions from actual downloaded review, capture from opened image and local archive from registry publication. P11 then runs integrated current-base acceptance and records any remaining limits. No package publishing, deployment or personal installation is incidental to that work.
 
 ## Verification and reporting
 

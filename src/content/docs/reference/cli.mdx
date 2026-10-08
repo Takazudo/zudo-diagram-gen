@@ -55,7 +55,7 @@ Check validates structure/assets/lineage and requires a current valid project, i
 dev|build|preview [directory] [--host <host>] [--port <port>]
 ```
 
-Directory defaults to cwd. These prepare package-owned routes and delegate to zfb; normal logs remain normal, without a JSON mode. Dev keeps last-valid snapshots visibly stale during invalid partial writes and recovers when repaired. Build is strict. Host and port are intended for dev/preview; port must be 1–65535. Use one host for a project and its registered session routes. Generated scripts provide `pnpm dev`, `pnpm check`, `pnpm build`, `pnpm preview`; ordinary single-session hosts also have `pnpm export:html`. Project HTML uses the explicit command below.
+Directory defaults to cwd. These prepare package-owned routes and delegate to zfb; normal logs remain normal, without a JSON mode. Dev keeps last-valid snapshots visibly stale during invalid partial writes and recovers when repaired. Build is strict. Host and port are intended for dev/preview; port must be 1–65535. Use one host for a project and its registered session routes. Generated scripts provide `pnpm dev`, `pnpm check`, `pnpm build`, `pnpm preview`; fresh single-session and project hosts also have `pnpm export:html`, writing `exports/diagram-review.html`. Older project hosts may lack that script; use the explicit command below. Older generated single-session scripts may still target root `diagram-review.html`, which current source protection rejects. Use `export-html . --out exports/review.html --json` or explicitly update your own script to that safe output. Existing user scripts are not silently rewritten.
 
 ## Capture
 

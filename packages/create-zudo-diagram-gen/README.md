@@ -51,19 +51,26 @@ The initial `rounds/r01/round.json` contains no candidates. This is a valid empt
 | `pnpm check` | Validate session content and SVG assets. |
 | `pnpm build` | Build the static zfb app. |
 | `pnpm preview` | Preview the static build. |
-| `pnpm export:html` | Export a self-contained `diagram-review.html` for offline review. |
+| `pnpm export:html` | Fresh single/project hosts export a self-contained `exports/diagram-review.html`. |
+| `pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json` | Explicit safe output, also usable for older hosts. |
 
 ## Programmatic use
 
-```js
-import { createProject } from 'create-zudo-diagram-gen';
+Run in a bootstrap with the initializer archive installed. Set `INITIALIZER_API_OUT` to a new caller directory and `ENGINE_TGZ` to the existing absolute engine archive.
 
+<!-- reader:initializer-api -->
+```bash
+node --input-type=module <<'NODE'
+import { createProject } from 'create-zudo-diagram-gen';
+if (!process.env.INITIALIZER_API_OUT || !process.env.ENGINE_TGZ) throw new Error('Set INITIALIZER_API_OUT and ENGINE_TGZ explicitly.');
 const result = await createProject({
-  destination: '/absolute/path/to/review',
+  destination: process.env.INITIALIZER_API_OUT,
   name: 'Note history help',
-  enginePackage: '/absolute/path/to/engine.tgz',
-  install: false
+  enginePackage: process.env.ENGINE_TGZ,
+  install: false,
 });
+console.log(result.directory);
+NODE
 ```
 
 The function resolves relative destinations against `cwd` (optional) or the caller's current working directory. It returns the directory, slug name, unique `sessionId`, title, installation status, and generated relative file list. Keep that session ID when continuing or relocating a session; initialize a new session for independent work. Existing nonempty destinations and symbolic-link destinations are rejected before writing files. Installation failures retain the generated files and explain how to retry.
@@ -77,3 +84,5 @@ node --test packages/create-zudo-diagram-gen/test/*.test.mjs
 Tests cover initialization in paths containing spaces and quotes, destination protection, symlinks, engine archive references, predictable package metadata with unique session identity, explicit installation, CLI errors, and a valid empty session scaffold. Root integration checks also exercise a packed engine consumer.
 
 Use `--project` to create one installed host with `project.json` and a starter session under `sessions/diagram/`. The public API accepts `createProject({destination,project:true,sessions:[{slug,id?,title?,target?}]})` for multiple sessions. Session IDs stay stable and candidate IDs need only be unique within an ordinary session. The generated scaffold comes from the engine's authoritative source; the standalone initializer bundles that source without depending on an unpublished engine registry version.
+
+Older single-session hosts may have an export:html script targeting root diagram-review.html, now protected as source. Use the explicit exports/ command above or deliberately update your own script. Existing host scripts are not rewritten automatically.

@@ -54,6 +54,7 @@ Run from an installed consumer after setting `ENGINE_TGZ` to its existing absolu
 ```bash
 node --input-type=module <<'NODE'
 import { createProject, loadProject } from '@takazudo/zudo-diagram-gen';
+if (!process.env.PROJECT_OUT || !process.env.ENGINE_TGZ) throw new Error('Set PROJECT_OUT and ENGINE_TGZ explicitly.');
 const created = await createProject({
   destination: process.env.PROJECT_OUT,
   enginePackage: process.env.ENGINE_TGZ,
