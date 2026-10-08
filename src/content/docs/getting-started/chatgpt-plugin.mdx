@@ -12,6 +12,17 @@ The `zudo-diagram-gen` skills-only plugin guides an agent through drawing, revie
 
 **Distribution status:** use the assembled ZIP containing one `zudo-diagram-gen/` folder with `plugin.json`, `skills/diagram-gen/SKILL.md`, relative references, and `skills/diagram-gen/tones/`. A GitHub source page or downloaded source archive is not evidence of installation. This repository does not claim registry publication, public-directory listing, or a tested installation in your account.
 
+## Build and verify from the repository
+
+These commands are for repository maintainers who need to assemble a local archive. They are not required to use an assembled plugin ZIP. From the repository root, run pnpm plugin-pack, then extract the archive outside the checkout and verify the extracted package:
+
+    pnpm plugin-pack
+    EXTRACT_DIR="$(mktemp -d /tmp/zudo-diagram-plugin.XXXXXX)"
+    unzip -q artifacts/plugin/zudo-diagram-gen.zip -d "$EXTRACT_DIR"
+    node scripts/plugin-pack.mjs --verify-dir "$EXTRACT_DIR/zudo-diagram-gen"
+
+The verifier checks the package inventory, relative resources, and complete tone catalog. It does not install the plugin or test a ChatGPT account. The ZIP is a local build artifact; these commands do not publish or host it.
+
 **Current documented host route:** OpenAI's [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) documents a portable root `plugin.json` and `skills/` layout, and a local marketplace that points at an extracted plugin folder. After obtaining the assembled ZIP, extract it to a location the ChatGPT desktop app can read. Add a local marketplace entry whose `source.path` points to that **assembled** `zudo-diagram-gen` folder, restart the app, then install the plugin from that marketplace in the Plugins Directory. Follow the exact marketplace JSON and location steps in the official guide for your host. OpenAI's [testing guide](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-the-complete-plugin) says to test a skills-only plugin from a local source in a new conversation. This route is documented by OpenAI; installation and operation of this specific ZIP in a ChatGPT account remain **unverified here** until a host test records them. Account or workspace policy may affect availability.
 
 There is no automatic slash-command discovery implied by merely viewing source files. Once installed and enabled, ask in ordinary language for the skill. For example:
