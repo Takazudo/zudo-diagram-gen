@@ -119,3 +119,14 @@ The [site-polish root PR](https://github.com/Takazudo/zudo-diagram-gen/pull/56) 
 Against `https://zudo-diagram-gen.zudolab.dev/`, `pnpm smoke:cloudflare` passed all seven HTML routes, the workbench JSON, CSS, SVG, and JavaScript assets, and the expected missing-page 404. `pnpm smoke:cloudflare --redirects` passed all nine same-host short-path redirects, including query preservation.
 
 The read-only Cloudflare `GET /accounts/{account_id}/workers/domains?service=zudo-diagram-gen` response reported one production custom domain for this Worker: `zudo-diagram-gen.zudolab.dev`. The retired `zudo-diagram-gen-doc.zudolab.dev` was absent. Direct DNS queries to the zone's authoritative nameservers, `joselyn.ns.cloudflare.com` and `rohin.ns.cloudflare.com`, returned `ENOTFOUND` for the retired hostname and A records for the canonical hostname. This confirms the old hostname is no longer attached or published in authoritative DNS; a browser with a cached old 301 may still attempt to visit it until that cache expires.
+
+## P11 deterministic acceptance checks — 2026-10-08
+
+The P11 worker at integration base `c1935b83d4722397c1260a8684d24d84f58ad858` implemented hashed
+trial/evidence validation and explicit installed distribution probes. Thirteen focused validator
+tests passed under pnpm 10.30.3. Their synthetic records test missing/stale/duplicate/deferred
+rejection; they are not the public author trial, browser execution, image inspection or user
+approval. The tests exposed host `NODE_PATH` injection of global Playwright; isolated probe child
+commands explicitly clear and record that variable. Full current-base acceptance remains pending
+actual manager-owned trial, browser, heavy and CI evidence. See
+[ACCEPTANCE.md](agent-first/ACCEPTANCE.md); all earlier records remain historical.
