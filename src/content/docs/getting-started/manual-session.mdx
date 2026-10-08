@@ -1,0 +1,157 @@
+---
+title: Manual session tutorial
+description: Install a local engine archive, add a complete SVG, and review and export it.
+sidebar_position: 4
+---
+
+This complete manual path creates one real SVG candidate, then reviews and exports the saved asset. For agent-led work, start with [Ask for your first diagram](/docs/getting-started/first-session/); [Local archive setup](/docs/getting-started/local-archives/) explains explicit skill loading. This tutorial remains usable without a skill-capable agent. Use Node.js 22–24 and pnpm 10; the repository pins pnpm 10.30.3. The engine and initializer are unpublished, so start from the [source repository](https://github.com/Takazudo/zudo-diagram-gen) and a local archive.
+
+## 1. Create the installed workspace
+
+Follow [Local archive setup](/docs/getting-started/local-archives/#pack-and-create-an-installed-consumer) to pack the available source and create a new external consumer with a valid empty first round. Return here from that installed workspace. No agent skill is required for this manual path.
+
+```bash
+pnpm check
+pnpm dev
+```
+
+Check should report one round and zero candidates. Open the local URL printed by zfb. Keep that terminal running and use a second terminal in the same installed workspace for authoring and export below. Keep the absolute archive available for reinstalls; do not recreate over existing content.
+
+## 2. Write the explanation before drawing
+
+Edit `brief.md`. For a real feature, read its implementation or documentation first and record:
+
+- The one idea the reader needs to understand.
+- Actual entities, actions, relationships, and exact product labels.
+- Source paths or links that support those facts.
+- The intended placement and nearby help text.
+- What may vary between candidates and what is outside this drawing's scope.
+
+For this tutorial, use a small explanation of the review step itself:
+
+```text
+Teaching goal: a saved SVG candidate can be inspected before a review decision.
+Labels: Candidate, Review.
+Placement: 360 × 200 CSS pixels beside a short explanation.
+This round explores a simple left-to-right reading order.
+The drawing omits shortlist, feedback transfer, and export controls.
+Source: the Reviewing candidates guide and the local review interface.
+```
+
+The initializer sets `target.width` to `360` and `target.height` to `200` in `session.json`. Keep those for the tutorial; set them to the real slot dimensions for project work. Optional `context.title` and `context.body` provide the heading and prose shown beside the placement preview. Preserve the initializer's unique session ID.
+
+## 3. Add the SVG and its metadata
+
+In the session directory, create the first candidate folder:
+
+{/* reader:manual-candidate */}
+
+```bash
+mkdir -p rounds/r01/c01
+```
+
+Your content will have this layout:
+
+```text
+my-diagram-session/
+├── session.json
+├── brief.md
+└── rounds/
+    └── r01/
+        ├── round.json
+        └── c01/
+            ├── candidate.json
+            └── diagram.light.svg
+```
+
+Save this as `rounds/r01/c01/candidate.json`:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "r01-c01",
+  "title": "Candidate to review",
+  "toneId": "fine-outline",
+  "description": "A simple left-to-right review step with open shapes and one accent.",
+  "order": 1,
+  "assets": {
+    "light": "diagram.light.svg"
+  },
+  "parentCandidateId": null
+}
+```
+
+Save the complete drawing below as `rounds/r01/c01/diagram.light.svg`:
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"
+     role="img" aria-labelledby="title description">
+  <title id="title">Review a diagram candidate</title>
+  <desc id="description">A candidate drawing leads to a review decision.</desc>
+  <rect width="720" height="400" fill="#f6f5f1"/>
+  <g fill="none" stroke="#252a31" stroke-width="3">
+    <rect x="64" y="100" width="220" height="180" rx="12"/>
+    <rect x="436" y="100" width="220" height="180" rx="12"/>
+    <path d="M308 190H406m-16-12 16 12-16 12"/>
+  </g>
+  <circle cx="174" cy="174" r="28" fill="#2869c7"/>
+  <path d="m520 178 17 17 37-42" fill="none"
+        stroke="#2869c7" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#252a31" font-family="system-ui, sans-serif"
+     font-size="28" text-anchor="middle">
+    <text x="174" y="242">Candidate</text>
+    <text x="546" y="242">Review</text>
+  </g>
+</svg>
+```
+
+The asset path is relative to `candidate.json`. Light artwork is required. Declare `assets.dark` only after adding a complete dark SVG; switching the viewer's backdrop does not create one. See [SVG authoring](/docs/authoring/svg-authoring/) for theme and label guidance.
+
+## 4. Validate and inspect at the target size
+
+From the session directory:
+
+{/* reader:manual-check */}
+
+```bash
+pnpm check
+```
+
+Expect one round, one candidate, one light SVG, and zero dark SVGs. The running viewer detects metadata and asset changes. If a file was saved while incomplete, repair it and rerun the check; the viewer retains its last valid gallery until it can load the new content.
+
+Open **Candidate to review** in **Inspect**. Use **Fit** for the whole drawing, then look at **Placement preview**: its 360 × 200 CSS pixels are the size that matters for label readability. **100%** uses one viewBox unit per CSS pixel, so this 720 × 400 SVG appears twice as wide as its placement.
+
+To compare alternatives, add `c02` with its own complete SVG and metadata, a new ID such as `r01-c02`, and `order: 2`. Keep the teaching goal fixed. The [tone catalog](/docs/tones/) supplies references, and the [ten-direction example](/docs/examples/tone-exploration/) shows this comparison with actual drawings.
+
+## 5. Choose a direction and transfer feedback
+
+**Shortlist** keeps possibilities available. **Choose direction** identifies the baseline for a revision. In the candidate's review panel, write **Keep** and **Change**, then select **Refine this direction**, **Explore more alternatives**, or **Integrate this candidate**.
+
+Use **Copy feedback** to paste the decision into the agent conversation, or **Review JSON** to download a record. These actions save or transfer browser state; they do not write feedback into the session directory or start agent work. [Reviewing candidates](/docs/gallery/reviewing/) explains importing records and rechecking stale feedback.
+
+When requesting a refinement, preserve `r01-c01` and create a later-round candidate with a new ID and `parentCandidateId: "r01-c01"`. Start from the saved SVG. Follow the complete [refinement file example](/docs/authoring/session-files/#create-a-refinement-round) to connect the new round and candidate.
+
+## 6. Export the exact drawing
+
+To export this tutorial's light asset, run in the session directory:
+
+{/* reader:manual-export */}
+
+```bash
+pnpm exec zudo-diagram-gen export r01-c01 \
+  --session . \
+  --theme light \
+  --out exports/selected-diagram.svg
+```
+
+Use the revised candidate's ID when that is the result you selected. The export copies the declared SVG; open it on its own, then inspect it in the destination component before integrating it. A missing dark asset produces an error if you request `--theme dark`.
+
+To keep an offline snapshot of the whole review session:
+
+{/* reader:manual-html */}
+
+```bash
+pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json
+```
+
+This writes `exports/review.html` with the session artwork and viewer embedded. Download review JSON separately to transfer your browser notes and choices. A snapshot does not follow later edits to the session files. See the [CLI reference](/docs/reference/cli/) for static build and preview commands.

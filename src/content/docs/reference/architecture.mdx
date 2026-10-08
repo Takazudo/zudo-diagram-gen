@@ -14,7 +14,7 @@ The project uses a small host with a shared package similar to [zudo-doc](https:
 | `@takazudo/zudo-diagram-gen` | Model validation, catalog loading, rendering, browser UI, exports, and the session CLI. |
 | `create-zudo-diagram-gen` | A small private zfb host and initial session content. |
 | A generated session | The brief, metadata, SVG files, rounds, and user-supplied review records. |
-| Proposed core skill | Project understanding, candidate generation, interpretation of feedback, and requested integration. This is a documented interface, not an installed command. |
+| Packaged core skill | Grounded agent authoring, explicit review transfer and saved refinement. Available as a file with references; requires explicit loading or verified project-local discovery. |
 | Proposed personal wrapper | Output-location policy and other caller-specific conventions. This is also future integration work. |
 
 The root documentation website uses zudo-doc for generated sidebar, search, and page table of contents. The workbench is a zfb Island embedded in an MDX page through `chromeBindings.mdxExtras`; its routes are under `/docs/`, including `/docs/tones/`, `/docs/examples/`, and `/docs/workbench/`. A generated review session uses the diagram engine and zfb. It does not need a copy of the project documentation site to compare its candidates.
@@ -45,7 +45,9 @@ The first version has no feedback-writing development endpoint and no automatic 
 
 Keep the versioned metadata contract small. Ordinary SVG can express different illustration styles without requiring a universal graph or layout language.
 
-Potential additions include project context presets, file-backed feedback submission, a contact-sheet export, and installed Claude Code skills. Introduce them when a real session demonstrates their value, and preserve the existing source/export boundary.
+Current agent-first APIs add project sessions/exact comparisons, local schemes/kits/palettes, explicit immutable style revisions, shared placement/capture and create/inspect/resume. Read [Public API](/docs/reference/api/), [Projects](/docs/authoring/projects/) and [Tone context](/docs/authoring/tone-context/). Structural validity, capture, actual semantic/visual review and explicit user approval remain separate.
+
+Potential additions include project context presets, file-backed feedback submission and a contact-sheet export. Introduce them when a real session demonstrates their value, and preserve the existing source/export boundary.
 
 ## Why the precedent matters
 

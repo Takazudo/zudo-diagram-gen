@@ -1,5 +1,11 @@
 # Multi-session projects
 
+## Current status after P08/P09
+
+Project review/combined offline export (P07), semantic immutable style validation/lock/adopt (P04), and explicit new/inspect/resume/packaged core skill (P08) are implemented. All 24 bundled tones have complete context (P09). Public current guidance is [Projects](../../src/content/docs/authoring/projects.mdx), [Tone context](../../src/content/docs/authoring/tone-context.mdx) and [CLI](../../src/content/docs/reference/cli.mdx). The P06 milestone text below is preserved historical implementation context: its future-P04/P07 statements describe that stage, not current capability.
+
+## Original P06 milestone record
+
 P06 adds project loading, one installed zfb host and individual session review routes. Candidate identity is `(sessionId, candidateId)`: ordinary session IDs, version-one review imports, saved SVG fingerprints and session-local refinement parents stay unchanged. The deck comparison UI, project review import and portable project HTML belong to P07.
 
 ## Create a host

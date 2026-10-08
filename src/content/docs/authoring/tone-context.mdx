@@ -1,0 +1,62 @@
+---
+title: Tone context, kits and saved styles
+description: Resolve local schemes, materialize semantic colors and preserve immutable project revisions.
+sidebar_position: 5
+---
+
+All 24 bundled tone IDs now have local explanation, recipe, scheme, semantic kit and complete source/light/dark references. This is authored reusable reference material, not artwork generated or approved for your session. [Tone collection](/docs/authoring/tone-collection/) names the treatments. The core reads actual reference images as well as text.
+
+## Resolve local meaning and capability
+
+Installed `tones/` is the resource root. Catalog scheme/kit/reference and `bundledReferences[].path` values resolve there, never from cwd or home. Required local explanations are available offline; optional HTTP(S) `sourceReferences` are inspiration, not required meaning. Local paths never masquerade as public URLs. `resolveToneContext(id,{requireComplete:true})` requires a complete context. All bundled tones pass that gate; custom/legacy session tones remain usable without fabricating unavailable resources. A declared missing/malformed resource is an error, not an optional capability.
+
+JSON/Markdown resources are bounded to 1 MiB; SVG to 16 MiB. Unsafe absolute/traversal/symlink/nonfile/invalid UTF-8 paths reject. Context exposes `contextVersion:1`, capabilities, explanations, full examples, scheme, kit primitive inventory and hashes. The [API example](/docs/reference/api/#materialize-a-local-kit) resolves this from an installed consumer.
+
+## Scheme authority and typography
+
+`schemaVersion:1` identifies format; `toneRevision` identifies an authored revision; `collectionVersion` identifies a collection release. None substitutes for a content hash. Scheme tone ID matches its catalog entry. Geometry uses finite SVG user units; opacity is 0–1. Coordinate system has positive viewBox extents. Geometry records stroke widths, radii, palette fill roles, opacities and offset layers. Typography roles record font family, SVG font size, nominal minimum CSS size and weight. Texture records a deterministic seed; composition records arrow/person/empty/pending/emphasis/warning meanings and required/preferred/flexible descriptive rules.
+
+Numeric recipe authority is generated from or checked against explicit scheme roles, rather than duplicated independently. With contain placement, nominal scale is `min(slotWidth/viewBoxWidth, slotHeight/viewBoxHeight)`; nominal CSS font size is scheme font size times that scale. This does not certify transforms, shaping, glyph coverage, overlap, semantics or aesthetic character: inspect the actual image. Required rules need semantic judgment; departures from preferred rules need a reason.
+
+## Materialize palette roles and kit geometry
+
+A palette has exactly `ink`, `surface`, `border`, `accent`, `deep`, `warning` in **both** light and dark, each literal `#RRGGBB`. Overrides must be complete; unknown/missing roles/themes reject. Geometry does not change merely because palette changes. Use `resolvePalette`, `materializeSvg` or `materializeKit` through the [public API](/docs/reference/api/).
+
+Kit primitives are `person`, `pin`, `slot-card`, `empty-seat`, `arrow`, `check`, `clock`, or documented tone-native alternatives. Instances have unique slug IDs, explicit positive width/height, x/y defaulting to zero. Materializers change only `data-palette-fill`/`data-palette-stroke` marked attributes, remove those markers and retain unmarked equal literal colors. Conflicting inline declarations fail.
+
+Kit definitions are copied inline with namespaced IDs and rewritten local href/url/accessibility references, including gradients/masks/clips. Final SVGs are self-contained. Duplicate/dangling IDs, external CSS/resources, script/animation/dynamic colors and unsupported references reject. Stylesheet selector rules are unsupported by these helpers; use static attributes/inline declarations. Ordinary saved hand-authored SVGs remain supported. A kit supplies useful parts, not a mandatory graph language or proof that the drawing explains the feature.
+
+## Hashes and independent review evidence
+
+Canonical JSON hashes recursively sort object keys by Unicode code-point order, preserve arrays/strings, reject non-JSON/nonfinite values and normalize negative zero. Derived hash fields are excluded from snapshot hashing. Scheme/palette/style metadata use canonical hashes. Kit/SVG/explanation hashes preserve exact validated UTF-8 bytes, including BOM/newlines. Tone context hash combines tone/revision/collection identities, scheme/kit hashes and bundled reference hashes ordered by descriptor ID.
+
+Legacy candidate fingerprint retains its existing normalized metadata/SVG projection. New provenance does not silently change it. Optional candidate `provenance` records styleRevision/styleHash/schemeHash/kitHash/paletteHash; `assetHashes` records exact saved assets. Missing provenance is unknown, not compliance. `reviewCompatibility` compares artwork, style, placement and capture evidence independently as current/stale/unknown. Changed style can leave artwork feedback intact; browser has no current capture evidence and reports it unknown. Notes remain; fingerprints are not advanced automatically.
+
+## Lock a project style explicitly
+
+A choice for one diagram does not authorize project-wide reuse. Lock requires actual explicit scope and a selection file:
+
+```json
+{
+  "schemaVersion": 1,
+  "kind": "explicit-selection",
+  "purpose": "test",
+  "baselines": [
+    {"sessionId": "reservation", "candidateId": "r01-c01", "fingerprint": "EXACT_CURRENT_SHA256"}
+  ]
+}
+```
+
+This is a test-shaped illustration; `purpose:user` is only for an actual explicit user decision. Supply all applicable current registered baseline IDs/fingerprints with compatible tone, plus a complete `{light:{...},dark:{...}}` palette. CLI grammar:
+
+```text
+project lock <project> --tone fine-outline --palette <palette.json> --selection <selection.json> --revision style-01 --json
+project lock <project> --tone fine-outline --palette <new-palette.json> --selection <new-selection.json> --revision style-02 --json
+project adopt <project> --revision style-02 --json
+```
+
+The first lock adopts its revision. Further lock calls create pending revisions; explicit adoption changes the effective reference after current validation. Files at `styles/<revision>/` are `style.json`, `scheme.json`, `palette.json`, `kit.svg`; target/typography constraints and baseline selection purpose are saved. Revisions are immutable. Future diagrams read `readStyleRevision`'s saved constituents, not an upgraded catalog. Kit bytes remain exact. Changes require a new revision and explicit adoption.
+
+Cooperating writers use exclusive `.style-operation`, staged revision publication and atomic manifest update. Existing/partial revisions are never overwritten. After inspecting an interrupted operation, explicitly clear only an abandoned lock; helpers never clear another process's lock or repair partial contents. If complete publication succeeded but adoption failed, validate and explicitly adopt that existing revision. Stale baselines require a fresh explicit selection in a new revision; preserve old snapshots.
+
+Refinement copies the actual named saved SVG into a later round under a new ID; export copies saved validated bytes without rematerializing. See [API](/docs/reference/api/#refine-the-saved-baseline) and [CLI](/docs/reference/cli/).

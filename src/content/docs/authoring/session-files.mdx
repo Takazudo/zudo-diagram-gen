@@ -4,7 +4,7 @@ description: Add candidate files, preserve identity, and connect a new round to 
 sidebar_position: 1
 ---
 
-Use these files to add drawings to an initialized workspace and keep revisions connected. [Your first session](/docs/getting-started/first-session/) supplies the installation steps and a complete SVG. The installed `@takazudo/zudo-diagram-gen` package owns the viewer; your workspace owns the content below.
+Use these files to add drawings to an initialized workspace and keep revisions connected. [Local archive setup](/docs/getting-started/local-archives/) supplies installation, and the [manual tutorial](/docs/getting-started/manual-session/) supplies a complete SVG. The installed `@takazudo/zudo-diagram-gen` package owns the viewer; your workspace owns the content below.
 
 | File | Owner | Responsibility |
 | --- | --- | --- |
@@ -111,6 +111,8 @@ For your own `r01-c01`, agree on the edit first. The metadata below assumes a re
 
 Create `rounds/r02/c01/candidate.json` using the refinement metadata above. Copy the baseline's actual SVGs into this new candidate directory and apply the requested edit to the copies. If the baseline has only a light asset, omit `assets.dark` until you author a complete dark version. For the light-only tutorial candidate, the copy starts with:
 
+{/* reader:manual-refinement-copy */}
+
 ```bash
 mkdir -p rounds/r02/c01
 cp rounds/r01/c01/diagram.light.svg rounds/r02/c01/diagram.light.svg
@@ -127,6 +129,12 @@ The resulting relationship is:
 Both references must point to a candidate in an earlier round by `order`. A candidate cannot be its own parent, and lineage cannot cycle. Candidate IDs must be unique across the whole session, including previous rounds. Keep the original assets available so the reviewer can compare what changed.
 
 These fields preserve ancestry. Choosing a direction in the browser does not fill them in or create a round on disk; the author does that after receiving the review. A parent reference also does not establish a style rule for every future diagram.
+
+## Optional provenance and saved refinement
+
+Candidate `provenance` may record styleRevision, styleHash, schemeHash, kitHash and paletteHash. `assetHashes` may record exact saved light/dark byte hashes; declared values must match files. These fields remain outside the legacy candidate fingerprint projection. Absent evidence is unknown, not approved. `baselineFeedback` can preserve the matching named baseline review. The [public refinement helper](/docs/reference/api/#refine-the-saved-baseline) copies exact assets into a new ID/later round and records these boundaries. Update child asset hashes deliberately after edits; never advance browser review fingerprints automatically.
+
+[Projects](/docs/authoring/projects/) adds a manifest and session-qualified candidate identity while ordinary parents remain inside one session. [Tone context](/docs/authoring/tone-context/) explains immutable style snapshots, palette materialization and independent compatibility. [Placement/capture](/docs/reference/placement-capture/) describes target geometry and actual image evidence.
 
 ## Keep review state separate from session content
 

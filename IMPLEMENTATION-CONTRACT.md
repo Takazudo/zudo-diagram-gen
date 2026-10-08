@@ -1,80 +1,31 @@
-# Implementation contract — 0.1.0 development
+# Current implementation contract — 0.1.0 development
 
-This file records implemented package boundaries at `main@5153aa8c9097137cb968f620141e5e3d2d46c1c5`. Public guidance is in the project docs. Agent-first interfaces are planned separately in [docs/agent-first/CONTRACTS.md](./docs/agent-first/CONTRACTS.md); adding that contract does not implement its APIs.
+The packages are local/unpublished; this records merged agent-first behavior through P09, with P10 documentation and P11 integrated acceptance separate. The original source contract is preserved verbatim in [the baseline archive](IMPLEMENTATION-CONTRACT-BASELINE.md). Frozen P00 targets and historical gates remain in [CONTRACTS.md](docs/agent-first/CONTRACTS.md) and [BASELINE.md](docs/agent-first/BASELINE.md); they are not evidence that every interface was shipped by P00.
 
-## Architecture
+## Boundaries
 
-- pnpm workspace; root is one zudo-doc documentation site hosted by zfb. The review workbench is embedded on a documentation page through zudo-doc chrome bindings rather than served as a separate custom page.
-- `packages/diagram-gen` is `@takazudo/zudo-diagram-gen`, version `0.1.0`.
-- `packages/create-zudo-diagram-gen` is a small initializer. No personal directories or automatic git initialization.
-- Runtime Node code uses ESM `.mjs`; browser code is dependency-free `.js` and CSS; generated session pages use zudo-react TSX on zfb 3 and retain Preact TSX support on zfb 2. The root zudo-doc host remains on Preact and zfb 2.
-- Node >=22 <25. Package source is directly shipped; no compile step for engine or CLI.
-- Browser app is package-owned. Agents normally edit session content only.
-- First-version feedback transport: copy text and download review JSON. Browser state is never described as a workspace write.
-- Local session CLI delegates dev/build/preview to **zfb**, and regenerates a static workbench page/data on additions, edits, and removals. Root docs also use zfb/zudo-doc.
-- Root site routes keep project content under `/docs/`: the tone catalog is `/docs/tones/`, examples are `/docs/examples/` (including `/docs/examples/<slug>/`), the embedded workbench is `/docs/workbench/`, and the changelog is `/docs/changelog/`.
-- Standalone `export-html` bundles data, CSS, and JS into one offline HTML file. This supplements zfb; it does not replace it.
+The root remains one zudo-doc site on zfb 2, with semantic host tokens and chrome-bound workbench. Installed consumers use zfb 3 zudo-react and retain zfb 2 Preact support. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
 
-## Source files in a session
+## Implemented resources and APIs
 
-- `session.json`: `{schemaVersion:1,id,title,description?,project?:{name,reference?},target:{width,height,label?},context?:{title,body},toneCollectionVersion?:"0.1.0"}`.
-- `brief.md`: optional plain Markdown; shared facts, source references, fixed labels and meaning.
-- `rounds/<round-id>/round.json`: `{schemaVersion:1,id,title,description?,order:number,baselineCandidateId?:string|null}`.
-- `rounds/<round-id>/<candidate-dir>/candidate.json`: `{schemaVersion:1,id,title,toneId,description?,order:number,assets:{light:string,dark?:string},parentCandidateId?:string|null}`. Asset paths are relative to candidate directory. IDs are unique within their ordinary session, stable URL-safe slugs. Parent must exist in an earlier round; no cycles.
-- Root metadata and brief owned by coordinator; candidate directory owned by one generation worker.
-- Reviewed versions are preserved; refinements receive a new ID and parent pointer.
+All 24 bundled tones have required offline explanation/recipe/source/light/dark/scheme/kit. Installed tones resolve from the package, never cwd. Complete bundled catalog gate coexists with legacy/custom session tones. Schemes specify geometry/typography/texture/composition/descriptive rules; full six-role palettes exist in both themes. Materializers change marked semantic colors only, inline namespaced kit definitions and retain hand geometry. Descriptive compliance, facts and actual readability require judgment.
 
-## Engine model and API (`src/model.mjs`)
+Version-one session/round/candidate identities and legacy fingerprint projection remain. New candidate provenance/asset hashes and saved baseline feedback are additive. Project manifests register contained session paths, explicit placements/styles and exact session/candidate/fingerprint comparison mappings. Candidate IDs may recur between sessions; lineage stays session-local. Strict check/build requires current valid content; partial inspect/dev/export preserves explicit diagnostics and last-valid stale states where supplied. Watcher route ownership uses exact generated-file hashes.
 
-- `loadSession(root)` async -> normalized `GalleryData` (throws actionable errors).
-- `validateSession(root)` async -> `{ok,errors,warnings,summary}`; semantic correctness remains an agent/user check.
-- `loadToneCatalog()` async -> catalog data from package-owned tones.
-- `exportCandidate(root, candidateId, {theme:"light"|"dark",output})` async -> writes exact validated SVG; no silent dark fallback.
-- `GalleryData`: `{schemaVersion:1,kind:"session"|"catalog",session,brief:string,rounds:[...],candidates:[...],tones?:[...],contentHash:string}`.
-- Normalized candidate: `{id,roundId,title,toneId,description,order,parentCandidateId,sourcePath,assets:{light:SVG_STRING,dark?:SVG_STRING},fingerprint}`.
-- `sourcePath` is relative to session root, pointing at candidate.json. Metadata must not leak absolute paths into exported HTML.
-- Tone catalog `tones/catalog.json`: `{schemaVersion:1,version:"0.1.0",tones:[{id,number,name,family,summary,recipe:string[],goodFor:string[],smallSizeNotes:string,referenceFiles:{light:string,dark:string},sourceReferences?:[{title,url}]}]}`.
-- `loadToneCatalog` yields a GalleryData with kind catalog, synthetic round `catalog`, candidates from tones; session id `tone-catalog`, target 360x200, title `Tone collection`.
+Placement uses authoritative CSS target and contain fit, contained frame/slot, explicit local fonts/raster images/resource root and resource budgets. Optional capture lazily uses consumer Playwright 1.59.1 and explicitly installed browser or supplied executable; records actual provenance, hashes and inspected:false. Image viewing and evaluator notes are separate; neither is user approval.
 
-## Rendering (`src/render.mjs`, package-owned)
+Project lock consumes explicit current baseline selection and complete palette. Immutable style revisions store scheme/palette/kit/targets/typography/baselines and selection purpose. First lock adopts; later revisions need explicit adoption. Snapshot constituents survive catalog upgrades. Style/artwork/placement/capture compatibility is independent; absent evidence is unknown. Saved refinement starts a new later-round child from exact named baseline bytes/fingerprint/feedback. Export copies saved validated bytes including BOM/newlines; no regeneration.
 
-- `renderGallery(data, options?)` -> full standalone HTML string. Embeds CSS, app.js, JSON safely. Options `{homeUrl?,docsUrl?,catalogUrl?,title?}`.
-- HTML contains `<div id="diagram-app"></div>` and `<script id="diagram-data" type="application/json">...</script>`.
-- `window.__DIAGRAM_LINKS__` is optional; links also embedded in data as `links` before serialization.
-- The root site exposes the workbench through a zfb Island in an MDX documentation page, registered with zudo-doc's `chromeBindings.mdxExtras`. Standalone session rendering remains available through the session host and offline HTML export.
-- `renderZfbGallery(data, options?)` -> HTML body fragment, stylesheet and application bootstrap embedded; used by generated pages on either supported zfb major.
-- Browser uses `<img>` with data SVG URLs, keeping SVG CSS and IDs isolated. Existing light/dark files are flattened literal colors.
+The typed root exports model/project/context/materialization/style/refinement/placement/capture/render/export/scaffold APIs; subpaths expose model, render, client/mount, client/app.css, schemas/* and skills/diagram-gen/*. See the public [API source](src/content/docs/reference/api.mdx) and installed index.d.ts. The core skill ships with commands/authoring/scenarios references and requires explicit file loading or verified host project-local discovery. The personal wrapper remains outside this delivery.
 
-## Browser UI (`client/app.js`, `client/app.css`)
+## CLI and machine contract
 
-- Parse #diagram-data; render into #diagram-app. No bundler requirement.
-- Grid, inspect, compare; stable IDs; round and tone/family filters; previous/next; fit, 100%, slider zoom, pan; reset.
-- Target-size/context preview; diagram light/dark and backdrop controls; unavailable themes explicitly indicated.
-- Shortlist, selected direction, keep/change feedback, action refine/integrate/explore; copy structured feedback and download JSON; import version-one review JSON with session/id/fingerprint checks.
-- localStorage scoped by session.id; catch storage failures; content fingerprints mark stale feedback.
-- Re-render must retain text edits; buttons accessible, responsive, keyboard navigation must not intercept inputs.
-- Browser downloads actual SVG; CLI exports standalone HTML.
+Implemented: new, inspect, resume, check, tones list/show, capture, project lock/adopt, export, export-html, dev/build/preview. New creates empty content only; inspect/resume reads files plus explicitly supplied downloaded review. Browser-local notes remain browser state until copied/downloaded. Ordinary/project review validation rejects foreign/unknown/duplicate identities and preserves stale evidence without implicit approval.
 
-## CLI
+New JSON forms and check/tones opt-in --json-version 1 return schemaVersion/command/ok/data/errors/warnings; bare legacy JSON remains compatible. Diagnostics contain code/message/path?. Versioned exits: 0 success, 1 validation/incomplete/stale, 2 usage/version, 3 unavailable capture, 4 I/O/unsafe/conflict, 130 cancellation. Legacy failure remains exit 1. Unknown/duplicate flags reject. Dev/build/preview preserve zfb logs and have no JSON mode.
 
-`zudo-diagram-gen check [directory] [--json]`
-`zudo-diagram-gen export <candidate-id> --session <directory> --theme light|dark --out <file>`
-`zudo-diagram-gen tones list [--json]`
-`zudo-diagram-gen tones show <id> [--json]`
-`zudo-diagram-gen export-html [directory] --out <file>`
-`zudo-diagram-gen dev|build|preview [directory] [--host <host>] [--port <port>]`
+New/initializer share authoritative engine scaffold; initializer bundles it independently. Destinations are caller supplied, new/empty and nonsymlink; installation opt-in, failures retain resumable content. SVG export permits safe repeated nonsource overwrite; capture/HTML need force for existing outputs, which never permits source/metadata/style/placement aliases. Nested project export/capture needs explicit resourceRoot; no ancestor lookup. Offline HTML embeds content/assets/UI but neither notes nor future source changes.
 
-Root handles zfb runner/rendering; engine agent handles model and check/export/tones CLI logic as `src/commands.mjs` exposing `runDataCommand(args)` -> boolean handled. Root CLI dispatch calls this first.
+## Evidence and continuation
 
-## Testing
-
-- Vitest runs repository contract suites; initializer also has a Node test runner command. Tests cover session validation, path containment, parent lineage, exports and initializer contracts.
-- Actual pnpm install, zfb build/check and packed consumer scaffold checks where environment permits.
-- Browser interaction verification only through supported browser capability. Record limits explicitly if unavailable.
-- No publication, remote repository mutation, hosting or personal skill installation during this handoff.
-
-## Planned agent-first interfaces (not implemented by P00)
-
-Tone context/schemes/local meaning, semantic kits, project loading/comparison, shared placement/capture, immutable style locks, versioned CLI envelopes, shared scaffold and a distributable core skill are specified in [CONTRACTS.md](./docs/agent-first/CONTRACTS.md). P00 contributes contracts and public inputs only. No `new`, `inspect`, `resume`, `capture`, `project lock` or `project adopt` command exists at the recorded baseline; no scheme/kit/project/placement production schema or installable core skill is claimed. Existing check/tones JSON remains unversioned, CLI errors use exit 1, and model normalization discards unknown metadata.
-
-Legacy `fingerprint` is SHA-256 of the fixed normalized candidate JSON projection, including saved SVG text; new metadata must not silently change that projection. New provenance hashes are separate. Exported SVG remains the exact saved asset. See [BASELINE.md](./docs/agent-first/BASELINE.md) for actual gates and [evaluation/PROTOCOL.md](./docs/agent-first/evaluation/PROTOCOL.md) for the frozen experiment, which has not yet run. Root zfb migration issue 63 is separate.
+Historical VERIFICATION.md and dated changelog/acceptance records are preserved. P09 [acceptance](docs/agent-first/rollout/P09-ACCEPTANCE.md) and [per-image evidence](docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json) cover 192 primary and 104 independent current image records at stated placements/palettes, not universal quality or user approval. P10 must prove its exact installed reader commands; P11 owns integrated current-base gates. Root zfb migration remains separate. Current executable behavior/tests take precedence over earlier proposed signatures; update docs with actual changes.
