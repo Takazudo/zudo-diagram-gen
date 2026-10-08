@@ -26,7 +26,8 @@
     "check:browser": "node scripts/check-browser.mjs",
     "check:site-browser": "node scripts/check-site-browser.mjs",
     "export:preview": "node scripts/export-preview.mjs",
-    "pack:local": "node scripts/pack-local.mjs"
+    "pack:local": "node scripts/pack-local.mjs",
+    "plugin-pack": "node scripts/plugin-pack.mjs"
   },
   "dependencies": {
     "@takazudo/zfb": "2.21.1",

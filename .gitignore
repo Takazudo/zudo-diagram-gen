@@ -18,3 +18,6 @@ artifacts/
 test-output/
 *.tgz
 .DS_Store
+# Local plugin assembly and distribution output
+artifacts/plugin/
+plugins/zudo-diagram-gen/skills/diagram-gen/tones/

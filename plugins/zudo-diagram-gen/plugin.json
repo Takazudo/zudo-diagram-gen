@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zudo-diagram-gen",
+  "version": "0.1.0",
+  "description": "Create and refine grounded SVG diagrams with a bundled catalog of 24 drawing tones.",
+  "author": { "name": "Takazudo" },
+  "repository": "https://github.com/Takazudo/zudo-diagram-gen",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "zudo-diagram-gen",
+        "shortDescription": "Create and refine SVG diagrams with 24 bundled tones.",
+        "developerName": "Takazudo",
+        "capabilities": ["Read", "Write"]
+      }
+    }
+  }
+}
