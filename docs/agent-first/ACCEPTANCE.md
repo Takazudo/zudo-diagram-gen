@@ -1,9 +1,10 @@
 # P11 integrated acceptance
 
-The actual public trial and saved-review workflow are complete. The final manifest remains pending
-final-head root checks, pinned CI and command-bound evidence aggregation. A full pass requires every
-required gate; no required deferred check can coexist with acceptance. P09 and P10 remain
-prerequisite evidence and do not replace this trial.
+The actual public trial and saved-review workflow are complete. The exact-head completion record
+on [PR 94](https://github.com/Takazudo/zudo-diagram-gen/pull/94) supplies the final external manifest,
+root checks, pinned CI and command-bound evidence aggregation. A full pass requires every required
+gate; no required deferred check can coexist with acceptance. This report does not substitute an
+earlier run for that final record. P09 and P10 remain prerequisite evidence and do not replace this trial.
 
 The trial preserves all 55 original candidates and their 110 actual themed inspections: 98 passed
 and 12 failed readability. Six new correction children received 12 separately opened passing
@@ -13,7 +14,7 @@ All current accepted artwork passes; the 12 failed original views remain recorde
 later-child dispositions. These are test evaluations, not user approval.
 
 The original five-session/eight-tone source checkpoint is committed under `trial/sources`.
-`trial/followup` preserves the later source overlay and original review transfer; the final ordinary
+`trial/followup` preserves the later source overlay, and `trial/review-transfer` preserves the actual downloaded review; the final ordinary
 project registers six sessions and one explicit locked-tone comparison. The downloaded five-session
 review was resumed through the installed engine, two explicitly selected parents were refined from
 saved SVG bytes, and the later diagram used immutable `trial-v1` kit/scheme/palette. The five-target
