@@ -80,16 +80,9 @@ export async function createProject(options = {}) {
       sessions: registrations,
       comparisonSets: [],
     });
-    const hostPackage = JSON.parse(files['package.json']);
-    delete hostPackage.scripts['export:html'];
-    files['package.json'] = json(hostPackage);
     files['README.md'] = files['README.md'].replace(
-      '- pnpm export:html creates diagram-review.html with the current session and viewer embedded for offline review.\n',
-      '',
-    );
-    files['AGENTS.md'] = files['AGENTS.md'].replace(
-      '- pnpm export:html — create a single-file offline review at diagram-review.html.\n',
-      '',
+      'with the current session and viewer embedded',
+      'with the registered project sessions and viewer embedded',
     );
     files['.gitignore'] += 'pages/sessions/\n';
     files['README.md'] +=
@@ -256,7 +249,7 @@ function scaffold({ id, nameSlug, title, engine }) {
         build: 'zudo-diagram-gen build .',
         preview: 'zudo-diagram-gen preview .',
         check: 'zudo-diagram-gen check .',
-        'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html',
+        'export:html': 'zudo-diagram-gen export-html . --out exports/diagram-review.html',
       },
       dependencies: {
         [ENGINE_PACKAGE]: engine,
@@ -281,7 +274,7 @@ function scaffold({ id, nameSlug, title, engine }) {
     'zfb.config.ts':
       "import { defineConfig } from '@takazudo/zfb/config';\n\nexport default defineConfig({});\n",
     '.gitignore':
-      'node_modules/\ndist/\n.zfb/\n.zfb-*\n.generated/\npages/index.tsx\ndiagram-review.html\n',
+      'node_modules/\ndist/\n.zfb/\n.zfb-*\n.generated/\npages/index.tsx\nexports/diagram-review.html\n',
     'session.json': json({
       schemaVersion: 1,
       id,
@@ -353,7 +346,7 @@ For a refinement, add a new round.json with a greater order and baselineCandidat
 - pnpm dev — start the zfb review workspace.
 - pnpm check — validate session metadata, assets, and lineage.
 - pnpm build and pnpm preview — produce and inspect the zfb static build.
-- pnpm export:html — create a single-file offline review at diagram-review.html.
+- pnpm export:html — create a single-file offline review at exports/diagram-review.html.
 - pnpm exec zudo-diagram-gen export <candidate-id> --session . --theme light --out <output.svg> — export the actual SVG; use dark only when the candidate has that asset.
 `;
 
@@ -374,7 +367,7 @@ The command prints the local URL. Review AGENTS.md for the content contract, ton
 
 - pnpm check validates content and reports actionable errors.
 - pnpm build makes the normal zfb static output, and pnpm preview serves it.
-- pnpm export:html creates diagram-review.html with the current session and viewer embedded for offline review.
+- pnpm export:html creates exports/diagram-review.html with the current session and viewer embedded for offline review.
 - Copy feedback identifies the chosen candidate and requested changes for the agent. Browser-local choices are not automatically written back to the workspace.
 
 Keep the selected SVG and its IDs stable once reviewed. Add refinements in later rounds so you can compare them with their originals.

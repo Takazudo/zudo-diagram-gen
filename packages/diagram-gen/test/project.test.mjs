@@ -462,17 +462,6 @@ test('declared placement image symlink escapes and malformed raster bytes fail e
   assert.equal(data.ok, false);
   assert.equal(data.sessions[1].status, 'valid');
 });
-test('project scaffold avoids advertising deferred project HTML and preserves single-session HTML workflow', async () => {
-  const root = await fixture();
-  assert.equal(
-    JSON.parse(await readFile(join(root, 'package.json'), 'utf8')).scripts['export:html'],
-    undefined,
-  );
-  assert.equal(
-    (await readFile(join(root, 'README.md'), 'utf8')).includes('- pnpm export:html creates'),
-    false,
-  );
-});
 
 test('initializer project CLI gives correct registered session path and stable project identity', async () => {
   const parent = await mkdtemp(join(tmpdir(), 'diagram-initializer-project-'));

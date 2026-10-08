@@ -6,3 +6,5 @@ description: Capture source protection and versioned project diagnostic exits at
 Forced PNG capture now protects every registered project placement and reference image, including another session's files in output space. Both the PNG destination and its provenance sidecar are checked before browser capability launch and again before publication.
 
 Versioned project checks, inspect/resume and machine-readable HTML exports retain diagnostic codes and paths. Unsupported manifest versions return exit 2 and unsafe resources return exit 4. Mixed partial-project diagnostics retain all errors; resource failures take precedence over acceptance failures. Partial HTML exports keep healthy session content visible. Legacy check JSON and legacy failure exit 1 remain compatible.
+
+Fresh ordinary-session and project hosts now generate `pnpm export:html` with output at `exports/diagram-review.html`, keeping exports outside protected source files. Generated instructions and the bundled initializer use the same default. Existing consumers and their scripts are not automatically edited.
