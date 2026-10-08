@@ -1,7 +1,39 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { mkdtemp, rm, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
 import { sha256, installedEngine, SESSION_IDS, TONE_IDS } from './integrated-acceptance.mjs';
+
+export function assertSelectedBaseline(selection, sessionId, parent) {
+  assert.ok(
+    selection.baselines.some(
+      (item) =>
+        item.sessionId === sessionId &&
+        item.candidateId === parent.id &&
+        item.fingerprint === parent.fingerprint,
+    ),
+    'Refinement parent must be an explicitly selected baseline.',
+  );
+}
+
+export async function reproduceUpgradeExport(engine, consumerRoot, sessionPath, pair, expected) {
+  const temporary = await mkdtemp(path.join(tmpdir(), 'p11-upgrade-reexport-'));
+  try {
+    const generated = path.join(temporary, pair.name);
+    await engine.exportCandidate(path.join(consumerRoot, sessionPath), pair.candidateId, {
+      theme: pair.theme,
+      output: generated,
+      resourceRoot: consumerRoot,
+    });
+    assert.deepEqual(
+      await readFile(generated),
+      expected,
+      'Changed installed engine must reproduce export.',
+    );
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+}
 
 export async function validateWorkflowEvidence({
   workflow,
@@ -99,6 +131,7 @@ export async function validateWorkflowEvidence({
     const { saved: parent } = candidate(refinement.sessionId, refinement.parentCandidateId);
     assert.ok(!children.has(`${session.id}/${child.id}`), 'Duplicate refinement evidence.');
     children.add(`${session.id}/${child.id}`);
+    assertSelectedBaseline(selection, session.id, parent);
     assert.equal(child.parentCandidateId, parent.id);
     assert.ok(
       session.data.rounds.find((item) => item.id === child.roundId).order >
@@ -279,11 +312,118 @@ export async function validateWorkflowEvidence({
       'Upgrade pair must bind actual separately saved snapshot.',
     );
   }
-  for (const pair of upgrade.exports)
+  const upgradedProject = await installed.engine.loadProject(upgrade.consumerRoot, {
+    strict: true,
+  });
+  const upgradeExports = new Set();
+  for (const pair of upgrade.exports) {
+    const identity = `${pair.sessionId}/${pair.candidateId}/${pair.theme}`;
+    assert.ok(!upgradeExports.has(identity), 'Duplicate upgrade export identity.');
+    upgradeExports.add(identity);
+    const upgradedSession = upgradedProject.sessions.find((item) => item.id === pair.sessionId);
+    const upgradedCandidate = upgradedSession?.data.candidates.find(
+      (item) => item.id === pair.candidateId,
+    );
+    assert.equal(
+      pair.fingerprint,
+      upgradedCandidate?.fingerprint,
+      'Upgrade export fingerprint differs from actual copied candidate.',
+    );
+    assert.ok(['light', 'dark'].includes(pair.theme));
+    assert.equal(
+      (await readEvidence(pair.after)).toString('utf8'),
+      upgradedCandidate.assets[pair.theme],
+    );
+    assert.deepEqual(await readEvidence(pair.original), await readEvidence(pair.before));
     assert.ok(
-      workflow.exports.some((item) => item.file.sha256 === pair.before.sha256),
+      workflow.exports.some(
+        (item) =>
+          item.sessionId === pair.sessionId &&
+          item.candidateId === pair.candidateId &&
+          item.theme === pair.theme &&
+          item.file.sha256 === pair.original.sha256,
+      ),
       'Upgrade export must originate in an actual exact reviewed export.',
     );
+    await reproduceUpgradeExport(
+      installed.engine,
+      upgrade.consumerRoot,
+      upgradedSession.path,
+      pair,
+      await readEvidence(pair.after),
+    );
+  }
+  for (const pair of upgrade.html ?? []) {
+    assert.ok(['single', 'project'].includes(pair.kind));
+    assert.ok(
+      workflow.html.some(
+        (item) => item.kind === pair.kind && item.file.sha256 === pair.original?.sha256,
+      ),
+      'Upgrade HTML must bind original exact export.',
+    );
+    assert.deepEqual(await readEvidence(pair.original), await readEvidence(pair.before));
+    assert.deepEqual(await readEvidence(pair.before), await readEvidence(pair.after));
+    const root =
+      pair.kind === 'project'
+        ? upgrade.consumerRoot
+        : path.join(
+            upgrade.consumerRoot,
+            upgradedProject.sessions.find((item) => item.id === pair.sessionId)?.path ??
+              'missing-session',
+          );
+    const temporary = await mkdtemp(path.join(tmpdir(), 'p11-upgrade-html-'));
+    try {
+      const generated = path.join(temporary, `${pair.kind}.html`);
+      await installed.engine.exportHtml(root, { output: generated });
+      assert.deepEqual(
+        await readFile(generated),
+        await readEvidence(pair.after),
+        'Changed installed engine must reproduce HTML.',
+      );
+    } finally {
+      await rm(temporary, { recursive: true, force: true });
+    }
+  }
+  assert.deepEqual((upgrade.html ?? []).map((item) => item.kind).sort(), ['project', 'single']);
+  const upgradeCommands = await json(upgrade.exportCommands);
+  assert.ok(upgradeCommands.length >= upgrade.exports.length * 2 + 4);
+  for (const pair of upgrade.exports)
+    for (const phase of ['before', 'after'])
+      assert.ok(
+        upgradeCommands.some(
+          (record) =>
+            record.engineModule === installed.modulePath &&
+            record.operation === 'exportCandidate' &&
+            record.phase === phase &&
+            record.sessionId === pair.sessionId &&
+            record.candidateId === pair.candidateId &&
+            record.theme === pair.theme &&
+            record.fingerprint === pair.fingerprint &&
+            record.sha256 === pair[phase].sha256 &&
+            record.exitCode === 0,
+        ),
+        'Actual installed export command record missing.',
+      );
+  assert.ok(
+    upgrade.exports.some((item) => item.theme === 'light') &&
+      upgrade.exports.some((item) => item.theme === 'dark'),
+    'Upgrade needs both actual SVG themes.',
+  );
+  for (const pair of upgrade.html)
+    for (const phase of ['before', 'after'])
+      assert.ok(
+        upgradeCommands.some(
+          (record) =>
+            record.engineModule === installed.modulePath &&
+            record.operation === 'exportHtml' &&
+            record.phase === phase &&
+            record.kind === pair.kind &&
+            record.sessionId === pair.sessionId &&
+            record.sha256 === pair[phase].sha256 &&
+            record.exitCode === 0,
+        ),
+        'Actual installed HTML export command record missing.',
+      );
   const snapshot = await installed.engine.readStyleRevision(upgrade.consumerRoot, upgrade.revision);
   const locked = await engine.readStyleRevision(consumerRoot, upgrade.revision);
   assert.equal(snapshot.hash, locked.hash, 'Separate upgrade must retain actual trial lock.');

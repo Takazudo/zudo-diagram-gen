@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -189,7 +190,57 @@ export async function evidenceReader(base, roots) {
   };
 }
 
-export async function validateAcceptance({ manifest, project, engine, readEvidence, publicRoot }) {
+export const RUNTIME_PATHS = [
+  'packages/diagram-gen',
+  'packages/create-zudo-diagram-gen',
+  'pnpm-lock.yaml',
+];
+
+export async function validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }) {
+  assert.match(manifest.validatedHeadSha ?? '', /^[a-f0-9]{40}$/);
+  assert.equal(
+    manifest.validatedHeadSha,
+    checkoutSha,
+    'Validated head differs from actual checkout HEAD.',
+  );
+  if (manifest.integratedSha === manifest.validatedHeadSha) return;
+  const record = json(await readEvidence(manifest.runtimeEquivalence));
+  assert.equal(record.schemaVersion, 1);
+  assert.equal(record.runtimeBaseSha, manifest.integratedSha);
+  assert.equal(record.validatedHeadSha, manifest.validatedHeadSha);
+  const args = [
+    'diff',
+    '--exit-code',
+    manifest.integratedSha,
+    manifest.validatedHeadSha,
+    '--',
+    ...RUNTIME_PATHS,
+  ];
+  assert.deepEqual(record.command, ['git', ...args]);
+  assert.equal(record.exitCode, 0);
+  for (const name of ['engineArchive', 'initializerArchive']) {
+    assert.deepEqual(
+      record[name],
+      manifest.provenance[name],
+      'Runtime equivalence must bind actual archive payload.',
+    );
+    await readEvidence(record[name]);
+  }
+  assert.ok(checkoutRoot, 'Runtime equivalence requires the actual checkout.');
+  const diff = spawnSync('git', args, { cwd: checkoutRoot, encoding: 'utf8' });
+  assert.equal(diff.status, 0, 'Runtime packages or lock changed since authored package base.');
+  assert.equal(diff.stdout, '');
+}
+
+export async function validateAcceptance({
+  manifest,
+  project,
+  engine,
+  readEvidence,
+  publicRoot,
+  checkoutSha,
+  checkoutRoot,
+}) {
   const diagnostics = [];
   const inspectionRefs = new Set();
   const check = async (id, run) => {
@@ -208,6 +259,9 @@ export async function validateAcceptance({ manifest, project, engine, readEviden
       assert.ok(Array.isArray(manifest[field]), `${field} must be an array.`);
   });
   if (diagnostics.length) return result();
+  await check('head-identity', () =>
+    validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }),
+  );
   await check('provenance', async () => {
     const p = manifest.provenance;
     assert.equal(p.hostMechanism, 'explicit-installed-skill-files');
@@ -511,6 +565,25 @@ export async function validateAcceptance({ manifest, project, engine, readEviden
         assert.equal(record.schemaVersion, 1);
         assert.equal(record.gateId, id);
         assert.equal(record.integratedSha, manifest.integratedSha);
+        const executionSha = record.executionSha ?? record.integratedSha;
+        assert.ok(
+          [manifest.integratedSha, manifest.validatedHeadSha].includes(executionSha),
+          'Gate execution SHA is unrelated.',
+        );
+        if (['root-regressions', 'ci'].includes(id))
+          assert.equal(
+            record.executionSha,
+            manifest.validatedHeadSha,
+            'Root/CI execution must validate final head.',
+          );
+        if (id === 'ci') {
+          assert.equal(
+            record.headSha,
+            manifest.validatedHeadSha,
+            'CI head must match validated head.',
+          );
+          assert.match(record.syntheticMergeSha ?? '', /^[a-f0-9]{40}$/);
+        }
         assert.ok(
           (typeof record.command === 'string' && record.command.trim()) ||
             (Array.isArray(record.command) && record.command.length),

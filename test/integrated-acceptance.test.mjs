@@ -1,11 +1,16 @@
 import { test } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, writeFile, rm, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import * as engine from '../packages/diagram-gen/src/index.mjs';
 import { assembleTrial } from '../scripts/assemble-integrated-trial.mjs';
-import { validateWorkflowEvidence } from '../scripts/integrated-workflow-evidence.mjs';
+import {
+  assertSelectedBaseline,
+  reproduceUpgradeExport,
+  validateWorkflowEvidence,
+} from '../scripts/integrated-workflow-evidence.mjs';
 import { dependencySnapshot } from '../scripts/probe-integrated-distribution.mjs';
 import {
   GATE_ASSERTIONS,
@@ -16,6 +21,8 @@ import {
   installedEngine,
   sha256,
   validateAcceptance,
+  validateHeadIdentity,
+  RUNTIME_PATHS,
 } from '../scripts/integrated-acceptance.mjs';
 
 const publicRoot = path.resolve('docs/agent-first/evaluation');
@@ -37,6 +44,7 @@ async function fixture(run) {
     const manifest = {
       schemaVersion: 1,
       integratedSha,
+      validatedHeadSha: integratedSha,
       purpose: 'test',
       userApproval: false,
       provenance: {
@@ -217,6 +225,9 @@ async function fixture(run) {
           await ref({
             schemaVersion: 1,
             integratedSha,
+            executionSha: integratedSha,
+            headSha: integratedSha,
+            syntheticMergeSha: integratedSha,
             gateId: id,
             command: 'synthetic-validator-test',
             exitCode: 0,
@@ -226,7 +237,14 @@ async function fixture(run) {
       });
     const reader = await evidenceReader(root, [root]);
     const validate = () =>
-      validateAcceptance({ manifest, project, engine, readEvidence: reader, publicRoot });
+      validateAcceptance({
+        manifest,
+        project,
+        engine,
+        readEvidence: reader,
+        publicRoot,
+        checkoutSha: integratedSha,
+      });
     await run({ root, ref, manifest, project, validate });
   } finally {
     await rm(root, { recursive: true, force: true });
@@ -585,5 +603,130 @@ test('failed originals remain auditable only with an accepted exact later child'
       result.diagnostics.some(
         (item) => item.id === `candidate:${original.sessionId}/${original.candidateId}`,
       ),
+    );
+  }));
+
+test('validated head and root/CI execution cannot silently use old runtime SHA', () =>
+  fixture(async ({ manifest, ref, validate }) => {
+    manifest.validatedHeadSha = 'b'.repeat(40);
+    const result = await validate();
+    assert.ok(result.diagnostics.some((item) => item.id === 'head-identity'));
+    assert.ok(result.diagnostics.some((item) => item.id === 'gate:root-regressions'));
+    assert.ok(result.diagnostics.some((item) => item.id === 'gate:ci'));
+    manifest.validatedHeadSha = integratedSha;
+    manifest.gates.find((item) => item.id === 'ci').evidence = [
+      await ref({
+        schemaVersion: 1,
+        integratedSha,
+        executionSha: integratedSha,
+        headSha: 'b'.repeat(40),
+        syntheticMergeSha: integratedSha,
+        gateId: 'ci',
+        command: 'synthetic',
+        exitCode: 0,
+        assertions: GATE_ASSERTIONS.ci.map((id) => ({ id, passed: true })),
+      }),
+    ];
+    assert.ok((await validate()).diagnostics.some((item) => item.id === 'gate:ci'));
+  }));
+
+test('a valid reviewed but unselected parent cannot become the refinement baseline', () => {
+  const selected = { id: 'selected', fingerprint: 'a'.repeat(64) };
+  const otherReviewed = { id: 'also-reviewed', fingerprint: 'b'.repeat(64) };
+  const selection = {
+    baselines: [
+      { sessionId: 'session', candidateId: selected.id, fingerprint: selected.fingerprint },
+    ],
+  };
+  assert.doesNotThrow(() => assertSelectedBaseline(selection, 'session', selected));
+  assert.throws(
+    () => assertSelectedBaseline(selection, 'session', otherReviewed),
+    /explicitly selected/,
+  );
+  assert.throws(
+    () => assertSelectedBaseline(selection, 'another-session', selected),
+    /explicitly selected/,
+  );
+  assert.throws(
+    () =>
+      assertSelectedBaseline(selection, 'session', {
+        ...selected,
+        fingerprint: otherReviewed.fingerprint,
+      }),
+    /explicitly selected/,
+  );
+});
+
+test('upgrade validator invokes export API and rejects copied evidence differing from regenerated output', async () => {
+  const calls = [];
+  const exportingEngine = {
+    exportCandidate: async (root, candidateId, options) => {
+      calls.push({ root, candidateId, ...options });
+      await writeFile(options.output, '<svg>actual installed output</svg>');
+    },
+  };
+  const pair = { name: 'light.svg', candidateId: 'saved', theme: 'light' };
+  await reproduceUpgradeExport(
+    exportingEngine,
+    '/actual-consumer',
+    'sessions/one',
+    pair,
+    Buffer.from('<svg>actual installed output</svg>'),
+  );
+  assert.equal(calls[0].root, '/actual-consumer/sessions/one');
+  assert.equal(calls[0].resourceRoot, '/actual-consumer');
+  await assert.rejects(
+    reproduceUpgradeExport(
+      exportingEngine,
+      '/actual-consumer',
+      'sessions/one',
+      pair,
+      Buffer.from('<svg>copied old output</svg>'),
+    ),
+    /must reproduce export/,
+  );
+  assert.equal(calls.length, 2);
+});
+
+test('runtime equivalence binds actual git diff and archived package hashes', () =>
+  fixture(async ({ manifest, ref, root }) => {
+    const checkoutRoot = path.resolve('.');
+    const checkoutSha = spawnSync('git', ['rev-parse', 'HEAD'], {
+      cwd: checkoutRoot,
+      encoding: 'utf8',
+    }).stdout.trim();
+    manifest.integratedSha = 'c1935b83d4722397c1260a8684d24d84f58ad858';
+    manifest.validatedHeadSha = checkoutSha;
+    const equivalence = {
+      schemaVersion: 1,
+      runtimeBaseSha: manifest.integratedSha,
+      validatedHeadSha: checkoutSha,
+      command: [
+        'git',
+        'diff',
+        '--exit-code',
+        manifest.integratedSha,
+        checkoutSha,
+        '--',
+        ...RUNTIME_PATHS,
+      ],
+      exitCode: 0,
+      engineArchive: manifest.provenance.engineArchive,
+      initializerArchive: manifest.provenance.initializerArchive,
+    };
+    manifest.runtimeEquivalence = await ref(equivalence);
+    const readEvidence = await evidenceReader(root, [root]);
+    await validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot });
+    equivalence.command.pop();
+    manifest.runtimeEquivalence = await ref(equivalence);
+    await assert.rejects(
+      validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }),
+    );
+    equivalence.command.push(RUNTIME_PATHS.at(-1));
+    equivalence.engineArchive = await ref('different archive');
+    manifest.runtimeEquivalence = await ref(equivalence);
+    await assert.rejects(
+      validateHeadIdentity({ manifest, readEvidence, checkoutSha, checkoutRoot }),
+      /archive payload/,
     );
   }));

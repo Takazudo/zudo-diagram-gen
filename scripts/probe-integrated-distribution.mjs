@@ -193,11 +193,61 @@ export async function runDistributionProbe(mode, config, output) {
         config.revision && Array.isArray(config.exports) && config.exports.length >= 2,
         'Upgrade needs actual saved style revision and reviewed light/dark exports.',
       );
-      await cp(
-        path.join(config.trialRoot, 'styles', config.revision),
-        path.join(output, 'styles', config.revision),
-        { recursive: true, errorOnExist: true },
-      );
+      // Copy only actual authored content; this consumer retains its own installed package.
+      for (const name of ['project.json', 'sessions', 'styles', 'inputs'])
+        await cp(path.join(config.trialRoot, name), path.join(output, name), {
+          recursive: true,
+          errorOnExist: true,
+        });
+      const copied = await engine.loadProject(output, { strict: true });
+      const exportCommands = [];
+      const exportPhase = async (item, phase) => {
+        const savedSession = copied.sessions.find((entry) => entry.id === item.sessionId);
+        const savedCandidate = savedSession?.data.candidates.find(
+          (entry) => entry.id === item.candidateId,
+        );
+        assert.ok(
+          savedCandidate && ['light', 'dark'].includes(item.theme),
+          'Exact export requires actual session/candidate/theme identity.',
+        );
+        assert.equal(item.fingerprint, savedCandidate.fingerprint);
+        const destination = path.join(output, 'exports', `${phase}-${item.name}`);
+        await engine.exportCandidate(path.join(output, savedSession.path), item.candidateId, {
+          theme: item.theme,
+          output: destination,
+          resourceRoot: output,
+        });
+        const bytes = await readFile(destination);
+        assert.equal(bytes.toString('utf8'), savedCandidate.assets[item.theme]);
+        exportCommands.push({
+          operation: 'exportCandidate',
+          phase,
+          sessionId: item.sessionId,
+          candidateId: item.candidateId,
+          theme: item.theme,
+          fingerprint: item.fingerprint,
+          engineModule: actualModule,
+          exitCode: 0,
+          sha256: sha256(bytes),
+        });
+        return { path: destination, sha256: sha256(bytes) };
+      };
+      const htmlPhase = async (kind, phase) => {
+        const source = kind === 'project' ? output : path.join(output, session.path);
+        const destination = path.join(output, 'exports', `${phase}-${kind}.html`);
+        await engine.exportHtml(source, { output: destination });
+        const bytes = await readFile(destination);
+        exportCommands.push({
+          operation: 'exportHtml',
+          phase,
+          kind,
+          sessionId: kind === 'single' ? session.id : null,
+          engineModule: actualModule,
+          exitCode: 0,
+          sha256: sha256(bytes),
+        });
+        return { path: destination, sha256: sha256(bytes) };
+      };
       const snapshot = await engine.readStyleRevision(output, config.revision);
       const beforeContext = await engine.resolveToneContext(snapshot.style.toneId, {
         requireComplete: true,
@@ -218,13 +268,38 @@ export async function runDistributionProbe(mode, config, output) {
       const exports = [];
       for (const item of config.exports) {
         assert.match(item.name, /^[a-zA-Z0-9._-]+$/);
-        const bytes = await readFile(item.path);
-        const file = path.join(output, `export-${item.name}`);
-        await writeFile(file, bytes, { flag: 'wx' });
+        const originalBytes = await readFile(item.path);
+        const before = await exportPhase(item, 'before');
+        assert.equal(
+          before.sha256,
+          sha256(originalBytes),
+          'Actual installed export differs from saved reviewed export.',
+        );
         exports.push({
           name: item.name,
-          before: { path: item.path, sha256: sha256(bytes) },
-          after: { path: file, sha256: sha256(bytes) },
+          sessionId: item.sessionId,
+          candidateId: item.candidateId,
+          theme: item.theme,
+          fingerprint: item.fingerprint,
+          original: { path: item.path, sha256: sha256(originalBytes) },
+          before,
+        });
+      }
+      const html = [];
+      for (const kind of ['single', 'project']) {
+        const originalHtml = config.html?.find((item) => item.kind === kind)?.file;
+        assert.ok(originalHtml, 'Upgrade must name original exact single/project HTML.');
+        const beforeHtml = await htmlPhase(kind, 'before');
+        assert.equal(
+          beforeHtml.sha256,
+          sha256(await readFile(originalHtml.path)),
+          'Installed HTML differs from original exact export.',
+        );
+        html.push({
+          original: originalHtml,
+          kind,
+          sessionId: kind === 'single' ? session.id : null,
+          before: beforeHtml,
         });
       }
       const options = {
@@ -259,7 +334,10 @@ export async function runDistributionProbe(mode, config, output) {
       const contextAfter = await json('context-after.json', afterContext);
       const unchanged = await engine.readStyleRevision(output, config.revision);
       assert.equal(unchanged.hash, snapshot.hash);
-      for (const pair of [...immutableFiles, ...exports])
+      for (let index = 0; index < exports.length; index++)
+        exports[index].after = await exportPhase(config.exports[index], 'after');
+      for (const item of html) item.after = await htmlPhase(item.kind, 'after');
+      for (const pair of [...immutableFiles, ...exports, ...html])
         assert.deepEqual(await readFile(pair.before.path), await readFile(pair.after.path));
       for (const item of materializations) {
         const text = engine.materializeKit(unchanged.kit, {
@@ -282,14 +360,18 @@ export async function runDistributionProbe(mode, config, output) {
         contextAfter,
         immutableFiles,
         exports,
+        html,
+        exportCommands: await json('export-commands.json', exportCommands),
         materializations,
       };
     }
+    const executionSha = run('git', ['-C', checkoutRoot, 'rev-parse', 'HEAD']).stdout.trim();
     const commands = await json('commands.json', records);
     const gate = {
       schemaVersion: 1,
       gateId: mode,
       integratedSha: config.integratedSha,
+      executionSha,
       command: [
         'node',
         'scripts/probe-integrated-distribution.mjs',

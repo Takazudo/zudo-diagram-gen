@@ -36,6 +36,10 @@ export async function assembleTrial(config, { engine, base }) {
   const manifest = {
     schemaVersion: 1,
     integratedSha: config.integratedSha,
+    validatedHeadSha: config.validatedHeadSha,
+    runtimeEquivalence: config.runtimeEquivalence
+      ? await ref(config.runtimeEquivalence)
+      : undefined,
     purpose: 'test',
     userApproval: false,
     provenance: { ...config.provenance },

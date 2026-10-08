@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -37,6 +38,15 @@ if (!manifestFile || !evidenceRoot || process.argv.length !== 4) {
       ].filter(Boolean),
     ]);
     const result = await validateAcceptance({
+      checkoutRoot,
+      checkoutSha: (() => {
+        const result = spawnSync('git', ['rev-parse', 'HEAD'], {
+          cwd: checkoutRoot,
+          encoding: 'utf8',
+        });
+        assert.equal(result.status, 0, result.stderr);
+        return result.stdout.trim();
+      })(),
       manifest,
       project,
       engine,
