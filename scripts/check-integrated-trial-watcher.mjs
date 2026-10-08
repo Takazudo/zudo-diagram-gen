@@ -2,7 +2,7 @@
 // Manager/CI: heavy-guard + playwright-guard. Mutations affect ONLY a disposable copy.
 // Usage: <installed-project-root> <new-output> [--port=4798]
 import assert from 'node:assert/strict';
-import { cp, mkdir, readFile, writeFile, rm, rename, symlink } from 'node:fs/promises';
+import { cp, mkdir, readFile, writeFile, rm, rename } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
 import { spawn } from 'node:child_process';
 import {
@@ -40,9 +40,13 @@ await cp(root, copy, {
       path.slice(root.length + 1).split('/')[0],
     ),
 });
-// Dependencies remain the real consumer installation; copied source is disposable.
-await symlink(join(root, 'node_modules'), join(copy, 'node_modules'), 'dir');
-const consumer = await installed(root);
+// Copy the actual installed pnpm dependency graph, preserving internal relative links.
+// A root node_modules symlink does not give zfb's bundler a self-contained dev host.
+await cp(join(root, 'node_modules'), join(copy, 'node_modules'), {
+  recursive: true,
+  verbatimSymlinks: true,
+});
+const consumer = await installed(copy);
 const initial = await consumer.engine.loadProject(copy, { strict: true });
 assert(initial.sessions.length >= 5);
 assert(
