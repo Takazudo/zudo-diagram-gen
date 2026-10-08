@@ -15,7 +15,7 @@ zudo-diagram-gen is a local review workspace for SVG diagrams. You and an agent 
 5. **Transfer the decision.** Copy feedback or download review JSON for the agent. Review controls save state in the browser; they do not edit the workspace or resume the agent.
 6. **Refine and export.** Copy the chosen SVG into a later round under a new ID, make the requested changes, then export the exact candidate and theme you want to use.
 
-[Create your first session](/docs/getting-started/first-session/) walks through these steps with a complete starter SVG. You can author files yourself or ask an agent to follow the same instructions.
+[Ask for your first diagram](/docs/getting-started/first-session/) starts with actual setup and a useful agent prompt. The [manual tutorial](/docs/getting-started/manual-session/) provides a complete starter SVG. You can author files yourself or ask an agent to follow the same instructions.
 
 ## Explore a session before creating one
 
@@ -38,6 +38,6 @@ These are authored studies grounded in the source references recorded in their b
 
 The installed engine supplies the gallery, comparison and placement views, browser review state, validation, and exports. A session supplies its brief, JSON metadata, and SVGs. The initializer creates the small zfb host that joins them together. See [Architecture](/docs/reference/architecture/) for that boundary.
 
-The proposed Claude Code `/diagram-gen` skill and personal `/my-diagram-gen` wrapper are described in [Agent workflow](/docs/agent-workflow/core-and-wrapper/). They are future integrations; there are no installable Claude Code skills included with the app. The local workflow in these guides uses the implemented files and CLI.
+The engine archive includes the core `diagram-gen` skill and focused references. [Agent workflow](/docs/agent-workflow/core-and-wrapper/) explains explicit file loading and optional verified project-local discovery. It does not establish personal installation or automatic native discovery. The personal `/my-diagram-gen` wrapper remains outside this delivery. Single-session and multi-session project paths both use installed files and CLI.
 
 Continue with [Your first session](/docs/getting-started/first-session/), or open [Reviewing candidates](/docs/gallery/reviewing/) alongside an example gallery.

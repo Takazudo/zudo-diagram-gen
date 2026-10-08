@@ -80,6 +80,12 @@ Ask the agent to follow [Create a refinement round](/docs/authoring/session-file
 
 Before integrating, check the exported SVG in the destination's actual dimensions, theme, and surrounding text. Follow [SVG authoring](/docs/authoring/svg-authoring/) for self-contained assets and accessibility at integration.
 
+## Projects and independent stale evidence
+
+[Multi-session projects](/docs/authoring/projects/) have one host and exact comparison sets. Each mapping names session ID, candidate ID and saved fingerprint; sharing a tone never selects a replacement. Missing/invalid/stale/theme-unavailable slots remain explicit. Healthy siblings remain inspectable while affected files are repaired. Switching a tone or comparison set is navigation, not choosing or locking.
+
+Project review download contains ordinary session records under a project ID. Import validates every referenced session before applying records. The agent resumes only the actual file supplied through `--review`, not browser storage. Ordinary session IDs/reviews/storage remain compatible. Style/placement/capture evidence is independent of artwork feedback: absent metadata is unknown, and the viewer has no current capture evidence. Existing notes and choices stay visible; no evidence is advanced to approved automatically. An explicit project-wide style request uses [lock/adopt](/docs/authoring/tone-context/#lock-a-project-style-explicitly), separately from drawing choice.
+
 ## Review with the keyboard
 
 Tab through the controls and use their native keyboard actions. Outside text fields and selects, Left/Right moves between candidates, Escape returns to Gallery, and `S` toggles the active candidate's shortlist status. In inspection or comparison, `+` and `-` adjust zoom. Text input retains its normal editing behavior.

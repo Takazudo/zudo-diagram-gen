@@ -1,0 +1,57 @@
+---
+title: Placement and capture
+description: Use exact CSS slots, explicit browser prerequisites and independently inspected image evidence.
+sidebar_position: 3
+---
+
+The workbench and capture share the same image-element placement renderer. SVG IDs/styles stay isolated; saved light/dark assets remain complete. The session's authoritative target describes CSS pixels, not SVG user units. Artwork is centered with `contain`; frame and slot describe its real destination context.
+
+## Optional browser setup
+
+Checking, tone reading and SVG export need no browser. Install capture capability explicitly **in the consumer**:
+
+<!-- reader:capture-setup -->
+```bash
+pnpm add -D playwright@1.59.1
+pnpm exec playwright install chromium
+```
+
+Install required OS dependencies separately if your system needs them. Library or browser absence gives `CAPTURE_UNAVAILABLE`, exit 3, with recovery instructions. An already existing executable can be passed with `--browser-executable`; there is no automatic system fallback, download or global browser configuration change. Record the actual browser version and any system substitution; pinned CI and a system browser need not match.
+
+## Descriptor and geometry
+
+This example is a 360 × 200 target inside a larger frame:
+
+```json
+{
+  "schemaVersion": 1,
+  "frame": {"width": 440, "height": 320, "background": "transparent"},
+  "slot": {"x": 40, "y": 80, "width": 360, "height": 200},
+  "fit": "contain",
+  "fonts": ["sans-serif"],
+  "context": {"title": "Inspect the saved drawing", "body": "Choose after checking the actual placement."}
+}
+```
+
+Slot dimensions equal session target exactly, and the slot fits within the frame. Without a descriptor the frame equals target with the theme-appropriate background. Artwork theme and backdrop are separate. Missing dark artwork remains an error. Positive dimensions are at most 20000 CSS pixels; frame rendering is at most 40 million physical pixels even for slot crop. DPR is 0.5–4, timeout 1000–60000ms. Descriptor JSON is at most 1 MiB; individual reference files at most 16 MiB; combined inputs at most 64 MiB.
+
+Optional `images` are `{path,x,y,width,height}` local static PNG/JPEG/WebP. Paths resolve relative to the descriptor within explicit resource root; GIF/detectable animated images reject. Reference bytes are embedded and hashed, so private images require sharing authorization. Network requests, traversal/symlink escape, malformed assets, animation and conflicting targets reject. SVG turbulence requires an explicit seed. `portablePlacement` removes native filesystem paths for review/export.
+
+For registered project placements, use `--session <project>/sessions/<slug> --resource-root <project> --placement <project-relative-path>`. The real session stays inside that caller root. No ancestor project discovery occurs. All metadata/style/placement/images remain protected from output overwrites. Inside source roots use `exports/`; external destinations also work.
+
+## Capture then actually inspect
+
+Run after a saved candidate exists; substitute its actual ID:
+
+```text
+pnpm exec zudo-diagram-gen capture r01-c01 --session . --out exports/light.png --theme light --json
+pnpm exec zudo-diagram-gen capture r01-c01 --session . --out exports/dark.png --theme dark --crop slot --dpr 2 --json
+```
+
+Both PNG and `<output>.json` refuse existing outputs unless `--force`. Force never authorizes source aliases. Capture closes its temporary server/context/browser and cleans temporary files on failure/cancellation.
+
+Readiness waits for declared local font availability, `document.fonts.ready` and all image decodes. Generic families remain generics; they do not identify an OS-selected face. Missing named fonts, decoded image budgets and context overflow/slot overlap fail. This does not verify Japanese glyph coverage, shaping, labels, arbitrary internal clipping or factual relationships inside an isolated SVG.
+
+The sidecar records session/candidate ID, legacy fingerprint, exact SVG hash, optional saved style hash, placement/reference image hashes, theme/crop/frame/slot/DPR/physical dimensions/viewport, actual browser/OS/declared fonts, PNG hash, time and **`inspected:false`**. `captureHash` excludes time. Changed artwork/style/placement/theme/DPR/font/browser evidence needs applicable re-evaluation.
+
+Open every proposed PNG with an actual image-viewing tool. Record a separate evaluator note naming image hash/fingerprint/theme/placement/environment and observed facts, labels, overlap, contrast, geometry, fonts and fit. Do not edit a capture sidecar to manufacture inspection. A screenshot result, font readiness or reviewer note is not user approval. Use controlled environments for pixel baselines; semantic/visual judgment determines quality. See [Tone context](/docs/authoring/tone-context/) and [Review transfer](/docs/gallery/reviewing/).

@@ -4,13 +4,13 @@ description: Preserve a shared explanation, human choices, and the actual SVG th
 sidebar_position: 2
 ---
 
-This is the workflow the future core skill should implement. It can also be followed manually by any coding agent using the current app's files and commands.
+The packaged core skill follows this workflow; any coding agent can also follow it manually with the installed CLI and public APIs. [Load the actual skill file](/docs/agent-workflow/core-and-wrapper/) instead of assuming automatic discovery. The CLI never generates artwork or calls a model.
 
 ## Establish a small, factual brief
 
 Read the feature's implementation, existing help, and relevant project design rules. Identify the intended audience, placement size, exact labels, and relationships the drawing must preserve.
 
-Write the shared brief before delegating candidates. When enough context is available, proceed to a concrete first round rather than asking the user to choose abstract illustration terminology.
+Write the shared brief with Intent, Must show, May drop, References, Lock, Target, and Language and fonts before delegating candidates. Include exact factual labels, original/invented provenance and redistribution authority for supplied assets. Reconcile the authoritative `session.json.target` before drawing. When enough context is available, proceed to a concrete first round rather than asking the user to choose abstract illustration terminology.
 
 ## Define what the round explores
 
@@ -18,21 +18,21 @@ If the explanation is settled, keep its facts and relationships fixed while expl
 
 A useful structure exploration might compare a before/after explanation with a short sequence. A tone exploration might compare outlines, UI miniatures, and layered paper while teaching the same relationship.
 
-Honor the user's requested count. Choose a smaller set for a narrow refinement unless the user requests a broader comparison.
+Honor the user's requested count, including a direct one-diagram request. Otherwise use a bounded exploration, default at most four candidates. Choose a smaller set for a narrow refinement; limit correction rounds to two, then preserve partial work and report precise remaining blockers.
 
 ## Generate independently against shared constraints
 
-The coordinator owns `session.json`, `brief.md`, and `round.json`. Each candidate author owns its own directory and reads the same brief.
+The coordinator owns `session.json`, `brief.md`, and `round.json`. Each candidate author owns its own directory and reads the same brief. For [multi-session projects](/docs/authoring/projects/), one tone author maintains that treatment across sessions, while the coordinator alone owns registered IDs and exact comparison mappings. Preserve healthy siblings when another worker fails.
 
 Choose relevant tone recipes, then draw complete SVG assets. Candidate IDs and descriptions should make the resulting choices easy to refer to. The shared viewer discovers those files; drawing agents do not need to redesign the gallery.
 
-Run the session checker and inspect every candidate in the themes and display sizes that matter. Correct clipped text, invalid assets, unreadable labels, and incorrect relationships before presenting the round.
+Resolve actual bundled explanation, scheme, kit and reference images; use saved immutable style constituents when locked, rather than the current catalog. Run the session checker, then [capture and open actual images](/docs/reference/placement-capture/) for every proposed theme at the real display size. Record image hashes, fingerprints, placement, browser/fonts and observed facts/readability/contrast separately; capture sidecars retain `inspected:false`. Correct clipped text, invalid assets, unreadable labels, and incorrect relationships before presenting the round.
 
 ## Let the user's selection establish a baseline
 
 A request such as “C07 is closest; use simpler arrows like C03” establishes a baseline and a bounded change. Record the stable IDs in the feedback and next round.
 
-Copy the selected SVG into a new candidate directory before editing. Preserve explicitly accepted composition, labels, or palette. The earlier file remains available for comparison.
+Use the [saved-baseline API](/docs/reference/api/#refine-the-saved-baseline) to copy the exact selected SVG/fingerprint and feedback into a new later-round candidate before editing. Deliberately update copied asset hashes after edits; validate, recapture and actually inspect the changed child. Preserve explicitly accepted composition, labels, or palette. The earlier file remains available for comparison.
 
 An instruction such as “go ahead” applies to the last concrete proposal in its existing context. It should not silently broaden a request to replace the whole explanation, apply a tone to every project, or discard the selected baseline.
 
@@ -44,7 +44,7 @@ An instruction such as “go ahead” applies to the last concrete proposal in i
 | Choose a direction | Use that SVG as the baseline for the current work. |
 | Request a refinement | Make the stated changes in a new candidate. |
 | Ask to use the result in a help dialog | Integrate that chosen asset into the specified destination. |
-| Ask to reuse the style across the project | Record a project-level preference for later diagrams. |
+| Ask to reuse the style across the project | Supply an explicit current baseline selection and complete palette, lock a new immutable revision and explicitly adopt later revisions. |
 
 A choice for one diagram does not automatically create a global style rule. Record reusable preferences when the user expresses that broader intention.
 
@@ -58,4 +58,4 @@ Verify the result in its real placement. The surrounding layout may reveal a spa
 
 Keep the brief, rounds, chosen IDs, review files supplied by the user, and the final exported asset reference. These are enough to resume the explanation and visual decisions later.
 
-Browser-local selections are convenient during review. Use copied feedback or exported review JSON for the agent-facing record. The current app does not automatically write browser feedback into the source directory or restart an agent when a selection changes.
+Browser-local selections are convenient during review. Use copied feedback or exported review JSON for the agent-facing record. Supply the actual JSON file to `inspect` or `resume --review`; copied text is interpreted by the agent, not parsed as JSON. Retain stale/unknown evidence and request current inspection and renewed explicit review rather than advancing fingerprints automatically. The current app does not automatically write browser feedback into the source directory or restart an agent when a selection changes.

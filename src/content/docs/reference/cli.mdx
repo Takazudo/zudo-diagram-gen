@@ -1,100 +1,119 @@
 ---
 title: CLI reference
-description: Implemented initializer and engine commands for local review sessions.
+description: Supported commands, versioned responses, errors and safe recovery for installed consumers.
 sidebar_position: 1
 ---
 
-These are the implemented `0.1.0` application commands. Run the engine binary from a generated session with `pnpm exec zudo-diagram-gen`, or use that session's package scripts. The proposed Claude Code skill options are documented separately under [Core skill and personal wrapper](/docs/agent-workflow/core-and-wrapper/).
+Run the installed binary through `pnpm exec zudo-diagram-gen`. `--help` and `--version` show that engine's interface. In syntax blocks below, angle brackets are values supplied by you. [Local archive setup](/docs/getting-started/local-archives/) supplies the actual unpublished installation path. Agent slash arguments are explained separately under [Core skill](/docs/agent-workflow/core-and-wrapper/).
 
 ## Initializer
 
-Before registry publication, invoke the downloaded source:
-
-```bash
-node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
-  <destination> \
-  --name "Diagram session" \
-  --engine-package /absolute/path/to/engine-package.tgz \
-  --yes
+```text
+node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs <destination> [options]
+create-zudo-diagram-gen <destination> [options]
 ```
 
-| Argument or option | Behavior |
+The first form runs from source; the second requires a locally installed initializer archive or an independently verified registry release.
+
+| Argument / option | Behavior |
 | --- | --- |
-| `destination` | Output directory; defaults to `diagram-session`. |
-| `--name <title>` | Human-readable display title. A safe package slug is derived from it; the persisted session ID adds a unique suffix so same-name sessions remain distinct. |
-| `--engine-package <spec>` | Engine dependency specification or an existing absolute local archive path. |
-| `--install` | Run dependency installation after scaffolding. Installation is otherwise left to the caller. |
-| `--yes` | Accepted for noninteractive automation. |
-| `--help` | Print the supported command interface. |
-| `--version` | Print the initializer version. |
+| `[destination]` | New/empty caller directory; default `diagram-session`. Existing nonempty or symlink destinations reject. |
+| `--name <title>` | Display title; derives a safe package slug and a unique persisted ID. |
+| `--engine-package <spec>` | Engine spec or existing absolute `.tgz`/`.tar.gz`; relative local archives reject. Use local archives while unpublished. |
+| `--project` | One host with `project.json` and starter `sessions/diagram`. |
+| `--install` | Opt-in dependency installation. Failure retains resumable files. |
+| `--yes`, `-y` | Noninteractive compatibility option; defaults already deterministic. |
+| `--help`, `-h`; `--version`, `-v` | Print interface or version. |
 
-Use an empty destination. The initializer refuses to overwrite unrelated existing content. It creates a private host with an empty `r01` round and does not initialize Git or install skills.
+No Git initialization or personal skill installation. Use `--` before a destination beginning with a dash. Programmatic `createProject` accepts explicit multiple sessions; see [API](/docs/reference/api/).
 
-Local archive paths must be absolute because the generated project runs from a different directory. A `file:` specification also needs to point at an absolute existing archive. The initializer also accepts a registry version or npm specification, but these packages are not published yet. Use a local engine archive for this checkout.
+## Create, inspect and resume
 
-## Development, build, and preview
-
-```bash
-zudo-diagram-gen dev [directory] [--host <host>] [--port <port>]
-zudo-diagram-gen build [directory]
-zudo-diagram-gen preview [directory] [--host <host>] [--port <port>]
+```text
+new --out <new-directory> --brief <file> [--project] [--install] [--engine-package <spec>] [--json]
+inspect <session-or-project> [--review <file>] [--json]
+resume <session-or-project> [--review <file>] [--json]
 ```
 
-These commands prepare the session workbench and delegate to zfb. Development watches session content so candidate additions, edits, and removals can regenerate the page data. Build produces a static review site. Preview serves that build. `--host` and `--port` apply to `dev` and `preview`; `--port` must be between 1 and 65535. The optional directory defaults to the current working directory. `zudo-diagram-gen --help` and `--version` print the installed engine interface and version.
+`new` writes empty content and a zfb host; it makes no drawing or model call. Brief is explicit UTF-8 Markdown (regular file, at most 1 MiB). Creation and continuation are distinct. Keep partially installed content; retry `pnpm install` within that host then resume.
 
-In an initialized project, the package scripts provide the usual entrypoints:
+Inspect/resume load saved files, optional downloaded JSON review and capture capability. They do not write source, access browser storage or start another conversation. For projects they return healthy sessions alongside diagnostics with `ok:false` when incomplete. Supplied review preserves IDs and notes and reports independent artwork/style/placement/capture compatibility; stale evidence requires fresh inspection and review. Browser readiness remains unknown even when the optional library resolves.
 
-```bash
-pnpm dev
-pnpm build
-pnpm preview
-pnpm check
+## Check and tone resources
+
+```text
+check [directory] [--json] [--json-version 1]
+tones list [--json] [--json-version 1]
+tones show <id> [--json] [--json-version 1]
 ```
 
-To pass engine options unambiguously, call the binary directly through `pnpm exec`:
+Check validates structure/assets/lineage and requires a current valid project, including exact comparison coverage. It cannot judge facts or aesthetics. Tones list is concise. Show includes complete light/dark examples and resolved context: bundled local meaning, scheme, kit inventory and hashes. Installed resources are resolved from the package, not cwd. [Tone context](/docs/authoring/tone-context/) describes all-24 completeness and legacy/custom compatibility.
 
-```bash
-pnpm exec zudo-diagram-gen dev . --host 0.0.0.0 --port 4799
+## Development, build and preview
+
+```text
+dev|build|preview [directory] [--host <host>] [--port <port>]
 ```
 
-## Validate a session
+Directory defaults to cwd. These prepare package-owned routes and delegate to zfb; normal logs remain normal, without a JSON mode. Dev keeps last-valid snapshots visibly stale during invalid partial writes and recovers when repaired. Build is strict. Host and port are intended for dev/preview; port must be 1–65535. Use one host for a project and its registered session routes. Generated scripts provide `pnpm dev`, `pnpm check`, `pnpm build`, `pnpm preview`; ordinary single-session hosts also have `pnpm export:html`. Project HTML uses the explicit command below.
 
-```bash
-zudo-diagram-gen check [directory] [--json]
+## Capture
+
+```text
+capture <candidate-id> --session <directory> --out <png> [--placement <file>] [--resource-root <dir>]
+  [--theme light|dark] [--dpr <number>] [--crop frame|slot] [--timeout-ms <milliseconds>]
+  [--browser-executable <existing-path>] [--force] [--json]
 ```
 
-Checks the metadata and asset contract, IDs, paths, and lineage. The JSON form provides errors, warnings, and a summary for an automated caller. This is a structural check; it does not assess factual or visual correctness.
+Defaults: light theme, DPR 1, frame crop, 30000ms timeout. DPR is 0.5–4; timeout 1000–60000ms. PNG and JSON sidecar both refuse existing outputs without force; force never permits source aliases. `--placement` resolves from the explicit resource root (session root by default). Nested sessions need the caller's project `--resource-root`; no ancestor lookup. [Placement/capture](/docs/reference/placement-capture/) describes optional setup, geometry, budgets, provenance and required actual image inspection.
 
-## Inspect tone references
+## Explicit project style
 
-```bash
-zudo-diagram-gen tones list [--json]
-zudo-diagram-gen tones show <id> [--json]
+```text
+project lock <project> --tone <id> --palette <file> --selection <file> --revision <id> [--json]
+project adopt <project> --revision <id> [--json]
 ```
 
-The list supports selecting useful references. Show returns the selected tone's guidance and reference paths; `--json` includes both complete SVG examples. The catalog is packaged with the engine, so inspecting a tone does not require an external service.
+Lock takes a complete two-theme palette and explicit session-qualified baseline selection. First lock adopts; later locks create pending immutable revisions and need explicit adopt. Browser choice, tone switching, shortlist or capture does not lock style. `purpose:test` is fixture intent, never user approval. [Tone context](/docs/authoring/tone-context/#lock-a-project-style-explicitly) covers snapshot validation, interruption recovery and stale baselines.
 
-## Export an SVG
+## Export saved artwork and offline HTML
 
-```bash
-zudo-diagram-gen export <candidate-id> \
-  --session <directory> \
-  --theme light \
-  --out <file.svg>
+```text
+export <candidate-id> [--session <directory>] [--theme light|dark] --out <svg>
+  [--resource-root <project>] [--json] [--json-version 1]
+export-html [session-or-project] --out <html> [--force] [--json]
 ```
 
-Choose `light` or `dark`. The command writes the exact validated asset declared for that candidate and theme. It reports an unavailable dark asset instead of silently exporting the light file. Keep export destinations outside the session's source files, for example in `exports/`; the command rejects an output path that overlaps `rounds/`, `session.json`, or `brief.md`.
+SVG defaults to cwd/light, copies exact validated saved UTF-8 bytes (including BOM/newlines), never regenerates, and fails for missing dark assets or mismatched declared hashes. Pass resource root explicitly for nested project style/input protection; omitted project validation is unknown. Ordinary repeated nonsource SVG overwrite remains supported.
 
-Exporting is a file operation. Integrating the result into another project is a separate instruction for the author or agent.
+HTML bundles one session or combined project data/assets/UI, not browser notes or live updates. Partial projects can retain unavailable slots with diagnostics; this is not strict acceptance. Download review JSON separately. Clipboard/storage may differ for detached file origins. No external fetch is needed for embedded content. Large embedded payloads are bounded; malformed/unsafe sources reject. Use `exports/` inside a source root or an external directory. Outputs protect metadata, rounds, style, placement and symlink/hardlink aliases; HTML/capture existing outputs require force.
 
-## Export one offline HTML file
+## JSON envelopes and backward compatibility
 
-```bash
-zudo-diagram-gen export-html [directory] --out <file.html>
+New commands' `--json`, and legacy check/tones' `--json-version 1`, emit one object on stdout:
+
+```json
+{
+  "schemaVersion": 1,
+  "command": "inspect",
+  "ok": true,
+  "data": {},
+  "errors": [],
+  "warnings": [{"code": "VISUAL_INSPECTION_REQUIRED", "message": "Actual image inspection is required."}]
+}
 ```
 
-Bundles session data, SVGs, viewer CSS, and viewer JavaScript into one review file. This is useful for retaining or sharing a snapshot without running a development server.
+This is a shape example, not a complete content response. Diagnostic entries are `{code,message,path?}`. Inspect/resume `data` contains `content`, transferred `review`, `reviewEvidence`, optional `style`, and `capabilities`; errors may coexist with useful partial data. Check data is validation output; tone data is catalog/context; exports/capture/create return their operation result. Invalid arguments may return `data:null`.
 
-The generated session also has an `export:html` script that writes `diagram-review.html`. The offline snapshot contains the diagrams and their metadata; review state belongs to the browser and should be transferred explicitly using review export/import.
+Bare legacy `check --json` keeps `{ok,errors,warnings,summary}`; `tones list --json` keeps version and concise tones; `tones show --json` keeps tone fields/examples plus additive context. Preserve existing legacy failure exit 1. Do not parse zfb logs as an envelope. JSON-mode optional installation logs go to stderr. Unknown/duplicate options reject. `--json-version` accepts only 1 and is supported by check, tones and SVG export, not every command.
 
-Clipboard and browser-storage behavior can vary when opening a file directly. Review JSON download provides a file-based transfer path. Use the local server when you need a consistent development origin.
+| Exit | Machine codes / recovery |
+| --- | --- |
+| 0 | Success. This does not imply semantic/visual/user approval. |
+| 1 | `VALIDATION_FAILED`, `INCOMPLETE_PROJECT`, `STALE_INPUT`: inspect diagnostics, repair affected files, inspect current images and supply renewed review. Preserve healthy siblings and old notes. |
+| 2 | `INVALID_ARGUMENT`, `UNSUPPORTED_VERSION`: correct unknown/duplicate flags, required arguments or requested JSON version. |
+| 3 | `CAPTURE_UNAVAILABLE`: explicitly install the optional library/browser or supply an existing executable; ordinary check/tone/export remain usable. |
+| 4 | `RESOURCE_UNSAFE`, `OUTPUT_CONFLICT`, `IO_ERROR`: choose safe paths, inspect conflicting/partial files, keep source unchanged; retry installation within retained host. |
+| 130 | `CANCELLED`: capture closes temporary server/browser; resume preserved content, retry explicitly. |
+
+A missing image is not replaced with a similar tone. A stale mapping is not automatically advanced to the current fingerprint. See [Projects](/docs/authoring/projects/) and the installed skill's `references/scenarios.md` for bounded recovery.

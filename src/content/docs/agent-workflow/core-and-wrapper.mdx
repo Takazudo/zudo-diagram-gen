@@ -1,75 +1,41 @@
 ---
 title: Core skill and personal wrapper
-description: A proposed Claude Code interface that accepts caller paths and keeps personal policy outside the core.
+description: Load the packaged core explicitly and keep personal path policy outside the engine.
 sidebar_position: 1
 ---
 
-This page specifies a **future Claude Code integration** with the implemented app. Neither `/diagram-gen` nor `/my-diagram-gen` is installed by this repository or its initializer. The options below are a proposed skill contract, distinct from the implemented [application CLI](/docs/reference/cli/). Running these examples as shell commands will not work.
+The engine archive includes `skills/diagram-gen/SKILL.md` and three focused references: `commands.md`, `authoring.md`, and `scenarios.md`. These are available files, not evidence of installation or automatic discovery in your personal agent host. Use [Local archive setup](/docs/getting-started/local-archives/#optional-project-local-skill-copy) to resolve the installed file, copy a project-local directory if wanted, and verify your host's mechanism. You can always explicitly ask the agent to read that file and its references.
 
-## Core responsibilities
+## Actual core workflow
 
-The core skill should read project context, establish the diagram brief, initialize or resume a session, choose useful tone references, generate and validate candidates, present the review, and carry feedback into later rounds.
+The core grounds facts, writes the improved brief, creates or resumes a caller destination, resolves actual tone resources, authors saved candidates, checks them, captures and **opens** resulting images, transfers explicit review, refines a named saved baseline and exports exact assets. CLI commands do not generate SVGs or call a remote model; authors operate outside the engine. Read the full [workflow](/docs/agent-workflow/iteration/) and [command reference](/docs/reference/cli/).
 
-The core accepts the caller's paths. It does not choose a user's personal logs directory, require a particular home-directory layout, or install itself as an incidental part of initializing a session.
-
-## Proposed skill options
-
-| Option | Meaning |
-| --- | --- |
-| `--out <directory>` | Destination for a new session. Required when creating a session unless the caller provides it through another explicit interface. |
-| `--project <path-or-reference>` | Project context to inspect for behavior, terminology, and design rules. |
-| `--session <directory>` | Resume an existing session and its recorded rounds. |
-| `--count <number>` | Requested number of candidates for the next exploration. |
-| `--tones <id,id,...>` | Optional references the user explicitly wants considered. |
-
-Use `--out` for creation and `--session` for continuation; they should be mutually exclusive in a single invocation. The skill can infer project context from the caller's working project when it is unambiguous, but the output destination remains an explicit input to the core contract.
-
-Example future invocations:
+The packaged skill's invocation hint is:
 
 ```text
-/diagram-gen --project . --out ../feature-diagrams --count 10
-Explain this feature for its help dialog and show useful visual directions.
+--out <new-directory> --brief <file> | --session <existing-directory> [--review <file>]
 ```
+
+When your host has verified discovery, use `/diagram-gen` with those arguments. They express an agent task, not an executable binary. Use one create or resume mode. Supply `--out` and actual brief to the CLI's `new`; map `--session` to CLI `resume`. Natural-language context and candidate count guide the author rather than becoming invented CLI options. The CLI has no `--count` or `--tones` generation flags.
+
+For explicit file invocation without discovery:
 
 ```text
-/diagram-gen --session ../feature-diagrams
-Continue from r01-c07. Keep its composition and labels; simplify the arrows.
+Read .claude/skills/diagram-gen/SKILL.md and its references.
+Use --session . and the attached downloaded review.
+Preserve the named saved SVG's layout and labels; simplify only its arrows.
 ```
 
-`--tones` selects references for generation. It does not guarantee that copying a reference unchanged explains the feature, and it does not turn the CLI into an SVG rendering template language.
+One diagram is appropriate when requested. Otherwise choose a bounded exploration, default at most four. Read project behavior before drawing, record public/original/authorized asset provenance, and inspect final label language and fonts at the real CSS placement. A check or screenshot cannot certify facts, readability, tone character or user approval. The skill limits correction rounds to two before preserving partial work and reporting blockers.
 
-## Personal wrapper responsibilities
+## Thin entry point, detailed references
 
-A wrapper such as `/my-diagram-gen` can apply personal conventions before calling the core:
+The installed `references/commands.md` covers versioned envelopes, no-overwrite setup, review inputs, capture prerequisites, baseline API and explicit style adoption. `references/authoring.md` covers schemes/kits, semantic materialization and writer ownership. `references/scenarios.md` covers one diagram, five sessions, unavailable browsers and stale evidence. The corresponding public references are [CLI](/docs/reference/cli/), [API and schemas](/docs/reference/api/), [projects](/docs/authoring/projects/), [tone context](/docs/authoring/tone-context/) and [placement/capture](/docs/reference/placement-capture/).
 
-1. Resolve a preferred output directory using the user's existing helper or settings.
-2. Create a unique session destination within that directory.
-3. Supply `--out` and the current project reference to the core.
-4. Apply preferred host/port discovery and presentation conventions when starting the viewer.
-5. Supply a preferred exploration count only when the current request has not specified one.
+For multi-session work, one tone author coordinates that treatment across sessions, one writer owns each candidate directory, and a coordinator alone owns project/session/round metadata and exact comparison mappings. Preserve healthy siblings if a worker fails; inspect and resume partial work rather than recreating or silently dropping requested sessions.
 
-The wrapper passes resolved values; it does not add its filesystem policy to the engine, initializer, or shared core skill.
+## Personal wrapper remains outside this delivery
 
-Conceptually:
+A personal `/my-diagram-gen` wrapper may resolve a preferred output location and host defaults, then pass concrete caller paths to the core. This repository does not supply or install that personal wrapper. Personal helpers, home-directory layouts, networking policy and output conventions belong there; avoid duplicating the core's drawing logic.
 
-```text
-/my-diagram-gen
-  resolve this user's output convention
-  call /diagram-gen with an explicit destination and project context
-```
-
-The core remains reusable by other people and agents that choose a different working directory.
-
-## Existing app interface
-
-The future skill can already operate against these implemented boundaries:
-
-- Initializer: create a small session project at an explicit destination.
-- Files: write the brief, round metadata, candidate metadata, and SVG assets.
-- Catalog commands: inspect available tone references.
-- Validation: check session structure and exportability.
-- zfb commands: run the local viewer and produce a static site.
-- Review transfer: read copied feedback or a review JSON file supplied by the user.
-- Export: retrieve the exact chosen SVG for integration.
-
-An installable skill remains future work. Its core instructions should stay short, with detailed schema, authoring, and review guidance in references that can be read when needed.
+MCP, model services, browser-to-source write endpoints, automatic conversation resume and automatic product integration are outside this delivery. Ordinary browser review needs explicit copied/downloaded input. Project style reuse needs explicit lock/adopt intent independently of selecting a drawing.

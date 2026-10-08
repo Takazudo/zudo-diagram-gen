@@ -1,0 +1,69 @@
+---
+title: Multiple sessions in one project
+description: Use one host, exact comparison mappings and explicit partial-state recovery.
+sidebar_position: 4
+---
+
+A project groups related diagram sessions in one installed zfb host. Its overview is `/`; each ordinary workbench is `/sessions/<persisted-session-id>/`. One host serves all registered sessions. A single-session workspace remains supported unchanged.
+
+Use initializer `--project` or CLI `new ... --project` for one starter session. The public `createProject` API accepts a session list; see the [executable example](/docs/reference/api/#create-several-sessions). Creation generates empty content, not diagrams. The coordinator owns `project.json`, each session/brief/round and comparison mapping. One tone author works consistently across sessions; one writer owns each candidate directory.
+
+## Register explicit sessions and comparison sets
+
+This is a schema illustration; fingerprints must be the exact current hashes from your saved candidates:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "help-deck",
+  "title": "Help deck",
+  "sessions": [
+    {"id": "reservation", "path": "sessions/reservation", "order": 0},
+    {"id": "queue", "path": "sessions/queue", "order": 1}
+  ],
+  "comparisonSets": [
+    {
+      "id": "outline",
+      "title": "Outline direction",
+      "toneId": "fine-outline",
+      "entries": [
+        {"sessionId": "reservation", "candidateId": "r01-c01", "fingerprint": "EXACT_CURRENT_SHA256"},
+        {"sessionId": "queue", "candidateId": "r01-c01", "fingerprint": "EXACT_CURRENT_SHA256"}
+      ]
+    }
+  ]
+}
+```
+
+IDs/paths/orders are unique; registered IDs equal each `session.json.id`. Paths stay inside `sessions/<slug>` and reject traversal/symlink components. Optional registration `placement` names a project-relative descriptor. Optional `style` names an immutable local style revision. Empty comparison sets are valid while authoring; a nonempty set must map every registered session exactly once, to the expected tone and current fingerprint.
+
+Candidate identity is **(sessionId, candidateId)**. `r01-c01` may recur in different sessions. Ordinary review records, storage identity and saved SVG fingerprints remain session-local. Refinement parents never cross sessions. Never infer mappings by tone: two candidates may share a tone, and only the explicitly mapped one belongs in a set.
+
+## Review partial content honestly
+
+| State | Display and action |
+| --- | --- |
+| Current valid | Inspect the exact mapped candidate in that session's frame. This is still not approval. |
+| Missing | Keep the session identity/slot visible; restore its registered files. No replacement artwork. |
+| Invalid | Show diagnostics; repair that session without discarding valid siblings. |
+| Stale | Retained last-valid data is visibly stale, with observed content hash. Recheck repaired current content. |
+| Changed mapping | Exact saved fingerprint no longer matches; preserve mapping/notes until actual reinspection and explicit update. |
+| Theme unavailable | The mapped candidate lacks the requested dark asset; do not substitute light or another tone. |
+
+`loadProject(root,{strict:false,lastValid})` and `loadContent(root)` allow inspection of partial results. `lastValid` is an explicit caller-owned Map; without it, invalid sessions have no retained data. Strict `validateProject`, `check` and `build` require current valid registrations and comparison coverage. Inspect/resume can return useful `data` with `ok:false` and exit 1. Dev preserves healthy siblings through incomplete writes and recovers after repair. A malformed manifest never authorizes new paths; the watcher may show only prior authorized registrations as stale.
+
+The project viewer uses the same ordinary workbench for each session, retaining distinct notes and choices. Switching a comparison/tone is navigation. Shortlist, choose, requested integration and explicit project style adoption remain separate decisions. Project review JSON is `zudo-diagram-project-review` with project ID and ordinary per-session review records. Foreign/unknown/duplicate sessions and malformed records reject before applying imports. Explicit CLI resume consumes supplied records, not browser storage.
+
+## Watcher and route recovery
+
+The watcher reads registered content, declared placements/local images and referenced style files, not unregistered directories or node_modules. Add/remove/re-add registrations by editing the manifest, keeping stable IDs. Repair invalid files; subsequent polls recover. Source preparation never treats stale data as newly reviewed.
+
+Generated routes are owned by exact hashes in `.generated/diagram-routes.json`. Handwritten or edited generated routes are preserved and reported as conflicts. The generator comment is not permission to overwrite. For a pre-ledger/edited route, inspect its actual bytes, obtain its SHA-256, and explicitly grant those reviewed hashes using the public `adoptGeneratedRoutes` API. See [API](/docs/reference/api/#generated-route-ownership). Preserve interrupted/unknown files for diagnosis.
+
+## Export a combined snapshot
+
+```text
+pnpm exec zudo-diagram-gen export-html <project> --out <external-review.html> --json
+```
+
+Combined HTML embeds validated portable content/placements/UI; it does not import browser notes, follow source edits or approve unavailable slots. Transfer review JSON separately. Large payloads and unsafe resources reject; clipboard/storage behavior may vary with detached origins. Single-session offline HTML remains supported. For an exact SVG/capture from a nested session, pass its project `--resource-root` explicitly; the engine never discovers ancestor projects. See [CLI](/docs/reference/cli/) and [Placement/capture](/docs/reference/placement-capture/).

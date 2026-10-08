@@ -1,6 +1,6 @@
 # create-zudo-diagram-gen
 
-Initialize a small local zfb app for comparing and refining SVG diagram candidates. The generated project stores the brief, session metadata, rounds, and SVG files. Its installed `@takazudo/zudo-diagram-gen` engine owns the review interface.
+Initialize a small local zfb app for comparing and refining SVG diagram candidates. The generated project stores the brief, session metadata, rounds, and SVG files. Its installed `@takazudo/zudo-diagram-gen` engine owns the review interface. The engine archive includes a core skill file and references, but you must explicitly load them or verify project-local host discovery; the initializer installs no personal skill.
 
 Requires Node.js 22–24 and pnpm. Package version `0.1.0` is a development handoff; this repository does not claim it has been published.
 
@@ -22,14 +22,7 @@ pnpm dev
 
 The `file:` dependency points at that tarball. Keep it available when reinstalling dependencies, or regenerate the workspace using its new absolute path. The initializer rejects relative local archive paths because the generated project's working directory differs from the caller's.
 
-## After publication
-
-These forms become available when the initializer and engine versions have actually been published:
-
-```bash
-pnpm create zudo-diagram-gen diagram-review --yes
-pnpm create zudo-diagram-gen diagram-review --name "Release help" --install
-```
+Registry convenience commands are outside the verified setup until publication is independently established. Use the local source or installed initializer archive.
 
 ## Options
 
@@ -38,6 +31,7 @@ pnpm create zudo-diagram-gen diagram-review --name "Release help" --install
 | `[destination]` | Relative or absolute output directory; defaults to `./diagram-session`. An existing directory must be empty. |
 | `--name <title>` | Human-readable session title; defaults to the destination basename. A safe slug becomes the package name. The persisted session ID adds a UUID so same-named workspaces have separate browser review state. |
 | `--engine-package <spec>` | Engine dependency override: version or tag, complete engine package spec, npm alias, or absolute existing `.tgz`/`.tar.gz` path. Default: `0.1.0`. |
+| `--project` | Create one installed multi-session host with a starter `sessions/diagram` registration. |
 | `--install` | Run `pnpm install` after generation. Default: disabled. |
 | `--yes`, `-y` | Accepted for automation. Initialization uses predictable defaults and never prompts; each new session receives a unique identity. |
 | `--help`, `-h` | Print usage. |
