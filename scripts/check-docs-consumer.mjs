@@ -407,8 +407,13 @@ await mkdir(bootstrap);
 await json(path.join(bootstrap, 'package.json'), {
   private: true,
   type: 'module',
+  packageManager: 'pnpm@10.30.3',
   dependencies: { 'create-zudo-diagram-gen': `file:${initializerArchive}` },
 });
+assert.equal(
+  run('packed-initializer-pnpm-version', 'pnpm --version', { cwd: bootstrap }).trim(),
+  '10.30.3',
+);
 run('packed-initializer-install', 'pnpm install', { cwd: bootstrap });
 run(
   'packed-initializer-consume',
