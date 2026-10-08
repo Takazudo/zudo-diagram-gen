@@ -1,0 +1,67 @@
+---
+title: Local archive setup
+description: Install the unpublished engine, create a private host and load the packaged skill explicitly.
+sidebar_position: 3
+---
+
+These commands use local packages, without assuming a registry release. Start in a downloaded or cloned [source checkout](https://github.com/Takazudo/zudo-diagram-gen), with Node.js 22–24 and pnpm 10.30.3.
+
+## Pack and create an installed consumer
+
+```bash
+pnpm install --frozen-lockfile
+pnpm pack:local
+```
+
+Packing prints absolute engine and initializer archive paths. For version 0.1.0, from the checkout root:
+
+{/* reader:initialize */}
+
+```bash
+diagram_engine_archive="$(pwd)/artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz"
+diagram_session="$(mktemp -d)/diagram-session"
+node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs   "$diagram_session" --name "Review workflow explanation"   --engine-package "$diagram_engine_archive" --yes
+cd "$diagram_session"
+pnpm install
+pnpm check
+pnpm exec zudo-diagram-gen inspect . --json
+```
+
+If versions change, substitute the engine archive path actually printed. The destination above is outside the checkout. The initializer leaves installation separate, refuses nonempty/symlink destinations, creates a valid empty `r01` round and never initializes Git. The engine resolves from this consumer's `node_modules`, not repository source. Keep the archive at its absolute path for future reinstalls. An installation failure preserves content: run `pnpm install` there, then `resume`; do not rerun creation over it.
+
+The independent initializer archive can also be installed in an explicitly chosen bootstrap project. Its binary supports the same options; see [CLI reference](/docs/reference/cli/#initializer). The source adapter above does not require the initializer to be published.
+
+## Optional project-local skill copy
+
+Run this in the installed consumer. It resolves the **installed** exported skill, copies the whole directory and refuses to replace an existing copy:
+
+{/* reader:skill-copy */}
+
+```bash
+node --input-type=module <<'NODE'
+import { createRequire } from 'node:module';
+import { cp, mkdir } from 'node:fs/promises';
+import path from 'node:path';
+const require = createRequire(import.meta.url);
+const source = path.dirname(require.resolve('@takazudo/zudo-diagram-gen/skills/diagram-gen/SKILL.md'));
+await mkdir('.claude/skills', { recursive: true });
+await cp(source, '.claude/skills/diagram-gen', { recursive: true, errorOnExist: true, force: false });
+console.log(path.resolve('.claude/skills/diagram-gen/SKILL.md'));
+NODE
+```
+
+For a host supporting Claude-style project skills, open this workspace and verify `diagram-gen` discovery and its relative reference files. For other hosts, use their documented project-local skill mechanism or explicitly ask the agent to read the printed SKILL.md and references. This guide does not establish that any user's host has automatically discovered it. No home-directory skill, personal wrapper or global configuration is installed.
+
+Without copying, ask an agent to read the installed path resolved above. Manual CLI use remains available. Continue with [Ask for your first diagram](/docs/getting-started/first-session/) or [the manual tutorial](/docs/getting-started/manual-session/).
+
+## Create another host or resume this one
+
+After writing an actual brief file, the installed CLI can create empty content at another caller-supplied destination:
+
+```text
+pnpm exec zudo-diagram-gen new --out <new-directory> --brief <brief.md> --engine-package <absolute-engine.tgz> --json
+pnpm exec zudo-diagram-gen new --out <new-project> --brief <brief.md> --engine-package <absolute-engine.tgz> --project --json
+pnpm exec zudo-diagram-gen resume <existing-directory> --review <downloaded-review.json> --json
+```
+
+Angle brackets here are required caller values, not literal runnable shell text. Installation is opt-in with `--install`. `new` creates no artwork; `inspect` and `resume` read existing files and supplied review without changing them. Capture is optional: [install its prerequisites explicitly](/docs/reference/placement-capture/#optional-browser-setup).

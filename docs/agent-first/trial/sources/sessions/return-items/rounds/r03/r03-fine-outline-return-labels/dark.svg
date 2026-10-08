@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 480" role="img" aria-labelledby="title desc"><title id="title">返却場所への案内</title><desc id="desc">Object-led open contours with generous routes. Original P00 facts; fresh variant, no selection or refinement.</desc>
+<metadata>{&quot;ink&quot;: &quot;#F0F4F8&quot;, &quot;surface&quot;: &quot;#15212D&quot;, &quot;border&quot;: &quot;#91A4B5&quot;, &quot;accent&quot;: &quot;#68C4AF&quot;, &quot;deep&quot;: &quot;#85B9DF&quot;, &quot;warning&quot;: &quot;#FFC078&quot;}</metadata>
+<rect width="320" height="480" fill="#15212D"/>
+<text x="160" y="43" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="160" dy="0">入口</tspan></text>
+<path d="M140 66V95M180 66V95M140 66H180" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 104V141" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M154 134L160 141L166 134" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="176" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="160" dy="0">返却確認台</tspan></text>
+<path d="M113 194H207V212M120 194V226M200 194V226" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 236V258" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="160" cy="258" r="4" fill="#68C4AF" stroke="#68C4AF" stroke-width="0"/>
+<path d="M160 258H84V342" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78 335L84 342L90 335" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 258H246V342" fill="none" stroke="#FFC078" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 335L246 342L252 335" fill="none" stroke="#FFC078" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="48" y="286" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="48" dy="0">破損</tspan><tspan x="48" dy="23.8">なし</tspan></text>
+<text x="282" y="286" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#FFC078" text-anchor="middle"><tspan x="282" dy="0">破損</tspan><tspan x="282" dy="23.8">あり</tspan></text>
+<path d="M55 354H113V409H55ZM55 354L67 344H101L113 354M68 367H100" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="84" y="439" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="84" dy="0">返却箱：空</tspan></text>
+<text x="84" y="465" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#91A4B5" text-anchor="middle"><tspan x="84" dy="0">返却に使える</tspan></text>
+<path d="M217 384H277M222 384V410M272 384V410M246 353V368" fill="none" stroke="#FFC078" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="246" y="439" font-family="Noto Sans CJK JP, sans-serif" font-size="18" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="246" dy="0">相談窓口</tspan></text>
+</svg>

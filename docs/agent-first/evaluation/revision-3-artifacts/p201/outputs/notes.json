@@ -1,0 +1,42 @@
+{
+  "deliberate_departures": [
+    "The shared light palette replaces the sample warm paper colors; white sheets separate through palette-colored borders and restrained offset shadows.",
+    "The sample serif typography is replaced by the required Noto Sans CJK JP, sans-serif family.",
+    "Small sheet rotations preserve the paper-layer construction; Japanese text stays horizontal for compact target readability.",
+    "Composition-specific pattern and MAKE motifs are omitted because they would add unrelated meaning to these five scenarios."
+  ],
+  "supplied_resources_actually_used": [
+    "common/inputs.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "common/palette.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font_limitations": "Noto Sans CJK JP, sans-serif is declared in every SVG. Fonts are not embedded; the font actually selected and fallback or missing-glyph behavior depend on the viewing host and have not been verified.",
+  "checks": "All five SVGs parsed as XML; viewBox and explicit dimensions match the supplied CSS targets. Original example light and dark PNGs were actually viewed. No browser render or visual acceptance is claimed."
+}

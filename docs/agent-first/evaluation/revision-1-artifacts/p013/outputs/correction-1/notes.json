@@ -1,0 +1,62 @@
+{
+  "deliberateDepartures": [
+    "共通palette.jsonを優先し、参考例とkitの色を意味役へ置換。",
+    "実サイズの可読性のため主要接続線は2px、輪郭は1.6px。",
+    "長い担当名は省略せず17pxの一行で配置。",
+    "chair、clock、check、slot-cardの考え方を手描きで再構成。人物・pinは事実説明に不要なので省略。",
+    "パターン背景や装飾的な英文は今回の事実説明に不要なので省略。",
+    "返却箱の内部を空のまま示すため、返却箱：空のラベルは箱の下へ配置。",
+    "correction-1: 破損なし・破損ありのベースラインをy=284からy=243へ移動し、y=257の分岐線の上に配置。縦の経路と文字の交差を解消。その他四図は元のバイト列をそのままコピー。"
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/fine-outline/recipe.md",
+    "tone/fine-outline/light.svg",
+    "tone/fine-outline/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/scheme.json",
+    "tone/kit.svg",
+    "outputs/return-items.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg",
+    "outputs/notes.json"
+  ],
+  "fonts": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localResolution": "fc-match resolves NotoSansCJK-Regular.ttc, Noto Sans CJK JP Regular; all five target-size renders inspected using local librsvg/cairo.",
+    "limitation": "Font is not embedded. Recipient rendering may use fallback; local target-size renders showed Japanese labels without visible missing-glyph boxes."
+  },
+  "limitations": [
+    "Correction responds only to the manager-reported label/route collision. Initial artifacts retained.",
+    "No new evaluator feedback or visual acceptance inferred.",
+    "Correction SVG parsed; other four SVGs verified byte-identical to initial outputs.",
+    "Fonts remain unembedded and may resolve differently on recipient systems."
+  ]
+}

@@ -1,0 +1,12 @@
+---
+title: Agent CLI and distributable diagram skill
+description: Explicit create/resume, stable machine diagnostics and a packaged core diagram workflow.
+---
+
+The engine now creates empty session or project hosts with `new --out <dir> --brief <file>`, using the same scaffold as the initializer. Installation is optional; existing/interrupted content is preserved and resumed explicitly. JSON installation logs stay on stderr.
+
+`inspect` and `resume` load saved content and optional `--review` files. They preserve transferred feedback and report incomplete projects and stale evidence without reading browser storage. New commands emit version-one machine envelopes with documented exit codes. Check and tone commands support `--json-version 1` while keeping their legacy bare JSON forms. Duplicate and unknown flags reject.
+
+The engine archive includes a concise `/diagram-gen` skill and focused references for grounding facts, one diagram or a bounded sweep, actual capture/image inspection, explicit review transfer, saved-baseline refinement, separate project style adoption and exact saved exports. Setup is caller-selected and project-local; no personal skill installation or model service is added. Test choices never imply user approval, and capture success never implies image inspection.
+
+Focused command regressions and installed-only workflow fixtures accompany the change. Actual agent transcripts, image inspection, browser review transfer and packed-host build checks remain separate acceptance gates; see contributor `docs/agent-first/P08-ACCEPTANCE.md` for exact steps.

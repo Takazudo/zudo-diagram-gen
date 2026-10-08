@@ -1,74 +1,56 @@
 # zudo-diagram-gen
 
-A local workspace for comparing, choosing, and refining SVG diagrams with an agent. The agent writes candidate SVG files; a person reviews them at the intended placement size, selects a direction, and gives feedback for the next round. Earlier drawings remain available.
+Ask an agent for a grounded SVG explanation, review concrete drawings at the real placement size, then refine the actual saved drawing. Earlier versions and feedback stay available. The installed package owns the review app; your session or project owns ordinary JSON, Markdown and SVG files.
 
-This repository contains the reusable review package, a destination-based initializer, 24 illustrated tone references, worked example sessions, and a zfb + zudo-doc project site. Visit [the live site](https://zudo-diagram-gen.zudolab.dev/) for the home page, documentation under `/docs/`, tones at `/docs/tones/`, examples at `/docs/examples/` and `/docs/examples/<slug>/`, the workbench at `/docs/workbench/`, and the changelog at `/docs/changelog/`. The former `/tones`, `/examples`, `/examples/<slug>`, and `/workbench` URLs redirect to matching `/docs/` routes on the same host. Run it locally with `pnpm dev`.
+Start with [Ask for your first diagram](src/content/docs/getting-started/first-session.mdx). The [project site](https://zudo-diagram-gen.zudolab.dev/) has documentation, 24 tone references, worked examples and an embedded workbench under `/docs/`. Local source documentation may be newer than the deployed site.
 
-## Status and requirements
+## Actual setup
 
-Both packages are at `0.1.0` and are **not published to a registry**. The instructions below use source and local archives. The proposed `/diagram-gen` and `/my-diagram-gen` Claude Code skills are documented interfaces, not installed commands. Review state lives in the browser until copied or downloaded; it does not write session files or resume an agent automatically.
-
-Use Node.js 22–24 and pnpm 10.30.3. The repository records the pnpm version in `package.json`.
-
-## Explore the project site
+Engine and initializer are `0.1.0` local archives; registry publication is not established. Use Node.js 22–24 and pnpm 10.30.3. From a source checkout:
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm dev
-```
-
-Open the local address printed by zfb. The home page links to the documentation, tone catalog, examples, and workbench. For the documented path through a first session, start at [the getting started content](./src/content/docs/getting-started/first-session.mdx).
-
-The site and its generated showcase data are rebuilt from source. `dist/`, `artifacts/`, and prepared pages are not committed outputs.
-
-## Create a separate review session
-
-From the repository root, pack the local packages:
-
-```bash
 pnpm pack:local
 ```
 
-Use the **absolute engine archive path printed by that command** when calling the source initializer:
+Use the printed absolute engine archive path. [Local archive setup](src/content/docs/getting-started/local-archives.mdx) gives the complete tested command sequence to create a new external consumer, install dependencies, and resolve/copy the packaged skill into an explicitly chosen project-local directory. The initializer never installs a personal skill or initializes Git. Keep the archive available for reinstalls. CLI/manual use works without a skill-capable host.
 
-```bash
-node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
-  ../diagram-session \
-  --name "Feature help diagram" \
-  --engine-package /absolute/path/to/engine-package.tgz \
-  --yes
+The archive includes `skills/diagram-gen/SKILL.md` and commands/authoring/scenario references. Availability is not personal installation or native automatic discovery. After the optional project-local copy, explicitly ask your agent:
 
-cd ../diagram-session
-pnpm install
-pnpm dev
+```text
+Read .claude/skills/diagram-gen/SKILL.md and its relative references.
+Resume this existing session. Explain the public review workflow at 360 × 200:
+save candidates, inspect them, choose a direction, transfer Keep/Change feedback,
+and refine the saved drawing. Show up to three useful directions.
+Keep facts and labels fixed; present saved IDs and actually inspect the images.
+This practice request does not approve a project-wide style.
 ```
 
-The initializer creates a private zfb host with an empty first round. The installed `@takazudo/zudo-diagram-gen` package owns its viewer and CLI; the session owns `session.json`, `brief.md`, round metadata, candidate metadata, and SVG files. It does not initialize Git, select a personal output location, or install agent skills. Keep a local archive at its recorded path when reinstalling the generated host.
+A host with verified discovery can invoke `/diagram-gen --session .`; it is an agent task, not a shell command. The CLI calls no model and generates no artwork. The personal `/my-diagram-gen` wrapper is outside this delivery.
 
-## Review and export
+## Review, refine and export
 
-Add a candidate under `rounds/r01/<candidate>/` and run `pnpm check` in the generated session. The [session file guide](./src/content/docs/authoring/session-files.mdx) gives the metadata and asset contract. Each candidate has a stable ID; a refinement gets a new ID and a parent pointer to the selected earlier drawing.
+Run `pnpm check` and `pnpm dev` inside the installed consumer and open zfb's printed URL. Inspect target-size placement and actual light/dark assets; **Shortlist** retains alternatives, **Choose direction** names only this drawing's baseline. **Copy feedback** or downloaded **Review JSON** explicitly transfers Keep/Change/Next action. Browser state does not write source files or resume a conversation.
 
-The workbench supports overview, inspection, comparison, zoom and pan, theme and backdrop controls, shortlisting, and structured feedback. Transfer feedback with **Copy feedback** or a downloaded review JSON file. Export the exact selected SVG with the engine CLI:
+The agent consumes the actual file/text, checks stale evidence, and starts a new later-round candidate from the named saved SVG/fingerprint. [Public API](src/content/docs/reference/api.mdx) gives the exact baseline helper; [Manual tutorial](src/content/docs/getting-started/manual-session.mdx) remains supported. Export uses the actual chosen candidate ID and theme; it copies saved bytes, not a regenerated tone. [CLI reference](src/content/docs/reference/cli.mdx) covers commands, envelopes/errors, safe outputs and legacy JSON.
 
-```bash
-pnpm exec zudo-diagram-gen export r01-c01 \
-  --session . --theme light --out selected-diagram.svg
-```
+## Projects and style
 
-`pnpm build` creates the normal zfb site for the session. `pnpm export:html` creates a separate single-file offline review snapshot. See the [CLI reference](./src/content/docs/reference/cli.mdx) for all implemented commands.
+[Projects](src/content/docs/authoring/projects.mdx) group sessions in one zfb host with session-qualified identities and exact comparison mappings. Partial inspect/dev/export reports missing/invalid/stale/theme-unavailable slots while strict check/build requires valid current data. A tone switch, shortlist, screenshot or single drawing choice is not project-wide style approval. [Tone contexts](src/content/docs/authoring/tone-context.mdx) describe complete local schemes/kits, semantic palettes and immutable explicit lock/adopt revisions.
 
-## Develop and verify
+[Placement/capture](src/content/docs/reference/placement-capture.mdx) documents optional consumer Playwright/browser setup, local geometry and provenance. A successful check or capture is not actual image inspection, semantic correctness or user approval. Open images and record concrete observations separately.
 
-From the repository root:
+## Contribute and verify
 
 ```bash
 pnpm check
 pnpm test
+pnpm lint
+pnpm format:check
 pnpm check:examples
 pnpm build
 ```
 
-These checks cover types, contract behavior, example sessions, and the site build. Packaging changes also need a fresh consumer installed from local archives outside this checkout. Viewer changes need real-browser interaction checks; a build alone cannot establish review behavior. See [quality and release checks](./src/content/docs/development/quality-and-handoff.mdx) and [AGENTS.md](./AGENTS.md) for contributor guidance. The historical [source handoff](./docs/CODEX-HANDOFF.md) records implementation context; it is not the current installation guide.
+Packaging/setup examples need fresh consumers outside source, using installed public exports. Viewer/review/capture changes need actual browser/image verification. Follow the active environment's heavy/browser guards. See [AGENTS.md](AGENTS.md), [current contract](IMPLEMENTATION-CONTRACT.md), [current handoff](docs/CODEX-HANDOFF.md) and [quality checks](src/content/docs/development/quality-and-handoff.mdx). Historical verification and dated changelog entries remain preserved; [P09 acceptance](docs/agent-first/rollout/P09-ACCEPTANCE.md) records bounded tone evidence.
 
-The root documentation host uses [zudo-doc](https://github.com/zudolab/zudo-doc) on zfb. Generated sessions use zfb and the diagram package without copying the documentation site.
+The root is one zudo-doc site on zfb 2 with embedded package workbench; generated hosts use zfb 3/zudo-react and retain zfb 2/Preact compatibility. The separate root zfb migration, package publication, site deployment, personal wrappers, MCP/model services and automatic integration are outside this documentation delivery.

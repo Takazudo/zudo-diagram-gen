@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-isometric-solid",
+  "title": "立体の状態と経路",
+  "toneId": "isometric-solid",
+  "description": "Opaque front faces with consistent upper-right extrusion, compact hard shadows and tangible medallions. Upright labels remain outside picture facets; layout follows each brief.",
+  "order": 11,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "56d4f132a43c76fc74d165d19722904169d827a6fe9e051fb402a5a6dd8d0947",
+    "dark": "7b206cb2baf682b23275fdeba55a252776aa862960df3a7f057be2d71f40ddf0"
+  }
+}

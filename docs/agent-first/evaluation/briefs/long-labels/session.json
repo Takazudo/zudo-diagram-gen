@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "long-labels",
+  "title": "長いラベルの担当引継ぎ",
+  "target": {
+    "width": 480,
+    "height": 360,
+    "label": "stacked"
+  },
+  "toneCollectionVersion": "0.1.0"
+}

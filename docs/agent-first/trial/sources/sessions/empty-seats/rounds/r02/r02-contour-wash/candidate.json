@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-contour-wash",
+  "title": "Contours with quiet color fields",
+  "toneId": "contour-wash",
+  "description": "Precise contour objects over broad translucent washes; separate clear Japanese labels and explicit state marks. Fresh layout adapted to the session target.",
+  "order": 8,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "3fcb2800fe557aa1f4f878a60d34d5a8bed67c38bbe7e1269bbae14b6750e608",
+    "dark": "af45697b49c49dbf3e4e455b0a0b186a1d1100957034a129433a8c30d23cffbc"
+  }
+}

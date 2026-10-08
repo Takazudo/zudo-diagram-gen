@@ -1,0 +1,57 @@
+{
+  "deliberateDepartures": [
+    "Applied the common six-role light palette instead of the reference beige and brown palette.",
+    "Kept Japanese text upright in the declared font instead of sample handwritten Latin typography.",
+    "Recomposed geometry for each CSS slot rather than scaling the 720×400 composition example.",
+    "Used fixed seed 1307 and approximately eight diagonal intervals per 100 units for crossed pencil fields; no supplied kit was present.",
+    "Reduced notebook ruling opacity and placed white backing planes under route labels; exposed crosshatching remains on meaningful backing regions."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/pencil-notebook/recipe.md",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "environmentMatch": "NotoSansCJK-Regular.ttc — Noto Sans CJK JP Regular",
+    "limitation": "Fonts are not embedded. Font substitution and glyph availability depend on the final SVG viewer.",
+    "rendering": "Installed librsvg/cairo rendered the declared family; fc-match resolves it to Noto Sans CJK JP Regular. No font embedding or final-viewer guarantee."
+  },
+  "limitations": [
+    "Initial experimental artifacts; no evaluator feedback, visual acceptance or user approval inferred."
+  ],
+  "checks": [
+    "Parsed all five SVGs as XML and verified every locked label as complete visible text, including concatenated line breaks.",
+    "Rendered all five at their exact CSS target dimensions using installed librsvg/cairo in memory and inspected the images.",
+    "Moved the reservation change label left after author inspection to keep it clear of the vertical connector.",
+    "No external image, font URL, script, animation or linked asset."
+  ]
+}

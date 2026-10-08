@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 1,
+  "runId": "p201",
+  "reviewType": "independent visual second review",
+  "timestampUtc": "2026-10-07T20:42:58.973330+00:00",
+  "actuallyViewed": {
+    "bothOriginalReferences": true,
+    "allFiveRunImages": true
+  },
+  "reviewScope": {
+    "readResources": [
+      "second-review-dispatch.txt",
+      "two original reference PNGs",
+      "five captures/v0 PNGs",
+      "five common brief.md files",
+      "five common checklist.json files",
+      "common/palette.json"
+    ],
+    "excludedResourcesRead": false,
+    "startup": "Parent explicitly reported startup completed; loader not rerun."
+  },
+  "references": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-light.png",
+      "sha256": "a642eaf4d14e272f053d7bb804f02459b9d59e21241b38a8e3cbdede057073b1",
+      "dimensionsPx": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation"
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-baseline/paper-layers/example-dark.png",
+      "sha256": "f0f16609851d5157007d4c4cb3ed32c3a2087f8a27ef23c5eae444969d841623",
+      "dimensionsPx": [
+        720,
+        400
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation"
+    }
+  ],
+  "referenceDefiningTraits": [
+    "Asymmetrically tilted rectangular paper sheets with visibly displaced flat shadows and layered offset edges.",
+    "Large overlapping central composition combines a repeated arch pattern with a bold typographic sheet; patterned paper remains visible above and below the label.",
+    "Thin curved merging arrows and a folded-corner output document create a handmade paper-process narrative.",
+    "Expressive scale and rotation differences, spare broad background, and light/dark translations preserve the same composition."
+  ],
+  "applicableOverrides": {
+    "font": "Noto Sans CJK JP/sans-serif replaces reference Latin serif typography; serif absence is not scored as a loss.",
+    "palette": "Common six-role palette overrides reference colors; reference hue differences are not scored as losses.",
+    "brief": "Literal Pattern/Text/MAKE/PNG labels and that reference workflow are not requirements."
+  },
+  "images": [
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v0/reservation-flow.png",
+      "sha256": "2d30cf4428c9fca6531aac1f13932c3c7585ae54300aca4d6fe274901bb991d2",
+      "dimensionsPx": [
+        688,
+        416
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation",
+      "id": "reservation-flow",
+      "targetArtworkSizeCssPx": [
+        640,
+        320
+      ],
+      "observations": [
+        "Three large, slightly tilted paper cards read left to right: application, waiting, confirmation. Solid arrows establish the sequence.",
+        "The waiting card explicitly says まだ確定していません. The confirmed card says 変更が使えます. The change card connects from confirmed back into waiting, and explanatory text states no automatic approval.",
+        "Strong state labels, smaller supporting copy, and generous separation give a clear hierarchy. The return arrow and change label do not collide."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting status text are readable at the displayed native raster scale; larger bold labels establish hierarchy and none is visibly clipped or overlapped."
+      },
+      "exactLabels": {
+        "required": [
+          "申請",
+          "確認待ち",
+          "確定",
+          "日時を変更"
+        ],
+        "allPresent": true,
+        "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+      },
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "順序が申請・確認待ち・確定である。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "確認待ちを確定と表示していない。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "変更は確定から確認待ちへ戻る。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "自動承認や料金を追加していない。",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 2,
+        "reason": "Slightly tilted rectangular paper cards and offset shadows remain recognizable, but plain surfaces and mostly separated cards omit the reference’s repeating arch pattern and substantial overlapping collage."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v0/empty-seats.png",
+      "sha256": "bf3f2fec0a232cb71a1ab24ba8467cfc68014f202649a51858a6c615525e1713",
+      "dimensionsPx": [
+        408,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation",
+      "id": "empty-seats",
+      "targetArtworkSizeCssPx": [
+        360,
+        240
+      ],
+      "observations": [
+        "Exactly four separate paper cards form a compact two-by-two layout. A is reserved, B and C are empty, D is pending.",
+        "B and C show checkmarks and 選択可; A shows a lock and 選択不可; D shows a clock and 選択不可. Text and symbols distinguish states without relying on color.",
+        "All full labels fit and are readable. The title explicitly restricts selection to B and C."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting status text are readable at the displayed native raster scale; larger bold labels establish hierarchy and none is visibly clipped or overlapped."
+      },
+      "exactLabels": {
+        "required": [
+          "A席：予約済み",
+          "B席：空席",
+          "C席：空席",
+          "D席：保留中"
+        ],
+        "allPresent": true,
+        "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+      },
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "四席で増減がない。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "BとCだけが選択可能。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "Dを空席や確定席と同一視していない。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "存在しない残り時間・人物を足していない。",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 2,
+        "reason": "Slightly tilted rectangular paper cards and offset shadows remain recognizable, but plain surfaces and mostly separated cards omit the reference’s repeating arch pattern and substantial overlapping collage."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v0/long-labels.png",
+      "sha256": "1d9e81faecd24931ab928a7c0daa2d5bd3e07d40230d7a176682a013f8486649",
+      "dimensionsPx": [
+        528,
+        456
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation",
+      "id": "long-labels",
+      "targetArtworkSizeCssPx": [
+        480,
+        360
+      ],
+      "observations": [
+        "Three wide tilted cards stack vertically. The preparation and confirmation role labels each wrap over two lines without dropping characters. The reception role remains complete on one line.",
+        "A downward arrow labeled 資料 leads preparation to confirmation; the orange left-side return route labeled 不足項目あり points back into preparation. The next downward arrow labeled 確認完了 leads confirmation to reception.",
+        "Long labels remain prominent and legible. The return-route label has sufficient space beside the cards; no overlap or clipping is visible."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting status text are readable at the displayed native raster scale; larger bold labels establish hierarchy and none is visibly clipped or overlapped."
+      },
+      "exactLabels": {
+        "required": [
+          "地域交流イベント開催準備担当",
+          "参加申込内容の確認・連絡担当",
+          "当日受付と案内の担当",
+          "不足項目あり",
+          "確認完了"
+        ],
+        "allPresent": true,
+        "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+      },
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "三担当の文字が完全に保存されている。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "最初は準備から確認に渡す。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "不足時だけ準備へ戻す。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "完了時だけ受付へ渡す。",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 2,
+        "reason": "Slightly tilted rectangular paper cards and offset shadows remain recognizable, but plain surfaces and mostly separated cards omit the reference’s repeating arch pattern and substantial overlapping collage."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v0/pending-queue.png",
+      "sha256": "868359281fbfecf4d8eb964cdc4b3c67045d26a888574eea20289589f6fabe0c",
+      "dimensionsPx": [
+        768,
+        336
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation",
+      "id": "pending-queue",
+      "targetArtworkSizeCssPx": [
+        720,
+        240
+      ],
+      "observations": [
+        "The common notice card splits into two visibly separate parallel checks. The completed branch uses accent; the waiting branch uses a neutral border and a dashed onward connector.",
+        "The summary card explicitly states 両方完了後に公開 and 公開済み：0. Supporting text says waiting is not failure.",
+        "The wide layout gives both branch labels enough width. The collector and publication condition have a clear readable hierarchy."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting status text are readable at the displayed native raster scale; larger bold labels establish hierarchy and none is visibly clipped or overlapped."
+      },
+      "exactLabels": {
+        "required": [
+          "案内文",
+          "表記確認：完了",
+          "会場情報確認：結果待ち",
+          "両方完了後に公開",
+          "公開済み：0"
+        ],
+        "allPresent": true,
+        "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+      },
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "二つの並行経路が存在する。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "会場確認の状態は待ちであり失敗ではない。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "両方完了が公開条件。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "今は公開ゼロ。",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 2,
+        "reason": "Slightly tilted rectangular paper cards and offset shadows remain recognizable, but plain surfaces and mostly separated cards omit the reference’s repeating arch pattern and substantial overlapping collage."
+      }
+    },
+    {
+      "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v0/return-items.png",
+      "sha256": "9f0f7528e13d03aac00820442f071a8b10408a39eb2c150b1266f172bd2899ca",
+      "dimensionsPx": [
+        368,
+        576
+      ],
+      "actuallyViewed": true,
+      "viewMethod": "view_image; native raster presented in conversation",
+      "id": "return-items",
+      "targetArtworkSizeCssPx": [
+        320,
+        480
+      ],
+      "observations": [
+        "Entry points downward into the return inspection desk, then branches to an empty return box on the left and consultation on the right.",
+        "The left branch is labeled 破損なし and the right branch 破損あり. The warning-colored route and consultation card mark the damaged-items branch without a fine or refusal.",
+        "The box explicitly says 返却に使えます and contains an empty outlined box icon. Full destination labels are readable in the narrow portrait layout."
+      ],
+      "readability": {
+        "score": 4,
+        "reason": "All required labels and supporting status text are readable at the displayed native raster scale; larger bold labels establish hierarchy and none is visibly clipped or overlapped."
+      },
+      "exactLabels": {
+        "required": [
+          "入口",
+          "返却確認台",
+          "破損なし",
+          "返却箱：空",
+          "破損あり",
+          "相談窓口"
+        ],
+        "allPresent": true,
+        "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+      },
+      "factualChecks": [
+        {
+          "id": "fact-01",
+          "assertion": "入口から確認台に進む。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-02",
+          "assertion": "破損なしは返却箱へ進む。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-03",
+          "assertion": "破損ありは相談窓口へ進む。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-04",
+          "assertion": "空の箱は利用可能。",
+          "result": "pass"
+        },
+        {
+          "id": "fact-05",
+          "assertion": "罰金・返却拒否を創作していない。",
+          "result": "pass"
+        }
+      ],
+      "factualOmissions": [],
+      "factualInventions": [],
+      "factualReversals": [],
+      "character": {
+        "score": 2,
+        "reason": "Slightly tilted rectangular paper cards and offset shadows remain recognizable, but plain surfaces and mostly separated cards omit the reference’s repeating arch pattern and substantial overlapping collage."
+      }
+    }
+  ],
+  "batch": {
+    "readability": {
+      "score": 4,
+      "reason": "All five sizes retain full readable labels, visible arrow directions, and clear heading/primary-label/supporting-copy hierarchy."
+    },
+    "factualCorrectness": {
+      "allRequiredChecksPass": true,
+      "reason": "Application/change, selectable-seat restrictions, conditional handoff, parallel publication gating, and damaged/undamaged return destinations agree with the respective briefs; no invented timing, fee, failure, refusal, or approval appears."
+    },
+    "consistency": {
+      "score": 4,
+      "reason": "Shared pale field, white skewed papers, modest offset shadows, short colored header bars, bold Japanese labels, and semantic color roles are coherent. Horizontal, grid, stacked, parallel, and portrait structures remain distinct and fit their ratios."
+    },
+    "character": {
+      "score": 2,
+      "retained": [
+        "Skewed rectangular paper geometry",
+        "Flat offset paper shadows",
+        "Bold dominant card labels and fine connecting arrows",
+        "Restrained open backgrounds"
+      ],
+      "lost": [
+        "Repeating patterned paper texture, especially the arch motif",
+        "Substantial multilayer overlapping collage and exposed patterned margins",
+        "Expressive differences in sheet scale and rotation; cards here are more uniform",
+        "Curved converging arrow treatment and folded output-sheet detail"
+      ],
+      "reason": "The batch is a recognizable paper-card interpretation, but the original’s defining patterned, overlapping construction is reduced to clean independent cards. Required font and palette overrides do not account for that geometry/texture loss."
+    }
+  },
+  "fontAndScaleUncertainty": {
+    "actualFontVerified": false,
+    "fontObservation": "Japanese glyphs are legible and sans-serif with no visible missing-glyph boxes. Raster inspection cannot establish the installed or selected font, fallback family, or metrics.",
+    "scaleObservation": "Capture dimensions exceed each target artwork by 48 px horizontally and 96 px vertically. The visibly inset artwork matches the stated target dimensions at native raster presentation; surrounding placement captions were excluded from artwork readability scoring. Browser CSS scale/device pixel ratio was not independently inspected, as other resources and browser access were prohibited.",
+    "targetAssessment": "Judgments use the native raster presentation of the supplied PNGs, without magnification-dependent reading."
+  },
+  "limitations": [
+    "Independent visual judgments only; no source, condition, run-record, coordinator score, browser, network, or other run was inspected."
+  ],
+  "correctedFinal": {
+    "timestampUtc": "2026-10-07T20:48:39.657210+00:00",
+    "reviewedImages": [
+      {
+        "id": "return-items",
+        "version": "v1",
+        "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v1/return-items.png",
+        "sha256": "892e4d8de342c2d587a261c9f664cec0b54d7b89b1ef5cb86b91403b7375e335",
+        "dimensionsPx": [
+          368,
+          576
+        ],
+        "targetArtworkSizeCssPx": [
+          320,
+          480
+        ],
+        "actuallyViewed": true,
+        "viewMethod": "view_image; native raster presented in conversation",
+        "timestampUtc": "2026-10-07T20:48:39.657124+00:00",
+        "observations": [
+          "White backing behind 破損なし and 破損あり separates each label from its vertical route line. Both branches and destinations remain clear.",
+          "入口 leads to 返却確認台; 破損なし leads to 返却箱：空, which explicitly remains usable; 破損あり leads to 相談窓口. No fine or return refusal is introduced."
+        ],
+        "readability": {
+          "score": 4,
+          "reason": "All labels remain fully readable at the native displayed target artwork size. White condition-label backing provides clear separation from route strokes; no clipping is visible."
+        },
+        "exactLabels": {
+          "required": [
+            "入口",
+            "返却確認台",
+            "破損なし",
+            "返却箱：空",
+            "破損あり",
+            "相談窓口"
+          ],
+          "allPresent": true,
+          "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+        },
+        "factualChecks": [
+          {
+            "id": "fact-01",
+            "assertion": "入口から確認台に進む。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-02",
+            "assertion": "破損なしは返却箱へ進む。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-03",
+            "assertion": "破損ありは相談窓口へ進む。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-04",
+            "assertion": "空の箱は利用可能。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-05",
+            "assertion": "罰金・返却拒否を創作していない。",
+            "result": "pass"
+          }
+        ],
+        "factualOmissions": [],
+        "factualInventions": [],
+        "factualReversals": [],
+        "characterEffect": {
+          "score": 2,
+          "changeFromInitial": 0,
+          "reason": "The local white condition-label backing does not materially change the paper-card character. Tilt and offset shadows remain, while repeating texture and substantial overlapping paper collage remain absent."
+        },
+        "fontAndScaleUncertainty": {
+          "actualFontVerified": false,
+          "fontObservation": "Japanese glyphs are legible and sans-serif with no visible missing-glyph boxes. Raster inspection cannot establish the installed or selected font, fallback family, or metrics.",
+          "scaleObservation": "Capture dimensions exceed each target artwork by 48 px horizontally and 96 px vertically. The visibly inset artwork matches the stated target dimensions at native raster presentation; surrounding placement captions were excluded from artwork readability scoring. Browser CSS scale/device pixel ratio was not independently inspected, as other resources and browser access were prohibited.",
+          "targetAssessment": "Judgments use the native raster presentation of the supplied PNGs, without magnification-dependent reading."
+        }
+      },
+      {
+        "id": "long-labels",
+        "version": "v2",
+        "path": "/workspace/diagram-evidence/pilot-runs/p201/captures/v2/long-labels.png",
+        "sha256": "825da33e7e404a1cba5323cdcee09231510dfc91d226e2bf8bbfb1ac22f1533b",
+        "dimensionsPx": [
+          528,
+          456
+        ],
+        "targetArtworkSizeCssPx": [
+          480,
+          360
+        ],
+        "actuallyViewed": true,
+        "viewMethod": "view_image; native raster presented in conversation",
+        "timestampUtc": "2026-10-07T20:48:39.657205+00:00",
+        "observations": [
+          "White backing behind 不足項目あり separates the orange condition label from the return-route line. All three full role names and 確認完了 remain legible.",
+          "Preparation leads to confirmation; the 不足項目あり return route points to preparation; 確認完了 leads to reception. Directions and conditions remain preserved."
+        ],
+        "readability": {
+          "score": 4,
+          "reason": "All labels remain fully readable at the native displayed target artwork size. White condition-label backing provides clear separation from route strokes; no clipping is visible."
+        },
+        "exactLabels": {
+          "required": [
+            "地域交流イベント開催準備担当",
+            "参加申込内容の確認・連絡担当",
+            "当日受付と案内の担当",
+            "不足項目あり",
+            "確認完了"
+          ],
+          "allPresent": true,
+          "comparisonMethod": "Visual reading, joining allowed line breaks and ignoring typographic spacing around punctuation; no OCR or source inspection."
+        },
+        "factualChecks": [
+          {
+            "id": "fact-01",
+            "assertion": "三担当の文字が完全に保存されている。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-02",
+            "assertion": "最初は準備から確認に渡す。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-03",
+            "assertion": "不足時だけ準備へ戻す。",
+            "result": "pass"
+          },
+          {
+            "id": "fact-04",
+            "assertion": "完了時だけ受付へ渡す。",
+            "result": "pass"
+          }
+        ],
+        "factualOmissions": [],
+        "factualInventions": [],
+        "factualReversals": [],
+        "characterEffect": {
+          "score": 2,
+          "changeFromInitial": 0,
+          "reason": "The local white condition-label backing does not materially change the paper-card character. Tilt and offset shadows remain, while repeating texture and substantial overlapping paper collage remain absent."
+        },
+        "fontAndScaleUncertainty": {
+          "actualFontVerified": false,
+          "fontObservation": "Japanese glyphs are legible and sans-serif with no visible missing-glyph boxes. Raster inspection cannot establish the installed or selected font, fallback family, or metrics.",
+          "scaleObservation": "Capture dimensions exceed each target artwork by 48 px horizontally and 96 px vertically. The visibly inset artwork matches the stated target dimensions at native raster presentation; surrounding placement captions were excluded from artwork readability scoring. Browser CSS scale/device pixel ratio was not independently inspected, as other resources and browser access were prohibited.",
+          "targetAssessment": "Judgments use the native raster presentation of the supplied PNGs, without magnification-dependent reading."
+        }
+      }
+    ],
+    "scope": "Only the supplied corrected return-items v1 and long-labels v2 captures were newly inspected. All initial judgments above are preserved.",
+    "batchEffect": {
+      "readability": 4,
+      "consistency": 4,
+      "character": 2,
+      "reason": "These localized label backings preserve the shared card construction and clarify route-label separation without restoring the missing patterned collage. The remaining three images were not reopened in this correction review."
+    },
+    "provenanceBoundary": "Parent reported the other three source/PNG artifacts unchanged and final return-items byte-identical to v1. This reviewer did not inspect source or independently verify those identity claims."
+  }
+}

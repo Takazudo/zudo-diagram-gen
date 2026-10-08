@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-pencil-notebook",
+  "title": "交差する鉛筆の構成",
+  "toneId": "pencil-notebook",
+  "description": "Principal irregular backing contours and displaced retraces carry a seeded crossed pencil field; clear upright Japanese label planes preserve the actual process and distinct states. Fresh r02 exploration, not a selected refinement.",
+  "order": 13,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "f65b71c9081b40a4b6655302a28dddf6ea6507d5a3404315911860277b0c6247",
+    "dark": "a686b0a7f2e977e8a7d947bf78fe55d120a0379ed3586e6eb2d6e0bef0a546da"
+  }
+}

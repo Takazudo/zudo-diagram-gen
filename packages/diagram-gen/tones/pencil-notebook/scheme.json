@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "toneId": "pencil-notebook",
+  "toneRevision": "pilot-4",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1.7,
+      "connector": 1.9,
+      "detail": 1.1,
+      "hatch": 1.1,
+      "rule": 1
+    },
+    "radii": {
+      "card": 0,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "trace": 0.8,
+      "hatch": 0.55,
+      "rule": 0.35
+    },
+    "layers": {
+      "trace": {
+        "dx": 2.4,
+        "dy": -1.8,
+        "opacity": 0.8
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#4B4943",
+      "surface": "#FAF6EE",
+      "border": "#DDDCD1",
+      "accent": "#A76955",
+      "deep": "#A79C86",
+      "warning": "#AA624F"
+    },
+    "dark": {
+      "ink": "#E0DFD2",
+      "surface": "#303430",
+      "border": "#454B44",
+      "accent": "#D2937B",
+      "deep": "#969D8E",
+      "warning": "#EABBA8"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "seeded-pencil-field",
+    "seed": 1307,
+    "amplitude": 1.4,
+    "frequency": 8
+  },
+  "composition": {
+    "arrows": "Principal routes visibly belong to the pencil construction: an imperfect open direction mark and lighter displaced retrace remain clear at placement size. Gently bowed or locally irregular segments can express the hand; straight and orthogonal segments remain valid when the brief needs them. No route may cross exact Japanese labels or reverse a factual relation.",
+    "people": "An imperfect head loop and hand-drawn shoulders; the displaced lighter trace is a sketch mark, never a second person.",
+    "empty": "An irregular retraced open chair with a visible vacant seat and explicit empty label. A chair-back hatch is optional detail; broader crossed texture belongs on the enclosing label/backing plane, never in the vacant seat.",
+    "pending": "Use a retraced clock next to the waiting object and retain its pending label.",
+    "emphasis": "Principal explanatory objects carry the pencil material through imperfect retraced contours and a visible crossed region attached to their meaningful backing. A detached notebook header/footer hatch alone is insufficient. Keep a clear label plane and readable label/detail emphasis; a loose underline is optional.",
+    "warning": "Use a handwritten-looking contour around an upright warning label; preserve the exact text."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Principal explanatory objects and their meaningful backing visibly carry pencil construction: imperfect major contours with a lighter displaced retrace plus an exposed distributed crossed region. A detached page-header/footer hatch alone does not carry this construction. Neighboring diagonals form real interior crossings, not isolated X glyphs or tips. This scheme supersedes conflicting sparse/removable-texture legacy recipe advice. Keep Japanese labels upright and exact, vacant interiors clear, and counts intact; move or resize backing/label planes as needed."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use seeded-pencil-field with fixed seed controlling line-position jitter, never model generation. Frequency is diagonal intervals per canonical 100-unit span; repeat opposing families across the authored field dimensions without fitting one finite patch into a wide viewport. Keep crossings exposed and text clear. Legacy seeded-pencil-hatch and seeded-pencil-crosshatch algorithms remain unchanged for prior reproduction."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Notebook ruling stays subordinate to every label and essential route; remove ruling locally behind text."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Use readable label/detail emphasis from the declared typography roles. Font weight and scale distinguish principal labels from supporting notes; uniform weight may flatten emphasis even when text is readable. Keep Japanese upright and arrowheads unambiguous. Express the hand in object/route geometry, not distorted glyphs."
+      },
+      {
+        "id": "field-transfer",
+        "description": "Attach a contiguous crossing field to meaningful principal-object backing, not only to detached page decoration. At short wide sizes expose a lateral or other region with enough depth for neighboring crossings. Notebook ruling remains subordinate; empty objects retain clear vacant interiors. Exact field shape, cell count and area share stay flexible."
+      },
+      {
+        "id": "route-construction",
+        "description": "Keep the displaced lighter retrace visible on major contours and meaningful routes at actual placement. Use gentle bends or uneven open drawing where they clarify the route. Straight segments and orthogonal turns may remain; this is neither an all-curved-routing mandate nor a numeric skew quota."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      },
+      {
+        "id": "texture-placement",
+        "description": "Choose field location, extent, cell spacing, contour variation and wrapping for the brief. Fine strokes may be simplified locally, but keep a distributed crossing region; no fixed stroke count, motif or coverage percentage is a visual gate. Original Pattern/Text and PNG content is not required."
+      }
+    ]
+  }
+}

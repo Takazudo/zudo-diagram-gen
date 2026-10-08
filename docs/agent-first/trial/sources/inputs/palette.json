@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "light": {
+    "ink": "#203040",
+    "surface": "#FFFFFF",
+    "border": "#708090",
+    "accent": "#267D75",
+    "deep": "#174C66",
+    "warning": "#B85A18"
+  },
+  "dark": {
+    "ink": "#F0F4F8",
+    "surface": "#15212D",
+    "border": "#91A4B5",
+    "accent": "#68C4AF",
+    "deep": "#85B9DF",
+    "warning": "#FFC078"
+  }
+}

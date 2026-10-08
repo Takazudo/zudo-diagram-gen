@@ -1,0 +1,24 @@
+{
+  "correction": "correction-1",
+  "feedbackAddressed": "The long-labels return connector crossed 不足項目あり.",
+  "deliberateDepartures": [
+    "Moved the return route vertical segment from x=68 to x=30, and moved the label pill and its text rightward to x=43 and x=88 respectively. Retained the 5px rounded warning connector, exact label, route direction, all facts, typography and palette.",
+    "The other four SVGs are byte-exact copies of the initial outputs. Original outputs remain unchanged."
+  ],
+  "resourcesActuallyUsed": [
+    "outputs/long-labels.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/pending-queue.svg",
+    "outputs/return-items.svg",
+    "Parent-supplied correction feedback from actual P05 captures"
+  ],
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "Four unchanged SVG copies verified byte for byte.",
+    "Local Noto Sans CJK JP measurement places the shortage label at x=46..130; return connector stroke extends to x=32.5, leaving 13.5 CSS pixels between the stroke and text advance bounds."
+  ],
+  "limitations": [
+    "No rendered visual acceptance claimed. No browser or evaluator run performed for this correction."
+  ]
+}

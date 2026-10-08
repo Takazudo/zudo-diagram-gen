@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "return-items",
+  "title": "返却場所への案内",
+  "target": {
+    "width": 320,
+    "height": 480,
+    "label": "portrait"
+  },
+  "toneCollectionVersion": "0.1.0"
+}

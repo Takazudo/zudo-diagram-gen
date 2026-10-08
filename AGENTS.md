@@ -48,7 +48,7 @@ Do not add tests that simply duplicate a constant or a reversible copy edit. Tes
 
 ## Documentation and scope
 
-Distinguish implemented app functionality from the documented future `/diagram-gen` and `/my-diagram-gen` skill contract. There are no installable Claude Code skills in this first app handoff.
+The engine archive supplies the core `skills/diagram-gen/SKILL.md` and relative references. Availability is not personal installation or native automatic discovery: use explicit file loading or a verified project-local host mechanism. The personal `/my-diagram-gen` wrapper remains outside this delivery. CLI commands create/inspect/resume files and never generate artwork or call a model. Browser review transfer, semantic/visual inspection and explicit project style adoption are separate boundaries.
 
 Record every user-visible change as a changelog entry under `src/content/docs/changelog/`.
 

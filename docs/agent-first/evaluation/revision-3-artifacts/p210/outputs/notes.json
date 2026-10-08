@@ -1,0 +1,64 @@
+{
+  "tone": "pencil-notebook",
+  "theme": "light",
+  "resourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/example-light.png",
+    "inputs/tone/pencil-notebook/dark.svg",
+    "inputs/tone/pencil-notebook/light.svg",
+    "inputs/tone/pencil-notebook/recipe.md",
+    "inputs/tone/recipe.json",
+    "inputs/tone/scheme.json",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md"
+  ],
+  "originalExamplePNGsViewed": [
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "detail": "The explicit common six-role light palette replaces the warm sample and scheme palette. Declared Noto Sans CJK JP, sans-serif replaces sample Latin handwritten fonts. Text remains upright."
+    },
+    {
+      "scope": "all",
+      "detail": "Geometry, label sizes, and connector routes follow each target aspect ratio, rather than scaling the 720×400 reference page. The supplied pilot-3 scheme takes precedence over sparse/removable texture advice: each diagram retains an exposed distributed crossed-pencil field with seeded position jitter (1307), 12.5-unit diagonal intervals, and opposing intersecting families."
+    },
+    {
+      "scope": "empty-seats and return-items",
+      "detail": "Crossed fields occupy surrounding backing planes; vacant chair seats and the empty return box interior remain untextured. Compact labels are 14–15 CSS px; essential labels elsewhere are 16–22 CSS px."
+    }
+  ],
+  "fontEvidence": {
+    "systemMatch": "fc-match returned NotoSansCJK-Regular.ttc, family Noto Sans CJK JP, Regular",
+    "uncertainty": "Font files are not embedded. Actual rendering and fallback glyph selection depend on the SVG viewer; final rendered output was not inspected."
+  },
+  "checks": {
+    "xml": "All five outputs parsed with Python ElementTree",
+    "facts": "Authored against the five supplied factual checklists; visible exact labels checked after creation",
+    "limitations": "No evaluator feedback, visual acceptance, or user approval was inferred. No browser or network used."
+  }
+}

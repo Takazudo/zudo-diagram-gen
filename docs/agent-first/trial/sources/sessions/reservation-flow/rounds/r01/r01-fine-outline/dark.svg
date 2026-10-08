@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc"><title id="title">予約の確定と変更</title><desc id="desc">Object-led open contours with generous routes. Original P00 facts; fresh variant, no selection or refinement.</desc>
+<metadata>{&quot;ink&quot;: &quot;#F0F4F8&quot;, &quot;surface&quot;: &quot;#15212D&quot;, &quot;border&quot;: &quot;#91A4B5&quot;, &quot;accent&quot;: &quot;#68C4AF&quot;, &quot;deep&quot;: &quot;#85B9DF&quot;, &quot;warning&quot;: &quot;#FFC078&quot;}</metadata>
+<rect width="640" height="320" fill="#15212D"/>
+<text x="100" y="64" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="100" dy="0">申請</tspan></text>
+<rect x="75" y="88" width="50" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M84 102H116M84 112H116M84 122H108" fill="none" stroke="#91A4B5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="320" y="64" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="320" dy="0">確認待ち</tspan></text>
+<rect x="295" y="88" width="50" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M304 102H336M304 112H336M304 122H328" fill="none" stroke="#91A4B5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="540" y="64" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="540" dy="0">確定</tspan></text>
+<rect x="515" y="88" width="50" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M524 102H556M524 112H556M524 122H548" fill="none" stroke="#91A4B5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="347" cy="132" r="14" fill="none" stroke="#F0F4F8" stroke-width="1.6"/>
+<path d="M347 123.6V132L353.3 136.2" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M528 116L537 125L555 103" fill="none" stroke="#68C4AF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M142 119H275" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M268 113L275 119L268 125" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M365 119H495" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M488 113L495 119L488 125" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="320" cy="191" r="4" fill="#68C4AF" stroke="#68C4AF" stroke-width="0"/>
+<path d="M540 159V226Q540 240 526 240H334Q320 240 320 226V166" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M314 173L320 166L326 173" fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="438" y="274" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="400" fill="#F0F4F8" text-anchor="middle"><tspan x="438" dy="0">日時を変更</tspan></text>
+<text x="320" y="301" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#91A4B5" text-anchor="middle"><tspan x="320" dy="0">確認待ちは予約確定ではない</tspan></text>
+</svg>

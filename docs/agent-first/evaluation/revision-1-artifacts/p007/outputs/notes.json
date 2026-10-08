@@ -1,0 +1,62 @@
+{
+  "tone": "paper-layers",
+  "theme": "light",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "deliberateDepartures": [
+    "The common six-role palette replaces the warm sample palette; surface remains white.",
+    "Essential Japanese text stays upright over rotated sheets. Rotations are restrained to protect target-size readability.",
+    "Sheet edges use a thin border in addition to offset shadows for separation on white.",
+    "No sample pattern motif or decorative serif lettering is added because it would introduce unrelated visual content.",
+    "Schemes are adapted to each CSS target, with 13–24 px essential text instead of the reference 32-unit label scale.",
+    "Long Japanese role labels use permitted line breaks without abbreviation.",
+    "Placements are delivered as target-size SVGs for contain insertion into the declared slots; the surrounding host frame is not embedded."
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "embedded": false,
+    "actualRenderedFont": "Not determined; no browser or font inspection was performed under the snapshot-only boundary.",
+    "uncertainty": "Host font availability, substitution, and missing glyphs remain unverified."
+  },
+  "checks": [
+    "All five SVGs parsed as XML.",
+    "Exact labels are preserved as contiguous text or adjacent tspans; semantic descriptions preserve all locked relationships.",
+    "Each SVG has explicit target-sized viewBox, title and description.",
+    "No external resources, scripts, animation, or procedural texture."
+  ],
+  "limitations": [
+    "Both original PNGs were viewed; authored SVGs have not been visually rendered at target size.",
+    "No visual acceptance, evaluator feedback, or user approval is claimed."
+  ]
+}

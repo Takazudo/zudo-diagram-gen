@@ -1,0 +1,20 @@
+{
+  "correction": "Added white surface backing behind 破損なし and 破損あり so vertical branch connectors do not cross the text.",
+  "preserved": "All initial outputs remain unchanged. The other four correction SVGs are byte-identical copies. Branch paths, labels, facts, palette, font sizes and all other geometry remain unchanged.",
+  "resourcesActuallyUsed": [
+    "correction-1-feedback.txt",
+    "outputs/return-items.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/long-labels.svg",
+    "outputs/pending-queue.svg"
+  ],
+  "checks": [
+    "All five correction SVGs parse as XML.",
+    "Four unchanged SVG copies compared byte-identical.",
+    "Removing only the two added backing rectangles reproduces the original return-items source exactly."
+  ],
+  "limitations": [
+    "No browser rendering or evaluator acceptance check performed."
+  ]
+}

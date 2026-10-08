@@ -1,0 +1,51 @@
+{
+  "tone": "paper-layers",
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "Used common palette instead of warm example palette; white sheets and translucent border-colored shadows provide layer separation.",
+    "Used Noto Sans CJK JP, sans-serif instead of example serif typography, as required.",
+    "Rotated backing sheets only; front labels remain horizontal for Japanese readability at each target size.",
+    "Used restrained folded corners and an empty box motif rather than the sample repeating pattern; workflow states and relationships replace the sample composition story.",
+    "Wrapped the first two long担当 names without shortening their text."
+  ],
+  "fontUncertainty": "Declared Noto Sans CJK JP, sans-serif on every SVG. Fonts are not embedded; actual font selection and missing glyph behavior depend on the viewing environment and were not verified by raster rendering.",
+  "checksPerformed": [
+    "Parsed all five SVGs as XML.",
+    "Checked required labels against concatenated SVG text.",
+    "Checked target dimensions and standalone restrictions."
+  ],
+  "limitations": [
+    "No output browser or raster rendering performed; visual acceptance and user approval are not claimed."
+  ]
+}

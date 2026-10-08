@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "toneId": "fine-outline",
+  "toneRevision": "pilot-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [
+      0,
+      0,
+      720,
+      400
+    ],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1.6,
+      "connector": 2.8,
+      "detail": 1.6
+    },
+    "radii": {
+      "card": 4,
+      "head": 12
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "quiet": 0.35
+    },
+    "layers": {
+      "trace": {
+        "dx": 0,
+        "dy": 0,
+        "opacity": 1
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#253235",
+      "surface": "#FCFCFA",
+      "border": "#B7C0C0",
+      "accent": "#376E61",
+      "deep": "#9FB9AE",
+      "warning": "#A65E42"
+    },
+    "dark": {
+      "ink": "#E1EAE6",
+      "surface": "#172023",
+      "border": "#586965",
+      "accent": "#9CCEBA",
+      "deep": "#476359",
+      "warning": "#E5AD90"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 32,
+      "minCssPx": 12,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 28,
+      "minCssPx": 12,
+      "fontWeight": 400
+    }
+  },
+  "texture": {
+    "kind": "none",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "An open routed contour with a distinct open arrowhead; join contributing inputs deliberately.",
+    "people": "An open head circle over an unfilled shoulder contour; omit face and gender cues.",
+    "empty": "An outlined chair with an unobstructed seat and an explicit empty label; no person silhouette.",
+    "pending": "A clock beside the pending object with an explicit pending label; never imply completion.",
+    "emphasis": "Use one small filled accent or junction rather than filling every object.",
+    "warning": "Combine a warning label and distinct accent mark; do not encode a fact only with color."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Keep open contours and quiet unfilled interiors; accent only the teaching point."
+      },
+      {
+        "id": "facts-and-labels",
+        "description": "Preserve exact brief labels, locked relations and factual counts. Empty, pending and complete remain separate states. Inspect Japanese text at the actual placement."
+      },
+      {
+        "id": "palette-roles",
+        "description": "Use the six semantic palette roles; every kit color-bearing element declares its role. Palette changes do not change geometry."
+      },
+      {
+        "id": "texture-control",
+        "description": "Use the scheme texture and fixed seed. Do not add random noise or distort text; no texture means no procedural texture."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reading-hierarchy",
+        "description": "Use upright labels outside silhouettes and preserve generous negative space."
+      },
+      {
+        "id": "tone-emphasis",
+        "description": "Connector stroke may use the stronger connector role at narrow placement; inspect before reducing contours."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Panel count, object placement, arrow routing and line breaks follow the actual brief and aspect ratio; the reference is not a page template."
+      },
+      {
+        "id": "hand-geometry",
+        "description": "Hand-author tone-native variations or omit nonessential detail. Explain departures from preferred rules and retain required facts."
+      },
+      {
+        "id": "glyph-style",
+        "description": "Use the declared Japanese font for essential labels; decorative Latin lettering may reflect the original reference when it remains readable."
+      }
+    ]
+  }
+}

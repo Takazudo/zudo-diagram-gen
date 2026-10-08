@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Original invented Japanese teaching scenarios authored for P00; no private deck/manual/screenshots or supplied third-party assets.",
+  "palette": "palette.json",
+  "language": "ja",
+  "fonts": ["Noto Sans CJK JP", "sans-serif"],
+  "briefs": [
+    {
+      "id": "reservation-flow",
+      "order": 1,
+      "brief": "briefs/reservation-flow/brief.md",
+      "session": "briefs/reservation-flow/session.json",
+      "placement": "briefs/reservation-flow/placement.json",
+      "checklist": "briefs/reservation-flow/checklist.json"
+    },
+    {
+      "id": "empty-seats",
+      "order": 2,
+      "brief": "briefs/empty-seats/brief.md",
+      "session": "briefs/empty-seats/session.json",
+      "placement": "briefs/empty-seats/placement.json",
+      "checklist": "briefs/empty-seats/checklist.json"
+    },
+    {
+      "id": "long-labels",
+      "order": 3,
+      "brief": "briefs/long-labels/brief.md",
+      "session": "briefs/long-labels/session.json",
+      "placement": "briefs/long-labels/placement.json",
+      "checklist": "briefs/long-labels/checklist.json"
+    },
+    {
+      "id": "pending-queue",
+      "order": 4,
+      "brief": "briefs/pending-queue/brief.md",
+      "session": "briefs/pending-queue/session.json",
+      "placement": "briefs/pending-queue/placement.json",
+      "checklist": "briefs/pending-queue/checklist.json"
+    },
+    {
+      "id": "return-items",
+      "order": 5,
+      "brief": "briefs/return-items/brief.md",
+      "session": "briefs/return-items/session.json",
+      "placement": "briefs/return-items/placement.json",
+      "checklist": "briefs/return-items/checklist.json"
+    }
+  ]
+}

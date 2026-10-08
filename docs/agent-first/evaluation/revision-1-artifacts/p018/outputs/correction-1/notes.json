@@ -1,0 +1,86 @@
+{
+  "tone": "soft-fill",
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "description": "Used common palette roles instead of original reference and scheme sample colors, as required. Pale surfaces use opacity of the semantic roles over white. Scaled corner radii and typography to each actual CSS slot; no repeating pattern because the briefs do not describe patterned ground."
+    },
+    {
+      "scope": "empty-seats",
+      "description": "Both B and C receive matching accent treatments because both seats are equally selectable; one accent destination would suggest a false preference."
+    },
+    {
+      "scope": "long-labels",
+      "description": "Wrapped the two long role labels without omitting characters. Routed the warning return separately from the main downward handoff."
+    },
+    {
+      "scope": "pending-queue",
+      "description": "Accent marks the completed review rather than the unreached publication destination, to avoid implying publication is already complete."
+    },
+    {
+      "scope": "return-items",
+      "description": "Used a broad empty box silhouette rather than the scheme chair motif because the specified empty object is a return box."
+    }
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "common/palette.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md",
+    "tone/soft-fill/dark.svg",
+    "tone/soft-fill/light.svg",
+    "tone/soft-fill/recipe.md"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "NotoSansCJK-Regular.ttc — Noto Sans CJK JP Regular",
+    "limitations": "Font is referenced, not embedded; the viewing host may substitute sans-serif. Actual final-host glyph coverage and weight selection are not verified."
+  },
+  "verification": {
+    "xml": "All five SVGs parsed successfully; standalone images with explicit viewBox, title and description.",
+    "limits": "Original example PNGs were actually viewed. Outputs passed structural XML and exact visible-label checks. Local raster previews could not be produced: Python CairoSVG is absent and ImageMagick SVG conversion requires absent rsvg-convert. No packages installed. No output visual acceptance or user approval is asserted."
+  },
+  "correction": {
+    "change": "Added an opaque surface-role backing beneath the existing translucent warning pill labeled 破損あり. This masks the branch stroke below the pill without changing its route, label, palette roles, or relationships.",
+    "unchangedOutputs": [
+      "reservation-flow.svg",
+      "empty-seats.svg",
+      "long-labels.svg",
+      "pending-queue.svg"
+    ],
+    "initialArtifacts": "Retained unchanged in parent outputs directory.",
+    "resourcesUsedThisTurn": [
+      "outputs/return-items.svg",
+      "outputs/notes.json",
+      "outputs/reservation-flow.svg",
+      "outputs/empty-seats.svg",
+      "outputs/long-labels.svg",
+      "outputs/pending-queue.svg"
+    ],
+    "verification": "All five correction SVGs parsed. Four unaffected SVGs are byte-identical to the initial files. All initial SVG bytes remain unchanged. Return-items visible text is identical to its initial version. Corrected raster appearance has not been inspected in this turn."
+  }
+}

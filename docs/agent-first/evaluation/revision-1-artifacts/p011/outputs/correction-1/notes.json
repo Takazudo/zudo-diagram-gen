@@ -1,0 +1,78 @@
+{
+  "deliberateDepartures": [
+    "The common six-role light palette replaces the reference warm colors; low-opacity border backing supplies paper separation on white.",
+    "Japanese labels remain upright while sheet geometry uses restrained rotations. No serif sample text or decorative repeating pattern is carried into these factual diagrams.",
+    "Kit construction informs hand-authored cut-paper chair, clock and check marks; geometry is resized for each CSS target.",
+    "Output dimensions match the placement slot, omitting the surrounding host frame and context title."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/paper-layers/recipe.md",
+    "tone/paper-layers/light.svg",
+    "tone/paper-layers/dark.svg",
+    "tone/example-light.png",
+    "tone/example-dark.png",
+    "tone/scheme.json",
+    "tone/kit.svg",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "actualRendering": "Not rendered locally; actual selected font, fallback and missing glyph behavior are unverified. No fonts embedded."
+  },
+  "checks": [
+    "All five SVGs parsed as XML; explicit viewBox and dimensions match session CSS targets; accessible title and description present.",
+    "All exact checklist labels match visible text, joining consecutive tspans for wrapped Japanese labels.",
+    "Declared text sizes are at least 13 CSS pixels. No script, external image, font resource, animation or network reference.",
+    "Correction SVGs parse as XML; all visible text and root dimensions are identical to originals. Three untouched diagrams are byte-identical.",
+    "Connector positions provide nominal 12–14px separation from affected full-width Japanese text extents, retaining destinations and semantic colors."
+  ],
+  "limitations": [
+    "No browser or visual acceptance evaluation was performed. Target-size label readability and actual font rendering remain unverified.",
+    "CairoSVG is unavailable in this environment; package installation is prohibited, so target-size rendering was not performed."
+  ],
+  "approval": "No user approval or visual acceptance inferred.",
+  "correction": "Correction 1 moves connector vertical segments clear of Japanese branch labels. Original five SVGs remain preserved.",
+  "changes": {
+    "long-labels": "Moved warning return vertical segment from x=46 to x=24, left of 不足項目あり.",
+    "return-items": "Moved branch vertical segments from x=80 to x=30 and x=245 to x=291, outside the 破損なし and 破損あり label columns.",
+    "unchanged": "reservation-flow.svg, empty-seats.svg and pending-queue.svg copied byte-for-byte."
+  },
+  "correctionResourcesActuallyUsed": [
+    "outputs/long-labels.svg",
+    "outputs/return-items.svg",
+    "outputs/reservation-flow.svg",
+    "outputs/empty-seats.svg",
+    "outputs/pending-queue.svg",
+    "outputs/notes.json",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/return-items/checklist.json"
+  ],
+  "feedback": "Manager supplied two connector/label collision findings. No acceptance or self-score inferred."
+}

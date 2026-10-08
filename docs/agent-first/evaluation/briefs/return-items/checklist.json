@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "return-items",
+  "factualChecks": [
+    {
+      "id": "fact-01",
+      "assertion": "入口から確認台に進む。",
+      "required": true
+    },
+    {
+      "id": "fact-02",
+      "assertion": "破損なしは返却箱へ進む。",
+      "required": true
+    },
+    {
+      "id": "fact-03",
+      "assertion": "破損ありは相談窓口へ進む。",
+      "required": true
+    },
+    {
+      "id": "fact-04",
+      "assertion": "空の箱は利用可能。",
+      "required": true
+    },
+    {
+      "id": "fact-05",
+      "assertion": "罰金・返却拒否を創作していない。",
+      "required": true
+    }
+  ],
+  "exactLabels": ["入口", "返却確認台", "破損なし", "返却箱：空", "破損あり", "相談窓口"],
+  "visualChecks": [
+    "全ラベルを実際の配置サイズで読める。",
+    "文字と形が重ならず、枠で切れていない。",
+    "warningは警告、accentは強調を保つ。",
+    "空・待機・完了の意味を色だけに頼らず区別できる。"
+  ],
+  "provenance": "Original P00 invented scenario; no external asset."
+}

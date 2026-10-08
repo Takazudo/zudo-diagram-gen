@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" role="img" aria-labelledby="title desc"><title id="title">予約の確定と変更</title><desc id="desc">申請から確認待ちを経て確定する。確認待ちは未確定。日時を変更できるのは確定した予約だけで、変更申請は確認待ちに戻る。自動承認はない。</desc>
+<style>text{font-family:"Noto Sans CJK JP",sans-serif;fill:#203040}path{stroke-linecap:round;stroke-linejoin:round}</style>
+<rect x="0" y="0" width="640" height="320" fill="#FFFFFF" data-role="surface"/>
+<path d="M0 22 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 46 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 70 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 94 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 118 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 142 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 166 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 190 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 214 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 238 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 262 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 286 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M0 310 H640" fill="none" stroke="#708090" stroke-width="0.65" opacity="0.16" data-role="border" />
+<path d="M12 0 L14 320" fill="none" stroke="#267D75" stroke-width="0.8" opacity="0.25" data-role="accent" />
+<rect x="227.0" y="8" width="186" height="28" fill="#FFFFFF" data-role="surface"/>
+<text x="320" y="30" text-anchor="middle" font-size="22" font-weight="600" style="fill:#203040" data-role="ink">予約の確定と変更</text>
+<rect x="172.5" y="44" width="295" height="21" fill="#FFFFFF" data-role="surface"/>
+<text x="320" y="59" text-anchor="middle" font-size="15" font-weight="400" style="fill:#203040" data-role="ink">確認待ちは、まだ予約確定ではありません</text>
+<path d="M35 91 L164 90 L165 189 L36 190 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M37.4 89.2 L166 91.2 L163.8 191.2 L34.3 189" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<path d="M255 91 L384 90 L385 189 L256 190 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M257.4 89.2 L386 91.2 L383.8 191.2 L254.3 189" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<path d="M475 91 L604 90 L605 189 L476 190 Z" fill="#FFFFFF" stroke="#203040" stroke-width="1.7" opacity="1" data-role="ink" />
+<path d="M477.4 89.2 L606 91.2 L603.8 191.2 L474.3 189" fill="none" stroke="#708090" stroke-width="0.8" opacity="0.8" data-role="border" />
+<defs><clipPath id="field27"><rect x="480" y="95" width="120" height="89"/></clipPath></defs><g clip-path="url(#field27)">
+<path d="M366.21 94 L455.76 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M379.34 94 L467.97 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M390.80 94 L480.33 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M402.25 94 L490.87 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M416.94 94 L506.77 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M428.31 94 L518.57 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M440.95 94 L529.17 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M452.21 94 L539.97 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M467.03 94 L555.34 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M477.91 94 L568.20 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M490.49 94 L578.88 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M504.70 94 L592.50 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M515.28 94 L605.17 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M528.96 94 L616.98 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M542.01 94 L629.90 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M553.81 94 L643.27 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M567.18 94 L655.37 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M577.51 94 L667.18 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M591.92 94 L680.28 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M603.38 94 L693.59 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M615.39 94 L705.04 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M627.75 94 L717.37 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M640.54 94 L728.51 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M653.55 94 L743.60 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M665.70 94 L754.29 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M679.12 94 L767.29 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M692.39 94 L780.53 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M703.76 94 L791.77 185" fill="none" stroke="#708090" stroke-width="0.85" opacity="0.55" data-role="border" />
+<path d="M365.67 94 L276.48 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M378.14 94 L289.51 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M391.44 94 L303.11 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M402.12 94 L311.85 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M414.71 94 L324.79 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M427.33 94 L336.93 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M442.18 94 L353.28 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M453.34 94 L365.69 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M465.58 94 L377.07 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M479.77 94 L390.37 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M491.29 94 L402.92 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M502.26 94 L413.51 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M515.49 94 L426.27 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M527.76 94 L439.00 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M542.40 94 L452.84 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M553.21 94 L463.24 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M567.26 94 L476.89 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M577.29 94 L488.94 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M590.73 94 L501.66 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M604.50 94 L515.49 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M617.07 94 L527.35 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M627.63 94 L539.56 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M640.38 94 L550.70 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M654.36 94 L565.87 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M665.73 94 L576.76 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M678.06 94 L589.36 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M690.37 94 L602.64 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+<path d="M703.47 94 L613.29 185" fill="none" stroke="#267D75" stroke-width="0.85" opacity="0.55" data-role="accent" />
+</g>
+<rect x="486" y="126" width="108" height="35" fill="#FFFFFF" data-role="surface"/>
+<text x="100" y="147" text-anchor="middle" font-size="22" font-weight="600" style="fill:#203040" data-role="ink">申請</text>
+<text x="320" y="156" text-anchor="middle" font-size="21" font-weight="600" style="fill:#203040" data-role="ink">確認待ち</text>
+<path d="M329 117 C330 139 309 138 311 117 C310 95 330 96 329 117" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<path d="M330 116 C331 137 311 139 312 117" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.8" data-role="border" />
+<path d="M320 112 V117 L325 120" fill="none" stroke="#203040" stroke-width="1.5" opacity="1" data-role="ink" />
+<text x="540" y="150" text-anchor="middle" font-size="22" font-weight="600" style="fill:#267D75" data-role="accent">確定</text>
+<path d="M174 140 Q210 137 244 140" fill="none" stroke="#203040" stroke-width="1.9" opacity="1" data-role="ink" />
+<g transform="translate(1.5 -1.2)">
+<path d="M174 140 Q210 137 244 140" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.6" data-role="border" />
+</g>
+<path d="M235 134 L244 140 L234 146" fill="none" stroke="#203040" stroke-width="1.9" opacity="1" data-role="ink" />
+<path d="M394 140 Q432 137 464 140" fill="none" stroke="#203040" stroke-width="1.9" opacity="1" data-role="ink" />
+<g transform="translate(1.5 -1.2)">
+<path d="M394 140 Q432 137 464 140" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.6" data-role="border" />
+</g>
+<path d="M455 134 L464 140 L454 146" fill="none" stroke="#203040" stroke-width="1.9" opacity="1" data-role="ink" />
+<path d="M540 194 Q543 232 540 266 L320 269 L320 195" fill="none" stroke="#267D75" stroke-width="1.9" opacity="1" data-role="accent" />
+<g transform="translate(1.5 -1.2)">
+<path d="M540 194 Q543 232 540 266 L320 269 L320 195" fill="none" stroke="#708090" stroke-width="0.7" opacity="0.6" data-role="border" />
+</g>
+<path d="M314 204 L320 195 L326 205" fill="none" stroke="#267D75" stroke-width="1.9" opacity="1" data-role="accent" />
+<rect x="406.0" y="256" width="100" height="24" fill="#FFFFFF" data-role="surface"/>
+<text x="456" y="274" text-anchor="middle" font-size="18" font-weight="600" style="fill:#267D75" data-role="accent">日時を変更</text>
+<rect x="187.5" y="294" width="265" height="21" fill="#FFFFFF" data-role="surface"/>
+<text x="320" y="309" text-anchor="middle" font-size="15" font-weight="400" style="fill:#203040" data-role="ink">変更申請も確認が必要・自動承認なし</text>
+</svg>

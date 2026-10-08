@@ -1,0 +1,63 @@
+{
+  "tone": "pencil-notebook",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "originalExamplePngsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "Applied the explicit common light palette instead of the recipe sample cream/pencil palette. White ground and very faint border ruling preserve the notebook construction.",
+    "Used upright Noto Sans CJK JP text instead of the example handwritten Latin font and rotations.",
+    "Scaled label typography to each CSS target instead of carrying over 32/28 source units; essential labels range from 15 to 22 CSS pixels.",
+    "Used sparse seed-1307 hatch strokes only in unlabelled corners or chair backs, with no full-panel crosshatching.",
+    "Adapted the example composition layout to five brief-specific routes, keeping small displaced traces and open asymmetrical arrowheads."
+  ],
+  "fontStatus": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "fc-match resolved NotoSansCJK-Regular.ttc (Noto Sans CJK JP Regular)",
+    "actualRenderedFont": "Inkscape rendered the declared family with legible Japanese glyphs; fc-match resolves Noto Sans CJK JP. Exact renderer font substitution was not independently traced.",
+    "uncertainty": "Fonts are not embedded or distributed; receiving-host fallback and missing-glyph behavior remain unverified."
+  },
+  "checksPerformed": [
+    "All five SVGs parsed as XML before writing.",
+    "Manual coordinate and text-length review at declared CSS dimensions.",
+    "Exact text-node check found all locked labels in all five SVGs.",
+    "Rendered all five SVGs at their declared CSS dimensions using installed Inkscape through in-memory stdout PNGs; inspected each image.",
+    "Moved return branch labels above the split curves after own initial inspection to remove a line/text overlap."
+  ],
+  "limitations": [
+    "Receiving-host font substitution remains unverified; fonts are not embedded. Own rendering inspection is not evaluator acceptance or user approval."
+  ]
+}

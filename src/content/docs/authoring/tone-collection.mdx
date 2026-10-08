@@ -43,7 +43,7 @@ Some treatments have an intrinsically dark canvas, including blueprint, chalkboa
 
 ## Read the recipe and actual artwork
 
-The package stores its catalog at `tones/catalog.json`. Each tone directory contains a human-readable `recipe.md`, an editable `source.svg`, and explicit `light.svg` and `dark.svg` assets.
+The package stores its catalog at `tones/catalog.json`. Each tone directory contains a human-readable `recipe.md`, editable `source.svg`, explicit `light.svg`/`dark.svg`, and now complete version-one `scheme.json` and semantic `kit.svg`. Required local explanations remain offline. [Tone context and saved styles](/docs/authoring/tone-context/) gives palette/hash/kit contracts and all-24 completeness; legacy/custom session tones remain supported without fabricating missing capabilities.
 
 Each catalog entry records its name, family, summary, drawing recipe, useful applications, small-size considerations, reference paths, and source links. Read the compact catalog to choose likely references, then load the selected recipes and SVGs in detail. Run these commands in an [installed session](/docs/getting-started/first-session/):
 
@@ -53,7 +53,7 @@ pnpm exec zudo-diagram-gen tones show fine-outline
 pnpm exec zudo-diagram-gen tones show fine-outline --json
 ```
 
-`tones show` prints the recipe, small-size guidance, source links, and reference paths relative to the installed package's `tones` directory. Its `--json` output also includes both complete SVG examples. See the [CLI reference](/docs/reference/cli/) for command details.
+`tones show` prints resolved recipe, small-size guidance, source links, and reference paths relative to the installed package's `tones` directory. Its additive context includes local bundled meaning, scheme, kit inventory and hashes; `--json-version 1` wraps it in the stable machine envelope. Its `--json` output also includes both complete SVG examples. See the [CLI reference](/docs/reference/cli/) for command details.
 
 ## Choose references for the current explanation
 

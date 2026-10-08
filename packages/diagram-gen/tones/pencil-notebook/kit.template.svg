@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="kit-title kit-description">
+<title id="kit-title">pencil-notebook — pilot semantic kit</title>
+<desc id="kit-description">Original tone-native primitive inventory. A symbol is an object mark, not an assertion about the brief or user approval.</desc>
+<defs>
+<symbol id="pencil-crosshatch" viewBox="0 0 100 70">{{texture:hatch}}</symbol>
+<symbol id="notebook-ground" viewBox="0 0 200 120">
+<rect width="200" height="120" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<path d="M0 20H200M0 40H200M0 60H200M0 80H200M0 100H200" fill="none" data-palette-stroke="border" stroke="{{palette:border}}" stroke-width="{{scheme:geometry.strokeWidths.rule}}" opacity="{{scheme:geometry.opacities.rule}}"/>
+<path d="M14 0L15 120" fill="none" data-palette-stroke="accent" stroke="{{palette:accent}}" stroke-width="{{scheme:geometry.strokeWidths.rule}}" opacity="{{scheme:geometry.opacities.rule}}"/>
+</symbol>
+<symbol id="pencil-panel" viewBox="0 0 200 120">
+<use href="#notebook-ground" width="200" height="120"/>
+<path d="M21 11L185 8L183 111L19 113Z" data-palette-fill="surface" fill="{{palette:surface}}" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}"/>
+<path d="M21 11L185 8L183 111L19 113Z" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" opacity="{{scheme:geometry.layers.trace.opacity}}"/>
+<use href="#pencil-crosshatch" x="27" y="15" width="146" height="92"/>
+<path d="M83 26L179 23L178 93L81 96Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<path d="M91 96Q133 94 172 97" fill="none" data-palette-stroke="accent" stroke="{{palette:accent}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}"/>
+</symbol>
+<symbol id="pencil-crosshatch-wide" viewBox="0 0 300 100">{{texture:hatch-wide}}</symbol>
+<clipPath id="pencil-wide-backing-clip"><path d="M12 8L285 5L282 92L10 95Z"/></clipPath>
+<symbol id="pencil-panel-wide" viewBox="0 0 300 100">
+<path d="M12 8L285 5L282 92L10 95Z" data-palette-fill="surface" fill="{{palette:surface}}" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}"/>
+<path d="M12 8L285 5L282 92L10 95Z" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" opacity="{{scheme:geometry.layers.trace.opacity}}"/>
+<g clip-path="url(#pencil-wide-backing-clip)"><use href="#pencil-crosshatch-wide" x="19" y="11" width="264" height="88"/></g>
+<path d="M91 23L280 21L278 83L89 85Z" data-palette-fill="surface" fill="{{palette:surface}}"/>
+<path d="M100 87Q190 85 267 89" fill="none" data-palette-stroke="accent" stroke="{{palette:accent}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}"/>
+</symbol>
+<symbol id="person" viewBox="0 0 100 100">
+<path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="pin" viewBox="0 0 100 100">
+<path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="slot-card" viewBox="0 0 100 100">
+<path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="empty-seat" viewBox="0 0 100 100">
+<path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/><use href="#pencil-crosshatch" x="32" y="22" width="32" height="22"/>
+</symbol>
+<symbol id="arrow" viewBox="0 0 100 100">
+<path d="M12 65Q48 69 48 45Q47 28 84 29M73 18L87 30L74 42" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.connector}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 67Q45 72 46 46Q45 31 82 32M72 20L85 32L74 44" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" opacity="{{scheme:geometry.opacities.trace}}"/>
+</symbol>
+<symbol id="check" viewBox="0 0 100 100">
+<path d="M19 52L40 76L81 25" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 52L40 76L81 25" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 83Q53 86 80 79" fill="none" data-palette-stroke="accent" stroke="{{palette:accent}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}"/>
+</symbol>
+<symbol id="clock" viewBox="0 0 100 100">
+<path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" fill="none" data-palette-stroke="ink" stroke="{{palette:ink}}" stroke-width="{{scheme:geometry.strokeWidths.outline}}" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" transform="translate({{scheme:geometry.layers.trace.dx}} {{scheme:geometry.layers.trace.dy}})" opacity="{{scheme:geometry.layers.trace.opacity}}" fill="none" data-palette-stroke="deep" stroke="{{palette:deep}}" stroke-width="{{scheme:geometry.strokeWidths.detail}}" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#person" x="30" y="40" width="100" height="100"/>
+<text x="30" y="170" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">person</text>
+<use href="#pin" x="204" y="40" width="100" height="100"/>
+<text x="204" y="170" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">pin</text>
+<use href="#slot-card" x="378" y="40" width="100" height="100"/>
+<text x="378" y="170" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">slot-card</text>
+<use href="#empty-seat" x="552" y="40" width="100" height="100"/>
+<text x="552" y="170" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">empty-seat</text>
+<use href="#arrow" x="30" y="210" width="100" height="100"/>
+<text x="30" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">arrow</text>
+<use href="#check" x="204" y="210" width="100" height="100"/>
+<text x="204" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">check</text>
+<use href="#clock" x="378" y="210" width="100" height="100"/>
+<text x="378" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">clock</text>
+<use href="#pencil-panel" x="546" y="218" width="150" height="90"/>
+<text x="552" y="340" font-family="{{font:label}}" font-size="{{scheme:typography.detail.fontSize}}" data-palette-fill="ink" fill="{{palette:ink}}">field</text>
+</svg>

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "toneId": "luminous-glass",
+  "toneRevision": "rollout-1",
+  "collectionVersion": "0.1.0",
+  "coordinateSystem": {
+    "viewBox": [0, 0, 720, 400],
+    "units": "svg-user-units"
+  },
+  "geometry": {
+    "strokeWidths": {
+      "outline": 1.5,
+      "connector": 2.5,
+      "detail": 1.2
+    },
+    "radii": {
+      "card": 14,
+      "head": 17
+    },
+    "fills": {
+      "body": "surface",
+      "focus": "accent",
+      "subordinate": "deep"
+    },
+    "opacities": {
+      "solid": 1,
+      "wash": 0.24,
+      "secondary": 0.55,
+      "grain": 0.22
+    },
+    "layers": {
+      "offset": {
+        "dx": 7,
+        "dy": 8,
+        "opacity": 0.18
+      }
+    }
+  },
+  "palette": {
+    "light": {
+      "ink": "#F4F5FF",
+      "surface": "#111C31",
+      "border": "#6176A1",
+      "accent": "#74D5DF",
+      "deep": "#C7AAEF",
+      "warning": "#74D5DF"
+    },
+    "dark": {
+      "ink": "#F3F5FF",
+      "surface": "#080F20",
+      "border": "#53688F",
+      "accent": "#83D4E1",
+      "deep": "#C4A9E8",
+      "warning": "#83D4E1"
+    }
+  },
+  "typography": {
+    "label": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 22,
+      "minCssPx": 18,
+      "fontWeight": 600
+    },
+    "detail": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 18,
+      "minCssPx": 16,
+      "fontWeight": 400
+    },
+    "specimen": {
+      "fontFamily": "'Noto Sans CJK JP', sans-serif",
+      "fontSize": 56,
+      "minCssPx": 24,
+      "fontWeight": 700
+    }
+  },
+  "texture": {
+    "kind": "translucent-plane-overlap",
+    "seed": 0,
+    "amplitude": 0,
+    "frequency": 0
+  },
+  "composition": {
+    "arrows": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. Direction has one explicit terminal head.",
+    "people": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. One head and one body identify one participant; decorative backing is not another person.",
+    "empty": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. Chair back, seat and legs remain visibly unoccupied; label vacancy explicitly.",
+    "pending": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. A clock mark accompanies an explicit pending label; not a completion check.",
+    "emphasis": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. Essential labels retain a clean surface and opaque ink.",
+    "warning": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes. Warning role is paired with explicit wording, not color alone."
+  },
+  "rules": {
+    "required": [
+      {
+        "id": "native-construction",
+        "description": "Overlapping translucent glass planes with selected luminous rim halos; crisp opaque labels sit outside the planes."
+      },
+      {
+        "id": "facts",
+        "description": "Retain exact labels, factual object counts and locked relations; vacancy, pending and complete are different states."
+      },
+      {
+        "id": "palette",
+        "description": "Use all six resolved semantic roles without changing geometry; restricted print tones may map roles to the same spot ink."
+      },
+      {
+        "id": "label-readability",
+        "description": "Keep essential Japanese text upright, outside dense texture or projected planes, and inspect at the actual placement."
+      }
+    ],
+    "preferred": [
+      {
+        "id": "reference-transfer",
+        "description": "Derive principal object construction from source.svg and its explicit light/dark exports, not one reusable generic icon family."
+      },
+      {
+        "id": "quiet-labels",
+        "description": "Keep decorative texture and overlaps in picture regions; leave the label reading route clear."
+      }
+    ],
+    "flexible": [
+      {
+        "id": "layout",
+        "description": "Object positions, line breaks, motif count and routing adapt to the brief and target."
+      },
+      {
+        "id": "small-detail",
+        "description": "Both original variants are intrinsically dark. Remapping to a light surface requires independent contrast review; small slots lose halo character."
+      }
+    ]
+  }
+}

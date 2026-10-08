@@ -1,6 +1,6 @@
 # create-zudo-diagram-gen
 
-Initialize a small local zfb app for comparing and refining SVG diagram candidates. The generated project stores the brief, session metadata, rounds, and SVG files. Its installed `@takazudo/zudo-diagram-gen` engine owns the review interface.
+Initialize a small local zfb app for comparing and refining SVG diagram candidates. The generated project stores the brief, session metadata, rounds, and SVG files. Its installed `@takazudo/zudo-diagram-gen` engine owns the review interface. The engine archive includes a core skill file and references, but you must explicitly load them or verify project-local host discovery; the initializer installs no personal skill.
 
 Requires Node.js 22–24 and pnpm. Package version `0.1.0` is a development handoff; this repository does not claim it has been published.
 
@@ -22,14 +22,7 @@ pnpm dev
 
 The `file:` dependency points at that tarball. Keep it available when reinstalling dependencies, or regenerate the workspace using its new absolute path. The initializer rejects relative local archive paths because the generated project's working directory differs from the caller's.
 
-## After publication
-
-These forms become available when the initializer and engine versions have actually been published:
-
-```bash
-pnpm create zudo-diagram-gen diagram-review --yes
-pnpm create zudo-diagram-gen diagram-review --name "Release help" --install
-```
+Registry convenience commands are outside the verified setup until publication is independently established. Use the local source or installed initializer archive.
 
 ## Options
 
@@ -38,6 +31,7 @@ pnpm create zudo-diagram-gen diagram-review --name "Release help" --install
 | `[destination]` | Relative or absolute output directory; defaults to `./diagram-session`. An existing directory must be empty. |
 | `--name <title>` | Human-readable session title; defaults to the destination basename. A safe slug becomes the package name. The persisted session ID adds a UUID so same-named workspaces have separate browser review state. |
 | `--engine-package <spec>` | Engine dependency override: version or tag, complete engine package spec, npm alias, or absolute existing `.tgz`/`.tar.gz` path. Default: `0.1.0`. |
+| `--project` | Create one installed multi-session host with a starter `sessions/diagram` registration. |
 | `--install` | Run `pnpm install` after generation. Default: disabled. |
 | `--yes`, `-y` | Accepted for automation. Initialization uses predictable defaults and never prompts; each new session receives a unique identity. |
 | `--help`, `-h` | Print usage. |
@@ -57,27 +51,40 @@ The initial `rounds/r01/round.json` contains no candidates. This is a valid empt
 | `pnpm check` | Validate session content and SVG assets. |
 | `pnpm build` | Build the static zfb app. |
 | `pnpm preview` | Preview the static build. |
-| `pnpm export:html` | Export a self-contained `diagram-review.html` for offline review. |
+| `pnpm export:html` | Fresh single/project hosts export a self-contained `exports/diagram-review.html`. |
+| `pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json` | Explicit safe output, also usable for older hosts. |
 
 ## Programmatic use
 
-```js
-import { createProject } from 'create-zudo-diagram-gen';
+Run in a bootstrap with the initializer archive installed. Set `INITIALIZER_API_OUT` to a new caller directory and `ENGINE_TGZ` to the existing absolute engine archive.
 
+<!-- reader:initializer-api -->
+```bash
+node --input-type=module <<'NODE'
+import { createProject } from 'create-zudo-diagram-gen';
+if (!process.env.INITIALIZER_API_OUT || !process.env.ENGINE_TGZ) throw new Error('Set INITIALIZER_API_OUT and ENGINE_TGZ explicitly.');
 const result = await createProject({
-  destination: '/absolute/path/to/review',
+  destination: process.env.INITIALIZER_API_OUT,
   name: 'Note history help',
-  enginePackage: '/absolute/path/to/engine.tgz',
-  install: false
+  enginePackage: process.env.ENGINE_TGZ,
+  install: false,
 });
+console.log(result.directory);
+NODE
 ```
 
 The function resolves relative destinations against `cwd` (optional) or the caller's current working directory. It returns the directory, slug name, unique `sessionId`, title, installation status, and generated relative file list. Keep that session ID when continuing or relocating a session; initialize a new session for independent work. Existing nonempty destinations and symbolic-link destinations are rejected before writing files. Installation failures retain the generated files and explain how to retry.
 
 ## Validation
 
+Run from the source checkout root with its installed development dependencies. The legacy package-local Node-test script is not the current Vitest entrypoint; use this command:
+
 ```bash
-node --test packages/create-zudo-diagram-gen/test/*.test.mjs
+pnpm exec vitest run packages/create-zudo-diagram-gen/test/initializer.test.mjs
 ```
 
 Tests cover initialization in paths containing spaces and quotes, destination protection, symlinks, engine archive references, predictable package metadata with unique session identity, explicit installation, CLI errors, and a valid empty session scaffold. Root integration checks also exercise a packed engine consumer.
+
+Use `--project` to create one installed host with `project.json` and a starter session under `sessions/diagram/`. The public API accepts `createProject({destination,project:true,sessions:[{slug,id?,title?,target?}]})` for multiple sessions. Session IDs stay stable and candidate IDs need only be unique within an ordinary session. The generated scaffold comes from the engine's authoritative source; the standalone initializer bundles that source without depending on an unpublished engine registry version.
+
+Older single-session hosts may have an export:html script targeting root diagram-review.html, now protected as source. Use the explicit exports/ command above or deliberately update your own script. Existing host scripts are not rewritten automatically.

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "reception-flow",
+  "title": "受付で案内カードを受け取る",
+  "target": {
+    "width": 480,
+    "height": 240,
+    "label": "horizontal"
+  },
+  "toneCollectionVersion": "0.1.0"
+}

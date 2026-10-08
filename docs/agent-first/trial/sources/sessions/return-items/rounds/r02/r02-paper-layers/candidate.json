@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r02-paper-layers",
+  "title": "切り紙の重なりで読む",
+  "toneId": "paper-layers",
+  "description": "Filled repeating cut-paper backing sheets stay exposed beside upright clear label sheets; routes, clocks, check marks and vacant objects preserve this session’s exact facts.",
+  "order": 12,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "10750a6525f28c610c2b37d44c7bb6deafa4872ae99db3091c4d9319ffefe92d",
+    "dark": "ac32869b7abebe0b717e20b985d011e394dd0c05e29b79b043e480190913fd58"
+  }
+}

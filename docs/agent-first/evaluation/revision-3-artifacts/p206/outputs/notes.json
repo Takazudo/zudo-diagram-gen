@@ -1,0 +1,55 @@
+{
+  "tone": "pencil-notebook",
+  "deliberate_departures": [
+    "Used the required common light palette and white surface instead of the examples’ warm paper and brown ink.",
+    "Used Noto Sans CJK JP, sans-serif instead of the sample handwriting font stack.",
+    "Kept text upright, with restrained doubled contours, faint notebook ruling, sparse corner hatching, and simple pencil arrows to protect Japanese readability at the supplied CSS sizes.",
+    "Simplified texture on compact cards. Long role names wrap without abbreviation. Pending states use dashed borders and explicit text; warning is reserved for the missing-item return and damage consultation branch."
+  ],
+  "supplied_resources_actually_used": [
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/inputs.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/palette.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/reservation-flow/brief.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/empty-seats/brief.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/long-labels/brief.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/pending-queue/brief.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/return-items/brief.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/reservation-flow/checklist.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/empty-seats/checklist.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/long-labels/checklist.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/pending-queue/checklist.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/return-items/checklist.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/reservation-flow/placement.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/empty-seats/placement.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/long-labels/placement.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/pending-queue/placement.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/return-items/placement.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/reservation-flow/session.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/empty-seats/session.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/long-labels/session.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/pending-queue/session.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/common/briefs/return-items/session.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/recipe.json",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/pencil-notebook/recipe.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/shared/composition-meaning.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/shared/provenance.md",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/pencil-notebook/light.svg",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/pencil-notebook/dark.svg",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/example-light.png",
+    "/workspace/diagram-evidence/pilot-runs/p206/inputs/tone/example-dark.png"
+  ],
+  "font": {
+    "declared_family": "Noto Sans CJK JP, sans-serif",
+    "local_font_match": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "uncertainty": "Fonts are not embedded. Other viewing environments can substitute sans-serif or lack Japanese glyphs. Local rendering uses the installed font; visual acceptance and approval are not inferred."
+  },
+  "limitations": [
+    "Only light SVGs requested and authored.",
+    "The supplied target slot dimensions are the SVG intrinsic sizes; outer host frames are not included."
+  ],
+  "own_checks": [
+    "Parsed each SVG as XML; checked every locked label against its checklist, concatenating wrapped tspans.",
+    "Checked text widths against SVG horizontal bounds with the locally matched Noto Sans CJK JP font.",
+    "Rendered all five with Inkscape at their intrinsic target CSS dimensions and viewed each PNG. Removed temporary check renders."
+  ]
+}

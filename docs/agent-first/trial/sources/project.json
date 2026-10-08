@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "public-five-session-diagram-trial-29608e4e-1c7d-4cfe-856c-103200e4bd71",
+  "title": "Public five-session diagram trial",
+  "sessions": [
+    {
+      "id": "reservation-flow",
+      "path": "sessions/reservation-flow",
+      "order": 0,
+      "placement": "sessions/reservation-flow/placement.json"
+    },
+    {
+      "id": "empty-seats",
+      "path": "sessions/empty-seats",
+      "order": 1,
+      "placement": "sessions/empty-seats/placement.json"
+    },
+    {
+      "id": "long-labels",
+      "path": "sessions/long-labels",
+      "order": 2,
+      "placement": "sessions/long-labels/placement.json"
+    },
+    {
+      "id": "pending-queue",
+      "path": "sessions/pending-queue",
+      "order": 3,
+      "placement": "sessions/pending-queue/placement.json"
+    },
+    {
+      "id": "return-items",
+      "path": "sessions/return-items",
+      "order": 4,
+      "placement": "sessions/return-items/placement.json"
+    }
+  ],
+  "comparisonSets": [
+    {
+      "id": "set-fine-outline",
+      "title": "fine-outline",
+      "toneId": "fine-outline",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "49677ddd377650ae13ac35251e0411e3a4dc39b4cbeb87147160c19ec4ae50a7"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "c18d759eff4d2cef01c1916db4ce12b727fa764b917d7488556d34b2070a3b2d"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "d8ad6aa1399c841bd282e48825a119c76226c5103afea8f0cbe5012fc79f595e"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "ddcd03bcec58efee4fba66115c45fc29dd629f53cadab16d003359cbe5ad7f1c"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-fine-outline",
+          "fingerprint": "60d9156318375491e40ce471a0844d9e68f4f8a593437876ea833bb8942e0430"
+        }
+      ]
+    },
+    {
+      "id": "set-soft-fill",
+      "title": "soft-fill",
+      "toneId": "soft-fill",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-soft-fill",
+          "fingerprint": "13f2a9a0005113999ca5540855b21abb6814d6157df2e61495f14b6c27c66225"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-soft-fill",
+          "fingerprint": "58ade0593103578cced66786d92c601049fdd9511e9933e41518b9a37809bf23"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-soft-fill",
+          "fingerprint": "375b18d38cd1d3d7bec5628fae7ecd49793a9766afe4ef6023a46b1b5759d8af"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-soft-fill",
+          "fingerprint": "44bc647a39dcabb267cf6bc40002f245a4c7500739e76e9b7d342b52e10470bd"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-soft-fill",
+          "fingerprint": "cb1d8cb228af2d38f8c449fb591d7db4c5eaf9c868015c2e81d441dbd1bd4b48"
+        }
+      ]
+    },
+    {
+      "id": "set-ui-miniature",
+      "title": "ui-miniature",
+      "toneId": "ui-miniature",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-ui-miniature",
+          "fingerprint": "a7fa51bc0ff9997df4e45facd03de2e45c74473205beec250d1d933a23f48d14"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-ui-miniature",
+          "fingerprint": "1f01d9ab0edaf91ac3bb07fa094f88aaa665c99cf067ddd9030fae3f03d8c5c3"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-ui-miniature",
+          "fingerprint": "87d0d9ce33071857ff40d7800a81fbcad697504aa1c5d4ad18a9920a2b930095"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-ui-miniature",
+          "fingerprint": "0e2bf6c44b452d9ac87caf0ccbf096e93877bdfbb5bc5d283b164a614bcd68c1"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r03-ui-miniature-return-labels",
+          "fingerprint": "983f730dda0fc88bae5609c5e611802d297351da4c1c9ceb2e450fb6833ccb50"
+        }
+      ]
+    },
+    {
+      "id": "set-swiss-grid",
+      "title": "swiss-grid",
+      "toneId": "swiss-grid",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-swiss-grid",
+          "fingerprint": "9a7bd6071c3f3cc74bfbd1c5f65d86bab897eba3df8eb70bc63fb1a71409383f"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-swiss-grid",
+          "fingerprint": "94338af036fba2471efcf881b6f00d6262c7c9f949aa3ef25cbb0daa70b0e8e7"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-swiss-grid",
+          "fingerprint": "5f2e82d7c2249a63fac7d9179dbfc139d6cbf0bbd36e2e643b8e7f700820b70e"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-swiss-grid",
+          "fingerprint": "4c49f1da63cc4d2848b88f51df9e0d493dc683ea266eb5bac14c74b1664cf55f"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-swiss-grid",
+          "fingerprint": "d9196a9c1d568b334f34b7a99d27221a502bfbd979efc8c8e86c17c26c7ba319"
+        }
+      ]
+    },
+    {
+      "id": "set-contour-wash",
+      "title": "contour-wash",
+      "toneId": "contour-wash",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-contour-wash",
+          "fingerprint": "cc3e6152390f39439485156c66dfe2b0768fcd130b46dcc08e37405426b77444"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-contour-wash",
+          "fingerprint": "973d286a3988369a8ef393cc1d1076f80b5450d66397e9a17aae84b7a13d3ef2"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-contour-wash",
+          "fingerprint": "aed3423910662c38114474fce8e88b322029f414dae55b0d56c4bd529dc6b221"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-contour-wash",
+          "fingerprint": "e3087d90a82be5dc0273ec8326cad0eb1b7f6c5fa9c25c5b607a2f4c286ee393"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-contour-wash",
+          "fingerprint": "d3edafb7bd52634cde27090cc9513a46f56902b732acb64bb87ba6f1fa081072"
+        }
+      ]
+    },
+    {
+      "id": "set-paper-layers",
+      "title": "paper-layers",
+      "toneId": "paper-layers",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-paper-layers",
+          "fingerprint": "a2026cf63288ae3fe67a0f1e542ae18427f0223a8b86a1a9c3d3ba2685d3e78e"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-paper-layers",
+          "fingerprint": "6b1a317ebac42425cd716019dee8548758ec446b78ffe86fd83b365c16b7f6ae"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-paper-layers",
+          "fingerprint": "ea1aceba558de60e2731dc9bc42c1f6e10a0b6923dad5bc815558993583ea6c9"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-paper-layers",
+          "fingerprint": "b4f76c4a9f607cbc059b8e24e1e66e4b5b7e7312b7a183bae256957e0b7fc110"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r03-paper-layers-return-labels",
+          "fingerprint": "0118c0747287d0435320d63dedb4dbecd7e815126e623358ba6f88617325e400"
+        }
+      ]
+    },
+    {
+      "id": "set-pencil-notebook",
+      "title": "pencil-notebook",
+      "toneId": "pencil-notebook",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-pencil-notebook",
+          "fingerprint": "dd6e94c461c0eb892499468069bf1873065e75049fe6376e54b520e4634e9d8e"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-pencil-notebook",
+          "fingerprint": "c118d2b316a053115cb236b9f872f7a0fad9884c8b28dce95ce3de572e788099"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-pencil-notebook",
+          "fingerprint": "ed0a24bcedec4f26c3374bf6b6f6b538263ec33c51c23745233b79d6db46bc89"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-pencil-notebook",
+          "fingerprint": "cdc5146aec8f890cd3b7cbbbefe552034da53f7ff039aec07d6be3244b40d364"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r02-pencil-notebook",
+          "fingerprint": "cdf3ccd1470a618e4fcb9455560ca64adde1bb7421f9f984fda75aee0dae085f"
+        }
+      ]
+    },
+    {
+      "id": "set-isometric-solid",
+      "title": "isometric-solid",
+      "toneId": "isometric-solid",
+      "entries": [
+        {
+          "sessionId": "reservation-flow",
+          "candidateId": "r02-isometric-solid",
+          "fingerprint": "b61af049338552b848f2ab6698f2b188789bfbfbdda37593555a6e55d56336b0"
+        },
+        {
+          "sessionId": "empty-seats",
+          "candidateId": "r02-isometric-solid",
+          "fingerprint": "af3b09c882561265fca6ad68bb5c656a8223e27da1e4c2dc53d7f81786dc9b98"
+        },
+        {
+          "sessionId": "long-labels",
+          "candidateId": "r02-isometric-solid",
+          "fingerprint": "be0238ee1e74e74a06aa808506e895db4152855a37961ef78fddd3cac869c76f"
+        },
+        {
+          "sessionId": "pending-queue",
+          "candidateId": "r02-isometric-solid",
+          "fingerprint": "cf259f6b0e53cdf7d4f6de5647fb37809c0f7c3fca9d2062a8034053395529a0"
+        },
+        {
+          "sessionId": "return-items",
+          "candidateId": "r03-isometric-solid-return-labels",
+          "fingerprint": "24c585c0477dfa218821a2a62bd418c95a8922d6e317f67bf0cd3ddaaf35ff49"
+        }
+      ]
+    }
+  ]
+}

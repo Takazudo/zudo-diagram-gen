@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-swiss-grid",
+  "title": "整列した状態フィールド",
+  "toneId": "swiss-grid",
+  "description": "Swiss-grid native square fields and shared baselines; bounded numbered sequence columns or state fields. Fresh independent variant; exact P00 facts; no user selection.",
+  "order": 6,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "88a42d85d0f15035ad37206cc503529149d84c35294edc2d6fb3def959b295c1",
+    "dark": "92b0da69aa58fb7c16b995bfbc117811bc3041a430d0d71bab36ce83e2881fcf"
+  }
+}

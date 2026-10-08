@@ -1,0 +1,14 @@
+{
+  "correction": "Added an opaque common-palette surface backing behind the unchanged 破損なし label to separate it from the existing curved connector.",
+  "scope": "Only return-items.svg modified. Other four SVGs copied byte-identically. Initial outputs preserved.",
+  "geometry": "Connector, label position, typography, principal objects and facts unchanged.",
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "Verified other four SVGs byte-identical to originals.",
+    "Verified exact label retained and only one surface rect inserted.",
+    "Rendered return-items at 320×480 and inspected the label backing; removed temporary PNG."
+  ],
+  "limitations": [
+    "No evaluator acceptance or user approval inferred."
+  ]
+}

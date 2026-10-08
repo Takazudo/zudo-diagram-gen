@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="reception-title reception-desc"><title id="reception-title">受付で案内カードを受け取る</title><desc id="reception-desc">架空のイベント受付。入口から受付へ進み、案内カードを受け取る。支払い・承認条件はない。</desc><metadata>{&quot;light&quot;:{&quot;ink&quot;:&quot;#203040&quot;,&quot;surface&quot;:&quot;#FFFFFF&quot;,&quot;border&quot;:&quot;#708090&quot;,&quot;accent&quot;:&quot;#267D75&quot;,&quot;deep&quot;:&quot;#174C66&quot;,&quot;warning&quot;:&quot;#B85A18&quot;},&quot;dark&quot;:{&quot;ink&quot;:&quot;#F0F4F8&quot;,&quot;surface&quot;:&quot;#15212D&quot;,&quot;border&quot;:&quot;#91A4B5&quot;,&quot;accent&quot;:&quot;#68C4AF&quot;,&quot;deep&quot;:&quot;#85B9DF&quot;,&quot;warning&quot;:&quot;#FFC078&quot;}}</metadata><rect width="480" height="240" fill="#15212D"></rect><g fill="none" stroke="#85B9DF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M111 95H173M166 89L173 95L166 101"></path><path d="M279 95H337M330 89L337 95L330 101"></path></g><path d="M202 129H258M207 129V145M253 129V145" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path><g font-family="'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="400" fill="#F0F4F8" text-anchor="middle"><text x="65" y="181">入口</text><text x="230" y="181">受付</text><text x="393" y="176"><tspan x="393" dy="0">案内カードを</tspan><tspan x="393" dy="28">受け取る</tspan></text></g><g xmlns="http://www.w3.org/2000/svg" role="img"><defs>
+<title id="kit-entry-location-kit-title">fine-outline — pilot semantic kit</title>
+<desc id="kit-entry-location-kit-description">Original tone-native primitive inventory. A symbol is an object mark, not an assertion about the brief or user approval.</desc>
+<defs>
+
+<symbol id="kit-entry-location-person" viewBox="0 0 100 100">
+<g fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="25" r="12"></circle><path d="M25 85V67C25 42 75 42 75 67V85M34 66V85M66 66V85"></path></g>
+</symbol>
+<symbol id="kit-entry-location-pin" viewBox="0 0 100 100">
+<path d="M50 87C39 72 25 52 25 34A25 25 0 0 1 75 34C75 52 61 72 50 87Z" fill="none" stroke="#F0F4F8" stroke-width="1.6"></path><circle cx="50" cy="34" r="8" fill="#68C4AF"></circle>
+</symbol>
+<symbol id="kit-entry-location-slot-card" viewBox="0 0 100 100">
+<rect x="12" y="20" width="76" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"></rect><path d="M12 38H88M27 15V26M73 15V26M28 56H53M28 68H65" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+<symbol id="kit-entry-location-empty-seat" viewBox="0 0 100 100">
+<path d="M29 51V19H71V51M23 56H77V69H23ZM29 69V88M71 69V88" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-entry-location-arrow" viewBox="0 0 100 100">
+<path d="M12 60H35Q48 60 48 46V40Q48 30 62 30H87M75 18L87 30L75 42" fill="none" stroke="#F0F4F8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-entry-location-check" viewBox="0 0 100 100">
+<path d="M18 53L40 75L83 26" fill="none" stroke="#68C4AF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-entry-location-clock" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="34" fill="none" stroke="#F0F4F8" stroke-width="1.6"></circle><path d="M50 26V50L67 61M50 16V21M84 50H79M50 84V79M16 50H21" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+</defs>
+<use href="#kit-entry-location-person" x="30" y="40" width="100" height="100"></use>
+<text x="30" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">person</text>
+<use href="#kit-entry-location-pin" x="204" y="40" width="100" height="100"></use>
+<text x="204" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">pin</text>
+<use href="#kit-entry-location-slot-card" x="378" y="40" width="100" height="100"></use>
+<text x="378" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">slot-card</text>
+<use href="#kit-entry-location-empty-seat" x="552" y="40" width="100" height="100"></use>
+<text x="552" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">empty-seat</text>
+<use href="#kit-entry-location-arrow" x="30" y="210" width="100" height="100"></use>
+<text x="30" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">arrow</text>
+<use href="#kit-entry-location-check" x="204" y="210" width="100" height="100"></use>
+<text x="204" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">check</text>
+<use href="#kit-entry-location-clock" x="378" y="210" width="100" height="100"></use>
+<text x="378" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">clock</text>
+</defs><svg x="20" y="48" width="90" height="90" viewBox="0 0 100 100"><use href="#kit-entry-location-pin" width="100" height="100"></use></svg></g><g xmlns="http://www.w3.org/2000/svg" role="img"><defs>
+<title id="kit-reception-person-kit-title">fine-outline — pilot semantic kit</title>
+<desc id="kit-reception-person-kit-description">Original tone-native primitive inventory. A symbol is an object mark, not an assertion about the brief or user approval.</desc>
+<defs>
+
+<symbol id="kit-reception-person-person" viewBox="0 0 100 100">
+<g fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="25" r="12"></circle><path d="M25 85V67C25 42 75 42 75 67V85M34 66V85M66 66V85"></path></g>
+</symbol>
+<symbol id="kit-reception-person-pin" viewBox="0 0 100 100">
+<path d="M50 87C39 72 25 52 25 34A25 25 0 0 1 75 34C75 52 61 72 50 87Z" fill="none" stroke="#F0F4F8" stroke-width="1.6"></path><circle cx="50" cy="34" r="8" fill="#68C4AF"></circle>
+</symbol>
+<symbol id="kit-reception-person-slot-card" viewBox="0 0 100 100">
+<rect x="12" y="20" width="76" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"></rect><path d="M12 38H88M27 15V26M73 15V26M28 56H53M28 68H65" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+<symbol id="kit-reception-person-empty-seat" viewBox="0 0 100 100">
+<path d="M29 51V19H71V51M23 56H77V69H23ZM29 69V88M71 69V88" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-reception-person-arrow" viewBox="0 0 100 100">
+<path d="M12 60H35Q48 60 48 46V40Q48 30 62 30H87M75 18L87 30L75 42" fill="none" stroke="#F0F4F8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-reception-person-check" viewBox="0 0 100 100">
+<path d="M18 53L40 75L83 26" fill="none" stroke="#68C4AF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-reception-person-clock" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="34" fill="none" stroke="#F0F4F8" stroke-width="1.6"></circle><path d="M50 26V50L67 61M50 16V21M84 50H79M50 84V79M16 50H21" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+</defs>
+<use href="#kit-reception-person-person" x="30" y="40" width="100" height="100"></use>
+<text x="30" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">person</text>
+<use href="#kit-reception-person-pin" x="204" y="40" width="100" height="100"></use>
+<text x="204" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">pin</text>
+<use href="#kit-reception-person-slot-card" x="378" y="40" width="100" height="100"></use>
+<text x="378" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">slot-card</text>
+<use href="#kit-reception-person-empty-seat" x="552" y="40" width="100" height="100"></use>
+<text x="552" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">empty-seat</text>
+<use href="#kit-reception-person-arrow" x="30" y="210" width="100" height="100"></use>
+<text x="30" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">arrow</text>
+<use href="#kit-reception-person-check" x="204" y="210" width="100" height="100"></use>
+<text x="204" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">check</text>
+<use href="#kit-reception-person-clock" x="378" y="210" width="100" height="100"></use>
+<text x="378" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">clock</text>
+</defs><svg x="185" y="48" width="90" height="90" viewBox="0 0 100 100"><use href="#kit-reception-person-person" width="100" height="100"></use></svg></g><g xmlns="http://www.w3.org/2000/svg" role="img"><defs>
+<title id="kit-guide-card-kit-title">fine-outline — pilot semantic kit</title>
+<desc id="kit-guide-card-kit-description">Original tone-native primitive inventory. A symbol is an object mark, not an assertion about the brief or user approval.</desc>
+<defs>
+
+<symbol id="kit-guide-card-person" viewBox="0 0 100 100">
+<g fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="25" r="12"></circle><path d="M25 85V67C25 42 75 42 75 67V85M34 66V85M66 66V85"></path></g>
+</symbol>
+<symbol id="kit-guide-card-pin" viewBox="0 0 100 100">
+<path d="M50 87C39 72 25 52 25 34A25 25 0 0 1 75 34C75 52 61 72 50 87Z" fill="none" stroke="#F0F4F8" stroke-width="1.6"></path><circle cx="50" cy="34" r="8" fill="#68C4AF"></circle>
+</symbol>
+<symbol id="kit-guide-card-slot-card" viewBox="0 0 100 100">
+<rect x="12" y="20" width="76" height="62" rx="4" fill="none" stroke="#F0F4F8" stroke-width="1.6"></rect><path d="M12 38H88M27 15V26M73 15V26M28 56H53M28 68H65" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+<symbol id="kit-guide-card-empty-seat" viewBox="0 0 100 100">
+<path d="M29 51V19H71V51M23 56H77V69H23ZM29 69V88M71 69V88" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-guide-card-arrow" viewBox="0 0 100 100">
+<path d="M12 60H35Q48 60 48 46V40Q48 30 62 30H87M75 18L87 30L75 42" fill="none" stroke="#F0F4F8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-guide-card-check" viewBox="0 0 100 100">
+<path d="M18 53L40 75L83 26" fill="none" stroke="#68C4AF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</symbol>
+<symbol id="kit-guide-card-clock" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="34" fill="none" stroke="#F0F4F8" stroke-width="1.6"></circle><path d="M50 26V50L67 61M50 16V21M84 50H79M50 84V79M16 50H21" fill="none" stroke="#F0F4F8" stroke-width="1.6" stroke-linecap="round"></path>
+</symbol>
+</defs>
+<use href="#kit-guide-card-person" x="30" y="40" width="100" height="100"></use>
+<text x="30" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">person</text>
+<use href="#kit-guide-card-pin" x="204" y="40" width="100" height="100"></use>
+<text x="204" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">pin</text>
+<use href="#kit-guide-card-slot-card" x="378" y="40" width="100" height="100"></use>
+<text x="378" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">slot-card</text>
+<use href="#kit-guide-card-empty-seat" x="552" y="40" width="100" height="100"></use>
+<text x="552" y="170" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">empty-seat</text>
+<use href="#kit-guide-card-arrow" x="30" y="210" width="100" height="100"></use>
+<text x="30" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">arrow</text>
+<use href="#kit-guide-card-check" x="204" y="210" width="100" height="100"></use>
+<text x="204" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">check</text>
+<use href="#kit-guide-card-clock" x="378" y="210" width="100" height="100"></use>
+<text x="378" y="340" font-family="'Noto Sans CJK JP', sans-serif" font-size="28" fill="#F0F4F8">clock</text>
+</defs><svg x="348" y="48" width="90" height="90" viewBox="0 0 100 100"><use href="#kit-guide-card-slot-card" width="100" height="100"></use></svg></g></svg>

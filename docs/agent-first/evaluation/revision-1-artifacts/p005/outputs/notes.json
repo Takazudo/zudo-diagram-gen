@@ -1,0 +1,67 @@
+{
+  "tone": "fine-outline",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/recipe.json",
+    "tone/fine-outline/recipe.md",
+    "tone/shared/provenance.md",
+    "tone/shared/composition-meaning.md",
+    "tone/fine-outline/light.svg",
+    "tone/fine-outline/dark.svg",
+    "tone/scheme.json",
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "originalExamplePngsActuallyViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    {
+      "scope": "all",
+      "description": "Use the common light semantic palette instead of the sample palette. ViewBoxes match each CSS slot rather than the reference canvas or surrounding placement frame. No sample pattern or decorative English copy is carried over because these briefs have different facts. Open contours use 1.6 px; essential connectors use 2.2 px at native target size rather than the scheme’s 2.8-unit reference stroke."
+    },
+    {
+      "scope": "long-labels",
+      "description": "Two-line full Japanese担当 names allow readable 18 px text in the stacked layout. The conditional return path is separately routed on the left and uses the warning role."
+    },
+    {
+      "scope": "return-items",
+      "description": "The narrow portrait layout puts both destinations side by side beneath the shared confirmation step. The empty object is a return box rather than the scheme’s generic empty chair."
+    },
+    {
+      "scope": "pending-queue",
+      "description": "A joined contour enters a labelled publication-condition box; it denotes the dependency rather than an already completed publication."
+    }
+  ],
+  "fonts": {
+    "declaredFamily": "Noto Sans CJK JP, sans-serif",
+    "actualRenderedFont": "Not verified in this authoring turn; editable SVG text relies on the host-installed font. No font is bundled.",
+    "fallbackAndMissingGlyphUncertainty": "Host fallback metrics and Japanese glyph coverage remain unverified."
+  },
+  "limitations": [
+    "No evaluator feedback, scores, visual acceptance or user approval claimed.",
+    "SVG structure and locked text checked locally; final raster rendering and actual host font substitution were not verified."
+  ]
+}

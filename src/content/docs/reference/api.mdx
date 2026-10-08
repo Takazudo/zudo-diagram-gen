@@ -1,0 +1,124 @@
+---
+title: Public API and schemas
+description: Installed entrypoints and executable examples for kits, projects and exact saved refinement.
+sidebar_position: 4
+---
+
+Node I/O helpers run outside zfb's SSR graph. Import through supported package entrypoints, using the consumer's installed engine. Runtime Node modules are ESM; APIs ship directly from source in the archive.
+
+## Public entrypoints
+
+| Import | Contents |
+| --- | --- |
+| `@takazudo/zudo-diagram-gen` | Typed root model/project/tone/materialization/style/refinement/capture/placement/render/export/scaffold APIs. |
+| `@takazudo/zudo-diagram-gen/model` | Legacy session/catalog loading, validation and exact SVG export. |
+| `@takazudo/zudo-diagram-gen/render` | Gallery/zfb renderers and page preparation. |
+| `@takazudo/zudo-diagram-gen/client/mount` | Typed ordinary/project browser mount helpers and disposal. |
+| `@takazudo/zudo-diagram-gen/client/app.css` | Package-owned viewer stylesheet. |
+| `@takazudo/zudo-diagram-gen/schemas/*` | Packaged JSON schemas. |
+| `@takazudo/zudo-diagram-gen/skills/diagram-gen/*` | Core skill file and relative references; explicit host loading. |
+
+Read installed `src/index.d.ts` for full public types. Root functions include loadSession/validateSession/loadToneCatalog/exportCandidate, loadProject/validateProject/loadContent/createProject/adoptGeneratedRoutes, renderGallery/renderZfbGallery/createPageSource/exportHtml, resolveToneContext/validateToneScheme/validatePalette/canonicalJson/canonicalHash/hashBytes/renderSchemeRecipe/schemeNumericSummary/checkRecipeNumericReferences/checkMachineRecipe/checkNominalTypography/toneContextStatus, materializeSvg/materializeKit/resolvePalette/validateMaterializationKit, lockProjectStyle/adoptProjectStyle/readStyleRevision/styleProvenance/reviewCompatibility/createRefinement, captureCandidate/loadPlacement/portablePlacement/validatePlacement/renderPlacement. Errors include SessionValidationError, ProjectValidationError, CaptureError and StyleError; constants include PALETTE_ROLES and KIT_PRIMITIVES.
+
+## Materialize a local kit
+
+Run in a fresh installed consumer. This example creates **test artwork**, not semantic or user approval; inspect its final images separately. It writes new files exclusively.
+
+{/* reader:materialize */}
+
+```bash
+node --input-type=module <<'NODE'
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolveToneContext, resolvePalette, materializeKit } from '@takazudo/zudo-diagram-gen';
+const context = await resolveToneContext('fine-outline', { requireComplete: true });
+const palette = resolvePalette(context.scheme);
+const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200"><title>Two people</title><desc>Two person primitives, a public authoring test.</desc></svg>';
+const instances = [
+  { id: 'person-a', primitive: 'person', x: 40, y: 40, width: 80, height: 100 },
+  { id: 'person-b', primitive: 'person', x: 220, y: 40, width: 80, height: 100 },
+];
+await mkdir('exports', { recursive: true });
+for (const theme of ['light', 'dark']) {
+  const drawing = materializeKit(context.kit.text, { scheme: context.scheme, palette, theme, instances, svg });
+  await writeFile(`exports/kit.${theme}.svg`, drawing, { flag: 'wx' });
+}
+NODE
+```
+
+Custom geometry uses `materializeSvg(svg,{palette,theme})` with explicit palette markers. Palette is a complete two-theme role map. Kit definitions are copied/namespaced/flattened into self-contained assets. See [Tone context](/docs/authoring/tone-context/) for failure boundaries and canonical/exact-byte hashes.
+
+## Create several sessions
+
+Run from an installed consumer after setting `ENGINE_TGZ` to its existing absolute engine archive and `PROJECT_OUT` to a new external directory. This produces empty sessions, not generated diagrams:
+
+{/* reader:project-api */}
+
+```bash
+node --input-type=module <<'NODE'
+import { createProject, loadProject } from '@takazudo/zudo-diagram-gen';
+if (!process.env.PROJECT_OUT || !process.env.ENGINE_TGZ) throw new Error('Set PROJECT_OUT and ENGINE_TGZ explicitly.');
+const created = await createProject({
+  destination: process.env.PROJECT_OUT,
+  enginePackage: process.env.ENGINE_TGZ,
+  project: true,
+  name: 'Public help deck',
+  sessions: [
+    { slug: 'reservation', id: 'reservation', title: 'Reservation', target: { width: 360, height: 200 } },
+    { slug: 'queue', id: 'queue', title: 'Queue', target: { width: 360, height: 200 } },
+  ],
+});
+const data = await loadProject(created.directory);
+console.log(data.sessions.map(session => session.id));
+NODE
+```
+
+Install within the created host before using its own CLI. `loadSession(root)` returns normalized GalleryData; `validateSession` returns validation. `loadContent(root)` detects ordinary/project content. `loadProject(root,{strict:false,lastValid:Map})` allows explicit last-valid partial snapshots. `validateProject` is strict. [Projects](/docs/authoring/projects/) explains exact comparisons and watcher recovery.
+
+## Refine the saved baseline
+
+Run in the public [manual tutorial](/docs/getting-started/manual-session/) workspace after `r01-c01` exists and actual review JSON has been downloaded as `review.json`. The example rejects another session, a missing chosen record or stale fingerprint. A downloaded choice is input, not an inference from browser storage.
+
+{/* reader:refine */}
+
+```bash
+node --input-type=module <<'NODE'
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { loadSession, createRefinement } from '@takazudo/zudo-diagram-gen';
+const review = JSON.parse(await readFile('review.json', 'utf8'));
+const data = await loadSession('.');
+if (review.sessionId !== data.session.id) throw new Error('Review is for another session.');
+const chosen = review.chosenDirection;
+const saved = data.candidates.find(candidate => candidate.id === chosen?.id);
+const feedback = review.records.find(record => record.id === saved?.id);
+if (!saved || !feedback || chosen.fingerprint !== saved.fingerprint || feedback.fingerprint !== saved.fingerprint)
+  throw new Error('Supply a current explicit chosen candidate and matching feedback.');
+await mkdir('rounds/r02');
+await writeFile('rounds/r02/round.json', JSON.stringify({
+  schemaVersion: 1, id: 'r02', title: 'Requested refinement', order: 2,
+  baselineCandidateId: saved.id,
+}, null, 2) + '\n', { flag: 'wx' });
+await createRefinement('.', {
+  baselineCandidateId: saved.id, fingerprint: saved.fingerprint,
+  roundId: 'r02', candidateId: 'r02-c01', title: 'Saved baseline child',
+  feedback,
+});
+NODE
+```
+
+This starts from exact saved light/dark bytes, records the parent and baseline feedback, and refuses an existing child or incompatible later round. **Then** edit only the copied child for requested changes. If its `assetHashes` are present, deliberately refresh hashes from new saved bytes. Validate, recapture and actually inspect the changed image; keep baseline and prior review untouched. A new child is not automatically reviewed.
+
+## Generated-route ownership
+
+`adoptGeneratedRoutes(root,{expectedHashes:{'pages/index.tsx':exactReviewedSha256}})` grants ownership only to those actual reviewed bytes. Obtain the hash from the file after inspecting it. Missing/nongenerated/wrong-hash files reject. It changes the ownership ledger, not route contents; the next preparation can regenerate it. Do not clear conflicts by deleting user routes or assuming a generator comment grants ownership.
+
+## Schemas, normalized data and review
+
+Schema version 1 resources include `session.schema.json`, `candidate.schema.json`, `project.schema.json`, `placement.schema.json`, `tone-scheme.schema.json`, `style.schema.json`, `palette.schema.json`, `round.schema.json`, `tone-catalog.schema.json` and `common.schema.json` under packaged `schemas/`. Runtime validation also enforces filesystem containment, exact references, hash compatibility and byte/size constraints beyond JSON shape. The tone catalog has schemaVersion 1; resolved context has contextVersion 1. See [Session files](/docs/authoring/session-files/) for round metadata and optional candidate provenance/asset hashes.
+
+GalleryData contains kind/session/brief/rounds/candidates/contentHash; normalized candidates include roundId, saved SVG strings, relative sourcePath and fingerprint. ProjectData contains project/sessions/comparisonSets/diagnostics/ok/contentHash; session data may be null or explicitly retained stale. Do not expose native root paths in portable exports.
+
+Ordinary downloaded review has `schemaVersion:1,type:'zudo-diagram-review',sessionId,records,shortlist` and optional chosenDirection/reviewedCandidate/feedback. Candidate records retain ID/fingerprint/keep/change/action plus optional evidence hashes. Project review has `type:'zudo-diagram-project-review',projectId,sessions:[ordinary reviews]`. Preserve actual downloaded fields; malformed/unknown/foreign IDs reject. The CLI envelope schema is documented under [CLI](/docs/reference/cli/#json-envelopes-and-backward-compatibility).
+
+`exportCandidate(root,id,{theme,output,resourceRoot})` copies saved validated bytes. `exportHtml(root,{output,force})` performs source-aware standalone export; `renderGallery(data)` serializes already normalized content. Prefer source-aware export for output protection. `captureCandidate(root,id,{output,placement,resourceRoot,dpr,crop,timeoutMs,browserExecutablePath,signal,force})` requires optional consumer browser support. These APIs do not approve or regenerate artwork.
+
+Browser `mountDiagramApp(element,data,{embedded:true})` and `mountProjectApp` return disposal functions. Dispose on island cleanup. Embedded appearance follows host theme; artwork theme remains independent. Root zudo-doc chrome bindings already supply this host; do not duplicate its UI in sessions.

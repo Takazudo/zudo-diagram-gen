@@ -1,0 +1,9 @@
+---
+title: Multi-session project hosts
+---
+
+Projects can register multiple ordinary diagram sessions under one installed zfb host. Each session keeps its existing IDs, saved SVG fingerprints and browser review storage while the project overview reports invalid, missing and retained stale content explicitly.
+
+The initializer supports `--project`, and its scaffold now comes from the engine's authoritative source. Generated routes use content-hash ownership so hand-written or modified pages are preserved. Registered content recovers through metadata edits, removal and re-addition without watching unrelated sessions.
+
+Project checks and builds enforce exact comparison mappings and valid registered sessions. Deck-wide comparison and project review transfer are subsequent work; optional style references remain explicitly incomplete until full style validation is available. The scaffold brief now records intent, must-show facts, permitted simplification, references, explicit locks, target dimensions and language/font requirements.

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="title desc"><title id="title">結果未到着の並行作業</title><desc id="desc">共通の案内文を表記確認と会場情報確認へ分岐。表記確認は完了、会場情報確認は結果待ち。まとめ役は両方完了後に公開し、現在の公開済みはゼロ。</desc><style>text{font-family:"Noto Sans CJK JP",sans-serif}</style><defs>
+<symbol id="pencil-hatch" viewBox="0 0 100 70"><path d="M4.679 63.919L24.653 5.735" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M13.875 64.064L34.586 5.745" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M23.716 63.468L44.885 7.804" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M33.64 64.15L53.803 7.563" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M45.065 62.1L64.374 7.468" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M54.772 62.045L73.704 8.32" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M63.863 63.595L83.451 6.103" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/>
+<path d="M75.207 64.29L93.555 7.748" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="1.1" opacity="0.55"/></symbol>
+<symbol id="person" viewBox="0 0 100 100">
+<path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 24C36 7 66 10 63 27C62 42 36 40 38 24M23 86L26 61Q32 49 51 48Q69 49 74 62L77 85M35 67L34 85M66 65L67 86" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="pin" viewBox="0 0 100 100">
+<path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 88C40 73 23 52 26 32Q28 10 51 12Q77 12 75 37C73 59 59 75 50 88M42 32Q43 23 52 25Q60 27 58 35Q53 44 45 39Z" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="slot-card" viewBox="0 0 100 100">
+<path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 24L86 20L88 81L10 84ZM13 40L85 39M29 15L28 28M72 14L73 27M27 55L65 53M27 68L52 69" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="empty-seat" viewBox="0 0 100 100">
+<path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 49L27 18L70 16L73 48M21 57L78 55L80 69L23 71ZM30 71L29 87M72 70L74 87" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><use href="#pencil-hatch" x="32" y="22" width="32" height="22"/>
+</symbol>
+<symbol id="arrow" viewBox="0 0 100 100">
+<path d="M12 65Q48 69 48 45Q47 28 84 29M73 18L87 30L74 42" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 67Q45 72 46 46Q45 31 82 32M72 20L85 32L74 44" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" opacity="0.65"/>
+</symbol>
+<symbol id="check" viewBox="0 0 100 100">
+<path d="M19 52L40 76L81 25" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 52L40 76L81 25" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 83Q53 86 80 79" fill="none" data-palette-stroke="accent" stroke="#267D75" stroke-width="0.8"/>
+</symbol>
+<symbol id="clock" viewBox="0 0 100 100">
+<path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" fill="none" data-palette-stroke="ink" stroke="#203040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 15C94 13 97 82 52 86C7 89 4 18 50 15M51 27L49 51L67 63M49 17L50 23M83 50L77 51M50 84L51 78M17 51L23 50" transform="translate(1.4 -1.2)" opacity="0.65" fill="none" data-palette-stroke="deep" stroke="#174C66" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs><rect width="720" height="240" fill="#FFFFFF" data-palette-fill="surface"/>
+<path d="M0 24H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 48H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 72H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 96H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 120H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 144H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 168H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 192H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 216H720" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 0L13 240" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1" opacity="0.22" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="9" width="686" height="27" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="24" y="29" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="start"><tspan x="24" dy="0">結果未到着の並行作業</tspan></text>
+<path d="M24 89L135 87L136 157L25 159Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 89L135 87L136 157L25 159Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="80" y="130" fill="#203040" data-palette-fill="ink" font-size="20" font-weight="600" text-anchor="middle"><tspan x="80" dy="0">案内文</tspan></text>
+<path d="M140 122L164 122L164 72L198 72" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M140 122L164 122L164 72L198 72" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M188 65L200 72L189 79" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M164 122L164 180L198 180" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M164 122L164 180L198 180" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M188 173L200 180L189 187" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M208 46L464 44L465 105L209 107Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M208 46L464 44L465 105L209 107Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#check" x="218" y="53" width="36" height="36"/>
+<text x="356" y="82" fill="#203040" data-palette-fill="ink" font-size="18" font-weight="600" text-anchor="middle"><tspan x="356" dy="0">表記確認：完了</tspan></text>
+<path d="M208 147L464 145L465 206L209 208Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M208 147L464 145L465 206L209 208Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#clock" x="218" y="154" width="36" height="36"/>
+<text x="356" y="183" fill="#203040" data-palette-fill="ink" font-size="17" font-weight="600" text-anchor="middle"><tspan x="356" dy="0">会場情報確認：結果待ち</tspan></text>
+<path d="M470 75L498 75L498 122L526 122" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M470 75L498 75L498 122L526 122" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M515 115L527 122L516 129" fill="none" stroke="#203040" data-palette-stroke="ink" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M470 177L498 177L498 128" fill="none" stroke="#708090" data-palette-stroke="border" stroke-width="1.9" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M470 177L498 177L498 128" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M538 79L700 77L701 177L539 179Z" fill="#FFFFFF" stroke="#203040" data-palette-stroke="ink" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M538 79L700 77L701 177L539 179Z" fill="none" stroke="#174C66" data-palette-stroke="deep" stroke-width="0.8" opacity="0.38" transform="translate(1.4 -1.2)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="620" y="103" fill="#203040" data-palette-fill="ink" font-size="14" font-weight="400" text-anchor="middle"><tspan x="620" dy="0">まとめ役</tspan></text>
+<text x="620" y="128" fill="#203040" data-palette-fill="ink" font-size="16" font-weight="600" text-anchor="middle"><tspan x="620" dy="0">両方完了後に公開</tspan></text>
+<text x="620" y="160" fill="#203040" data-palette-fill="ink" font-size="20" font-weight="600" text-anchor="middle"><tspan x="620" dy="0">公開済み：0</tspan></text>
+<path d="M568 166Q620 164 673 166" fill="none" stroke="#267D75" data-palette-stroke="accent" stroke-width="1.7" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="244.0" y="218" width="232" height="21" fill="#FFFFFF" data-palette-fill="surface"/>
+<text x="360" y="232" fill="#203040" data-palette-fill="ink" font-size="14" font-weight="400" text-anchor="middle"><tspan x="360" dy="0">結果待ちのため、今は公開しません</tspan></text>
+<use href="#pencil-hatch" x="28" y="92" width="16" height="15"/></svg>

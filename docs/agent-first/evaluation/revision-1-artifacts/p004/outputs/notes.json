@@ -1,0 +1,61 @@
+{
+  "tone": "pencil-notebook",
+  "resourcesActuallyUsed": [
+    "inputs/common/inputs.json",
+    "inputs/common/palette.json",
+    "inputs/common/briefs/reservation-flow/brief.md",
+    "inputs/common/briefs/reservation-flow/checklist.json",
+    "inputs/common/briefs/reservation-flow/placement.json",
+    "inputs/common/briefs/reservation-flow/session.json",
+    "inputs/common/briefs/empty-seats/brief.md",
+    "inputs/common/briefs/empty-seats/checklist.json",
+    "inputs/common/briefs/empty-seats/placement.json",
+    "inputs/common/briefs/empty-seats/session.json",
+    "inputs/common/briefs/long-labels/brief.md",
+    "inputs/common/briefs/long-labels/checklist.json",
+    "inputs/common/briefs/long-labels/placement.json",
+    "inputs/common/briefs/long-labels/session.json",
+    "inputs/common/briefs/pending-queue/brief.md",
+    "inputs/common/briefs/pending-queue/checklist.json",
+    "inputs/common/briefs/pending-queue/placement.json",
+    "inputs/common/briefs/pending-queue/session.json",
+    "inputs/common/briefs/return-items/brief.md",
+    "inputs/common/briefs/return-items/checklist.json",
+    "inputs/common/briefs/return-items/placement.json",
+    "inputs/common/briefs/return-items/session.json",
+    "inputs/tone/recipe.json",
+    "inputs/tone/kit.svg",
+    "inputs/tone/example-dark.png",
+    "inputs/tone/scheme.json",
+    "inputs/tone/example-light.png",
+    "inputs/tone/shared/composition-meaning.md",
+    "inputs/tone/shared/provenance.md",
+    "inputs/tone/pencil-notebook/dark.svg",
+    "inputs/tone/pencil-notebook/light.svg",
+    "inputs/tone/pencil-notebook/recipe.md"
+  ],
+  "originalPngsViewed": [
+    "inputs/tone/example-light.png",
+    "inputs/tone/example-dark.png"
+  ],
+  "deliberateDepartures": [
+    "Common palette supersedes the original warm pencil palette, as instructed. Background is white with very faint border-role notebook ruling.",
+    "Geometry and arrows are adapted to each target aspect ratio. Japanese text stays upright in Noto Sans CJK JP; no decorative Latin font is used.",
+    "Essential type is 13–22 CSS px at the declared target sizes rather than scheme reference-canvas 28–32 units. Long担当 names use permitted line breaks without omission.",
+    "D-seat includes a clock and explicit selection prohibition; a vacant chair silhouette does not imply availability.",
+    "The pending branch joins the summary gate without a completion check, while the text explicitly retains result waiting and publication zero.",
+    "Sparse fixed-seed hatching is reused from the supplied kit. Secondary traces use lower opacity than the scheme to keep the common deep color subordinate at compact sizes."
+  ],
+  "fontEvidence": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "fcMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "actualRendering": "SVG text remains live. Viewer font selection and missing-glyph behavior cannot be guaranteed; font is not embedded."
+  },
+  "checks": {
+    "xmlParse": "All five SVG files parsed successfully.",
+    "targetDimensions": "Each SVG width/height and viewBox matches its session target.",
+    "limitations": "Standalone live SVG text depends on the consuming viewer font environment. Installed font lookup resolved Noto Sans CJK JP; fonts are not embedded. Inkscape emitted read-only profile-directory warnings while each render exited successfully. No external assets, network, browser, or repository were used.",
+    "rendering": "All five SVGs rendered successfully with Inkscape at their native CSS dimensions, and all five temporary PNGs were actually viewed. No browser was launched.",
+    "visualInspection": "Target-size renderings inspected for label containment, legibility, arrow direction, state distinctions, and ruled-background hierarchy. This is author inspection, not evaluator feedback, visual acceptance, or user approval."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "deliberateDepartures": [
+    "Common light palette overrides the warm pencil sample colors and scheme palette, as required.",
+    "Declared Noto Sans CJK JP, sans-serif replaces the original example’s Latin handwriting fonts; Japanese glyphs remain upright.",
+    "Layouts follow each supplied target rather than the original composition example. The example’s Pattern, Text, MAKE and PNG labels are omitted because they are not facts of these briefs.",
+    "Seeded crossed-pencil fields are freshly generated at fixed 12.5-unit intervals with seed 1307, rather than scaling a finite kit patch. Texture stays on backing regions, away from text and vacant seat/box interiors.",
+    "Ruling is faint and masked by white panels; compact text ranges from 13px secondary notes to 24px main labels."
+  ],
+  "suppliedResourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/kit.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "fontLimitations": "All five SVGs declare Noto Sans CJK JP, sans-serif. Font files are not embedded or supplied; actual rendering font and missing-glyph behavior depend on the viewer and were not verified here.",
+  "checksPerformed": [
+    "Parsed all five saved SVGs as XML.",
+    "Checked exact labels against supplied checklists, joining wrapped text in visual reading order.",
+    "Viewed both original example PNGs."
+  ],
+  "limitations": [
+    "No browser or output raster rendering was used in this independent turn. Visual acceptance and user approval are not claimed."
+  ]
+}

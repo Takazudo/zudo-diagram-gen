@@ -1,0 +1,64 @@
+{
+  "tone": "pencil-notebook",
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "deliberateDepartures": [
+    "Used the explicit common light palette instead of the example and scheme palette, as required.",
+    "Used upright Noto Sans CJK JP, sans-serif labels rather than the examples’ Latin handwriting fonts.",
+    "Adapted geometry and text sizes to each exact CSS target, rather than scaling the 720 × 400 example layout.",
+    "Crossed regions are attached to card backing, with clear text planes and clear vacant seat and return-box interiors. The scheme’s required distributed crossed field supersedes the legacy sparse-texture recipe.",
+    "Long担当 labels wrap across two lines without abbreviation.",
+    "Notebook rules are lighter than routes and locally covered behind warning labels."
+  ],
+  "construction": {
+    "texture": "seeded-pencil-field",
+    "seed": 1307,
+    "frequency": "approximately 8 opposing diagonals per 100 units",
+    "amplitude": 1.4,
+    "note": "Deterministic seed-derived per-object fields; no generation randomness."
+  },
+  "font": {
+    "declared": "Noto Sans CJK JP, sans-serif",
+    "embedded": false,
+    "actualRendererFont": "Not verified; font files are not supplied. Consumer fallback and glyph availability remain uncertain."
+  },
+  "checks": [
+    "Parsed all five outputs as XML.",
+    "Authored at exact session CSS dimensions with explicit viewBox, title and description.",
+    "Checked the locked labels and relationships against supplied factual checklists."
+  ],
+  "limitations": [
+    "No external resources or browser were used. Consumer font rendering and visual acceptance are not established."
+  ]
+}

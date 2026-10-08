@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-fine-outline-return-labels",
+  "title": "分岐ラベルを経路の外側へ",
+  "toneId": "fine-outline",
+  "description": "Observed placement correction: only 破損なし/破損あり labels moved outside the vertical branch connectors and broken into two complete lines. All original facts, physical geometry, arrows, colors and tone retained.",
+  "order": 0,
+  "parentCandidateId": "r01-fine-outline",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "7caed352395161c9baba1b6bc1d34eed044454915c4dc17128ae8ca3a7f37acc",
+    "dark": "40bd7ea639f7fcfaeeb7ad1d5026fd875cb14aeca1ce28dd576b4cbc423a1517"
+  },
+  "baselineFeedback": {
+    "id": "r01-fine-outline",
+    "fingerprint": "bed818b0d873c9206e8f101f31c7a3b71909023bf6a8e4a1fce7e4187527d90e",
+    "keep": [
+      "All facts, arrow routes, physical object geometry, fine-outline tone and theme palettes"
+    ],
+    "change": [
+      "Move branch labels off vertical connectors; manager opened both original themes and observed crossings at labels. Label placement/linebreak only."
+    ],
+    "action": "refine",
+    "purpose": "observed-placement-correction"
+  }
+}

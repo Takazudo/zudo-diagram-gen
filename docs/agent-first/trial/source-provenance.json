@@ -1,0 +1,888 @@
+{
+  "schemaVersion": 1,
+  "integratedSha": "c1935b83d4722397c1260a8684d24d84f58ad858",
+  "purpose": "actual authored five-session/eight-comparison frozen checkpoint",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "medium",
+  "modelCallsInCI": 0,
+  "initialCandidates": 55,
+  "correctionCandidates": 6,
+  "themeCapturesActuallyInspected": 122,
+  "initialFailedThemeViews": 12,
+  "correctedThemeViewsPassed": 12,
+  "userApproval": false,
+  "files": [
+    {
+      "path": "inputs/inputs.json",
+      "sha256": "44b51268d93ea1e91f9d74050bef3a0fdca1b75a654c9928394e7bc6de1ad375"
+    },
+    {
+      "path": "inputs/palette.json",
+      "sha256": "db152bf64c6971055d3818735cd438d56e1604dc95c8414eea100dcbd1887953"
+    },
+    {
+      "path": "project.json",
+      "sha256": "5b11600e3308cf2a46d54aedea25ef133181310cb1653d085ceee4621ba2c5c8"
+    },
+    {
+      "path": "sessions/empty-seats/brief.md",
+      "sha256": "9c2d77f33bdc9f56597776cac75365d1a84cf013453375e17540844900701fbd"
+    },
+    {
+      "path": "sessions/empty-seats/checklist.json",
+      "sha256": "db2130cc3ade316b94b881249749a41f5f104bc752c88807ae101f48d646db7a"
+    },
+    {
+      "path": "sessions/empty-seats/placement.json",
+      "sha256": "0463c1e27921029ffc4845db49977f0441540fd6963174141d89af5d81348aea"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-fine-outline/candidate.json",
+      "sha256": "813e3fae706e836c8786a821456ad3a12c3e76a7484f1ab603f780df4edb971c"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-fine-outline/dark.svg",
+      "sha256": "e0a8a848cf48bd4c9c47b44008953f0e47d44a325ea1d37f7433842f5820e48a"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-fine-outline/light.svg",
+      "sha256": "af4b877cdde66595cf0c63fe34df043d27e2853ebbdc9393779da19998ed8fea"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-soft-fill/candidate.json",
+      "sha256": "3966b6f52a2f800023407999151b3554719b49ccaf0f9aad3840b451cd66a50d"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-soft-fill/dark.svg",
+      "sha256": "1b1217556e415c77c997ab3acedfaa4b2a9d6c415edc80a015e3ba290dc0ed46"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-soft-fill/light.svg",
+      "sha256": "040d2a3e6feda33a4bca70b6206127436b65791de1c0ec867b3274bc3b2a024f"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-swiss-grid/candidate.json",
+      "sha256": "ecc19d74abd38c91a482abfb91dd33f71a877a3e8966d6ced47e9c593665f131"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-swiss-grid/dark.svg",
+      "sha256": "92b0da69aa58fb7c16b995bfbc117811bc3041a430d0d71bab36ce83e2881fcf"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/r01-swiss-grid/light.svg",
+      "sha256": "88a42d85d0f15035ad37206cc503529149d84c35294edc2d6fb3def959b295c1"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r01/round.json",
+      "sha256": "85f0d063c4073f33998d6cb984d39f661fab4646a569d61c8f545ac023301c1b"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-contour-wash/candidate.json",
+      "sha256": "400c3307d1777bc002c0087026d863e9b8a0f7039838b4cc161e3efd188b5f14"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-contour-wash/dark.svg",
+      "sha256": "af45697b49c49dbf3e4e455b0a0b186a1d1100957034a129433a8c30d23cffbc"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-contour-wash/light.svg",
+      "sha256": "3fcb2800fe557aa1f4f878a60d34d5a8bed67c38bbe7e1269bbae14b6750e608"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-fine-outline/candidate.json",
+      "sha256": "54f44e85e3a1039c801f95ebfcea5b62af9f2d20bc6b332b4230b7eea1935748"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-fine-outline/dark.svg",
+      "sha256": "870045132289828fe96d327656d6c30e20da3bb0d6e869f22e7e779b69e06377"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-fine-outline/light.svg",
+      "sha256": "f754011e2a343c739bc4130ba8edd9f666bd33ba6e64f8f8aaecbf55223a1ab8"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-isometric-solid/candidate.json",
+      "sha256": "f0bfb10c55d63693eb80d5f2e8426fb58eb3ed42a5f37df18a907db9632d8dea"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-isometric-solid/dark.svg",
+      "sha256": "b4296dd101b4569a3221b4990b71d59d9ec27dc850444fc25bc61076faba0859"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-isometric-solid/light.svg",
+      "sha256": "62a2fc4020c3c7cdb5dc6458fe572f6ad1dec098de83c14739b907857b05d1a4"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-paper-layers/candidate.json",
+      "sha256": "e1a4fff99208670fbd1ab151feebcf5ad48735e68ed8ea67513f2908802a7941"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-paper-layers/dark.svg",
+      "sha256": "fafef64f9dc9f30d1b64cef2070f4a8ee130e8f83568b8ca6639368bf255ac1c"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-paper-layers/light.svg",
+      "sha256": "f0fd748456cb031f5a2d698cee75604023b73d8c812505fc6e982b21294729b4"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-pencil-notebook/candidate.json",
+      "sha256": "4e9a2db888fc243186ee160700946990c7d5bc5b0fc95829449519cc3ba5f9bc"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-pencil-notebook/dark.svg",
+      "sha256": "4ff3ebb771e67f0e8d9bcb4dc014c0f2ca05e3b6592d42555e58618a6c9a8054"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-pencil-notebook/light.svg",
+      "sha256": "1d0f27d069cbaab41772960ee8bc4226fc133c61ffd976200d333d13658201f7"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-soft-fill/candidate.json",
+      "sha256": "c69cf53e65423db141d0b0324a25ed76a6a13e94e6c49b696bc2a3c9847c8c5e"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-soft-fill/dark.svg",
+      "sha256": "a271b7c57432ab20491ef508c82feedc463171750ef01fc4d9ea1aab886efcf4"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-soft-fill/light.svg",
+      "sha256": "2e924cbc299c8f41c5e9901e478101420ba3e32e5be2143be2748d514a686491"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-swiss-grid/candidate.json",
+      "sha256": "4494f5f12d632aae67be2f2baec0baaf6e1bd6bfc504084148cbb976cf9d2dee"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-swiss-grid/dark.svg",
+      "sha256": "6d6e95365e92587f5501c9860a75c319992d439f2a1d27fd043fcb977e6da8cf"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-swiss-grid/light.svg",
+      "sha256": "c85325604cf458b7078db1417fc6c8d361c38bc09799dfb4c29c924cc82f4591"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-ui-miniature/candidate.json",
+      "sha256": "f14b9ee15988c617f1cbdfe719c5f6924e6febabec5ebdc298c503e68cbd37ef"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-ui-miniature/dark.svg",
+      "sha256": "2976f88e5df077a2e88033287983438a08d005f91a5a7d3d94a0ea638f0f48e5"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/r02-ui-miniature/light.svg",
+      "sha256": "0e14a4ccf843de126f90500fd816fff460538de9534c4b71f9dd078306a5c93a"
+    },
+    {
+      "path": "sessions/empty-seats/rounds/r02/round.json",
+      "sha256": "06f70e84eb5b447bca22a7bb8828a585cf39497495c30f1d470ee1b2c30cd9c0"
+    },
+    {
+      "path": "sessions/empty-seats/session.json",
+      "sha256": "7a8d98e91e1e2722bbddf2fd4288fcbd12d98a580d9b1b5c8dd1c5eb33ac9b5e"
+    },
+    {
+      "path": "sessions/long-labels/brief.md",
+      "sha256": "2093955ea637e520c50a8c1abe29be6b39f35973e9cb645bf73dffcd880e52cd"
+    },
+    {
+      "path": "sessions/long-labels/checklist.json",
+      "sha256": "a7781a3595c8f763c58b04f92f447434e7cee641f5984fa9d8593643395c5b25"
+    },
+    {
+      "path": "sessions/long-labels/placement.json",
+      "sha256": "189b9754644ce8b32b0d4de53d423b7be5c684871f23fdcf7c2ad509e7781afa"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-fine-outline/candidate.json",
+      "sha256": "aa7f546b9947aaae3b05916f20f81d2d38f224ee5131cf269f96e6cfadaaaeb6"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-fine-outline/dark.svg",
+      "sha256": "6b95e7fc15c500180822db62c419ab71f81155f21d6ba87238ccec2eb50afe26"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-fine-outline/light.svg",
+      "sha256": "27e4f92223290e399238aa6c5e172f765b87d372dcf5a3f169c337f83fa0b152"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-soft-fill/candidate.json",
+      "sha256": "cfcf8d5af3d8b3e3d11cbcf9465798f4d21fd91eddab465bf205a672b270dc55"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-soft-fill/dark.svg",
+      "sha256": "ec534da767a13d485328f85c1b9fd33eb63ea099d2567128cb3fb1206de3c64a"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-soft-fill/light.svg",
+      "sha256": "92bd568729d57b53868b51783f881be4cde5e0b9b58753142782b08cd4c34c3d"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-swiss-grid/candidate.json",
+      "sha256": "9e4e129a6fe095424632a4c3eae67e0a7edd5679c183ad10869f4ad5a946ce79"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-swiss-grid/dark.svg",
+      "sha256": "315922b96977c5f19e505aca322c3604141b4b76f5208bdc5d315e88bd19ce6a"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/r01-swiss-grid/light.svg",
+      "sha256": "007ae4d2468aa48a03b1e5aaadf56e294d6941435dbe448923494f20461742c5"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r01/round.json",
+      "sha256": "85f0d063c4073f33998d6cb984d39f661fab4646a569d61c8f545ac023301c1b"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-contour-wash/candidate.json",
+      "sha256": "5f5a200640cc1610a03ee930b8149ae555087f7a23217cac8d9ec9e05f7fb0a1"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-contour-wash/dark.svg",
+      "sha256": "a7e0e848a371d2522d0e9c3a8fe236baff6d04f60923c0d920c50eca0cb640ea"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-contour-wash/light.svg",
+      "sha256": "e512e647d5f7d9e4307858aac4c83e8ecab19a4fdd869bc33a248ed1133bb258"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-fine-outline/candidate.json",
+      "sha256": "0f56967f48a211503cf963375f7c21af1e6623a26f0f1fcd9a836865c66c5f9f"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-fine-outline/dark.svg",
+      "sha256": "7b6107d3318a43c160082f77eb306471a09744ed7bbad5899e0d829ac1f72f56"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-fine-outline/light.svg",
+      "sha256": "644665419e81408bd3cf3fc453bf5bb08c1e271235766184b6a5056d417d8285"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-isometric-solid/candidate.json",
+      "sha256": "dfc90c1cbb45cccca9abae896d371c12cafd486d95742f0b92b38b42b766a56b"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-isometric-solid/dark.svg",
+      "sha256": "1f1519686c16029234b31a4b95a8d8e3918e887b0f66bbce2243d3ad6ca225f8"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-isometric-solid/light.svg",
+      "sha256": "e3cfc08f6db3c69491a4e44af971e10400dfe7a4c71028a51c5773851c223f31"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-paper-layers/candidate.json",
+      "sha256": "acb329001fc14289aa5e22c53f82ddb82f05b4e3863c3347e62a4e8056a6a96f"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-paper-layers/dark.svg",
+      "sha256": "0a4d0c278def7e9e6ce3af09934f416768290ef0c1b65ad7b975644306a76ed8"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-paper-layers/light.svg",
+      "sha256": "4892238706edb98a2602b744b0d97b8d5d37896a5fd99f5e873b48c32fdff541"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-pencil-notebook/candidate.json",
+      "sha256": "6120c348a4227b9b17b36b428b4212409daf5197499997f46e658ef071756a4a"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-pencil-notebook/dark.svg",
+      "sha256": "4603106ec89b15535ccccaed97adb4d791709f387da7916e6f199a0b96a36a8e"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-pencil-notebook/light.svg",
+      "sha256": "71d5d41672f4206b0285aca01d221edc6264d4509462b2a443209300f6b1e198"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-soft-fill/candidate.json",
+      "sha256": "fdc1c3598bdd9bb142bd169130a3a27f61e5af7e7f2ad71c76ff7ed9489cb2c6"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-soft-fill/dark.svg",
+      "sha256": "2f7237f479b1f9f79a3965563734fb12d2e436431f6e394cf29cc5078a716de8"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-soft-fill/light.svg",
+      "sha256": "8e95a0850c58cfd80af0e73411a3f61760e99931924c55c346b0372112df3157"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-swiss-grid/candidate.json",
+      "sha256": "6a19a5c8d2a76c4b263f7b09b8ba9a87e51c3b7143cd3266508599971576328b"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-swiss-grid/dark.svg",
+      "sha256": "c63bb396a08e5dc1f506d2c95d3b8e0b79eaa31d8dc3f6898d3219d65596d804"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-swiss-grid/light.svg",
+      "sha256": "770ac092b7e27d8afe5042865116b77e7979765c8a066f59afdefc536fb63809"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-ui-miniature/candidate.json",
+      "sha256": "7ec1bbb5bf810b5d96fc8085bee172b006a241ddf787ba5fdbfaab87823db1fc"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-ui-miniature/dark.svg",
+      "sha256": "1e77ec5de42d9523f9ea43e5249bccf89d72090a02e48a6ad5e33e240cba391e"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/r02-ui-miniature/light.svg",
+      "sha256": "a5b31f91ec78da4844b32835e0ad48be75e5a0f33e22c1eecd9ef0f400619bb5"
+    },
+    {
+      "path": "sessions/long-labels/rounds/r02/round.json",
+      "sha256": "06f70e84eb5b447bca22a7bb8828a585cf39497495c30f1d470ee1b2c30cd9c0"
+    },
+    {
+      "path": "sessions/long-labels/session.json",
+      "sha256": "3a6e33977ae3043ca26c6b216ef6c6f92a2bf136cf8ca85b938c7e128edae4b4"
+    },
+    {
+      "path": "sessions/pending-queue/brief.md",
+      "sha256": "6411594bc74cef45052f139dfd9a526f40c8481cc3c49492070d48da6f6075fa"
+    },
+    {
+      "path": "sessions/pending-queue/checklist.json",
+      "sha256": "67d41e3521bf90d60f69a5f93ccb1ccb1af6339937c60b73371bc5ecf833b68f"
+    },
+    {
+      "path": "sessions/pending-queue/placement.json",
+      "sha256": "5fa2734464436df54dd81cc97ec34940087c842a507c1c1c8daf1f10aa557b00"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-fine-outline/candidate.json",
+      "sha256": "b3c84fd0f2f7104285090483b193bf08fec315736891bd59f46137c0cf72e4d1"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-fine-outline/dark.svg",
+      "sha256": "8f35072a11c1db1270caa392eb14cb8c34ab53be13c95e024c52662033af520f"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-fine-outline/light.svg",
+      "sha256": "c2a8948c3ec3f70d0d0f4d666c7df3debc3d70eae47d6ddde5334f5d489efbcb"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-soft-fill/candidate.json",
+      "sha256": "6c2789deb34a0acee6d5e1602ed5eebdf86516ff0152ec5dd07553aeef975aef"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-soft-fill/dark.svg",
+      "sha256": "ea49c14e1940eaeefecd7fe69f19ae4578ec4720906df001b7b8b505becb8d9c"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-soft-fill/light.svg",
+      "sha256": "6c5de5b5946e1153a935c6bb21a4e20818cd0374a2f8286d517a30575238bf57"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-swiss-grid/candidate.json",
+      "sha256": "751b1c93e3f914f0f510b2cc059ab6da19c0f07014b0341aa86c99ecb6711955"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-swiss-grid/dark.svg",
+      "sha256": "d480c4c0b6b5c66aa8f9b9029b64332295d70e3f4268a7979a55a716689e4f6a"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/r01-swiss-grid/light.svg",
+      "sha256": "cc757c8eb826cdeaef2fb2ca437d3b24901d54935e761272b74efd10cd51e5a9"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r01/round.json",
+      "sha256": "85f0d063c4073f33998d6cb984d39f661fab4646a569d61c8f545ac023301c1b"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-contour-wash/candidate.json",
+      "sha256": "2730b2d002eed5b38ab094156c6cfce6b0e471916aa9921fea1257d258695b3d"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-contour-wash/dark.svg",
+      "sha256": "60e9da1c6eafd4d933470ff852ca061493eb71bd54a489b407c35b13f86432de"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-contour-wash/light.svg",
+      "sha256": "239ac2918e74e6e384a812aa580775272ec1e79b2e177669c4ad08112e0deeb0"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-fine-outline/candidate.json",
+      "sha256": "6f63a1d5bc91d42f69fde3b921720fa25d8aba8ae2997ff03f0ed65e23e233bf"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-fine-outline/dark.svg",
+      "sha256": "37e16ca2bade525af19511648b5aa29e1e8be2a696c162264e0b4a94d124b720"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-fine-outline/light.svg",
+      "sha256": "cb08bf1132149c8dc0b82f39e6cbead5cc0769d8cfa2a2161ab4396f4d11b836"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-isometric-solid/candidate.json",
+      "sha256": "81d925afb65c029912be6ded9a6fc86991cbb7e43e0bb430d38c6076a979279f"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-isometric-solid/dark.svg",
+      "sha256": "7b206cb2baf682b23275fdeba55a252776aa862960df3a7f057be2d71f40ddf0"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-isometric-solid/light.svg",
+      "sha256": "56d4f132a43c76fc74d165d19722904169d827a6fe9e051fb402a5a6dd8d0947"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-paper-layers/candidate.json",
+      "sha256": "e34e10c528ff489989dc52a6eb3f422490b8eb934b7967b369da42fa17311d85"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-paper-layers/dark.svg",
+      "sha256": "9450d293e8e59c8dbbfe33ba8a7d0f87cbcf61577b2a3bfed8feeabb66dcc465"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-paper-layers/light.svg",
+      "sha256": "d3315e21c4c17c43359e569dba39b535c94cd6460aaa475b9b2b9e316790388b"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-pencil-notebook/candidate.json",
+      "sha256": "c4c034be8ea041ba29fb6a34d06bfdf862c51eefa182c09af7ce741230e95961"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-pencil-notebook/dark.svg",
+      "sha256": "a686b0a7f2e977e8a7d947bf78fe55d120a0379ed3586e6eb2d6e0bef0a546da"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-pencil-notebook/light.svg",
+      "sha256": "f65b71c9081b40a4b6655302a28dddf6ea6507d5a3404315911860277b0c6247"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-soft-fill/candidate.json",
+      "sha256": "e20295e0772f587a189b0a1875682303d99a158c82cb05747f96dd6cf351ba87"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-soft-fill/dark.svg",
+      "sha256": "b58ba6d05d16e4c122202443a9c7ed0a1c1c43c4c5295fe7c9628de6f68cbfd9"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-soft-fill/light.svg",
+      "sha256": "27d5664b2d955d028a6f21cb439026fde05ba8986033c8742a62fff19b9acad1"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-swiss-grid/candidate.json",
+      "sha256": "24351ca760f8535656aae8f279bc045fb2a3ec57ff3ccf045d52606ac76a091e"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-swiss-grid/dark.svg",
+      "sha256": "0ad88a60be407b9568bbe80c84350f6e8a8f9e0430d4f283738b56175fe26408"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-swiss-grid/light.svg",
+      "sha256": "fd50d4f82cef68a1974afcc8e9ccee292195b2b05c87a42d1a1de951569c6ee1"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-ui-miniature/candidate.json",
+      "sha256": "29b8f54d6ab1812c7135467ed95a0f309472fb2bf87322d8352d7e37f04c364c"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-ui-miniature/dark.svg",
+      "sha256": "fbb5b877f7d0e51dd9a9d19c113237e79cecc92e7dea96ab3fd4e045026f5f75"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/r02-ui-miniature/light.svg",
+      "sha256": "5fc7f50927cd8d101a6746ccd7faf3e2d95accd89903353f2f58d7200d6597a4"
+    },
+    {
+      "path": "sessions/pending-queue/rounds/r02/round.json",
+      "sha256": "06f70e84eb5b447bca22a7bb8828a585cf39497495c30f1d470ee1b2c30cd9c0"
+    },
+    {
+      "path": "sessions/pending-queue/session.json",
+      "sha256": "034dc112ffdbbbee5fad75d70cfb9eced52be36a4c9da124dfb17c4f14152d19"
+    },
+    {
+      "path": "sessions/reservation-flow/brief.md",
+      "sha256": "96c590639627007c24feb262d5dc4a10abb5433889f2af55fced6c6e54633ed4"
+    },
+    {
+      "path": "sessions/reservation-flow/checklist.json",
+      "sha256": "dd5639f7c6658c272048f3860d34168bca744aae34c05c96cdcd1d7653695046"
+    },
+    {
+      "path": "sessions/reservation-flow/placement.json",
+      "sha256": "dde18c481e9f5a14e105d785a5900981212c536241dbee8c72ca31f9cfe1647e"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-fine-outline/candidate.json",
+      "sha256": "be1290374f23b766d201476a997e943100e889a157ab1ad1010ba70f40291210"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-fine-outline/dark.svg",
+      "sha256": "3d221d25d34513998dbac65aa55e93ccc3361bfedece260dd3ed46cb7bd4a0c1"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-fine-outline/light.svg",
+      "sha256": "13b01e188416ec65a0bcb2b28aae33b785df4aaa62a3174d01d9bc03382a19e5"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-soft-fill/candidate.json",
+      "sha256": "fcc5d5de1e7a344e156eb39e804981288b6b82f47183e6f8d5851004497e82a5"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-soft-fill/dark.svg",
+      "sha256": "e0bb598129c4f1fe3f1afdd1df5565ea82a79a8673a13798c3cf3cbb079924ed"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-soft-fill/light.svg",
+      "sha256": "8f44d455cbcc169c025617537daf14363026bb00351f0273e33a2b2a08bacba2"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-swiss-grid/candidate.json",
+      "sha256": "c58162e02ee3e9a481b6a1631a00c79117cc2b5b018f91887d9323a8fd9e1f99"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-swiss-grid/dark.svg",
+      "sha256": "bf80a7e483a5c9099defc9b44fbfc59f2b9bbd96bb047dde66f0d19ffb1bb09c"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/r01-swiss-grid/light.svg",
+      "sha256": "560a0b80fbb983c15f3de9bbb15bf32857ce21fb0ed2ab1a50e3d16a32b210db"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r01/round.json",
+      "sha256": "85f0d063c4073f33998d6cb984d39f661fab4646a569d61c8f545ac023301c1b"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-contour-wash/candidate.json",
+      "sha256": "a1c7e5188de314acce303708dbbdaa8a4629f80f7b35ebd419d5e146acaa2416"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-contour-wash/dark.svg",
+      "sha256": "b2d6a8a88e11b6210ab7483bd5ae45cbc05be3678d43c9e473c195dbfee55036"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-contour-wash/light.svg",
+      "sha256": "8e83065774f21eba083f820787254d148c10fd61cd2adb38c24853ee7e31395b"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-fine-outline/candidate.json",
+      "sha256": "eb298b4210b4cc6b84f73a5da7346b0a076fe7f43034c6c85c4c53c5afd174ee"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-fine-outline/dark.svg",
+      "sha256": "cb25dc5210d243fb58e5941a8c2085addc3eae09b03b3d1a8a937b6b6483316c"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-fine-outline/light.svg",
+      "sha256": "ec9167dddf0398f86c4d9edf932dad38d408af70819ebceb30572d6815346410"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-isometric-solid/candidate.json",
+      "sha256": "984ac7b18ca93db0ed13a5ad19735ed313381d8955a4cdb9f9ca70f91114e739"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-isometric-solid/dark.svg",
+      "sha256": "3528cf743e16a1db577999d84bb102daadaaeeccd1dfe21d8353e04379628a53"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-isometric-solid/light.svg",
+      "sha256": "32461ee0f493f1f7692db502b667512905e1a8e2c916b3159819d5f3c530c646"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-paper-layers/candidate.json",
+      "sha256": "8094fca83b0704a2b88b2c7e3a7e5addda8e3403d83b3dea86bd5ebf79c2a360"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-paper-layers/dark.svg",
+      "sha256": "765b5eb6ee9cc0ba217778b302f87fe47b20f333e2bd83f9a2955eaeea473a0c"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-paper-layers/light.svg",
+      "sha256": "fc9c6a771fb2025cbffb7e8705446ac4501d52d51e0de70c17c1bbd247d6d5ce"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-pencil-notebook/candidate.json",
+      "sha256": "c14c70561ac7bc9893a9ff812445cfcaad958e8fe939c9269cc449b4b57b455e"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-pencil-notebook/dark.svg",
+      "sha256": "83dcd36c8b9838960a76d6a096c40bb1208363f84a71ac5f88f43a5efcde15f6"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-pencil-notebook/light.svg",
+      "sha256": "854960b6aea8969429d654cd7bb227ddf20d979ad7c6a4106bb5ec6b060418eb"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-soft-fill/candidate.json",
+      "sha256": "1738517ef55b1f334392bfaaf6a3eeaad024c858a9312e72bc032319e51c454b"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-soft-fill/dark.svg",
+      "sha256": "de449aa830b7b1d4b0b86cbf1f4ea1540b114bbec99724ccf825d1e79ab29b70"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-soft-fill/light.svg",
+      "sha256": "8d7725064faa79b7a36dfd8a1a6d730ddc0d694078ce3f65ebaff75e178f0979"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-swiss-grid/candidate.json",
+      "sha256": "61029e369d084cf2245535f5a7159b1e258ffb829f4d2ba72f3ef710dd7f160b"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-swiss-grid/dark.svg",
+      "sha256": "4495aa768ea3abc6c26d245a26f699d5f8bf2a977c52ad6a216532ca65cc514d"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-swiss-grid/light.svg",
+      "sha256": "abdaba949fafc12a67d751d46cb420b556c2d72d9dc507981d5a40731128e5c7"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-ui-miniature/candidate.json",
+      "sha256": "3138e1713c56bf309ea00ccac48dbb986043235ebf82fb6961c682321af26ce2"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-ui-miniature/dark.svg",
+      "sha256": "180f8b385a6a0fae76b01e15b035449e4b5558138747eff09beec5a1045c5b5c"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/r02-ui-miniature/light.svg",
+      "sha256": "f1bb3bc5f88687cfe1b1fa2d75f3dfecfd16a413a3a24e35a2c76ebd8160c7ef"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r02/round.json",
+      "sha256": "06f70e84eb5b447bca22a7bb8828a585cf39497495c30f1d470ee1b2c30cd9c0"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r03/r03-swiss-grid-reservation-labels/candidate.json",
+      "sha256": "c355ef859a68736cdf64b1b33a1a0bc46822d33ca01039f481013a968417d606"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r03/r03-swiss-grid-reservation-labels/dark.svg",
+      "sha256": "3c60f630c20c309cbf1bb5f648a09db130399a89670c195985ee06bb728d1d72"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r03/r03-swiss-grid-reservation-labels/light.svg",
+      "sha256": "27e8e1734007cddbb2fa28a20c853c381a90479e80e8be30c9a20ed5b51d56d2"
+    },
+    {
+      "path": "sessions/reservation-flow/rounds/r03/round.json",
+      "sha256": "b87bfee083ac53bf9ab20f90973c4ec4b6fa683cd47408bbf6ac181aafe2fc9b"
+    },
+    {
+      "path": "sessions/reservation-flow/session.json",
+      "sha256": "a6b7e93ce3496602743e00b8772b815adc8cc33911ec1274e1215917abbc1e9f"
+    },
+    {
+      "path": "sessions/return-items/brief.md",
+      "sha256": "c1813deed3b76edf3275ab2a00d73da3dd07a932187bc0e1c7ab105f19a11dea"
+    },
+    {
+      "path": "sessions/return-items/checklist.json",
+      "sha256": "0b77c6291b09b01b3b61900b60c3e5373e8e95b923b922fd5b81ea8a770123ab"
+    },
+    {
+      "path": "sessions/return-items/placement.json",
+      "sha256": "dac5d6f33f39db264fe51dc7c4bbcdd7e3d608e30028a8727918a6f1412d8e4c"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-fine-outline/candidate.json",
+      "sha256": "55ee75f70ef165b4feb67961be4410e495f43ca8977b8acdf03315d0c2d6b3c8"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-fine-outline/dark.svg",
+      "sha256": "36b14b507c462aba7a0013c42e0d1c698f0e36b92a9c189e384113ecc99cfbee"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-fine-outline/light.svg",
+      "sha256": "33dd26efde1b7540677f9475fb2bfd793373c63b1194842d919f372db22c393c"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-soft-fill/candidate.json",
+      "sha256": "75ea3eb43ac14d74dfc698e74e4bc674827075bbdbe5085017887039308b9bf9"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-soft-fill/dark.svg",
+      "sha256": "46fbe51aa65261839f25e51ef013a2bab5603f8a8db30c072a473e4490b818c0"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-soft-fill/light.svg",
+      "sha256": "ae8252035383fa23c7dc4cf889b11690c31868664ffdc6b6255a15cdfe6cfa2c"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-swiss-grid/candidate.json",
+      "sha256": "db1c3df44185b02a38fe8e59ea6a3ac87eaf64854eab8fd4e76060a634d4ecae"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-swiss-grid/dark.svg",
+      "sha256": "d824900ca5d3ee935d30e38a8850dbe9b5a40e963b7998d311d4252598118157"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/r01-swiss-grid/light.svg",
+      "sha256": "b30b823207e7ecc88ed988d7ce1b16d827480e6abe5a66f40b58029c9d47feda"
+    },
+    {
+      "path": "sessions/return-items/rounds/r01/round.json",
+      "sha256": "85f0d063c4073f33998d6cb984d39f661fab4646a569d61c8f545ac023301c1b"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-contour-wash/candidate.json",
+      "sha256": "28475d785fd1b4bfc4b9665ae5b012be2f6b7409139a72c643f8410a39b7f683"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-contour-wash/dark.svg",
+      "sha256": "7070903b9e31a07ccd52a1c7d31253edc94394fc554dd718c2e2f6572d89c00a"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-contour-wash/light.svg",
+      "sha256": "e90a813945a28c38326433e3a15edb111c34e4efa449361421f7cbf38761cc1f"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-fine-outline/candidate.json",
+      "sha256": "577dee6df4e0bc97834cebdeacda07418b3f2e04cde5f645267bdbbf3dbc728b"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-fine-outline/dark.svg",
+      "sha256": "1a0b737d20a8884c3e7665e99d1d9303388c3dbffc03759078d56e47e2ea0a30"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-fine-outline/light.svg",
+      "sha256": "e3923fa531bdbf90d402b5f40db9168649d2a7623920177708902da52a3bb329"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-isometric-solid/candidate.json",
+      "sha256": "337f80447734cd812ddc3537acedfc225b4f1c6c7ea880442813e834f9f7b5f4"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-isometric-solid/dark.svg",
+      "sha256": "6a7595a9ec95e84cf8cec13e86b385a6a69ba80e8a9a5c12f887a032f4acadfe"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-isometric-solid/light.svg",
+      "sha256": "09f20f1d60f09d27eea3df2aee75c10ccc64350fe3921b8cb8ef61aaec7fe393"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-paper-layers/candidate.json",
+      "sha256": "d33cee3335f4a6d63146f9d9fd02f8079527ef9d71129c56e2ef64c86076f51c"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-paper-layers/dark.svg",
+      "sha256": "ac32869b7abebe0b717e20b985d011e394dd0c05e29b79b043e480190913fd58"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-paper-layers/light.svg",
+      "sha256": "10750a6525f28c610c2b37d44c7bb6deafa4872ae99db3091c4d9319ffefe92d"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-pencil-notebook/candidate.json",
+      "sha256": "afa5337f40c650b4ee9a208cdc5fdd585cb40ff14cf6d6a363bfbefe96914844"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-pencil-notebook/dark.svg",
+      "sha256": "ddeebaf2f69dbf954ddd80c305a668c05c46de7cbdae70bf707fcdcd5bf8e5ab"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-pencil-notebook/light.svg",
+      "sha256": "52932a9a9d72501ed87de443af6966c7063c544511c2c04bc0f67594d06fad46"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-soft-fill/candidate.json",
+      "sha256": "475ab0b9f9f62cb603aabe02fc4690bb499e965d95c2956c49d66d24862dcb36"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-soft-fill/dark.svg",
+      "sha256": "bf29bd1b2f377e99747a826cfdad34ad9235fda524f54c13e7964972dba9d658"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-soft-fill/light.svg",
+      "sha256": "963276ee15dafab521d29b25d0e708d893c149b21d048b2547e74b7db11e95c7"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-swiss-grid/candidate.json",
+      "sha256": "3e77ebc22bdcc6a1bd0953716703da7c7edaf9758add65e3dd7fd9bec94898c9"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-swiss-grid/dark.svg",
+      "sha256": "3348b4e510a81983c837fd2a9e18433381b2d13468556de33bac006cfc58391a"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-swiss-grid/light.svg",
+      "sha256": "161349ec818a388a9f8838a75cb1438663f05e3d616ccc2ad0f3b2a7600ad497"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-ui-miniature/candidate.json",
+      "sha256": "79ab0e356d68c4d75e41f5849743f745f884677ac6a5ad1674ca55ffc796db25"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-ui-miniature/dark.svg",
+      "sha256": "ee75da9321c815b0c2e59c1cecb6c37ce9341b7b9c5dcc634057863ce905d886"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/r02-ui-miniature/light.svg",
+      "sha256": "00436c425447fffb3514c6b31a33cef963d02b0339bd0e29b498a56b49605d97"
+    },
+    {
+      "path": "sessions/return-items/rounds/r02/round.json",
+      "sha256": "06f70e84eb5b447bca22a7bb8828a585cf39497495c30f1d470ee1b2c30cd9c0"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-fine-outline-return-labels/candidate.json",
+      "sha256": "35e81e4a9b399d81e4926eea5f1ed6809b88ac4ee0f22e4b9fa2ce29f1eb946a"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-fine-outline-return-labels/dark.svg",
+      "sha256": "40bd7ea639f7fcfaeeb7ad1d5026fd875cb14aeca1ce28dd576b4cbc423a1517"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-fine-outline-return-labels/light.svg",
+      "sha256": "7caed352395161c9baba1b6bc1d34eed044454915c4dc17128ae8ca3a7f37acc"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-isometric-solid-return-labels/candidate.json",
+      "sha256": "d9f46690658cf3f84c92350e2f5211abf94ef6c56c1f9929a0a4cce68066b4fe"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-isometric-solid-return-labels/dark.svg",
+      "sha256": "5cf3940830aea14370826291f53e9b59cee7ff1d8e2e49385928b1f6ae70a155"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-isometric-solid-return-labels/light.svg",
+      "sha256": "1cfe81dbf2f87193fc8b5ccc3a0247028ece7dcff08a99d7d33063b0f1e9e739"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-paper-layers-return-labels/candidate.json",
+      "sha256": "2866c7858b4dac78aaf5077654e15fa7fb0cfd0f7bb9bebe1e331ca457451220"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-paper-layers-return-labels/dark.svg",
+      "sha256": "2791e91b93857ce6f2d069368843e83a96c550bdd40e6808bf94fdb468c0a84b"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-paper-layers-return-labels/light.svg",
+      "sha256": "14c5dd40cd9bfe18c6a8e5fcad42aebc043dcdafac67a5c9d5543aaa45487530"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-swiss-grid-return-labels/candidate.json",
+      "sha256": "e09431cfd647a9a4adcb592c6eed5b0af2add4f4f4bd3cce864aa7a097e6a7de"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-swiss-grid-return-labels/dark.svg",
+      "sha256": "1196674398cfac9f4e368c6964e0df25868433219f72606446b74b50b76bd821"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-swiss-grid-return-labels/light.svg",
+      "sha256": "916bcb07329ad6b727e049fc60695f6b0d7d212604fcbc779e69b23d5b27c3b7"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-ui-miniature-return-labels/candidate.json",
+      "sha256": "7de87a1f74368b0d7d84534c56dfb4b784d568a81a1c1a25cf483573c8a5e263"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-ui-miniature-return-labels/dark.svg",
+      "sha256": "eba24ef565c6c86a802c7ba73164564649144a0eab315ef644b079f75d475447"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/r03-ui-miniature-return-labels/light.svg",
+      "sha256": "61088ad473b593d5260b11e9885eb05c0b6d88ff7511e4a61136014b750b674f"
+    },
+    {
+      "path": "sessions/return-items/rounds/r03/round.json",
+      "sha256": "b87bfee083ac53bf9ab20f90973c4ec4b6fa683cd47408bbf6ac181aafe2fc9b"
+    },
+    {
+      "path": "sessions/return-items/session.json",
+      "sha256": "f1d19e8a7c9c1e86b105d0a2f3b5f23d325a1ad17b05ccad95a1c177b3ddfade"
+    }
+  ]
+}

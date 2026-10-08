@@ -1,0 +1,13 @@
+{
+  "correction": "Added one opaque white palette surface backing beneath 不足項目あり to separate the label from the orange return connector.",
+  "preserved": "Originals and correction-1 remain untouched. Four other correction-2 SVGs are byte-identical to correction-1, including corrected return-items. Long-labels text, typography, connector geometry and directions, facts, palette and all other geometry are unchanged.",
+  "checks": "All five correction-2 SVGs parsed as XML; byte identity verified for all four unchanged copies. No browser render or visual acceptance claimed.",
+  "resources_used": [
+    "correction-2-feedback.txt",
+    "outputs/correction-1/reservation-flow.svg",
+    "outputs/correction-1/empty-seats.svg",
+    "outputs/correction-1/long-labels.svg",
+    "outputs/correction-1/pending-queue.svg",
+    "outputs/correction-1/return-items.svg"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "correction": 1,
+  "tone": "paper-layers",
+  "theme": "light",
+  "change": "Only the pending-queue 公開済み：0 text receives inline style fill:#FFFFFF, using the supplied light surface role. Inline style overrides the general text rule that previously made the label dark on the deep blue strip.",
+  "resourcesActuallyUsed": [
+    "inputs/common/palette.json",
+    "outputs/pending-queue.svg",
+    "outputs/notes.json",
+    "captures/v0/pending-queue.png"
+  ],
+  "preservedByteForByte": [
+    "reservation-flow.svg",
+    "empty-seats.svg",
+    "long-labels.svg",
+    "return-items.svg"
+  ],
+  "checks": [
+    "All five corrected SVGs parse as XML.",
+    "Four unchanged SVGs match initial bytes exactly.",
+    "Pending-queue differs only by the added inline fill style on 公開済み：0.",
+    "Initial outputs retained."
+  ],
+  "limitations": [
+    "Correction has not been rendered again; browser use is prohibited for this correction turn.",
+    "No scoring or acceptance is claimed."
+  ]
+}

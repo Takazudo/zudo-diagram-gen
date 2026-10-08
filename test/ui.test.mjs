@@ -161,8 +161,14 @@ test('compare maintains two different candidates and shared zoom survives switch
       assert.equal(stage.dataset.scale, '1.5');
     ui.click('[data-action="view"][data-view="inspect"]');
     assert.equal(ui.query('.dg-stage').dataset.scale, '1.5');
-    assert.equal(ui.query('.dg-context-art').style.width, `${source.session.target.width}px`);
-    assert.equal(ui.query('.dg-context-art').style.height, `${source.session.target.height}px`);
+    assert.equal(
+      ui.query('[data-placement-frame]').style.width,
+      `${source.session.target.width}px`,
+    );
+    assert.equal(
+      ui.query('[data-placement-frame]').style.height,
+      `${source.session.target.height}px`,
+    );
   } finally {
     await ui.close();
   }
@@ -285,6 +291,15 @@ test('catalog exposes all 24 tones with concrete recipes', async () => {
     assert.equal(ui.window.document.querySelectorAll('.dg-card').length, 24);
     ui.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
     assert.ok(ui.window.document.body.textContent.includes(data.tones[0].recipe[0]));
+    assert.ok(
+      !ui.window.document.querySelector('.dg-tone-recipe').textContent.includes('{{scheme:'),
+    );
+    assert.equal(data.tones[0].recipe[0], data.tones[0].context.recipe[0]);
+    assert.ok(
+      data.tones[0].recipe[0].includes(
+        String(data.tones[0].context.scheme.geometry.strokeWidths.outline),
+      ),
+    );
   } finally {
     await ui.close();
   }
@@ -394,10 +409,154 @@ test('embedded shortcuts ignore host focus and dispose supports a clean remount'
   }
 });
 
-test('classic standalone script contains the current mount implementation', () => {
+test('classic standalone script contains the current mount and shared placement implementation', async () => {
+  const placementSource = await readFile(
+    new URL('../packages/diagram-gen/client/placement.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.ok(script.includes(placementSource.replaceAll('export function ', 'function ')));
+  const reviewSource = await readFile(
+    new URL('../packages/diagram-gen/client/review.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.ok(script.includes(reviewSource.replaceAll('export function ', 'function ')));
+  assert.ok(script.includes('function mountProjectApp'));
+  assert.ok(script.includes('function comparisonSlot'));
   assert.ok(
     script.includes(
-      mountSource.replace('export function mountDiagramApp', 'function mountDiagramApp'),
+      mountSource
+        .replace(/^import .*;\n/gm, '')
+        .replace(/^export \{.*\} from .*;\n/gm, '')
+        .replace('export function mountDiagramApp', 'function mountDiagramApp')
+        .trimEnd(),
     ),
   );
+});
+
+test('style and placement staleness keep legacy artwork feedback and provenance across storage and review transfer', async () => {
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  data.candidates[0].provenance = { styleHash: data.styleHash };
+  const id = data.candidates[0].id;
+  const first = mount(data);
+  first.click(`[data-action="inspect"][data-id="${id}"]`);
+  first.value('[data-note="keep"]', 'Keep accepted geometry and labels');
+  first.click('[data-action="download-review"]');
+  const review = JSON.parse(await first.downloads.at(-1).blob.text());
+  assert.equal(review.records[0].styleHash, data.styleHash);
+  assert.equal(review.records[0].placementHash, data.placementHash);
+  const saved = first.save();
+  first.window.happyDOM.close();
+  data.styleHash = 'c'.repeat(64);
+  data.placementHash = 'd'.repeat(64);
+  const second = mount(data, saved);
+  assert.match(
+    second.query('[data-style-status]').textContent,
+    /Saved style snapshot: stale.*Review style evidence: stale/,
+  );
+  assert.match(second.query('[data-placement-status]').textContent, /stale/);
+  assert.equal(second.query('[data-note="keep"]').value, 'Keep accepted geometry and labels');
+  assert.equal(second.window.document.querySelector('[data-action="acknowledge"]'), null);
+  await second.importRecord(review);
+  second.click('[data-action="download-review"]');
+  const exported = JSON.parse(await second.downloads.at(-1).blob.text());
+  assert.equal(exported.reviewedCandidate.compatibility.artwork, 'current');
+  assert.equal(exported.reviewedCandidate.compatibility.style, 'stale');
+  assert.equal(exported.reviewedCandidate.compatibility.placement, 'stale');
+  assert.equal(exported.records[0].fingerprint, data.candidates[0].fingerprint);
+  assert.equal(exported.records[0].styleHash, 'a'.repeat(64));
+  second.window.happyDOM.close();
+});
+
+test('review import rejects malformed supplied provenance hashes while legacy absence remains valid', async () => {
+  const { validateSessionReview } = await import('../packages/diagram-gen/client/review.mjs');
+  const id = source.candidates[0].id,
+    fingerprint = source.candidates[0].fingerprint;
+  const legacy = {
+    schemaVersion: 1,
+    type: 'zudo-diagram-review',
+    sessionId: source.session.id,
+    records: [{ id, fingerprint, keep: 'Preserve', change: '', action: 'refine' }],
+    shortlist: [],
+  };
+  assert.equal(validateSessionReview(legacy, source), legacy);
+  for (const key of ['styleHash', 'placementHash', 'captureHash']) {
+    for (const value of ['invalid', '', null, 123]) {
+      const bad = structuredClone(legacy);
+      bad.records[0][key] = value;
+      assert.throws(() => validateSessionReview(bad, source), /invalid/);
+    }
+    const current = structuredClone(legacy);
+    current.records[0][key] = 'a'.repeat(64);
+    assert.equal(validateSessionReview(current, source), current);
+  }
+});
+
+test('saved provenance without an effective project style remains unknown', () => {
+  const data = structuredClone(source);
+  data.candidates[0].provenance = { styleHash: 'a'.repeat(64) };
+  const app = mount(data);
+  app.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
+  assert.match(app.query('[data-style-status]').textContent, /Saved style snapshot: unknown/);
+  app.window.happyDOM.close();
+});
+
+test('restored selection snapshots discard malformed hashes and export valid reviews with legacy identity intact', async () => {
+  const { validateSessionReview } = await import('../packages/diagram-gen/client/review.mjs');
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  const id = data.candidates[0].id;
+  const first = mount(data);
+  first.click(`[data-action="inspect"][data-id="${id}"]`);
+  first.click('[data-action="shortlist-toggle"]');
+  first.click('[data-action="direction"]');
+  first.value('[data-note="keep"]', 'Keep original geometry');
+  const saved = first.save();
+  first.window.happyDOM.close();
+  for (const [key, value] of Object.entries(saved)) {
+    const envelope = JSON.parse(value);
+    const state = envelope.state;
+    state.direction.styleHash = 'malformed';
+    state.direction.captureHash = 123;
+    state.shortlist[id].placementHash = null;
+    saved[key] = JSON.stringify(envelope);
+  }
+  const second = mount(data, saved);
+  second.click('[data-action="download-review"]');
+  const exported = JSON.parse(await second.downloads.at(-1).blob.text());
+  assert.equal(validateSessionReview(exported, data), exported);
+  assert.equal(exported.chosenDirection.id, id);
+  assert.equal(exported.chosenDirection.fingerprint, data.candidates[0].fingerprint);
+  assert.equal(Object.hasOwn(exported.chosenDirection, 'styleHash'), false);
+  assert.equal(Object.hasOwn(exported.chosenDirection, 'captureHash'), false);
+  assert.equal(exported.chosenDirection.placementHash, data.placementHash);
+  assert.equal(Object.hasOwn(exported.shortlist[0], 'placementHash'), false);
+  assert.equal(exported.shortlist[0].styleHash, data.styleHash);
+  assert.equal(exported.records[0].keep, 'Keep original geometry');
+  second.window.happyDOM.close();
+});
+
+test('first note input updates provenance status without replacing the focused textarea or cursor', () => {
+  const data = structuredClone(source);
+  data.styleHash = 'a'.repeat(64);
+  data.placementHash = 'b'.repeat(64);
+  data.candidates[0].provenance = { styleHash: data.styleHash };
+  const app = mount(data);
+  app.click(`[data-action="inspect"][data-id="${data.candidates[0].id}"]`);
+  assert.match(app.query('[data-style-status]').textContent, /Review style evidence: unknown/);
+  assert.match(app.query('[data-placement-status]').textContent, /unknown/);
+  const input = app.query('[data-note="keep"]');
+  input.focus();
+  input.value = 'Keep this geometry';
+  input.setSelectionRange(5, 5);
+  input.dispatchEvent(new app.window.Event('input', { bubbles: true }));
+  assert.match(app.query('[data-style-status]').textContent, /Review style evidence: current/);
+  assert.match(app.query('[data-placement-status]').textContent, /current/);
+  assert.equal(app.query('[data-note="keep"]'), input);
+  assert.equal(app.window.document.activeElement, input);
+  assert.equal(input.selectionStart, 5);
+  assert.equal(input.selectionEnd, 5);
+  app.window.happyDOM.close();
 });

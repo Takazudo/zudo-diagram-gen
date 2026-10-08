@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-isometric-solid-return-labels",
+  "title": "分岐ラベルを経路の外へ",
+  "toneId": "isometric-solid",
+  "description": "Opaque front faces with consistent upper-right extrusion, compact hard shadows and tangible medallions. Upright labels remain outside picture facets; layout follows each brief. Only branch-label positions and linebreaks corrected after observed placement crossings.",
+  "order": 0,
+  "parentCandidateId": "r02-isometric-solid",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "1cfe81dbf2f87193fc8b5ccc3a0247028ece7dcff08a99d7d33063b0f1e9e739",
+    "dark": "5cf3940830aea14370826291f53e9b59cee7ff1d8e2e49385928b1f6ae70a155"
+  },
+  "baselineFeedback": {
+    "id": "r02-isometric-solid",
+    "fingerprint": "10b76689e91e8f1b35b2b21f7222707872446c3cb12e00350b7573563ec9bdc9",
+    "keep": [
+      "All facts, arrow routes, physical object geometry, isometric-solid tone and theme palettes"
+    ],
+    "change": [
+      "Move branch labels clear of vertical connectors. Manager observed readability crossings in both themes; change only two text elements."
+    ],
+    "action": "refine",
+    "purpose": "observed-placement-correction"
+  }
+}

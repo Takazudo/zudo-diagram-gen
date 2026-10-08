@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "r03-ui-miniature-return-labels",
+  "title": "分岐ラベルを線の外へ",
+  "toneId": "ui-miniature",
+  "description": "Original conceptual miniature UI: reduced window chrome, readable state rows, semantic marks and one emphasized teaching point; not an exact screenshot.",
+  "order": 7,
+  "parentCandidateId": "r02-ui-miniature",
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "assetHashes": {
+    "light": "61088ad473b593d5260b11e9885eb05c0b6d88ff7511e4a61136014b750b674f",
+    "dark": "eba24ef565c6c86a802c7ba73164564649144a0eab315ef644b079f75d475447"
+  },
+  "baselineFeedback": {
+    "id": "r02-ui-miniature",
+    "fingerprint": "e5b2719c6ff8bf786f153d6515ace99f59ac761e218a088f81b22f8632a1e81a",
+    "keep": [
+      "All facts, routes, miniature UI frame, card construction, icons and both theme palettes"
+    ],
+    "change": [
+      "Move and wrap branch labels outside vertical connector bounds; actual original light/dark captures show label/stem crossings."
+    ],
+    "action": "refine",
+    "purpose": "observed-placement-correction"
+  }
+}

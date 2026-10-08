@@ -5,24 +5,95 @@
   "type": "object",
   "required": ["schemaVersion", "id", "title", "toneId", "order", "assets"],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "id": { "$ref": "common.schema.json#/$defs/slug" },
-    "title": { "$ref": "common.schema.json#/$defs/nonemptyString" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/slug"
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/nonemptyString"
+    },
     "toneId": {
       "$ref": "common.schema.json#/$defs/slug",
       "description": "A tone identifier. Project-specific tones are allowed; this is not restricted to the bundled catalog."
     },
-    "description": { "type": "string" },
-    "order": { "$ref": "common.schema.json#/$defs/order" },
+    "description": {
+      "type": "string"
+    },
+    "order": {
+      "$ref": "common.schema.json#/$defs/order"
+    },
     "assets": {
       "type": "object",
       "required": ["light"],
       "properties": {
-        "light": { "$ref": "common.schema.json#/$defs/svgPath" },
-        "dark": { "$ref": "common.schema.json#/$defs/svgPath" }
+        "light": {
+          "$ref": "common.schema.json#/$defs/svgPath"
+        },
+        "dark": {
+          "$ref": "common.schema.json#/$defs/svgPath"
+        }
       },
       "description": "Paths relative to this candidate directory. A missing dark asset is explicitly unavailable; the exporter never substitutes light artwork."
     },
-    "parentCandidateId": { "$ref": "common.schema.json#/$defs/optionalParent" }
+    "parentCandidateId": {
+      "$ref": "common.schema.json#/$defs/optionalParent"
+    },
+    "assetHashes": {
+      "type": "object",
+      "required": ["light"],
+      "properties": {
+        "light": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "dark": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Optional exact saved UTF-8 asset hashes. Supplied values must match saved bytes."
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "styleHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schemeHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "kitHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "paletteHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "styleRevision": {
+          "$ref": "common.schema.json#/$defs/slug"
+        }
+      },
+      "additionalProperties": false
+    },
+    "baselineFeedback": {
+      "type": "object",
+      "required": ["id", "fingerprint"],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/slug"
+        },
+        "fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "description": "Optional explicit feedback copied from the named saved refinement baseline; does not approve the child."
+    }
   }
 }

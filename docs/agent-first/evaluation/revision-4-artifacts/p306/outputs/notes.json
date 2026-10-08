@@ -1,0 +1,62 @@
+{
+  "deliberateDepartures": [
+    "Common light palette replaces the reference notebook colors as explicitly required.",
+    "Japanese labels remain upright in Noto Sans CJK JP instead of the reference Latin handwriting fonts.",
+    "ViewBoxes match the five target slots instead of the reference 720×400 canvas.",
+    "Principal backing bands carry contiguous seeded crossed fields; blank label planes and vacant seats stay clear.",
+    "Main labels use 18–23 CSS pixels, with 14px seat labels and 13–17px supporting notes to fit the compact target; all are at least the supplied 12px minimum.",
+    "Source example composition words and PNG export icon are omitted because they do not belong to these briefs."
+  ],
+  "resourcesActuallyUsed": [
+    "common/inputs.json",
+    "common/palette.json",
+    "common/briefs/reservation-flow/brief.md",
+    "common/briefs/empty-seats/brief.md",
+    "common/briefs/long-labels/brief.md",
+    "common/briefs/pending-queue/brief.md",
+    "common/briefs/return-items/brief.md",
+    "common/briefs/reservation-flow/checklist.json",
+    "common/briefs/empty-seats/checklist.json",
+    "common/briefs/long-labels/checklist.json",
+    "common/briefs/pending-queue/checklist.json",
+    "common/briefs/return-items/checklist.json",
+    "common/briefs/reservation-flow/placement.json",
+    "common/briefs/empty-seats/placement.json",
+    "common/briefs/long-labels/placement.json",
+    "common/briefs/pending-queue/placement.json",
+    "common/briefs/return-items/placement.json",
+    "common/briefs/reservation-flow/session.json",
+    "common/briefs/empty-seats/session.json",
+    "common/briefs/long-labels/session.json",
+    "common/briefs/pending-queue/session.json",
+    "common/briefs/return-items/session.json",
+    "tone/example-dark.png",
+    "tone/example-light.png",
+    "tone/kit.svg",
+    "tone/pencil-notebook/dark.svg",
+    "tone/pencil-notebook/light.svg",
+    "tone/pencil-notebook/recipe.md",
+    "tone/recipe.json",
+    "tone/scheme.json",
+    "tone/shared/composition-meaning.md",
+    "tone/shared/provenance.md"
+  ],
+  "originalExamplePngsViewed": [
+    "tone/example-light.png",
+    "tone/example-dark.png"
+  ],
+  "fontVerification": {
+    "requestedFamily": "Noto Sans CJK JP, sans-serif",
+    "localFontMatch": "NotoSansCJK-Regular.ttc: Noto Sans CJK JP Regular",
+    "uncertainty": "Font is referenced, not embedded; downstream renderer substitution and glyph coverage cannot be guaranteed."
+  },
+  "limitations": [
+    "No evaluator feedback or user approval was used or inferred."
+  ],
+  "checksPerformed": [
+    "Parsed all five SVGs as XML; verified every exact checklist label after joining text spans.",
+    "Rendered all five SVGs with Inkscape at their declared target dimensions and visually inspected the resulting previews.",
+    "Checked SVG elements and attributes for external image/font links, scripts, animation and event handlers.",
+    "Removed temporary PNG previews; retained initial SVG outputs."
+  ]
+}

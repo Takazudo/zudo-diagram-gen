@@ -4,9 +4,23 @@
   "description": "Initialize a small zfb workspace for SVG diagram exploration.",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22 <25" },
-  "bin": { "create-zudo-diagram-gen": "./bin/create-zudo-diagram-gen.mjs" },
-  "exports": { ".": "./src/index.mjs" },
-  "files": ["bin", "src", "README.md", "LICENSE"],
-  "scripts": { "test": "node --test test/*.test.mjs" }
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "bin": {
+    "create-zudo-diagram-gen": "./bin/create-zudo-diagram-gen.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "prepack": "node ../../scripts/sync-scaffold.mjs --check"
+  }
 }

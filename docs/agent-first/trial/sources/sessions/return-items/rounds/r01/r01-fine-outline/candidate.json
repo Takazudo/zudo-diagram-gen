@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "r01-fine-outline",
+  "title": "開いた輪郭と対象の流れ",
+  "toneId": "fine-outline",
+  "description": "Object-led open contours with generous routes. Original P00 facts; fresh variant, no selection or refinement.",
+  "order": 1,
+  "assets": {
+    "light": "light.svg",
+    "dark": "dark.svg"
+  },
+  "parentCandidateId": null,
+  "assetHashes": {
+    "light": "33dd26efde1b7540677f9475fb2bfd793373c63b1194842d919f372db22c393c",
+    "dark": "36b14b507c462aba7a0013c42e0d1c698f0e36b92a9c189e384113ecc99cfbee"
+  }
+}
