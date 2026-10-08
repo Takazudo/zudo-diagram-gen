@@ -249,6 +249,7 @@ try {
     .filter({ hasText: /import/i })
     .waitFor();
   await session.locator('[data-action="view"][data-view="grid"]').click();
+  await session.locator('[data-action="round"][data-id="all"]').click();
   for (const id of [secondRound.id, alternate.id])
     await session.locator(`[data-action="compare-toggle"][data-id="${id}"]`).click();
   await session.locator('[data-action="view"][data-view="compare"]').click();
