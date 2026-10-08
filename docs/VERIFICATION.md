@@ -157,3 +157,14 @@ manifest and CI result are recorded on [PR 94](https://github.com/Takazudo/zudo-
 after this documentation commit. [ACCEPTANCE.md](agent-first/ACCEPTANCE.md) defines that exact-head
 boundary and links committed sources, review transfer and image/hash evidence. Earlier pending
 records above describe their original checkpoints and are not the current trial status.
+
+### P11 shallow-checkout regression
+
+Final-head CI at `3359edda7bdc3350b13e47593e0fd0295144ffb2`
+([run 37717931679](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/37717931679))
+failed one of 259 tests: the runtime-equivalence test depended on historical integration commit
+`c1935b8`, which is absent from GitHub's shallow checkout. This is a test portability defect,
+not a passing or deferred check. The corrected test creates its own temporary Git history,
+checks unchanged runtime files across distinct commits and rejects an actual committed runtime
+change, while retaining command and archive-hash negative checks. The production validator and
+checkout policy remain unchanged. PR 94 records the subsequent final-head rerun and acceptance.
