@@ -5,7 +5,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { test, onTestFinished } from 'vitest';
 import { loadToneCatalog, validateSession } from '../src/model.mjs';
-import { validatePlacement } from '../src/placement.mjs';
+import { validatePlacement, loadPlacement } from '../src/placement.mjs';
 import { hashBytes, KIT_PRIMITIVES } from '../src/tone-context.mjs';
 import {
   buildRolloutKits,
@@ -320,6 +320,13 @@ test('visual acceptance requires current SVG/PNG identity and every required sec
       false,
       `${row.toneId}: changed SVG`,
     );
+    const unknownPlacement = structuredClone(assets);
+    unknownPlacement[0].placementHash = '0'.repeat(64);
+    assert.equal(
+      evaluateVisualAcceptance(unknownPlacement, evidence).accepted,
+      false,
+      `${row.toneId}: unknown placement identity`,
+    );
     const changedTarget = structuredClone(assets);
     changedTarget[0].target.width += 1;
     assert.equal(
@@ -346,4 +353,38 @@ test('visual acceptance requires current SVG/PNG identity and every required sec
   const failedReview = structuredClone(evidence);
   failedReview.primary.find((review) => review.name === assets[0].name).readability = 2;
   assert.equal(evaluateVisualAcceptance(assets, failedReview).accepted, false);
+});
+
+test('same-size placement descriptor change invalidates current visual acceptance', async () => {
+  const output = await fs.mkdtemp(path.join(os.tmpdir(), 'p09-placement-stale-'));
+  onTestFinished(() => fs.rm(output, { recursive: true, force: true }));
+  const assets = await buildP09Evidence({ output, tones: ['fine-outline'] });
+  const evidence = JSON.parse(
+    await fs.readFile(
+      new URL('../../../docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, true);
+  const asset = assets[0];
+  const directory = path.join(output, asset.name);
+  const filename = path.join(directory, 'placement.json');
+  const descriptor = JSON.parse(await fs.readFile(filename, 'utf8'));
+  const before = await loadPlacement(directory, asset.target, {
+    placement: 'placement.json',
+    theme: asset.theme,
+  });
+  assert.equal(asset.placementHash, before.placementHash);
+  descriptor.frame.background = descriptor.frame.background === '#000000' ? '#FFFFFF' : '#000000';
+  await fs.writeFile(filename, JSON.stringify(descriptor));
+  const after = await loadPlacement(directory, asset.target, {
+    placement: 'placement.json',
+    theme: asset.theme,
+  });
+  assert.deepEqual(after.descriptor.slot, before.descriptor.slot);
+  assert.equal(after.descriptor.frame.width, before.descriptor.frame.width);
+  assert.equal(after.descriptor.frame.height, before.descriptor.frame.height);
+  assert.notEqual(after.placementHash, before.placementHash);
+  assets[0] = { ...asset, placementHash: after.placementHash };
+  assert.equal(evaluateVisualAcceptance(assets, evidence).accepted, false);
 });

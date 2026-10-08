@@ -4,7 +4,7 @@ All 24 stable catalog tones have complete native packs. All 192 composition/inve
 
 [Portable per-image evidence](./P09-VISUAL-EVIDENCE.json) identifies artwork head `d700a7b600ad42c131103ce85d45198cc5b961e6`, current SVG/PNG hashes, capture/placement fingerprints, browser, font file hashes and evaluator records. Twenty-four corrected compositions were recaptured; the other 168 exact SVG and PNG hashes matched previously opened images. All initial failures and evaluator disagreements remain in the artifact and [revision history](./P09-VISUAL-REVISION-HISTORY.json). Revisions resolved route/frame collisions, checkmark contrast, pilot label misassociation, isometric shadow interference and marker warning contrast.
 
-The [matrix](./P09-COMPLETENESS-MATRIX.json) derives acceptance from exact current SVG hashes and placement dimensions, matching captured PNG hashes and passing primary plus required independent reviews. Historical capture context metadata remains historical when identical artwork is reused. Current scheme/context identities are separately recorded. New sessions retain `inspected:false`; preparation does not manufacture an actual inspection.
+The [matrix](./P09-COMPLETENESS-MATRIX.json) derives acceptance from exact current SVG hashes and production-derived full placement descriptor hashes, matching captured PNG hashes and passing primary plus required independent reviews. Historical capture context metadata remains historical when identical artwork is reused. Current scheme/context identities are separately recorded. New sessions retain `inspected:false`; preparation does not manufacture an actual inspection.
 
 ## Validation provenance
 

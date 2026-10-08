@@ -5,6 +5,7 @@ import { loadToneCatalog, validateSvg } from '../packages/diagram-gen/src/model.
 import { hashBytes, KIT_PRIMITIVES } from '../packages/diagram-gen/src/tone-context.mjs';
 import { materializeKit, resolvePalette } from '../packages/diagram-gen/src/materialize.mjs';
 import { compileAuthoringTemplate } from './build-rollout-kits.mjs';
+import { loadPlacement } from '../packages/diagram-gen/src/placement.mjs';
 
 const toneRootDefault = fileURLToPath(new URL('../packages/diagram-gen/tones/', import.meta.url));
 const alternate = {
@@ -118,6 +119,7 @@ export function evaluateVisualAcceptance(assets, evidence) {
     const exactCapture =
       captures.length === 1 &&
       capture.assetHash === asset.assetHash &&
+      capture.placementHash === asset.placementHash &&
       capture.toneId === asset.toneId &&
       capture.theme === asset.theme &&
       capture.paletteMode === asset.paletteMode &&
@@ -139,6 +141,7 @@ export function evaluateVisualAcceptance(assets, evidence) {
     return {
       name: asset.name,
       assetHash: asset.assetHash,
+      placementHash: asset.placementHash,
       pngHash: exactCapture ? capture.pngHash : null,
       capturePackProvenance: exactCapture
         ? Object.fromEntries(
@@ -362,6 +365,14 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
               2,
             ),
           );
+          const target = {
+            width: kind === 'composition' ? manifest.width : 720,
+            height: kind === 'composition' ? manifest.height : 400,
+          };
+          const placement = await loadPlacement(directory, target, {
+            placement: 'placement.json',
+            theme,
+          });
           records.push({
             name,
             toneId: id,
@@ -377,10 +388,8 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
             assetHash: hashBytes(svg),
             primitiveAlternatives: scheme.primitiveAlternatives ?? {},
             instances,
-            target: {
-              width: kind === 'composition' ? manifest.width : 720,
-              height: kind === 'composition' ? manifest.height : 400,
-            },
+            target,
+            placementHash: placement.placementHash,
             fonts: Object.values(scheme.typography),
             capture: 'pending',
             inspected: false,
@@ -423,13 +432,16 @@ export async function buildP09Evidence({ output, toneRoot = toneRootDefault, ton
       placements: [
         ...new Map(assets.map(({ target }) => [JSON.stringify(target), target])).values(),
       ],
-      evidenceRecords: assets.map(({ name, assetHash, theme, paletteMode, kind }) => ({
-        name,
-        assetHash,
-        theme,
-        paletteMode,
-        kind,
-      })),
+      evidenceRecords: assets.map(
+        ({ name, assetHash, placementHash, theme, paletteMode, kind }) => ({
+          name,
+          assetHash,
+          placementHash,
+          theme,
+          paletteMode,
+          kind,
+        }),
+      ),
       structuralValidation: 'passed',
       actualInspection: acceptance.accepted
         ? 'accepted for exact assets and declared placements'
