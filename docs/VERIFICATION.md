@@ -130,3 +130,30 @@ approval. The tests exposed host `NODE_PATH` injection of global Playwright; iso
 commands explicitly clear and record that variable. Full current-base acceptance remains pending
 actual manager-owned trial, browser, heavy and CI evidence. See
 [ACCEPTANCE.md](agent-first/ACCEPTANCE.md); all earlier records remain historical.
+
+### P11 actual trial and review-fix verification
+
+The completed installed trial preserves 64 candidates and 128 actually opened light/dark views:
+55 originals, six correction children, two saved-review refinements and one later immutable-kit
+diagram. Twelve original views failed readability and remain preserved; their correction children
+passed. All accepted views have no factual violations and readability/character scores of at least
+three. These are unblinded agent evaluations and explicit test selections, not user approval.
+
+At `e4bd89ab9b9b9c7353ca72c1b8eb23b1e4726571`, all eight guarded aggregate steps passed:
+259 tests across 23 files, format/lint/types/examples, 57 built pages and 2,697 valid local links.
+Independent review passed 18 focused tests after fixing exact-head binding, selected refinement
+parents, actual upgraded-engine reexports and temporary-output filename containment. Actual local
+browser review transferred all five sessions unchanged into installed resume; 37 real watcher
+transitions passed. The six-session followup passed exact-source browser checks after explicit
+style revision adoption. Fresh engine/initializer, supported zfb 3/legacy zfb 2, all 24 offline tone
+packs, no-browser capability errors, six exact SVG exports, two HTML exports and a separately
+installed changed-catalog export probe passed their recorded checks.
+
+Pinned [CI at the earlier reviewed head](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/37716183858)
+passed actual single/project detached files in Chromium 147.0.7727.15 with the source moved away,
+server stopped and HTTP requests blocked. Local file transport remains blocked by platform policy;
+those failed attempts are retained and never described as local passes. The definitive final-head
+manifest and CI result are recorded on [PR 94](https://github.com/Takazudo/zudo-diagram-gen/pull/94)
+after this documentation commit. [ACCEPTANCE.md](agent-first/ACCEPTANCE.md) defines that exact-head
+boundary and links committed sources, review transfer and image/hash evidence. Earlier pending
+records above describe their original checkpoints and are not the current trial status.
