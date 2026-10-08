@@ -730,3 +730,24 @@ test('runtime equivalence binds actual git diff and archived package hashes', ()
       /archive payload/,
     );
   }));
+
+test('upgrade export rejects path traversal before invoking export or creating output', async () => {
+  let invoked = false;
+  const exportingEngine = {
+    exportCandidate: async () => {
+      invoked = true;
+    },
+  };
+  for (const name of ['../escape.svg', '/escape.svg', '..', '.', 'directory/file.svg'])
+    await assert.rejects(
+      reproduceUpgradeExport(
+        exportingEngine,
+        '/consumer',
+        'session',
+        { name, candidateId: 'saved', theme: 'light' },
+        Buffer.from('expected'),
+      ),
+      /portable basename/,
+    );
+  assert.equal(invoked, false);
+});

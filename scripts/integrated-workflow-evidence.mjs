@@ -17,6 +17,12 @@ export function assertSelectedBaseline(selection, sessionId, parent) {
 }
 
 export async function reproduceUpgradeExport(engine, consumerRoot, sessionPath, pair, expected) {
+  assert.ok(
+    typeof pair.name === 'string' &&
+      /^[a-zA-Z0-9._-]+$/.test(pair.name) &&
+      !['.', '..'].includes(pair.name),
+    'Upgrade export requires a portable basename.',
+  );
   const temporary = await mkdtemp(path.join(tmpdir(), 'p11-upgrade-reexport-'));
   try {
     const generated = path.join(temporary, pair.name);
