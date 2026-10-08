@@ -35,7 +35,7 @@ jobs:
       - run: pnpm build
       - run: node scripts/check-built-links.mjs
       - name: Save built site for asset preview and release verification
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: site-dist
           path: dist/
@@ -170,7 +170,7 @@ jobs:
           printf '{"sourceAway":true,"serverStopped":true,"transport":"file","network":"blocked by browser helpers"}\n' > test-output/p11-detached-orchestration.json
           node scripts/check-integrated-trial-browser.mjs "$trial_root/project-away" "$trial_root/detached/combined.html" test-output/p11-offline --offline
           node scripts/check-integrated-single-offline.mjs "$trial_root/project-away" "$trial_root/detached/single.html" test-output/p11-single-offline reservation-flow r02-fine-outline
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
           name: browser-screenshots
