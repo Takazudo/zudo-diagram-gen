@@ -288,6 +288,90 @@ try {
     '',
   );
   await app.locator('[data-project-back]').click();
+  const sessionFeedback = {
+    'reservation-flow': { keep, change },
+    'empty-seats': {
+      keep: '席は A・B・C・D の四つ。A は予約済み、B と C は空席、D は確認待ちで選択できない状態を保つ。',
+      change: '「空席」の文字間隔を少し広げる。席の状態と配置は変えない。',
+    },
+    'long-labels': {
+      keep: '三つの日本語の役割名を省略せず、準備から確認へ進み、不備は準備へ戻り、完了は受付へ進む流れを保つ。',
+      change: '完全な役割名と現在の配置を維持する。',
+    },
+    'pending-queue': {
+      keep: '二つの確認を並行して行い、一方は完了、他方は結果待ち。両方の完了後だけ公開し、公開済み件数はゼロのまま保つ。',
+      change: '並行した確認と公開条件が読み取れる現在の配置を維持する。',
+    },
+    'return-items': {
+      keep: '入口から確認へ進み、破損なしは現在空の使用可能な返却箱へ、破損ありは相談へ進む。罰金や返却拒否を加えない。',
+      change: '空の返却箱と相談への経路を維持する。',
+    },
+  };
+  // Preserve the original first-session checkpoint; extend through actual UI actions.
+  for (const entry of baselineSet.entries) {
+    if (entry.sessionId === first.id) continue;
+    const feedback = sessionFeedback[entry.sessionId];
+    assert(feedback, `Complete trial feedback is required for ${entry.sessionId}`);
+    await app.locator(`[data-project-open="${entry.sessionId}"]`).click();
+    const workbench = app.locator(`[data-project-workbench="${entry.sessionId}"]`);
+    await workbench.locator('[data-action="view"][data-view="grid"]').click();
+    await workbench
+      .locator(`[data-action="inspect"][data-id="${entry.candidateId}"]`)
+      .first()
+      .click();
+    await workbench.locator('[data-note="keep"]').fill(feedback.keep);
+    await workbench.locator('[data-note="change"]').fill(feedback.change);
+    await workbench.locator('[data-note="action"]').selectOption('refine');
+    await workbench
+      .locator(`[data-action="shortlist-toggle"][data-id="${entry.candidateId}"]`)
+      .first()
+      .click();
+    await workbench.locator(`[data-action="direction"][data-id="${entry.candidateId}"]`).click();
+    await app.locator('[data-project-back]').click();
+  }
+  const completeReview = await projectReview('complete-project');
+  assert.equal(completeReview.value.sessions.length, baselineSet.entries.length);
+  for (const entry of baselineSet.entries) {
+    const reviewedSession = completeReview.value.sessions.find(
+      (item) => item.sessionId === entry.sessionId,
+    );
+    assert(reviewedSession, `Downloaded review omits ${entry.sessionId}`);
+    assert.equal(reviewedSession.chosenDirection.id, entry.candidateId);
+    assert.equal(reviewedSession.chosenDirection.fingerprint, entry.fingerprint);
+    assert(
+      reviewedSession.shortlist.some(
+        (item) => item.id === entry.candidateId && item.fingerprint === entry.fingerprint,
+      ),
+    );
+    const note = reviewedSession.records.find((item) => item.id === entry.candidateId);
+    assert(note, `Downloaded review omits notes for ${entry.sessionId}/${entry.candidateId}`);
+    assert.equal(note.keep, sessionFeedback[entry.sessionId].keep);
+    assert.equal(note.change, sessionFeedback[entry.sessionId].change);
+    assert.equal(note.action, 'refine');
+  }
+  const completeResume = await runNode(
+    [consumer.cli, 'resume', root, '--review', completeReview.filename, '--json'],
+    root,
+  );
+  await saveJSON(out, 'installed-complete-resume.json', completeResume);
+  assert.equal(completeResume.exitCode, 0, completeResume.stderr || completeResume.stdout);
+  assert.deepEqual(JSON.parse(completeResume.stdout).data.review, completeReview.value);
+  const selection = {
+    schemaVersion: 1,
+    kind: 'explicit-selection',
+    purpose: 'test',
+    baselines: completeReview.value.sessions.map(({ sessionId, chosenDirection }) => ({
+      sessionId,
+      candidateId: chosenDirection.id,
+      fingerprint: chosenDirection.fingerprint,
+    })),
+  };
+  const selectionEvidence = await saveJSON(out, 'explicit-selection.json', selection);
+  const completeReviewEvidence = {
+    path: completeReview.filename,
+    sha256: sha256(completeReview.bytes),
+  };
+  passed('complete-session-qualified-review-and-test-selection', completeReviewEvidence);
   for (const width of [1280, 390]) {
     await page.setViewportSize({ width, height: 900 });
     for (const theme of ['light', 'dark']) {
@@ -305,7 +389,15 @@ try {
   assert.deepEqual(persistedSession.records, selected.records);
   assert.deepEqual(persistedSession.chosenDirection, selected.chosenDirection);
   assert.deepEqual(persistedSession.shortlist, selected.shortlist);
-  await app.locator('[data-project-import]').setInputFiles(reviewed.filename);
+  for (const reviewedSession of completeReview.value.sessions) {
+    const persistedRecord = persisted.value.sessions.find(
+      (item) => item.sessionId === reviewedSession.sessionId,
+    );
+    assert.deepEqual(persistedRecord.records, reviewedSession.records);
+    assert.deepEqual(persistedRecord.chosenDirection, reviewedSession.chosenDirection);
+    assert.deepEqual(persistedRecord.shortlist, reviewedSession.shortlist);
+  }
+  await app.locator('[data-project-import]').setInputFiles(completeReview.filename);
   await app
     .locator('[data-project-status]')
     .filter({ hasText: /imported/i })
@@ -335,6 +427,8 @@ try {
     installedModule: consumer.module,
     browserVersion: browser.version(),
     projectId: source.project.id,
+    completeReview: completeReviewEvidence,
+    explicitSelection: selectionEvidence,
   };
   const reviewGate = {
     ...result,
@@ -342,7 +436,7 @@ try {
     assertions: ['actual-download', 'exact-resume-records', 'test-selection'].map((id) => ({
       id,
       passed: true,
-      evidence: { path: reviewed.filename, sha256: sha256(reviewed.bytes) },
+      evidence: id === 'test-selection' ? selectionEvidence : completeReviewEvidence,
     })),
   };
   await saveJSON(out, 'review-resume-result.json', reviewGate);
