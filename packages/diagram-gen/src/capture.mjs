@@ -6,6 +6,7 @@ import os from 'node:os';
 import { randomUUID } from 'node:crypto';
 import { inspectCaptureSvg } from './capture-inputs.mjs';
 import { loadSession } from './model.mjs';
+import { assertSourceOutput } from './source-protection.mjs';
 import {
   loadPlacement,
   renderPlacement,
@@ -126,6 +127,8 @@ async function runCapture(sessionRoot, candidateId, options = {}) {
   );
   const out = await outputDestination(output, resourceRoot, protectedFiles, force);
   const sidecar = await outputDestination(`${output}.json`, resourceRoot, protectedFiles, force);
+  await assertSourceOutput(resourceRoot, out, { sessionRoot: root });
+  await assertSourceOutput(resourceRoot, sidecar, { sessionRoot: root });
   if (browserExecutablePath) {
     try {
       const info = await lstat(browserExecutablePath);
@@ -356,6 +359,8 @@ async function runCapture(sessionRoot, candidateId, options = {}) {
     // Revalidate immediately before publishing; no-force uses exclusive destination creation.
     await outputDestination(output, resourceRoot, protectedFiles, force);
     await outputDestination(`${output}.json`, resourceRoot, protectedFiles, force);
+    await assertSourceOutput(resourceRoot, out, { sessionRoot: root });
+    await assertSourceOutput(resourceRoot, sidecar, { sessionRoot: root });
     if (cancelled || timedOut)
       fail(
         cancelled ? 'CANCELLED' : 'VALIDATION_FAILED',
@@ -377,11 +382,13 @@ async function runCapture(sessionRoot, candidateId, options = {}) {
   } catch (error) {
     if (error instanceof CaptureError) throw error;
     throw new CaptureError(
-      error.code === 'EEXIST'
-        ? 'OUTPUT_CONFLICT'
-        : error.code?.startsWith('E')
-          ? 'IO_ERROR'
-          : 'VALIDATION_FAILED',
+      error.code === 'RESOURCE_UNSAFE'
+        ? 'RESOURCE_UNSAFE'
+        : error.code === 'EEXIST'
+          ? 'OUTPUT_CONFLICT'
+          : error.code?.startsWith('E')
+            ? 'IO_ERROR'
+            : 'VALIDATION_FAILED',
       error.code?.startsWith('E')
         ? 'Capture I/O failed; check the supplied paths and permissions.'
         : error.message,
@@ -406,7 +413,11 @@ export async function captureCandidate(sessionRoot, candidateId, options = {}) {
   } catch (error) {
     if (error instanceof CaptureError) throw error;
     throw new CaptureError(
-      error.code?.startsWith('E') ? 'IO_ERROR' : 'VALIDATION_FAILED',
+      error.code === 'RESOURCE_UNSAFE'
+        ? 'RESOURCE_UNSAFE'
+        : error.code?.startsWith('E')
+          ? 'IO_ERROR'
+          : 'VALIDATION_FAILED',
       error.code?.startsWith('E')
         ? 'Capture input/output could not be accessed safely.'
         : error.message,

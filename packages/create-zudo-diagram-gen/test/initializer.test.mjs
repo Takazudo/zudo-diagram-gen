@@ -44,7 +44,7 @@ test('creates an empty session with predictable defaults and package-owned page 
     build: 'zudo-diagram-gen build .',
     preview: 'zudo-diagram-gen preview .',
     check: 'zudo-diagram-gen check .',
-    'export:html': 'zudo-diagram-gen export-html . --out diagram-review.html',
+    'export:html': 'zudo-diagram-gen export-html . --out exports/diagram-review.html',
   });
   assert.equal(session.schemaVersion, 1);
   assert.equal(session.title, 'Note History Help');
