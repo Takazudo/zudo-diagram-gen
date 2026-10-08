@@ -84,11 +84,12 @@ Before integration, inspect the exported asset in the destination's real dimensi
 
 In the session, export the exact ID and theme you reviewed:
 
+<!-- reader:authoring-svg-export -->
 ```bash
 pnpm exec zudo-diagram-gen export r02-c01 \
   --session . \
   --theme light \
-  --out selected-diagram.svg
+  --out exports/selected-diagram.svg
 ```
 
 This assumes the refinement above exists. The command copies its declared asset and fails if the requested theme is missing. Open the exported file independently, then check it in the destination component with the intended dimensions and surrounding text. Use the [CLI reference](/docs/reference/cli/) for the offline session snapshot and other output commands.

@@ -20,7 +20,7 @@ assert.ok(
 await mkdir(output); // Exclusive: preserve prior evidence rather than replacing it.
 const logs = [];
 function run(label, command, { cwd, env = {}, expected = 0 } = {}) {
-  const result = spawnSync('bash', ['-c', command], {
+  const result = spawnSync('bash', ['-e', '-o', 'pipefail', '-c', command], {
     cwd,
     env: { ...process.env, ...env },
     encoding: 'utf8',
@@ -49,6 +49,7 @@ async function fence(file, id, packageDocument = false) {
   assert.ok(match, `Missing executable fence ${id}`);
   return match[1];
 }
+assert.equal(run('fail-fast-shell-proof', 'false\nprintf "masked failure"', { expected: 1 }), '');
 const setup = await fence('getting-started/local-archives.mdx', 'initialize');
 const initialized = run(
   'exact-public-initialize',
@@ -130,11 +131,24 @@ const metadata = JSON.parse(manual.match(/```json\n([\s\S]*?)```/)[1]);
 const svg = manual.match(/```xml\n([\s\S]*?)```/)[1];
 async function author(root) {
   const folder = path.join(root, 'rounds/r01/c01');
-  run('manual-create-candidate-folder', 'mkdir -p rounds/r01/c01', { cwd: root });
+  run(
+    'manual-create-candidate-folder',
+    await fence('getting-started/manual-session.mdx', 'manual-candidate'),
+    { cwd: root },
+  );
   await json(path.join(folder, 'candidate.json'), metadata);
   await writeFile(path.join(folder, 'diagram.light.svg'), svg, { flag: 'wx' });
 }
 await author(consumer);
+run(
+  'exact-manual-populated-check',
+  await fence('getting-started/manual-session.mdx', 'manual-check'),
+  { cwd: consumer },
+);
+run('exact-manual-svg-export', await fence('getting-started/manual-session.mdx', 'manual-export'), {
+  cwd: consumer,
+});
+assert.equal(await readFile(path.join(consumer, 'exports/selected-diagram.svg'), 'utf8'), svg);
 const baseline = (await engine.loadSession(consumer)).candidates[0];
 const review = {
   schemaVersion: 1,
@@ -157,6 +171,11 @@ command(['resume', consumer, '--review', path.join(consumer, 'review.json'), '--
 run('exact-public-refinement-api-test-record', await fence('reference/api.mdx', 'refine'), {
   cwd: consumer,
 });
+run(
+  'exact-authoring-svg-export',
+  await fence('authoring/svg-authoring.mdx', 'authoring-svg-export'),
+  { cwd: consumer },
+);
 assert.equal(
   (await engine.loadSession(consumer)).candidates.find((candidate) => candidate.id === 'r02-c01')
     .assets.light,
@@ -190,7 +209,9 @@ command([
   '--json',
 ]);
 assert.equal(await readFile(path.join(consumer, 'exports/selected.svg'), 'utf8'), svg);
-command(['export-html', consumer, '--out', path.join(consumer, 'exports/review.html'), '--json']);
+run('exact-manual-html-export', await fence('getting-started/manual-session.mdx', 'manual-html'), {
+  cwd: consumer,
+});
 command(
   ['export-html', consumer, '--out', path.join(consumer, 'exports/review.html'), '--json'],
   4,
@@ -400,6 +421,33 @@ run(
 run('packed-initializer-generated-install', 'pnpm install\npnpm check', {
   cwd: path.join(output, 'initializer-consumer'),
 });
+const manualConsumer = path.join(output, 'initializer-consumer');
+await author(manualConsumer);
+run(
+  'exact-manual-refinement-copy',
+  await fence('authoring/session-files.mdx', 'manual-refinement-copy'),
+  { cwd: manualConsumer },
+);
+const sessionGuide = await readFile(
+  path.join(checkout, 'src/content/docs/authoring/session-files.mdx'),
+  'utf8',
+);
+const guideRecords = [...sessionGuide.matchAll(/```json\n([\s\S]*?)```/g)].map((match) =>
+  JSON.parse(match[1]),
+);
+await json(
+  path.join(manualConsumer, 'rounds/r02/round.json'),
+  guideRecords.find((record) => record.id === 'r02'),
+);
+const manualChild = guideRecords.find((record) => record.id === 'r02-c01');
+delete manualChild.assets.dark; // The guide explicitly says to omit dark when the baseline is light-only.
+await json(path.join(manualConsumer, 'rounds/r02/c01/candidate.json'), manualChild);
+assert.equal((await engine.loadSession(manualConsumer)).candidates.length, 2);
+assert.equal(
+  await readFile(path.join(manualConsumer, 'rounds/r02/c01/diagram.light.svg'), 'utf8'),
+  svg,
+);
+run('manual-lineage-check', 'pnpm check', { cwd: manualConsumer });
 run(
   'exact-packed-initializer-api',
   await fence('packages/create-zudo-diagram-gen/README.md', 'initializer-api', true),

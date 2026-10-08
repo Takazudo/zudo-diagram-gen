@@ -77,8 +77,10 @@ The function resolves relative destinations against `cwd` (optional) or the call
 
 ## Validation
 
+Run from the source checkout root with its installed development dependencies. The legacy package-local Node-test script is not the current Vitest entrypoint; use this command:
+
 ```bash
-node --test packages/create-zudo-diagram-gen/test/*.test.mjs
+pnpm exec vitest run packages/create-zudo-diagram-gen/test/initializer.test.mjs
 ```
 
 Tests cover initialization in paths containing spaces and quotes, destination protection, symlinks, engine archive references, predictable package metadata with unique session identity, explicit installation, CLI errors, and a valid empty session scaffold. Root integration checks also exercise a packed engine consumer.

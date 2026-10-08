@@ -6,37 +6,16 @@ sidebar_position: 4
 
 This complete manual path creates one real SVG candidate, then reviews and exports the saved asset. For agent-led work, start with [Ask for your first diagram](/docs/getting-started/first-session/); [Local archive setup](/docs/getting-started/local-archives/) explains explicit skill loading. This tutorial remains usable without a skill-capable agent. Use Node.js 22–24 and pnpm 10; the repository pins pnpm 10.30.3. The engine and initializer are unpublished, so start from the [source repository](https://github.com/Takazudo/zudo-diagram-gen) and a local archive.
 
-## 1. Pack and initialize a workspace
+## 1. Create the installed workspace
 
-From the repository root, install dependencies and make the archives:
-
-```bash
-pnpm install
-pnpm pack:local
-```
-
-The pack command prints absolute archive paths. For the current `0.1.0` version, run this from the same repository root:
+Follow [Local archive setup](/docs/getting-started/local-archives/#pack-and-create-an-installed-consumer) to pack the available source and create a new external consumer with a valid empty first round. Return here from that installed workspace. No agent skill is required for this manual path.
 
 ```bash
-diagram_engine_archive="$(pwd)/artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz"
-
-node packages/create-zudo-diagram-gen/bin/create-zudo-diagram-gen.mjs \
-  ../my-diagram-session \
-  --name "Feature help diagram" \
-  --engine-package "$diagram_engine_archive" \
-  --yes
-
-cd ../my-diagram-session
-pnpm install
 pnpm check
 pnpm dev
 ```
 
-If your checkout's version differs, use the engine archive path printed by `pnpm pack:local`. Keep it absolute: the generated project's dependency must resolve from its own directory. Keep that archive available for later reinstalls.
-
-Choose a new or empty destination. The initializer creates `session.json`, `brief.md`, an empty `r01` round, zfb configuration, and package scripts. `pnpm check` should report one round and zero candidates. Open the local URL printed by `pnpm dev`; the empty gallery is ready for your first drawing. Keep this terminal running, and use a second terminal in `my-diagram-session` for the remaining commands.
-
-Dependency installation is separate unless you pass `--install` to the initializer. `--yes` is accepted for scripted use; the initializer already uses predictable defaults. The full option list is in the [CLI reference](/docs/reference/cli/).
+Check should report one round and zero candidates. Open the local URL printed by zfb. Keep that terminal running and use a second terminal in the same installed workspace for authoring and export below. Keep the absolute archive available for reinstalls; do not recreate over existing content.
 
 ## 2. Write the explanation before drawing
 
@@ -65,6 +44,7 @@ The initializer sets `target.width` to `360` and `target.height` to `200` in `se
 
 In the session directory, create the first candidate folder:
 
+<!-- reader:manual-candidate -->
 ```bash
 mkdir -p rounds/r01/c01
 ```
@@ -130,6 +110,7 @@ The asset path is relative to `candidate.json`. Light artwork is required. Decla
 
 From the session directory:
 
+<!-- reader:manual-check -->
 ```bash
 pnpm check
 ```
@@ -152,17 +133,19 @@ When requesting a refinement, preserve `r01-c01` and create a later-round candid
 
 To export this tutorial's light asset, run in the session directory:
 
+<!-- reader:manual-export -->
 ```bash
 pnpm exec zudo-diagram-gen export r01-c01 \
   --session . \
   --theme light \
-  --out selected-diagram.svg
+  --out exports/selected-diagram.svg
 ```
 
 Use the revised candidate's ID when that is the result you selected. The export copies the declared SVG; open it on its own, then inspect it in the destination component before integrating it. A missing dark asset produces an error if you request `--theme dark`.
 
 To keep an offline snapshot of the whole review session:
 
+<!-- reader:manual-html -->
 ```bash
 pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json
 ```
