@@ -33,10 +33,11 @@ export async function sourceBytes(root, session, candidate, theme) {
   return readFile(join(dirname(metadataPath), metadata.assets[theme]));
 }
 export async function playwrightFor(consumer) {
-  return import(
+  const module = await import(
     process.env.PROJECT_PLAYWRIGHT_MODULE ||
       pathToFileURL(consumer.require.resolve('playwright')).href
   );
+  return module.default ?? module;
 }
 export function runNode(args, cwd) {
   return new Promise((accept, reject) => {
