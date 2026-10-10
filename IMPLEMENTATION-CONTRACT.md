@@ -4,7 +4,7 @@ The packages are local/unpublished; this records merged agent-first behavior thr
 
 ## Boundaries
 
-The root remains one zudo-doc site on zfb 2, with semantic host tokens and chrome-bound workbench. Installed consumers use zfb 3 zudo-react and retain zfb 2 Preact support. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
+The root remains one zudo-doc site on zfb 2, with semantic host tokens and chrome-bound workbench. Installed consumers use zfb 4.3 zudo-react and retain zfb 2 Preact and zfb 3 zudo-react support. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
 
 ## Implemented resources and APIs
 
