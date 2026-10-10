@@ -1,0 +1,8 @@
+---
+title: ZFB 4.3 consumer support
+description: New session hosts use ZFB 4.3 while existing ZFB 2 and 3 hosts remain supported.
+---
+
+New session and project hosts pin `@takazudo/zfb` and `@takazudo/zfb-runtime` to `4.3.0`, using the default esbuild backend and zudo-react page rendering. The engine now recognizes ZFB 4 when selecting the consumer's installed binary and renderer. Literal reserved-marker text retains the existing JSON transport protection.
+
+The supported ZFB peer range is `^2.21.1 || ^3.2.0 || ^4.3.0`. Packed compatibility checks cover ordinary sessions and multi-session projects on 2.21.1, 3.2.0 and 4.3.0, including browser review transfer and offline HTML. Existing ZFB 2 consumers keep their Preact path. The documentation site's ZFB 2.21.1 / zudo-doc 5.27.0 dependency tree is unchanged.

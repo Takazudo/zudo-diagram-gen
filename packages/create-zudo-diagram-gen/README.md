@@ -43,7 +43,7 @@ Use `--` before a destination that begins with a dash. Paths and titles can cont
 
 The initial `rounds/r01/round.json` contains no candidates. This is a valid empty gallery, ready for an agent to populate after writing the brief. `AGENTS.md` documents the candidate format and review workflow; `CLAUDE.md` points to those instructions.
 
-`zfb.config.ts` uses the normal `defineConfig` entrypoint. The engine generates `pages/index.tsx` for the viewer when its development/build command runs; do not edit that generated page. New hosts pin `@takazudo/zfb` and `@takazudo/zfb-runtime` to `3.2.0` and configure the zudo-react JSX import source in `tsconfig.json`. They do not need Preact, preact-render-to-string, or a direct Hono dependency; Hono is owned by zfb-runtime. Existing v2 sessions and the root showcase retain their compatible dependencies. The generated `pnpm-workspace.yaml` makes a session independent of a surrounding workspace.
+`zfb.config.ts` uses the normal `defineConfig` entrypoint. The engine generates `pages/index.tsx` for the viewer when its development/build command runs; do not edit that generated page. New hosts pin `@takazudo/zfb` and `@takazudo/zfb-runtime` to `4.3.0` and configure the zudo-react JSX import source in `tsconfig.json`. They do not need Preact, preact-render-to-string, or a direct Hono dependency; Hono is owned by zfb-runtime. Existing v2/v3 sessions and the root showcase retain their compatible dependencies. The generated `pnpm-workspace.yaml` makes a session independent of a surrounding workspace.
 
 | Command | Purpose |
 | --- | --- |
