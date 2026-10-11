@@ -18,7 +18,10 @@
       "types": "./client/mount.d.ts",
       "default": "./client/mount.mjs"
     },
-    "./client/app.css": "./client/app.css",
+    "./client/app.css": {
+      "types": "./client/app.css.d.ts",
+      "default": "./client/app.css"
+    },
     "./schemas/*": "./schemas/*",
     "./skills/diagram-gen/*": "./skills/diagram-gen/*"
   },
@@ -44,7 +47,7 @@
   "peerDependencies": {
     "@takazudo/zfb": "^2.21.1 || ^3.2.0 || ^4.3.0",
     "preact": "^10.29.1",
-    "playwright": "1.59.1"
+    "playwright": "1.63.0"
   },
   "peerDependenciesMeta": {
     "preact": {

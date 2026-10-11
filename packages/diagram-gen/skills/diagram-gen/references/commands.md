@@ -21,7 +21,7 @@ New commands' `--json` and check/tones' `--json-version 1` emit one `{schemaVers
 For missing capture support, run explicitly in the consumer:
 
 ```bash
-pnpm add -D playwright@1.59.1
+pnpm add -D playwright@1.63.0
 pnpm exec playwright install chromium
 ```
 

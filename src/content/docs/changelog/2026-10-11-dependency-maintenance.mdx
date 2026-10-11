@@ -1,0 +1,12 @@
+---
+title: Documentation framework and dependency maintenance
+description: The documentation site moves to zudo-doc 6 and ZFB 4.3.1 while existing diagram hosts retain their compatibility paths.
+---
+
+The documentation site now uses zudo-doc 6.0.0 and ZFB SDK/runtime/md-wasm 4.3.1. Its embedded package-owned workbench uses zudo-react activation and cleanup, with aborted fetches and disposed mounts when an island is removed. The site keeps its semantic colors, host theme synchronization and disabled dynamic page transitions. Zudo-wind replaces Tailwind, including generated showcase utility classes.
+
+New session and project hosts pin ZFB SDK/runtime 4.3.1 and TypeScript 6.0.3 with the default esbuild backend. The engine retains its `^2.21.1 || ^3.2.0 || ^4.3.0` ZFB compatibility range and optional Preact peer for legacy ZFB 2 hosts. The public stylesheet export now supplies TypeScript declarations for side-effect imports.
+
+Optional capture uses Playwright 1.63.0. Install the matching browser explicitly as described in [Placement and capture](/docs/reference/placement-capture/). Missing capture capabilities continue to produce `CAPTURE_UNAVAILABLE` and versioned exit 3. Saved SVG bytes, review transfer, browser persistence and detached HTML retain their existing contracts.
+
+Unused root declarations for Preact, preact-render-to-string, Tailwind, Hono, diff and KaTeX are removed. The runtime still owns Hono; disabled documentation history and math features do not require their optional peers. Zod and md-wasm remain required by this site's configuration. This does not publish packages or establish the separate native Mac/Safari/IME acceptance tracked in [issue #105](https://github.com/Takazudo/zudo-diagram-gen/issues/105).

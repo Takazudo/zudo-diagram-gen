@@ -87,10 +87,18 @@ try {
             .version,
           version,
         );
+      const typeConfigFile = join(root, 'tsconfig.json');
+      const typeConfig = JSON.parse(await readFile(typeConfigFile, 'utf8'));
+      typeConfig.include.push('css-export-check.ts');
+      await writeFile(typeConfigFile, JSON.stringify(typeConfig, null, 2) + '\n');
+      await writeFile(
+        join(root, 'css-export-check.ts'),
+        "import '@takazudo/zudo-diagram-gen/client/app.css';\n",
+      );
       for (const args of [
         ['check'],
         ['build'],
-        ['exec', 'tsc', '--noEmit'],
+        ['exec', 'tsc', '--noEmit', '--noUncheckedSideEffectImports'],
         ['exec', 'zfb', 'check'],
       ])
         run('pnpm', args, root);

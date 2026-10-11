@@ -256,7 +256,7 @@ function scaffold({ id, nameSlug, title, engine }) {
         '@takazudo/zfb': '4.3.1',
         '@takazudo/zfb-runtime': '4.3.1',
       },
-      devDependencies: { typescript: '5.9.3', '@types/node': '22.19.7' },
+      devDependencies: { typescript: '6.0.3', '@types/node': '22.19.7' },
     }),
     'pnpm-workspace.yaml':
       "packages:\n  - '.'\nonlyBuiltDependencies:\n  - '@takazudo/zfb'\n  - esbuild\n",

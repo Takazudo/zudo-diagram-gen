@@ -9,6 +9,7 @@ export default [
       'dist/**',
       'worktrees/**',
       '.zfb*/**',
+      '.zudo-doc/**',
       '.generated/**',
       'src/generated/**',
       'public/previews/**',

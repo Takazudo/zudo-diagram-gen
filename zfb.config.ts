@@ -21,6 +21,7 @@ export default defineConfig(
     chromeBindingsModule: './src/chrome-bindings.tsx',
     strictContentBridge: true,
     dynamicPageTransition: false,
+    wind: { manifests: { showcase: { path: './.generated/showcase-wind.json' } } },
     colorScheme: 'Default Light',
     colorMode: {
       defaultMode: 'light',

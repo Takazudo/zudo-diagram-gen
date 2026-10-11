@@ -4,7 +4,7 @@ The packages are local/unpublished; this records merged agent-first behavior thr
 
 ## Boundaries
 
-The root remains one zudo-doc site on zfb 2, with semantic host tokens and chrome-bound workbench. Installed consumers use zfb 4.3 zudo-react and retain zfb 2 Preact and zfb 3 zudo-react support. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
+The root remains one zudo-doc 6.0.0 site on ZFB SDK/runtime/md-wasm 4.3.1, using zudo-react, zudo-wind, semantic host tokens and the chrome-bound workbench. New consumers pin ZFB SDK/runtime 4.3.1 and TypeScript 6.0.3 with the default esbuild backend. The engine retains ZFB 2 Preact, ZFB 3 zudo-react and the ZFB 4.3.0 minimum. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
 
 ## Implemented resources and APIs
 
@@ -12,7 +12,7 @@ All 24 bundled tones have required offline explanation/recipe/source/light/dark/
 
 Version-one session/round/candidate identities and legacy fingerprint projection remain. New candidate provenance/asset hashes and saved baseline feedback are additive. Project manifests register contained session paths, explicit placements/styles and exact session/candidate/fingerprint comparison mappings. Candidate IDs may recur between sessions; lineage stays session-local. Strict check/build requires current valid content; partial inspect/dev/export preserves explicit diagnostics and last-valid stale states where supplied. Watcher route ownership uses exact generated-file hashes.
 
-Placement uses authoritative CSS target and contain fit, contained frame/slot, explicit local fonts/raster images/resource root and resource budgets. Optional capture lazily uses consumer Playwright 1.59.1 and explicitly installed browser or supplied executable; records actual provenance, hashes and inspected:false. Image viewing and evaluator notes are separate; neither is user approval.
+Placement uses authoritative CSS target and contain fit, contained frame/slot, explicit local fonts/raster images/resource root and resource budgets. Optional capture lazily uses consumer Playwright 1.63.0 and explicitly installed browser or supplied executable; records actual provenance, hashes and inspected:false. Image viewing and evaluator notes are separate; neither is user approval.
 
 Project lock consumes explicit current baseline selection and complete palette. Immutable style revisions store scheme/palette/kit/targets/typography/baselines and selection purpose. First lock adopts; later revisions need explicit adoption. Snapshot constituents survive catalog upgrades. Style/artwork/placement/capture compatibility is independent; absent evidence is unknown. Saved refinement starts a new later-round child from exact named baseline bytes/fingerprint/feedback. Export copies saved validated bytes including BOM/newlines; no regeneration.
 
@@ -28,4 +28,4 @@ New/initializer share authoritative engine scaffold; initializer bundles it inde
 
 ## Evidence and continuation
 
-Historical VERIFICATION.md and dated changelog/acceptance records are preserved. P09 [acceptance](docs/agent-first/rollout/P09-ACCEPTANCE.md) and [per-image evidence](docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json) cover 192 primary and 104 independent current image records at stated placements/palettes, not universal quality or user approval. P10 must prove its exact installed reader commands; P11 owns integrated current-base gates. Root zfb migration remains separate. Current executable behavior/tests take precedence over earlier proposed signatures; update docs with actual changes.
+Historical VERIFICATION.md and dated changelog/acceptance records are preserved. P09 [acceptance](docs/agent-first/rollout/P09-ACCEPTANCE.md) and [per-image evidence](docs/agent-first/rollout/P09-VISUAL-EVIDENCE.json) cover 192 primary and 104 independent current image records at stated placements/palettes, not universal quality or user approval. P10 must prove its exact installed reader commands; P11 owns integrated current-base gates. Native Mac/Safari/IME acceptance remains separate and unrun under issue #105; Linux browser checks do not establish that evidence. Current executable behavior/tests take precedence over earlier proposed signatures; update docs with actual changes.

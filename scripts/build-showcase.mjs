@@ -141,7 +141,26 @@ export async function buildShowcase(root = projectRoot) {
         ? 1
         : a.title.localeCompare(b.title),
   );
-  await writeIfChanged(join(root, 'src/content/docs/examples/index.mdx'), examplesIndex(sessions));
+  const index = examplesIndex(sessions);
+  await writeIfChanged(join(root, 'src/content/docs/examples/index.mdx'), index);
+  // Wind's normal source scan excludes these gitignored generated MDX files.
+  await writeIfChanged(
+    join(root, '.generated/showcase-wind.json'),
+    JSON.stringify(
+      {
+        schemaVersion: 1,
+        specVersion: 1,
+        producer: 'showcase',
+        candidates: [
+          ...new Set(
+            [...index.matchAll(/class="([^"]+)"/g)].flatMap((match) => match[1].split(/\s+/)),
+          ),
+        ].sort(),
+      },
+      null,
+      2,
+    ) + '\n',
+  );
 
   const featured = [];
   for (const id of ['fine-outline', 'isometric-solid', 'cut-paper']) {

@@ -64,7 +64,7 @@ try {
     },
   );
   // Explicit capability setup: the installed consumer supplies the optional peer.
-  await run(['add', '-D', 'playwright@1.59.1', '--config.auto-install-peers=false']);
+  await run(['add', '-D', 'playwright@1.63.0', '--config.auto-install-peers=false']);
   const browserExecutablePath = process.env.CAPTURE_BROWSER_EXECUTABLE;
   const captured = await run([
     ...cli,
@@ -86,7 +86,7 @@ try {
       ok: true,
       freshPackedConsumer: true,
       ordinaryCommandsWithoutBrowser: true,
-      explicitPlaywrightSetup: '1.59.1',
+      explicitPlaywrightSetup: '1.63.0',
       provenance: envelope.data.provenance,
     }),
   );
