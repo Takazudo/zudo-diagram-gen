@@ -1,5 +1,4 @@
 /// <reference types="@takazudo/zudo-doc/virtual-modules.d.ts" />
-import type { JSX } from 'preact';
 import { routeContext } from 'virtual:zudo-doc-route-context';
 import { createRouteContext, type RouteContextPayload } from '@takazudo/zudo-doc/route-context';
 import { createChrome } from '@takazudo/zudo-doc/chrome';
@@ -25,7 +24,7 @@ export function paths(): Array<{ params: { slug: string[] }; props: unknown }> {
 
 type PageArgs = { params: { slug: string[] } } & Record<string, unknown>;
 
-export default function DocsPage(props: PageArgs): JSX.Element {
+export default function DocsPage(props: PageArgs) {
   return renderDocPage(props as never, {
     locale: routeCtx.defaultLocale,
     docHistoryContentDir: routeCtx.settings.docsDir,

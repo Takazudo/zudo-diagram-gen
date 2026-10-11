@@ -25,7 +25,7 @@ run(
 );
 const { createProject } = await import(pathToFileURL(join(initializer, 'package/src/index.mjs')));
 const enginePackage = resolve('artifacts/takazudo-zudo-diagram-gen-0.1.0.tgz');
-const versions = ['2.21.1', '3.2.0', '4.3.0'];
+const versions = ['2.21.1', '3.2.0', '4.3.0', '4.3.1'];
 const results = [];
 const literal = 'Literal marker text: data-zfb-island="Demo" and zr:1:example';
 const fixture = JSON.parse(await readFile('examples/tone-exploration/session.json', 'utf8'));
@@ -44,8 +44,8 @@ try {
       const manifestFile = join(root, 'package.json');
       const manifest = JSON.parse(await readFile(manifestFile, 'utf8'));
       // Verify the initializer's actual default before preparing older controls.
-      assert.equal(manifest.dependencies['@takazudo/zfb'], '4.3.0');
-      assert.equal(manifest.dependencies['@takazudo/zfb-runtime'], '4.3.0');
+      assert.equal(manifest.dependencies['@takazudo/zfb'], '4.3.1');
+      assert.equal(manifest.dependencies['@takazudo/zfb-runtime'], '4.3.1');
       manifest.dependencies['@takazudo/zfb'] = version;
       manifest.dependencies['@takazudo/zfb-runtime'] = version;
       if (version.startsWith('2.')) {
@@ -190,7 +190,7 @@ try {
         assert.deepEqual(errors, []);
         await offline.close();
         const dev =
-          version === '4.3.0' && kind === 'session' ? await checkConsumerDev(root) : undefined;
+          version === '4.3.1' && kind === 'session' ? await checkConsumerDev(root) : undefined;
         results.push({ version, kind, installed, browser: browser.version(), dev, ok: true });
       } finally {
         const exited = new Promise((accept) => preview.once('exit', accept));

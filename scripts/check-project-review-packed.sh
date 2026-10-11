@@ -6,7 +6,7 @@ set -euo pipefail
 node -e 'const p=require("node:path");for(const key of ["ENGINE_TGZ","PROJECT_REVIEW_OUT"])if(!p.isAbsolute(process.env[key]))throw Error(key+" must be absolute")'
 mkdir "$PROJECT_REVIEW_OUT"
 mkdir "$PROJECT_REVIEW_OUT/loader"
-node -e 'require("node:fs").writeFileSync(process.env.PROJECT_REVIEW_OUT+"/loader/package.json",JSON.stringify({private:true,type:"module",dependencies:{"@takazudo/zudo-diagram-gen":"file:"+process.env.ENGINE_TGZ,"@takazudo/zfb":"3.2.0","@takazudo/zfb-runtime":"3.2.0"}}))'
+node -e 'require("node:fs").writeFileSync(process.env.PROJECT_REVIEW_OUT+"/loader/package.json",JSON.stringify({private:true,type:"module",dependencies:{"@takazudo/zudo-diagram-gen":"file:"+process.env.ENGINE_TGZ,"@takazudo/zfb":"4.3.1","@takazudo/zfb-runtime":"4.3.1"}}))'
 corepack pnpm --dir "$PROJECT_REVIEW_OUT/loader" install
 export DIAGRAM_ENGINE_MODULE="$PROJECT_REVIEW_OUT/loader/node_modules/@takazudo/zudo-diagram-gen/src/index.mjs"
 node scripts/create-review-project.mjs "$PROJECT_REVIEW_OUT/project" "$ENGINE_TGZ"
