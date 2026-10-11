@@ -95,6 +95,8 @@ jobs:
           pnpm check:browser
           pnpm check:site-browser
           node scripts/check-offline-file.mjs
+      - name: Check packed ZFB 2, 3 and 4 consumers in Chromium
+        run: node scripts/check-zfb-consumers.mjs
       - name: Check P07 packed preview and detached HTML in Chromium
         shell: bash
         run: |
@@ -175,6 +177,7 @@ jobs:
         with:
           name: browser-screenshots
           path: |
+            test-output/zfb-consumers.json
             test-output/browser-*.png
             test-output/doc-combine-*.png
             test-output/p07-*/

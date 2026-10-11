@@ -21,7 +21,7 @@ Do not copy the workbench implementation into generated sessions. Do not add a p
 
 - Use pnpm. Keep exact project dependency versions and the lockfile in sync.
 - Keep zfb as the development/build/preview path. The root documentation site uses zudo-doc chrome bindings to embed the workbench. The offline HTML export is an additional output.
-- Runtime Node modules use ESM `.mjs`; browser code uses ordinary JavaScript/CSS; generated session pages use zudo-react TSX on zfb 3 and retain Preact TSX support on zfb 2. The root zudo-doc host remains on Preact and zfb 2.
+- Runtime Node modules use ESM `.mjs`; browser code uses ordinary JavaScript/CSS; generated session pages use zudo-react TSX on zfb 3/4 and retain Preact TSX support on zfb 2. The root zudo-doc host remains on Preact and zfb 2.
 - Prefer direct SVG authoring and an ordinary JSON metadata contract. Keep explanatory content independent of viewer code.
 - Preserve stable session, round, tone, and candidate IDs. Asset paths remain relative to their candidate directory.
 - Each parallel generation worker owns one candidate directory. The coordinator owns the brief and round/session metadata.

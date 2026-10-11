@@ -252,8 +252,8 @@ function scaffold({ id, nameSlug, title, engine }) {
       },
       dependencies: {
         [ENGINE_PACKAGE]: engine,
-        '@takazudo/zfb': '3.2.0',
-        '@takazudo/zfb-runtime': '3.2.0',
+        '@takazudo/zfb': '4.3.0',
+        '@takazudo/zfb-runtime': '4.3.0',
       },
       devDependencies: { typescript: '5.9.3', '@types/node': '22.19.7' },
     }),

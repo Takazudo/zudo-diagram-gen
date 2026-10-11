@@ -8,7 +8,7 @@ Read AGENTS.md, CLAUDE.md, IMPLEMENTATION-CONTRACT.md, README.md and the public 
 
 The local SVG system includes single/project review, all 24 offline tone packs, semantic kit/palette materialization, immutable project style snapshots, shared CSS placement and optional capture, explicit new/inspect/resume, downloaded review transfer, exact saved refinement and export. The CLI calls no model. The core skill is in the engine archive with focused references; users explicitly load it or verify their host's project-local discovery. Personal /my-diagram-gen, MCP, remote model services, browser-source endpoints, automatic conversation resume and product integration remain outside delivery.
 
-Root zudo-doc is on zfb 2/Preact, embedded workbench via chrome bindings; initialized hosts use zfb 3/zudo-react while engine supports both. Keep this site structure and semantic tokens. The paused root zfb migration is separate. Packages stay 0.1.0/local archives until registry publication is independently verified.
+Root zudo-doc is on zfb 2/Preact, embedded workbench via chrome bindings; initialized hosts use zfb 4.3/zudo-react while engine supports zfb 2/3/4. Keep this site structure and semantic tokens. The paused root zfb migration is separate. Packages stay 0.1.0/local archives until registry publication is independently verified.
 
 ## Repository map
 

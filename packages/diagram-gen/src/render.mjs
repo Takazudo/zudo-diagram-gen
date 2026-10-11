@@ -61,9 +61,9 @@ export async function renderGallery(data, options = {}) {
 
 /** Generates a route for the consumer renderer from validated data; Node I/O stays outside zfb's SSR graph. */
 export async function createPageSource(data, options = {}, zfbMajor = 2) {
-  if (![2, 3].includes(zfbMajor))
-    throw new Error(`Unsupported zfb major: ${zfbMajor}. Expected 2 or 3.`);
-  const html = await galleryBody(data, options, zfbMajor === 3 ? zfbScriptJson : scriptJson);
+  if (![2, 3, 4].includes(zfbMajor))
+    throw new Error(`Unsupported zfb major: ${zfbMajor}. Expected 2, 3 or 4.`);
+  const html = await galleryBody(data, options, zfbMajor >= 3 ? zfbScriptJson : scriptJson);
   return createDocumentPage(
     html,
     data.kind === 'project' ? data.project.title : data.session.title,
@@ -72,7 +72,7 @@ export async function createPageSource(data, options = {}, zfbMajor = 2) {
 }
 
 export function createDocumentPage(html, title, zfbMajor = 2) {
-  if (![2, 3].includes(zfbMajor)) throw new Error('Expected zfb 2 or 3.');
+  if (![2, 3, 4].includes(zfbMajor)) throw new Error('Expected zfb 2, 3 or 4.');
   const pragma =
     zfbMajor === 2 ? '/** @jsxRuntime automatic */\n/** @jsxImportSource preact */\n' : '';
   const charset = zfbMajor === 2 ? 'charSet' : 'charset';

@@ -103,7 +103,7 @@ export function renderZfbGallery(
 export function createPageSource(
   data: GalleryData | ProjectData,
   options?: Record<string, string | boolean>,
-  zfbMajor?: 2 | 3,
+  zfbMajor?: 2 | 3 | 4,
 ): Promise<string>;
 
 export interface ProjectDiagnostic {

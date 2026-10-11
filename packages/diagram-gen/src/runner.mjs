@@ -297,8 +297,8 @@ export async function runZfb(command, directory = '.', forwarded = []) {
   }
   const { version } = JSON.parse(await readFile(manifest, 'utf8'));
   const zfbMajor = Number(version.split('.')[0]);
-  if (![2, 3].includes(zfbMajor))
-    throw new Error(`Unsupported installed zfb version: ${version}. Expected zfb 2 or 3.`);
+  if (![2, 3, 4].includes(zfbMajor))
+    throw new Error(`Unsupported installed zfb version: ${version}. Expected zfb 2, 3 or 4.`);
   const binary = join(dirname(manifest), 'bin', 'zfb.mjs');
   const state = createRunnerState();
   const watcherState = {};
