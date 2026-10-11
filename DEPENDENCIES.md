@@ -45,14 +45,15 @@ vanished from the resolved graph. No dependency was replaced with bespoke code.
 ## Counts and deduplication
 
 Counts below enumerate lockfile `packages` records, including platform optional
-packages, not installed disk usage. Declaration counts exclude peer declarations.
+packages, not installed disk usage. Declaration counts use manifests and exclude peer declarations (the engine has one
+runtime dependency plus three peers; pnpm importer records also include resolved peers).
 No installed-size saving is claimed.
 
 | Measurement | Integrated baseline | Post-upgrade, before reduction/dedupe | Final |
 | --- | ---: | ---: | ---: |
 | Root runtime declarations | 12 | 12 | 6 |
 | Root development declarations | 13 | 13 | 13 |
-| Engine runtime declarations | 4 | 4 | 4 |
+| Engine runtime declarations | 1 | 1 | 1 |
 | Initializer runtime declarations | 0 | 0 | 0 |
 | Resolved package records | 416 | 395 | 387 |
 | Audit total dependency count (includes workspace roots) | 419 | 398 | 390 |
