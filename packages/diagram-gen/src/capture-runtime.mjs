@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module';
 import { CaptureError } from './placement.mjs';
 export const captureSetup =
-  'Run pnpm add -D playwright@1.59.1, then pnpm exec playwright install chromium (install OS dependencies separately if needed), or explicitly supply browserExecutablePath.';
+  'Run pnpm add -D playwright@1.63.0, then pnpm exec playwright install chromium (install OS dependencies separately if needed), or explicitly supply browserExecutablePath.';
 /** Resolve the optional consumer peer lazily; handles both ESM and CJS entrypoints. */
 export async function loadCaptureCapability() {
   try {

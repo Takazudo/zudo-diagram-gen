@@ -8,7 +8,9 @@ Read AGENTS.md, CLAUDE.md, IMPLEMENTATION-CONTRACT.md, README.md and the public 
 
 The local SVG system includes single/project review, all 24 offline tone packs, semantic kit/palette materialization, immutable project style snapshots, shared CSS placement and optional capture, explicit new/inspect/resume, downloaded review transfer, exact saved refinement and export. The CLI calls no model. The core skill is in the engine archive with focused references; users explicitly load it or verify their host's project-local discovery. Personal /my-diagram-gen, MCP, remote model services, browser-source endpoints, automatic conversation resume and product integration remain outside delivery.
 
-Root zudo-doc is on zfb 2/Preact, embedded workbench via chrome bindings; initialized hosts use zfb 4.3/zudo-react while engine supports zfb 2/3/4. Keep this site structure and semantic tokens. The paused root zfb migration is separate. Packages stay 0.1.0/local archives until registry publication is independently verified.
+Root zudo-doc 6.0.0 runs on ZFB SDK/runtime/md-wasm 4.3.1 with zudo-react and zudo-wind, embedding the workbench through chrome bindings. Initialized hosts pin ZFB SDK/runtime 4.3.1 and TypeScript 6.0.3; the engine retains ZFB 2/3 and the ZFB 4.3.0 minimum. Keep the single site, semantic tokens, default esbuild backend and dynamicPageTransition:false. Packages stay 0.1.0/local archives until registry publication is independently verified.
+
+The root extends the published zudo-doc tsconfig and clears its inherited baseUrl for TypeScript 6. CSS imports use the published doc styles and typed engine stylesheet export; no Tailwind directives or removed safelist import remain. Showcase preparation generates .generated/showcase-wind.json for the intrinsic classes it emits. The wrapper loads data on zudo-react activation and aborts pending fetches/disposes the workbench on cleanup. Keep stale-response protection and one live mount; embedded theme synchronization belongs to the package workbench.
 
 ## Repository map
 
@@ -38,6 +40,8 @@ P10 consolidates public docs and tests exact displayed commands in fresh archive
 Use pnpm 10.30.3 and Node 22–24. Run relevant unit/format/lint/type/example checks, then required guarded aggregate/build/browser/package gates under active host resource policy. Fresh consumers must resolve their own installed node_modules and public exports rather than checkout modules. Browser verification covers actual review transfer, keyboard/theme/zoom/placement/persistence, strict/partial recovery and detached single/project exports. Open proposed captures and record PNG hash, candidate fingerprint, placement/theme/browser/fonts and factual/readability/contrast findings independently. Build or schema checks cannot substitute for image inspection.
 
 Record exact command logs, archive hashes, installed roots, test/actual selection purpose, baselines/new child IDs, actual transferred files, visual observations and unresolved blockers. Preserve historical docs and changelog entries; append current evidence. User-visible changes need a new changelog entry. Report publication/personal install/deployment only with separate actual evidence and authorization.
+
+Native Mac/Safari/IME verification in [issue #105](https://github.com/Takazudo/zudo-diagram-gen/issues/105) remains unrun. Use the current root tuple above and Playwright 1.63.0 for optional capture reproduction; browser installation is explicit. Record current-head verification separately from historical acceptance.
 
 ## Skills-only plugin confirmation
 

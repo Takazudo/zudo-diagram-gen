@@ -4,7 +4,6 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
@@ -12,7 +11,14 @@
     "checkJs": false,
     "resolveJsonModule": true,
     "types": ["node"],
-    "paths": { "zfb": ["./node_modules/@takazudo/zfb"], "zfb/*": ["./node_modules/@takazudo/zfb/dist/*"] }
+    "baseUrl": null
   },
-  "include": ["pages/**/*.tsx", "src/**/*.tsx", "src/generated/**/*.ts", "zfb.config.ts"]
+  "include": [
+    "pages/**/*.tsx",
+    "src/**/*.tsx",
+    "src/generated/**/*.ts",
+    "zfb.config.ts",
+    "src/**/*.d.ts"
+  ],
+  "extends": "@takazudo/zudo-doc/tsconfig.base.json"
 }

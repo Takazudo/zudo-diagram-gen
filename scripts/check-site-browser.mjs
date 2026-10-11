@@ -81,6 +81,25 @@ try {
     });
     for (const width of [1280, 390]) {
       await page.setViewportSize({ width, height: 844 });
+      if (route === '/docs/examples/') {
+        const arrows = await page.locator('article svg.w-hsp-lg').evaluateAll((elements) =>
+          elements.map((element) => ({
+            width: element.getBoundingClientRect().width,
+            height: element.getBoundingClientRect().height,
+            shrink: getComputedStyle(element).flexShrink,
+          })),
+        );
+        assert.ok(arrows.length > 0, 'Generated example navigation arrows are present');
+        for (const arrow of arrows)
+          assert.ok(
+            arrow.width > 0 &&
+              arrow.width <= 64 &&
+              arrow.height > 0 &&
+              arrow.height <= 64 &&
+              arrow.shrink === '0',
+            `Generated Wind icon utilities at ${width}: ${JSON.stringify(arrow)}`,
+          );
+      }
       const dimensions = await page.evaluate(() => ({
         viewport: innerWidth,
         scroll: document.documentElement.scrollWidth,
@@ -187,6 +206,26 @@ try {
   await page.emulateMedia({ colorScheme: 'light' });
   await expectHostTheme('light');
   console.log('PASS light, dark, system and host app theme sync');
+  await page.locator('[data-open-search]').click();
+  await page.locator('[data-search-input]').fill('first diagram');
+  const searchResult = page
+    .locator(
+      '[data-search-results] a[href="/docs/getting-started/first-session"], [data-search-results] a[href="/docs/getting-started/first-session/"]',
+    )
+    .first();
+  await searchResult.waitFor();
+  await searchResult.click();
+  await page.waitForURL(/\/docs\/getting-started\/first-session\/?$/);
+  const tocLink = page.locator('[data-zd-toc] a[href="#inspect-the-actual-results"]');
+  await tocLink.click();
+  await page.waitForURL(/\/first-session\/?#inspect-the-actual-results$/);
+  await page.waitForFunction(() => {
+    const heading = document.getElementById('inspect-the-actual-results');
+    if (!heading) return false;
+    const bounds = heading.getBoundingClientRect();
+    return bounds.top >= 0 && bounds.bottom <= innerHeight;
+  });
+  console.log('PASS actual search result navigation and table-of-contents anchor');
   const variantContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   await variantContext.route('**/workbench-data/tone-exploration.json', async (route) => {
     const response = await route.fetch();
