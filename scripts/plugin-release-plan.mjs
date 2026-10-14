@@ -11,9 +11,10 @@ function run(command, args) {
   const result = spawnSync(command, args, {
     cwd: root,
     encoding: 'utf8',
+    timeout: 15000,
     env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' },
   });
-  if (result.error) throw result.error;
+  if (result.error) throw new Error(`${command} ${args[0]} query failed: ${result.error.message}`);
   if (result.status !== 0) throw new Error(`${command} query failed: ${result.stderr}`);
   return result.stdout.trim();
 }

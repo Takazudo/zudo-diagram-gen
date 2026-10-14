@@ -95,7 +95,7 @@ async function releaseFixture(t) {
   );
   await writeFile(path.join(directory, 'package.json'), '{"version":"9.9.9"}\n');
   const git = (...args) =>
-    execFileSync('git', args, { cwd: directory, encoding: 'utf8', stdio: 'pipe' });
+    execFileSync('git', args, { cwd: directory, encoding: 'utf8', stdio: 'pipe', timeout: 10000 });
   git('init', '-q');
   git('config', 'user.name', 'Release fixture');
   git('config', 'user.email', 'release-fixture@example.invalid');
@@ -294,16 +294,21 @@ test('whole dry-run planner reads mocked remotes without changing checkout or Gi
   await chmod(path.join(mocks, 'git'), 0o755);
   await chmod(path.join(mocks, 'gh'), 0o755);
   const snapshot = () =>
-    execFileSync('tar', ['-cf', '-', '.'], { cwd: directory, maxBuffer: 32 * 1024 * 1024 });
+    execFileSync('tar', ['-cf', '-', '.'], {
+      cwd: directory,
+      maxBuffer: 32 * 1024 * 1024,
+      timeout: 10000,
+    });
   const before = snapshot();
   const invoke = (extra = {}, args = []) =>
     spawnSync(process.execPath, ['scripts/plugin-release-plan.mjs', ...args], {
+      timeout: 20000,
       cwd: directory,
       encoding: 'utf8',
       env: { ...process.env, PATH: `${mocks}:${process.env.PATH}`, MOCK_MAIN: sha, ...extra },
     });
   const planned = invoke();
-  assert.equal(planned.status, 0, planned.stderr);
+  assert.equal(planned.status, 0, `${planned.error ?? ''} ${planned.stderr}`);
   assert.equal(JSON.parse(planned.stdout).version, '0.1.0');
   assert.equal(JSON.parse(planned.stdout).commit, sha);
   const failed = invoke({ MOCK_QUERY_FAIL: 'yes' });
@@ -326,7 +331,7 @@ test('whole dry-run planner reads mocked remotes without changing checkout or Gi
   const originalRefs = `${newer}\trefs/heads/main\n${tagObject}\trefs/tags/v0.1.0\n${sha}\trefs/tags/v0.1.0^{}`;
   const advancedBefore = snapshot();
   const resumed = invoke({ MOCK_REFS: originalRefs }, ['0.1.0']);
-  assert.equal(resumed.status, 0, resumed.stderr);
+  assert.equal(resumed.status, 0, `${resumed.error ?? ''} ${resumed.stderr}`);
   assert.equal(JSON.parse(resumed.stdout).commit, sha);
   assert.equal(JSON.parse(resumed.stdout).sourceVersion, '0.1.0');
   assert.equal(JSON.parse(resumed.stdout).main, newer);
