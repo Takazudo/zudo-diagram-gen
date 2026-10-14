@@ -1,0 +1,10 @@
+---
+title: ZFB 4.5 and zudo-doc 6.2 maintenance
+description: Update the documentation framework and new diagram hosts together while preserving older supported consumers.
+---
+
+The documentation site now pins ZFB SDK/runtime/md-wasm 4.5.0 and zudo-doc 6.2.0. The framework update includes sidebar state/scroll and appearance-menu fixes, and its TypeScript base no longer needs this project's baseUrl workaround. Semantic tokens, disabled dynamic page transitions, and the default esbuild backend remain unchanged.
+
+New diagram hosts also pin ZFB SDK/runtime 4.5.0. The engine retains its existing ZFB 2/3 compatibility and 4.3.0 minimum. Initializer generation and current-version consumer checks advance together, while historical acceptance records stay intact. TypeScript remains 6.0.3 and mdx-formatter remains 1.3.0.
+
+This maintenance does not publish npm packages, deploy the site, or establish native ChatGPT or macOS acceptance.

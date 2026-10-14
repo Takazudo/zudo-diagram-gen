@@ -8,10 +8,10 @@ permissions:
   contents: read
 
 jobs:
-  apply-reviewed-update:
+  align-workspace-peer:
     if: github.repository == 'Takazudo/zudo-diagram-gen'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     permissions:
       contents: write
     steps:
@@ -26,60 +26,44 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24.13.0
-      - name: Apply reviewed exact versions and active references
+      - name: Align only the retained ZFB workspace peer graph
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-          test "$GITHUB_REF" = refs/heads/maintenance/plugin-release-20261014
-          node --input-type=module <<'NODE'
-          import { readFileSync, writeFileSync } from 'node:fs';
-          import { execFileSync } from 'node:child_process';
-          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
-          const targets = {'@takazudo/zfb': ['4.3.1', '4.5.0'], '@takazudo/zfb-runtime': ['4.3.1', '4.5.0'], '@takazudo/zfb-md-wasm': ['4.3.1', '4.5.0'], '@takazudo/zudo-doc': ['6.0.0', '6.2.0']};
-          for (const [name, [old, target]] of Object.entries(targets)) {
-            if (pkg.dependencies[name] !== old) throw new Error(`Unexpected baseline: ${name}`);
-            const latest = execFileSync('npm', ['view', name, 'dist-tags.latest'], {encoding: 'utf8'}).trim();
-            if (latest !== target) throw new Error(`Registry advanced; reassess ${name}`);
-            pkg.dependencies[name] = target;
-          }
-          writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-          const active = ['AGENTS.md', 'IMPLEMENTATION-CONTRACT.md', 'README.md', 'docs/CODEX-HANDOFF.md', 'packages/create-zudo-diagram-gen/README.md', 'packages/diagram-gen/README.md', 'packages/diagram-gen/src/scaffold.mjs', 'packages/create-zudo-diagram-gen/test/initializer.test.mjs', 'scripts/check-project-review-packed.sh', 'scripts/check-zfb-consumers.mjs', 'src/content/docs/reference/architecture.mdx'];
-          for (const filename of active) {
-            const text = readFileSync(filename, 'utf8');
-            writeFileSync(filename, text.replaceAll('4.3.1', '4.5.0').replaceAll('6.0.0', '6.2.0'));
-          }
-          const config = JSON.parse(readFileSync('tsconfig.json', 'utf8'));
-          if (config.compilerOptions.baseUrl !== null) throw new Error('Unexpected baseUrl baseline');
-          delete config.compilerOptions.baseUrl;
-          writeFileSync('tsconfig.json', JSON.stringify(config, null, 2) + '\n');
-          const handoff = 'docs/CODEX-HANDOFF.md';
-          writeFileSync(handoff, readFileSync(handoff, 'utf8').replace('and clears its inherited baseUrl for TypeScript 6', 'without a baseUrl workaround; the published 6.2 base no longer supplies that removed option'));
-          NODE
-          node scripts/sync-scaffold.mjs
-      - name: Regenerate lockfile and verify intended changes
-        run: |
-          set -euo pipefail
-          pnpm install --no-frozen-lockfile --strict-peer-dependencies
           pnpm install --frozen-lockfile --strict-peer-dependencies
-          pnpm exec prettier --write scripts/plugin-release.mjs test/plugin-release.node.mjs package.json pnpm-lock.yaml tsconfig.json packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-zfb-consumers.mjs
-          pnpm exec mdx-formatter --write .claude/skills/l-make-release/SKILL.md RELEASE.md AGENTS.md IMPLEMENTATION-CONTRACT.md README.md docs/CODEX-HANDOFF.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx src/content/docs/reference/architecture.mdx
-          node scripts/sync-scaffold.mjs --check
-          node --test test/plugin-release.node.mjs
+          cp pnpm-lock.yaml "$RUNNER_TEMP/lock-before.yaml"
+          pnpm dedupe
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+          import { parse } from './node_modules/.pnpm/yaml@2.9.1/node_modules/yaml/dist/index.js';
+          const expected = parse(readFileSync(`${process.env.RUNNER_TEMP}/lock-before.yaml`, 'utf8'));
+          const actual = parse(readFileSync('pnpm-lock.yaml', 'utf8'));
+          expected.importers['packages/diagram-gen'].dependencies['@takazudo/zfb'].version = '4.5.0';
+          for (const section of ['packages', 'snapshots']) {
+            for (const key of Object.keys(expected[section])) {
+              if (/^@takazudo\/zfb(?:-[^@]+)?@4\.3\.1$/.test(key)) delete expected[section][key];
+            }
+          }
+          assert.deepEqual(actual, expected, 'Dedupe changed more than the reviewed ZFB peer graph');
+          NODE
+          pnpm install --frozen-lockfile --strict-peer-dependencies
+          pnpm exec mdx-formatter --write README.md docs/maintenance/2026-10-14.md src/content/docs/changelog/2026-10-14-zudo-dependencies.mdx src/content/docs/getting-started/plugin-downloads.mdx
           pnpm format:check
           pnpm lint
           pnpm check
           pnpm test
-          pnpm check:examples
+          node --test test/plugin-release.node.mjs
           pnpm build
           node scripts/check-built-links.mjs
-      - name: Commit only reviewed files to the task branch
+      - name: Commit scoped lockfile and formatting changes
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add package.json pnpm-lock.yaml tsconfig.json AGENTS.md IMPLEMENTATION-CONTRACT.md README.md docs/CODEX-HANDOFF.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-project-review-packed.sh scripts/check-zfb-consumers.mjs src/content/docs/reference/architecture.mdx scripts/plugin-release.mjs test/plugin-release.node.mjs .claude/skills/l-make-release/SKILL.md RELEASE.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx
+          git add pnpm-lock.yaml README.md docs/maintenance/2026-10-14.md src/content/docs/changelog/2026-10-14-zudo-dependencies.mdx src/content/docs/getting-started/plugin-downloads.mdx
           git diff --exit-code
-          git commit -m 'chore: update ZFB to 4.5.0 and zudo-doc to 6.2.0 with verified release tooling'
+          git commit -m 'chore: align the workspace ZFB peer with the validated 4.5.0 stack'
           test "$(git ls-remote origin refs/heads/maintenance/plugin-release-20261014 | cut -f1)" = "$GITHUB_SHA"
           git push origin HEAD:refs/heads/maintenance/plugin-release-20261014
       - name: Save exact change evidence

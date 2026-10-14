@@ -1,0 +1,21 @@
+---
+title: Download the ChatGPT plugin
+description: Get the assembled plugin ZIP from GitHub Releases or a CI snapshot without npm installation.
+sidebar_position: 4
+---
+
+The ChatGPT plugin is a ZIP download, not an npm installation. It contains one assembled `zudo-diagram-gen/` folder with its manifest, skill, references, and all 24 bundled tones.
+
+## Release downloads
+
+After a release has been published, select `zudo-diagram-gen-vX.Y.Z.zip` in the Assets section of [GitHub Releases](https://github.com/Takazudo/zudo-diagram-gen/releases). The [latest plugin ZIP](https://github.com/Takazudo/zudo-diagram-gen/releases/latest/download/zudo-diagram-gen.zip) is the same package under a stable filename. These links do not establish that a first release has already been published.
+
+Download `SHA256SUMS` and both ZIP filenames into one directory and run `sha256sum -c SHA256SUMS` on Linux or `shasum -a 256 -c SHA256SUMS` on macOS. GitHub's automatic **Source code (zip)** is not the assembled plugin.
+
+## CI snapshots
+
+The `Plugin ZIP` workflow retains snapshots as downloadable Actions artifacts for 30 days. Unzip the Actions artifact first to obtain the actual plugin ZIPs and `SHA256SUMS`. Do not install the outer artifact wrapper. A snapshot is not a published, tagged release.
+
+Maintainers prepare releases with the project-local Claude Code `/l-make-release` skill. That flow uses the plugin manifest version, validates fresh ZIP extraction, creates the version tag, stages and verifies GitHub Release assets, and publishes the Release. It does not publish npm packages or run Cloudflare commands.
+
+A verified archive is not proof of native account installation or discovery. Continue with [ChatGPT plugin workflow](/docs/getting-started/chatgpt-plugin/) for the host setup, capability checks, and remaining acceptance boundaries.

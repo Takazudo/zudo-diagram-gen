@@ -4,6 +4,10 @@ Ask an agent for a grounded SVG explanation, review concrete drawings at the rea
 
 Start with [Ask for your first diagram](src/content/docs/getting-started/first-session.mdx). The [project site](https://zudo-diagram-gen.zudolab.dev/) has documentation, 24 tone references, worked examples and an embedded workbench under `/docs/`. Local source documentation may be newer than the deployed site.
 
+## Plugin ZIP downloads and releases
+
+For the skills-only ChatGPT plugin, use [Download the ChatGPT plugin](src/content/docs/getting-started/plugin-downloads.mdx). No npm installation is required. Maintainers use the project-local Claude Code `/l-make-release` skill; [RELEASE.md](RELEASE.md) covers version tags, verified ZIP assets, checksums and GitHub Releases. CI also retains assembled ZIP snapshots. Adding this workflow does not itself publish the first release.
+
 ## Actual setup
 
 Engine and initializer are `0.1.0` local archives; registry publication is not established. Use Node.js 22–24 and pnpm 10.30.3. From a source checkout:
@@ -54,3 +58,5 @@ pnpm build
 Packaging/setup examples need fresh consumers outside source, using installed public exports. Viewer/review/capture changes need actual browser/image verification. Follow the active environment's heavy/browser guards. See [AGENTS.md](AGENTS.md), [current contract](IMPLEMENTATION-CONTRACT.md), [current handoff](docs/CODEX-HANDOFF.md) and [quality checks](src/content/docs/development/quality-and-handoff.mdx). Historical verification and dated changelog entries remain preserved; [P09 acceptance](docs/agent-first/rollout/P09-ACCEPTANCE.md) records bounded tone evidence.
 
 The root is one zudo-doc 6.2.0 site on ZFB 4.5.0 with zudo-react, zudo-wind and the embedded package workbench. Generated hosts pin ZFB SDK/runtime 4.5.0 and TypeScript 6.0.3, using the default esbuild backend. The engine retains ZFB 2/Preact and ZFB 3/zudo-react compatibility, including the ZFB 4.3.0 minimum. Package publication, personal wrappers, MCP/model services and automatic integration remain separate work. Native Mac/Safari/IME acceptance remains unrun under [issue #105](https://github.com/Takazudo/zudo-diagram-gen/issues/105).
+
+See [the 2026-10-14 maintenance record](docs/maintenance/2026-10-14.md) for dependency selection, verification boundaries and the production-hostname diagnosis.
