@@ -10,6 +10,7 @@ export async function checkDocumentationBrowser(browser, origin) {
   const page = await context.newPage();
   const devtools = await context.newCDPSession(page);
   const matrix = [];
+  const reflowFailures = [];
   const capture = async (path) => {
     // Preserve the tested CSS viewport and DPR when capturing zoom-equivalent reflow.
     const { data } = await devtools.send('Page.captureScreenshot', {
@@ -217,7 +218,8 @@ export async function checkDocumentationBrowser(browser, origin) {
   ];
   for (const theme of ['light', 'dark']) {
     await page.emulateMedia({ colorScheme: theme });
-    for (const width of [1280, 390]) {
+    // Include 320 CSS pixels through 640/2 as well as the existing 195px stress case.
+    for (const width of [1280, 640, 390]) {
       await page.setViewportSize({ width, height: 844 });
       for (const [name, route] of views) {
         await devtools.send('Emulation.setDeviceMetricsOverride', {
@@ -253,10 +255,19 @@ export async function checkDocumentationBrowser(browser, origin) {
           const path = `test-output/docs-ia-${name}-${theme}-${width}-${zoom}x.png`;
           if (zoom === 1 && (name === 'home' || name === 'examples')) await page.screenshot({ path, fullPage: true });
           else await capture(path);
-          assert.ok(
-            dimensions.scroll <= dimensions.viewport + 1 && dimensions.body <= dimensions.viewport + 1,
-            `${name} ${theme} ${width} zoom ${zoom}: ${JSON.stringify(dimensions)}`,
-          );
+          if (dimensions.scroll > dimensions.viewport + 1 || dimensions.body > dimensions.viewport + 1) {
+            const protruding = await page.evaluate(() => [...document.querySelectorAll('body *')]
+              .filter((el) => el.getBoundingClientRect().right > innerWidth + 1)
+              .slice(0, 15)
+              .map((el) => ({
+                tag: el.tagName,
+                className: String(el.className).slice(0, 160),
+                text: el.textContent.slice(0, 100),
+                right: el.getBoundingClientRect().right,
+                width: el.getBoundingClientRect().width,
+              })));
+            reflowFailures.push({ name, route, theme, width, zoom, ...dimensions, protruding, screenshot: path });
+          }
           const after = await page.evaluate(() => ({ viewport: innerWidth, dpr: devicePixelRatio }));
           assert.equal(after.viewport, Math.floor(width / zoom));
           assert.equal(after.dpr, zoom);
@@ -265,8 +276,11 @@ export async function checkDocumentationBrowser(browser, origin) {
       }
     }
   }
+  // Preserve every screenshot/measurement before failing; do not hide or waive overflow.
   await writeFile('test-output/docs-ia-viewports.json', JSON.stringify(matrix, null, 2) + '\n');
+  await writeFile('test-output/docs-ia-reflow-failures.json', JSON.stringify(reflowFailures, null, 2) + '\n');
   assert.deepEqual(errors, []);
   await context.close();
+  assert.deepEqual(reflowFailures, [], 'Documentation reflow failures; see docs-ia-reflow-failures.json');
   console.log('PASS standard documentation desktop/mobile, light/dark, 100%/200% reflow and examples alignment');
 }
