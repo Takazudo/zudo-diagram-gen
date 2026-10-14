@@ -9,7 +9,7 @@ export default defineConfig(
     base: '/',
     port: 4488,
     favicon: 'auto',
-    logo: false,
+    logo: '/img/logo.svg',
     home: {
       introMarkdown:
         'Give an agent a brief, compare SVG drawings at their intended size, choose a direction, and refine the selected drawing together.',
