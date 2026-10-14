@@ -86,11 +86,11 @@ try {
     for (const width of [1280, 390]) {
       await page.setViewportSize({ width, height: 844 });
       if (route === '/docs/examples/') {
-        const arrows = await page.locator('article svg.w-hsp-lg').evaluateAll((elements) =>
+        const arrows = await page.locator('[data-example-title-icon] svg').evaluateAll((elements) =>
           elements.map((element) => ({
             width: element.getBoundingClientRect().width,
             height: element.getBoundingClientRect().height,
-            shrink: getComputedStyle(element).flexShrink,
+            shrink: getComputedStyle(element.parentElement).flexShrink,
           })),
         );
         assert.ok(arrows.length > 0, 'Generated example navigation arrows are present');
@@ -101,7 +101,7 @@ try {
               arrow.height > 0 &&
               arrow.height <= 64 &&
               arrow.shrink === '0',
-            `Generated Wind icon utilities at ${width}: ${JSON.stringify(arrow)}`,
+            `Generated example icon and non-shrinking wrapper at ${width}: ${JSON.stringify(arrow)}`,
           );
       }
       const dimensions = await page.evaluate(() => ({

@@ -1,9 +1,10 @@
 ---
 title: Lock and adopt a saved style
 description: Save an explicitly scoped project style and adopt later revisions without changing earlier snapshots.
+sidebar_position: 2
 ---
 
-Use this after reviewing actual candidates in a [multi-session project](/docs/authoring/projects/). You need current baseline IDs/fingerprints, a complete palette and an explicit decision about project-wide reuse. For choosing a treatment before that decision, see [Choose and apply a tone](/docs/authoring/tone-collection/).
+Use this after reviewing actual candidates in a [multi-session project](../authoring/projects.mdx). You need current baseline IDs/fingerprints, a complete palette and an explicit decision about project-wide reuse. For choosing a treatment before that decision, see [Choose and apply a tone](../authoring/tone-collection.mdx).
 
 ## Lock a project style explicitly
 
@@ -32,6 +33,6 @@ The first lock adopts its revision. Further lock calls create pending revisions;
 
 Cooperating writers use exclusive `.style-operation`, staged revision publication and atomic manifest update. Existing/partial revisions are never overwritten. After inspecting an interrupted operation, explicitly clear only an abandoned lock; helpers never clear another process's lock or repair partial contents. If complete publication succeeded but adoption failed, validate and explicitly adopt that existing revision. Stale baselines require a fresh explicit selection in a new revision; preserve old snapshots.
 
-Refinement copies the actual named saved SVG into a later round under a new ID; export copies saved validated bytes without rematerializing. See [API](/docs/reference/api/#refine-the-saved-baseline) and [CLI](/docs/reference/cli/).
+Refinement copies the actual named saved SVG into a later round under a new ID; export copies saved validated bytes without rematerializing. See [API](../reference/api.mdx#refine-the-saved-baseline) and [CLI](../reference/cli.mdx).
 
-The expected result is an immutable local revision, with the first revision adopted and later revisions pending until explicitly adopted. Continue with [SVG authoring](/docs/authoring/svg-authoring/) using those saved constituents. Consult [Tone format, palettes and kits](/docs/authoring/tone-context/) for exact resource/hash rules.
+The expected result is an immutable local revision, with the first revision adopted and later revisions pending until explicitly adopted. Continue with [SVG authoring](../authoring/svg-authoring.mdx) using those saved constituents. Consult [Tone format, palettes and kits](../authoring/tone-context.mdx) for exact resource/hash rules.

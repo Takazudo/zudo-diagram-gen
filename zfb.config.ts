@@ -9,10 +9,6 @@ export default defineConfig(
     port: 4488,
     favicon: 'auto',
     logo: '/img/logo.svg',
-    home: {
-      introMarkdown:
-        'Give an agent a brief, compare SVG drawings at their intended size, choose a direction, and refine the selected drawing together.',
-    },
     mermaid: false,
     docHistory: false,
     designTokenPanel: false,
@@ -30,7 +26,6 @@ export default defineConfig(
     },
     githubUrl: 'https://github.com/Takazudo/zudo-diagram-gen',
     headerRightItems: [
-      { type: 'link', label: 'Try workbench', href: '/docs/workbench/' },
       { type: 'component', component: 'search' },
       { type: 'component', component: 'theme-toggle' },
       { type: 'component', component: 'github-link' },
@@ -58,6 +53,8 @@ export default defineConfig(
       copyright:
         'Copyright © 2026 <a href="https://x.com/Takazudo">Takazudo</a>. Built with <a href="https://zudo-doc.takazudomodular.com/docs/getting-started/">zudo-doc</a>.',
     },
+    // Each categoryMatch names an actual top-level content directory. The stock
+    // header and filesystem tree own active states, sidebar scope and ordering.
     headerNav: [
       {
         label: 'Start here',
@@ -65,10 +62,41 @@ export default defineConfig(
         categoryMatch: 'getting-started',
         versioned: false,
       },
-      { label: 'Guides', path: '/docs/guides', categoryMatch: 'guides', versioned: false },
+      {
+        label: 'Guides',
+        path: '/docs/guides',
+        categoryMatch: 'guides',
+        versioned: false,
+        children: [
+          { label: 'Practical guides', path: '/docs/guides', categoryMatch: 'guides', versioned: false },
+          { label: 'Authoring', path: '/docs/authoring', categoryMatch: 'authoring', versioned: false },
+          { label: 'Review', path: '/docs/gallery', categoryMatch: 'gallery', versioned: false },
+          {
+            label: 'Agent workflow',
+            path: '/docs/agent-workflow',
+            categoryMatch: 'agent-workflow',
+            versioned: false,
+          },
+        ],
+      },
       { label: 'Tones', path: '/docs/tones', categoryMatch: 'tones', versioned: false },
       { label: 'Examples', path: '/docs/examples', categoryMatch: 'examples', versioned: false },
       { label: 'Reference', path: '/docs/reference', categoryMatch: 'reference', versioned: false },
+      {
+        label: 'Develop',
+        path: '/docs/development',
+        categoryMatch: 'development',
+        versioned: false,
+        children: [
+          {
+            label: 'Contributors',
+            path: '/docs/development',
+            categoryMatch: 'development',
+            versioned: false,
+          },
+          { label: 'Changelog', path: '/docs/changelog', categoryMatch: 'changelog', versioned: false },
+        ],
+      },
     ],
   }),
 );

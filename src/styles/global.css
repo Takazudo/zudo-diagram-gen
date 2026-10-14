@@ -4,196 +4,23 @@
 @import '@takazudo/zudo-doc/features.css';
 @import '@takazudo/zudo-diagram-gen/client/app.css';
 
-.zd-product-home {
-  max-width: 72rem;
-  margin-inline: auto;
-  color: var(--zd-fg);
+/* Only the examples-card icon is customized. Its wrapper is one text line high,
+   so the arrow stays centered on the first line even when the title wraps. */
+[data-example-title-icon] {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 1em;
+  height: 1lh;
 }
-.zd-product-home > section + section {
-  margin-top: var(--spacing-vsp-2xl);
-}
-.zd-product-home h1 {
-  font-size: var(--text-heading);
-  line-height: 1.2;
-  font-weight: 700;
-  margin-block: var(--spacing-vsp-xs) var(--spacing-vsp-sm);
-  text-wrap: balance;
-}
-.zd-product-home h2 {
-  font-size: var(--text-heading);
-  font-weight: 650;
-  margin-bottom: var(--spacing-vsp-sm);
-  text-wrap: balance;
-}
-.zd-product-home h3 {
-  font-size: var(--text-title);
-  font-weight: 600;
-  margin-bottom: var(--spacing-vsp-2xs);
-}
-.zd-product-home p {
-  margin-block: var(--spacing-vsp-xs);
-  line-height: 1.65;
-}
-.zd-product-home a {
-  text-underline-offset: 0.2em;
-}
-.zd-product-home a:hover {
-  color: var(--zd-accent);
-  text-decoration: underline;
-}
-.zd-product-home a:focus-visible {
-  outline: 2px solid var(--zd-accent);
-  outline-offset: 4px;
-}
-.zd-product-hero,
-.zd-product-paths,
-.zd-product-previews,
-.zd-product-examples,
-.zd-product-loop {
-  display: grid;
-  gap: var(--spacing-vsp-lg) var(--spacing-hsp-2xl);
-}
-.zd-product-hero > *,
-.zd-product-paths > *,
-.zd-product-previews > *,
-.zd-product-examples > *,
-.zd-product-loop > * {
-  min-width: 0;
-}
-.zd-product-logo {
-  width: 100%;
-  max-width: 20rem;
-  aspect-ratio: 1200 / 630;
-  /* Preserve the asset's black artwork in both themes on a light token background. */
-  background: var(--color-white, white);
-  height: auto;
-}
-.zd-product-actions,
-.zd-product-secondary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-vsp-xs) var(--spacing-hsp-xl);
-  margin-block: var(--spacing-vsp-md);
-}
-.zd-product-actions a {
-  padding-block: var(--spacing-vsp-2xs);
-  font-weight: 650;
-  color: var(--zd-accent);
-}
-.zd-product-loop {
-  list-style: decimal;
-  padding-left: var(--spacing-hsp-xl);
-}
-.zd-product-loop li::marker {
-  color: var(--zd-muted);
-}
-.zd-product-previews img,
-.zd-product-examples img {
+[data-example-title-icon] > svg {
   display: block;
-  width: 100%;
-  height: auto;
-  margin-bottom: var(--spacing-vsp-xs);
-}
-.zd-product-previews span,
-.zd-product-examples span {
-  font-weight: 600;
-}
-.zd-product-secondary {
-  margin-top: var(--spacing-vsp-2xl);
-  font-size: var(--text-small);
-}
-@media (min-width: 48rem) {
-  .zd-product-home h1 {
-    font-size: var(--text-display);
-  }
-  .zd-product-hero {
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-  }
-  .zd-product-paths,
-  .zd-product-examples {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .zd-product-loop {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .zd-product-previews {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+  width: 1em;
+  height: 1em;
+  margin: 0;
 }
 
-/* Retain the framework mobile menu; primary desktop ownership is editorial. */
-header:has([data-product-nav]) [data-header-nav] {
-  display: none;
-}
-.zd-product-navigation {
-  display: none;
-  gap: var(--spacing-hsp-sm);
-  margin-inline: var(--spacing-hsp-md);
-  white-space: nowrap;
-  font-size: var(--text-small);
-}
-.zd-product-navigation a {
-  padding: var(--spacing-vsp-2xs) var(--spacing-hsp-sm);
-  color: var(--zd-muted);
-}
-.zd-product-navigation a[aria-current='page'] {
-  color: var(--zd-bg);
-  background: var(--zd-fg);
-}
-.zd-product-navigation a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-.zd-product-navigation a:focus-visible {
-  outline: 2px solid var(--zd-accent);
-  outline-offset: 2px;
-}
-@media (min-width: 64rem) {
-  .zd-product-navigation {
-    display: flex;
-  }
-}
-
-.zd-product-home,
-.zd-content {
-  overflow-wrap: anywhere;
-}
-[data-zd-mobile-sidebar] {
-  max-width: 100vw;
-}
-@media (max-width: 24rem) {
-  .zd-product-home h1,
-  .zd-product-home h2,
-  .zd-content h1,
-  .zd-content h2 {
-    font-size: clamp(var(--text-body), 10vw, var(--text-heading));
-  }
-  .zd-content [data-doc-description] {
-    font-size: var(--text-body);
-  }
-  header:has([data-product-nav]) {
-    padding-inline: var(--spacing-hsp-xs);
-  }
-  header:has([data-product-nav]) [data-header-right] {
-    gap: var(--spacing-hsp-xs);
-  }
-  header:has([data-product-nav]) a[title='Try workbench'] {
-    max-width: 4.5rem;
-    font-size: var(--text-caption);
-    line-height: 1.25;
-    text-align: center;
-    white-space: normal;
-  }
-  header:has([data-product-nav]) [data-header-icon-group] a,
-  header:has([data-product-nav]) [data-open-search] {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-/* A 390px viewport at 200% zoom leaves 195 CSS px. Keep the embedded
-   documentation tools in that column without changing package behavior. */
+/* Keep the embedded application usable at narrow, zoomed placements. These
+   rules do not override the framework's header, sidebar, homepage or type. */
 @media (max-width: 24rem) {
   .zd-content .dg-app[data-embedded='true'] .dg-sidebar {
     grid-template-columns: minmax(0, 1fr);

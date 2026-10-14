@@ -1,9 +1,10 @@
 ---
 title: Plugin assembly and host acceptance
 description: Assemble and verify the skills-only ZIP, then record actual host acceptance separately.
+sidebar_position: 4
 ---
 
-This page is for maintainers. Readers with an assembled package should use the [plugin quickstart](/docs/getting-started/chatgpt-plugin/). The authoring source at `plugins/zudo-diagram-gen/` omits tone files until assembly; a GitHub source archive is not the installable plugin.
+This page is for maintainers. Readers with an assembled package should use the [plugin quickstart](../getting-started/chatgpt-plugin.mdx). The authoring source at `plugins/zudo-diagram-gen/` omits tone files until assembly; a GitHub source archive is not the installable plugin.
 
 ## Build and verify from the repository
 
@@ -21,7 +22,7 @@ The verifier checks the inventory, relative resources and all 24 complete tone p
 
 ## Distribution and release boundary
 
-As of October 14, 2026 there is no published GitHub Release. A local assembly is a local file; an Actions artifact is a snapshot subject to retention. Neither is a permanent download or a GitHub source archive. Release tooling in [PR #109](https://github.com/Takazudo/zudo-diagram-gen/pull/109) is separate, still unmerged work; do not execute or describe it as part of this main-branch workflow. Follow [quality and release checks](/docs/development/quality-and-handoff/#release-boundary) before any separately authorized publication.
+As of October 14, 2026 there is no published GitHub Release. A local assembly is a local file; an Actions artifact is a snapshot subject to retention. Neither is a permanent download or a GitHub source archive. Release tooling in [PR #109](https://github.com/Takazudo/zudo-diagram-gen/pull/109) is separate, still unmerged work; do not execute or describe it as part of this main-branch workflow. Follow [quality and release checks](./quality-and-handoff.mdx#release-boundary) before any separately authorized publication.
 
 ## Host acceptance scenarios
 
@@ -42,4 +43,4 @@ Also try a missing font and a stale or altered baseline. The agent should select
 
 Follow the current official [host installation guide](https://developers.openai.com/plugins/build/plugins) and [complete-plugin testing guide](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-the-complete-plugin). Record host/version, package hash, installation/discovery, actual artifacts, rendering, opened-image observations and remaining limitations independently.
 
-[Historical plugin evidence](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/agent-first/PLUGIN-ACCEPTANCE.md) records assembly. [Issue #100](https://github.com/Takazudo/zudo-diagram-gen/issues/100) tracks actual ChatGPT acceptance; this documentation change does not complete it. Return to [Contributors](/docs/development/).
+[Historical plugin evidence](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/agent-first/PLUGIN-ACCEPTANCE.md) records assembly. [Issue #100](https://github.com/Takazudo/zudo-diagram-gen/issues/100) tracks actual ChatGPT acceptance; this documentation change does not complete it. Return to [Contributors](./index.mdx).
