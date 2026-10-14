@@ -1,9 +1,31 @@
 ---
-title: Getting started
-description: Create a session, add a drawing, and take it through review and export.
-sidebar_position: 1
+title: Start here
+description: Choose the skills-only plugin, a local coding agent and workbench, or manual SVG authoring.
 ---
 
-Start with [a useful request and review loop](/docs/getting-started/first-session/), using [local archive setup](/docs/getting-started/local-archives/) for the actually available capability. The [manual tutorial](/docs/getting-started/manual-session/) remains available without a skill-capable host. Use the project development guide when you want to run or change this documentation site.
+Create, compare, and refine SVG diagrams with an agent. The agent authors SVGs; skills provide workflow and references. The optional local engine provides review, project, style and capture tools. Your saved drawing stays the starting point for refinement and export.
 
-<CategoryNav category="getting-started" />
+## Choose your workflow
+
+| Your goal | What you need | Where you work |
+| --- | --- | --- |
+| [Use the skills-only plugin](/docs/getting-started/chatgpt-plugin/) | An assembled plugin package and a host with file, render and image-viewing tools. Installation of this specific package in ChatGPT remains unverified. | Ask in chat; inspect and download actual saved artifacts. No Node, CLI or local server is required to use the assembled plugin. |
+| [Use a local coding agent and workbench](/docs/getting-started/first-session/) | Node.js 22–24, pnpm 10.30.3, local engine archives and a coding agent that reads the packaged skill. | Ordinary SVG/JSON/Markdown files in your workspace, reviewed in your local browser. |
+| [Work manually](/docs/getting-started/manual-session/) | The same local engine setup, a text editor and a browser. No agent skill required. | Follow a complete SVG example, then review and export the saved file. |
+
+The plugin does not embed the local workbench. The CLI does not call a model or generate artwork. Distribution is currently source/local assembly, not a verified npm release or a durable plugin download; each quickstart explains the available route.
+
+## Try the review loop
+
+1. **Create:** ground facts and labels, set the intended size, then save SVG candidates.
+2. **Review:** inspect real images at that size, compare alternatives and choose one drawing.
+3. **Refine:** supply Keep/Change notes and the exact saved baseline; preserve it and make a new revision.
+4. **Export:** deliver the selected saved SVG bytes, then check the destination placement.
+
+[Try workbench](/docs/workbench/) with an existing example session. This public tool does not call a model. Browser notes stay in your browser until you explicitly copy or download them.
+
+A shortlist keeps alternatives. Choosing a drawing names its baseline. Project-wide style adoption is a separate explicit decision. Structural checks, rendering, actual image inspection and user approval are separate results.
+
+## Continue with your task
+
+Pick a quickstart above, browse the [Guides](/docs/guides/), or look up a term in the [glossary](/docs/reference/glossary/). [Introduction and example context](/docs/getting-started/introduction/) explains the existing studies. To run or change this website, go directly to [Contributors](/docs/development/).

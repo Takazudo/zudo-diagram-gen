@@ -65,6 +65,13 @@ jobs:
           pnpm build
           pnpm exec zfb check
           pnpm exec zudo-diagram-gen export-html . --out "$GITHUB_WORKSPACE/test-output/browser-consumer.html"
+      - name: Execute the displayed documentation commands in a fresh consumer
+        shell: bash
+        run: |
+          set -euo pipefail
+          EVIDENCE_ROOT="$(mktemp -d /tmp/zdg-docs-ia.XXXXXX)"
+          node scripts/check-docs-consumer.mjs "$EVIDENCE_ROOT/reader"
+          cp "$EVIDENCE_ROOT/reader/reader-evidence.json" test-output/docs-ia-reader-result.json
       - name: Build the packed five-session P07 review fixture
         shell: bash
         run: |
@@ -182,6 +189,8 @@ jobs:
             test-output/zfb-consumers.json
             test-output/browser-*.png
             test-output/doc-combine-*.png
+            test-output/docs-ia-*.png
+            test-output/docs-ia-*.json
             test-output/p07-*/
             test-output/p07-*.log
             test-output/p11-*/

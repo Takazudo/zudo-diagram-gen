@@ -1,14 +1,14 @@
 ---
-title: Ask for your first diagram
+title: Local-agent quickstart — your first diagram
 description: Set up the available local capability, ask an agent, and review a saved drawing.
 sidebar_position: 2
 ---
 
-Start with a useful request, then review real drawings at their intended size. The engine and initializer are available as **local source archives**; registry publication is not established. The engine includes a core `diagram-gen` skill file. Your agent must explicitly read it or discover it through a supported project-local skill setup. The initializer does not install a personal skill.
+Use a coding agent to create your first diagram in a local workspace, then review real drawings at their intended size. Expect saved SVG candidates with stable IDs and a local review URL. The engine and initializer are available as **locally packed archives**; registry publication is not established. The engine includes a core `diagram-gen` skill file. Your agent must explicitly read it or discover it through a supported project-local skill setup. The initializer does not install a personal skill.
 
 ## Set up once
 
-Follow [Local archive setup](/docs/getting-started/local-archives/) to create a new installed review workspace and optionally copy the packaged core skill into that workspace. Use Node.js 22–24 and pnpm 10.30.3. Keep the printed archive path available for reinstalls.
+Follow [Local archive setup](/docs/getting-started/local-archives/) to create a new installed review workspace and copy the packaged core skill into that workspace for the prompt below. If you skip the copy, tell your agent to read `node_modules/@takazudo/zudo-diagram-gen/skills/diagram-gen/SKILL.md` and its relative references instead. Use Node.js 22–24 and pnpm 10.30.3. Keep the printed archive path available for reinstalls.
 
 In the new workspace, ask your coding agent:
 
@@ -70,3 +70,5 @@ pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json
 SVG export copies the exact saved asset; it does not redraw using a newer tone kit. The offline HTML contains a content snapshot; download review JSON separately to transfer decisions. Integrating a result into a product is a separate requested action.
 
 Choosing one drawing, switching tones or capturing an image never locks a project style. For explicit reuse across several sessions, use [immutable style lock and adoption](/docs/authoring/tone-context/#lock-a-project-style-explicitly).
+
+Next: [refine and export](/docs/guides/refine-export/) or choose another task in [Guides](/docs/guides/).

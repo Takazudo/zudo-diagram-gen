@@ -3,6 +3,7 @@ import { mkdir, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
+import { checkDocumentationBrowser } from './check-documentation-browser.mjs';
 
 const origin = 'http://127.0.0.1:4335';
 const routes = [
@@ -36,7 +37,10 @@ try {
     if (i === 59) throw new Error(`Preview did not start: ${serverOutput}`);
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({
+    headless: true,
+    executablePath: process.env.SITE_BROWSER_EXECUTABLE || undefined,
+  });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 800 },
     acceptDownloads: true,
@@ -245,6 +249,7 @@ try {
   assert.deepEqual(errors, []);
   await context.close();
   console.log('PASS embedded documentation browser checks');
+  await checkDocumentationBrowser(browser, origin);
 } finally {
   await browser?.close();
   if (server.exitCode === null && server.signalCode === null) {
