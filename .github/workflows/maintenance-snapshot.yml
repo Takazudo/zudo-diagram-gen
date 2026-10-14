@@ -26,16 +26,15 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24.13.0
-      - name: Apply reviewed exact versions and active scaffold references
+      - name: Apply reviewed exact versions and active references
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test "$GITHUB_REF" = refs/heads/maintenance/plugin-release-20261014
           node --input-type=module <<'NODE'
-          import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+          import { readFileSync, writeFileSync } from 'node:fs';
           import { execFileSync } from 'node:child_process';
-          const file = 'package.json';
-          const pkg = JSON.parse(readFileSync(file, 'utf8'));
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
           const targets = {'@takazudo/zfb': ['4.3.1', '4.5.0'], '@takazudo/zfb-runtime': ['4.3.1', '4.5.0'], '@takazudo/zfb-md-wasm': ['4.3.1', '4.5.0'], '@takazudo/zudo-doc': ['6.0.0', '6.2.0']};
           for (const [name, [old, target]] of Object.entries(targets)) {
             if (pkg.dependencies[name] !== old) throw new Error(`Unexpected baseline: ${name}`);
@@ -43,7 +42,7 @@ jobs:
             if (latest !== target) throw new Error(`Registry advanced; reassess ${name}`);
             pkg.dependencies[name] = target;
           }
-          writeFileSync(file, JSON.stringify(pkg, null, 2) + '\n');
+          writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
           const active = ['AGENTS.md', 'IMPLEMENTATION-CONTRACT.md', 'README.md', 'docs/CODEX-HANDOFF.md', 'packages/create-zudo-diagram-gen/README.md', 'packages/diagram-gen/README.md', 'packages/diagram-gen/src/scaffold.mjs', 'packages/create-zudo-diagram-gen/test/initializer.test.mjs', 'scripts/check-project-review-packed.sh', 'scripts/check-zfb-consumers.mjs', 'src/content/docs/reference/architecture.mdx'];
           for (const filename of active) {
             const text = readFileSync(filename, 'utf8');
@@ -55,64 +54,15 @@ jobs:
           writeFileSync('tsconfig.json', JSON.stringify(config, null, 2) + '\n');
           const handoff = 'docs/CODEX-HANDOFF.md';
           writeFileSync(handoff, readFileSync(handoff, 'utf8').replace('and clears its inherited baseUrl for TypeScript 6', 'without a baseUrl workaround; the published 6.2 base no longer supplies that removed option'));
-          const dependencies = 'DEPENDENCIES.md';
-          writeFileSync(dependencies, readFileSync(dependencies, 'utf8').replace('# Dependency maintenance evidence', '# Dependency maintenance evidence\n\nCurrent 2026-10-14 selection: zudo-doc **6.2.0**, ZFB SDK/runtime/md-wasm **4.5.0**. See [the current maintenance record](docs/maintenance/2026-10-14.md). The dated 2026-10-11 evidence below is preserved as history, not current-head verification.'));
-          const readme = 'README.md';
-          writeFileSync(readme, readFileSync(readme, 'utf8') + '\n## Plugin ZIP releases\n\nMaintainers use the project-local Claude Code `/l-make-release` skill. See [RELEASE.md](RELEASE.md) for version tags, validated ZIP assets, checksums and GitHub Releases. Plugin releases do not publish npm packages. CI also retains assembled ZIP snapshots; an Actions wrapper or GitHub source-code ZIP is not the installable plugin.\n');
-          const onboarding = 'src/content/docs/getting-started/chatgpt-plugin.mdx';
-          writeFileSync(onboarding, readFileSync(onboarding, 'utf8').replace('## Build and verify from the repository', 'After a release is published, download the versioned plugin ZIP from the Assets section of [GitHub Releases](https://github.com/Takazudo/zudo-diagram-gen/releases). The [latest plugin ZIP](https://github.com/Takazudo/zudo-diagram-gen/releases/latest/download/zudo-diagram-gen.zip) uses a stable filename. These links do not prove that a first release has already been published. GitHub\'s automatic **Source code (zip)** is not the assembled plugin.\n\nThe `Plugin ZIP` workflow also retains snapshots as Actions artifacts. Extract the Actions wrapper first to obtain the actual plugin ZIPs and `SHA256SUMS`; do not install the outer wrapper. The checksums cover both ZIP filenames in the release asset set.\n\n## Build and verify from the repository'));
-          mkdirSync('docs/maintenance', {recursive: true});
-          writeFileSync('docs/maintenance/2026-10-14.md', `# 2026-10-14 dependency and deployment check
-
-Baseline: main 0a78872f447952b38f1d88b1c805c70d239a4bd0. PR #109 adds the separate ZIP-only release workflow.
-
-## Selection and impact
-
-The user-requested dev-bump-zudo-deps resolver was read at claude-settings f957ad2c293c297bdd8cfefd244f9c5ecf8ca4cb. Its exact blob b428fdcccea30154d5f5d6df96549bd13c24f2e5 was executed privately against the public npm metadata snapshot collected in [Actions run 38529146632](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/38529146632). The offline shell used a read-only npm-view snapshot adapter, not fabricated metadata. Dry-run and write were separate. No private resolver source was copied into this public repository.
-
-All three package manifests were scanned. Four exact stable dependencies update: @takazudo/zfb, @takazudo/zfb-runtime and @takazudo/zfb-md-wasm 4.3.1 to 4.5.0; @takazudo/zudo-doc 6.0.0 to 6.2.0. @takazudo/mdx-formatter stays 1.3.0. The workspace link and compound ZFB 2/3/4 peer range are unchanged. No ZUDO_DEPS_PINS.md existed, and no empty pin record is introduced.
-
-Published tarball file and package/README/CHANGELOG diffs were reviewed before applying updates; npm supplied no gitHead, so no unverified source-commit comparison substitutes for those tarballs. Registry metadata and diff evidence are retained in that run's maintenance-snapshot artifact (limited retention). Lockfile integrity records the installed packages.
-
-| Package | Consumer impact |
-| --- | --- |
-| ZFB SDK 4.5.0 | Adds opt-in CSS compilation and error boundaries; existing entrypoints remain. Changes native/YAML and zudo-react code, so build, hydration and packed-consumer gates remain required. New hosts advance with the SDK/runtime tuple; default esbuild stays unchanged. |
-| ZFB runtime 4.5.0 | Requires SDK exactly 4.5.0; update together. Router changes affect history/query/fragment navigation, not a request to enable dynamicPageTransition. |
-| ZFB md-wasm 4.5.0 | Rebuilt parser/render/highlight WASM payloads retain the current exported surface. Root introMarkdown consumes parse/render, so this is not an unused dependency. |
-| zudo-doc 6.2.0 | Requires the ZFB family at least 4.5.0. Sidebar scope, persistence and scroll behavior, appearance menu, typed chrome bindings and base tsconfig changed. No ejected sidebar or custom source pin needs synchronization. Remove the now-unnecessary local baseUrl:null workaround; retain TypeScript 6.0.3. |
-
-The initializer source and generated copy, exact-version assertions, active documentation and fresh-consumer controls move together. ZFB 2.21.1, 3.2.0 and the 4.3.0 minimum remain controls; the current native-watcher control moves from 4.3.1 to 4.5.0. Engine and initializer package versions remain 0.1.0; the plugin manifest remains 0.1.0 until an actual release invocation chooses its version. Historical acceptance/changelog records are not rewritten.
-
-## Domain and Cloudflare
-
-Read-only HTTP/DNS checks from the same Actions run at 2026-10-14 07:34:17 UTC (16:34:17 JST) found HTTPS 200 from zudo-diagram-gen.zudolab.dev and curl exit 6 (no DNS resolution) for zudo-diagram-gen-doc.zudolab.dev. The former is the custom domain in wrangler.jsonc; the latter is not configured there.
-
-The previous production [deployment run 38160509868](https://github.com/Takazudo/zudo-diagram-gen/actions/runs/38160509868), on the baseline SHA, actually used both masked Cloudflare secrets, deployed the Worker and passed production/redirect smoke checks on 2026-10-11 UTC / October 12 JST. The CF_PRODUCTION_ENABLED gate therefore passed for that run. No credentials, DNS, route, deployment setting or production content were changed by this task.
-
-## Verification boundary
-
-Use the final PR head's CI and Plugin ZIP checks for current evidence; the historical records and registry probe are not build/browser passes. The task branch regenerates the lock with pnpm 10.30.3 and checks frozen strict installation. Actual ChatGPT host acceptance #100 and native Mac acceptance #105 remain separate. No merge, version tag, npm publication, GitHub Release publication or deployment is part of this implementation task.
-`);
-          writeFileSync('src/content/docs/changelog/2026-10-14-zudo-dependencies.mdx', `---
-title: ZFB 4.5 and zudo-doc 6.2 maintenance
-description: Update the documentation framework and new diagram hosts together while preserving older supported consumers.
----
-
-The documentation site now pins ZFB SDK/runtime/md-wasm 4.5.0 and zudo-doc 6.2.0. The framework update includes sidebar state/scroll and appearance-menu fixes, and its TypeScript base no longer needs this project's baseUrl workaround. Semantic tokens, disabled dynamic page transitions, and the default esbuild backend remain unchanged.
-
-New diagram hosts also pin ZFB SDK/runtime 4.5.0. The engine retains its existing ZFB 2/3 compatibility and 4.3.0 minimum. Initializer generation and current-version consumer checks advance together, while historical acceptance records stay intact. TypeScript remains 6.0.3 and mdx-formatter remains 1.3.0.
-
-This maintenance does not publish npm packages, deploy the site, or establish native ChatGPT or macOS acceptance.
-`);
           NODE
           node scripts/sync-scaffold.mjs
-      - name: Regenerate lockfile and format only intended changes
+      - name: Regenerate lockfile and verify intended changes
         run: |
           set -euo pipefail
           pnpm install --no-frozen-lockfile --strict-peer-dependencies
           pnpm install --frozen-lockfile --strict-peer-dependencies
-          pnpm exec prettier --write scripts/plugin-release.mjs test/plugin-release.node.mjs .github/workflows/plugin-zip.yml .github/workflows/maintenance-snapshot.yml package.json pnpm-lock.yaml tsconfig.json packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-zfb-consumers.mjs
-          pnpm exec mdx-formatter --write .claude/skills/l-make-release/SKILL.md RELEASE.md AGENTS.md IMPLEMENTATION-CONTRACT.md README.md DEPENDENCIES.md docs/CODEX-HANDOFF.md docs/maintenance/2026-10-14.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx src/content/docs/changelog/2026-10-14-zudo-dependencies.mdx src/content/docs/getting-started/chatgpt-plugin.mdx src/content/docs/reference/architecture.mdx
+          pnpm exec prettier --write scripts/plugin-release.mjs test/plugin-release.node.mjs package.json pnpm-lock.yaml tsconfig.json packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-zfb-consumers.mjs
+          pnpm exec mdx-formatter --write .claude/skills/l-make-release/SKILL.md RELEASE.md AGENTS.md IMPLEMENTATION-CONTRACT.md README.md docs/CODEX-HANDOFF.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx src/content/docs/reference/architecture.mdx
           node scripts/sync-scaffold.mjs --check
           node --test test/plugin-release.node.mjs
           pnpm format:check
@@ -122,12 +72,12 @@ This maintenance does not publish npm packages, deploy the site, or establish na
           pnpm check:examples
           pnpm build
           node scripts/check-built-links.mjs
-      - name: Commit only the reviewed task files to the task branch
+      - name: Commit only reviewed files to the task branch
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add package.json pnpm-lock.yaml tsconfig.json AGENTS.md IMPLEMENTATION-CONTRACT.md README.md DEPENDENCIES.md docs/CODEX-HANDOFF.md docs/maintenance/2026-10-14.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-project-review-packed.sh scripts/check-zfb-consumers.mjs src/content/docs/reference/architecture.mdx src/content/docs/getting-started/chatgpt-plugin.mdx src/content/docs/changelog/2026-10-14-zudo-dependencies.mdx scripts/plugin-release.mjs test/plugin-release.node.mjs .claude/skills/l-make-release/SKILL.md RELEASE.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx
+          git add package.json pnpm-lock.yaml tsconfig.json AGENTS.md IMPLEMENTATION-CONTRACT.md README.md docs/CODEX-HANDOFF.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md packages/diagram-gen/src/scaffold.mjs packages/create-zudo-diagram-gen/src/scaffold.generated.mjs packages/create-zudo-diagram-gen/test/initializer.test.mjs scripts/check-project-review-packed.sh scripts/check-zfb-consumers.mjs src/content/docs/reference/architecture.mdx scripts/plugin-release.mjs test/plugin-release.node.mjs .claude/skills/l-make-release/SKILL.md RELEASE.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx
           git diff --exit-code
           git commit -m 'chore: update ZFB to 4.5.0 and zudo-doc to 6.2.0 with verified release tooling'
           test "$(git ls-remote origin refs/heads/maintenance/plugin-release-20261014 | cut -f1)" = "$GITHUB_SHA"

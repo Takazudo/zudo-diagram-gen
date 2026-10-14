@@ -63,6 +63,9 @@ export async function packRelease(tag) {
   if (tag !== undefined && run('git', ['rev-parse', `refs/tags/${tag}^{commit}`]) !== commit) {
     throw new Error('Release tag does not point at the checked-out commit');
   }
+  if (tag !== undefined && run('git', ['status', '--porcelain'])) {
+    throw new Error('Tagged release packaging requires a clean working tree');
+  }
   const { assemblePlugin, validatePlugin } = await import('./plugin-pack.mjs');
   const temporary = await mkdtemp(path.join(os.tmpdir(), 'zudo-plugin-release-'));
   const output = path.join(root, 'artifacts/release');
