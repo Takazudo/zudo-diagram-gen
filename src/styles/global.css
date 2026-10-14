@@ -4,6 +4,14 @@
 @import '@takazudo/zudo-doc/features.css';
 @import '@takazudo/zudo-diagram-gen/client/app.css';
 
+/* Preserve content reflow while using the unmodified native layout. This
+   safety rule was accidentally removed with the custom homepage in #118.
+   Long prose, category labels and pager titles must fit their text column;
+   preformatted code still scrolls locally. See zudolab/zudo-doc#4585. */
+.zd-content {
+  overflow-wrap: anywhere;
+}
+
 /* Only the examples-card icon is customized. Its wrapper is one text line high,
    so the arrow stays centered on the first line even when the title wraps. */
 [data-example-title-icon] {
