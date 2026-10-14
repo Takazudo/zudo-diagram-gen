@@ -1,0 +1,45 @@
+---
+title: Plugin assembly and host acceptance
+description: Assemble and verify the skills-only ZIP, then record actual host acceptance separately.
+---
+
+This page is for maintainers. Readers with an assembled package should use the [plugin quickstart](/docs/getting-started/chatgpt-plugin/). The authoring source at `plugins/zudo-diagram-gen/` omits tone files until assembly; a GitHub source archive is not the installable plugin.
+
+## Build and verify from the repository
+
+Prerequisites: a source checkout, Node.js 22–24, pnpm 10.30.3 and `unzip`. Install the frozen dependencies first:
+
+```bash
+pnpm install --frozen-lockfile --strict-peer-dependencies
+pnpm plugin-pack
+EXTRACT_DIR="$(mktemp -d /tmp/zudo-diagram-plugin.XXXXXX)"
+unzip -q artifacts/plugin/zudo-diagram-gen.zip -d "$EXTRACT_DIR"
+node scripts/plugin-pack.mjs --verify-dir "$EXTRACT_DIR/zudo-diagram-gen"
+```
+
+The verifier checks the inventory, relative resources and all 24 complete tone packs. The expected output is an assembled local ZIP and a successfully verified fresh extraction. This does not install the plugin, publish it, or establish a ChatGPT account's capabilities.
+
+## Distribution and release boundary
+
+As of October 14, 2026 there is no published GitHub Release. A local assembly is a local file; an Actions artifact is a snapshot subject to retention. Neither is a permanent download or a GitHub source archive. Release tooling in [PR #109](https://github.com/Takazudo/zudo-diagram-gen/pull/109) is separate, still unmerged work; do not execute or describe it as part of this main-branch workflow. Follow [quality and release checks](/docs/development/quality-and-handoff/#release-boundary) before any separately authorized publication.
+
+## Host acceptance scenarios
+
+These are prompts to run **after actual installation** in a capable host. Record the saved files, tool outcomes, visible image observations, and failures. They are acceptance scenarios, not evidence that installation or inspection has already happened here.
+
+| Scenario | What to verify |
+| --- | --- |
+| Direct request | Ask for one 360 × 200 SVG with locked labels; receive one saved SVG and an actual preview when tools allow. |
+| Tone exploration | Ask for three treatments of the same facts; confirm three stable IDs and that each selected tone's bundled rules and images were read. |
+| Follow-up refinement | Choose one ID and give Keep/Change notes; confirm the original file bytes remain, a new ID points to that parent, and the new attachment contains the requested change. |
+| New chat | Attach the saved SVG and notes; confirm the agent resumes from that file. Without the attachment, it should request the exact baseline rather than claim access to it. |
+| Missing capability | Remove render or file access; confirm the answer names the unavailable check or delivers labeled source text without claiming an inspected/downloadable image. |
+| Out-of-scope request | Ask for a non-diagram task; confirm the plugin does not take over unrelated work. |
+
+Also try a missing font and a stale or altered baseline. The agent should select an available font and reinspect text, or ask for the exact saved baseline before claiming faithful lineage. A reviewer should check semantic accuracy and actual readability separately from syntax or rendering.
+
+## Record the result
+
+Follow the current official [host installation guide](https://developers.openai.com/plugins/build/plugins) and [complete-plugin testing guide](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-the-complete-plugin). Record host/version, package hash, installation/discovery, actual artifacts, rendering, opened-image observations and remaining limitations independently.
+
+[Historical plugin evidence](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/agent-first/PLUGIN-ACCEPTANCE.md) records assembly. [Issue #100](https://github.com/Takazudo/zudo-diagram-gen/issues/100) tracks actual ChatGPT acceptance; this documentation change does not complete it. Return to [Contributors](/docs/development/).

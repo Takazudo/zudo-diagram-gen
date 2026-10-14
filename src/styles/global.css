@@ -3,3 +3,118 @@
 @import '@takazudo/zudo-doc/page-loading.css';
 @import '@takazudo/zudo-doc/features.css';
 @import '@takazudo/zudo-diagram-gen/client/app.css';
+
+.zd-product-home {
+  max-width: 72rem;
+  margin-inline: auto;
+  color: var(--zd-fg);
+}
+.zd-product-home > section + section {
+  margin-top: var(--spacing-vsp-2xl);
+}
+.zd-product-home h1 {
+  font-size: var(--text-display);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-block: var(--spacing-vsp-xs) var(--spacing-vsp-sm);
+  text-wrap: balance;
+}
+.zd-product-home h2 {
+  font-size: var(--text-heading);
+  font-weight: 650;
+  margin-bottom: var(--spacing-vsp-sm);
+  text-wrap: balance;
+}
+.zd-product-home h3 {
+  font-size: var(--text-title);
+  font-weight: 600;
+  margin-bottom: var(--spacing-vsp-2xs);
+}
+.zd-product-home p {
+  margin-block: var(--spacing-vsp-xs);
+  line-height: 1.65;
+}
+.zd-product-home a {
+  text-underline-offset: 0.2em;
+}
+.zd-product-home a:hover {
+  color: var(--zd-accent);
+  text-decoration: underline;
+}
+.zd-product-home a:focus-visible {
+  outline: 2px solid var(--zd-accent);
+  outline-offset: 4px;
+}
+.zd-product-hero,
+.zd-product-paths,
+.zd-product-previews,
+.zd-product-examples,
+.zd-product-loop {
+  display: grid;
+  gap: var(--spacing-vsp-lg) var(--spacing-hsp-2xl);
+}
+.zd-product-hero > *,
+.zd-product-paths > *,
+.zd-product-previews > *,
+.zd-product-examples > *,
+.zd-product-loop > * {
+  min-width: 0;
+}
+.zd-product-logo {
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 1200 / 630;
+  background: var(--zd-fg);
+  /* The owner's unchanged monochrome SVG uses the same theme mask as zudo-doc's home logo. */
+  mask: url('/img/logo.svg') center / contain no-repeat;
+}
+.zd-product-actions,
+.zd-product-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-vsp-xs) var(--spacing-hsp-xl);
+  margin-block: var(--spacing-vsp-md);
+}
+.zd-product-actions a {
+  padding-block: var(--spacing-vsp-2xs);
+  font-weight: 650;
+  color: var(--zd-accent);
+}
+.zd-product-loop {
+  list-style: decimal;
+  padding-left: var(--spacing-hsp-xl);
+}
+.zd-product-loop li::marker {
+  color: var(--zd-muted);
+}
+.zd-product-previews img,
+.zd-product-examples img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--spacing-vsp-xs);
+}
+.zd-product-previews span,
+.zd-product-examples span {
+  font-weight: 600;
+}
+.zd-product-secondary {
+  margin-top: var(--spacing-vsp-2xl);
+  font-size: var(--text-small);
+}
+@media (min-width: 48rem) {
+  .zd-product-hero {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+  .zd-product-paths,
+  .zd-product-examples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .zd-product-loop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .zd-product-previews {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

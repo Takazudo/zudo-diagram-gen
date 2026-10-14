@@ -7,7 +7,7 @@ import { loadSession, loadToneCatalog } from '../packages/diagram-gen/src/model.
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const links = {
   homeUrl: '/',
-  docsUrl: '/docs/getting-started/introduction/',
+  docsUrl: '/docs/getting-started/',
   catalogUrl: '/docs/tones/',
 };
 const digest = (content) => createHash('sha256').update(content).digest('hex');
@@ -54,7 +54,9 @@ sidebar_position: 0
 wide: true
 ---
 
-Each session has its own brief and target size. Open one to inspect its drawings and try the review controls.
+Each session has its own brief and target size. Open one to inspect its drawings and try the review controls. These are authored studies, not deployed integrations or user-approved results.
+
+[Learn how to review candidates](/docs/gallery/reviewing/) and [refine a saved drawing](/docs/guides/refine-export/), or read the [example facts and provenance](/docs/getting-started/introduction/#explore-a-session-before-creating-one).
 
 <div class="mt-vsp-lg grid grid-cols-1 gap-x-hsp-lg gap-y-vsp-lg sm:grid-cols-2 lg:grid-cols-3">
 ${cards}
@@ -92,7 +94,7 @@ export async function buildShowcase(root = projectRoot) {
     workbenchPage(
       catalog,
       '/workbench-data/tone-catalog.json',
-      'Browse 24 authored SVG references. Each tone has complete light and dark artwork and a recipe for adapting the treatment to a new brief.',
+      'Browse 24 authored SVG references. Each tone has complete light and dark artwork and a recipe for adapting the treatment to a new brief.\n\n[Choose and apply a tone](/docs/authoring/tone-collection/) · [Save an explicitly adopted style](/docs/guides/saved-styles/) · [Tone format reference](/docs/authoring/tone-context/)',
     ),
   );
 
@@ -117,7 +119,7 @@ export async function buildShowcase(root = projectRoot) {
       workbenchPage(
         data,
         dataUrl,
-        'Inspect the drawings at their intended size, compare directions, and try the review controls. Browser feedback stays in this browser until you copy, download, or import a review record.',
+        'Inspect the drawings at their intended size, compare directions, and try the review controls. Browser feedback stays in this browser until you copy, download, or import a review record.\n\n[Review guide](/docs/gallery/reviewing/) · [Refine and export](/docs/guides/refine-export/) · [Create your own local session](/docs/getting-started/first-session/)',
       ),
     );
     const first = data.candidates[0];
@@ -169,7 +171,7 @@ export async function buildShowcase(root = projectRoot) {
     if (!tone || !candidate) continue;
     const preview = `/previews/tone-${id}.svg`;
     await writeIfChanged(join(root, 'public', preview), candidate.assets.light);
-    featured.push({ id, name: tone.name, number: tone.number, preview });
+    featured.push({ id, candidateId: candidate.id, name: tone.name, number: tone.number, preview });
   }
   await writeIfChanged(
     join(root, 'src/generated/site-data.ts'),

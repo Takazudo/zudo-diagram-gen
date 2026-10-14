@@ -1,0 +1,361 @@
+[
+  {
+    "route": "/docs/agent-workflow/core-and-wrapper/",
+    "headings": [
+      "actual-core-workflow",
+      "thin-entry-point-detailed-references",
+      "personal-wrapper-remains-outside-this-delivery"
+    ]
+  },
+  {
+    "route": "/docs/agent-workflow/",
+    "headings": []
+  },
+  {
+    "route": "/docs/agent-workflow/iteration/",
+    "headings": [
+      "establish-a-small-factual-brief",
+      "define-what-the-round-explores",
+      "generate-independently-against-shared-constraints",
+      "let-the-user-s-selection-establish-a-baseline",
+      "separate-choices-by-their-actual-scope",
+      "integrate-the-selected-artifact",
+      "preserve-useful-records"
+    ]
+  },
+  {
+    "route": "/docs/authoring/",
+    "headings": []
+  },
+  {
+    "route": "/docs/authoring/projects/",
+    "headings": [
+      "register-explicit-sessions-and-comparison-sets",
+      "review-partial-content-honestly",
+      "watcher-and-route-recovery",
+      "export-a-combined-snapshot"
+    ]
+  },
+  {
+    "route": "/docs/authoring/session-files/",
+    "headings": [
+      "set-the-session-identity-and-placement",
+      "start-a-comparison-round",
+      "give-each-candidate-its-own-files",
+      "create-a-refinement-round",
+      "optional-provenance-and-saved-refinement",
+      "keep-review-state-separate-from-session-content",
+      "validation-and-discovery"
+    ]
+  },
+  {
+    "route": "/docs/authoring/svg-authoring/",
+    "headings": [
+      "begin-with-the-explanation",
+      "author-at-a-useful-coordinate-size",
+      "make-labels-work-at-the-target-size",
+      "provide-explicit-artwork-themes",
+      "keep-assets-complete",
+      "accessibility-follows-the-destination",
+      "refine-the-saved-file",
+      "export-and-inspect-the-standalone-asset"
+    ]
+  },
+  {
+    "route": "/docs/authoring/tone-collection/",
+    "headings": [
+      "available-references",
+      "read-the-recipe-and-actual-artwork",
+      "choose-references-for-the-current-explanation",
+      "adapt-the-reference-to-the-project",
+      "extend-the-collection"
+    ]
+  },
+  {
+    "route": "/docs/authoring/tone-context/",
+    "headings": [
+      "resolve-local-meaning-and-capability",
+      "scheme-authority-and-typography",
+      "materialize-palette-roles-and-kit-geometry",
+      "hashes-and-independent-review-evidence",
+      "lock-a-project-style-explicitly"
+    ]
+  },
+  {
+    "route": "/docs/changelog/0.1.0/",
+    "headings": ["added", "changed"]
+  },
+  {
+    "route": "/docs/changelog/0.1.1/",
+    "headings": ["changed"]
+  },
+  {
+    "route": "/docs/changelog/2026-10-05-zfb3-sessions/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-agent-cli-skill/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-catalog-recipe-resolution/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-multi-session-projects/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-native-tone-rollout/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-offline-tone-references/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-paper-pencil-field-revision/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-paper-pencil-pilot-revision/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-pencil-object-guidance/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-pilot-tone-packs/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-placement-capture/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-project-review/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-style-materialization/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-07-tone-context/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-08-integrated-acceptance/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-08-integration-safety/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-08-task-first-documentation/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-09-skills-only-plugin-workflow/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-10-zfb-4-consumers/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-11-dependency-maintenance/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/2026-10-14-zdg-wordmark/",
+    "headings": []
+  },
+  {
+    "route": "/docs/changelog/",
+    "headings": []
+  },
+  {
+    "route": "/docs/development/",
+    "headings": []
+  },
+  {
+    "route": "/docs/development/quality-and-handoff/",
+    "headings": [
+      "automated-repository-checks",
+      "verify-a-packed-consumer",
+      "inspect-in-a-browser",
+      "release-boundary"
+    ]
+  },
+  {
+    "route": "/docs/development/sources/",
+    "headings": [
+      "architecture-and-workflow-precedents",
+      "illustration-references",
+      "project-example-content",
+      "browser-behavior-reference"
+    ]
+  },
+  {
+    "route": "/docs/examples/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/project-doc-cloud/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/project-ez-host/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/project-pattern-gen/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/project-text/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/project-zzmod/",
+    "headings": []
+  },
+  {
+    "route": "/docs/examples/tone-exploration/",
+    "headings": []
+  },
+  {
+    "route": "/docs/gallery/",
+    "headings": []
+  },
+  {
+    "route": "/docs/gallery/reviewing/",
+    "headings": [
+      "find-drawings-worth-comparing",
+      "match-the-conditions-of-the-final-placement",
+      "shortlist-possibilities-then-choose-a-baseline",
+      "transfer-the-review-to-the-agent",
+      "recheck-feedback-when-the-content-changes",
+      "compare-the-revision-and-export-the-result",
+      "projects-and-independent-stale-evidence",
+      "review-with-the-keyboard"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/chatgpt-plugin/",
+    "headings": [
+      "get-the-assembled-package",
+      "build-and-verify-from-the-repository",
+      "review-the-saved-drawing",
+      "understand-verification-limits",
+      "host-acceptance-scenarios"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/first-session/",
+    "headings": [
+      "set-up-once",
+      "inspect-the-actual-results",
+      "shortlist-choose-and-transfer",
+      "refine-the-saved-drawing-and-export"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/",
+    "headings": []
+  },
+  {
+    "route": "/docs/getting-started/introduction/",
+    "headings": [
+      "take-one-diagram-through-the-loop",
+      "explore-a-session-before-creating-one",
+      "know-what-the-app-supplies"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/local-archives/",
+    "headings": [
+      "pack-and-create-an-installed-consumer",
+      "optional-project-local-skill-copy",
+      "create-another-host-or-resume-this-one"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/local-development/",
+    "headings": [
+      "open-the-documentation-and-examples-locally",
+      "check-changes-and-preview-the-build",
+      "pack-an-engine-for-a-separate-session",
+      "set-a-session-s-host-and-port"
+    ]
+  },
+  {
+    "route": "/docs/getting-started/manual-session/",
+    "headings": [
+      "1-create-the-installed-workspace",
+      "2-write-the-explanation-before-drawing",
+      "3-add-the-svg-and-its-metadata",
+      "4-validate-and-inspect-at-the-target-size",
+      "5-choose-a-direction-and-transfer-feedback",
+      "6-export-the-exact-drawing"
+    ]
+  },
+  {
+    "route": "/docs/reference/api/",
+    "headings": [
+      "public-entrypoints",
+      "materialize-a-local-kit",
+      "create-several-sessions",
+      "refine-the-saved-baseline",
+      "generated-route-ownership",
+      "schemas-normalized-data-and-review"
+    ]
+  },
+  {
+    "route": "/docs/reference/architecture/",
+    "headings": [
+      "components",
+      "data-preparation",
+      "zfb-lifecycle",
+      "review-state",
+      "extensibility",
+      "why-the-precedent-matters"
+    ]
+  },
+  {
+    "route": "/docs/reference/cli/",
+    "headings": [
+      "initializer",
+      "create-inspect-and-resume",
+      "check-and-tone-resources",
+      "development-build-and-preview",
+      "capture",
+      "explicit-project-style",
+      "export-saved-artwork-and-offline-html",
+      "json-envelopes-and-backward-compatibility"
+    ]
+  },
+  {
+    "route": "/docs/reference/",
+    "headings": []
+  },
+  {
+    "route": "/docs/reference/placement-capture/",
+    "headings": [
+      "optional-browser-setup",
+      "descriptor-and-geometry",
+      "capture-then-actually-inspect"
+    ]
+  },
+  {
+    "route": "/docs/tones/",
+    "headings": []
+  },
+  {
+    "route": "/docs/workbench/",
+    "headings": []
+  }
+]
