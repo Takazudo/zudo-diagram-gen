@@ -97,6 +97,10 @@ async function releaseFixture(t) {
   const git = (...args) =>
     execFileSync('git', args, { cwd: directory, encoding: 'utf8', stdio: 'pipe', timeout: 10000 });
   git('init', '-q');
+  // Background maintenance would mutate the fixture during the read-only snapshot.
+  git('config', 'gc.auto', '0');
+  git('config', 'maintenance.auto', 'false');
+  git('config', 'gc.autoDetach', 'false');
   git('config', 'user.name', 'Release fixture');
   git('config', 'user.email', 'release-fixture@example.invalid');
   git('add', '.');
