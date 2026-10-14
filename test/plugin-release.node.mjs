@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { chmod, copyFile, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { copyFile, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { selectRelease, releaseAssetPlan } from '../scripts/plugin-release-plan.mjs';
+import { planRelease, selectRelease, releaseAssetPlan } from '../scripts/plugin-release-plan.mjs';
 import { nextVersion, packRelease, parseVersion } from '../scripts/plugin-release.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -280,44 +280,46 @@ test('whole dry-run planner reads mocked remotes without changing checkout or Gi
   const { directory, git } = await completeFixture(t);
   git('remote', 'add', 'origin', 'https://github.com/Takazudo/zudo-diagram-gen.git');
   const sha = git('rev-parse', 'HEAD').trim();
-  const mocks = await mkdtemp(path.join(os.tmpdir(), 'release-query-mocks-'));
-  t.after(() => rm(mocks, { recursive: true, force: true }));
-  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
-  await writeFile(
-    path.join(mocks, 'git'),
-    `#!/bin/sh\nif [ "$1" = ls-remote ]; then if [ -n "$MOCK_REFS" ]; then printf '%s\\n' "$MOCK_REFS"; else printf '%s\\trefs/heads/main\\n' "$MOCK_MAIN"; fi; else exec '${realGit}' "$@"; fi\n`,
-  );
-  await writeFile(
-    path.join(mocks, 'gh'),
-    '#!/bin/sh\nif [ "$MOCK_QUERY_FAIL" = yes ]; then echo "authentication/network failure" >&2; exit 1; fi\nprintf "[[]]\\n"\n',
-  );
-  await chmod(path.join(mocks, 'git'), 0o755);
-  await chmod(path.join(mocks, 'gh'), 0o755);
   const snapshot = () =>
     execFileSync('tar', ['-cf', '-', '.'], {
       cwd: directory,
       maxBuffer: 32 * 1024 * 1024,
       timeout: 10000,
     });
-  const before = snapshot();
-  const invoke = (extra = {}, args = []) =>
-    spawnSync(process.execPath, ['scripts/plugin-release-plan.mjs', ...args], {
-      timeout: 20000,
+  let remoteRefs = `${sha}\trefs/heads/main`;
+  let failQuery = false;
+  const observed = [];
+  const query = (command, args) => {
+    observed.push([command, ...args]);
+    if (command === 'gh') {
+      assert.deepEqual(args.slice(0, 3), ['api', '--paginate', '--slurp']);
+      if (failQuery) throw new Error('authentication/network query failed');
+      return '[[]]';
+    }
+    assert.equal(command, 'git');
+    assert.ok(['remote', 'status', 'ls-remote', 'show', 'rev-parse', 'cat-file'].includes(args[0]));
+    if (args[0] === 'remote') assert.deepEqual(args, ['remote', 'get-url', 'origin']);
+    if (args[0] === 'ls-remote') return remoteRefs;
+    return execFileSync('git', args, {
       cwd: directory,
       encoding: 'utf8',
-      env: { ...process.env, PATH: `${mocks}:${process.env.PATH}`, MOCK_MAIN: sha, ...extra },
-    });
-  const planned = invoke();
-  assert.equal(planned.status, 0, `${planned.error ?? ''} ${planned.stderr}`);
-  assert.equal(JSON.parse(planned.stdout).version, '0.1.0');
-  assert.equal(JSON.parse(planned.stdout).commit, sha);
-  const failed = invoke({ MOCK_QUERY_FAIL: 'yes' });
-  assert.notEqual(failed.status, 0);
-  assert.match(failed.stderr, /query failed/);
-  assert.equal(failed.stdout, '');
-  const insufficient = invoke({ MOCK_MAIN: '1234567890123456789012345678901234567890' });
-  assert.notEqual(insufficient.status, 0);
-  assert.match(insufficient.stderr, /Insufficient local history/);
+      stdio: 'pipe',
+      timeout: 10000,
+      env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' },
+    }).trim();
+  };
+  const invoke = (requested) => planRelease(requested, { cwd: directory, query });
+  const before = snapshot();
+  assert.equal(invoke().version, '0.1.0');
+  assert.equal(invoke().commit, sha);
+  failQuery = true;
+  assert.throws(() => invoke(), /query failed/);
+  failQuery = false;
+  remoteRefs = '1234567890123456789012345678901234567890\trefs/heads/main';
+  assert.throws(() => invoke(), /Insufficient local history/);
+  assert.ok(
+    observed.some(([command, operation]) => command === 'git' && operation === 'ls-remote'),
+  );
   assert.deepEqual(snapshot(), before);
   git('tag', '-a', 'v0.1.0', '-m', 'Original fixture release');
   const tagObject = git('rev-parse', 'refs/tags/v0.1.0').trim();
@@ -330,13 +332,12 @@ test('whole dry-run planner reads mocked remotes without changing checkout or Gi
   const newer = git('rev-parse', 'HEAD').trim();
   const originalRefs = `${newer}\trefs/heads/main\n${tagObject}\trefs/tags/v0.1.0\n${sha}\trefs/tags/v0.1.0^{}`;
   const advancedBefore = snapshot();
-  const resumed = invoke({ MOCK_REFS: originalRefs }, ['0.1.0']);
-  assert.equal(resumed.status, 0, `${resumed.error ?? ''} ${resumed.stderr}`);
-  assert.equal(JSON.parse(resumed.stdout).commit, sha);
-  assert.equal(JSON.parse(resumed.stdout).sourceVersion, '0.1.0');
-  assert.equal(JSON.parse(resumed.stdout).main, newer);
-  const conflict = invoke({ MOCK_REFS: originalRefs.replace(tagObject, newer) }, ['0.1.0']);
-  assert.notEqual(conflict.status, 0);
-  assert.match(conflict.stderr, /tag objects differ/);
+  remoteRefs = originalRefs;
+  const resumed = invoke('0.1.0');
+  assert.equal(resumed.commit, sha);
+  assert.equal(resumed.sourceVersion, '0.1.0');
+  assert.equal(resumed.main, newer);
+  remoteRefs = originalRefs.replace(tagObject, newer);
+  assert.throws(() => invoke('0.1.0'), /tag objects differ/);
   assert.deepEqual(snapshot(), advancedBefore);
 });

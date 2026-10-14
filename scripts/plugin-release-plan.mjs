@@ -7,9 +7,9 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const repo = 'Takazudo/zudo-diagram-gen';
 const manifestPath = 'plugins/zudo-diagram-gen/plugin.json';
 
-function run(command, args) {
+function run(command, args, directory = root) {
   const result = spawnSync(command, args, {
-    cwd: root,
+    cwd: directory,
     encoding: 'utf8',
     timeout: 15000,
     env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' },
@@ -81,17 +81,18 @@ export function releaseAssetPlan(expected, actual, published = false) {
   return { missing, complete: missing.length === 0 };
 }
 
-export function planRelease(requested) {
-  const origin = run('git', ['remote', 'get-url', 'origin']);
+export function planRelease(requested, options = {}) {
+  const read = options.query ?? ((command, args) => run(command, args, options.cwd ?? root));
+  const origin = read('git', ['remote', 'get-url', 'origin']);
   if (
     !/^https:\/\/github\.com\/Takazudo\/zudo-diagram-gen(?:\.git)?$|^git@github\.com:Takazudo\/zudo-diagram-gen(?:\.git)?$/.test(
       origin,
     )
   )
     throw new Error('Unexpected origin');
-  if (run('git', ['status', '--porcelain']))
+  if (read('git', ['status', '--porcelain']))
     throw new Error('Release planning requires a clean tree');
-  const lines = run('git', ['ls-remote', 'origin', 'refs/heads/main', 'refs/tags/*']).split('\n');
+  const lines = read('git', ['ls-remote', 'origin', 'refs/heads/main', 'refs/tags/*']).split('\n');
   const refs = Object.fromEntries(lines.filter(Boolean).map((line) => line.split(/\s+/).reverse()));
   const main = refs['refs/heads/main'];
   if (!main) throw new Error('Remote main is missing');
@@ -105,12 +106,12 @@ export function planRelease(requested) {
   }
   // Successful paginated lists distinguish absence from authentication/network failure.
   const query = (endpoint) =>
-    JSON.parse(run('gh', ['api', '--paginate', '--slurp', `repos/${repo}/${endpoint}`])).flat();
+    JSON.parse(read('gh', ['api', '--paginate', '--slurp', `repos/${repo}/${endpoint}`])).flat();
   const releases = query('releases?per_page=100');
   const prs = query('pulls?state=open&per_page=100');
   const manifestAt = (sha) => {
     try {
-      return JSON.parse(run('git', ['show', `${sha}:${manifestPath}`])).version;
+      return JSON.parse(read('git', ['show', `${sha}:${manifestPath}`])).version;
     } catch {
       throw new Error(`Insufficient local history for ${sha}; fetch explicitly outside dry-run`);
     }
@@ -120,9 +121,9 @@ export function planRelease(requested) {
   if (plan.mode !== 'new' && manifestAt(commit) !== plan.version)
     throw new Error('Original release commit manifest does not match version');
   if (plan.mode === 'resume-tag') {
-    const local = run('git', ['rev-parse', `refs/tags/${plan.tag}`]);
+    const local = read('git', ['rev-parse', `refs/tags/${plan.tag}`]);
     if (local !== tags[plan.tag].object) throw new Error('Local and remote tag objects differ');
-    if (run('git', ['cat-file', '-t', local]) !== 'tag') throw new Error('Expected annotated tag');
+    if (read('git', ['cat-file', '-t', local]) !== 'tag') throw new Error('Expected annotated tag');
   }
   return {
     ...plan,
