@@ -1,0 +1,68 @@
+name: Maintenance snapshot
+
+on:
+  push:
+    branches: [maintenance/plugin-release-20261014]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.13.0
+      - name: Read-only dependency and source snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/maintenance-snapshot"
+          mkdir -p "$out"
+          git archive --format=tar.gz --output="$out/source.tar.gz" HEAD
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/Takazudo/claude-settings/f957ad2c293c297bdd8cfefd244f9c5ecf8ca4cb/skills/dev-bump-zudo-deps/scripts/resolve-bumps.mjs \
+            -o "$RUNNER_TEMP/resolve-bumps.mjs"
+          node "$RUNNER_TEMP/resolve-bumps.mjs" --json > "$out/plan.txt"
+          cat "$out/plan.txt"
+          export SNAPSHOT_OUT="$out"
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          import path from 'node:path';
+          const out = process.env.SNAPSHOT_OUT;
+          const text = readFileSync(path.join(out, 'plan.txt'), 'utf8');
+          const marker = '\n---PLAN-JSON---\n';
+          if (!text.includes(marker)) throw new Error('Missing resolver JSON');
+          const plan = JSON.parse(text.slice(text.indexOf(marker) + marker.length, text.lastIndexOf(']') + 1));
+          writeFileSync(path.join(out, 'plan.json'), JSON.stringify(plan, null, 2));
+          if (plan.some(row => row.action === 'error')) throw new Error('Registry resolution failed');
+          const seen = new Set();
+          for (const row of plan.filter(row => row.action === 'bump')) {
+            const key = `${row.name}-${row.spec}-${row.target}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            const stem = row.name.replace(/[^a-z0-9.-]/gi, '_');
+            const meta = execFileSync('npm', ['view', `${row.name}@${row.target}`, '--json'], {encoding: 'utf8'});
+            writeFileSync(path.join(out, `${stem}-target.json`), meta);
+            if (!/^\d+\.\d+\.\d+$/.test(row.spec)) continue;
+            const args = ['diff', `--diff=${row.name}@${row.spec}`, `--diff=${row.name}@${row.target}`];
+            for (const [suffix, extra] of [['files', ['--diff-name-only']], ['surface', ['--', 'package.json', 'README.md', 'CHANGELOG.md']]]) {
+              const diff = execFileSync('npm', [...args, ...extra], {encoding: 'utf8', maxBuffer: 32 * 1024 * 1024});
+              writeFileSync(path.join(out, `${stem}-${suffix}.diff`), diff);
+            }
+          }
+          NODE
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: maintenance-snapshot
+          path: ${{ runner.temp }}/maintenance-snapshot/
+          retention-days: 3
+          if-no-files-found: error
