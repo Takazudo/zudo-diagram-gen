@@ -76,6 +76,8 @@ export async function packRelease(tag) {
   if (tag !== undefined && tag !== `v${current}`)
     throw new Error('Tag and plugin manifest version differ');
   const commit = run('git', ['rev-parse', 'HEAD']);
+  if (tag !== undefined && run('git', ['cat-file', '-t', `refs/tags/${tag}`]) !== 'tag')
+    throw new Error('Release packaging requires an annotated tag');
   if (tag !== undefined && run('git', ['rev-parse', `refs/tags/${tag}^{commit}`]) !== commit) {
     throw new Error('Release tag does not point at the checked-out commit');
   }

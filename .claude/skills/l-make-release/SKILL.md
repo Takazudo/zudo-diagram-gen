@@ -37,46 +37,57 @@ not an instruction to execute a release.
   `--dry-run` is read-only for the entire skill: no edits, install, build, branch,
   PR, tag, upload or release mutation.
 
-## 1. Establish the exact starting point
+## 1. Classify before setup or mutation
 
-Require authenticated `gh`, Git, the repository's pinned pnpm, supported Node,
-`zip` and `unzip`. Confirm `origin` is `Takazudo/zudo-diagram-gen`, branch is
-`main`, and `git status --porcelain` is empty. Fetch origin and tags, then require
-`HEAD` to equal `origin/main`. Inspect open release PRs, tags and Releases before
-creating anything; adopt matching partial work only after verifying its contents.
-Do not silently delete drafts or retarget tags.
-
-Read the plugin version with:
+Before fetch, checkout, installation, building or edits, run only the read-only
+planner (omit the argument for a fresh no-argument release):
 
 ```bash
-node scripts/plugin-release.mjs version
+node scripts/plugin-release-plan.mjs [patch|minor|major|X.Y.Z]
 ```
 
-There is **no required bootstrap tag**. With no existing version tags, the
-no-argument first release uses the current manifest version (initially `0.1.0`).
-An explicit bump argument still bumps it. Do not invent a previous release.
+Pass only the optional version argument, not `--dry-run` or `--confirm`, to the
+planner. It uses Git reads, `git ls-remote` and authenticated paginated GitHub
+lists. It never fetches, writes refs/FETCH_HEAD, installs or builds. Any failed
+query aborts; a successful list with no match establishes absence. If local
+history is insufficient, report that limitation; do not fetch during dry-run.
+Require Git, supported Node and authenticated `gh` for this step, but do not
+install missing tools. Announce the plan's mode, version, original source SHA,
+release/PR state, notes summary from available local history and deployment
+boundary. **For `--dry-run`, stop here**, including when planning fails. Never
+run later setup or verification commands in dry-run.
 
-After the first release, inspect changes since the latest reachable plugin tag
-and choose a stable patch for fixes/maintenance, minor for additions, or major
-for breaking compatibility. Explicit `patch`, `minor`, `major` or `X.Y.Z` wins.
-If the manifest already contains the intended, not-yet-tagged release version,
-resume that version instead of bumping twice. Reject equal/downgrade targets
-except when resuming exactly the same verified release. Stop on unrelated tags
-or inconsistent version history. Prereleases are intentionally unsupported until
-the portable plugin manifest validator supports them too.
+The first fresh no-argument release with no tags uses the current manifest.
+Later fresh no-argument releases default to patch (choose an explicit minor or
+major when appropriate). An already prepared, higher untagged manifest version
+is used as-is. Exactly one matching `release/plugin-vX.Y.Z` PR is adopted at its
+recorded head and verified manifest; never recreate it or bump twice. Multiple
+or conflicting release PRs require reconciliation.
 
-Preview a bump without writing:
+An explicit `X.Y.Z` matching an existing annotated remote tag is a retry,
+regardless of newer main's version. `resume-tag` keeps that tag's original
+commit, manifest, notes and assets. A fresh no-argument operation after a
+published release proposes the next version; it is not an idempotent retry.
+Unrelated/lightweight tags, conflicting local/remote objects, downgrades and
+Releases without tags abort. A plan is not evidence that assets match or CI
+passed. Inspect those before any mutation.
 
-```bash
-node scripts/plugin-release.mjs bump minor --dry-run
-```
-
-Announce current version, proposed version, exact source commit, release-note
-summary and any merge/deployment boundary. For `--dry-run`, report and stop here.
+After classification, a non-dry-run may fetch missing history and tags. Re-run
+the planner and require the same selected version/commit before continuing.
+For `new`, use clean current main equal to remote main, then prepare Step 2.
+For `resume-pr`, adopt the verified PR branch and continue its review/checks in
+Step 2. For `resume-tag`, skip version preparation and main selection entirely:
+use an isolated clean detached checkout of the verified original tag commit,
+verify its manifest and notes, and require successful push-to-main CI for that
+exact original commit. Main advancing does not change the selected commit.
+Never substitute newer main bytes, retag or select a new release commit on a
+retry. Confirm repository policy and the session's production gate before a
+release PR merge; no deployment setting changes are implied.
 
 ## 2. Prepare a release PR when source changes are needed
 
-Create `release/plugin-vX.Y.Z` from current `origin/main`. Use
+For a new plan, create `release/plugin-vX.Y.Z` from current `origin/main`.
+For a matching release PR, adopt it instead. Use
 `node scripts/plugin-release.mjs bump <mode-or-version>` only when a bump is
 needed. Write plain Markdown release notes at `releases/vX.Y.Z.md` and add a
 user-facing dated MDX entry under `src/content/docs/changelog/`. Describe plugin
@@ -106,30 +117,34 @@ required current-head checks and required reviews. Merge only through ordinary
 repository policy and within the session's merge/deployment authorization.
 Never use an admin bypass. Otherwise leave the PR unmerged with the exact blocker.
 
-Switch to main, fetch and fast-forward after merge. Require a clean tree and
-record `release_sha=$(git rev-parse HEAD)`. Confirm the `CI` workflow's **push to
-main** run for that exact SHA succeeded (not just the PR run, Plugin ZIP job or
-a skipped job). Inspect required status checks and the actionlint result too.
-If main has advanced, re-evaluate the release notes and use a fully checked
-commit; do not accidentally release an unreviewed newer HEAD.
+After merge, read the actual merged PR's `mergeCommit.oid` from GitHub, verify
+it against the integrated diff, and bind `release_sha` to that exact SHA. Fetch
+only in this non-dry-run phase and create a clean detached checkout of that
+commit before reading the manifest and notes. Never derive the release SHA
+from a fast-forwarded main HEAD: main may have advanced already. Confirm the
+`CI` workflow's successful **push to main** run for that exact selected SHA,
+required checks and approvals (not just PR CI, Plugin ZIP or a skipped job).
+Re-run state classification before tagging and preserve the actual integrated
+commit for this new release. If any provenance or check is unavailable, stop.
 
 ## 3. Tag the validated commit and build its ZIP
 
-Set `version`, `tag=v$version` and `release_sha` from the checked manifest and
-commit, not from shell text copied from a Release title. Verify that the release
+Set `version`, `tag=v$version` and `release_sha` from the selected original
+commit and checked manifest, not from newer main or a Release title. Verify that the release
 notes exist and that `git status --porcelain` is empty. Inspect the local and
 remote exact tag before mutation. If either already exists, resolve annotated
 tags to commits and require equality with `release_sha`; never force-move a tag.
 
 With `--confirm`, show the version, SHA and asset names and wait once, before the
-first tag push or release upload. Otherwise proceed.
+first local tag creation, tag push, release upload or publication mutation.
+Do this after building/verifying any existing-tag assets and before mutation. Otherwise proceed.
 
 For a new tag:
 
 ```bash
 git tag -a "$tag" "$release_sha" -m "zudo-diagram-gen $tag"
-git push origin "refs/tags/$tag"
 node scripts/plugin-release.mjs pack --tag "$tag"
+git push origin "refs/tags/$tag"
 ```
 
 `pack --tag` requires both manifest/tag version equality and tag/HEAD commit
@@ -142,9 +157,14 @@ an Actions artifact; that retention-limited artifact is not the durable release.
 
 ## 4. Upload, verify and publish the GitHub Release
 
-Use `gh release view "$tag"` to inspect existing state. Distinguish a genuine
+Re-read the authenticated release list and exact tag to inspect existing state. Distinguish a genuine
 not-found response from authentication/network failure; fail closed on the latter.
-For a new release, explicitly attach the actual plugin archives and checksum file:
+Branch on the verified state before running any create/upload command. For
+`published`, verify all three downloaded assets from the original tag build and
+return the unchanged published URL; if any asset is missing or differs, stop.
+For `draft`, compare existing assets individually and upload only verified
+missing names, then perform the full downloaded-asset checks below. For
+`absent`, explicitly attach the actual plugin archives and checksum file:
 
 ```bash
 gh release create "$tag" \
@@ -171,8 +191,17 @@ published Release with validated downloadable ZIP assets, not merely a pushed ta
 
 ## Recovery and completion
 
-For a matching draft, compare existing asset bytes first and upload only missing
-assets. Never use `--clobber`, delete unrelated drafts, or replace a published
+For a tag-only retry, package from the original clean tag checkout, then create
+its draft with the three verified assets. For a partial draft, download each
+existing expected asset separately; an all-assets download cannot succeed when
+assets are missing. Compare bytes against the original tagged build before
+uploading only the missing filenames with `gh release upload`, without
+`--clobber`. Unexpected assets or mismatching release notes require explicit
+reconciliation; do not delete anything. An identical published retry downloads
+and verifies all three assets and returns success without upload/publication.
+Missing assets in a published Release are a conflict, not a repair permission.
+Use the helper's `releaseAssetPlan` in mocked rehearsals to classify verified
+bytes; it never performs uploads. Never use `--clobber`, delete unrelated drafts, or replace a published
 asset silently. If a draft contains differing bytes, stop and explain the
 mismatch. An already-published identical release is a successful idempotent
 resume; a published mismatch needs a new version. A tag without a Release can

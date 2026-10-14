@@ -15,6 +15,15 @@ engine/initializer archives have independent versions; do not bump them merely
 to distribute the plugin. No prerelease syntax is supported by the current
 portable plugin validator.
 
+Before any setup or fetch, the skill runs `node scripts/plugin-release-plan.mjs`
+with the optional version argument. The whole `--dry-run` stops after this
+read-only plan; missing local history or failed remote queries are reported,
+never repaired by fetching/installing/building. An explicit same-version retry
+uses the original annotated tag commit even when main has advanced. A matching
+release PR is adopted without rebumping. Partial drafts upload only missing,
+verified assets; identical published retries perform no mutation. Conflicts
+fail closed, and published missing assets require reconciliation.
+
 The first no-argument release uses the current plugin manifest version without
 a dummy prerequisite tag. Later releases bump the plugin version. Release notes
 live at `releases/vX.Y.Z.md`, alongside a dated public changelog entry. Source
