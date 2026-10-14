@@ -1,24 +1,9 @@
 ---
 title: Contributors
-description: Run and change the repository, preserve generated ownership, and verify distribution boundaries.
+description: Repository setup, documentation authoring, quality and maintenance.
+sidebar_position: 6
 ---
 
-Work on the repository without following end-user onboarding. Use Node.js 22–24 and pnpm 10.30.3.
+Run and change this repository, verify its outputs and maintain the source distribution.
 
-- [Run the project site](/docs/getting-started/local-development/): repository setup, local development and preview.
-- [Architecture](/docs/reference/architecture/): package, session, site and chrome ownership.
-- [Quality and release checks](/docs/development/quality-and-handoff/): fresh consumers, browser checks and publication boundaries.
-- [Sources and provenance](/docs/development/sources/): artwork origins and example facts.
-- [Plugin assembly and host acceptance](/docs/development/plugin-maintenance/): build a complete local ZIP and distinguish verification from actual host installation.
-
-## Place documentation by audience
-
-Start here owns first success; Guides owns tasks; Reference owns exact specifications; Tones and Examples own exploration. Contributor procedures and historical evidence belong here or in repository `docs/`. Add one primary home and contextual links rather than another catch-all tree. The [complete placement and compatibility map](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/documentation-structure.md) records canonical routes and anchor preservation.
-
-`scripts/build-showcase.mjs` owns generated Tones/Examples MDX, previews, workbench data and site data. Edit that durable source, preserve hash-aware cleanup and the Wind manifest, and check repeated generation. Never hand-edit ignored generated MDX. Preserve artwork and stable identities.
-
-## Evidence and continuing work
-
-Read [AGENTS.md](https://github.com/Takazudo/zudo-diagram-gen/blob/main/AGENTS.md) and the [current handoff](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/CODEX-HANDOFF.md). Historical [P10 reader acceptance](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/agent-first/P10-ACCEPTANCE.md) and [P11 integrated acceptance](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/agent-first/ACCEPTANCE.md) retain their original scope and revisions. Add current evidence rather than rewriting those results. Record user-visible changes in [Changelog](/docs/changelog/).
-
-Source delivery does not authorize publication or production deployment. Successful main push CI can trigger the production workflow; integration needs the owner's separate authorization for that effect.
+<CategoryNav category="development" />

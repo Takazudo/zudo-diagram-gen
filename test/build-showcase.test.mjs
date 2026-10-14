@@ -27,13 +27,27 @@ test('generates escaped MDX and JSON, then prunes only untouched output', async 
     await writeFile(sessionFile, JSON.stringify(session));
     await mkdir(join(root, 'pages/examples'), { recursive: true });
     await mkdir(join(root, '.generated'), { recursive: true });
+    await mkdir(join(root, 'src/generated'), { recursive: true });
+    await mkdir(join(root, 'public/previews'), { recursive: true });
     const stale = 'pages/examples/removed.tsx';
     const edited = 'pages/tones.tsx';
+    const retiredData = 'src/generated/site-data.ts';
+    const retiredPreview = 'public/previews/tone-fine-outline.svg';
+    const editedPreview = 'public/previews/tone-cut-paper.svg';
     await writeFile(join(root, stale), 'old route');
     await writeFile(join(root, edited), 'user edit');
+    await writeFile(join(root, retiredData), 'old homepage data');
+    await writeFile(join(root, retiredPreview), 'old homepage preview');
+    await writeFile(join(root, editedPreview), 'user-edited preview');
     await writeFile(
       join(root, '.generated/showcase-files.json'),
-      JSON.stringify({ [stale]: hash('old route'), [edited]: hash('original route') }),
+      JSON.stringify({
+        [stale]: hash('old route'),
+        [edited]: hash('original route'),
+        [retiredData]: hash('old homepage data'),
+        [retiredPreview]: hash('old homepage preview'),
+        [editedPreview]: hash('original preview'),
+      }),
     );
 
     await buildShowcase(root);
@@ -54,6 +68,9 @@ test('generates escaped MDX and JSON, then prunes only untouched output', async 
     expect(await exists(join(root, 'public/workbench-data/tone-catalog.json'))).toBe(true);
     expect(await exists(join(root, stale))).toBe(false);
     expect(await readFile(join(root, edited), 'utf8')).toBe('user edit');
+    expect(await exists(join(root, retiredData))).toBe(false);
+    expect(await exists(join(root, retiredPreview))).toBe(false);
+    expect(await readFile(join(root, editedPreview), 'utf8')).toBe('user-edited preview');
 
     const manifestBefore = await readFile(join(root, '.generated/showcase-files.json'), 'utf8');
     await buildShowcase(root);

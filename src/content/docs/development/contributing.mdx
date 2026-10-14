@@ -1,0 +1,23 @@
+---
+title: Contribute to the repository
+description: Find repository setup, architecture, authoring rules and verification procedures.
+sidebar_position: 0
+---
+
+Use Node.js 22–24 and pnpm 10.30.3 to work on this repository. [Run the project site](../getting-started/local-development.mdx) covers setup, development and preview; [Architecture](../reference/architecture.mdx) explains package, session and site ownership.
+
+## Documentation authoring
+
+Read the upstream [Writing and Navigation Guide](https://github.com/zudolab/zudo-doc/blob/main/packages/create-zudo-doc/templates/features/claudeSkillsWriting/files/.claude/skills/zudo-doc-writing/SKILL.md) before changing documentation. The [repository navigation guide](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/documentation-structure.md) records the current filesystem tree and allowed integration points.
+
+The framework owns the left-aligned header, standard homepage, sidebar, breadcrumbs and pager. Do not replace them with a product landing page or a separate editorial navigation map. Category indexes use a short introduction and `CategoryNav`; substantive content belongs in sibling pages. Set `sidebar_position`, use relative `.mdx` links and let directories determine navigation.
+
+`scripts/build-showcase.mjs` owns generated Tones/Examples MDX, previews and workbench data. Edit that source, preserve hash-aware cleanup and the Wind manifest, and check repeated generation. Do not hand-edit ignored generated MDX. The examples grid and embedded workbench remain content components, not replacements for framework navigation.
+
+## Verification and maintenance
+
+[Quality and release checks](./quality-and-handoff.mdx) covers fresh consumers, browser checks and publication boundaries. [Sources and provenance](./sources.mdx) records artwork origins and example facts. [Plugin assembly and host acceptance](./plugin-maintenance.mdx) explains ZIP assembly without implying installation in a user's account.
+
+Read [AGENTS.md](https://github.com/Takazudo/zudo-diagram-gen/blob/main/AGENTS.md) and the [current handoff](https://github.com/Takazudo/zudo-diagram-gen/blob/main/docs/CODEX-HANDOFF.md). Historical P10/P11 acceptance records retain their original scope; add current evidence rather than rewriting those results. Record user-visible changes in [Changelog](../changelog/index.mdx).
+
+Source delivery does not authorize production deployment. A successful main push can trigger the production workflow; merging requires the owner's authorization for that effect.
