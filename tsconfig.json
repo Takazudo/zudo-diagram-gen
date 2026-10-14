@@ -10,8 +10,7 @@
     "allowJs": true,
     "checkJs": false,
     "resolveJsonModule": true,
-    "types": ["node"],
-    "baseUrl": null
+    "types": ["node"]
   },
   "include": [
     "pages/**/*.tsx",

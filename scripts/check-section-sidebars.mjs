@@ -8,13 +8,26 @@ export async function checkSectionSidebars(browser, origin) {
   page.on('pageerror', (error) => errors.push(error.message));
   const assertSection = async (scope, category) => {
     await scope.locator('[data-sidebar-tree-root]').waitFor();
-    assert.equal(await scope.locator('[data-sidebar-broaden]').count(), 0, `${category}: no cross-section Broaden`);
-    assert.equal(await scope.locator('[data-sidebar-scope-toolbar]').count(), 0, `${category}: no empty scope toolbar`);
-    const links = await scope.locator('[data-sidebar-tree-root] a[href]').evaluateAll((anchors) =>
-      anchors.map((anchor) => new URL(anchor.href).pathname.replace(/\/$/, '')),
+    assert.equal(
+      await scope.locator('[data-sidebar-broaden]').count(),
+      0,
+      `${category}: no cross-section Broaden`,
     );
+    assert.equal(
+      await scope.locator('[data-sidebar-scope-toolbar]').count(),
+      0,
+      `${category}: no empty scope toolbar`,
+    );
+    const links = await scope
+      .locator('[data-sidebar-tree-root] a[href]')
+      .evaluateAll((anchors) =>
+        anchors.map((anchor) => new URL(anchor.href).pathname.replace(/\/$/, '')),
+      );
     assert.ok(links.length > 1, `${category}: keep the section overview and pages`);
-    assert.ok(links.every((path) => path === `/docs/${category}` || path.startsWith(`/docs/${category}/`)), JSON.stringify(links));
+    assert.ok(
+      links.every((path) => path === `/docs/${category}` || path.startsWith(`/docs/${category}/`)),
+      JSON.stringify(links),
+    );
   };
   try {
     for (const route of [
@@ -38,7 +51,9 @@ export async function checkSectionSidebars(browser, origin) {
     const sidebar = page.locator('#desktop-sidebar');
     const filter = sidebar.getByRole('textbox', { name: 'Filter navigation', exact: true });
     await filter.fill('ChatGPT');
-    const firstSession = sidebar.locator('a[href$="/getting-started/first-session"], a[href$="/getting-started/first-session/"]');
+    const firstSession = sidebar.locator(
+      'a[href$="/getting-started/first-session"], a[href$="/getting-started/first-session/"]',
+    );
     await firstSession.waitFor({ state: 'hidden' });
     assert.equal(await sidebar.locator('[data-sidebar-broaden]').count(), 0);
     await filter.fill('');
@@ -67,7 +82,11 @@ export async function checkSectionSidebars(browser, origin) {
       await assertSection(drawer, category);
       if (category === 'getting-started') {
         await page.screenshot({ path: 'test-output/docs-ia-section-sidebar-mobile.png' });
-        await drawer.locator('a[href$="/getting-started/first-session"], a[href$="/getting-started/first-session/"]').click();
+        await drawer
+          .locator(
+            'a[href$="/getting-started/first-session"], a[href$="/getting-started/first-session/"]',
+          )
+          .click();
         await page.waitForURL(/\/getting-started\/first-session\/?$/);
         await page.locator('[data-zd-mobile-sidebar][inert]').waitFor({ state: 'attached' });
         await page.getByRole('button', { name: 'Open sidebar', exact: true }).click();
@@ -76,7 +95,9 @@ export async function checkSectionSidebars(browser, origin) {
       await page.keyboard.press('Escape');
     }
     assert.deepEqual(errors, []);
-    console.log('PASS section-scoped native sidebars, filtering, navigation, history and mobile drawer');
+    console.log(
+      'PASS section-scoped native sidebars, filtering, navigation, history and mobile drawer',
+    );
   } finally {
     await context.close();
   }
