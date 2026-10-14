@@ -167,7 +167,7 @@ header:has([data-product-nav]) [data-header-nav] {
   .zd-product-home h2,
   .zd-content h1,
   .zd-content h2 {
-    font-size: min(var(--text-heading), 1.75rem);
+    font-size: min(var(--text-heading), 1.5rem);
   }
   header:has([data-product-nav]) {
     padding-inline: var(--spacing-hsp-xs);

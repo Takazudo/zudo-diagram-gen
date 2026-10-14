@@ -254,6 +254,22 @@ export async function checkDocumentationBrowser(browser, origin) {
             scroll: document.documentElement.scrollWidth,
             body: document.body.getBoundingClientRect().right,
           }));
+          if (width === 390 && zoom === 2) {
+            const brokenWords = await page.locator('main h1').evaluate((heading) => {
+              const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+              const broken = [];
+              for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+                for (const match of node.textContent.matchAll(/\S+/g)) {
+                  const range = document.createRange();
+                  range.setStart(node, match.index);
+                  range.setEnd(node, match.index + match[0].length);
+                  if (range.getClientRects().length > 1) broken.push(match[0]);
+                }
+              }
+              return broken;
+            });
+            assert.deepEqual(brokenWords, [], `${name}: heading words must fit narrow reflow`);
+          }
           const path = `test-output/docs-ia-${name}-${theme}-${width}-${zoom}x.png`;
           if (zoom === 1 && name === 'home') await page.screenshot({ path, fullPage: true });
           else await capture(path);
