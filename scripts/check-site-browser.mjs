@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
 import { checkDocumentationBrowser } from './check-documentation-browser.mjs';
+import { checkSectionSidebars } from './check-section-sidebars.mjs';
 
 const origin = 'http://127.0.0.1:4335';
 const routes = [
@@ -250,6 +251,7 @@ try {
   await context.close();
   console.log('PASS embedded documentation browser checks');
   await checkDocumentationBrowser(browser, origin);
+  await checkSectionSidebars(browser, origin);
 } finally {
   await browser?.close();
   if (server.exitCode === null && server.signalCode === null) {

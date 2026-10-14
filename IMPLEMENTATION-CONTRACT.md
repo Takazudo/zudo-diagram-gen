@@ -4,7 +4,7 @@ The packages are local/unpublished; this records merged agent-first behavior thr
 
 ## Boundaries
 
-The root remains one zudo-doc 6.0.0 site on ZFB SDK/runtime/md-wasm 4.3.1, using zudo-react, zudo-wind, semantic host tokens and the chrome-bound workbench. New consumers pin ZFB SDK/runtime 4.3.1 and TypeScript 6.0.3 with the default esbuild backend. The engine retains ZFB 2 Preact, ZFB 3 zudo-react and the ZFB 4.3.0 minimum. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
+The root remains one zudo-doc 6.2.0 site on ZFB SDK/runtime/md-wasm 4.5.0, using zudo-react, zudo-wind, semantic host tokens and the chrome-bound workbench. New consumers pin ZFB SDK/runtime 4.5.0 and TypeScript 6.0.3 with the default esbuild backend. The engine retains ZFB 2 Preact, ZFB 3 zudo-react and the ZFB 4.3.0 minimum. Engine owns app/rendering/CLI/resources; hosts own ordinary session/project content. Node >=22 <25, pnpm 10.30.3, ESM runtime shipped directly. No personal path convention, Git initialization, model service, MCP, browser-source write endpoint, automatic agent resume or incidental personal skill installation.
 
 ## Implemented resources and APIs
 

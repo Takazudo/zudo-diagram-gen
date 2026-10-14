@@ -21,7 +21,7 @@ Do not copy the workbench implementation into generated sessions. Do not add a p
 
 - Use pnpm. Keep exact project dependency versions and the lockfile in sync.
 - Keep zfb as the development/build/preview path. The root documentation site uses zudo-doc chrome bindings to embed the workbench. The offline HTML export is an additional output.
-- Runtime Node modules use ESM `.mjs`; browser code uses ordinary JavaScript/CSS; generated session pages use zudo-react TSX on zfb 3/4 and retain Preact TSX support on zfb 2. The root uses zudo-doc 6.0.0 with zfb 4.3.1, zudo-react and zudo-wind.
+- Runtime Node modules use ESM `.mjs`; browser code uses ordinary JavaScript/CSS; generated session pages use zudo-react TSX on zfb 3/4 and retain Preact TSX support on zfb 2. The root uses zudo-doc 6.2.0 with zfb 4.5.0, zudo-react and zudo-wind.
 - Prefer direct SVG authoring and an ordinary JSON metadata contract. Keep explanatory content independent of viewer code.
 - Preserve stable session, round, tone, and candidate IDs. Asset paths remain relative to their candidate directory.
 - Each parallel generation worker owns one candidate directory. The coordinator owns the brief and round/session metadata.
@@ -61,6 +61,8 @@ When handing off work, describe what changed, how it was checked, and the materi
 Before changing documentation, read `docs/documentation-structure.md` and the upstream [Writing and Navigation Guide](https://github.com/zudolab/zudo-doc/blob/main/packages/create-zudo-doc/templates/features/claudeSkillsWriting/files/.claude/skills/zudo-doc-writing/SKILL.md).
 
 Use the original zudo-doc homepage and left-aligned native header. Do not replace the homepage with a product landing page, add special homepage sections, hide the native header navigation, or move primary links to header-right components. The existing logo is supplied through the standard configuration.
+
+The native `scopeRoot: "configured"` sidebar setting caps each section without replacing its automatic tree. Keep `items: []`; do not restore cross-section Broaden controls.
 
 The filesystem is the navigation. Do not add a parallel editorial section map, flat sidebar lists, or custom breadcrumb/pager ownership to disguise a different directory tree. Use native header categories and related-category dropdowns. Plan any future file moves explicitly and preserve existing links.
 
