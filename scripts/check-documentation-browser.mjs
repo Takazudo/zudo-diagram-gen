@@ -226,7 +226,13 @@ export async function checkDocumentationBrowser(browser, origin) {
           mobile: false,
         });
         await goto(route);
-        if (['tones', 'workbench'].includes(name)) await page.locator('.dg-card').first().waitFor();
+        if (['tones', 'workbench'].includes(name)) {
+          // The existing island hydrates when visible. At narrow widths the intro
+          // places it below the fold, so visit it before waiting for rendered cards.
+          await page.locator('[data-zfb-island="DiagramWorkbench"]').scrollIntoViewIfNeeded();
+          await page.locator('.dg-card').first().waitFor();
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
         assert.equal(await page.locator('html').getAttribute('data-theme'), theme);
         if (name === 'home') {
           for (const img of await page.locator('main img').all()) {
