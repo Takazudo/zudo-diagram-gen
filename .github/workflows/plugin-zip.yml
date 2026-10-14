@@ -1,0 +1,52 @@
+name: Plugin ZIP
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+concurrency:
+  group: plugin-zip-${{ github.head_ref || github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.13.0
+          package-manager-cache: false
+      - name: Test versioning and fresh-extraction packaging
+        run: node --test test/plugin-release.node.mjs
+      - name: Build distributable ZIPs
+        id: plugin
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF_TYPE" == tag ]]; then
+            node scripts/plugin-release.mjs pack --tag "$GITHUB_REF_NAME"
+          else
+            node scripts/plugin-release.mjs pack
+          fi
+          echo "version=$(node scripts/plugin-release.mjs version)" >> "$GITHUB_OUTPUT"
+          (cd artifacts/release && sha256sum -c SHA256SUMS)
+      - name: Save actual plugin ZIPs (not source-code archives)
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: zudo-diagram-gen-plugin-${{ steps.plugin.outputs.version }}-${{ github.sha }}
+          path: |
+            artifacts/release/zudo-diagram-gen-v${{ steps.plugin.outputs.version }}.zip
+            artifacts/release/zudo-diagram-gen.zip
+            artifacts/release/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 30

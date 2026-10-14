@@ -15,50 +15,61 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        with:
+          version: 10.30.3
+          run_install: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24.13.0
-      - name: Read-only dependency and source snapshot
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Collect public registry evidence and check both hostnames
         run: |
           set -euo pipefail
           out="$RUNNER_TEMP/maintenance-snapshot"
           mkdir -p "$out"
-          git archive --format=tar.gz --output="$out/source.tar.gz" HEAD
-          curl --fail --silent --show-error --location \
-            https://raw.githubusercontent.com/Takazudo/claude-settings/f957ad2c293c297bdd8cfefd244f9c5ecf8ca4cb/skills/dev-bump-zudo-deps/scripts/resolve-bumps.mjs \
-            -o "$RUNNER_TEMP/resolve-bumps.mjs"
-          node "$RUNNER_TEMP/resolve-bumps.mjs" --json > "$out/plan.txt"
-          cat "$out/plan.txt"
           export SNAPSHOT_OUT="$out"
           node --input-type=module <<'NODE'
           import { readFileSync, writeFileSync } from 'node:fs';
           import { execFileSync } from 'node:child_process';
           import path from 'node:path';
           const out = process.env.SNAPSHOT_OUT;
-          const text = readFileSync(path.join(out, 'plan.txt'), 'utf8');
-          const marker = '\n---PLAN-JSON---\n';
-          if (!text.includes(marker)) throw new Error('Missing resolver JSON');
-          const plan = JSON.parse(text.slice(text.indexOf(marker) + marker.length, text.lastIndexOf(']') + 1));
-          writeFileSync(path.join(out, 'plan.json'), JSON.stringify(plan, null, 2));
-          if (plan.some(row => row.action === 'error')) throw new Error('Registry resolution failed');
-          const seen = new Set();
-          for (const row of plan.filter(row => row.action === 'bump')) {
-            const key = `${row.name}-${row.spec}-${row.target}`;
-            if (seen.has(key)) continue;
-            seen.add(key);
-            const stem = row.name.replace(/[^a-z0-9.-]/gi, '_');
-            const meta = execFileSync('npm', ['view', `${row.name}@${row.target}`, '--json'], {encoding: 'utf8'});
-            writeFileSync(path.join(out, `${stem}-target.json`), meta);
-            if (!/^\d+\.\d+\.\d+$/.test(row.spec)) continue;
-            const args = ['diff', `--diff=${row.name}@${row.spec}`, `--diff=${row.name}@${row.target}`];
+          const root = JSON.parse(readFileSync('package.json', 'utf8'));
+          const deps = {...root.dependencies, ...root.devDependencies};
+          for (const [name, old] of Object.entries(deps)) {
+            if (!name.startsWith('@takazudo/') || !/^\d+\.\d+\.\d+$/.test(old)) continue;
+            const stem = name.replace(/[^a-z0-9.-]/gi, '_');
+            const meta = JSON.parse(execFileSync('npm', ['view', name, 'dist-tags', 'versions', '--json'], {encoding: 'utf8'}));
+            writeFileSync(path.join(out, `${stem}-registry.json`), JSON.stringify(meta, null, 2));
+            const target = meta['dist-tags'].latest;
+            console.log(`${name} ${old} -> ${target}`);
+            if (old === target) continue;
+            for (const version of [old, target]) {
+              const full = execFileSync('npm', ['view', `${name}@${version}`, '--json'], {encoding: 'utf8'});
+              writeFileSync(path.join(out, `${stem}-${version}.json`), full);
+            }
+            const args = ['diff', `--diff=${name}@${old}`, `--diff=${name}@${target}`];
             for (const [suffix, extra] of [['files', ['--diff-name-only']], ['surface', ['--', 'package.json', 'README.md', 'CHANGELOG.md']]]) {
               const diff = execFileSync('npm', [...args, ...extra], {encoding: 'utf8', maxBuffer: 32 * 1024 * 1024});
               writeFileSync(path.join(out, `${stem}-${suffix}.diff`), diff);
             }
           }
           NODE
+          for host in zudo-diagram-gen.zudolab.dev zudo-diagram-gen-doc.zudolab.dev; do
+            { date -u; getent hosts "$host" || true; } > "$out/$host-dns.txt"
+            curl --silent --show-error --location --connect-timeout 10 --max-time 30 \
+              --dump-header "$out/$host-headers.txt" -o "$out/$host.html" \
+              --write-out '%{http_code} %{url_effective}\n' "https://$host/" \
+              > "$out/$host-status.txt" 2> "$out/$host-error.txt" || true
+            cat "$out/$host-status.txt" "$out/$host-error.txt"
+          done
+      - name: Format new files using the existing locked toolchain
+        run: |
+          pnpm install --frozen-lockfile --strict-peer-dependencies
+          pnpm exec prettier --write scripts/plugin-release.mjs test/plugin-release.node.mjs .github/workflows/plugin-zip.yml .github/workflows/maintenance-snapshot.yml
+          pnpm exec mdx-formatter --write .claude/skills/l-make-release/SKILL.md RELEASE.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx src/content/docs/getting-started/chatgpt-plugin.mdx
+          git diff --binary > "$RUNNER_TEMP/maintenance-snapshot/format.patch"
+          git archive --format=tar.gz --output="$RUNNER_TEMP/maintenance-snapshot/source.tar.gz" HEAD
+          tar -czf "$RUNNER_TEMP/maintenance-snapshot/formatted-files.tar.gz" scripts/plugin-release.mjs test/plugin-release.node.mjs .github/workflows/plugin-zip.yml .github/workflows/maintenance-snapshot.yml .claude/skills/l-make-release/SKILL.md RELEASE.md src/content/docs/changelog/2026-10-14-plugin-release-workflow.mdx src/content/docs/getting-started/chatgpt-plugin.mdx
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
