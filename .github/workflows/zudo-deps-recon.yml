@@ -1,56 +1,75 @@
-name: Zudo dependency recon
+name: Zudo dependency install
 on:
   push:
     branches: [maintenance/zudo-deps-sidebar-20261015]
     paths: [.github/workflows/zudo-deps-recon.yml]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  collect:
+  install:
+    if: github.repository == 'Takazudo/zudo-diagram-gen' && github.ref == 'refs/heads/maintenance/zudo-deps-sidebar-20261015'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          persist-credentials: false
+          ref: ${{ github.sha }}
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+        with:
+          version: 10.30.3
+          run_install: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 24.13.0
-      - name: Read public registry metadata and published package differences
+      - name: Apply reviewed dependency and sidebar changes
+        run: node .maintenance/apply-sidebar-deps.mjs
+      - name: Normal strict installation
+        run: pnpm install --no-frozen-lockfile --strict-peer-dependencies
+      - name: Format changed sources and remove temporary maintenance helpers
         shell: bash
         run: |
-          mkdir -p /tmp/zudo-deps-recon/packages
-          git archive --format=tar.gz --output=/tmp/zudo-deps-recon/source.tar.gz HEAD
-          node --input-type=module <<'NODE'
-          import {readFileSync,readdirSync,mkdirSync,writeFileSync} from 'node:fs';
-          import {join} from 'node:path';
-          import {execFileSync} from 'node:child_process';
-          const out='/tmp/zudo-deps-recon';
-          const files=[];
-          function scan(dir){for(const e of readdirSync(dir,{withFileTypes:true})){if(e.name==='.git'||e.name==='node_modules')continue;const p=join(dir,e.name);if(e.isDirectory())scan(p);else if(e.name==='package.json')files.push(p);}}
-          scan('.');
-          const occurrences=files.flatMap(file=>{const p=JSON.parse(readFileSync(file,'utf8'));return ['dependencies','devDependencies','peerDependencies','optionalDependencies'].flatMap(map=>Object.entries(p[map]||{}).filter(([name])=>name.startsWith('@takazudo/')).map(([name,spec])=>({file,map,name,spec})));});
-          writeFileSync(join(out,'inventory.json'),JSON.stringify({files,occurrences,checkedAt:new Date().toISOString()},null,2));
-          const npm=(args)=>execFileSync('npm',args,{encoding:'utf8',timeout:180000,maxBuffer:32*1024*1024});
-          for(const name of [...new Set(occurrences.filter(o=>/^\^?\d+\.\d+\.\d+$/.test(o.spec)).map(o=>o.name))]){
-            const dir=join(out,name.replace('@','').replace('/','-'));mkdirSync(dir);
-            const metadata=npm(['view',name,'dist-tags','versions','--json']);writeFileSync(join(dir,'metadata.json'),metadata);
-            const latest=JSON.parse(metadata)['dist-tags'].latest;
-            const olds=[...new Set(occurrences.filter(o=>o.name===name&&/^\d+\.\d+\.\d+$/.test(o.spec)).map(o=>o.spec))];
-            for(const version of [...new Set([...olds,latest])]){
-              writeFileSync(join(dir,`${version}.json`),npm(['view',`${name}@${version}`,'--json']));
-              if(olds.some(v=>v!==latest))writeFileSync(join(dir,`${version}-pack.json`),npm(['pack',`${name}@${version}`,'--ignore-scripts','--json','--pack-destination',join(out,'packages')]));
-            }
-            for(const old of olds.filter(v=>v!==latest)){
-              writeFileSync(join(dir,`${old}--${latest}-names.txt`),npm(['diff',`--diff=${name}@${old}`,`--diff=${name}@${latest}`,'--diff-name-only']));
-              writeFileSync(join(dir,`${old}--${latest}-surface.diff`),npm(['diff',`--diff=${name}@${old}`,`--diff=${name}@${latest}`,'--','package.json','tsconfig.base.json','dist/sidebar-utils/index.d.ts','dist/sidebar/types.d.ts','dist/chrome-bindings.d.ts','dist/config/site-config.d.ts']));
-            }
-            console.log(`${name}: ${olds.join(', ')} -> ${latest}`);
-          }
-          NODE
+          set -euo pipefail
+          git diff --name-only -z | xargs -0 -r pnpm exec prettier --write --ignore-unknown
+          pnpm exec prettier --write scripts/check-section-sidebars.mjs src/sidebars.ts
+          pnpm exec mdx-formatter --write AGENTS.md IMPLEMENTATION-CONTRACT.md README.md docs/CODEX-HANDOFF.md docs/documentation-structure.md packages/create-zudo-diagram-gen/README.md packages/diagram-gen/README.md src/content/docs/reference/architecture.mdx src/content/docs/changelog/2026-10-15-section-sidebar.mdx
+          node scripts/sync-scaffold.mjs
+          rm .maintenance/apply-sidebar-deps.mjs .github/workflows/zudo-deps-recon.yml
+      - name: Verify normal install result and package build
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/sync-scaffold.mjs --check
+          pnpm install --frozen-lockfile --strict-peer-dependencies
+          pnpm format:check
+          pnpm lint
+          pnpm check
+          pnpm test
+          pnpm check:examples
+          pnpm build
+          node scripts/check-built-links.mjs
+      - name: Commit only to this unchanged maintenance branch
+        shell: bash
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          branch=maintenance/zudo-deps-sidebar-20261015
+          test "$(git ls-remote origin "refs/heads/$branch" | cut -f1)" = "$EXPECTED_HEAD"
+          test -z "$(git diff --name-only -- packages/diagram-gen/package.json plugins examples worker wrangler.jsonc)"
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix(docs): update Zudo dependencies and keep sidebars within their sections'
+          test "$(git ls-remote origin "refs/heads/$branch" | cut -f1)" = "$EXPECTED_HEAD"
+          git push origin "HEAD:refs/heads/$branch"
+          mkdir -p /tmp/zudo-deps-installed
+          git rev-parse HEAD > /tmp/zudo-deps-installed/commit.txt
+          git archive --format=tar.gz --output=/tmp/zudo-deps-installed/source.tar.gz HEAD
+          cp pnpm-lock.yaml /tmp/zudo-deps-installed/
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: zudo-deps-recon
-          path: /tmp/zudo-deps-recon/
+          name: zudo-deps-installed
+          path: /tmp/zudo-deps-installed/
           retention-days: 3
           if-no-files-found: error
