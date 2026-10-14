@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
+import { Window } from 'happy-dom';
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
@@ -17,12 +18,28 @@ export async function assertBuiltFile(pathname, actual, directory = 'dist') {
   return hash(expected);
 }
 
-async function verifyDeployment() {
+export async function deploymentPaths(directory = 'dist') {
   const base = new URL('https://zudo-diagram-gen.zudolab.dev/');
-  const home = await readFile('dist/index.html', 'utf8');
-  const styles = [...home.matchAll(/href="(\/assets\/[^"?#]+\.css)"/g)].map((match) => match[1]);
+  const home = await readFile(resolve(directory, 'index.html'), 'utf8');
+  const window = new Window();
+  let styles;
+  try {
+    // Parse inert HTML instead of assuming that the minifier keeps attribute quotes.
+    const doc = new window.DOMParser().parseFromString(home, 'text/html');
+    styles = [...doc.querySelectorAll('link[rel~="stylesheet"][href]')]
+      .map((link) => new URL(link.getAttribute('href'), base))
+      .filter(
+        (url) =>
+          url.origin === base.origin &&
+          url.pathname.startsWith('/assets/') &&
+          url.pathname.endsWith('.css'),
+      )
+      .map((url) => url.pathname);
+  } finally {
+    await window.happyDOM.close();
+  }
   assert.ok(styles.length > 0, 'The built homepage must reference a stylesheet');
-  const paths = [
+  return [
     '/',
     '/docs/getting-started/',
     '/docs/guides/',
@@ -30,6 +47,11 @@ async function verifyDeployment() {
     '/docs/examples/',
     ...new Set(styles),
   ];
+}
+
+async function verifyDeployment() {
+  const base = new URL('https://zudo-diagram-gen.zudolab.dev/');
+  const paths = await deploymentPaths();
   for (const path of paths) {
     const deadline = Date.now() + 60_000;
     let waiting = false;

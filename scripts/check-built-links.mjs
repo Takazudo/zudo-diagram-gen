@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve, dirname, join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { Window } from 'happy-dom';
+import { deploymentPaths } from './check-deployed-build.mjs';
 
 /** Check rendered links and IDs, including old public bookmarks and workbench state links. */
 export async function checkBuiltLinks(directory, { legacy = [] } = {}) {
@@ -91,13 +92,20 @@ export async function checkBuiltLinks(directory, { legacy = [] } = {}) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const directory = process.argv[2] || 'dist';
+  // Exercise the production verifier's parser against the actual minified build in CI.
+  const paths = await deploymentPaths(directory);
+  for (const path of paths) {
+    await readFile(resolve(directory, `.${path}${path.endsWith('/') ? 'index.html' : ''}`));
+  }
+  console.log(`Validated deployment verifier inputs: ${paths.join(', ')}`);
   const legacy = JSON.parse(
     await readFile(
       new URL('../test/fixtures/documentation-legacy-routes.json', import.meta.url),
       'utf8',
     ),
   );
-  const result = await checkBuiltLinks(process.argv[2] || 'dist', { legacy });
+  const result = await checkBuiltLinks(directory, { legacy });
   if (result.missing.length) {
     console.error(`Broken ${result.missing.length} of ${result.checked} links:`);
     for (const item of result.missing) console.error(item);
