@@ -1,6 +1,16 @@
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { chmod, copyFile, mkdir, mkdtemp, readFile, readdir, rm, utimes, writeFile } from 'node:fs/promises';
+import {
+  chmod,
+  copyFile,
+  mkdir,
+  mkdtemp,
+  readFile,
+  readdir,
+  rm,
+  utimes,
+  writeFile,
+} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -21,7 +31,10 @@ export function parseVersion(version) {
 export function nextVersion(current, mode = 'patch') {
   const parts = parseVersion(current);
   const index = ['major', 'minor', 'patch'].indexOf(mode);
-  const target = index < 0 ? parseVersion(mode) : parts.map((value, i) => i < index ? value : i === index ? value + 1n : 0n);
+  const target =
+    index < 0
+      ? parseVersion(mode)
+      : parts.map((value, i) => (i < index ? value : i === index ? value + 1n : 0n));
   const firstDifference = target.findIndex((value, i) => value !== parts[i]);
   if (firstDifference < 0 || target[firstDifference] < parts[firstDifference]) {
     throw new Error('The new plugin version must be greater than the current version');
@@ -47,8 +60,10 @@ async function walk(directory, prefix = '') {
   const result = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
-    if (/[\r\n]/.test(relative) || entry.isSymbolicLink()) throw new Error(`Unsafe ZIP entry: ${relative}`);
-    if (entry.isDirectory()) result.push(...await walk(path.join(directory, entry.name), relative));
+    if (/[\r\n]/.test(relative) || entry.isSymbolicLink())
+      throw new Error(`Unsafe ZIP entry: ${relative}`);
+    if (entry.isDirectory())
+      result.push(...(await walk(path.join(directory, entry.name), relative)));
     else if (entry.isFile()) result.push(relative);
     else throw new Error(`Not a regular file: ${relative}`);
   }
@@ -58,7 +73,8 @@ async function walk(directory, prefix = '') {
 export async function packRelease(tag) {
   const current = await version();
   // Reject mismatches before creating or replacing any release output.
-  if (tag !== undefined && tag !== `v${current}`) throw new Error('Tag and plugin manifest version differ');
+  if (tag !== undefined && tag !== `v${current}`)
+    throw new Error('Tag and plugin manifest version differ');
   const commit = run('git', ['rev-parse', 'HEAD']);
   if (tag !== undefined && run('git', ['rev-parse', `refs/tags/${tag}^{commit}`]) !== commit) {
     throw new Error('Release tag does not point at the checked-out commit');
@@ -90,7 +106,9 @@ export async function packRelease(tag) {
     const extracted = path.join(temporary, 'extracted');
     run('unzip', ['-q', archive, '-d', extracted]);
     const verified = await validatePlugin(path.join(extracted, name));
-    const extractedManifest = JSON.parse(await readFile(path.join(extracted, name, 'plugin.json'), 'utf8'));
+    const extractedManifest = JSON.parse(
+      await readFile(path.join(extracted, name, 'plugin.json'), 'utf8'),
+    );
     if (extractedManifest.version !== current || verified.inventoryHash !== result.inventoryHash) {
       throw new Error('Fresh ZIP extraction does not match the assembled plugin');
     }
@@ -98,9 +116,21 @@ export async function packRelease(tag) {
     await mkdir(output, { recursive: true });
     await copyFile(archive, path.join(output, basename));
     await copyFile(archive, path.join(output, `${name}.zip`));
-    const hash = createHash('sha256').update(await readFile(archive)).digest('hex');
-    await writeFile(path.join(output, 'SHA256SUMS'), `${hash}  ${basename}\n${hash}  ${name}.zip\n`);
-    return { version: current, tag: tag ?? null, commit, archive: path.join(output, basename), sha256: hash, ...verified };
+    const hash = createHash('sha256')
+      .update(await readFile(archive))
+      .digest('hex');
+    await writeFile(
+      path.join(output, 'SHA256SUMS'),
+      `${hash}  ${basename}\n${hash}  ${name}.zip\n`,
+    );
+    return {
+      version: current,
+      tag: tag ?? null,
+      commit,
+      archive: path.join(output, basename),
+      sha256: hash,
+      ...verified,
+    };
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }
@@ -112,12 +142,16 @@ async function main(args) {
   if (command === 'bump') {
     const dryRun = rest.includes('--dry-run');
     const modes = rest.filter((arg) => arg !== '--dry-run');
-    if (modes.length > 1 || rest.filter((arg) => arg === '--dry-run').length > 1) throw new Error('Invalid bump arguments');
+    if (modes.length > 1 || rest.filter((arg) => arg === '--dry-run').length > 1)
+      throw new Error('Invalid bump arguments');
     const current = await version();
     const next = nextVersion(current, modes[0]);
     if (!dryRun) {
       const content = await readFile(manifestPath, 'utf8');
-      const updated = content.replace(/("version"\s*:\s*")[^"]+("\s*[,}])/, (_match, prefix, suffix) => `${prefix}${next}${suffix}`);
+      const updated = content.replace(
+        /("version"\s*:\s*")[^"]+("\s*[,}])/,
+        (_match, prefix, suffix) => `${prefix}${next}${suffix}`,
+      );
       if (JSON.parse(updated).version !== next) throw new Error('Could not update plugin version');
       await writeFile(manifestPath, updated);
     }
@@ -126,7 +160,9 @@ async function main(args) {
   if (command === 'pack' && (rest.length === 0 || (rest.length === 2 && rest[0] === '--tag'))) {
     return console.log(JSON.stringify(await packRelease(rest[1]), null, 2));
   }
-  throw new Error('Usage: node scripts/plugin-release.mjs version | bump [patch|minor|major|X.Y.Z] [--dry-run] | pack [--tag vX.Y.Z]');
+  throw new Error(
+    'Usage: node scripts/plugin-release.mjs version | bump [patch|minor|major|X.Y.Z] [--dry-run] | pack [--tag vX.Y.Z]',
+  );
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
