@@ -1,14 +1,14 @@
 /// <reference types="@takazudo/zudo-doc/virtual-modules.d.ts" />
 import { routeContext } from 'virtual:zudo-doc-route-context';
 import { createRouteContext, type RouteContextPayload } from '@takazudo/zudo-doc/route-context';
-import { createChrome } from '@takazudo/zudo-doc/chrome';
+import { createDocumentationChrome } from '../../src/documentation-chrome';
 import { chromeBindings } from 'virtual:zudo-doc-chrome-bindings';
 // Keep the client island statically reachable by zfb's island scanner.
 import '../../src/chrome-bindings';
 import { documentationSection, editorialRoutes } from '../../src/documentation-navigation';
 
 const routeCtx = createRouteContext(routeContext as unknown as RouteContextPayload);
-const { renderDocPage } = createChrome(
+const { renderDocPage } = createDocumentationChrome(
   { ...routeCtx, getNavSectionForSlug: documentationSection },
   chromeBindings,
 );

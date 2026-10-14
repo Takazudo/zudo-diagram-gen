@@ -55,6 +55,17 @@ test('generates escaped MDX and JSON, then prunes only untouched output', async 
     expect(await exists(join(root, stale))).toBe(false);
     expect(await readFile(join(root, edited), 'utf8')).toBe('user edit');
 
+    const manifestBefore = await readFile(join(root, '.generated/showcase-files.json'), 'utf8');
+    await buildShowcase(root);
+    expect(await readFile(join(root, '.generated/showcase-files.json'), 'utf8')).toBe(
+      manifestBefore,
+    );
+    const catalog = JSON.parse(
+      await readFile(join(root, 'public/workbench-data/tone-catalog.json'), 'utf8'),
+    );
+    expect(catalog.tones).toHaveLength(24);
+    expect(catalog.candidates).toHaveLength(24);
+
     await rm(example, { recursive: true });
     await buildShowcase(root);
     expect(await exists(join(root, 'src/content/docs/examples/project-text.mdx'))).toBe(false);

@@ -1,16 +1,14 @@
 /// <reference types="@takazudo/zudo-doc/virtual-modules.d.ts" />
 import { routeContext } from 'virtual:zudo-doc-route-context';
 import { createRouteContext, type RouteContextPayload } from '@takazudo/zudo-doc/route-context';
-import { createChrome } from '@takazudo/zudo-doc/chrome';
+import { createDocumentationChrome } from '../src/documentation-chrome';
 import { DocLayoutWithDefaults } from '@takazudo/zudo-doc/doclayout';
 import { chromeBindings } from '../src/chrome-bindings';
 import { featuredTones, exampleSessions } from '../src/generated/site-data';
 
 const context = createRouteContext(routeContext as unknown as RouteContextPayload);
-const { HeadWithDefaults, HeaderWithDefaults, FooterWithDefaults, BodyEndIslands } = createChrome(
-  context,
-  chromeBindings,
-);
+const { HeadWithDefaults, HeaderWithDefaults, FooterWithDefaults, BodyEndIslands } =
+  createDocumentationChrome(context, chromeBindings);
 export const frontmatter = { title: 'Create, compare, and refine SVG diagrams with an agent' };
 
 export default function Home() {
@@ -33,7 +31,13 @@ export default function Home() {
     >
       <div class="zd-product-home">
         <section class="zd-product-hero" aria-labelledby="product-heading">
-          <div class="zd-product-logo" role="img" aria-label="ZDG — zudo-diagram-gen" />
+          <img
+            class="zd-product-logo"
+            src="/img/logo.svg"
+            alt="ZDG — zudo-diagram-gen"
+            width="1200"
+            height="630"
+          />
           <div>
             <p class="text-small text-muted">SVG authoring · saved drawings · explicit review</p>
             <h1 id="product-heading">Create, compare, and refine SVG diagrams with an agent.</h1>

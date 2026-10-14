@@ -13,7 +13,7 @@
   margin-top: var(--spacing-vsp-2xl);
 }
 .zd-product-home h1 {
-  font-size: var(--text-display);
+  font-size: var(--text-heading);
   line-height: 1.2;
   font-weight: 700;
   margin-block: var(--spacing-vsp-xs) var(--spacing-vsp-sm);
@@ -64,9 +64,9 @@
   width: 100%;
   max-width: 20rem;
   aspect-ratio: 1200 / 630;
-  background: var(--zd-fg);
-  /* The owner's unchanged monochrome SVG uses the same theme mask as zudo-doc's home logo. */
-  mask: url('/img/logo.svg') center / contain no-repeat;
+  /* Preserve the asset's black artwork in both themes on a light token background. */
+  background: var(--color-white, white);
+  height: auto;
 }
 .zd-product-actions,
 .zd-product-secondary {
@@ -103,6 +103,9 @@
   font-size: var(--text-small);
 }
 @media (min-width: 48rem) {
+  .zd-product-home h1 {
+    font-size: var(--text-display);
+  }
   .zd-product-hero {
     grid-template-columns: 1fr 2fr;
     align-items: center;
@@ -116,5 +119,91 @@
   }
   .zd-product-previews {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Retain the framework mobile menu; primary desktop ownership is editorial. */
+header:has([data-product-nav]) [data-header-nav] {
+  display: none;
+}
+.zd-product-navigation {
+  display: none;
+  gap: var(--spacing-hsp-sm);
+  margin-inline: var(--spacing-hsp-md);
+  white-space: nowrap;
+  font-size: var(--text-small);
+}
+.zd-product-navigation a {
+  padding: var(--spacing-vsp-2xs) var(--spacing-hsp-sm);
+  color: var(--zd-muted);
+}
+.zd-product-navigation a[aria-current='page'] {
+  color: var(--zd-bg);
+  background: var(--zd-fg);
+}
+.zd-product-navigation a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.zd-product-navigation a:focus-visible {
+  outline: 2px solid var(--zd-accent);
+  outline-offset: 2px;
+}
+@media (min-width: 64rem) {
+  .zd-product-navigation {
+    display: flex;
+  }
+}
+
+.zd-product-home,
+.zd-content {
+  overflow-wrap: anywhere;
+}
+[data-zd-mobile-sidebar] {
+  max-width: 100vw;
+}
+@media (max-width: 24rem) {
+  .zd-product-home h1,
+  .zd-product-home h2,
+  .zd-content h1,
+  .zd-content h2 {
+    font-size: min(var(--text-heading), 2rem);
+  }
+  header:has([data-product-nav]) {
+    padding-inline: var(--spacing-hsp-xs);
+  }
+  header:has([data-product-nav]) [data-header-right] {
+    gap: var(--spacing-hsp-xs);
+  }
+  header:has([data-product-nav]) a[title='Try workbench'] {
+    max-width: 4.5rem;
+    font-size: var(--text-caption);
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+  header:has([data-product-nav]) [data-header-icon-group] a,
+  header:has([data-product-nav]) [data-open-search] {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* A 390px viewport at 200% zoom leaves 195 CSS px. Keep the embedded
+   documentation tools in that column without changing package behavior. */
+@media (max-width: 24rem) {
+  .zd-content .dg-app[data-embedded='true'] .dg-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .zd-content .dg-app[data-embedded='true'] .dg-workspace-toolbar,
+  .zd-content .dg-app[data-embedded='true'] .dg-display-controls,
+  .zd-content .dg-app[data-embedded='true'] .dg-content-heading,
+  .zd-content .dg-app[data-embedded='true'] .dg-filter-bar,
+  .zd-content .dg-app[data-embedded='true'] .dg-card-top {
+    flex-wrap: wrap;
+  }
+  .zd-content .dg-app[data-embedded='true'] .dg-search {
+    min-width: 0;
+    max-width: 100%;
   }
 }

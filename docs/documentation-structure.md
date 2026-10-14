@@ -4,7 +4,7 @@ Baseline: main `996c3c0c32a14f0870ab0670fb429c53282ff27c`, before issues #113–
 
 ## Placement rules
 
-- **Start here** owns product orientation, route selection and first success. Plugin users bring a capable host and an assembled package; local users bring Node/pnpm, source archives and a coding agent. Manual operation is a linked alternative. Repository development is not beginner setup.
+- **Start here** owns product orientation, route selection and first success. Plugin users bring a capable host and an assembled package; local users bring Node/pnpm, locally packed archives and a coding agent. Manual operation is a linked alternative. Repository development is not beginner setup.
 - **Guides** owns tasks: create, review, refine, export, projects, tone application, explicit saved-style adoption, SVG authoring and agent coordination. Link to specifications rather than copying them.
 - **Tones / Examples** own browsable reference artwork and sample sessions. Their durable source is `scripts/build-showcase.mjs`; never edit ignored generated MDX or previews. Keep source facts, IDs, saved artwork, hash-aware cleanup and the Wind manifest.
 - **Reference** owns exact CLI/API/schema, session-file, tone/scheme/kit and placement/capture contracts plus focused troubleshooting. A task belongs in Guides even if its commands call an API.
@@ -14,7 +14,7 @@ New content must have one primary owner, a useful description, and a relevant ne
 
 ## Public framework seams
 
-The pinned zudo-doc 6.0.0 exports `createRouteContext`, `createChrome`, `DocLayoutWithDefaults`, typed `DocPageBaseProps` and `defineChromeBindings.sidebarsConfig`. The project maps canonical slugs to editorial sections through the public route-context function and supplies explicit sidebar, breadcrumb and pager data to the public renderer. Home composes the published layout/chrome. No framework internals, dependency edits or route redirects are needed. The single ZFB host, default esbuild, semantic tokens, chrome workbench lifecycle and `dynamicPageTransition:false` remain.
+The pinned zudo-doc 6.0.0 exports `createRouteContext`, `createChrome`, `DocLayoutWithDefaults`, typed `DocPageBaseProps` and `defineChromeBindings.sidebarsConfig`. The project maps canonical slugs to editorial sections through the public route-context function and supplies explicit sidebar, breadcrumb and pager data to the public renderer. Home composes the published layout/chrome. The pinned header marks URL prefixes active even when the editorial owner differs. A public `Header` replacement composes the default header with a named `headerRightComponents` primary-navigation slot; that slot uses only editorial ownership. Scoped CSS removes the native desktop navigation from rendering and keyboard/accessibility exposure. The native sidebar, mobile primary/secondary menu, theme, search and GitHub controls remain framework-owned. This avoids patching the framework or moving public URLs to satisfy its prefix matcher. Sections without a curated reading order keep framework pagination, including descending Changelog order. No framework internals, dependency edits or route redirects are needed. The single ZFB host, default esbuild, semantic tokens, chrome workbench lifecycle and `dynamicPageTransition:false` remain.
 
 ## Route inventory
 

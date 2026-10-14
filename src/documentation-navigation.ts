@@ -66,7 +66,10 @@ const secondary = [
   { type: 'link' as const, label: 'Changelog', href: '/docs/changelog/' },
 ];
 export const documentationSidebars: SidebarsConfig = Object.fromEntries(
-  Object.entries(readingOrder).map(([section, items]) => [section, [...items, ...secondary]]),
+  Object.entries(readingOrder).map(([section, items]) => [
+    section,
+    [...items, ...secondary.filter((item) => item.href !== `/docs/${section}/`)],
+  ]),
 );
 
 export function editorialRoutes(entries: DocRouteEntry[]): DocRouteEntry[] {
@@ -108,8 +111,8 @@ export function editorialRoutes(entries: DocRouteEntry[]): DocRouteEntry[] {
             : [{ label: section.label, href: `/docs/${section.slug}/` }]),
           { label: title },
         ],
-        prev: neighbor(-1),
-        next: neighbor(1),
+        prev: key in readingOrder ? neighbor(-1) : entry.props.prev,
+        next: key in readingOrder ? neighbor(1) : entry.props.next,
       },
     };
   });
