@@ -1,0 +1,18 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 374 144"
+  role="img"
+  aria-labelledby="zdg-logo-title"
+>
+  <title id="zdg-logo-title">ZDG — zudo diagram gen</title>
+  <g fill="currentColor" transform="translate(20 20)">
+    <path d="M4 2H96L33 82H93V102H0L63 22H4Z" />
+    <path
+      fill-rule="evenodd"
+      d="M115 2H150C181 2 204 22 204 52S181 102 150 102H115ZM136 22V82H149C169 82 183 70 183 52S169 22 149 22Z"
+    />
+    <path
+      d="M323 17L308 32C301 24 292 20 281 20C263 20 248 34 248 52C248 70 262 84 281 84C296 84 308 75 311 62H280V44H334V52C334 82 312 104 281 104C250 104 227 82 227 52C227 22 250 0 281 0C298 0 312 6 323 17Z"
+    />
+  </g>
+</svg>
