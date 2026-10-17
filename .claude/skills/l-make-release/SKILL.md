@@ -179,10 +179,15 @@ The draft is a staging boundary, not completion. Download all three attached
 assets into a new temporary directory with `gh release download`. Verify the
 checksums, compare the downloaded ZIP bytes with the locally validated ZIP,
 fresh-extract, check `plugin.json.version`, and run `--verify-dir` again. Confirm
-the exact tag still resolves to the reviewed SHA. Only then publish:
+the exact tag still resolves to the reviewed SHA. Immediately before publication, re-run the read-only planner for the explicit
+version and require the same original commit and version. Set `make_latest` to
+its boolean `makeLatest` output: `false` when a newer version is already
+published, otherwise `true`. Failed or ambiguous queries stop publication.
+This prevents an older tag-only or draft recovery from replacing a newer
+release at the stable latest-download URL. Only then publish:
 
 ```bash
-gh release edit "$tag" --repo Takazudo/zudo-diagram-gen --draft=false --latest
+gh release edit "$tag" --repo Takazudo/zudo-diagram-gen --draft=false --latest="$make_latest"
 ```
 
 Read the Release back, require `isDraft=false`, and report its URL and the actual

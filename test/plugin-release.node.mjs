@@ -280,6 +280,35 @@ test('new, prepared PR, tag-only, partial draft and published retry select origi
   assert.throws(() => releaseAssetPlan(expected, {}, true), /missing/);
 });
 
+test('older draft and tag-only recovery preserve a newer published latest release', () => {
+  const state = {
+    current: '0.2.0',
+    tags: {
+      'v0.1.0': { object: 'old-tag', commit: 'old-commit' },
+      'v0.2.0': { object: 'new-tag', commit: 'new-commit' },
+    },
+    releases: [{ tag_name: 'v0.2.0', draft: false, assets: [] }],
+    prs: [],
+  };
+  for (const draft of [[], [{ tag_name: 'v0.1.0', draft: true, assets: [] }]]) {
+    const plan = selectRelease({ ...state, releases: [...state.releases, ...draft] }, '0.1.0');
+    assert.equal(plan.commit, 'old-commit');
+    assert.equal(plan.makeLatest, false);
+  }
+  assert.equal(selectRelease(state, '0.2.0').makeLatest, true);
+  assert.equal(selectRelease(state, 'patch').makeLatest, true);
+  assert.equal(selectRelease({ ...state, releases: [] }, '0.1.0').makeLatest, true);
+  assert.equal(
+    selectRelease({ ...state, releases: [{ ...state.releases[0], draft: true }] }, '0.1.0')
+      .makeLatest,
+    true,
+  );
+  assert.throws(
+    () => selectRelease({ ...state, releases: [{ tag_name: 'unknown', draft: false }] }, '0.1.0'),
+    /unsupported version tag/,
+  );
+});
+
 test('whole dry-run planner reads mocked remotes without changing checkout or Git state', async (t) => {
   const { directory, git } = await completeFixture(t);
   git('remote', 'add', 'origin', 'https://github.com/Takazudo/zudo-diagram-gen.git');

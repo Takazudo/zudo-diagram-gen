@@ -1,0 +1,9 @@
+---
+title: Preserve newer downloads during older release recovery
+description: Completing an older draft no longer replaces a newer release at the latest-download URL.
+sidebar_position: 1
+---
+
+Release planning now reports whether the selected version should become the latest release. Before publishing a recovered draft, the maintainer flow rechecks published versions and preserves a newer version at the stable download URL. Failed or ambiguous queries stop publication.
+
+This prepares release tooling; no release, deployment or account installation is performed by this change.

@@ -22,7 +22,9 @@ never repaired by fetching/installing/building. An explicit same-version retry
 uses the original annotated tag commit even when main has advanced. A matching
 release PR is adopted without rebumping. Partial drafts upload only missing,
 verified assets; identical published retries perform no mutation. Conflicts
-fail closed, and published missing assets require reconciliation.
+fail closed, and published missing assets require reconciliation. Before publishing
+a recovered draft, re-query the planner: older versions use `--latest=false`
+when a newer release is already published, preserving the stable download.
 
 The first no-argument release uses the current plugin manifest version without
 a dummy prerequisite tag. Later releases bump the plugin version. Release notes

@@ -60,9 +60,16 @@ export function selectRelease({ current, tags, releases, prs }, requested) {
     throw new Error('Release would downgrade history');
   if (!tags[tag] && compare(version, current) < 0)
     throw new Error('Release would downgrade manifest');
+  const newerPublished = releases.some((item) => {
+    if (item.draft) return false;
+    if (!/^v\d+\.\d+\.\d+$/.test(item.tag_name))
+      throw new Error('Published release has an unsupported version tag');
+    return compare(item.tag_name.slice(1), version) > 0;
+  });
   return {
     version,
     tag,
+    makeLatest: !newerPublished,
     mode: tags[tag] ? 'resume-tag' : pr ? 'resume-pr' : 'new',
     commit: tags[tag]?.commit ?? pr?.head.sha ?? null,
     state: release ? (release.draft ? 'draft' : 'published') : 'absent',
