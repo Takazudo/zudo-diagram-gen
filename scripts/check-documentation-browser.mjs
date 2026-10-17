@@ -26,7 +26,9 @@ export async function checkDocumentationBrowser(browser, origin) {
     assert.equal(response.status(), 200, route);
   };
   const linkTo = (scope, href) =>
-    page.locator(`${scope} a[href="${href}"], ${scope} a[href="${href.replace(/\/$/, '')}"]`).first();
+    page
+      .locator(`${scope} a[href="${href}"], ${scope} a[href="${href.replace(/\/$/, '')}"]`)
+      .first();
   const activate = async (scope, href) => {
     await linkTo(scope, href).click();
     await page.waitForURL(
@@ -76,31 +78,45 @@ export async function checkDocumentationBrowser(browser, origin) {
     return { logoRight: logo.right, navLeft: nav.left, navRight: nav.right, rightLeft: right.left };
   });
   assert.ok(headerGeometry.navLeft >= headerGeometry.logoRight, JSON.stringify(headerGeometry));
-  assert.ok(headerGeometry.navRight <= headerGeometry.rightLeft + 1, JSON.stringify(headerGeometry));
+  assert.ok(
+    headerGeometry.navRight <= headerGeometry.rightLeft + 1,
+    JSON.stringify(headerGeometry),
+  );
   const startLink = linkTo('[data-header-nav]', '/docs/getting-started/');
   await startLink.focus();
   assert.equal(await startLink.evaluate((el) => document.activeElement === el), true);
   await page.keyboard.press('Enter');
   await page.waitForURL(/\/docs\/getting-started\/?$/);
-  assert.equal(await linkTo('[data-header-nav]', '/docs/getting-started/').getAttribute('aria-current'), 'page');
+  assert.equal(
+    await linkTo('[data-header-nav]', '/docs/getting-started/').getAttribute('aria-current'),
+    'page',
+  );
   console.log('PASS native left header geometry and keyboard navigation');
 
   for (const quickstart of ['chatgpt-plugin', 'first-session']) {
     await goto('/');
     await activate('main', '/docs/getting-started/');
     await activate('article.zd-content', `/docs/getting-started/${quickstart}/`);
-    assert.equal(await linkTo('[data-header-nav]', '/docs/getting-started/').getAttribute('aria-current'), 'page');
+    assert.equal(
+      await linkTo('[data-header-nav]', '/docs/getting-started/').getAttribute('aria-current'),
+      'page',
+    );
     assert.match(
       await page.locator('#desktop-sidebar a[aria-current="page"]').first().getAttribute('href'),
       new RegExp(quickstart),
     );
-    assert.match(await page.getByRole('navigation', { name: 'Breadcrumb', exact: true }).innerText(), /Start here/);
+    assert.match(
+      await page.getByRole('navigation', { name: 'Breadcrumb', exact: true }).innerText(),
+      /Start here/,
+    );
     assert.ok(await page.locator('[data-doc-pager] a').count());
     await page.reload();
     await page.goBack();
     assert.match(page.url(), /\/getting-started\/?$/);
   }
-  console.log('PASS standard Home → category → leaf journeys, active sidebar, breadcrumbs, pager, reload and Back');
+  console.log(
+    'PASS standard Home → category → leaf journeys, active sidebar, breadcrumbs, pager, reload and Back',
+  );
 
   const journeys = [
     ['/docs/getting-started/', '/docs/getting-started/manual-session/'],
@@ -128,8 +144,14 @@ export async function checkDocumentationBrowser(browser, origin) {
     ['/docs/guides/refine-export/', 'guides', 'Guides'],
   ]) {
     await goto(route);
-    assert.equal(await linkTo('[data-header-nav]', `/docs/${category}/`).getAttribute('aria-current'), 'page');
-    assert.match(await page.getByRole('navigation', { name: 'Breadcrumb', exact: true }).innerText(), new RegExp(label));
+    assert.equal(
+      await linkTo('[data-header-nav]', `/docs/${category}/`).getAttribute('aria-current'),
+      'page',
+    );
+    assert.match(
+      await page.getByRole('navigation', { name: 'Breadcrumb', exact: true }).innerText(),
+      new RegExp(label),
+    );
     assert.equal(await linkTo('#desktop-sidebar', route).getAttribute('aria-current'), 'page');
   }
   await goto('/docs/reference/cli');
@@ -140,7 +162,9 @@ export async function checkDocumentationBrowser(browser, origin) {
   assert.ok(await page.locator(hash).count());
   await page.reload();
   assert.ok(await page.locator(hash).count());
-  console.log('PASS category, guide, reference anchor and contributor journeys with filesystem ownership');
+  console.log(
+    'PASS category, guide, reference anchor and contributor journeys with filesystem ownership',
+  );
 
   for (const [query, expected] of [
     ['plugin', '/docs/getting-started/chatgpt-plugin'],
@@ -161,18 +185,25 @@ export async function checkDocumentationBrowser(browser, origin) {
   await page.locator('[data-open-search]').focus();
   await page.keyboard.press('Enter');
   await page.keyboard.press('Escape');
-  assert.equal(await page.locator('[data-open-search]').evaluate((el) => document.activeElement === el), true);
+  assert.equal(
+    await page.locator('[data-open-search]').evaluate((el) => document.activeElement === el),
+    true,
+  );
   console.log('PASS canonical search results and keyboard focus restoration');
 
   // A narrow title verifies the first line, not the center of the entire text block.
   await goto('/docs/examples/');
   await checkArrows();
   const wrappedTitle = page.locator('[data-example-title-link]').first();
-  await wrappedTitle.evaluate((el) => { el.style.maxWidth = '12em'; });
+  await wrappedTitle.evaluate((el) => {
+    el.style.maxWidth = '12em';
+  });
   const wrapped = await checkArrows();
   assert.ok(wrapped[0].lines > 1, 'Exercise a genuinely wrapped example title');
   await page.screenshot({ path: 'test-output/docs-ia-examples-wrapped-title.png', fullPage: true });
-  await wrappedTitle.evaluate((el) => { el.style.removeProperty('max-width'); });
+  await wrappedTitle.evaluate((el) => {
+    el.style.removeProperty('max-width');
+  });
   await wrappedTitle.focus();
   await page.keyboard.press('Enter');
   await page.waitForURL(/\/docs\/examples\/tone-exploration\/?$/);
@@ -183,7 +214,9 @@ export async function checkDocumentationBrowser(browser, origin) {
   await page.locator('[data-zfb-island="DiagramWorkbench"]').scrollIntoViewIfNeeded();
   await page.locator('.dg-card').first().waitFor();
   assert.equal(await page.locator('.dg-app').count(), 1);
-  console.log('PASS first-line arrow alignment, wrapped-title keyboard navigation and workbench reload');
+  console.log(
+    'PASS first-line arrow alignment, wrapped-title keyboard navigation and workbench reload',
+  );
 
   await page.setViewportSize({ width: 390, height: 844 });
   await goto('/');
@@ -195,7 +228,9 @@ export async function checkDocumentationBrowser(browser, origin) {
   const menu = page.getByRole('button', { name: 'Open sidebar', exact: true });
   await menu.click();
   await page.locator('[data-zd-mobile-sidebar]:not([inert])').waitFor();
-  assert.ok(await linkTo('[data-zd-mobile-sidebar]', '/docs/getting-started/chatgpt-plugin/').isVisible());
+  assert.ok(
+    await linkTo('[data-zd-mobile-sidebar]', '/docs/getting-started/chatgpt-plugin/').isVisible(),
+  );
   await page.keyboard.press('Escape');
   await page.locator('[data-zd-mobile-sidebar][inert]').waitFor({ state: 'attached' });
   assert.equal(await menu.evaluate((el) => document.activeElement === el), true);
@@ -223,7 +258,10 @@ export async function checkDocumentationBrowser(browser, origin) {
       await page.setViewportSize({ width, height: 844 });
       for (const [name, route] of views) {
         await devtools.send('Emulation.setDeviceMetricsOverride', {
-          width, height: 844, deviceScaleFactor: 1, mobile: false,
+          width,
+          height: 844,
+          deviceScaleFactor: 1,
+          mobile: false,
         });
         await goto(route);
         if (['tones', 'workbench'].includes(name)) {
@@ -242,10 +280,15 @@ export async function checkDocumentationBrowser(browser, origin) {
         }
         for (const zoom of [1, 2]) {
           await devtools.send('Emulation.setDeviceMetricsOverride', {
-            width: Math.floor(width / zoom), height: Math.floor(844 / zoom),
-            deviceScaleFactor: zoom, mobile: false,
+            width: Math.floor(width / zoom),
+            height: Math.floor(844 / zoom),
+            deviceScaleFactor: zoom,
+            mobile: false,
           });
-          await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+          await page.evaluate(
+            () =>
+              new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+          );
           const dimensions = await page.evaluate(() => ({
             viewport: innerWidth,
             scroll: document.documentElement.scrollWidth,
@@ -253,34 +296,70 @@ export async function checkDocumentationBrowser(browser, origin) {
           }));
           const arrows = name === 'examples' ? await checkArrows() : undefined;
           const path = `test-output/docs-ia-${name}-${theme}-${width}-${zoom}x.png`;
-          if (zoom === 1 && (name === 'home' || name === 'examples')) await page.screenshot({ path, fullPage: true });
+          if (zoom === 1 && (name === 'home' || name === 'examples'))
+            await page.screenshot({ path, fullPage: true });
           else await capture(path);
-          if (dimensions.scroll > dimensions.viewport + 1 || dimensions.body > dimensions.viewport + 1) {
-            const protruding = await page.evaluate(() => [...document.querySelectorAll('body *')]
-              .filter((el) => el.getBoundingClientRect().right > innerWidth + 1)
-              .slice(0, 15)
-              .map((el) => ({
-                tag: el.tagName,
-                className: String(el.className).slice(0, 160),
-                text: el.textContent.slice(0, 100),
-                right: el.getBoundingClientRect().right,
-                width: el.getBoundingClientRect().width,
-              })));
-            reflowFailures.push({ name, route, theme, width, zoom, ...dimensions, protruding, screenshot: path });
+          if (
+            dimensions.scroll > dimensions.viewport + 1 ||
+            dimensions.body > dimensions.viewport + 1
+          ) {
+            const protruding = await page.evaluate(() =>
+              [...document.querySelectorAll('body *')]
+                .filter((el) => el.getBoundingClientRect().right > innerWidth + 1)
+                .slice(0, 15)
+                .map((el) => ({
+                  tag: el.tagName,
+                  className: String(el.className).slice(0, 160),
+                  text: el.textContent.slice(0, 100),
+                  right: el.getBoundingClientRect().right,
+                  width: el.getBoundingClientRect().width,
+                })),
+            );
+            reflowFailures.push({
+              name,
+              route,
+              theme,
+              width,
+              zoom,
+              ...dimensions,
+              protruding,
+              screenshot: path,
+            });
           }
-          const after = await page.evaluate(() => ({ viewport: innerWidth, dpr: devicePixelRatio }));
+          const after = await page.evaluate(() => ({
+            viewport: innerWidth,
+            dpr: devicePixelRatio,
+          }));
           assert.equal(after.viewport, Math.floor(width / zoom));
           assert.equal(after.dpr, zoom);
-          matrix.push({ name, theme, width, zoom, ...dimensions, ...after, arrows, screenshot: path });
+          matrix.push({
+            name,
+            theme,
+            width,
+            zoom,
+            ...dimensions,
+            ...after,
+            arrows,
+            screenshot: path,
+          });
         }
       }
     }
   }
   // Preserve every screenshot/measurement before failing; do not hide or waive overflow.
   await writeFile('test-output/docs-ia-viewports.json', JSON.stringify(matrix, null, 2) + '\n');
-  await writeFile('test-output/docs-ia-reflow-failures.json', JSON.stringify(reflowFailures, null, 2) + '\n');
+  await writeFile(
+    'test-output/docs-ia-reflow-failures.json',
+    JSON.stringify(reflowFailures, null, 2) + '\n',
+  );
   assert.deepEqual(errors, []);
   await context.close();
-  assert.deepEqual(reflowFailures, [], 'Documentation reflow failures; see docs-ia-reflow-failures.json');
-  console.log('PASS standard documentation desktop/mobile, light/dark, 100%/200% reflow and examples alignment');
+  assert.deepEqual(
+    reflowFailures,
+    [],
+    'Documentation reflow failures; see docs-ia-reflow-failures.json',
+  );
+  console.log(
+    'PASS standard documentation desktop/mobile, light/dark, 100%/200% reflow and examples alignment',
+  );
 }

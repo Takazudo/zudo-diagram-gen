@@ -1,0 +1,10 @@
+---
+title: Read-only release planning and original-tag recovery
+description: Release dry-run now stops before fetch and setup, and retries retain their original source commit.
+---
+
+The maintainer release skill now plans before fetching or changing repository state. Its entire dry-run uses read-only remote queries and reports missing history or failed authentication instead of installing, building or fetching.
+
+Explicit same-version retries retain the original annotated tag commit and verify existing assets before uploading missing draft assets. A fresh no-argument release and an existing release PR have distinct paths. Conflicting assets and published missing assets stop for reconciliation. Tagged packaging rejects lightweight tags and is tested with complete isolated fixtures, both ZIP names, checksums, fresh extraction and repeated builds.
+
+These changes prepare release tooling; they do not publish a Release or establish native ChatGPT or Mac acceptance.

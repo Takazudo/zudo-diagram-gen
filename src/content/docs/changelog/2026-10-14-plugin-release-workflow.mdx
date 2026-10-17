@@ -1,0 +1,12 @@
+---
+title: Versioned ChatGPT plugin ZIP releases
+description: A project-local release skill packages validated plugin ZIPs with version tags and GitHub Release downloads, without npm publication.
+---
+
+Maintainers can use the project-local Claude Code `/l-make-release` skill to prepare a stable plugin version, write release notes, validate the package, tag the reviewed commit, and upload a GitHub Release. The plugin manifest owns this version independently of the local engine and initializer archives. The first release does not require a placeholder tag.
+
+The release builder produces a versioned ZIP, an identical `zudo-diagram-gen.zip` convenience asset, and SHA-256 checksums. It verifies the complete 24-tone inventory after fresh extraction and checks that a supplied release tag matches both the plugin version and the checked-out commit. Repeated builds normalize entry order, file modes, and timestamps.
+
+CI also retains the actual plugin ZIPs as downloadable workflow artifacts. Published GitHub Releases provide durable downloads; GitHub's automatic source-code archive is not the assembled plugin. Adding this workflow does not itself publish the first release or prove installation in a ChatGPT account.
+
+There is no npm publishing, registry credential, or Cloudflare operation in the ZIP packaging flow. See [ChatGPT plugin workflow](/docs/getting-started/chatgpt-plugin/) for distribution and host-acceptance boundaries.
