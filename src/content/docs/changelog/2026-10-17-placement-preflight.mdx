@@ -1,0 +1,15 @@
+---
+title: Placement preflight and capture output recovery
+description: Diagnose impossible full-frame context before launching a browser and explain safe capture destinations.
+sidebar_position: 1
+---
+
+## Full-frame context fails before capture starts
+
+Shared placement validation now rejects nonempty context when the diagram slot fills the frame. The error explains how to remove context for a diagram-only frame or enlarge the frame while preserving the authoritative session target. Empty context and placements with surrounding room remain supported; Chromium still checks text-dependent overlap and overflow.
+
+## Protected output errors explain recovery
+
+Capture errors now direct in-project output to the resource root's `exports/` directory or an external destination. The packaged skill includes session and project examples. PNG and sidecar source protection still applies, including with `--force`.
+
+Placement hashing is unchanged: context remains part of the normalized descriptor. Regression coverage checks context edits and removal without redefining hash identity.

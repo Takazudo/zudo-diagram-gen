@@ -63,6 +63,36 @@ try {
       return true;
     },
   );
+  const full = {
+    schemaVersion: 1,
+    frame: { width: 480, height: 140, background: '#FFFFFF' },
+    slot: { x: 0, y: 0, width: 480, height: 140 },
+    fit: 'contain',
+  };
+  const context = { title: 'Context', body: 'Saved placement' };
+  const placementFile = path.join(session, 'placement.json');
+  await json(placementFile, { ...full, context });
+  await assert.rejects(
+    run([
+      ...cli,
+      'capture',
+      'c01',
+      '--session',
+      session,
+      '--placement',
+      placementFile,
+      '--out',
+      png,
+      '--json',
+    ]),
+    (error) => {
+      assert.equal(error.code, 1);
+      const diagnostic = JSON.parse(error.stdout).errors[0];
+      assert.equal(diagnostic.code, 'VALIDATION_FAILED');
+      assert.match(diagnostic.message, /full-frame.*Remove context.*enlarge the frame/);
+      return true;
+    },
+  );
   // Explicit capability setup: the installed consumer supplies the optional peer.
   await run(['add', '-D', 'playwright@1.63.0', '--config.auto-install-peers=false']);
   const browserExecutablePath = process.env.CAPTURE_BROWSER_EXECUTABLE;
@@ -81,12 +111,75 @@ try {
   assert.equal(envelope.ok, true);
   assert.equal(envelope.data.provenance.inspected, false);
   assert.deepEqual(envelope.data.provenance.pixelDimensions, { width: 480, height: 140 });
+  const capturePlacement = async (placement, name, force = false) => {
+    await json(placementFile, placement);
+    const output = path.join(session, 'exports', `${name}.png`);
+    const result = await run([
+      ...cli,
+      'capture',
+      'c01',
+      '--session',
+      session,
+      '--placement',
+      placementFile,
+      '--out',
+      output,
+      '--json',
+      ...(force ? ['--force'] : []),
+      ...(browserExecutablePath ? ['--browser-executable', browserExecutablePath] : []),
+    ]);
+    const provenance = JSON.parse(result.stdout).data.provenance;
+    assert.deepEqual(JSON.parse(await readFile(`${output}.json`, 'utf8')), provenance);
+    return provenance;
+  };
+  const empty = await capturePlacement({ ...full, context: { title: '', body: '' } }, 'empty');
+  assert.deepEqual(empty.pixelDimensions, { width: 480, height: 140 });
+  const beside = await capturePlacement(
+    {
+      ...full,
+      frame: { ...full.frame, width: 680 },
+      slot: { ...full.slot, x: 200 },
+      context,
+    },
+    'beside',
+  );
+  assert.deepEqual(beside.pixelDimensions, { width: 680, height: 140 });
+  const below = { ...full, frame: { ...full.frame, height: 220 }, context };
+  const withContext = await capturePlacement(below, 'context');
+  const changedContext = await capturePlacement(
+    { ...below, context: { ...context, body: 'Changed' } },
+    'context',
+    true,
+  );
+  const withoutContext = await capturePlacement({ ...below, context: undefined }, 'context', true);
+  assert.notEqual(withContext.placementHash, changedContext.placementHash);
+  assert.notEqual(withContext.placementHash, withoutContext.placementHash);
+  assert.notEqual(changedContext.placementHash, withoutContext.placementHash);
+  await assert.rejects(
+    capturePlacement({ ...full, frame: { ...full.frame, height: 141 }, context }, 'overlap'),
+    (error) => {
+      assert.equal(error.code, 1);
+      const diagnostic = JSON.parse(error.stdout).errors[0];
+      assert.equal(diagnostic.code, 'VALIDATION_FAILED');
+      assert.match(diagnostic.message, /context overlaps diagram slot.*Remove context/);
+      return true;
+    },
+  );
   console.log(
     JSON.stringify({
       ok: true,
       freshPackedConsumer: true,
       ordinaryCommandsWithoutBrowser: true,
       explicitPlaywrightSetup: '1.63.0',
+      contextRegression: {
+        preflightWithoutBrowser: true,
+        empty: empty.placementHash,
+        beside: beside.placementHash,
+        withContext: withContext.placementHash,
+        changedContext: changedContext.placementHash,
+        withoutContext: withoutContext.placementHash,
+        measuredOverlapRejected: true,
+      },
       provenance: envelope.data.provenance,
     }),
   );
