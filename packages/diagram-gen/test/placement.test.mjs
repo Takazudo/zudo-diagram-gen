@@ -19,6 +19,55 @@ const descriptor = {
   fonts: ['Noto Sans CJK JP'],
 };
 describe('shared placement', () => {
+  it('rejects nonempty full-frame context without rejecting usable context geometry', () => {
+    const full = validatePlacement(undefined, target);
+    for (const context of [
+      { title: 'Title', body: '' },
+      { title: '', body: 'Body' },
+    ]) {
+      expect(() => validatePlacement({ ...full, context }, target)).toThrow(
+        /Remove context.*enlarge the frame.*session.target/,
+      );
+      const below = { ...full, frame: { ...full.frame, height: target.height + 80 }, context };
+      expect(validatePlacement(below, target)).toEqual(below);
+      const beside = {
+        ...full,
+        frame: { ...full.frame, width: target.width + 200 },
+        slot: { ...full.slot, x: 200 },
+        context,
+      };
+      expect(validatePlacement(beside, target)).toEqual(beside);
+    }
+    for (const context of [undefined, { title: '', body: '' }, { title: ' ', body: '\n' }])
+      expect(validatePlacement({ ...full, context }, target).slot).toEqual(full.slot);
+  });
+  it('hashes context edits and removal when reloading the same descriptor file', async () => {
+    const dir = await mkdtemp(path.join(os.tmpdir(), 'placement-context-'));
+    try {
+      const placement = 'placement.json';
+      const hashes = [];
+      for (const context of [
+        { title: 'Title', body: 'Body' },
+        { title: 'Changed title', body: 'Body' },
+        { title: 'Title', body: 'Changed body' },
+        undefined,
+      ]) {
+        const value = { ...descriptor, context };
+        await writeFile(path.join(dir, placement), JSON.stringify(value));
+        const loaded = await loadPlacement(dir, target, { placement });
+        expect(loaded.placementHash).toBe(
+          canonicalHash({ descriptor: validatePlacement(value, target), imageHashes: [] }),
+        );
+        expect((await loadPlacement(dir, target, { placement })).placementHash).toBe(
+          loaded.placementHash,
+        );
+        hashes.push(loaded.placementHash);
+      }
+      expect(new Set(hashes).size).toBe(4);
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
   it('preserves authoritative nondefault geometry and contains SVG image', () => {
     const p = validatePlacement(descriptor, target);
     const html = renderPlacement(p, {

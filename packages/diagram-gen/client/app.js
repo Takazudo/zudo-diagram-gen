@@ -70,6 +70,14 @@ function validatePlacement(value, target, theme = 'light') {
       value.context.title.length + value.context.body.length > 16384
     )
       fail('invalid context');
+    if (
+      (value.context.title.trim() || value.context.body.trim()) &&
+      value.slot.width === value.frame.width &&
+      value.slot.height === value.frame.height
+    )
+      fail(
+        'context has no room outside a full-frame diagram slot. Remove context for a diagram-only frame, or enlarge the frame to leave room below the slot; keep slot dimensions equal to session.target.',
+      );
   }
   if (value.images !== undefined && (!Array.isArray(value.images) || value.images.length > 64))
     fail('invalid images');

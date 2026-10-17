@@ -91,6 +91,47 @@ async function fixture() {
   );
   return path.join(root, 'exports', 'failure.png');
 }
+it('rejects impossible full-frame context before browser launch or output creation', async () => {
+  const output = await fixture();
+  await expect(
+    captureCandidate(root, 'c01', {
+      output,
+      placement: {
+        schemaVersion: 1,
+        frame: { width: 480, height: 140, background: '#FFFFFF' },
+        slot: { x: 0, y: 0, width: 480, height: 140 },
+        fit: 'contain',
+        context: { title: 'Title', body: 'Body' },
+      },
+    }),
+  ).rejects.toMatchObject({
+    code: 'VALIDATION_FAILED',
+    message: expect.stringMatching(/full-frame.*Remove context.*enlarge the frame/),
+  });
+  expect(state.launches).toBe(0);
+  expect(await readdir(root)).not.toContain('exports');
+});
+
+it.each([false, true])('explains exports recovery for project output (force=%s)', async (force) => {
+  const { sessionRoot } = await projectFixture();
+  await expect(
+    captureCandidate(sessionRoot, 'c01', {
+      resourceRoot: root,
+      output: path.join(root, 'captures/slide.png'),
+      force,
+    }),
+  ).rejects.toMatchObject({
+    code: 'RESOURCE_UNSAFE',
+    message: expect.stringMatching(/exports\/.*resource root.*--force/),
+  });
+  expect(state.launches).toBe(0);
+  expect(await readdir(root)).not.toContain('captures');
+  state.mode = 'success';
+  const output = path.join(root, 'exports/slide.png');
+  const result = await captureCandidate(sessionRoot, 'c01', { resourceRoot: root, output });
+  expect(result.output).toBe(output);
+  expect(JSON.parse(await readFile(`${output}.json`, 'utf8')).candidateId).toBe('c01');
+});
 it('readiness timeout closes server/browser/context and leaves no output', async () => {
   state.mode = 'timeout';
   const output = await fixture();

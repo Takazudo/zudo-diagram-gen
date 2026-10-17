@@ -43,7 +43,10 @@ async function outputDestination(file, root, protectedFiles, force) {
     (contained(root, resolved) && !contained(path.join(root, 'exports'), resolved)) ||
     protectedFiles.includes(resolved)
   )
-    fail('RESOURCE_UNSAFE', 'Output overlaps protected session/placement/reference source.');
+    fail(
+      'RESOURCE_UNSAFE',
+      'Output overlaps protected session/placement/reference source. Choose a new output under exports/ in the resource root (the session root unless --resource-root is supplied), or outside that root. Both PNG and sidecar must avoid source files; --force does not bypass source protection.',
+    );
   try {
     const info = await lstat(absolute);
     if (info.isSymbolicLink() || !info.isFile())
@@ -265,7 +268,10 @@ async function runCapture(sessionRoot, candidateId, options = {}) {
               return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
             })()
           : false;
-        if (contextOverlapsSlot) throw new Error('Placement context overlaps diagram slot');
+        if (contextOverlapsSlot)
+          throw new Error(
+            'Placement context overlaps diagram slot. Remove context or enlarge the frame to leave room below the slot; keep slot dimensions equal to session.target.',
+          );
         return {
           fonts: fonts.map((family) => ({
             family,

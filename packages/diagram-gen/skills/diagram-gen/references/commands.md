@@ -9,12 +9,15 @@ pnpm exec zudo-diagram-gen resume /caller/session --review /caller/review.json -
 pnpm exec zudo-diagram-gen inspect /caller/project --json
 pnpm exec zudo-diagram-gen tones show fine-outline --json-version 1
 pnpm exec zudo-diagram-gen check /caller/session --json-version 1
-pnpm exec zudo-diagram-gen capture r01-c01 --session /caller/session --out /caller/capture.png --theme light --json
+pnpm exec zudo-diagram-gen capture r01-c01 --session /caller/session --out /caller/session/exports/capture.png --theme light --json
+pnpm exec zudo-diagram-gen capture r01-c01 --session /caller/project/sessions/slide --resource-root /caller/project --placement placements/slide.json --out /caller/project/exports/slide.png --json
 pnpm exec zudo-diagram-gen export r01-c01 --session /caller/session --theme light --out /caller/export.svg --json
 pnpm exec zudo-diagram-gen export-html /caller/project --out /caller/review.html --json
 ```
 
 Add `--placement <file> --resource-root <project>` when placement assets live in a registered project. Capture accepts `--dpr`, `--crop frame|slot`, `--timeout-ms`, and explicit `--browser-executable`. Capture and HTML export refuse existing outputs unless `--force`; force cannot overwrite sources. Legacy SVG export retains safe nonsource overwrite. `dev|build|preview <root>` delegates to zfb and retains normal logs; it has no JSON mode.
+
+For capture inside the resource root, write under its `exports/` directory; in-project `captures/` and other source paths reject with `RESOURCE_UNSAFE`. External output destinations also work. `--out` resolves from the working directory, so use the absolute project path shown above when running elsewhere. Both PNG and sidecar must avoid source files even under `exports/`. A full-frame diagram with nonempty `context` has no room for surrounding text: remove `context`, or enlarge the frame to reserve space below the unchanged session-sized slot.
 
 New commands' `--json` and check/tones' `--json-version 1` emit one `{schemaVersion:1,command,ok,data,errors,warnings}` object. Errors/warnings contain `code,message,path?`. Bare legacy `check/tones --json` retains its shape and failure exit 1. Versioned exit codes: 0 success; 1 validation/incomplete/stale; 2 invalid arguments/version; 3 missing capture capability; 4 I/O/unsafe resource/output conflict; 130 cancellation. Inspect/resume can return partial project data with `ok:false`. They read only files and supplied review, never browser storage. Capture capability reports library availability and unknown browser readiness; it does not download anything.
 
