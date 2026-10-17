@@ -2,13 +2,13 @@
 
 Ask an agent for a grounded SVG explanation, review concrete drawings at the real placement size, then refine the actual saved drawing. Earlier versions and feedback stay available. The installed package owns the review app; your session or project owns ordinary JSON, Markdown and SVG files.
 
-Start with [Ask for your first diagram](src/content/docs/getting-started/first-session.mdx). The [project site](https://zudo-diagram-gen.zudolab.dev/) has documentation, 24 tone references, worked examples and an embedded workbench under `/docs/`. Local source documentation may be newer than the deployed site.
+Start with [Choose your workflow](src/content/docs/getting-started/index.mdx): the [skills-only plugin](src/content/docs/getting-started/chatgpt-plugin.mdx), [local coding agent and workbench](src/content/docs/getting-started/first-session.mdx), or [manual alternative](src/content/docs/getting-started/manual-session.mdx). The [project site](https://zudo-diagram-gen.zudolab.dev/) has documentation, 24 tone references, worked examples and an embedded workbench under `/docs/`. Local source documentation may be newer than the deployed site.
 
 ## Plugin ZIP downloads and releases
 
 For the skills-only ChatGPT plugin, use [Download the ChatGPT plugin](src/content/docs/getting-started/plugin-downloads.mdx). No npm installation is required. Maintainers use the project-local Claude Code `/l-make-release` skill; [RELEASE.md](RELEASE.md) covers version tags, verified ZIP assets, checksums and GitHub Releases. CI also retains assembled ZIP snapshots. Adding this workflow does not itself publish the first release.
 
-## Actual setup
+## Local engine setup
 
 Engine and initializer are `0.1.0` local archives; registry publication is not established. Use Node.js 22–24 and pnpm 10.30.3. From a source checkout:
 
@@ -45,6 +45,8 @@ The agent consumes the actual file/text, checks stale evidence, and starts a new
 [Placement/capture](src/content/docs/reference/placement-capture.mdx) documents optional consumer Playwright/browser setup, local geometry and provenance. A successful check or capture is not actual image inspection, semantic correctness or user approval. Open images and record concrete observations separately.
 
 ## Contribute and verify
+
+[Contributors](src/content/docs/development/index.mdx) owns repository setup, architecture, provenance, plugin assembly and checks. [Guides](src/content/docs/guides/index.mdx) owns user tasks; [Reference](src/content/docs/reference/index.mdx) owns technical lookup.
 
 ```bash
 pnpm check

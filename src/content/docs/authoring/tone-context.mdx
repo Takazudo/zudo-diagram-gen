@@ -1,5 +1,5 @@
 ---
-title: Tone context, kits and saved styles
+title: Tone format, palettes and kits
 description: Resolve local schemes, materialize semantic colors and preserve immutable project revisions.
 sidebar_position: 5
 ---
@@ -34,29 +34,4 @@ Legacy candidate fingerprint retains its existing normalized metadata/SVG projec
 
 ## Lock a project style explicitly
 
-A choice for one diagram does not authorize project-wide reuse. Lock requires actual explicit scope and a selection file:
-
-```json
-{
-  "schemaVersion": 1,
-  "kind": "explicit-selection",
-  "purpose": "test",
-  "baselines": [
-    {"sessionId": "reservation", "candidateId": "r01-c01", "fingerprint": "EXACT_CURRENT_SHA256"}
-  ]
-}
-```
-
-This is a test-shaped illustration; `purpose:user` is only for an actual explicit user decision. Supply all applicable current registered baseline IDs/fingerprints with compatible tone, plus a complete `{light:{...},dark:{...}}` palette. CLI grammar:
-
-```text
-project lock <project> --tone fine-outline --palette <palette.json> --selection <selection.json> --revision style-01 --json
-project lock <project> --tone fine-outline --palette <new-palette.json> --selection <new-selection.json> --revision style-02 --json
-project adopt <project> --revision style-02 --json
-```
-
-The first lock adopts its revision. Further lock calls create pending revisions; explicit adoption changes the effective reference after current validation. Files at `styles/<revision>/` are `style.json`, `scheme.json`, `palette.json`, `kit.svg`; target/typography constraints and baseline selection purpose are saved. Revisions are immutable. Future diagrams read `readStyleRevision`'s saved constituents, not an upgraded catalog. Kit bytes remain exact. Changes require a new revision and explicit adoption.
-
-Cooperating writers use exclusive `.style-operation`, staged revision publication and atomic manifest update. Existing/partial revisions are never overwritten. After inspecting an interrupted operation, explicitly clear only an abandoned lock; helpers never clear another process's lock or repair partial contents. If complete publication succeeded but adoption failed, validate and explicitly adopt that existing revision. Stale baselines require a fresh explicit selection in a new revision; preserve old snapshots.
-
-Refinement copies the actual named saved SVG into a later round under a new ID; export copies saved validated bytes without rematerializing. See [API](/docs/reference/api/#refine-the-saved-baseline) and [CLI](/docs/reference/cli/).
+Follow [Lock and adopt a saved style](/docs/guides/saved-styles/) for the selection file, lock/adopt sequence, immutable revision files and interrupted-operation recovery. Choosing a drawing never grants project-wide reuse. This reference owns the scheme, palette, kit and hashing contracts used by that guide.

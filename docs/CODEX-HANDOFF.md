@@ -10,7 +10,7 @@ The local SVG system includes single/project review, all 24 offline tone packs, 
 
 Root zudo-doc 6.2.0 runs on ZFB SDK/runtime/md-wasm 4.5.0 with zudo-react and zudo-wind, embedding the workbench through chrome bindings. Initialized hosts pin ZFB SDK/runtime 4.5.0 and TypeScript 6.0.3; the engine retains ZFB 2/3 and the ZFB 4.3.0 minimum. Keep the single site, semantic tokens, default esbuild backend and dynamicPageTransition:false. Packages stay 0.1.0/local archives until registry publication is independently verified.
 
-The root extends the published zudo-doc tsconfig without a baseUrl workaround; the published 6.2 base no longer supplies that removed option. CSS imports use the published doc styles and typed engine stylesheet export; no Tailwind directives or removed safelist import remain. Showcase preparation generates .generated/showcase-wind.json for the intrinsic classes it emits. The wrapper loads data on zudo-react activation and aborts pending fetches/disposes the workbench on cleanup. Keep stale-response protection and one live mount; embedded theme synchronization belongs to the package workbench.
+The root extends the published zudo-doc tsconfig; its baseUrl override is no longer needed. CSS imports use the published doc styles and typed engine stylesheet export; no Tailwind directives or removed safelist import remain. Showcase preparation generates .generated/showcase-wind.json for the intrinsic classes it emits. The wrapper loads data on zudo-react activation and aborts pending fetches/disposes the workbench on cleanup. Keep stale-response protection and one live mount; embedded theme synchronization belongs to the package workbench.
 
 ## Repository map
 

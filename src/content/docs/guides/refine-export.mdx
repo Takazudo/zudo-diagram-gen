@@ -1,0 +1,26 @@
+---
+title: Refine and export the saved drawing
+description: Turn explicit Keep/Change feedback into a new candidate, then deliver the selected SVG bytes.
+sidebar_position: 1
+---
+
+Use this once a reviewer has named a saved candidate. You need the actual SVG, its session/candidate ID and current fingerprint, and copied feedback or the downloaded review JSON. [Review candidates](../gallery/reviewing.mdx#transfer-the-review-to-the-agent) first if the decision is still in browser storage.
+
+## Start from the exact baseline
+
+1. Read the actual transferred review. Use `resume` with the downloaded JSON to inspect identity and stale evidence; copied prose is for the agent, not a JSON parser.
+2. Confirm the saved candidate and fingerprint. If evidence is stale, inspect the current drawing and obtain renewed review rather than advancing the old fingerprint.
+3. Create a new candidate in a later round with a new ID and the old candidate as parent. The [saved-baseline API example](../reference/api.mdx#refine-the-saved-baseline) copies exact bytes before edits. The [file walkthrough](../authoring/session-files.mdx#create-a-refinement-round) shows manual metadata and copying.
+4. Apply only the requested changes, preserving the accepted labels, geometry and palette. Update declared child asset hashes deliberately, validate, render and actually inspect the changed images at the original placement.
+
+Expected result: both the original and revised drawing remain available, linked by lineage. Use the parent link and comparison view to inspect the difference. Choosing this drawing is separate from [adopting a project style](./saved-styles.mdx).
+
+## Export the chosen saved asset
+
+In the local workbench, **Download light SVG** or **Download dark SVG** saves the selected candidate's declared asset. For a destination path or automation, use the [CLI export contract](../reference/cli.mdx); substitute the actual saved ID and available theme. Export copies bytes and never regenerates a drawing from its tone.
+
+The skills-only plugin delivers the exact saved SVG as an attachment through host tools. It does not use the local engine's workbench. If attachments are unavailable, labeled source text is not a downloadable file.
+
+## Keep review and artwork together
+
+Offline HTML is a content snapshot, not a live session or a transfer of browser notes. Download review JSON separately and retain it with the saved IDs. For a new conversation, supply the actual baseline SVG and Keep/Change notes. Inspect the exported file in its destination's size and theme before a separately requested integration. See [placement/capture reference](../reference/placement-capture.mdx) for geometry and evidence details.

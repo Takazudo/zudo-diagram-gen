@@ -3,3 +3,45 @@
 @import '@takazudo/zudo-doc/page-loading.css';
 @import '@takazudo/zudo-doc/features.css';
 @import '@takazudo/zudo-diagram-gen/client/app.css';
+
+/* Preserve content reflow while using the unmodified native layout. This
+   safety rule was accidentally removed with the custom homepage in #118.
+   Long prose, category labels and pager titles must fit their text column;
+   preformatted code still scrolls locally. See zudolab/zudo-doc#4585. */
+.zd-content {
+  overflow-wrap: anywhere;
+}
+
+/* Only the examples-card icon is customized. Its wrapper is one text line high,
+   so the arrow stays centered on the first line even when the title wraps. */
+[data-example-title-icon] {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 1em;
+  height: 1lh;
+}
+[data-example-title-icon] > svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+}
+
+/* Keep the embedded application usable at narrow, zoomed placements. These
+   rules do not override the framework's header, sidebar, homepage or type. */
+@media (max-width: 24rem) {
+  .zd-content .dg-app[data-embedded='true'] .dg-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .zd-content .dg-app[data-embedded='true'] .dg-workspace-toolbar,
+  .zd-content .dg-app[data-embedded='true'] .dg-display-controls,
+  .zd-content .dg-app[data-embedded='true'] .dg-content-heading,
+  .zd-content .dg-app[data-embedded='true'] .dg-filter-bar,
+  .zd-content .dg-app[data-embedded='true'] .dg-card-top {
+    flex-wrap: wrap;
+  }
+  .zd-content .dg-app[data-embedded='true'] .dg-search {
+    min-width: 0;
+    max-width: 100%;
+  }
+}

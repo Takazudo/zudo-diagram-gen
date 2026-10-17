@@ -64,3 +64,6 @@ jobs:
       - name: Smoke short-path redirects
         if: steps.bootstrap.outputs.ready == 'true'
         run: pnpm smoke:cloudflare --redirects https://zudo-diagram-gen.zudolab.dev/
+      - name: Verify deployed documentation matches this build
+        if: steps.bootstrap.outputs.ready == 'true'
+        run: node scripts/check-deployed-build.mjs

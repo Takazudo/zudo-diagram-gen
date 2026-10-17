@@ -4,16 +4,11 @@ import { zudoDoc } from '@takazudo/zudo-doc/config';
 export default defineConfig(
   zudoDoc({
     siteName: 'zudo-diagram-gen',
-    siteDescription:
-      'A local workbench for generating, comparing, and refining SVG diagrams with an agent.',
+    siteDescription: 'Create, compare, and refine SVG diagrams with an agent.',
     base: '/',
     port: 4488,
     favicon: 'auto',
-    logo: false,
-    home: {
-      introMarkdown:
-        'Give an agent a brief, compare SVG drawings at their intended size, choose a direction, and refine the selected drawing together.',
-    },
+    logo: '/img/logo.svg',
     mermaid: false,
     docHistory: false,
     designTokenPanel: false,
@@ -40,8 +35,9 @@ export default defineConfig(
         {
           title: 'Learn',
           items: [
-            { label: 'Getting started', href: '/docs/getting-started/' },
-            { label: 'Agent workflow', href: '/docs/agent-workflow/' },
+            { label: 'Start here', href: '/docs/getting-started/' },
+            { label: 'Guides', href: '/docs/guides/' },
+            { label: 'Contributors', href: '/docs/development/' },
             { label: 'Changelog', href: '/docs/changelog/' },
           ],
         },
@@ -57,49 +53,65 @@ export default defineConfig(
       copyright:
         'Copyright © 2026 <a href="https://x.com/Takazudo">Takazudo</a>. Built with <a href="https://zudo-doc.takazudomodular.com/docs/getting-started/">zudo-doc</a>.',
     },
+    // Each categoryMatch names an actual top-level content directory. The stock
+    // header and filesystem tree own active states, sidebar scope and ordering.
     headerNav: [
       {
-        label: 'Docs',
+        label: 'Start here',
         path: '/docs/getting-started',
+        categoryMatch: 'getting-started',
+        versioned: false,
+      },
+      {
+        label: 'Guides',
+        path: '/docs/guides',
+        categoryMatch: 'guides',
         versioned: false,
         children: [
           {
-            label: 'Getting started',
-            path: '/docs/getting-started',
-            categoryMatch: 'getting-started',
+            label: 'Practical guides',
+            path: '/docs/guides',
+            categoryMatch: 'guides',
             versioned: false,
           },
-          { label: 'Review', path: '/docs/gallery', categoryMatch: 'gallery', versioned: false },
           {
             label: 'Authoring',
             path: '/docs/authoring',
             categoryMatch: 'authoring',
             versioned: false,
           },
+          { label: 'Review', path: '/docs/gallery', categoryMatch: 'gallery', versioned: false },
           {
             label: 'Agent workflow',
             path: '/docs/agent-workflow',
             categoryMatch: 'agent-workflow',
             versioned: false,
           },
-          {
-            label: 'Reference',
-            path: '/docs/reference',
-            categoryMatch: 'reference',
-            versioned: false,
-          },
-          {
-            label: 'Development',
-            path: '/docs/development',
-            categoryMatch: 'development',
-            versioned: false,
-          },
         ],
       },
       { label: 'Tones', path: '/docs/tones', categoryMatch: 'tones', versioned: false },
       { label: 'Examples', path: '/docs/examples', categoryMatch: 'examples', versioned: false },
-      { label: 'Workbench', path: '/docs/workbench', categoryMatch: 'workbench', versioned: false },
-      { label: 'Changelog', path: '/docs/changelog', categoryMatch: 'changelog', versioned: false },
+      { label: 'Reference', path: '/docs/reference', categoryMatch: 'reference', versioned: false },
+      {
+        label: 'Develop',
+        path: '/docs/development',
+        categoryMatch: 'development',
+        versioned: false,
+        children: [
+          {
+            label: 'Contributors',
+            path: '/docs/development',
+            categoryMatch: 'development',
+            versioned: false,
+          },
+          {
+            label: 'Changelog',
+            path: '/docs/changelog',
+            categoryMatch: 'changelog',
+            versioned: false,
+          },
+        ],
+      },
     ],
   }),
 );

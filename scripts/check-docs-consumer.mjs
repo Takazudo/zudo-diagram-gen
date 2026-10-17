@@ -524,6 +524,6 @@ await json(path.join(output, 'reader-evidence.json'), {
   passed:
     'Public initialize/skill-copy/materialize/project/refinement fences; installed CLI, legacy/versioned JSON, all24 contexts, lock/adopt, partial/stale/errors/outputs/initializer/schema exports.',
   pending:
-    'Manager current combined-archive browser/detached export regression and guarded aggregate/CI; earlier actual prompt/manual captures retain their own archive provenance.',
+    'This reader runner does not exercise a model, host installation or browser interactions; consult separate current-head site, P07 and P11 browser evidence.',
 });
 console.log(`Public installed reader commands passed: ${output}; consumer ${consumer}`);

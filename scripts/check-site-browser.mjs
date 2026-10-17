@@ -3,6 +3,8 @@ import { mkdir, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
+import { checkDocumentationBrowser } from './check-documentation-browser.mjs';
+import { checkSectionSidebars } from './check-section-sidebars.mjs';
 
 const origin = 'http://127.0.0.1:4335';
 const routes = [
@@ -36,7 +38,10 @@ try {
     if (i === 59) throw new Error(`Preview did not start: ${serverOutput}`);
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({
+    headless: true,
+    executablePath: process.env.SITE_BROWSER_EXECUTABLE || undefined,
+  });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 800 },
     acceptDownloads: true,
@@ -82,11 +87,11 @@ try {
     for (const width of [1280, 390]) {
       await page.setViewportSize({ width, height: 844 });
       if (route === '/docs/examples/') {
-        const arrows = await page.locator('article svg.w-hsp-lg').evaluateAll((elements) =>
+        const arrows = await page.locator('[data-example-title-icon] svg').evaluateAll((elements) =>
           elements.map((element) => ({
             width: element.getBoundingClientRect().width,
             height: element.getBoundingClientRect().height,
-            shrink: getComputedStyle(element).flexShrink,
+            shrink: getComputedStyle(element.parentElement).flexShrink,
           })),
         );
         assert.ok(arrows.length > 0, 'Generated example navigation arrows are present');
@@ -97,7 +102,7 @@ try {
               arrow.height > 0 &&
               arrow.height <= 64 &&
               arrow.shrink === '0',
-            `Generated Wind icon utilities at ${width}: ${JSON.stringify(arrow)}`,
+            `Generated example icon and non-shrinking wrapper at ${width}: ${JSON.stringify(arrow)}`,
           );
       }
       const dimensions = await page.evaluate(() => ({
@@ -245,6 +250,8 @@ try {
   assert.deepEqual(errors, []);
   await context.close();
   console.log('PASS embedded documentation browser checks');
+  await checkDocumentationBrowser(browser, origin);
+  await checkSectionSidebars(browser, origin);
 } finally {
   await browser?.close();
   if (server.exitCode === null && server.signalCode === null) {

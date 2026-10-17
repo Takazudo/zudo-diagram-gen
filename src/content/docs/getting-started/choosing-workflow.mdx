@@ -1,0 +1,32 @@
+---
+title: Choose your workflow
+description: Decide between the skills-only plugin, a local coding agent and manual authoring.
+sidebar_position: 0
+---
+
+The agent authors SVGs; skills provide workflow guidance and references. The optional local engine provides review, project, style and capture tools. Your saved drawing stays the starting point for refinement and export.
+
+## Choose your workflow
+
+The [skills-only plugin](./chatgpt-plugin.mdx) runs in a host with file, render and image-viewing tools. Ask in chat, then inspect and download the actual saved artifacts. The assembled plugin does not need Node, the CLI or a local server. Installation of this specific package in ChatGPT remains unverified.
+
+The [local coding-agent workflow](./first-session.mdx) uses Node.js 22–24, pnpm 10.30.3, local engine archives and a coding agent that reads the packaged skill. Keep SVG, JSON and Markdown files in your workspace and review them in your local browser.
+
+The [manual tutorial](./manual-session.mdx) uses the same local engine setup with a text editor and browser. No agent skill is required; follow a complete SVG example, then review and export the saved file.
+
+The plugin does not embed the local workbench. The CLI does not call a model or generate artwork. Distribution is currently source/local assembly, not a verified npm release or a durable plugin download; each quickstart explains the available route.
+
+## Try the review loop
+
+1. **Create:** ground facts and labels, set the intended size, then save SVG candidates.
+2. **Review:** inspect real images at that size, compare alternatives and choose one drawing.
+3. **Refine:** supply Keep/Change notes and the exact saved baseline; preserve it and make a new revision.
+4. **Export:** deliver the selected saved SVG bytes, then check the destination placement.
+
+[Try workbench](../workbench/index.mdx) with an existing example session. This public tool does not call a model. Browser notes stay in your browser until you explicitly copy or download them.
+
+A shortlist keeps alternatives. Choosing a drawing names its baseline. Project-wide style adoption is a separate explicit decision. Structural checks, rendering, actual image inspection and user approval are separate results.
+
+## Continue with your task
+
+Pick a quickstart above, browse the [Guides](../guides/index.mdx), or look up a term in the [glossary](../reference/glossary.mdx). [Introduction and example context](./introduction.mdx) explains the existing studies. To run or change this website, go to [Contributors](../development/index.mdx).

@@ -26,16 +26,16 @@ Registry convenience commands are outside the verified setup until publication i
 
 ## Options
 
-| Argument | Behavior |
-| --- | --- |
-| `[destination]` | Relative or absolute output directory; defaults to `./diagram-session`. An existing directory must be empty. |
-| `--name <title>` | Human-readable session title; defaults to the destination basename. A safe slug becomes the package name. The persisted session ID adds a UUID so same-named workspaces have separate browser review state. |
-| `--engine-package <spec>` | Engine dependency override: version or tag, complete engine package spec, npm alias, or absolute existing `.tgz`/`.tar.gz` path. Default: `0.1.0`. |
-| `--project` | Create one installed multi-session host with a starter `sessions/diagram` registration. |
-| `--install` | Run `pnpm install` after generation. Default: disabled. |
-| `--yes`, `-y` | Accepted for automation. Initialization uses predictable defaults and never prompts; each new session receives a unique identity. |
-| `--help`, `-h` | Print usage. |
-| `--version`, `-v` | Print initializer version. |
+| Argument                  | Behavior                                                                                                                                                                                                    |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[destination]`           | Relative or absolute output directory; defaults to `./diagram-session`. An existing directory must be empty.                                                                                                |
+| `--name <title>`          | Human-readable session title; defaults to the destination basename. A safe slug becomes the package name. The persisted session ID adds a UUID so same-named workspaces have separate browser review state. |
+| `--engine-package <spec>` | Engine dependency override: version or tag, complete engine package spec, npm alias, or absolute existing `.tgz`/`.tar.gz` path. Default: `0.1.0`.                                                          |
+| `--project`               | Create one installed multi-session host with a starter `sessions/diagram` registration.                                                                                                                     |
+| `--install`               | Run `pnpm install` after generation. Default: disabled.                                                                                                                                                     |
+| `--yes`, `-y`             | Accepted for automation. Initialization uses predictable defaults and never prompts; each new session receives a unique identity.                                                                           |
+| `--help`, `-h`            | Print usage.                                                                                                                                                                                                |
+| `--version`, `-v`         | Print initializer version.                                                                                                                                                                                  |
 
 Use `--` before a destination that begins with a dash. Paths and titles can contain spaces. The initializer never creates a Git repository or installs an agent skill. Personal wrapper skills choose the destination and defaults; the initializer has no personal directory assumptions.
 
@@ -45,20 +45,21 @@ The initial `rounds/r01/round.json` contains no candidates. This is a valid empt
 
 `zfb.config.ts` uses the normal `defineConfig` entrypoint. The engine generates `pages/index.tsx` for the viewer when its development/build command runs; do not edit that generated page. New hosts pin `@takazudo/zfb` and `@takazudo/zfb-runtime` to `4.5.0`, pin TypeScript `6.0.3`, and configure the zudo-react JSX import source in `tsconfig.json`. They do not need Preact, preact-render-to-string, or a direct Hono dependency; Hono is owned by zfb-runtime. Existing ZFB 2/3 sessions retain their compatible dependencies; the engine also retains ZFB 4.3.0 support. The root showcase uses zudo-doc 6.2.0 and ZFB 4.5.0. The generated `pnpm-workspace.yaml` makes a session independent of a surrounding workspace.
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm dev` | Serve the gallery through zfb and watch session content. |
-| `pnpm check` | Validate session content and SVG assets. |
-| `pnpm build` | Build the static zfb app. |
-| `pnpm preview` | Preview the static build. |
-| `pnpm export:html` | Fresh single/project hosts export a self-contained `exports/diagram-review.html`. |
-| `pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json` | Explicit safe output, also usable for older hosts. |
+| Command                                                                     | Purpose                                                                           |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `pnpm dev`                                                                  | Serve the gallery through zfb and watch session content.                          |
+| `pnpm check`                                                                | Validate session content and SVG assets.                                          |
+| `pnpm build`                                                                | Build the static zfb app.                                                         |
+| `pnpm preview`                                                              | Preview the static build.                                                         |
+| `pnpm export:html`                                                          | Fresh single/project hosts export a self-contained `exports/diagram-review.html`. |
+| `pnpm exec zudo-diagram-gen export-html . --out exports/review.html --json` | Explicit safe output, also usable for older hosts.                                |
 
 ## Programmatic use
 
 Run in a bootstrap with the initializer archive installed. Set `INITIALIZER_API_OUT` to a new caller directory and `ENGINE_TGZ` to the existing absolute engine archive.
 
 <!-- reader:initializer-api -->
+
 ```bash
 node --input-type=module <<'NODE'
 import { createProject } from 'create-zudo-diagram-gen';

@@ -1,0 +1,10 @@
+---
+title: Restore content wrapping and verify deployed documentation
+sidebar_position: -20261015.1
+---
+
+Restored the content text-wrapping safeguard that was removed with the custom homepage styles. Long prose, category labels and pager titles can wrap within narrow columns. The native zudo-doc homepage, header, navigation, type sizes and spacing are unchanged; preformatted code still scrolls locally.
+
+The existing narrow-viewport checks remain blocking. Production deployment still requires successful main-branch CI and the existing Cloudflare gate.
+
+After deployment, the workflow now compares the public homepage, Getting Started, Guides, Reference, Examples and the homepage stylesheet against the exact local build using SHA-256. A successful HTTP response containing an older version no longer counts as verification of this deployment.

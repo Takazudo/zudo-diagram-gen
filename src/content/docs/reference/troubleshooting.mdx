@@ -1,0 +1,19 @@
+---
+title: Troubleshooting and limits
+description: Recover from setup, review, theme and capture problems without losing saved work.
+sidebar_position: 11
+---
+
+| Symptom | Check and next action |
+| --- | --- |
+| The skill is not discovered | Repository files do not establish installation. [Explicitly load the packaged skill](../agent-workflow/core-and-wrapper.mdx) or verify your host's supported project mechanism. |
+| Plugin tone resources are missing | A source checkout/archive omits assembled tones. Obtain an assembled ZIP; [maintainers can verify its fresh extraction](../development/plugin-maintenance.mdx). |
+| Local dependency installation failed | Keep created files and the absolute engine archive. Retry installation in that destination, then resume; never create over existing content. See [local setup](../getting-started/local-archives.mdx). |
+| Review notes did not follow a new host or port | Browser storage is origin-local. Transfer the actual downloaded Review JSON or copied feedback; the CLI cannot read browser storage. |
+| Changed since review | The fingerprint changed. Inspect the actual current drawing, then explicitly renew review. Keep earlier IDs and evidence. |
+| Dark asset unavailable | No dark SVG is declared. Author a complete asset or review the available theme; a backdrop switch cannot generate it. |
+| Project comparison is incomplete | Repair the explicit session/candidate/fingerprint mapping. Partial inspect/dev can retain healthy siblings; strict check/build requires current valid content. See [project recovery](../authoring/projects.mdx#review-partial-content-honestly). |
+| Capture is unavailable | [Install the optional browser prerequisites](./placement-capture.mdx#optional-browser-setup) in the consumer. Report capture as unavailable; do not claim visual inspection. |
+| Safe output or conflict error | Choose a caller-owned output away from source/metadata. `--force` is not permission to overwrite source aliases. See [CLI diagnostics](./cli.mdx). |
+
+Actual ChatGPT account installation and native Mac/Safari/IME acceptance remain separate unverified host/platform work. The plugin depends on host file/render/view tools; the public workbench demonstrates an existing session and provides no model service. Continue with the appropriate [Guide](../guides/index.mdx) after fixing the named condition.

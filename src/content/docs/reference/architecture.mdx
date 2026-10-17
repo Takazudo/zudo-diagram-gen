@@ -8,14 +8,14 @@ The project uses a small host with a shared package similar to [zudo-doc](https:
 
 ## Components
 
-| Component | Owns |
-| --- | --- |
-| Root project site | One zudo-doc site for documentation, the tone catalog, examples, and the workbench embedded through chrome bindings. |
-| `@takazudo/zudo-diagram-gen` | Model validation, catalog loading, rendering, browser UI, exports, and the session CLI. |
-| `create-zudo-diagram-gen` | A small private zfb host and initial session content. |
-| A generated session | The brief, metadata, SVG files, rounds, and user-supplied review records. |
-| Packaged core skill | Grounded agent authoring, explicit review transfer and saved refinement. Available as a file with references; requires explicit loading or verified project-local discovery. |
-| Proposed personal wrapper | Output-location policy and other caller-specific conventions. This is also future integration work. |
+| Component                    | Owns                                                                                                                                                                         |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Root project site            | One zudo-doc site for documentation, the tone catalog, examples, and the workbench embedded through chrome bindings.                                                         |
+| `@takazudo/zudo-diagram-gen` | Model validation, catalog loading, rendering, browser UI, exports, and the session CLI.                                                                                      |
+| `create-zudo-diagram-gen`    | A small private zfb host and initial session content.                                                                                                                        |
+| A generated session          | The brief, metadata, SVG files, rounds, and user-supplied review records.                                                                                                    |
+| Packaged core skill          | Grounded agent authoring, explicit review transfer and saved refinement. Available as a file with references; requires explicit loading or verified project-local discovery. |
+| Proposed personal wrapper    | Output-location policy and other caller-specific conventions. This is also future integration work.                                                                          |
 
 The root documentation website uses zudo-doc for generated sidebar, search, and page table of contents. The workbench is a zfb Island embedded in an MDX page through `chromeBindings.mdxExtras`; its routes are under `/docs/`, including `/docs/tones/`, `/docs/examples/`, and `/docs/workbench/`. A generated review session uses the diagram engine and zfb. It does not need a copy of the project documentation site to compare its candidates.
 

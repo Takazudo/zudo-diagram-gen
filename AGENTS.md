@@ -55,3 +55,15 @@ Record every user-visible change as a changelog entry under `src/content/docs/ch
 Do not publish packages, deploy the site, modify a remote repository, or install a personal skill as an incidental part of local validation. Carry out such actions when the user requests them. The current GitHub source-handoff workflow is authorized to push branches, open and merge pull requests, and update its project issues; this exception does not authorize package publication, deployment, or skill installation.
 
 When handing off work, describe what changed, how it was checked, and the material remaining limitations. Preserve the user's selected drawing and feedback when refining diagrams.
+
+## zudo-doc presentation and authoring
+
+Before changing documentation, read `docs/documentation-structure.md` and the upstream [Writing and Navigation Guide](https://github.com/zudolab/zudo-doc/blob/main/packages/create-zudo-doc/templates/features/claudeSkillsWriting/files/.claude/skills/zudo-doc-writing/SKILL.md).
+
+Use the original zudo-doc homepage and left-aligned native header. Do not replace the homepage with a product landing page, add special homepage sections, hide the native header navigation, or move primary links to header-right components. The existing logo is supplied through the standard configuration.
+
+The native `scopeRoot: "configured"` sidebar setting caps each section without replacing its automatic tree. Keep `items: []`; do not restore cross-section Broaden controls.
+
+The filesystem is the navigation. Do not add a parallel editorial section map, flat sidebar lists, or custom breadcrumb/pager ownership to disguise a different directory tree. Use native header categories and related-category dropdowns. Plan any future file moves explicitly and preserve existing links.
+
+Tree category indexes contain a short introduction and `CategoryNav`. Put substantive content in sibling pages, set `sidebar_position`, and use relative `.mdx` links in prose. The examples grid and embedded workbench are existing content exceptions; their local styles must not replace or restyle framework chrome. Edit generated examples through `scripts/build-showcase.mjs`, not ignored output files.
