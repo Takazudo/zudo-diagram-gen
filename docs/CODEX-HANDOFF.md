@@ -46,3 +46,11 @@ Native Mac/Safari/IME verification in [issue #105](https://github.com/Takazudo/z
 ## Skills-only plugin confirmation
 
 The separate ChatGPT-facing diagram-gen skill is assembled with pnpm plugin-pack; maintainer reproduction and the fresh-extraction evidence are in [PLUGIN-ACCEPTANCE.md](agent-first/PLUGIN-ACCEPTANCE.md). The ignored ZIP is a local build artifact, not a durable public download. The ChatGPT account installation, discovery, actual attachments/previews, and host refinement flow remain unverified; [issue #100](https://github.com/Takazudo/zudo-diagram-gen/issues/100) tracks that scoped host acceptance. Do not claim universal host support.
+
+## Release finalization and integration hold
+
+[PR #109](https://github.com/Takazudo/zudo-diagram-gen/pull/109) has its release finalization implemented under [issue #110](https://github.com/Takazudo/zudo-diagram-gen/issues/110). Read-only release planning now precedes fetch/setup; explicit retries preserve the original annotated tag commit, matching release PRs are adopted, and conflicting tags/assets fail closed. Complete temporary fixtures cover tagged packaging, 24-tone inventory, both ZIPs/checksums, fresh extraction, repeated builds and the whole planner's read-only behavior. See [the current integration record](maintenance/2026-10-17.md) and the Codex Cloud release tooling integration report on #110 for exact-head checks and downloaded-artifact evidence. The October 14 record remains historical.
+
+Main `95e134d5b38c8ee19d0a994a7ad62b16ad68f00a` is integrated into the candidate branch with ordinary history. Native homepage/header/sidebar behavior and the delivered dependency tuple remain preserved. A fresh independent review identified older-release latest-download regression risk; publication now rechecks whether a newer version is already published. Current verification and any environmental limits are recorded separately from prior-session results. Linux/ZIP checks do not satisfy native Mac #105, ChatGPT #100 or placement/capture #95.
+
+Keep PR #109 draft and issue #110 open while the integration gate remains: a main merge may automatically deploy production, which this task does not authorize. Re-read repository policy and obtain any required approval before conditional merge; do not alter deployment settings or invent skip markers.

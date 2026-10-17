@@ -68,8 +68,18 @@ export default defineConfig(
         categoryMatch: 'guides',
         versioned: false,
         children: [
-          { label: 'Practical guides', path: '/docs/guides', categoryMatch: 'guides', versioned: false },
-          { label: 'Authoring', path: '/docs/authoring', categoryMatch: 'authoring', versioned: false },
+          {
+            label: 'Practical guides',
+            path: '/docs/guides',
+            categoryMatch: 'guides',
+            versioned: false,
+          },
+          {
+            label: 'Authoring',
+            path: '/docs/authoring',
+            categoryMatch: 'authoring',
+            versioned: false,
+          },
           { label: 'Review', path: '/docs/gallery', categoryMatch: 'gallery', versioned: false },
           {
             label: 'Agent workflow',
@@ -94,7 +104,12 @@ export default defineConfig(
             categoryMatch: 'development',
             versioned: false,
           },
-          { label: 'Changelog', path: '/docs/changelog', categoryMatch: 'changelog', versioned: false },
+          {
+            label: 'Changelog',
+            path: '/docs/changelog',
+            categoryMatch: 'changelog',
+            versioned: false,
+          },
         ],
       },
     ],
