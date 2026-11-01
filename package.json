@@ -35,7 +35,7 @@
     "@takazudo/zfb-runtime": "4.5.0",
     "@takazudo/zudo-diagram-gen": "workspace:*",
     "@takazudo/zudo-doc": "6.2.0",
-    "zod": "4.3.6"
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
